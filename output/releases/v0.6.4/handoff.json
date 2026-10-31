@@ -2,7 +2,7 @@
   "schema": "v064-handoff-v1",
   "status": "passed",
   "base": "59346e4cbe85bc558d9d6aa0dab315902d0a7cd6",
-  "head": "59346e4cbe85bc558d9d6aa0dab315902d0a7cd6",
+  "head": "fc299343d2f40a71da2d6d2e5d8d6063a9ef7b90",
   "mainIndexUnchanged": true,
   "protectedPaths": 6296,
   "payload": [
@@ -13,7 +13,7 @@
     },
     {
       "file": "docs/RELEASE_0_6_4.md",
-      "source": "b3ab6c81c1c910d2ca7b9071021dfe6cdeaf0c196d81f3a5dc95f41da021fa3e",
+      "source": "cb5d66097dfda28b73c3a67b64a8d176c56ce96c64d7138a341f084f74799765",
       "main": "b3ab6c81c1c910d2ca7b9071021dfe6cdeaf0c196d81f3a5dc95f41da021fa3e"
     },
     {
@@ -372,9 +372,19 @@
       "main": "45f3f9ef7042d35e9af128001616d37d5256131b806a749c9e0437541d80236e"
     },
     {
+      "file": "output/releases/v0.6.4/build-public.log",
+      "source": "94d3cad9a13a811cd54b3ac1ad747ad9731cffbefe899fcb0d67f173b9fe14cc",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.4/ci.json",
+      "source": "2babd7b8df7e21578c60d3c95d93794ed666be5a72eb98c72c1c8e3e9fe7cb01",
+      "main": null
+    },
+    {
       "file": "output/releases/v0.6.4/handoff.json",
-      "source": "9afc1b7e94b99db45793001989b50f19c46af1cbfa3e990d597b97d134d0eede",
-      "main": "9afc1b7e94b99db45793001989b50f19c46af1cbfa3e990d597b97d134d0eede"
+      "source": "c0236a5e7aa49b426c3371d367c3dba66e7d1f236840188fa14bf855fd50756f",
+      "main": "c0236a5e7aa49b426c3371d367c3dba66e7d1f236840188fa14bf855fd50756f"
     },
     {
       "file": "output/releases/v0.6.4/local-validation.json",
@@ -384,7 +394,7 @@
     {
       "file": "output/releases/v0.6.4/main-production-install.json",
       "source": "45c28ad9f3271fc1db75744cf88258688c04482b13ebadc9c9d311e7eec15577",
-      "main": null
+      "main": "45c28ad9f3271fc1db75744cf88258688c04482b13ebadc9c9d311e7eec15577"
     },
     {
       "file": "output/releases/v0.6.4/native-render-verification.json",
@@ -430,6 +440,21 @@
       "file": "output/releases/v0.6.4/preserved-concurrent-edits.json",
       "source": "310e7822e9d116b21b9f4e4a42e20d5815c4b3ffdd21dd73ec2927cae91ad8cc",
       "main": "310e7822e9d116b21b9f4e4a42e20d5815c4b3ffdd21dd73ec2927cae91ad8cc"
+    },
+    {
+      "file": "output/releases/v0.6.4/public-build.json",
+      "source": "6531aaf765fcf2c0db3c8f97b64ca392b8c3e582e97ca587ad8a2429ac980830",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.4/public-verification.json",
+      "source": "3ed2455ef56c551550d5daee07d8676598584a1f4fac8c72d424f2c5d9101529",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.4/release.json",
+      "source": "7b107d20c338e7ed3af177632b01be6fdd24787bcf4edeb26e493a729f3cc665",
+      "main": null
     },
     {
       "file": "output/releases/v0.6.4/sources-built.json",
