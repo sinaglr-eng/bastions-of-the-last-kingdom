@@ -6,9 +6,11 @@ export const DEFENDER_CLASSIFICATION_SCALE_STEP=1.1;
 export const defenderClassificationMultiplier=family=>
   championClassification(family)?DEFENDER_CLASSIFICATION_SCALE_STEP**championAuraLevel(family):1;
 
-// Keep the approved creatures' authored proportions. The Baby was less than
-// half a normal defender's height; larger descendants retain their own shapes.
-export const DRAGON_PRESENTATION_SCALES=Object.freeze({embercrown:2.3,worldfire:1.25,thunderheart:1.2,phoenix:1.15});
+// Keep each creature's authored proportions. The current Elf Baby's native
+// height is .2002; Fire Dragon is .7700 after its Intermediate class scale.
+// A 3.85 presentation multiplier matches their visible height within .2%.
+// The older Human family adjustments remain separate from the V3 Elf roster.
+export const DRAGON_PRESENTATION_SCALES=Object.freeze({embercrown:2.3,worldfire:1.25,thunderheart:1.2,phoenix:1.15,el_baby_fire_dragon:3.85});
 export const DWARF_BATTLEFIELD_PRESENTATION_SCALE=1.75;
 export const defenderPresentationMultiplier=(family,factionId=null)=>factionId==='forge'&&family!=='ladyclaire'?DWARF_BATTLEFIELD_PRESENTATION_SCALE:Object.hasOwn(DRAGON_PRESENTATION_SCALES,family)?DRAGON_PRESENTATION_SCALES[family]:1;
 

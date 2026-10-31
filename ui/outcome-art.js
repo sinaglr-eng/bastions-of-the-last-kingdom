@@ -1,4 +1,4 @@
-import factionOutcomes from '../data/faction-outcome-scenes-v063.json' with {type:'json'};
+import factionOutcomes from '../data/faction-outcome-scenes-v064.json' with {type:'json'};
 export const FACTION_OUTCOME_ART_REVISION=factionOutcomes.revision;
 export const FACTION_OUTCOME_ART_SCENES=Object.freeze(Object.fromEntries(Object.entries(factionOutcomes.groups).map(([id,g])=>[id,Object.freeze(Object.fromEntries(Object.entries(g).map(([o,scenes])=>[o,Object.freeze(scenes.map(s=>Object.freeze(s)))])))])));
 // Outcome scenes are presentation only. Their random choice is independent of

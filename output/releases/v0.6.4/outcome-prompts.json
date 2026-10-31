@@ -1,0 +1,891 @@
+{
+  "revision": "faction-outcomes-20261031-v5",
+  "mode": "Built-in ImageGen",
+  "specs": [
+    {
+      "id": "crown-victory-01",
+      "factionId": "crown",
+      "outcome": "won",
+      "motif": "rooftop-homecoming",
+      "championIds": [
+        "starfall",
+        "thornwarden"
+      ],
+      "enemyIds": [],
+      "alt": "Storm Eagle and Royal Scout return above the liberated city",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Storm Eagle (Champion identity and approved illustrated design). Reference 2: Royal Scout (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Storm Eagle and Royal Scout return to a liberated city at sunset. Sweeping aerial view from beside the enormous eagle wing, the scout salutes from a tiled rooftop below, tiny citizens throw blue ribbons between rooftops. The eagle, sky and zigzag rooftops dominate; no mounted knights or throne.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "starfall",
+          "name": "Storm Eagle",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/starfall-1.png",
+          "sha256": "3bad806c2afb257a524b72ba63df942ac7271cbf3713a267fe1ff2658a2f4e22"
+        },
+        {
+          "id": "thornwarden",
+          "name": "Royal Scout",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/thornwarden-1.png",
+          "sha256": "a2ff36202cc9441dba76a082be8202c2bf99287a1c439ecfa2c5839d5f7c9f60"
+        }
+      ]
+    },
+    {
+      "id": "crown-victory-02",
+      "factionId": "crown",
+      "outcome": "won",
+      "motif": "artillery-fireworks",
+      "championIds": [
+        "mechanicalgolem",
+        "royalmarshal"
+      ],
+      "enemyIds": [],
+      "alt": "Royal Battery and Royal Grenadier launch victory fireworks",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Royal Battery (Champion identity and approved illustrated design). Reference 2: Royal Grenadier (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Royal Battery and Royal Grenadier celebrate in a royal artillery foundry courtyard. Extremely low view between enormous gilded cannon barrels, the grenadier lights harmless blue and gold victory fireworks while workers ring tools. Warm sparks and monumental machinery dominate. A cheerful evening military celebration, no front line hero procession.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "mechanicalgolem",
+          "name": "Royal Battery",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/mechanicalgolem-1.png",
+          "sha256": "58b1d9ce32af8aaa9f684623bdb6bbf61324e842bba740de5acc96400af3b274"
+        },
+        {
+          "id": "royalmarshal",
+          "name": "Royal Grenadier",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/royalmarshal-1.png",
+          "sha256": "77c5042b21e12100e6cb28be38d244f4a25960955ac48b41b2c4cbcfbe07557a"
+        }
+      ]
+    },
+    {
+      "id": "crown-victory-03",
+      "factionId": "crown",
+      "outcome": "won",
+      "motif": "garden-restoration",
+      "championIds": [
+        "rangermentor",
+        "eldergrove"
+      ],
+      "enemyIds": [],
+      "alt": "Nature Spirit and Archdruid restore the royal garden after victory",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Nature Spirit (Champion identity and approved illustrated design). Reference 2: Archdruid (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Nature Spirit and Archdruid celebrate by restoring the abandoned royal garden after victory. Intimate overhead view into a circular pool, living vines weave the shape of a luminous crown over fresh water, the small druid stands opposite the radiant spirit. Soft morning light and brilliant new green growth, a peaceful magical celebration. No fighting, army formation, castle fire or mounted knight.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "rangermentor",
+          "name": "Nature Spirit",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/rangermentor-1.png",
+          "sha256": "2aa1df1b61831157bbfd67479987b450eb0024c8e699d6e8df8d021db8d75a2a"
+        },
+        {
+          "id": "eldergrove",
+          "name": "Archdruid",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/eldergrove-1.png",
+          "sha256": "93efa71eb685feafeddc16d5a7c92a5f3e18394d8af2d04a3a5e5d4263c531b4"
+        }
+      ]
+    },
+    {
+      "id": "crown-victory-04",
+      "factionId": "crown",
+      "outcome": "won",
+      "motif": "victory-bell",
+      "championIds": [
+        "monk",
+        "winterhold"
+      ],
+      "enemyIds": [],
+      "alt": "High Priest and Frozen Paladin ring the victory bell",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: High Priest (Champion identity and approved illustrated design). Reference 2: Frozen Paladin (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: High Priest and Frozen Paladin ring a vast bronze victory bell inside a roofless cathedral tower. View from immediately behind the bell looking out through a rose window at a peaceful snowy kingdom; priest pulls rope, paladin braces an ice shield under streaming blue and white ribbons. Bell and ringing motion are the central motif, luminous snow reflections. No mounted knight or generic marching trio.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "monk",
+          "name": "High Priest",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/monk-1.png",
+          "sha256": "e0ea3f6f7c25075b9e4206d47347c29ab0599f557598b9d64dc5505c703ceaf3"
+        },
+        {
+          "id": "winterhold",
+          "name": "Frozen Paladin",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/winterhold-1.png",
+          "sha256": "73ba3ba00a94e2ea878ff0a9fa3f229491e1c4499eea85f80e123d936107e08c"
+        }
+      ]
+    },
+    {
+      "id": "crown-victory-05",
+      "factionId": "crown",
+      "outcome": "won",
+      "motif": "royal-victory-council",
+      "championIds": [
+        "crownofages",
+        "stormcitadel"
+      ],
+      "enemyIds": [],
+      "alt": "King and Stormbow Magister mark the kingdom free on their command table",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: King (Champion identity and approved illustrated design). Reference 2: Stormbow Magister (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: King and Stormbow Magister mark final victory around a round strategy table in the royal command hall. High oblique view, golden crown reflected on a glowing model of the freed kingdom; magister plants the last blue miniature flag, jubilant messengers at the open doors. Rich tapestry, warm daylight, the round table is the central motif. No kneeling defeated character or mounted hero.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "crownofages",
+          "name": "King",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/crownofages-1.png",
+          "sha256": "f394024225a593c8e0efc8b519847967457486d4f51339c0e5e7efe7d16b32e5"
+        },
+        {
+          "id": "stormcitadel",
+          "name": "Stormbow Magister",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/stormcitadel-1.png",
+          "sha256": "1a9476b71344cf330ef8c1263194d784c1357d5d5e22be58e9e4a8893002e2df"
+        }
+      ]
+    },
+    {
+      "id": "crown-defeat-01",
+      "factionId": "crown",
+      "outcome": "lost",
+      "motif": "scavenger-feast",
+      "championIds": [
+        "stonewarden"
+      ],
+      "enemyIds": [
+        "host_01"
+      ],
+      "alt": "Orc Skull Scavengers feast around a captured Human Catapult",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Catapult (Champion identity and approved illustrated design). Reference 2: Orc Skull Scavengers (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Skull Scavengers hold a raucous outdoor victory feast using a captured Human Catapult as a banquet table. Foreground close view across roast food, wooden mugs and loot; several differently posed skull-helmet orcs laugh, toast and wave their crude weapons. The damaged catapult and torn blue human banners establish Human defeat. Orcs occupy most of the image; no line of kneeling heroes, no heroic human in the centre.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "stonewarden",
+          "name": "Catapult",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/stonewarden-1.png",
+          "sha256": "a35aefca825aefb1b898f9fab45fe832d52ed9d2990cc6d5d20d048477748c71"
+        },
+        {
+          "id": "host_01",
+          "name": "Orc Skull Scavengers",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_01.png",
+          "sha256": "f81e33d4c914ae3ac0a61a8efd6a61c6ed15c66d562182f2735d350c6fbcdbe1"
+        }
+      ]
+    },
+    {
+      "id": "crown-defeat-02",
+      "factionId": "crown",
+      "outcome": "lost",
+      "motif": "harbor-flag-hoist",
+      "championIds": [
+        "fireballista"
+      ],
+      "enemyIds": [
+        "host_11"
+      ],
+      "alt": "Orc Hookbearers raise their banner above a captured Human Fire Ballista",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Fire Ballista (Champion identity and approved illustrated design). Reference 2: Orc Hookbearers (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Hookbearers celebrate at a conquered royal harbor in rain. Wide side view of a huge hook hauling a torn blue royal flag down while cheering orcs raise their red ragged banner. A captured Human Fire Ballista on the quay is unmistakable behind the celebrating hookbearer, wet cobblestones reflect red lanterns. Central action is the noisy flag hoist, orcs dominate, no kneeling hero tableau.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "fireballista",
+          "name": "Fire Ballista",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/fireballista-1.png",
+          "sha256": "2b1edaf4549db707fb9770f61c51ca6bc3787cb66eef554086b2c9f7111a61ad"
+        },
+        {
+          "id": "host_11",
+          "name": "Orc Hookbearers",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_11.png",
+          "sha256": "20bd5d471af3e5cee167084f15882bea0462d55fac9ef98a4885623302708f3a"
+        }
+      ]
+    },
+    {
+      "id": "crown-defeat-03",
+      "factionId": "crown",
+      "outcome": "lost",
+      "motif": "mirror-victory-dance",
+      "championIds": [
+        "dawnspire"
+      ],
+      "enemyIds": [
+        "host_14"
+      ],
+      "alt": "Orc Mirror Shieldbearers celebrate in the shattered ice hall",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Glacial High Paladin (Champion identity and approved illustrated design). Reference 2: Orc Mirror Shieldbearers (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Mirror Shieldbearers dance and clash their huge mirror shields in the shattered ice hall of the Human Glacial High Paladin. The shields reflect many warm torch flames and laughing green faces; the camera is almost at shield height, sparkling fragments of ice underfoot. The defeated ice paladin is a small exhausted figure at the rear beside a cracked icy standard. Orc celebration and circular mirrored reflections dominate; no kneeling foreground hero.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dawnspire",
+          "name": "Glacial High Paladin",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/dawnspire-1.png",
+          "sha256": "fc0dee87688c2f8216009e13e8a2c6d33a517370b7e92a096aecffe66a7a28d5"
+        },
+        {
+          "id": "host_14",
+          "name": "Orc Mirror Shieldbearers",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_14.png",
+          "sha256": "1f5c7475c72d086397701347b430d5cffb79f29e1d91ea94128982b41de01e5f"
+        }
+      ]
+    },
+    {
+      "id": "crown-defeat-04",
+      "factionId": "crown",
+      "outcome": "lost",
+      "motif": "stolen-golem-workshop",
+      "championIds": [
+        "emeraldgolem"
+      ],
+      "enemyIds": [
+        "host_04"
+      ],
+      "alt": "Orc Scrap Tinkers celebrate their captured Human Golem",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Golem (Champion identity and approved illustrated design). Reference 2: Orc Scrap Tinkers (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Scrap Tinkers celebrate taking a Human Golem in a breached royal workshop. A grinning tinker hangs from the golem shoulder waving a wrench, another pours stolen coins from a toolbox, cheering orc mechanics below. Three-quarter close view of the huge immobilized golem and delighted looters, sunbeams through broken workshop slats, red orc victory pennants. The golem design follows its reference, no repeated human knight trio or kneeling heroes.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "emeraldgolem",
+          "name": "Golem",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/emeraldgolem-1.png",
+          "sha256": "e69b89c6b1fa13cc7ed3c45942f357ceede344d0873da16c7e592e5c766d82d7"
+        },
+        {
+          "id": "host_04",
+          "name": "Orc Scrap Tinkers",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_04.png",
+          "sha256": "e6dbbb006f36ba68b411635d35c85a7a54c63e6889799e6d757a939ec53906ed"
+        }
+      ]
+    },
+    {
+      "id": "crown-defeat-05",
+      "factionId": "crown",
+      "outcome": "lost",
+      "motif": "executioner-trophy-procession",
+      "championIds": [
+        "archangel"
+      ],
+      "enemyIds": [
+        "host_18"
+      ],
+      "alt": "Silent Orc Executioners parade trophies through the conquered royal gate",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Humans, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Paladin Oathbreaker (Champion identity and approved illustrated design). Reference 2: Silent Orc Executioners (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Silent Orc Executioners lead a red-banner trophy procession through a conquered royal gate at blue dawn. Long lateral composition: the hooded clawed executioner on a raised cart hoists a stolen royal standard while smaller orc soldiers cheer and drum. The Human Paladin Oathbreaker is a small disarmed figure seated at the distant gate beside a broken winged emblem. Orcs and procession movement dominate, no gore, no foreground kneeling hero.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "archangel",
+          "name": "Paladin Oathbreaker",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/crown/archangel-1.png",
+          "sha256": "7af709112c550971d7894fbbd60c2be41ee18fa4e97ab3bde016cea101d253c3"
+        },
+        {
+          "id": "host_18",
+          "name": "Silent Orc Executioners",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_18.png",
+          "sha256": "7b3260aef2b5025b92ba9edf5b1e021dfdeb6b7b78f7b5e355487777eabd4880"
+        }
+      ]
+    },
+    {
+      "id": "forge-victory-01",
+      "factionId": "forge",
+      "outcome": "won",
+      "motif": "boar-victory-race",
+      "championIds": [
+        "dw_boaravatar",
+        "dw_boarstandard"
+      ],
+      "enemyIds": [],
+      "alt": "Boar Warlord and Boar Drummer race home in triumph",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Boar Warlord (Champion identity and approved illustrated design). Reference 2: Boar Drummer (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Boar Warlord and Boar Drummer celebrate in a joyous boar race along a high mountain plateau. Dynamic ground-level tracking view, enormous armored boar tusks and airborne dust dominate, the drummer beats victory drums in the rear and golden ribbons trail from saddles. Snowy peaks and dwarf stronghold tiny in distance. No airship, generic axe commander or kneeling enemies.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "dw_boaravatar",
+          "name": "Boar Warlord",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_boaravatar-1.png",
+          "sha256": "88a730c021ac2dc9aaa14bc23792af0d8d1765b57f186ebfc1deabbab9f4afd0"
+        },
+        {
+          "id": "dw_boarstandard",
+          "name": "Boar Drummer",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_boarstandard-1.png",
+          "sha256": "01879307011f1094a385b1fceb56def5cb855ed54c6e6f28d9874e7ea72bd8e3"
+        }
+      ]
+    },
+    {
+      "id": "forge-victory-02",
+      "factionId": "forge",
+      "outcome": "won",
+      "motif": "world-forge-rekindled",
+      "championIds": [
+        "dw_salvomarshal",
+        "dw_worldanvil"
+      ],
+      "enemyIds": [],
+      "alt": "Iron Colossus and Rune Master rekindle the mountain forge",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Iron Colossus (Champion identity and approved illustrated design). Reference 2: Rune Master (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Iron Colossus and Rune Master celebrate rekindling an immense mountain forge after victory. Strong symmetrical distant view from inside the furnace arch, colossus lifts an incandescent hammer over the central anvil while rune master raises a small runic staff on the stone steps. Gold molten rivers, turquoise rune light, dwarf workers cheering on galleries. Colossal anvil and rekindled forge are the focus; no airship or infantry trio.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "dw_salvomarshal",
+          "name": "Iron Colossus",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_salvomarshal-1.png",
+          "sha256": "da3b73e3803e91cf94a2ae060c200005fa1f6b4646709057031c893a7a9774b7"
+        },
+        {
+          "id": "dw_worldanvil",
+          "name": "Rune Master",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_worldanvil-1.png",
+          "sha256": "169e4dd91b1f25278a90fd7ebe267f5d3a9cc2d4cb9d4287805276e1d52cfa1c"
+        }
+      ]
+    },
+    {
+      "id": "forge-victory-03",
+      "factionId": "forge",
+      "outcome": "won",
+      "motif": "griffin-sky-salute",
+      "championIds": [
+        "dw_highthane",
+        "dw_griffinbomber"
+      ],
+      "enemyIds": [],
+      "alt": "Griffin Commander and Griffin Bomber salute above the clouds",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Griffin Commander (Champion identity and approved illustrated design). Reference 2: Griffin Bomber (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Griffin Commander and Griffin Bomber perform a victorious airborne salute above brilliant clouds. Camera above and to the side of two enormous feathered griffins banking in opposite directions, dwarf riders raise weapons, harmless gold ribbons stream from bomb racks. A shaft of sunrise opens on the distant liberated mountain city below. Griffins and cloud spiral dominate, no balloon airship or ground commander trio.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "dw_highthane",
+          "name": "Griffin Commander",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_highthane-1.png",
+          "sha256": "7856c3a066d59ed5a2950d605bf132256362b208ccfcb0a743391b975eba157f"
+        },
+        {
+          "id": "dw_griffinbomber",
+          "name": "Griffin Bomber",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_griffinbomber-1.png",
+          "sha256": "1c8121aadd8c47922e985a317ba90558cb3abb253de6888e386cfb7b1a6ba198"
+        }
+      ]
+    },
+    {
+      "id": "forge-victory-04",
+      "factionId": "forge",
+      "outcome": "won",
+      "motif": "mountain-camp-toast",
+      "championIds": [
+        "dw_steamrail",
+        "dw_emberanvil"
+      ],
+      "enemyIds": [],
+      "alt": "Heavy Sniper and Forge Dwarf share a victory toast at their mountain camp",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Heavy Sniper (Champion identity and approved illustrated design). Reference 2: Forge Dwarf (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Heavy Sniper and Forge Dwarf share a quiet victory toast at a snowy mountain camp after the campaign. Intimate waist-high close view of two different dwarves smiling and clinking metal cups over a brazier; an enormous long rifle rests diagonally beside a glowing portable forge. Night sky full of stars, warm orange faces, peaceful distant stronghold lights. No procession, airship or central berserker.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "dw_steamrail",
+          "name": "Heavy Sniper",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_steamrail-1.png",
+          "sha256": "18c0e57fefd6b5879c09a8199db5a2420a1e26f5abd867fd218001f4cba210ae"
+        },
+        {
+          "id": "dw_emberanvil",
+          "name": "Forge Dwarf",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_emberanvil-1.png",
+          "sha256": "1b9b930aab9cf5a34ca1cd6e09740f91d21975768ae65eef57b99fc6cf2300ca"
+        }
+      ]
+    },
+    {
+      "id": "forge-victory-05",
+      "factionId": "forge",
+      "outcome": "won",
+      "motif": "harbor-machines-salute",
+      "championIds": [
+        "dw_bombardking",
+        "dw_breachorgan"
+      ],
+      "enemyIds": [],
+      "alt": "Fire Furnace and Gatling Golem receive victory pennants in the harbor",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Fire Furnace (Champion identity and approved illustrated design). Reference 2: Gatling Golem (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Fire Furnace and Gatling Golem celebrate the liberation of a dwarven industrial harbor. Oblique wide view from a dock crane: two utterly different heavy machines discharge harmless celebratory steam rings, dwarf crews hang golden pennants across their barrels and furnaces. Brilliant midday water, copper pipes, ship cranes and orderly victory flags. Machine silhouettes and steam dominate, no ordinary axe hero or cream balloon.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "dw_bombardking",
+          "name": "Fire Furnace",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_bombardking-1.png",
+          "sha256": "f375755ad1eef0f4e562227d4c5124311382d94bde1e86cf3e31b3b3ff1c3d59"
+        },
+        {
+          "id": "dw_breachorgan",
+          "name": "Gatling Golem",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_breachorgan-1.png",
+          "sha256": "05b9d32b21bdf6c595800b21c269f74bde00c2cb9db9fea65d19fe194852bd47"
+        }
+      ]
+    },
+    {
+      "id": "forge-defeat-01",
+      "factionId": "forge",
+      "outcome": "lost",
+      "motif": "wolf-riders-cannon-race",
+      "championIds": [
+        "dw_cinderhowitzer"
+      ],
+      "enemyIds": [
+        "host_19"
+      ],
+      "alt": "Bloodwolf Orc Riders celebrate around a captured Dwarf Siege Cannon",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Siege Cannon (Champion identity and approved illustrated design). Reference 2: Bloodwolf Orc Riders (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Bloodwolf Orc Riders race around a captured Dwarf Siege Cannon on a dusty plain, roaring with delight and swinging red victory streamers. One huge snarling wolf leaps across the extreme foreground while an orc stands on the abandoned cannon waving a captured dwarf helmet. Sideways action panorama, sunset dust, cannon crew equipment scattered but no gore. Orc riders are the heroes of their own celebration, dwarven loss is shown through the captured machine.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dw_cinderhowitzer",
+          "name": "Siege Cannon",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_cinderhowitzer-1.png",
+          "sha256": "9cbefa1edd9d3a88a4d50df9577d02ce32de50af79d5224e78cce714073f71c3"
+        },
+        {
+          "id": "host_19",
+          "name": "Bloodwolf Orc Riders",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_19.png",
+          "sha256": "3f03fdf52eff8aba4060fbf3bbd0b064aabffcae4f7943f1cbb8199cc8e04b9e"
+        }
+      ]
+    },
+    {
+      "id": "forge-defeat-02",
+      "factionId": "forge",
+      "outcome": "lost",
+      "motif": "vault-gold-rain",
+      "championIds": [
+        "dw_nullifier"
+      ],
+      "enemyIds": [
+        "host_16"
+      ],
+      "alt": "Orc Ash Pickpockets celebrate with stolen gold in the dwarf treasury",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Rune Guardian (Champion identity and approved illustrated design). Reference 2: Orc Ash Pickpockets (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Ash Pickpockets celebrate in a breached dwarf treasury by throwing stolen gold coins into the air. Playful high overhead close view into heaps of treasure; blackened ash-cloaked green orcs laugh and fill their sacks. The defeated Dwarf Rune Guardian sits small beside a cracked rune lock at the edge; dwarf vault and runic armor clearly identify the lost faction. Gold rain and jubilant orc thieves dominate, no castle gate or kneeling hero row.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dw_nullifier",
+          "name": "Rune Guardian",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_nullifier-1.png",
+          "sha256": "0a8af0ae8d41efe56aba76b5022ee893ca39c65217d773d6d6212bebedd201cb"
+        },
+        {
+          "id": "host_16",
+          "name": "Orc Ash Pickpockets",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_16.png",
+          "sha256": "a57a18470eb3f18d1c0c5d3a37e0734a7c2fa8fefc912c59a205bf201913bbf7"
+        }
+      ]
+    },
+    {
+      "id": "forge-defeat-03",
+      "factionId": "forge",
+      "outcome": "lost",
+      "motif": "cavern-rune-ritual",
+      "championIds": [
+        "dw_deepdelve"
+      ],
+      "enemyIds": [
+        "host_23"
+      ],
+      "alt": "Shard-Soul Orc Warlocks celebrate above the fallen Forge Sentinel",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Forge Sentinel (Champion identity and approved illustrated design). Reference 2: Shard-Soul Orc Warlocks (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Shard-Soul Orc Warlocks hold a triumphant magical celebration in an immense conquered dwarf crystal cavern. Low view toward a floating green crystal sphere, several warlocks raise shard staffs and laugh while red orc pennants hang from mining gantries. The disabled Dwarf Forge Sentinel lies inert off to the side of the rune dais, no wound. Teal crystal reflections, triumphant ritual energy and orcs are central, no repeat of a feast or kneeling heroes.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dw_deepdelve",
+          "name": "Forge Sentinel",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_deepdelve-1.png",
+          "sha256": "e2ab41223be30879d02a89b0b3fba048c81ba1ac1e4aa5e6a093935f53b0d549"
+        },
+        {
+          "id": "host_23",
+          "name": "Shard-Soul Orc Warlocks",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_23.png",
+          "sha256": "37739117684da79abb5e927924543883f8cf7213fffcb67b941a1cb66655ef21"
+        }
+      ]
+    },
+    {
+      "id": "forge-defeat-04",
+      "factionId": "forge",
+      "outcome": "lost",
+      "motif": "captured-airship-toast",
+      "championIds": [
+        "dw_dwarship"
+      ],
+      "enemyIds": [
+        "host_13"
+      ],
+      "alt": "Red Tusk Orc Huntresses toast aboard a captured Dwarf Airship",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Dwarf Airship (Champion identity and approved illustrated design). Reference 2: Red Tusk Orc Huntresses (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Red Tusk Orc Huntresses celebrate aboard a captured Dwarf Airship high above a mountain valley. Extreme close view from the wooden gondola rail: tusked female orc hunters raise stolen metal goblets and laugh, one ties a red orc victory pennant to the balloon rigging. The captured dwarf airship keeps its distinctive reference design, enormous balloon curving into the sky, defeated dwarf pilots small in the rear. Orc celebration on the gondola dominates, no ground army.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dw_dwarship",
+          "name": "Dwarf Airship",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_dwarship-1.png",
+          "sha256": "739f4e34519d04031b337704baa946585451902f918cdb857f7b40f6ca3c7141"
+        },
+        {
+          "id": "host_13",
+          "name": "Red Tusk Orc Huntresses",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_13.png",
+          "sha256": "d2bf1bd0410862a661e4ef9466925705f78eae127b003fecd6629fb3d0b5282b"
+        }
+      ]
+    },
+    {
+      "id": "forge-defeat-05",
+      "factionId": "forge",
+      "outcome": "lost",
+      "motif": "orc-victory-drum-circle",
+      "championIds": [
+        "dw_goreback"
+      ],
+      "enemyIds": [
+        "host_36"
+      ],
+      "alt": "Orc Oathbreakers beat victory drums at the conquered dwarf pass",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Dwarves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Armored Boar Rider (Champion identity and approved illustrated design). Reference 2: Orc Oathbreakers (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Oathbreakers hold a thunderous victory drum circle at the conquered dwarf mountain pass. Bird-eye view of armored dark orcs pounding stolen drums around a central bonfire and tossing axe handles upward in celebration. An abandoned Armored Boar Rider saddle and exhausted living boar stand at the far edge, dwarven yellow standards fallen nearby. The orc circle and fire form the whole composition; no foreground kneeling dwarf, no feast table or airship.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "dw_goreback",
+          "name": "Armored Boar Rider",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/forge/dw_goreback-1.png",
+          "sha256": "692a8111bcbc733d70b5959c14693b3e029ae4c75632d804fdd9f78564f8dbe5"
+        },
+        {
+          "id": "host_36",
+          "name": "Orc Oathbreakers",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_36.png",
+          "sha256": "8ab7b68b285ad36cb38361aff4dff1d73675d87117c564d1c2a68aea269ad860"
+        }
+      ]
+    },
+    {
+      "id": "grove-victory-01",
+      "factionId": "grove",
+      "outcome": "won",
+      "motif": "dragon-crater-festival",
+      "championIds": [
+        "el_ancient_patriarch",
+        "el_baby_fire_dragon"
+      ],
+      "enemyIds": [],
+      "alt": "Ancient Dragon Patriarch and Baby Fire Dragon celebrate above the crater lake",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Ancient Dragon Patriarch (Champion identity and approved illustrated design). Reference 2: Baby Fire Dragon (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Ancient Dragon Patriarch and Baby Fire Dragon celebrate atop a volcanic island after defending the elven kingdom. Wide panoramic view across a glowing crater lake, enormous ancient dragon curls its neck into a protective arch over the bright small dragon; both send harmless spiraling flame ribbons into a clear night sky, elves light green lanterns on distant shore. Dragons and circular crater dominate, no elf swordsman or priestess trio.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "el_ancient_patriarch",
+          "name": "Ancient Dragon Patriarch",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_ancient_patriarch-1.png",
+          "sha256": "54dbe617220065e34f6cf24e788e780e13ca9f7423ded2e4a2aabbd7058b6905"
+        },
+        {
+          "id": "el_baby_fire_dragon",
+          "name": "Baby Fire Dragon",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_baby_fire_dragon-1.png",
+          "sha256": "36e5123b3bbac17cadb8f2a6e4071217ed790dc55a1e075463580d8044c0749b"
+        }
+      ]
+    },
+    {
+      "id": "grove-victory-02",
+      "factionId": "grove",
+      "outcome": "won",
+      "motif": "phoenix-aurora-flight",
+      "championIds": [
+        "el_storm_sovereign",
+        "el_wisp_conductor"
+      ],
+      "enemyIds": [],
+      "alt": "Tempest Phoenix and Stormwing Phoenix Rider spiral beneath the aurora",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Tempest Phoenix (Champion identity and approved illustrated design). Reference 2: Stormwing Phoenix Rider (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Tempest Phoenix and Stormwing Phoenix Rider celebrate in an aerial spiral beneath a luminous turquoise aurora. View looking upward through the loop of two enormous different phoenix silhouettes, one unmounted elemental phoenix and one with the distinct elven rider in its reference. Fine lightning and violet luminous feathers trace the loop, stars and pale clouds. Flight and aurora are the entire focus, no ground army, ent or repeated central elf swordsman.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "el_storm_sovereign",
+          "name": "Tempest Phoenix",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_storm_sovereign-1.png",
+          "sha256": "f64b7273c615461bbb8d35c609b1b025e57c4b8ad741b694bcabcee4c0a4de88"
+        },
+        {
+          "id": "el_wisp_conductor",
+          "name": "Stormwing Phoenix Rider",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_wisp_conductor-1.png",
+          "sha256": "1d3fe5434ef802c856643af10b7ccb0006d726bb38c6ebbd254dc389a1bdf537"
+        }
+      ]
+    },
+    {
+      "id": "grove-victory-03",
+      "factionId": "grove",
+      "outcome": "won",
+      "motif": "moonweb-canyon-revel",
+      "championIds": [
+        "el_drow_ember_matron",
+        "el_drow_furnace_seer"
+      ],
+      "enemyIds": [],
+      "alt": "Nightweaver Spider Queen and Moonweb Hunter celebrate on the luminous web bridge",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Nightweaver Spider Queen (Champion identity and approved illustrated design). Reference 2: Moonweb Hunter (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Nightweaver Spider Queen and Moonweb Hunter celebrate reclaiming a deep moonlit canyon. Dramatic worm-eye view from beneath a vast web bridge, the huge ornate spider queen stands above while the distinct hunter hangs lightly from a luminous silk strand, other tiny spider allies carry violet victory lanterns. Bioluminescent blue web architecture fills the scene. Both follow their reference anatomy, a victorious magical celebration, no sword hero or world tree.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "el_drow_ember_matron",
+          "name": "Nightweaver Spider Queen",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_drow_ember_matron-1.png",
+          "sha256": "bdddc5b023a0f2e0fa5ef978e058a4545e456c87a50784c1cb499901dd03a499"
+        },
+        {
+          "id": "el_drow_furnace_seer",
+          "name": "Moonweb Hunter",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_drow_furnace_seer-1.png",
+          "sha256": "8eea26e44995023086a1ea8324227388be50736fe7d6b3280fa8f8af8a3bc65f"
+        }
+      ]
+    },
+    {
+      "id": "grove-victory-04",
+      "factionId": "grove",
+      "outcome": "won",
+      "motif": "eagle-waterfall-homecoming",
+      "championIds": [
+        "el_starfall_bowmaster",
+        "el_twilight_huntress"
+      ],
+      "enemyIds": [],
+      "alt": "Moonlight Eagle Rider and Moonshadow Huntress greet the freed valley",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Moonlight Eagle Rider (Champion identity and approved illustrated design). Reference 2: Moonshadow Huntress (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Moonlight Eagle Rider and Moonshadow Huntress celebrate at the top of a roaring waterfall in the freed elven valley. Wide diagonal view from behind the huntress raising her bow, enormous eagle lands on a crystalline rock in a cloud of sparkling spray, rider salutes back. Rainbow and tiny green pennants across distant bridges, bright afternoon. Eagle wings and waterfall are central, no phoenix, dragon or familiar elf warrior trio.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "el_starfall_bowmaster",
+          "name": "Moonlight Eagle Rider",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_starfall_bowmaster-1.png",
+          "sha256": "4ceb2c2d8facf0a09a36d56b69dbfa5ec1f29f193e06e94361fb6ab095051e91"
+        },
+        {
+          "id": "el_twilight_huntress",
+          "name": "Moonshadow Huntress",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_twilight_huntress-1.png",
+          "sha256": "306bdc059ef6cc894e87693bce25db640bce4291189a9bc6ef005539c9cb4bed"
+        }
+      ]
+    },
+    {
+      "id": "grove-victory-05",
+      "factionId": "grove",
+      "outcome": "won",
+      "motif": "lantern-fen-reclaimed",
+      "championIds": [
+        "el_eclipse_unbinder",
+        "el_drow_eclipse_duelist"
+      ],
+      "enemyIds": [],
+      "alt": "Eclipse Phantom and Shadow Assassin Master release lanterns over the reclaimed fen",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, VICTORY.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Eclipse Phantom (Champion identity and approved illustrated design). Reference 2: Shadow Assassin Master (Champion identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Eclipse Phantom and Shadow Assassin Master celebrate quietly after reclaiming an ancient elven lantern fen. Cinematic close side view of the spectral apparition reflected in black water while the distinct masked assassin releases a green lotus lantern from a narrow boat. Thousands of tiny liberated lanterns rise among silver reeds in deep violet twilight. Spectral forms and reflections dominate, a clear peaceful victory, no big tree, armored swordsman trio or palace gate.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. Show a convincing joyful victory for this faction, not a generic battle charge or the repeated mounted-knight trio.",
+      "references": [
+        {
+          "id": "el_eclipse_unbinder",
+          "name": "Eclipse Phantom",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_eclipse_unbinder-1.png",
+          "sha256": "4e3231785dcecba5c2bd243ecba7362d4ad00871426381cc5400137c1c7f52ba"
+        },
+        {
+          "id": "el_drow_eclipse_duelist",
+          "name": "Shadow Assassin Master",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_drow_eclipse_duelist-1.png",
+          "sha256": "eafce28f834b544fb53a84de04269348bd03a0a9608c1ebe325eec2309a0e783"
+        }
+      ]
+    },
+    {
+      "id": "grove-defeat-01",
+      "factionId": "grove",
+      "outcome": "lost",
+      "motif": "hunters-treehouse-revel",
+      "championIds": [
+        "el_elven_bowmaster"
+      ],
+      "enemyIds": [
+        "host_07"
+      ],
+      "alt": "Marsh Orc Hunters celebrate in the captured elven treehouse",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Moonlight Ranger Captain (Champion identity and approved illustrated design). Reference 2: Marsh Orc Hunters (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Marsh Orc Hunters celebrate in a captured elven treehouse by hanging stolen bows on their hunting rack and cheering a huge orc blowing a wooden victory horn. Intimate wide interior view, dripping marsh cloaks, tusked green faces, red orc pennants woven between delicate elven wooden arches. Defeated Moonlight Ranger Captain small on a distant balcony, alive and disarmed. The loud laughing orc hunters dominate, no kneeling foreground elf.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "el_elven_bowmaster",
+          "name": "Moonlight Ranger Captain",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_elven_bowmaster-1.png",
+          "sha256": "2316c3f8c8921a016a78530bb0518fe0868ab72aa26f7904471b7fda1e27b697"
+        },
+        {
+          "id": "host_07",
+          "name": "Marsh Orc Hunters",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_07.png",
+          "sha256": "690abfd4d49d00aa46c141e491df59293dfe11e14fa849885ed642da1b413a9b"
+        }
+      ]
+    },
+    {
+      "id": "grove-defeat-02",
+      "factionId": "grove",
+      "outcome": "lost",
+      "motif": "spell-eater-victory-orb",
+      "championIds": [
+        "el_moonwell_seer"
+      ],
+      "enemyIds": [
+        "host_26"
+      ],
+      "alt": "Orc Spell Eaters celebrate around the conquered elven moonwell",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Moon Banshee (Champion identity and approved illustrated design). Reference 2: Orc Spell Eaters (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Spell Eaters laugh and celebrate consuming the magic of a conquered elven moonwell. Circular high view of huge green orcs around a silver pool, central spell eater lifts a captured glowing violet magic orb like a trophy, others clap and raise jagged cups. A weakened Moon Banshee spectral champion fades at the far rim beside broken elven moon emblems, no injury. Orc faces, orb and rippling moonwell dominate, no standard castle or hero lineup.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "el_moonwell_seer",
+          "name": "Moon Banshee",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_moonwell_seer-1.png",
+          "sha256": "d64fcebb27463842774abc36bbd18202ce5e714f4673ff679aa9ac21506a61d5"
+        },
+        {
+          "id": "host_26",
+          "name": "Orc Spell Eaters",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_26.png",
+          "sha256": "bfad78e594c745e0e8f8963fbc99ccc86351aa618b3c26595c17d269390b5ca2"
+        }
+      ]
+    },
+    {
+      "id": "grove-defeat-03",
+      "factionId": "grove",
+      "outcome": "lost",
+      "motif": "bat-rider-red-banner-parade",
+      "championIds": [
+        "el_drow_night_hierarch"
+      ],
+      "enemyIds": [
+        "host_25"
+      ],
+      "alt": "Iron Bat Orc Riders parade through the conquered elven sanctuary",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Elven Battlemage Master (Champion identity and approved illustrated design). Reference 2: Iron Bat Orc Riders (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Iron Bat Orc Riders conduct a loud aerial victory parade through the immense branches of an overrun elven sanctuary. Dynamic side view at wing height, armored green orc riders cheer with raised weapons from giant iron-armored bats, long red banners whip through the air. The defeated Elven Battlemage Master is a tiny disarmed silhouette on a broken spell platform far below. Huge bats and jubilant orc riders dominate, no kneeling elf portrait or dragon.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "el_drow_night_hierarch",
+          "name": "Elven Battlemage Master",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_drow_night_hierarch-1.png",
+          "sha256": "6d36b893d0323e6a4f1d65cf6269b2ca5f17a44bb76af3039fa203b529dcb239"
+        },
+        {
+          "id": "host_25",
+          "name": "Iron Bat Orc Riders",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_25.png",
+          "sha256": "65a9ac96c6a50a4e3710c3cc62cc20a2a316f585369493652b717060e12b2c15"
+        }
+      ]
+    },
+    {
+      "id": "grove-defeat-04",
+      "factionId": "grove",
+      "outcome": "lost",
+      "motif": "inquisitor-seal-breaking",
+      "championIds": [
+        "el_stag_knight"
+      ],
+      "enemyIds": [
+        "host_31"
+      ],
+      "alt": "Orc Dual-Seal Inquisitors celebrate breaking the elven stag gate seals",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Stag Bulwark (Champion identity and approved illustrated design). Reference 2: Orc Dual-Seal Inquisitors (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Dual-Seal Inquisitors celebrate breaking the two immense magic seals of an elven stag gate. Frontal close view of two tusked armored orcs laughing as they pull matching blue and gold seal discs apart like trophies, red confetti and small cheering orcs behind. An exhausted living Stag Bulwark with dismounted elf is small beneath the broken white gate arch to one side. The two stolen seal trophies and joyful orcs are central, no kneeling hero row.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "el_stag_knight",
+          "name": "Stag Bulwark",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_stag_knight-1.png",
+          "sha256": "479862d66ee4d64803f7b86676c500beda819d19186d18e7f3fa965c00cb3795"
+        },
+        {
+          "id": "host_31",
+          "name": "Orc Dual-Seal Inquisitors",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_31.png",
+          "sha256": "33e287d0c83ce8f802e1c0b10d9ebec20d567714128f6e292a0c853f422c1c91"
+        }
+      ]
+    },
+    {
+      "id": "grove-defeat-05",
+      "factionId": "grove",
+      "outcome": "lost",
+      "motif": "executioner-victory-gong",
+      "championIds": [
+        "el_mother_fire_dragon"
+      ],
+      "enemyIds": [
+        "host_44"
+      ],
+      "alt": "Orc Ash Executioners celebrate with a captured gong beside the subdued Mother Fire Dragon",
+      "prompt": "Use case: stylized-concept. Create ONE entirely new widescreen 16:9 end-of-game illustration for Forged Alliances TD, Elves, DEFEAT.\nReference images are identity references only, NOT an edit target or a composition template. Reference 1: Mother Fire Dragon (Champion identity and approved illustrated design). Reference 2: Orc Ash Executioners (Victorious orc enemy identity and approved illustrated design). Preserve recognizable character anatomy, costume palette, weapons and creature or machine silhouettes, adapt their poses naturally to the scene. Only use the named champions, not the previous set of three stock heroes.\nSCENE AND DISTINCT COMPOSITION: Victorious Orc Ash Executioners celebrate subduing a Mother Fire Dragon at a smoking elven root fortress. Strong low side view: a huge ash-armored green orc laughs and strikes a captured bronze victory gong with the flat of an enormous axe, orc troops cheer and dance behind. The enormous exhausted Mother Fire Dragon rests alive under heavy chains at the far rear, matching reference, no wounds or gore. Gong, laughing executioner and flying sparks dominate, no heroic dragon centre or kneeling champion lineup.\nSTYLE: refined faceted low-poly fantasy story illustration, richly painted cinematic light, crisp readable silhouettes and material detail, consistent with the supplied approved gallery portraits. Rich environment and clear layered depth, polished game key art, landscape 16:9. Fill the entire image; keep major subjects fully framed with breathing room. No text, letters, numbers, logos, UI, borders, collage panels, photographic realism, gore or visible wounds. This is the orcs’ victory celebration and the player faction’s defeat: active happy victorious orcs MUST dominate the foreground and central action, with captured faction equipment or small defeated champions secondary. Do not focus on a human or elf kneeling in front of the same burning castle.",
+      "references": [
+        {
+          "id": "el_mother_fire_dragon",
+          "name": "Mother Fire Dragon",
+          "role": "Champion identity and approved illustrated design",
+          "path": "public/assets/ui/faction-reference-portraits-v061/grove/el_mother_fire_dragon-1.png",
+          "sha256": "26f6ffe24ba71a4a9c200c8e3dd70bd72c1307361645301f6e77bb8e372412d5"
+        },
+        {
+          "id": "host_44",
+          "name": "Orc Ash Executioners",
+          "role": "Victorious orc enemy identity and approved illustrated design",
+          "path": "public/assets/ui/reference-enemy-fronts/host_44.png",
+          "sha256": "181ca7c0532c33762569185ec5ce442a7dba9c97e9452dbd967e22f9cfa58e6b"
+        }
+      ]
+    }
+  ]
+}

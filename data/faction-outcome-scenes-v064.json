@@ -1,0 +1,233 @@
+{
+  "revision": "faction-outcomes-20261031-v5",
+  "groups": {
+    "crown": {
+      "won": [
+        {
+          "id": "crown-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/crown-victory-01.webp",
+          "alt": "Human victory: Storm Eagle and Royal Scout return above the liberated city",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/crown-victory-02.webp",
+          "alt": "Human victory: Royal Battery and Royal Grenadier launch victory fireworks",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/crown-victory-03.webp",
+          "alt": "Human victory: Nature Spirit and Archdruid restore the royal garden after victory",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/crown-victory-04.webp",
+          "alt": "Human victory: High Priest and Frozen Paladin ring the victory bell",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/crown-victory-05.webp",
+          "alt": "Human victory: King and Stormbow Magister mark the kingdom free on their command table",
+          "factionId": "crown"
+        }
+      ],
+      "lost": [
+        {
+          "id": "crown-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/crown-defeat-01.webp",
+          "alt": "Human defeat: Orc Skull Scavengers feast around a captured Human Catapult",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/crown-defeat-02.webp",
+          "alt": "Human defeat: Orc Hookbearers raise their banner above a captured Human Fire Ballista",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/crown-defeat-03.webp",
+          "alt": "Human defeat: Orc Mirror Shieldbearers celebrate in the shattered ice hall",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/crown-defeat-04.webp",
+          "alt": "Human defeat: Orc Scrap Tinkers celebrate their captured Human Golem",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/crown-defeat-05.webp",
+          "alt": "Human defeat: Silent Orc Executioners parade trophies through the conquered royal gate",
+          "factionId": "crown"
+        }
+      ]
+    },
+    "forge": {
+      "won": [
+        {
+          "id": "forge-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/forge-victory-01.webp",
+          "alt": "Dwarf victory: Boar Warlord and Boar Drummer race home in triumph",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/forge-victory-02.webp",
+          "alt": "Dwarf victory: Iron Colossus and Rune Master rekindle the mountain forge",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/forge-victory-03.webp",
+          "alt": "Dwarf victory: Griffin Commander and Griffin Bomber salute above the clouds",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/forge-victory-04.webp",
+          "alt": "Dwarf victory: Heavy Sniper and Forge Dwarf share a victory toast at their mountain camp",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/forge-victory-05.webp",
+          "alt": "Dwarf victory: Fire Furnace and Gatling Golem receive victory pennants in the harbor",
+          "factionId": "forge"
+        }
+      ],
+      "lost": [
+        {
+          "id": "forge-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/forge-defeat-01.webp",
+          "alt": "Dwarf defeat: Bloodwolf Orc Riders celebrate around a captured Dwarf Siege Cannon",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/forge-defeat-02.webp",
+          "alt": "Dwarf defeat: Orc Ash Pickpockets celebrate with stolen gold in the dwarf treasury",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/forge-defeat-03.webp",
+          "alt": "Dwarf defeat: Shard-Soul Orc Warlocks celebrate above the fallen Forge Sentinel",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/forge-defeat-04.webp",
+          "alt": "Dwarf defeat: Red Tusk Orc Huntresses toast aboard a captured Dwarf Airship",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/forge-defeat-05.webp",
+          "alt": "Dwarf defeat: Orc Oathbreakers beat victory drums at the conquered dwarf pass",
+          "factionId": "forge"
+        }
+      ]
+    },
+    "grove": {
+      "won": [
+        {
+          "id": "grove-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/grove-victory-01.webp",
+          "alt": "Elf victory: Ancient Dragon Patriarch and Baby Fire Dragon celebrate above the crater lake",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/grove-victory-02.webp",
+          "alt": "Elf victory: Tempest Phoenix and Stormwing Phoenix Rider spiral beneath the aurora",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/grove-victory-03.webp",
+          "alt": "Elf victory: Nightweaver Spider Queen and Moonweb Hunter celebrate on the luminous web bridge",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/grove-victory-04.webp",
+          "alt": "Elf victory: Moonlight Eagle Rider and Moonshadow Huntress greet the freed valley",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v064/grove-victory-05.webp",
+          "alt": "Elf victory: Eclipse Phantom and Shadow Assassin Master release lanterns over the reclaimed fen",
+          "factionId": "grove"
+        }
+      ],
+      "lost": [
+        {
+          "id": "grove-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/grove-defeat-01.webp",
+          "alt": "Elf defeat: Marsh Orc Hunters celebrate in the captured elven treehouse",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/grove-defeat-02.webp",
+          "alt": "Elf defeat: Orc Spell Eaters celebrate around the conquered elven moonwell",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/grove-defeat-03.webp",
+          "alt": "Elf defeat: Iron Bat Orc Riders parade through the conquered elven sanctuary",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/grove-defeat-04.webp",
+          "alt": "Elf defeat: Orc Dual-Seal Inquisitors celebrate breaking the elven stag gate seals",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v064/grove-defeat-05.webp",
+          "alt": "Elf defeat: Orc Ash Executioners celebrate with a captured gong beside the subdued Mother Fire Dragon",
+          "factionId": "grove"
+        }
+      ]
+    }
+  }
+}

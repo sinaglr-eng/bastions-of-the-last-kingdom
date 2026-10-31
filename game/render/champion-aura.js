@@ -117,7 +117,7 @@ export function createChampionAura(family,{phase=0}={}){
 
 export function attachChampionAura(actor,family,options={}){
   const aura=createChampionAura(family,options);if(!aura)return null;
-  const presentation=actor.userData.factionAttackEntry?.factionId==='forge'?(actor.userData.defenderPresentationScale||1):1;
+  const presentation=actor.userData.factionAttackEntry?.factionId==='forge'||family==='el_baby_fire_dragon'?(actor.userData.defenderPresentationScale||1):1;
   aura.scale.setScalar(1/presentation);actor.add(aura);return aura;
 }
 
