@@ -1,0 +1,1548 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-003",
+  "revision": 2,
+  "approvalId": "fr003-revision2-user-approval-20261101",
+  "rulesetRevision": "fr003-r2-20261101",
+  "baselineRulesetRevision": "fr002-r3-20261031",
+  "approvedInputHashes": {
+    "output/design/fr003-approval-20261101/current/atlas-approved.json": "1c83b20b9e1e69d6404e31062ed893816175b8020f79937ed3224d3a6d8a90a5",
+    "output/design/fr003-approval-20261101/current/ability-catalogue-approved.json": "4e599cce4ed741ba527ad6e5e63872ae2f5337ad1ab1b77ed73f19e2f9afb9be",
+    "output/design/fr003-approval-20261101/current/approved-changes.json": "96d2e570f383a0363f1ac90fa7825cd29c64278c9a5f003ff7a6a3f948221281"
+  },
+  "semanticContract": {
+    "module": "output/design/fr003-approval-20261101/semantic-contract.mjs",
+    "moduleSha256": "a89624a82c1d58472603ea5fe71e22f12f1e01a9d856cd9bd71532403eea8561",
+    "atlasCombatSha256": "6caee0acdb31f90cdb96a643391f822c3760df73a04bd6dfdc5e9b5c94bc4c02",
+    "catalogueRulesSha256": "08ff06e6c2e06dc27b9ed8977c2f83e657042e8af0008834e998a145eb91d4b6",
+    "visualMappingSha256": "df52901d6884a3bc3308d741cc59466cd403a6e1c6116aa313899a164d11d492",
+    "combinedSha256": "d3bcc653a4165f22bf3623028e72baac33561d85fc65dcd11d16d4cecea483d1",
+    "fullProfilePayloadSha256": "fcd9efe5bdba88a25d9823c6edc7faae93470eab5625e93109191aa10fbd74ca",
+    "recipeContractSha256": "36e21c6a71304a8f7eb65a30dad03bb331a635afb586dbef9632d354fc599900",
+    "assignmentSha256": "02ded218ee772868c462d811f63b467d16db0b5c5ba89a225253813b44433331"
+  },
+  "changes": [
+    {
+      "key": "crown/roseguard/1",
+      "factionId": "crown",
+      "unitId": "roseguard",
+      "name": "Lionheart Champion",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 240,
+          "after": 700
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "expectedMetrics": {
+          "primaryDps": 979.9999999999999,
+          "note": "Unbuffed expected primary DPS for the FR-003 proposal, including the listed ordinary critical chance; excludes secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/1",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 2.5 tiles take 25% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-1",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity Aura I",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.25,
+            "radius": 2.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 6.36,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/2",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 2,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 2.5 tiles take 25% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-1",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity Aura I",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.25,
+            "radius": 2.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 12.73,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/3",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 3,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 3 tiles take 35% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-2",
+            "level": 2,
+            "levelLabel": "Cancel Physical Immunity Aura II",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.35,
+            "radius": 3,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 25.45,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/4",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 4,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 3 tiles take 35% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-2",
+            "level": 2,
+            "levelLabel": "Cancel Physical Immunity Aura II",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.35,
+            "radius": 3,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 50.91,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/5",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 5,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Physical Immunity Aura III",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 103.64,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runesmith/6",
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 6,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Physical Immunity Aura III",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 223.64,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_ironwarden/1",
+      "factionId": "forge",
+      "unitId": "dw_ironwarden",
+      "name": "Dwarf Axeman",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 75,
+          "after": 150
+        },
+        {
+          "field": "range",
+          "before": 2.75,
+          "after": 3
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 0.9,
+          "primaryDps": 166.67,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_ashshield/1",
+      "factionId": "forge",
+      "unitId": "dw_ashshield",
+      "name": "Dwarf Dualist",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 195,
+          "after": 450
+        },
+        {
+          "field": "range",
+          "before": 3,
+          "after": 3.5
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 0.85,
+          "primaryDps": 529.41,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_bulwarkcaptain/1",
+      "factionId": "forge",
+      "unitId": "dw_bulwarkcaptain",
+      "name": "Dwarf Berserker",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 650,
+          "after": 1200
+        },
+        {
+          "field": "range",
+          "before": 3.25,
+          "after": 4
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 0.85,
+          "primaryDps": 1411.76,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_forgeking/1",
+      "factionId": "forge",
+      "unitId": "dw_forgeking",
+      "name": "Berserker Champion",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 1800,
+          "after": 3000
+        },
+        {
+          "field": "range",
+          "before": 3.5,
+          "after": 4.5
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 0.85,
+          "primaryDps": 3529.41,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_longrifle/1",
+      "factionId": "forge",
+      "unitId": "dw_longrifle",
+      "name": "Dwarf Rifleman",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 320,
+          "after": 280
+        },
+        {
+          "field": "interval",
+          "before": 1.6,
+          "after": 1
+        },
+        {
+          "field": "range",
+          "before": 7,
+          "after": 8
+        },
+        {
+          "field": "weaponCycle.fixedInterval",
+          "before": 1.6,
+          "after": 1
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 3,
+          "cycleSeconds": 7.05,
+          "primaryDps": 119.15,
+          "magazine": 3,
+          "reloadSeconds": 4.05,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 166.80851063829786
+        },
+        "expectedMetrics": {
+          "primaryDps": 166.80851063829786,
+          "criticalChance": 0.1,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_thunderlock/1",
+      "factionId": "forge",
+      "unitId": "dw_thunderlock",
+      "name": "Dwarf Sniper",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 900,
+          "after": 1200
+        },
+        {
+          "field": "range",
+          "before": 7.5,
+          "after": 9
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 2,
+          "cycleSeconds": 8.2,
+          "primaryDps": 292.68,
+          "magazine": 2,
+          "reloadSeconds": 4.4,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 409.7560975609756
+        },
+        "expectedMetrics": {
+          "primaryDps": 409.7560975609756,
+          "criticalChance": 0.1,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_steamrail/1",
+      "factionId": "forge",
+      "unitId": "dw_steamrail",
+      "name": "Heavy Sniper",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 2800,
+          "after": 3600
+        },
+        {
+          "field": "range",
+          "before": 8,
+          "after": 10
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 2,
+          "cycleSeconds": 9,
+          "primaryDps": 800,
+          "magazine": 2,
+          "reloadSeconds": 4.6,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 1120
+        },
+        "expectedMetrics": {
+          "primaryDps": 1120,
+          "criticalChance": 0.1,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_grapeshotcart/1",
+      "factionId": "forge",
+      "unitId": "dw_grapeshotcart",
+      "name": "Mortar Dwarf",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 1771,
+          "after": 2200
+        },
+        {
+          "field": "range",
+          "before": 5,
+          "after": 10
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 2,
+          "cycleSeconds": 8.5,
+          "primaryDps": 517.65,
+          "magazine": 2,
+          "reloadSeconds": 4.5,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_ironstorm/1",
+      "factionId": "forge",
+      "unitId": "dw_ironstorm",
+      "name": "Master Sniper",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 7600,
+          "after": 9000
+        },
+        {
+          "field": "range",
+          "before": 8.5,
+          "after": 11
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 3,
+          "cycleSeconds": 12,
+          "primaryDps": 2250,
+          "magazine": 3,
+          "reloadSeconds": 4.8,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 4050
+        },
+        "expectedMetrics": {
+          "primaryDps": 4050,
+          "criticalChance": 0.2,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_boarlancer/1",
+      "factionId": "forge",
+      "unitId": "dw_boarlancer",
+      "name": "Boar Lancer",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 110,
+          "after": 150
+        },
+        {
+          "field": "range",
+          "before": 2.75,
+          "after": 3
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.15,
+          "primaryDps": 130.43,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 182.6086956521739
+        },
+        "expectedMetrics": {
+          "primaryDps": 182.6086956521739,
+          "criticalChance": 0.1,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_boarstandard/1",
+      "factionId": "forge",
+      "unitId": "dw_boarstandard",
+      "name": "Boar Drummer",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 265,
+          "after": 400
+        },
+        {
+          "field": "range",
+          "before": 3,
+          "after": 3.5
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 363.64,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 509.09090909090907
+        },
+        "expectedMetrics": {
+          "primaryDps": 509.09090909090907,
+          "criticalChance": 0.1,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_goreback/1",
+      "factionId": "forge",
+      "unitId": "dw_goreback",
+      "name": "Armored Boar Rider",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 650,
+          "after": 1000
+        },
+        {
+          "field": "range",
+          "before": 3.25,
+          "after": 4
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.05,
+          "primaryDps": 952.38,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 1714.2857142857142
+        },
+        "expectedMetrics": {
+          "primaryDps": 1714.2857142857142,
+          "criticalChance": 0.2,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_warcaller/1",
+      "factionId": "forge",
+      "unitId": "dw_warcaller",
+      "name": "War Drummer",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 518.65,
+          "after": 1150
+        },
+        {
+          "field": "range",
+          "before": 3.25,
+          "after": 4.25
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.1,
+          "primaryDps": 1045.45,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 1881.8181818181815
+        },
+        "expectedMetrics": {
+          "primaryDps": 1881.8181818181815,
+          "criticalChance": 0.2,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_boaravatar/1",
+      "factionId": "forge",
+      "unitId": "dw_boaravatar",
+      "name": "Boar Warlord",
+      "rank": 1,
+      "stats": [
+        {
+          "field": "damage",
+          "before": 1800,
+          "after": 3000
+        },
+        {
+          "field": "range",
+          "before": 3.75,
+          "after": 4.5
+        }
+      ],
+      "abilities": [],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.05,
+          "primaryDps": 2857.14,
+          "note": "FR-003 revision 2 unbuffed primary DPS over the complete firing cycle, including spin-up and reload; excludes critical hits, secondary effects, auras, MVP and defenses.",
+          "expectedPrimaryDps": 5142.857142857142
+        },
+        "expectedMetrics": {
+          "primaryDps": 5142.857142857142,
+          "criticalChance": 0.2,
+          "criticalMultiplier": 5,
+          "criticalFamilyId": "critical-strike",
+          "note": "FR-003 revision 2 expected ordinary critical primary DPS over the complete unbuffed firing cycle; excludes secondary effects, support, MVP and defenses."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_runemortar/1",
+      "factionId": "forge",
+      "unitId": "dw_runemortar",
+      "name": "Rune Dwarf",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Physical Immunity Aura III",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.4,
+          "primaryDps": 71.43,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "factionId": "forge",
+      "unitId": "dw_tunnelsapper",
+      "name": "Rune Mage",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 4 tiles take 65% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-4",
+            "level": 4,
+            "levelLabel": "Cancel Physical Immunity Aura IV",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.65,
+            "radius": 4,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.3,
+          "primaryDps": 188.46,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation. V6 positional bonuses and new specialist effects are excluded from this unbuffed primary metric."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "factionId": "forge",
+      "unitId": "dw_nullifier",
+      "name": "Rune Guardian",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-1-a606020c96",
+            "level": 1,
+            "levelLabel": "Cancel Physical Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 4.5 tiles take 80% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-5",
+            "level": 5,
+            "levelLabel": "Cancel Physical Immunity Aura V",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 0.8,
+            "radius": 4.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.2,
+          "primaryDps": 541.67,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation. V6 positional bonuses and new specialist effects are excluded from this unbuffed primary metric."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "factionId": "forge",
+      "unitId": "dw_worldanvil",
+      "name": "Rune Master",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-physical-immunity",
+          "familyId": "cancel-physical-immunity-aura",
+          "before": {
+            "name": "Cancel Physical Immunity",
+            "text": "Every 5 s, weaken Physical immunity on up to 3 enemies for 5 s, allowing 50% of normal damage.",
+            "familyId": "cancel-physical-immunity",
+            "levelId": "fr002-r3-proposed-cancel-physical-immunity-2-db4eb97e50",
+            "level": 2,
+            "levelLabel": "Cancel Physical Immunity II",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 5,
+            "immunity": "physical",
+            "range": "attack range",
+            "targets": 3
+          },
+          "after": {
+            "name": "Cancel Physical Immunity Aura",
+            "text": "Immune enemies within 5 tiles take 100% of normal Physical damage.",
+            "familyId": "cancel-physical-immunity-aura",
+            "levelId": "fr003-proposed-cancel-physical-immunity-aura-6",
+            "level": 6,
+            "levelLabel": "Cancel Physical Immunity Aura VI",
+            "mode": "aura",
+            "immunity": "physical",
+            "damageMultiplier": 1,
+            "radius": 5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1.15,
+          "primaryDps": 1478.26,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation. V6 positional bonuses and new specialist effects are excluded from this unbuffed primary metric."
+        }
+      }
+    },
+    {
+      "key": "forge/dw_talonlord/1",
+      "factionId": "forge",
+      "unitId": "dw_talonlord",
+      "name": "Armored Griffin Rider",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "sky-hunt",
+          "familyId": "sky-hunt",
+          "before": {
+            "name": "Sky Hunt",
+            "text": "Physical attacks deal +50% damage to flying enemies.",
+            "familyId": "sky-hunt",
+            "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+            "level": 1,
+            "levelLabel": "Sky Hunt I",
+            "bonusPercent": 50,
+            "damageType": "physical",
+            "targeting": "flying"
+          },
+          "after": {
+            "name": "Sky Hunt",
+            "text": "Physical attacks deal +75% damage to flying enemies.",
+            "familyId": "sky-hunt",
+            "levelId": "fr002-r3-proposed-sky-hunt-3-e8bc1b4927",
+            "level": 3,
+            "levelLabel": "Sky Hunt III",
+            "bonusPercent": 75,
+            "damageType": "physical",
+            "targeting": "flying"
+          }
+        }
+      ],
+      "derived": {
+        "cycleMetrics": {
+          "shotCount": 1,
+          "cycleSeconds": 1,
+          "primaryDps": 720,
+          "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+        }
+      }
+    },
+    {
+      "key": "grove/el_sealweaver/1",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 2.5 tiles take 25% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-1",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity Aura I",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.25,
+            "radius": 2.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealweaver/2",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 2,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 2.5 tiles take 25% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-1",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity Aura I",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.25,
+            "radius": 2.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealweaver/3",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 3,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 3 tiles take 35% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-2",
+            "level": 2,
+            "levelLabel": "Cancel Magic Immunity Aura II",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.35,
+            "radius": 3,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealweaver/4",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 4,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 3 tiles take 35% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-2",
+            "level": 2,
+            "levelLabel": "Cancel Magic Immunity Aura II",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.35,
+            "radius": 3,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealweaver/5",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 5,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Magic Immunity Aura III",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealweaver/6",
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 6,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Magic Immunity Aura III",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_veil_adept/1",
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "name": "Drow Wraithcaller",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 3.5 tiles take 50% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-3",
+            "level": 3,
+            "levelLabel": "Cancel Magic Immunity Aura III",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.5,
+            "radius": 3.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_sealwarden/1",
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "name": "Drow Moon Specter",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 4 tiles take 65% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-4",
+            "level": 4,
+            "levelLabel": "Cancel Magic Immunity Aura IV",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.65,
+            "radius": 4,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_moonwell_seer/1",
+      "factionId": "grove",
+      "unitId": "el_moonwell_seer",
+      "name": "Moon Banshee",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 2 enemies for 4 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-1-a979748998",
+            "level": 1,
+            "levelLabel": "Cancel Magic Immunity I",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 4,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 2
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 4.5 tiles take 80% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-5",
+            "level": 5,
+            "levelLabel": "Cancel Magic Immunity Aura V",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.8,
+            "radius": 4.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_eclipse_unbinder/1",
+      "factionId": "grove",
+      "unitId": "el_eclipse_unbinder",
+      "name": "Eclipse Phantom",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 3 enemies for 5 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-2-e84d0ccf6d",
+            "level": 2,
+            "levelLabel": "Cancel Magic Immunity II",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 5,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 3
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 5 tiles take 100% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-6",
+            "level": 6,
+            "levelLabel": "Cancel Magic Immunity Aura VI",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 1,
+            "radius": 5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    },
+    {
+      "key": "grove/el_stag_oracle/1",
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "name": "Crescent Revenant",
+      "rank": 1,
+      "stats": [],
+      "abilities": [
+        {
+          "oldFamilyId": "cancel-magic-immunity",
+          "familyId": "cancel-magic-immunity-aura",
+          "before": {
+            "name": "Cancel Magic Immunity",
+            "text": "Every 5 s, weaken Magical immunity on up to 3 enemies for 5 s, allowing 50% of normal damage.",
+            "familyId": "cancel-magic-immunity",
+            "levelId": "fr002-r3-proposed-cancel-magic-immunity-2-e84d0ccf6d",
+            "level": 2,
+            "levelLabel": "Cancel Magic Immunity II",
+            "cooldown": 5,
+            "damageMultiplier": 0.5,
+            "duration": 5,
+            "immunity": "magical",
+            "range": "attack range",
+            "targets": 3
+          },
+          "after": {
+            "name": "Cancel Magic Immunity Aura",
+            "text": "Immune enemies within 4.5 tiles take 80% of normal Magical damage.",
+            "familyId": "cancel-magic-immunity-aura",
+            "levelId": "fr003-proposed-cancel-magic-immunity-aura-5",
+            "level": 5,
+            "levelLabel": "Cancel Magic Immunity Aura V",
+            "mode": "aura",
+            "immunity": "magical",
+            "damageMultiplier": 0.8,
+            "radius": 4.5,
+            "stacking": "strongest-per-damage-type",
+            "groundOnly": false
+          }
+        }
+      ],
+      "derived": {}
+    }
+  ]
+}

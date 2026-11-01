@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "requirementId": "FR-003",
+  "revision": 2,
+  "approvalId": "fr003-revision2-user-approval-20261101",
+  "changedProfiles": 37,
+  "approvedInputHashes": {
+    "output/design/fr003-approval-20261101/current/atlas-approved.json": "1c83b20b9e1e69d6404e31062ed893816175b8020f79937ed3224d3a6d8a90a5",
+    "output/design/fr003-approval-20261101/current/ability-catalogue-approved.json": "4e599cce4ed741ba527ad6e5e63872ae2f5337ad1ab1b77ed73f19e2f9afb9be",
+    "output/design/fr003-approval-20261101/current/approved-changes.json": "96d2e570f383a0363f1ac90fa7825cd29c64278c9a5f003ff7a6a3f948221281"
+  },
+  "semanticContract": {
+    "module": "output/design/fr003-approval-20261101/semantic-contract.mjs",
+    "moduleSha256": "a89624a82c1d58472603ea5fe71e22f12f1e01a9d856cd9bd71532403eea8561",
+    "atlasCombatSha256": "6caee0acdb31f90cdb96a643391f822c3760df73a04bd6dfdc5e9b5c94bc4c02",
+    "catalogueRulesSha256": "08ff06e6c2e06dc27b9ed8977c2f83e657042e8af0008834e998a145eb91d4b6",
+    "visualMappingSha256": "df52901d6884a3bc3308d741cc59466cd403a6e1c6116aa313899a164d11d492",
+    "combinedSha256": "d3bcc653a4165f22bf3623028e72baac33561d85fc65dcd11d16d4cecea483d1",
+    "fullProfilePayloadSha256": "fcd9efe5bdba88a25d9823c6edc7faae93470eab5625e93109191aa10fbd74ca",
+    "recipeContractSha256": "36e21c6a71304a8f7eb65a30dad03bb331a635afb586dbef9632d354fc599900",
+    "assignmentSha256": "02ded218ee772868c462d811f63b467d16db0b5c5ba89a225253813b44433331"
+  },
+  "authorization": "Direct user request in the game implementation chat",
+  "gallerySourceCopiedOrPublished": false
+}

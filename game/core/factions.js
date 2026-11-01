@@ -1,4 +1,5 @@
 import {fr002HumanStats} from './fr002-registry.js';
+import {fr003HumanStats} from './fr003-registry.js';
 export const FACTIONS=Object.freeze([
  {id:'crown',name:'Human',specialty:'Versatile',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/crown-march.png',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
  {id:'forge',name:'Dwarves',specialty:'Physical damage',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/forge-march.png',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
@@ -28,8 +29,9 @@ export function createFactionData(current,registry,id){
   towers[u.id]={...(human?structuredClone(original):factionProfile(u.profiles[0])),name:u.name,short:u.name,unitCode:u.code,advanced,weight:advanced?0:1,classification:u.classification,factionId:id,role:u.role,description:human?original.description:u.profiles[0].abilities.map(a=>a.text).join(' '),color:human?original.color:id==='forge'?'#b27b45':'#679882',icon:human?original.icon:'shield',...(advanced?{}:{levels})};
  }
  if(registry.fr002)for(const u of f.units){const t=towers[u.id];if(id==='crown'||u.id==='ladyclaire'){if(t.levels)t.levels=t.levels.map((s,i)=>fr002HumanStats(s,u.profiles[i]));else Object.assign(t,fr002HumanStats(t,u.profiles[0]));}}
+ if(registry.fr003)for(const u of f.units){const t=towers[u.id];if(id==='crown'||u.id==='ladyclaire'){if(t.levels)t.levels=t.levels.map((s,i)=>fr003HumanStats(s,u.profiles[i]));else Object.assign(t,fr003HumanStats(t,u.profiles[0]));}}
  const recipes=id==='crown'?structuredClone(current.recipes):f.units.filter(u=>u.kind!=='basic').map(u=>({id:u.id,level:1,stage:u.classification,currentRoundOnly:u.id==='ladyclaire'||!!u.currentRoundOnly,ingredients:u.recipe.map(i=>({family:i.id,tier:i.rank}))}));
  for(const r of recipes){if(!towers[r.id]||!r.ingredients?.length)throw Error('Invalid faction recipe.');for(const i of r.ingredients)if(!towers[i.family]||!Number.isInteger(i.tier)||i.tier<1||i.tier>(towers[i.family].advanced?1:6))throw Error('Foreign or invalid ingredient.');}
  if(Object.values(towers).filter(t=>!t.advanced).length!==8||recipes.length!==38||f.assets.length!==86)throw Error('Incomplete faction package.');
- return {...current,towers,recipes,factionId:id,factionName:factionName(id),rulesetRevision:registry.revision,...(registry.fr002?{fr002:true}:{}),contentManifestId:'approved-faction-models-v3-20261030',defenderAssets:f.assets};
+ return {...current,towers,recipes,factionId:id,factionName:factionName(id),rulesetRevision:registry.revision,...(registry.fr002?{fr002:true}:{}),...(registry.fr003?{fr003:true}:{}),contentManifestId:'approved-faction-models-v3-20261030',defenderAssets:f.assets};
 }

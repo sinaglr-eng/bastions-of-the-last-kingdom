@@ -1,5 +1,6 @@
 import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {fr002DamageResolved,flushFr002Pulses} from './fr002-combat.js';
+import {immunityAuraCoverage} from './immunity-auras.js';
 import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
@@ -84,7 +85,7 @@ export class CombatManager {
     const petrified=enemy.statuses.petrify&&type==='physical'?1+(enemy.statuses.petrify.physicalBonus||0):1;
     result.beforeDefense=amount*frozen*bonus*petrified;
     this.prepareArmor(enemy);
-    Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance));
+    Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance,immunityAuraCoverage(enemy,this.game.towers,this.game.data)));
     result.shellBlock=stats.directHit?Math.min(result.afterArmor,Math.max(0,enemy.krakenShell||0)):0;
     result.afterShell=Math.max(0,result.afterArmor-result.shellBlock);
     if(!result.blockReason&&result.afterShell<=0)result.blockReason='shell';

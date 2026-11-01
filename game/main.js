@@ -1,6 +1,7 @@
 import {releaseAsset} from './release.js';
 import factionRegistry from '../data/factions-v060.json';
 import {applyFr002Registry} from './core/fr002-registry.js';
+import {applyFr003Registry} from './core/fr003-registry.js';
 import {createFactionData} from './core/factions.js';
 import {decodedModelBytes} from './render/packed-model.js';
 import {chooseFaction} from '../ui/faction-selection.js';
@@ -442,7 +443,7 @@ async function requestFactionRun(){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
  try{const committed=await chooseFaction({registry:factionRegistry,replace:!!previousGame,confirm:async(id,{signal})=>{
-  const selected=createFactionData(currentCampaign,applyFr002Registry(factionRegistry),id);
+  const selected=createFactionData(currentCampaign,applyFr003Registry(applyFr002Registry(factionRegistry)),id);
   // Validate the actual opening skins before replacing an existing battlefield.
   for(const asset of selected.defenderAssets.filter(a=>a.tier===1&&!selected.towers[a.family].advanced)){
    const response=await fetch(releaseAsset(asset.packedFile||asset.file),{signal});if(!response.ok)throw Error('A required defender model is unavailable.');

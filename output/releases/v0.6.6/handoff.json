@@ -1,0 +1,270 @@
+{
+  "schema": "v066-handoff-v1",
+  "status": "passed",
+  "base": "aae30d8a88cc53b96157f5c1e64ed011bc5ccdcf",
+  "head": "aae30d8a88cc53b96157f5c1e64ed011bc5ccdcf",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6449,
+  "payload": [
+    {
+      "file": "backend/validation.js",
+      "source": "cdb381ef07cbc3a0895c1a0f262c7c6e83b7807eabe1cfec62d58f08c1a96513",
+      "main": "c37cfb2ed750f31efc0ac97e7d759674c5fd27ecc37f4b9c24b86160f2e9973d"
+    },
+    {
+      "file": "data/fr003-approved.json",
+      "source": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+      "main": null
+    },
+    {
+      "file": "docs/RELEASE_0_6_6.md",
+      "source": "5969fdec882c796279a4327132459098be08d375c72f8ce13d00480ffa95810f",
+      "main": null
+    },
+    {
+      "file": "game/core/combat.js",
+      "source": "2ea644fec45fb9ad98911b081805a909c5d236b3a80dc211aee5afda46dd8e79",
+      "main": "7987f1ba2f6b844646bfc3b9690cc22d1a48ac7220a4e66ffb931f725b85250a"
+    },
+    {
+      "file": "game/core/factions.js",
+      "source": "1a30a616ba62c67b505f1892d01edad5a66d432fc69742fef59d489ac8dc4280",
+      "main": "89a1d548b5950282a1d99f1f0dc388e827a8945c47c928779ef14cb63351dfad"
+    },
+    {
+      "file": "game/core/fr003-registry.js",
+      "source": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+      "main": null
+    },
+    {
+      "file": "game/core/immunity-auras.js",
+      "source": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+      "main": null
+    },
+    {
+      "file": "game/core/math.js",
+      "source": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+      "main": "88e7117a67a3e57572306158629ca4473067a217ef14406e259ffd8056613aa1"
+    },
+    {
+      "file": "game/main.js",
+      "source": "3a6bf0fe3bb2cca0a85144c73dd47bcdf3afdfcd8086bd15ebe9a99dcf54fd20",
+      "main": "125c703eb7c669234d5ab866a4cf2e7614b519a0bc507a420248dead993dec89"
+    },
+    {
+      "file": "game/release.js",
+      "source": "3f813689aba718ed5ef91be0e5b0dc5a408fb76eb26123d779150bec55768f9e",
+      "main": "ac68ccc9e83367a9553c323b890ef77263bca1a63c413685fc581f38a53d80e8"
+    },
+    {
+      "file": "game/render/support-effects.js",
+      "source": "39c81b9b120a8908022b039b81ab713b299f552fa16e2f0b00292c6ec8db3f5e",
+      "main": "f4bd0c23ceb15c26a7238700a955867871b9ec54f58683dc6835a29cb428dd28"
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/approval-verification.json",
+      "source": "f5313a6800ffbe8c0e47b4c467cc44eb62365415dd8941c35a842adc5e4873c5",
+      "main": null
+    },
+    {
+      "file": "package.json",
+      "source": "bc7164a62f6df52424f4a87e5d883eb79c5a1b467f26ed9920868bf588398822",
+      "main": "8db81fd5331c684fd80fb9b461619dac16d7467b4387e0fefd909e7fab8e7f25"
+    },
+    {
+      "file": "public/release.json",
+      "source": "9c06e34264182d5eb84896454f763be8deaf0b81351168b812f98c5137fc1483",
+      "main": "72a072401312d29e323596f46be1b920befe35de13ebb02215e073126c68a890"
+    },
+    {
+      "file": "tests/fr003-combat.test.mjs",
+      "source": "bf9e85b35ade10c626d96a20aa6dcc72cb8d6fc60389f6d831e70d75fef15243",
+      "main": null
+    },
+    {
+      "file": "tests/fr003-data.test.mjs",
+      "source": "df8b897ff289ffc8ff8aee628ca6fa16b34c72a6cda8a23178269e0790013b33",
+      "main": null
+    },
+    {
+      "file": "tests/fr003-statistics.test.mjs",
+      "source": "edd3cbc39345fe145b724fd5362c7a57d7407c889cd7e71088caa2488ca8b605",
+      "main": null
+    },
+    {
+      "file": "tests/support-effects.test.mjs",
+      "source": "5ed919e585e2505a5338465e88d44120d89e0a7ce9a726650f641a7525264fcf",
+      "main": "53a4d5c58966217d686883300bbc013e8d7a48332631253fcdef6c69edd9c7ad"
+    },
+    {
+      "file": "tools/fr003-validation/approval.mjs",
+      "source": "5041c78fe4ebe0af90ae99c46a36c506f9ab40cfe89d40928bd732c978df3894",
+      "main": null
+    },
+    {
+      "file": "tools/fr003-validation/armies.mjs",
+      "source": "e69c3677788ba8f96374a90f00ede9e7b7d42e2f4a83198d2f43e90e1b96beea",
+      "main": null
+    },
+    {
+      "file": "tools/fr003-validation/campaign.mjs",
+      "source": "c3127ac3799654acb13c57ee7ed754c4962bdd792837621fb6c7baff2d6aa7c3",
+      "main": null
+    },
+    {
+      "file": "tools/fr003-validation/claire.mjs",
+      "source": "ef949e4b7a5619b47d5b7729251fe0bdbf5ad35233ffe96e74ddd7b664c690e7",
+      "main": null
+    },
+    {
+      "file": "tools/fr003-validation/combat.mjs",
+      "source": "87be0e47ea050cea6d6f8bc78c0ac573ec20155b303d2ffe9c9c9f783280ad33",
+      "main": null
+    },
+    {
+      "file": "tools/fr003-validation/datasets.mjs",
+      "source": "d1c93cfb54134bc412821d181e6d39df5d7a7915bc7d6895af44f7395483f42d",
+      "main": null
+    },
+    {
+      "file": "ui/grimoire.js",
+      "source": "f5705c4bccea74339a9dd5c6b3507ce092e5702c8010f56c0ad8194b464dbe1c",
+      "main": "4e55e4060e4934c5e0de36f58f749f59b686d221d8db7b9d68b9685637002a7b"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "source": "e6ca70fea3d80e9607062a33cbbd10b61f3f79b676efb8a88109d05bbfd3c2b3",
+      "main": "138f5712346652080c4d51d17493319a5e9eba1abaa1a8fa218e75c291f905d9"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "source": "df2ace6f2a6f067a3d7eec1e180684e268e9730620cb9a37f3680ca56e853fbc",
+      "main": "97ab39179a485af0df594d222846167ba44e72c3284aaad94ca20d408fb4ba93"
+    },
+    {
+      "file": "output/releases/v0.6.6/backend-deployment.json",
+      "source": "454bf30a953537d5e9976c53408cdf13a92bfec671b742ffec4e3e8be6ff652a",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/backend-public-checks.json",
+      "source": "015e3690a08fca1325f815f2ca1b93c5ef76490d7fa11c8da3350783658bb87c",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/build-offline.log",
+      "source": "811d4a1ea95f0eafafbb1ecbf2eac17e9ea0c9c7305c8293e71d8e7e84139cee",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/army-run.log",
+      "source": "9c808f433ea7bdae23212e0e429b24d0b9947e6fa90024038bb64df6f7d4b44b",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/campaign/approved/campaign-results.json",
+      "source": "e784a5a7b6bc9edcaf1049c98e33787ca984c32909f96ebb12665a2b42b84e2c",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/campaign/approved/placement-plan.json",
+      "source": "0a66ab5ed3c44155775277b25bcda89942d1d31b8e23eb2f7e6badc5aab60f14",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/campaign/approved/summary.json",
+      "source": "b189882cd36d4271863110ed633737737f02a3f56206c60006379e0e47329c76",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/campaign-initial-source-change.log",
+      "source": "29406a40a52746cb0c9e747fd0ac97a3760e8e4e5284d0073722a115dccd635c",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/campaign-run.log",
+      "source": "10f45b665d881770618c42f2656655af5c97be1b2b15a49c337bd3d042f1f363",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/claire/claire-verification.json",
+      "source": "10ba62a12d1b23fb26b9c52267cf514fa5be4c2d079f30d4a368223faf732c16",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/claire-run.log",
+      "source": "ae0c5421e5d95d593f09716e6bfde2dab0c361db6e3d684719069a6c47725a1b",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/combat/equal-budget-armies.json",
+      "source": "7cdf3dbbb5298c88404f36148846949ff9414d4da607003055bb4e1e05a29315",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/combat/results.json",
+      "source": "3f6449d51a3c2129c8b18ec4add4c3684122bd5c62e11df8770e33cf7c3835bb",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/combat-run.log",
+      "source": "879271a50cdd5894942ce319925659319bc2a318b4c88cf0a34c7709110f0cd6",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/runtime-gallery-compatibility.json",
+      "source": "b8944556435b555e5486c65e82eb26bbd2a7ef2929eb585f4b63a32cb1a1d3b2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/fr003/validation-summary.json",
+      "source": "41c4f7bc0a21c07d95d5f837ae68d595f3a02492b694543971ac42b24d28388f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/local-validation.json",
+      "source": "deb9e64b62f6663a79b72791c35ff2425c3e69f5395759699afa7cc9abb904d6",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/main-production-install.json",
+      "source": "70021eef726df86641897402d04b3c13427d82b1f884a13f8d3fdcca7efaf336",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/native-render-verification.json",
+      "source": "232c6b23d3ca60cd1a63dda27666cf87192ed5421fa4f91435caaaf9a4425b40",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/preserved-concurrent-edits.json",
+      "source": "1422aabf9997ecd3ee7bf6b90d8b20f0ac7650560b3d2925dfb78c298583d93a",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/sources-built.json",
+      "source": "92432c970b8c26c648be469b84a1c150531e269553b5b8db027799af64acaa9e",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/sources-tested.json",
+      "source": "92432c970b8c26c648be469b84a1c150531e269553b5b8db027799af64acaa9e",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/statistics-v066.tar.gz",
+      "source": "d1a792e26a027aee9bfd6ca6227eba7601f080a516db149b11223f1a2c9826f6",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/tests-first.log",
+      "source": "dbb30ea2529a0f3d47758dc7a2b53084aea3345ea4432c412a87dcbbe8089295",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.6/tests.log",
+      "source": "3de767a43c34028e453f08dccacb64d30793f5ec92285c58e3bfb04b0d8d3092",
+      "main": null
+    }
+  ]
+}

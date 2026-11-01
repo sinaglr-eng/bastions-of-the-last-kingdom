@@ -25,11 +25,14 @@ import {mvpDamageBonus} from './mvp.js';
 // Kept as a compatibility export for old integrations; no current damage
 // class or Ranger can bypass all airborne defenses.
 export const bypassesAirDefenses = () => false;
-export function damageDefenseBreakdown(amount,type,enemy,stats,balance){
+export function damageDefenseBreakdown(amount,type,enemy,stats,balance,immunityAuras=null){
   const canonical=damageType(type,stats.type),armor=Math.max(0,(enemy.armor||0)+(enemy.reactiveStacks||0)*(enemy.reactiveArmor||0)-(enemy.armorShred||0))*(1-Math.max(0,Math.min(1,stats.penetration||0)));
   const constant=balance.armorConstant||30,multiplier=constant/(constant+armor);
-  const blockReason=canonical==='physical'&&enemy.physicalImmune&&!(enemy.statuses?.breachPhysical?.time>0)?'physical-immunity':canonical==='magical'&&enemy.magicImmune&&!(enemy.statuses?.breachMagic?.time>0)?'magic-immunity':null;
-  return {type:canonical,effectiveArmor:armor,armorMultiplier:multiplier,afterArmor:blockReason?0:amount*multiplier*(canonical==='physical'&&enemy.physicalImmune&&enemy.statuses?.breachPhysical?.time>0?enemy.statuses.breachPhysical.multiplier:canonical==='magical'&&enemy.magicImmune&&enemy.statuses?.breachMagic?.time>0?enemy.statuses.breachMagic.multiplier:1),blockReason};
+  const immune=canonical==='physical'&&enemy.physicalImmune||canonical==='magical'&&enemy.magicImmune;
+  const breach=canonical==='physical'?enemy.statuses?.breachPhysical:enemy.statuses?.breachMagic;
+  const immunityMultiplier=!immune?1:immunityAuras?Math.max(0,Math.min(1,immunityAuras[canonical]?.multiplier||0)):breach?.time>0?breach.multiplier:0;
+  const blockReason=immune&&!(immunityMultiplier>0)?canonical==='physical'?'physical-immunity':'magic-immunity':null;
+  return {type:canonical,effectiveArmor:armor,armorMultiplier:multiplier,afterArmor:blockReason?0:immunityAuras?amount*immunityMultiplier*multiplier:amount*multiplier*immunityMultiplier,blockReason,...(immunityAuras?{immunityMultiplier}:{})};
 }
 export function damageAfterDefense(amount, type, enemy, stats, balance) {
   return damageDefenseBreakdown(amount,type,enemy,stats,balance).afterArmor;

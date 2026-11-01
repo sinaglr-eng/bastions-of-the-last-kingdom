@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {distance,towerStats,offensiveAuraRange} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
 import {statusEffectAllowed,slowAuraApplies} from '../core/combat-rules.js';
+import {immunityAuraCoverage} from '../core/immunity-auras.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
 // A source includes itself in the current game. Maxima win inside each haste
@@ -27,6 +28,8 @@ export const ENEMY_EFFECT_STYLES=Object.freeze({
   armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'brokenShield'}),
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
   regenReduction:Object.freeze({label:'Healing reduced',color:'#ffc0d0',glyph:'cross'}),
+  physicalPass:Object.freeze({label:'Physical immunity aura coverage',color:'#ffc86d',glyph:'brokenShield'}),
+  magicalPass:Object.freeze({label:'Magical immunity aura coverage',color:'#bfa5ff',glyph:'diamond'}),
 });
 const positiveKeys=['haste','damage','range','controlResistance','trueStrike'];
 const negativeKeys=['dread','disarm','weakened','melancholy'];
@@ -112,6 +115,10 @@ export const supportLegend=(tower,towers,data,options={})=>towerSupportState(tow
 export function supportSourceAreas(tower,data,{towers=[]}={}){
   if(tower?.state!=='active'||!data.towers[tower.family])return [];
   const s=towerStats(tower,data),R=enemyRulesFor(data),areas=[];
+  if(data.fr003)for(const a of s.abilities||[])if(['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId)){
+    const key=a.immunity==='physical'?'physicalPass':'magicalPass',style=ENEMY_EFFECT_STYLES[key];
+    areas.push({key,keys:[key],radius:a.radius,label:`${a.levelLabel} · ${percent(a.damageMultiplier)} normal ${a.immunity==='physical'?'Physical':'Magical'} damage · ${a.radius} tiles`,color:style.color,glyph:style.glyph});
+  }
   if(s.aura){const a=s.aura,keys=positiveKeys.filter(k=>k==='haste'?a.haste||Object.values(a.hasteGroups||{}).some(v=>v>0):k==='damage'?a.damageBonus:k==='range'?a.rangeBonus:a[k]);if(keys.length)areas.push({key:'support',keys,radius:a.range,label:`Support reach · ${a.range} tiles`,color:'#86f0c9',glyph:'arrows'});}
   const debuffs=[['burnAura','burn','Burning aura','#ff9a51'],['slowAura','slow','Slowing aura','#71d1e6'],['armorShredAura','armor','Armor reduction aura','#ffd088']];
   for(const [prop,key,label,color]of debuffs)if(s[prop]&&!tower.attackPaused){
@@ -139,6 +146,8 @@ export function enemyStatusState(enemy,towers,data,options={}){
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
   add('slow',slow);add('armor',armor);
+  const immunity=immunityAuraCoverage(enemy,towers,data);
+  if(immunity){if(enemy.physicalImmune)add('physicalPass',immunity.physical.multiplier);if(enemy.magicImmune)add('magicalPass',immunity.magical.multiplier);}
   for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
   if(statusEffectAllowed(enemy,'healBlock')&&statuses.regenReduction?.time>0)add('regenReduction',statuses.regenReduction.amount);
   if(statusEffectAllowed(enemy,'freeze')&&(statuses.stun?.time>0||statuses.root?.time>0))add('freeze',Math.max(statuses.stun?.time||0,statuses.root?.time||0));
@@ -248,7 +257,7 @@ export class SupportEffects{
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};
-      const auraTowers=towers.filter(t=>t.state==='active'&&!t.attackPaused&&['slowAura','armorShredAura'].some(k=>statsFor(t)[k]));
+      const auraTowers=towers.filter(t=>{if(t.state!=='active')return false;const s=statsFor(t);return !t.attackPaused&&['slowAura','armorShredAura'].some(k=>s[k])||data.fr003&&(s.abilities||[]).some(a=>['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId));});
       for(const enemy of combat.enemies||[]){
         if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);

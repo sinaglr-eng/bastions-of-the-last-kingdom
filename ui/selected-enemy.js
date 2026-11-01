@@ -2,6 +2,7 @@ import {enemyNumber,enemyRulesFor} from '../game/core/enemy-rules.js';
 import {damageDefenseBreakdown} from '../game/core/math.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 import {enemyTraitsMarkup} from './enemy-trait-symbols.js';
+import {immunityAuraCoverage} from '../game/core/immunity-auras.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
@@ -27,9 +28,9 @@ export function selectedEnemyView(enemy,{data,combat}={}){
   const abilities={...enemy,hp:maxHp,maxHp};delete abilities.resists;delete abilities.ward;delete abilities.magicShred;
   for(const key of ['regen','evasion','refraction','krakenShell','reactiveArmor','recharge','rush','hasteAura','untouchable','thief'])abilities[key]=finite(enemy[key]);
   return {id:enemy.id,type:enemy.type,name:enemy.name||'Invader',ended:['won','lost'].includes(combat.game?.phase),flying:!!enemy.flying,boss:!!enemy.boss,hp,maxHp,healthPercent:maxHp>0?hp/maxHp*100:0,
-    baseArmor,reactive,shred,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,
+    baseArmor,reactive,shred,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,...(data?.fr003?{immunityAuras:immunityAuraCoverage(enemy,combat.game?.towers||[],data)}:{}),
     baseSpeed:Math.max(0,finite(enemy.speed)),currentSpeed:Number.isFinite(enemy.currentSpeed)?Math.max(0,enemy.currentSpeed):null,
-    effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
+    effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)).map(trait=>data?.fr003&&['physicalImmune','magicImmune'].includes(trait.kind)?{...trait,text:trait.text.replace('; only Holy damage bypasses this immunity','; Holy bypasses damage immunity, and a matching aura permits its listed fraction of normal damage. Companion effect immunity remains active.')}:trait),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
     shieldRechargeRemaining:enemy.shields===0&&Number.isFinite(enemy.shieldReadyAt)?Math.max(0,enemy.shieldReadyAt-combat.elapsed):null,
     rechargeRemaining:enemy.recharge>0&&Number.isFinite(enemy.rechargeClock)?Math.max(0,enemy.rechargeClock):null};
 }
@@ -47,7 +48,8 @@ export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
     <dl class="enemy-inspection-stats"><div><dt>${view.ended?'Final armor':'Current armor'}</dt><dd>${number(view.armor)}</dd></div><div><dt>Base speed</dt><dd>${number(view.baseSpeed)} tiles/s</dd></div>${view.currentSpeed!==null?`<div><dt>${view.ended?'Recorded speed':'Current speed'}</dt><dd>${number(view.currentSpeed)} tiles/s</dd></div>`:''}</dl>
     <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}</p>
     <p class="enemy-inspection-live-note">${view.ended?'Effects and timers are frozen at run end.':'Speeds and effect durations use game time.'}</p>
-    ${view.physicalImmune||view.magicImmune?`<p class="enemy-inspection-immunities">${[view.physicalImmune?'Physical damage, slowing and freezing immunity':'',view.magicImmune?'Magical damage, poison, burning and healing-block immunity':''].filter(Boolean).join(' · ')} · Only Holy damage bypasses immunity; companion effects remain blocked</p>`:''}
+    ${view.physicalImmune||view.magicImmune?`<p class="enemy-inspection-immunities">${[view.physicalImmune?'Physical damage, slowing and freezing immunity':'',view.magicImmune?'Magical damage, poison, burning and healing-block immunity':''].filter(Boolean).join(' · ')} · ${view.immunityAuras?'Holy damage bypasses damage immunity; companion effects retain their ordinary immunity rules.':'Only Holy damage bypasses immunity; companion effects remain blocked'}</p>`:''}
+    ${view.immunityAuras?['physical','magical'].filter(type=>(type==='physical'?view.physicalImmune:view.magicImmune)&&view.immunityAuras[type].multiplier>0).map(type=>`<p class="enemy-inspection-live-note">${type==='physical'?'Physical':'Magical'} immunity aura: ${percent(view.immunityAuras[type].multiplier)} of normal damage passes immunity here. Sources: ${view.immunityAuras[type].sources.map(s=>escape(s.name)).join(', ')}. Armor, evasion, shields and shells still apply.</p>`).join(''):''}
     ${view.shieldCapacity>0?`<p class="enemy-inspection-live-note">Active shields: ${number(view.shields)} / ${number(view.shieldCapacity)}${view.shieldRechargeRemaining!==null?` · ${view.ended?'Shield recharge remaining at run end:':'Shields return in'} ${number(view.shieldRechargeRemaining)} game seconds`:''}</p>`:''}${view.rechargeRemaining!==null?`<p class="enemy-inspection-live-note">${view.ended?'Recharge remaining at run end:':'Next recharge:'} ${number(view.rechargeRemaining)} game seconds${view.effects.some(effect=>effect.name==='Healing blocked')?' · healing blocked':''}</p>`:''}
     <div class="section-label">${view.ended?'EFFECTS AT RUN END':'ACTIVE EFFECTS'}</div><ul class="enemy-inspection-effects">${effects||'<li><span>No active status effects</span></li>'}</ul>
     <div class="section-label">ABILITIES</div>${enemyTraitsMarkup(view.traitDetails)}
