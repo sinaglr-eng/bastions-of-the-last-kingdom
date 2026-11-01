@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-const folder='output/releases/v0.6.2/fr001/';
+const folder='tests/fixtures/faction-contracts/';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const registry=read('data/factions-v060.json'),before=structuredClone(registry);

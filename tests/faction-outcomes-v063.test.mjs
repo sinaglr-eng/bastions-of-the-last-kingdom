@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
+import fs from 'node:fs';import {artSourcePath} from '../tools/portrait-source-path.mjs';
 import {createHash} from 'node:crypto';
 import {FACTION_OUTCOME_ART_SCENES,createOutcomeArtSelector} from '../ui/outcome-art.js';
-const bytes=f=>fs.readFileSync(new URL('../'+f,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex');
+const bytes=f=>fs.readFileSync(new URL('../'+artSourcePath(f),import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex');
 test('each faction has at least five distinct victories and defeats; all 30 new originals and native-size deliveries retain exact provenance',()=>{
  const manifest=JSON.parse(bytes('public/assets/ui/results/v063/manifest.json'));assert.equal(manifest.assets.length,30);
  for(const [id,group]of Object.entries(FACTION_OUTCOME_ART_SCENES))for(const [outcome,scenes]of Object.entries(group)){assert.ok(scenes.length>=5);assert.equal(new Set(scenes.map(s=>s.path)).size,scenes.length);for(const s of scenes){assert.equal(s.factionId,id);assert.equal(s.outcome,outcome);assert.ok(s.alt.length>50);assert.ok(bytes('public/'+s.path).length>10000);}}

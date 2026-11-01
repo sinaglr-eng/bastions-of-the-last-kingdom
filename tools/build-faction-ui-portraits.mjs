@@ -1,18 +1,19 @@
 import fs from 'node:fs';
+import {portraitSourcePath} from './portrait-source-path.mjs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 // Asset packaging only: background removal is already present in the saved
 // built-in ImageGen results. Never segment, paint, recolor or redraw pixels here.
 const require=createRequire(import.meta.url),sharp=require(require.resolve('sharp',{paths:[process.argv[3]||process.cwd()]}));
-const gallery=path.resolve(process.argv[2]||''),folder='public/assets/ui/faction-reference-portraits-v061',evidence='output/releases/v0.6.1';
+const gallery=path.resolve(process.argv[2]||''),folder='public/assets/ui/faction-reference-portraits-v061',evidence='design/portrait-sources';
 const read=f=>JSON.parse(fs.readFileSync(f,'utf8')),sha=b=>createHash('sha256').update(b).digest('hex');
 const plan=read(evidence+'/portrait-source-plan.json'),ai=read(evidence+'/ai-backgrounds/manifest.json');
 if(sha(fs.readFileSync(path.join(gallery,'dist/visual-catalogue-v24.json')))!==plan.catalogueSha256)throw Error('Gallery revision changed');
 const results=new Map(ai.results.map(r=>[r.source,r])),rows=[];
 for(const r of plan.rows){
  const source=path.join(gallery,r.source),bytes=fs.readFileSync(source);if(sha(bytes)!==r.sourceSha256)throw Error('Source differs: '+r.key);
- const original=await sharp(bytes).metadata(),result=results.get(r.source),input=result?fs.readFileSync(result.file):bytes,meta=await sharp(input).metadata();
+ const original=await sharp(bytes).metadata(),result=results.get(r.source),input=result?fs.readFileSync(portraitSourcePath(result.file)):bytes,meta=await sharp(input).metadata();
  if(result&&sha(input)!==result.sha256)throw Error('AI result differs: '+r.key);
  let frame={left:0,top:0,width:meta.width,height:meta.height};
  if(r.galleryArt.frame&&(!result||result.layout==='atlas')){const f=r.galleryArt.frame,sx=meta.width/original.width,sy=meta.height/original.height;frame={left:Math.round(f.x*sx),top:Math.round(f.y*sy),width:Math.round(f.width*sx),height:Math.round(f.height*sy)};frame.width=Math.min(frame.width,meta.width-frame.left);frame.height=Math.min(frame.height,meta.height-frame.top);}

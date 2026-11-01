@@ -1,0 +1,1403 @@
+{
+  "status": "passed",
+  "retainedVersions": [
+    "0.6.6"
+  ],
+  "version": "0.6.6",
+  "skipped": [],
+  "originalSourceBytesPreserved": true,
+  "checkedAt": "2026-11-01T12:03:40.4678069Z",
+  "migrations": [
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\manifest.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\manifest.json",
+      "sha256": "ec76fb78f7dee10eee0671fa2372ab205658ea8838656b247e55bc4f3b38af1a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-031.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-031.png",
+      "sha256": "0fa19530154fe4b21b2d8977fed87b95ae6853210e5bad2f2d8fe3c2cec50b4f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-032.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-032.png",
+      "sha256": "136fb96f37a75622f97fc78ba866fbe0d7ae7028b856302680c4c7aef240b69a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-033.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-033.png",
+      "sha256": "01a3d4550f7274e31a5888549f00366016bc779a3e4a1e7be1439e457bd86149"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-034.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-034.png",
+      "sha256": "50db8fac39461145e8802d79bd6f3761a3e23c3517fc8cfb404571f682f10ed1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-035.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-035.png",
+      "sha256": "387912ed6b8dc95f023bbf7c6332684ffd166a213097bb32a200157877a15e13"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-036.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-036.png",
+      "sha256": "d16e26ee72a678ad6b5d83c18ba9096e0bfbaeae62f6d1af8bd004660fc3a48c"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-054.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-054.png",
+      "sha256": "32dc2652cd0ed76b670b3bd39dbe397b69d3fc437e7842dac0a223632aab9007"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-055.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-055.png",
+      "sha256": "1d71b13977c249b25c1572f507e13ea069298c35a2e160ab6518d530799ecb66"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-069.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-069.png",
+      "sha256": "8c9fd6cb039785fe8b570c2481740d271f9cd0960773d5a024a29389df4885e4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-073.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-073.png",
+      "sha256": "459495319b7f1bb2a18138f4fa3fec8388e22cfa0c2ef725ae9c06c1f5f809ed"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-074.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-074.png",
+      "sha256": "1c12e648d777c693b77065eb0c95927de32a1b2df386d0f6d449213d620c8941"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-075.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-075.png",
+      "sha256": "0fba2cc7ac24cb25c746d1ec5b4121c8f78febb173ec91040460365e0251cd23"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-076.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-076.png",
+      "sha256": "9a623f5016217993b09f8a8b3a2fd4dc1559f3d7fb5ca9fd4e6bbbf9c4b9ea92"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-077.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-077.png",
+      "sha256": "28ca3442f0d7e0b58385a2590d1f405e89c1cdc43a3cbd3dfce870a63a38fdd8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-078.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-078.png",
+      "sha256": "386776ef6e820e838e709e84537ab2ec71d67c66c3a99827edd4a560e2da5c7e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-079.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-079.png",
+      "sha256": "c78a717968e8f17597f6dfdda6c92c2d1395b1547869feb15660a9a776518c66"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-080.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-080.png",
+      "sha256": "675df7325534c50671e89cff1955f7c22f3ce0e79fc8a97c804bf1a2c74923c3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-081.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-081.png",
+      "sha256": "d1d08d5834b733322641cb41142e223c12b3ab44ea84d94034d2ef894079c74e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-082.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-082.png",
+      "sha256": "5482359cd7270e7cdcc6aca5ceada8fb5eb957118ba8d1410d1a6e559e67e177"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-083.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-083.png",
+      "sha256": "c9eec5c3cca0a88b5a13f50971ec54a49faec8fa5df0eb6e585a63c049de3933"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-084.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-084.png",
+      "sha256": "6c5e7b9c44419780d748039a0159b10636e001072e57b76344d751778f68c600"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-085.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-085.png",
+      "sha256": "53fe69626496c3fb9a87de857d24c417372187f3b8523fd1c24401ce2b089ba3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-086.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-086.png",
+      "sha256": "d9db1b0adeff107cae199bfe1fb236e33563a5f446b70a4b485e077199b20703"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-087.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-087.png",
+      "sha256": "1007cdb5c27f5768610fa1ffc843452398d1f9ee40834e1cbf3326d47e6bd4c8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-088.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-088.png",
+      "sha256": "31d952d697614b022123255e4544b893e36c7e8acc555979bdf2a38845d11621"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-089.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-089.png",
+      "sha256": "453058dba7c083681e980bc4d8e99a2d900949ba9a282370a7e79b426cdc9d70"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-090.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-090.png",
+      "sha256": "d8cb52a22e121d39a11baacf54fe537d19db57c10b69bad1fcddf19b7ef4a5f0"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-091.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-091.png",
+      "sha256": "8d8b20476f6d117355c07e52d4afdcc2f9f0945801c710a1e41371cfd5c8004f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-092.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-092.png",
+      "sha256": "d33904c7e4419524c72a2b2f1a9d29f2bc082bfa30bb8b35e112d6068a162d6f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-093.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-093.png",
+      "sha256": "77e2da0757120cc259102939af58c487cff4d96083f43696c9bdf78ffdbba987"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-094.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-094.png",
+      "sha256": "a76b13f44ae9e84bfe31ca71a50e09ca8d25e14cbebd33431564621cc925b1ca"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-095.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-095.png",
+      "sha256": "f162abe952711a26d13f33646d76f553a6f4741fe96aef14fd73a10889786b3a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-096.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-096.png",
+      "sha256": "a21d78f3f9ae83db6acd51c8d37c192912c00f2ad286f4bf7c7571f7ded27896"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-097.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-097.png",
+      "sha256": "2ce759c483301861610ae0f6802df3dc163849dd6711f64e64a69f991b66c320"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-101.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-101.png",
+      "sha256": "2dff595ef14d748cfc8438aa59aeb117abe9422d0389a02ee6749625eedbfe60"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-102.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-102.png",
+      "sha256": "c346c70207da129b5dd276de93a7587ff628625c5bbf7bbb2d428aac7e520dfa"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-103.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-103.png",
+      "sha256": "784212db40076a3ca68c870394bb48d0576ea33abb075ce58fd4e60c64e73eb4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-104.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-104.png",
+      "sha256": "89394f12d53134f2050b4e7b09ced8bc9d2014aed96df5854091fbd254f9f1d1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-105.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-105.png",
+      "sha256": "20731819e85d49f2a08bc045e53393f903094d252649d9a5c3e9b49ea4616ca1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-106.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-106.png",
+      "sha256": "fa65cbd02ec7943ea05903548be6bbe861f76745d6b986672961955c54ec0c37"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-107.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-107.png",
+      "sha256": "3a83ec8ee0de434fade43120e73a598426b19e8baa3a14d448089e9ba9ede55f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-108.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-108.png",
+      "sha256": "4d5266b1f5ca1aed61172367930cb4f6bed994d0a3aeec74ae7e43cb5536bec5"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-109.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-109.png",
+      "sha256": "86375d57ae11ccc9d77791cb25820bf0d8709aea94e8866a4cb80f8fba7042b8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-110.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-110.png",
+      "sha256": "18d1c4fd41c122bca8dc83bd9e8e9cc29adb996918008f1197c1d165acbaf862"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-111.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-111.png",
+      "sha256": "b98fa8f43c0bfb3449da09e5b44ba26f9cee004c01c1ffa282d401e019ed2231"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-112.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-112.png",
+      "sha256": "0a264a4c8209e3ca8ff06d5b4c54cbd2c46135bf31ff9d79b4c6f242b06387fe"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-113.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-113.png",
+      "sha256": "4647e18c711176fdce29b9cb6a95bced84974c252e10bd8d614b5aeabbea0165"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-114.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-114.png",
+      "sha256": "68a4c120f458dcb083f8495d25a2716c3b37429b20a3f8662adba7056eb30db4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-115.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-115.png",
+      "sha256": "b32072971f53843bc0d930b0e3838f7c28bfaec221c592d4914c83ab685202b1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-116.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-116.png",
+      "sha256": "0346aa272f39952239459f5134d5f7b32c1633d8d1f13dcfac7b0ab103688477"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-117.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-117.png",
+      "sha256": "ba50742380df28d745853bc972aae57f5759ed0a934130a630f2fe3edc89f8bb"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-118.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-118.png",
+      "sha256": "e2505a47a601f653f435528cc6af7269106acf5ace6fc185741885d43635d2d3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-119.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-119.png",
+      "sha256": "d2a1c660c30efbc25472d471f7a86207f9802db9325193baac1a365350a983ac"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-120.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-120.png",
+      "sha256": "ae475c3d607ec2affd1c44033bfe9db3b69796dc65d971234e8553e36a06df2e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-121.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-121.png",
+      "sha256": "97290e4a0fe34e1b033a37e0fd7b5191b9cbbb21c37e93f42132f5f4f3ed9eaf"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-122.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-122.png",
+      "sha256": "f44cddb566b8098d48242d37b1a7e9a79e33ddac4f8e2af950e2ddf2baf86a5d"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-123.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-123.png",
+      "sha256": "950e9ab8c64422fc524310948ce331a540425301b9ea56b79c8aa3c4e0df13ab"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-124.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-124.png",
+      "sha256": "cd347da1c78a18f86e788c0edf47d28628b0e0e5accddffcb5b5b987254f67d7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-125.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-125.png",
+      "sha256": "c60cc898be0830d1814794254e72e30ab7a282c88259b557a7b4c3b043bbe3df"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-126.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-126.png",
+      "sha256": "4532e45328e30d5e0a813a548691ef9dde0c05e52c45cace9f857f700e97c506"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-127.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-127.png",
+      "sha256": "ae815584b08a933aca2c880f4dc9e48d699866ec9bbec89baa5ca2f1f2cf0c99"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-128.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-128.png",
+      "sha256": "26ee3bbadd0c031aa25d1a412a4632a357315c780dec38cb482893856663d03d"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-129.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-129.png",
+      "sha256": "2b4e33b2f54e87cbc9f8832859729f6f1648772ace4cbe186d321fcaed51fddf"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-130.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-130.png",
+      "sha256": "08fa4147b21ace3ad7448ef976937dfabfb0692588c7f7d395eccd3d32196bf7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-131.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-131.png",
+      "sha256": "5a44469b5c6fcabd27769e0b832122358b830bb74e5badd07f9127250e367aa3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-132.png",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-132.png",
+      "sha256": "38af631b1a80c8143df65604ee0e91b3df9e98e4393fcab3f43e9926de4a5d40"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1\\portrait-source-plan.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\design\\portrait-sources\\portrait-source-plan.json",
+      "sha256": "f2bc454d7b5ad2d06a39f42bea8cf8172226fae9ce3a9a9f243095824aa716a1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\baseline-registry.json.gz",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\baseline-registry.json.gz",
+      "sha256": "94c641c8c7d44353e8bcb83995f2eaf5021e84fbd07b21f31c3bca190fd1cfd3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\implementation.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\implementation.json",
+      "sha256": "c8716ada0ce37fe3cedbf96bf07d6e6b58de2a87a724e62e59c2df0a3a54b355"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\dwarf.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\dwarf.json",
+      "sha256": "ce6f353037d838918eb42b24043af4f3e510942779c5e9c5d71a6ff5093f8eef"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-derived.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-derived.json",
+      "sha256": "185bf8605fdacb6baebe75cbbe8da6a5f0dda0ced329b3f1ce38ffc49ba493d7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-early.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-early.json",
+      "sha256": "595409866a6df28206d8c7545d7b15c2a903f0728bd15666de7b7eecf624a96e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-late.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-late.json",
+      "sha256": "81d13f3156fa0459eb05e5582da9a59186b6e313f6d4b1d164d8c6a5e6c3f9be"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\forge-recipes.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\forge-recipes.json",
+      "sha256": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\grove-recipes.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\grove-recipes.json",
+      "sha256": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\authority\\output\\design\\faction-balance-fr001-20261030\\approval.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\authority\\output\\design\\faction-balance-fr001-20261030\\approval.json",
+      "sha256": "ea90034687d8988d43712433b46486f57383b5a165dbd259768b3be52654817e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\authority\\output\\design\\faction-recipes-approved-20261030\\approval.json",
+      "destination": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\fixtures\\faction-contracts\\authority\\output\\design\\faction-recipes-approved-20261030\\approval.json",
+      "sha256": "bc0fee8c4b011542d4db3240fdc4585aa43961033eac3bf030aefd5ca6791c81"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\manifest.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\manifest.json",
+      "sha256": "ec76fb78f7dee10eee0671fa2372ab205658ea8838656b247e55bc4f3b38af1a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-031.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-031.png",
+      "sha256": "0fa19530154fe4b21b2d8977fed87b95ae6853210e5bad2f2d8fe3c2cec50b4f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-032.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-032.png",
+      "sha256": "136fb96f37a75622f97fc78ba866fbe0d7ae7028b856302680c4c7aef240b69a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-033.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-033.png",
+      "sha256": "01a3d4550f7274e31a5888549f00366016bc779a3e4a1e7be1439e457bd86149"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-034.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-034.png",
+      "sha256": "50db8fac39461145e8802d79bd6f3761a3e23c3517fc8cfb404571f682f10ed1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-035.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-035.png",
+      "sha256": "387912ed6b8dc95f023bbf7c6332684ffd166a213097bb32a200157877a15e13"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-036.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-036.png",
+      "sha256": "d16e26ee72a678ad6b5d83c18ba9096e0bfbaeae62f6d1af8bd004660fc3a48c"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-054.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-054.png",
+      "sha256": "32dc2652cd0ed76b670b3bd39dbe397b69d3fc437e7842dac0a223632aab9007"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-055.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-055.png",
+      "sha256": "1d71b13977c249b25c1572f507e13ea069298c35a2e160ab6518d530799ecb66"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-069.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-069.png",
+      "sha256": "8c9fd6cb039785fe8b570c2481740d271f9cd0960773d5a024a29389df4885e4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-073.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-073.png",
+      "sha256": "459495319b7f1bb2a18138f4fa3fec8388e22cfa0c2ef725ae9c06c1f5f809ed"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-074.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-074.png",
+      "sha256": "1c12e648d777c693b77065eb0c95927de32a1b2df386d0f6d449213d620c8941"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-075.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-075.png",
+      "sha256": "0fba2cc7ac24cb25c746d1ec5b4121c8f78febb173ec91040460365e0251cd23"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-076.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-076.png",
+      "sha256": "9a623f5016217993b09f8a8b3a2fd4dc1559f3d7fb5ca9fd4e6bbbf9c4b9ea92"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-077.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-077.png",
+      "sha256": "28ca3442f0d7e0b58385a2590d1f405e89c1cdc43a3cbd3dfce870a63a38fdd8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-078.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-078.png",
+      "sha256": "386776ef6e820e838e709e84537ab2ec71d67c66c3a99827edd4a560e2da5c7e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-079.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-079.png",
+      "sha256": "c78a717968e8f17597f6dfdda6c92c2d1395b1547869feb15660a9a776518c66"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-080.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-080.png",
+      "sha256": "675df7325534c50671e89cff1955f7c22f3ce0e79fc8a97c804bf1a2c74923c3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-081.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-081.png",
+      "sha256": "d1d08d5834b733322641cb41142e223c12b3ab44ea84d94034d2ef894079c74e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-082.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-082.png",
+      "sha256": "5482359cd7270e7cdcc6aca5ceada8fb5eb957118ba8d1410d1a6e559e67e177"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-083.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-083.png",
+      "sha256": "c9eec5c3cca0a88b5a13f50971ec54a49faec8fa5df0eb6e585a63c049de3933"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-084.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-084.png",
+      "sha256": "6c5e7b9c44419780d748039a0159b10636e001072e57b76344d751778f68c600"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-085.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-085.png",
+      "sha256": "53fe69626496c3fb9a87de857d24c417372187f3b8523fd1c24401ce2b089ba3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-086.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-086.png",
+      "sha256": "d9db1b0adeff107cae199bfe1fb236e33563a5f446b70a4b485e077199b20703"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-087.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-087.png",
+      "sha256": "1007cdb5c27f5768610fa1ffc843452398d1f9ee40834e1cbf3326d47e6bd4c8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-088.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-088.png",
+      "sha256": "31d952d697614b022123255e4544b893e36c7e8acc555979bdf2a38845d11621"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-089.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-089.png",
+      "sha256": "453058dba7c083681e980bc4d8e99a2d900949ba9a282370a7e79b426cdc9d70"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-090.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-090.png",
+      "sha256": "d8cb52a22e121d39a11baacf54fe537d19db57c10b69bad1fcddf19b7ef4a5f0"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-091.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-091.png",
+      "sha256": "8d8b20476f6d117355c07e52d4afdcc2f9f0945801c710a1e41371cfd5c8004f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-092.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-092.png",
+      "sha256": "d33904c7e4419524c72a2b2f1a9d29f2bc082bfa30bb8b35e112d6068a162d6f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-093.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-093.png",
+      "sha256": "77e2da0757120cc259102939af58c487cff4d96083f43696c9bdf78ffdbba987"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-094.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-094.png",
+      "sha256": "a76b13f44ae9e84bfe31ca71a50e09ca8d25e14cbebd33431564621cc925b1ca"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-095.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-095.png",
+      "sha256": "f162abe952711a26d13f33646d76f553a6f4741fe96aef14fd73a10889786b3a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-096.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-096.png",
+      "sha256": "a21d78f3f9ae83db6acd51c8d37c192912c00f2ad286f4bf7c7571f7ded27896"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-097.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-097.png",
+      "sha256": "2ce759c483301861610ae0f6802df3dc163849dd6711f64e64a69f991b66c320"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-101.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-101.png",
+      "sha256": "2dff595ef14d748cfc8438aa59aeb117abe9422d0389a02ee6749625eedbfe60"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-102.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-102.png",
+      "sha256": "c346c70207da129b5dd276de93a7587ff628625c5bbf7bbb2d428aac7e520dfa"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-103.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-103.png",
+      "sha256": "784212db40076a3ca68c870394bb48d0576ea33abb075ce58fd4e60c64e73eb4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-104.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-104.png",
+      "sha256": "89394f12d53134f2050b4e7b09ced8bc9d2014aed96df5854091fbd254f9f1d1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-105.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-105.png",
+      "sha256": "20731819e85d49f2a08bc045e53393f903094d252649d9a5c3e9b49ea4616ca1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-106.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-106.png",
+      "sha256": "fa65cbd02ec7943ea05903548be6bbe861f76745d6b986672961955c54ec0c37"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-107.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-107.png",
+      "sha256": "3a83ec8ee0de434fade43120e73a598426b19e8baa3a14d448089e9ba9ede55f"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-108.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-108.png",
+      "sha256": "4d5266b1f5ca1aed61172367930cb4f6bed994d0a3aeec74ae7e43cb5536bec5"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-109.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-109.png",
+      "sha256": "86375d57ae11ccc9d77791cb25820bf0d8709aea94e8866a4cb80f8fba7042b8"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-110.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-110.png",
+      "sha256": "18d1c4fd41c122bca8dc83bd9e8e9cc29adb996918008f1197c1d165acbaf862"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-111.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-111.png",
+      "sha256": "b98fa8f43c0bfb3449da09e5b44ba26f9cee004c01c1ffa282d401e019ed2231"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-112.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-112.png",
+      "sha256": "0a264a4c8209e3ca8ff06d5b4c54cbd2c46135bf31ff9d79b4c6f242b06387fe"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-113.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-113.png",
+      "sha256": "4647e18c711176fdce29b9cb6a95bced84974c252e10bd8d614b5aeabbea0165"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-114.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-114.png",
+      "sha256": "68a4c120f458dcb083f8495d25a2716c3b37429b20a3f8662adba7056eb30db4"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-115.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-115.png",
+      "sha256": "b32072971f53843bc0d930b0e3838f7c28bfaec221c592d4914c83ab685202b1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-116.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-116.png",
+      "sha256": "0346aa272f39952239459f5134d5f7b32c1633d8d1f13dcfac7b0ab103688477"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-117.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-117.png",
+      "sha256": "ba50742380df28d745853bc972aae57f5759ed0a934130a630f2fe3edc89f8bb"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-118.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-118.png",
+      "sha256": "e2505a47a601f653f435528cc6af7269106acf5ace6fc185741885d43635d2d3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-119.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-119.png",
+      "sha256": "d2a1c660c30efbc25472d471f7a86207f9802db9325193baac1a365350a983ac"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-120.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-120.png",
+      "sha256": "ae475c3d607ec2affd1c44033bfe9db3b69796dc65d971234e8553e36a06df2e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-121.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-121.png",
+      "sha256": "97290e4a0fe34e1b033a37e0fd7b5191b9cbbb21c37e93f42132f5f4f3ed9eaf"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-122.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-122.png",
+      "sha256": "f44cddb566b8098d48242d37b1a7e9a79e33ddac4f8e2af950e2ddf2baf86a5d"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-123.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-123.png",
+      "sha256": "950e9ab8c64422fc524310948ce331a540425301b9ea56b79c8aa3c4e0df13ab"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-124.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-124.png",
+      "sha256": "cd347da1c78a18f86e788c0edf47d28628b0e0e5accddffcb5b5b987254f67d7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-125.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-125.png",
+      "sha256": "c60cc898be0830d1814794254e72e30ab7a282c88259b557a7b4c3b043bbe3df"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-126.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-126.png",
+      "sha256": "4532e45328e30d5e0a813a548691ef9dde0c05e52c45cace9f857f700e97c506"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-127.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-127.png",
+      "sha256": "ae815584b08a933aca2c880f4dc9e48d699866ec9bbec89baa5ca2f1f2cf0c99"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-128.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-128.png",
+      "sha256": "26ee3bbadd0c031aa25d1a412a4632a357315c780dec38cb482893856663d03d"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-129.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-129.png",
+      "sha256": "2b4e33b2f54e87cbc9f8832859729f6f1648772ace4cbe186d321fcaed51fddf"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-130.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-130.png",
+      "sha256": "08fa4147b21ace3ad7448ef976937dfabfb0692588c7f7d395eccd3d32196bf7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-131.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-131.png",
+      "sha256": "5a44469b5c6fcabd27769e0b832122358b830bb74e5badd07f9127250e367aa3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\ai-backgrounds\\source-132.png",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\ai-backgrounds\\source-132.png",
+      "sha256": "38af631b1a80c8143df65604ee0e91b3df9e98e4393fcab3f43e9926de4a5d40"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1\\portrait-source-plan.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\design\\portrait-sources\\portrait-source-plan.json",
+      "sha256": "f2bc454d7b5ad2d06a39f42bea8cf8172226fae9ce3a9a9f243095824aa716a1"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\baseline-registry.json.gz",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\baseline-registry.json.gz",
+      "sha256": "94c641c8c7d44353e8bcb83995f2eaf5021e84fbd07b21f31c3bca190fd1cfd3"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\implementation.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\implementation.json",
+      "sha256": "c8716ada0ce37fe3cedbf96bf07d6e6b58de2a87a724e62e59c2df0a3a54b355"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\dwarf.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\dwarf.json",
+      "sha256": "ce6f353037d838918eb42b24043af4f3e510942779c5e9c5d71a6ff5093f8eef"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-derived.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-derived.json",
+      "sha256": "185bf8605fdacb6baebe75cbbe8da6a5f0dda0ced329b3f1ce38ffc49ba493d7"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-early.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-early.json",
+      "sha256": "595409866a6df28206d8c7545d7b15c2a903f0728bd15666de7b7eecf624a96e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\elf-late.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\elf-late.json",
+      "sha256": "81d13f3156fa0459eb05e5582da9a59186b6e313f6d4b1d164d8c6a5e6c3f9be"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\forge-recipes.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\forge-recipes.json",
+      "sha256": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\inputs\\grove-recipes.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\inputs\\grove-recipes.json",
+      "sha256": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\authority\\output\\design\\faction-balance-fr001-20261030\\approval.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\authority\\output\\design\\faction-balance-fr001-20261030\\approval.json",
+      "sha256": "ea90034687d8988d43712433b46486f57383b5a165dbd259768b3be52654817e"
+    },
+    {
+      "source": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2\\fr001\\authority\\output\\design\\faction-recipes-approved-20261030\\approval.json",
+      "destination": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tests\\fixtures\\faction-contracts\\authority\\output\\design\\faction-recipes-approved-20261030\\approval.json",
+      "sha256": "bc0fee8c4b011542d4db3240fdc4585aa43961033eac3bf030aefd5ca6791c81"
+    }
+  ],
+  "removed": [
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.5.0",
+      "kind": "previous-release",
+      "version": "0.5.0"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.5.1",
+      "kind": "previous-release",
+      "version": "0.5.1"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.5.2",
+      "kind": "previous-release",
+      "version": "0.5.2"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.0",
+      "kind": "previous-release",
+      "version": "0.6.0"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.1",
+      "kind": "previous-release",
+      "version": "0.6.1"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.2",
+      "kind": "previous-release",
+      "version": "0.6.2"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.3",
+      "kind": "previous-release",
+      "version": "0.6.3"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.4",
+      "kind": "previous-release",
+      "version": "0.6.4"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\output\\releases\\v0.6.5",
+      "kind": "previous-release",
+      "version": "0.6.5"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\RELEASE_0.5.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\RELEASE_0_6_2.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\RELEASE_0_6_3.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\RELEASE_0_6_4.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\RELEASE_0_6_5.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\FORGED_ALLIANCES_V051.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\docs\\FORGED_ALLIANCES_V052.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\main-before-v8",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.6"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\main-before-v9",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.7"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\published-commit-fe81843a77ca477f967628fd0c309f7e",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.8"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\statistics-package-CasT67",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\statistics-package-UZzVN4",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v040-main-mirror-backup-1792152000929",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.31"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v050",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v051",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v052",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v060",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v061",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v062",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v063",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v064",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v065",
+      "kind": "obsolete-temporary-copy",
+      "version": "release-helper"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v10-publication-snapshot",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.9"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v15-statistics-service",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.14"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-service",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.31"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v7-main-before",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.5"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v15-statistics-site.tar.gz",
+      "kind": "obsolete-statistics-package"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-site.tar.gz",
+      "kind": "obsolete-statistics-package"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.5.0",
+      "kind": "previous-release",
+      "version": "0.5.0"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.5.1",
+      "kind": "previous-release",
+      "version": "0.5.1"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.5.2",
+      "kind": "previous-release",
+      "version": "0.5.2"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.0",
+      "kind": "previous-release",
+      "version": "0.6.0"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.1",
+      "kind": "previous-release",
+      "version": "0.6.1"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.2",
+      "kind": "previous-release",
+      "version": "0.6.2"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.3",
+      "kind": "previous-release",
+      "version": "0.6.3"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.4",
+      "kind": "previous-release",
+      "version": "0.6.4"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\releases\\v0.6.5",
+      "kind": "previous-release",
+      "version": "0.6.5"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\backups\\releases",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\backups\\releases\\v0.5.2",
+      "kind": "previous-release",
+      "version": "0.5.2"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\RELEASE_0.5.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\RELEASE_0_6_2.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\RELEASE_0_6_3.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\RELEASE_0_6_4.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\RELEASE_0_6_5.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\FORGED_ALLIANCES_V051.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\docs\\FORGED_ALLIANCES_V052.md",
+      "kind": "obsolete-release-document"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\audit-implementation-20261013-before-1791903841166",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.27"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\battlefield-interface-v24-source-before-20261009053704716",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.22"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\battlefield-interface-v25-source-before-20261009153933451",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.23"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\battlefield-interface-v26-source-before-20261009183914454",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.24"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\battlefield-overviews-v23-source-before-20261008051437267",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.21"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\classification-scale-v20-source-before-20261007115937766",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.18"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\combat-audio-refinements-v28-before-1791738106150",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.26"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\combat-music-console-v27-before-20261011152452857",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.25"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\defender-display-v22-source-before-20261007141731822",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.20"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\final-selection-voices-v21-source-before-20261007122731617",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.19"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\phase-ui-d006-before-1791909962701",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.28"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v040-main-before-1792148557952",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.31"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v30-before-1791918729762",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.29"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v30-mirror-1791921440806",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.29"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v31-before-1791960288094",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.30"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v31-mirror-1791962924351",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.30"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v10-safe-mirror-20261004123646250",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.8"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v11-safe-mirror-20261004135635491",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.9"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v12-safe-mirror-20261004162042361",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.10"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v13-safe-mirror-20261005072346763",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.11"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v14-safe-mirror-20261005092506375",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.12"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v15-safe-mirror-20261005125154839",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.13"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v16-safe-mirror-20261005150200736",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.14"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v17-safe-mirror-20261005175508629",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.15"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v18-safe-mirror-20261005193709506",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.16"
+    },
+    {
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v19-safe-mirror-20261007112056448",
+      "kind": "obsolete-temporary-copy",
+      "version": "0.3.17"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\audit-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\d006-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v040-main-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v041-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v042-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v043-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v044-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v045-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v046-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v047-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v048-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v049-document-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v10-mirror-preflight-patches"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v20-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v21-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v22-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v23-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v24-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v26-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v27-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v28-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v30-completion-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v30-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v31-completion-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v31-merge"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\defender-display-v22-dist-before-20261007142928191"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\defender-display-v22-review-before-1791383367856"
+    },
+    {
+      "kind": "obsolete-source-assembly-copy",
+      "parent": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp",
+      "path": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\v10-safe-mirror-20261004123415358"
+    }
+  ]
+}

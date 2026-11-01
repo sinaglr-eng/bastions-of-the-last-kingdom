@@ -7,7 +7,7 @@ import {createFactionData} from '../game/core/factions.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {Game} from '../game/core/game.js';
 const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
-const root='output/releases/v0.6.2/fr001/',current=read('data/factions-v060.json');
+const root='tests/fixtures/faction-contracts/',current=read('data/factions-v060.json');
 const baseline=JSON.parse(gunzipSync(fs.readFileSync(new URL('../'+root+'baseline-registry.json.gz',import.meta.url))));
 const ledger=read(root+'implementation.json');
 test('FR-001 implements exactly 492 approved numeric values and 18 recipe deltas, preserving all unrelated current data',()=>{

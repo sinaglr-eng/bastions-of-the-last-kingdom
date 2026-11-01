@@ -1,0 +1,163 @@
+{
+  "status": "planned",
+  "currentVersion": "0.6.6",
+  "retained": {
+    "sha": "4eba4ac8ec3d37ee9ccffebb7b8a05fb990dce1f",
+    "ref": "refs/tags/v0.6.6",
+    "name": "v0.6.6"
+  },
+  "remove": [
+    {
+      "sha": "6113eb6a4693446eaa72419bda1c7588832c8117",
+      "ref": "refs/tags/v0.2.0",
+      "name": "v0.2.0"
+    },
+    {
+      "sha": "7ac944586a9e71b6343560f3d6ee35bd61e041d6",
+      "ref": "refs/tags/v0.2.1",
+      "name": "v0.2.1"
+    },
+    {
+      "sha": "e995a7d3c2e7aaaac66545172ff7f0079369b609",
+      "ref": "refs/tags/v0.2.2",
+      "name": "v0.2.2"
+    },
+    {
+      "sha": "f1de46b78127aea9bd686845dbbe0645e8f24d26",
+      "ref": "refs/tags/v0.2.3",
+      "name": "v0.2.3"
+    },
+    {
+      "sha": "36472c52f27894d713f4fa30bef1d17f47483866",
+      "ref": "refs/tags/v0.2.4",
+      "name": "v0.2.4"
+    },
+    {
+      "sha": "5ec577810380f92b764b54b1d629c10ef1a6c354",
+      "ref": "refs/tags/v0.2.5",
+      "name": "v0.2.5"
+    },
+    {
+      "sha": "9c0dad6a2d3c2a98fc79b8c042aa1da76e94226e",
+      "ref": "refs/tags/v0.3.31-stable",
+      "name": "v0.3.31-stable"
+    },
+    {
+      "sha": "719ce1a5e0391cff3649fcb730c07b18817f2690",
+      "ref": "refs/tags/v0.4.0",
+      "name": "v0.4.0"
+    },
+    {
+      "sha": "fde919a31154b8afcfb6b1414499103bcaa0ead6",
+      "ref": "refs/tags/v0.4.0-final",
+      "name": "v0.4.0-final"
+    },
+    {
+      "sha": "f080081589e9df6913f54b3fea583bdc0a790b72",
+      "ref": "refs/tags/v0.4.0-stable",
+      "name": "v0.4.0-stable"
+    },
+    {
+      "sha": "eebfa44aa8f6ef364e044011cd44bf7df8e7fb7f",
+      "ref": "refs/tags/v0.4.1",
+      "name": "v0.4.1"
+    },
+    {
+      "sha": "2623eba22f7b7fa33933831286d77679bd564458",
+      "ref": "refs/tags/v0.4.2",
+      "name": "v0.4.2"
+    },
+    {
+      "sha": "d750008b6e0271f2104dd65b8fb8a7579f06ee7a",
+      "ref": "refs/tags/v0.4.3",
+      "name": "v0.4.3"
+    },
+    {
+      "sha": "7fb68a55fa89d29a06dd9ce68353562ad6a02b6a",
+      "ref": "refs/tags/v0.4.4",
+      "name": "v0.4.4"
+    },
+    {
+      "sha": "33b6c08a411ef9081382e64124b3ccddb0268a10",
+      "ref": "refs/tags/v0.4.5",
+      "name": "v0.4.5"
+    },
+    {
+      "sha": "e91cb42ecab7baafdf6b077d1dfd56188819553f",
+      "ref": "refs/tags/v0.4.6",
+      "name": "v0.4.6"
+    },
+    {
+      "sha": "320620a94301ca47157c58004065c6043a6c6133",
+      "ref": "refs/tags/v0.4.7",
+      "name": "v0.4.7"
+    },
+    {
+      "sha": "13e4eb9b1c441f7bd1a2283738f6c601befff506",
+      "ref": "refs/tags/v0.4.8",
+      "name": "v0.4.8"
+    },
+    {
+      "sha": "beb6d29fa934bc46bb9ed5932c94439d997f7229",
+      "ref": "refs/tags/v0.4.9",
+      "name": "v0.4.9"
+    },
+    {
+      "sha": "601de936304f824a7af8ea076eef257fbac5ceaf",
+      "ref": "refs/tags/v0.5.0",
+      "name": "v0.5.0"
+    },
+    {
+      "sha": "64f3a73f8bfef3f8c594a56bc743153143740f4f",
+      "ref": "refs/tags/v0.5.0-stable",
+      "name": "v0.5.0-stable"
+    },
+    {
+      "sha": "1fed751f8f8025891bc22270f535810071cc9dfd",
+      "ref": "refs/tags/v0.5.1",
+      "name": "v0.5.1"
+    },
+    {
+      "sha": "f881deb57c4636feaaf85ad54992b440a25db7f0",
+      "ref": "refs/tags/v0.5.2",
+      "name": "v0.5.2"
+    },
+    {
+      "sha": "46e556e3517df38904d4b3248e6c30969ff1fbe0",
+      "ref": "refs/tags/v0.6.0",
+      "name": "v0.6.0"
+    },
+    {
+      "sha": "43747354c6ff629a0e206ff87d3626cf8c6dceb4",
+      "ref": "refs/tags/v0.6.1",
+      "name": "v0.6.1"
+    },
+    {
+      "sha": "6aab6209779a054bfffaa1eb3d174ef78e83fa59",
+      "ref": "refs/tags/v0.6.2",
+      "name": "v0.6.2"
+    },
+    {
+      "sha": "3e7873787101272ec0d427e8e1b22439083d0683",
+      "ref": "refs/tags/v0.6.3",
+      "name": "v0.6.3"
+    },
+    {
+      "sha": "76af98bf13b4b56b1f838f610e946cb7aad0a57b",
+      "ref": "refs/tags/v0.6.4",
+      "name": "v0.6.4"
+    },
+    {
+      "sha": "57800ce7ce7a425a6dd4efb752bc236fbe976e46",
+      "ref": "refs/tags/v0.6.5",
+      "name": "v0.6.5"
+    }
+  ],
+  "backupBranches": [
+    {
+      "sha": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+      "ref": "refs/heads/codex/backup-v0.3.31"
+    }
+  ],
+  "ordinaryHistoryRewrite": false
+}

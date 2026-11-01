@@ -8,7 +8,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const defaultBase='https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/';
-const defaultOutput=path.join(root,'output/releases/v0.5.1/public-verification.json');
+const defaultOutput=path.join(root,'output/releases/v0.6.6/validation/0-5-1/public-verification.json');
 const manifestPath='assets/ui/reference-cutouts/manifest.json';
 const crimsonManifestPath='assets/ui/portrait-variants/manifest.json';
 const frontManifestPath='assets/ui/reference-enemy-fronts/manifest.json';
@@ -568,7 +568,7 @@ export async function verifyBrandingPublic({base=defaultBase,manifest,fetchImpl=
 async function main(){
   const args=process.argv.slice(2);
   if(args.length===1&&args[0]==='--help'){
-    console.log('Usage: node tools/verify-v051-public.mjs [--base=https://host/project/] [--dist=dist] [--output=path.json] [--concurrency=6] [--timeout-ms=30000]\nRead-only HTTPS GETs with redirects rejected; no deployment or credentials. Compares strict HTML and exact compiled bytes with the final local production build. Checks all 136 immutable cutouts, legacy crimson PNG, all 50 FRONT cutouts, legacy defeat art and both immutable 0.4.4 outcome scenes and four 0.4.5 variants, and all ten approved 0.4.9 defeat scenes with exact original candidate prompts, reference hashes, human approval metadata and raw PNG hashes. Compiled markers require all thirteen defeat identities, the three preserved victories and the maze-first tutorial step and action. Also compares all three active geometric manifests, approved motion provenance and all 54 approved enemy V6 GLBs with sequential streaming SHA-256. JSON formatting line endings may differ; complete metadata, ordered input reference hashes and generation prompt values must match exactly. The default report is output/releases/v0.5.1/public-verification.json.');return;
+    console.log('Usage: node tools/verify-v051-public.mjs [--base=https://host/project/] [--dist=dist] [--output=path.json] [--concurrency=6] [--timeout-ms=30000]\nRead-only HTTPS GETs with redirects rejected; no deployment or credentials. Compares strict HTML and exact compiled bytes with the final local production build. Checks all 136 immutable cutouts, legacy crimson PNG, all 50 FRONT cutouts, legacy defeat art and both immutable 0.4.4 outcome scenes and four 0.4.5 variants, and all ten approved 0.4.9 defeat scenes with exact original candidate prompts, reference hashes, human approval metadata and raw PNG hashes. Compiled markers require all thirteen defeat identities, the three preserved victories and the maze-first tutorial step and action. Also compares all three active geometric manifests, approved motion provenance and all 54 approved enemy V6 GLBs with sequential streaming SHA-256. JSON formatting line endings may differ; complete metadata, ordered input reference hashes and generation prompt values must match exactly. The default report is output/releases/v0.6.6/validation/0-5-1/public-verification.json.');return;
   }
   invariant(args.every(arg=>/^--(?:base|dist|output|concurrency|timeout-ms)=.+$/.test(arg)),'Unknown argument; use --help');
   const options=Object.fromEntries(args.map(arg=>{const at=arg.indexOf('=');return [arg.slice(2,at),arg.slice(at+1)];}));

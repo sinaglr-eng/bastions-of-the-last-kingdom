@@ -1,6 +1,6 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {artSourcePath} from '../tools/portrait-source-path.mjs';import {createHash} from 'node:crypto';
 import {FACTION_OUTCOME_ART_SCENES,FACTION_OUTCOME_ART_REVISION,createOutcomeArtSelector} from '../ui/outcome-art.js';
-const bytes=f=>fs.readFileSync(new URL('../'+f,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),manifest=JSON.parse(bytes('public/assets/ui/results/v064/manifest.json'));
+const bytes=f=>fs.readFileSync(new URL('../'+artSourcePath(f),import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),manifest=JSON.parse(bytes('public/assets/ui/results/v064/manifest.json'));
 function webpDimensions(b){assert.equal(b.toString('ascii',0,4),'RIFF');assert.equal(b.toString('ascii',8,12),'WEBP');for(let p=12;p+8<=b.length;){const tag=b.toString('ascii',p,p+4),n=b.readUInt32LE(p+4),d=p+8;if(tag==='VP8X')return [b.readUIntLE(d+4,3)+1,b.readUIntLE(d+7,3)+1];if(tag==='VP8 ')return [b.readUInt16LE(d+6)&16383,b.readUInt16LE(d+8)&16383];if(tag==='VP8L'){const v=b.readUInt32LE(d+1);return [(v&16383)+1,((v>>>14)&16383)+1];}p=d+n+(n%2);}throw Error('Missing image chunk');}
 test('current result screens use only the new complete faction sets, with exact original, reference and native-size delivery provenance',()=>{
  assert.equal(FACTION_OUTCOME_ART_REVISION,'faction-outcomes-20261031-v5');assert.equal(manifest.assets.length,30);const delivered=new Map(manifest.assets.map(a=>[a.id,a]));

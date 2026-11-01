@@ -1,16 +1,16 @@
-# Forged Alliances TD — 0.6.1
+# Forged Alliances TD — 0.6.6
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**0.6.1 is the current version.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**0.6.6 is the only retained game release.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
 Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
 
-The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/FORGED_ALLIANCES_V052.md).
+The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/RELEASE_0_6_6.md).
 
 The tutorial now introduces **Choose your maze shape** as its second step, before placing recruits. Open the ordinary Maze plans picker and choose a plan to continue. A previously saved plan can be selected again; simply opening or closing the picker does not complete the step. Each new run still offers Start tutorial or Skip tutorial.
 
-The faction chooser now shows large battle illustrations and clear faction specialties. All 258 defender portraits use gallery reference artwork with transparent backgrounds, including recipe and map badges. Dwarf battlefield figures have a larger presentation scale. Combat rules and V3 model/animation bytes remain unchanged. [Presentation update](docs/FACTION_PRESENTATION_V061.md).
+The faction chooser now shows large battle illustrations and clear faction specialties. All 258 defender portraits use gallery reference artwork with transparent backgrounds, including recipe and map badges. Dwarf battlefield figures have a larger presentation scale. Combat rules and V3 model/animation bytes remain unchanged. [Presentation update](design/portrait-sources/README.md).
 
 ## Run locally
 
@@ -39,10 +39,10 @@ Open http://127.0.0.1:4174/. On Windows, `START_GAME.cmd` serves the current pro
 
 The maze is a construction guide; selecting it does not build walls or spend resources. Keep the route through all five checkpoints open. Exact champion ingredients, rank previews, pinned plans and custom maze editing remain available.
 
-## Archive and development
+## Current release and development
 
-The verified previous 0.5.2 source and production rollback pair is retained locally in `backups/releases/v0.5.2/`. Older offline rollback pairs can be retired after the 0.6 deployment is verified. Historical design evidence and the local-only canonical gallery are preserved. Current production packaging excludes retired review deliveries and uses lossless gzip model transport; decoded bytes match the approved originals. The older public atelier entry returns to the current game.
+Only release 0.6.6 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
-The older offline 0.5.0 pair is retired after verifying this release. Its immutable `v0.5.0-stable` Git reference and historical verification records remain available. [Historical archive evidence](docs/RELEASE_0.5.md).
+FR-003 revision 2 supplies continuous immunity auras and the approved champion statistics. [Current changes and verification](docs/RELEASE_0_6_6.md). The single English design gallery remains local only.
 
-Current approved original models, images, audio, prompts, reference galleries and editable V3 Blender sources remain intact. Older asset namespace names identify preserved historical evidence or approved enemy/scenery revisions still used by the current game. Current faction-gallery work is separate. The game uses a separate statistics service; scores, player saves and service data are retained. See [backend setup](docs/STATISTICS_BACKEND.md) and the [change history](CHANGELOG.md).
+Current models, artwork, animations, audio and exact original prompts/review records remain intact. Required regression data and image provenance are source dependencies, not playable older releases. Statistics and saved player results are preserved. [Backend setup](docs/STATISTICS_BACKEND.md).

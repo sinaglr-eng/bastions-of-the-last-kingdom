@@ -13,7 +13,7 @@ import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../.
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const outputTag=process.argv.find(x=>x.startsWith('--tag='))?.split('=')[1]||'training';
 if(!/^[a-z0-9-]+$/.test(outputTag))throw Error('Invalid evidence tag');
-const out=resolve(root,'output/releases/v0.6.5/fr002/campaign',outputTag);
+const out=resolve(root,'output/releases/v0.6.6/validation/0-6-5/fr002/campaign',outputTag);
 mkdirSync(out,{recursive:true});
 const read=f=>JSON.parse(readFileSync(resolve(root,f),'utf8'));
 const hash=f=>createHash('sha256').update(readFileSync(resolve(root,f))).digest('hex');

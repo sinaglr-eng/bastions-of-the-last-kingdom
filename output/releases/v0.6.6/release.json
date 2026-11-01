@@ -7,7 +7,7 @@
   "rulesetRevision": "fr003-r2-20261101",
   "runtimeCommit": "c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9",
   "releaseTag": "v0.6.6",
-  "previousBackupTag": "v0.6.5",
+  "previousBackupTag": null,
   "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
   "changedProfiles": 37,
   "continuousAuraOwners": 21,
@@ -40,5 +40,10 @@
   "gallery": "Single current English local-only gallery, no comparison copies or archived gallery versions; status synchronized separately.",
   "browserQa": "Explicitly waived by the user; no new browser or physical iPad Safari verification claimed",
   "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41300070117",
-  "recordedAt": "2026-11-01T11:11:47.285Z"
+  "recordedAt": "2026-11-01T11:11:47.285Z",
+  "retainedVersions": [
+    "0.6.6"
+  ],
+  "retentionPolicy": "Current release only; previous game releases, tags and backup packages removed.",
+  "retentionReceipt": "output/releases/v0.6.6/retention/result.json"
 }
