@@ -5,7 +5,7 @@
   "revision": 2,
   "approvalId": "fr003-revision2-user-approval-20261101",
   "rulesetRevision": "fr003-r2-20261101",
-  "runtimeCommit": "c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9",
+  "runtimeCommit": "8c54030af9812a792127587879a412af5250d042",
   "releaseTag": "v0.6.6",
   "previousBackupTag": null,
   "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
@@ -39,11 +39,14 @@
   },
   "gallery": "Single current English local-only gallery, no comparison copies or archived gallery versions; status synchronized separately.",
   "browserQa": "Explicitly waived by the user; no new browser or physical iPad Safari verification claimed",
-  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41300070117",
-  "recordedAt": "2026-11-01T11:11:47.285Z",
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41306050946",
+  "recordedAt": "2026-11-01T12:29:48.497Z",
   "retainedVersions": [
     "0.6.6"
   ],
   "retentionPolicy": "Current release only; previous game releases, tags and backup packages removed.",
-  "retentionReceipt": "output/releases/v0.6.6/retention/result.json"
+  "retentionReceipt": "output/releases/v0.6.6/retention/result.json",
+  "originalRuntimeCommit": "c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9",
+  "retentionStatus": "completed_with_exception",
+  "sourceTagPolicy": "v0.6.6 identifies the final current-only source closure; runtime deployment identity is recorded separately."
 }

@@ -5,3 +5,5 @@ The only retained game release is **0.6.6**. Previous release directories, sourc
 Required regression fixtures and exact original portrait images/prompts are maintained as current dependencies outside release archives. They contain no runnable older game. Gameplay, current models, graphics, animations, local gallery and player score records remain unchanged. Ordinary Git development history is retained.
 
 The exact cleanup and current-runtime verification are recorded in `output/releases/v0.6.6/retention/result.json`.
+
+Automatic approval review blocked deletion of one obsolete local statistics-service packaging file, `artifacts/bastions-statistics-site.tar.gz`. It is not a retained game release or backup version. The exact exception is recorded in the retention receipt.

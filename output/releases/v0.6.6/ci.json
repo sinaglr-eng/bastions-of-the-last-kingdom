@@ -2,25 +2,25 @@
   "schemaVersion": 1,
   "repository": "sinaglr-eng/bastions-of-the-last-kingdom",
   "workflow": "pages.yml",
-  "checkedAt": "2026-11-01T11:10:43.349Z",
+  "checkedAt": "2026-11-01T12:28:52.539Z",
   "requested": {
     "runId": null,
-    "commit": "c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9",
+    "commit": "8c54030af9812a792127587879a412af5250d042",
     "latestMain": false
   },
   "run": {
-    "id": 41300070117,
+    "id": 41306050946,
     "attempt": 1,
     "name": "Test and deploy GitHub Pages",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41300070117",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41306050946",
     "event": "push",
     "headBranch": "main",
-    "headSha": "c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9",
+    "headSha": "8c54030af9812a792127587879a412af5250d042",
     "status": "completed",
     "conclusion": "success",
-    "createdAt": "2026-11-01T11:02:07Z",
-    "updatedAt": "2026-11-01T11:09:52Z",
-    "startedAt": "2026-11-01T11:02:07Z"
+    "createdAt": "2026-11-01T12:20:49Z",
+    "updatedAt": "2026-11-01T12:28:19Z",
+    "startedAt": "2026-11-01T12:20:49Z"
   },
   "assessment": {
     "state": "success",
@@ -72,160 +72,160 @@
   },
   "jobs": [
     {
-      "id": 124828980640,
+      "id": 124846527973,
       "name": "build",
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41300070117/job/124828980640",
-      "startedAt": "2026-11-01T11:02:10Z",
-      "completedAt": "2026-11-01T11:09:17Z",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41306050946/job/124846527973",
+      "startedAt": "2026-11-01T12:20:52Z",
+      "completedAt": "2026-11-01T12:27:47Z",
       "steps": [
         {
           "number": 1,
           "name": "Set up job",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:02:10Z",
-          "completedAt": "2026-11-01T11:02:12Z"
+          "startedAt": "2026-11-01T12:20:53Z",
+          "completedAt": "2026-11-01T12:20:55Z"
         },
         {
           "number": 2,
           "name": "Check out project",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:02:12Z",
-          "completedAt": "2026-11-01T11:03:38Z"
+          "startedAt": "2026-11-01T12:20:55Z",
+          "completedAt": "2026-11-01T12:22:20Z"
         },
         {
           "number": 3,
           "name": "Record checked-out release identity",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:03:38Z",
-          "completedAt": "2026-11-01T11:03:38Z"
+          "startedAt": "2026-11-01T12:22:20Z",
+          "completedAt": "2026-11-01T12:22:20Z"
         },
         {
           "number": 4,
           "name": "Set up pnpm",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:03:38Z",
-          "completedAt": "2026-11-01T11:03:39Z"
+          "startedAt": "2026-11-01T12:22:20Z",
+          "completedAt": "2026-11-01T12:22:22Z"
         },
         {
           "number": 5,
           "name": "Set up Node.js",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:03:39Z",
-          "completedAt": "2026-11-01T11:03:41Z"
+          "startedAt": "2026-11-01T12:22:22Z",
+          "completedAt": "2026-11-01T12:22:25Z"
         },
         {
           "number": 6,
           "name": "Install dependencies",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:03:41Z",
-          "completedAt": "2026-11-01T11:03:42Z"
+          "startedAt": "2026-11-01T12:22:25Z",
+          "completedAt": "2026-11-01T12:22:25Z"
         },
         {
           "number": 7,
           "name": "Test game rules and assets",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:03:42Z",
-          "completedAt": "2026-11-01T11:08:30Z"
+          "startedAt": "2026-11-01T12:22:25Z",
+          "completedAt": "2026-11-01T12:26:59Z"
         },
         {
           "number": 8,
           "name": "Build for the repository URL",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:08:30Z",
-          "completedAt": "2026-11-01T11:08:46Z"
+          "startedAt": "2026-11-01T12:26:59Z",
+          "completedAt": "2026-11-01T12:27:15Z"
         },
         {
           "number": 9,
           "name": "Upload website",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:08:46Z",
-          "completedAt": "2026-11-01T11:09:14Z"
+          "startedAt": "2026-11-01T12:27:15Z",
+          "completedAt": "2026-11-01T12:27:43Z"
         },
         {
           "number": 16,
           "name": "Post Set up Node.js",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:14Z",
-          "completedAt": "2026-11-01T11:09:14Z"
+          "startedAt": "2026-11-01T12:27:43Z",
+          "completedAt": "2026-11-01T12:27:43Z"
         },
         {
           "number": 17,
           "name": "Post Set up pnpm",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:14Z",
-          "completedAt": "2026-11-01T11:09:14Z"
+          "startedAt": "2026-11-01T12:27:43Z",
+          "completedAt": "2026-11-01T12:27:44Z"
         },
         {
           "number": 18,
           "name": "Post Check out project",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:14Z",
-          "completedAt": "2026-11-01T11:09:15Z"
+          "startedAt": "2026-11-01T12:27:44Z",
+          "completedAt": "2026-11-01T12:27:44Z"
         },
         {
           "number": 19,
           "name": "Complete job",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:15Z",
-          "completedAt": "2026-11-01T11:09:15Z"
+          "startedAt": "2026-11-01T12:27:44Z",
+          "completedAt": "2026-11-01T12:27:44Z"
         }
       ]
     },
     {
-      "id": 124830554861,
+      "id": 124848181976,
       "name": "deploy",
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41300070117/job/124830554861",
-      "startedAt": "2026-11-01T11:09:20Z",
-      "completedAt": "2026-11-01T11:09:51Z",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41306050946/job/124848181976",
+      "startedAt": "2026-11-01T12:27:50Z",
+      "completedAt": "2026-11-01T12:28:18Z",
       "steps": [
         {
           "number": 1,
           "name": "Set up job",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:21Z",
-          "completedAt": "2026-11-01T11:09:22Z"
+          "startedAt": "2026-11-01T12:27:51Z",
+          "completedAt": "2026-11-01T12:27:52Z"
         },
         {
           "number": 2,
           "name": "Configure Pages",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:22Z",
-          "completedAt": "2026-11-01T11:09:23Z"
+          "startedAt": "2026-11-01T12:27:52Z",
+          "completedAt": "2026-11-01T12:27:53Z"
         },
         {
           "number": 3,
           "name": "Publish website",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:23Z",
-          "completedAt": "2026-11-01T11:09:49Z"
+          "startedAt": "2026-11-01T12:27:53Z",
+          "completedAt": "2026-11-01T12:28:17Z"
         },
         {
           "number": 4,
           "name": "Complete job",
           "status": "completed",
           "conclusion": "success",
-          "startedAt": "2026-11-01T11:09:49Z",
-          "completedAt": "2026-11-01T11:09:49Z"
+          "startedAt": "2026-11-01T12:28:17Z",
+          "completedAt": "2026-11-01T12:28:17Z"
         }
       ]
     }
