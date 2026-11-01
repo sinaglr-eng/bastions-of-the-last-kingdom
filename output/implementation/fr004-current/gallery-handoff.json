@@ -1,0 +1,129 @@
+{
+  "status": "passed",
+  "requirementId": "FR-004",
+  "version": "0.6.7",
+  "currentOnly": true,
+  "localOnly": true,
+  "published": false,
+  "profiles": 258,
+  "abilityOccurrences": 570,
+  "recipes": 114,
+  "approvedOriginalArtPreserved": true,
+  "voiceReviewStorageTouched": false,
+  "modelBinariesUploaded": false,
+  "protectedFiles": {
+    "sites/defender-faction-atlas-20261021/dist/visual-catalogue-v24.json": "fa98c287ea1c5f4f70bf0a06bbbaccde1cedb9ee3abb19cb2ef1434bb4600054",
+    "sites/defender-faction-atlas-20261021/dist/character-voice-v19.json": "f6f66f91ff0c2f5b848c731daef9670c49e34cde7d385b67b9661188b50c94fb",
+    "sites/defender-faction-atlas-20261021/dist/character-voice-v23.mjs": "d529067a127542ed9ac9b80da4ceb5eb5ebc62b9eb606fa219a9b9fce3426a35",
+    "design/gallery/approvals/dwarves-v24-20261026.json": "9df34da32da38ab044da84fe5821bf9543077c89a61b63b56d86c45f4450f71f"
+  },
+  "sourceFilesChanged": [
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
+      "beforeSha256": "d998d29c2b0ec547e96ef8cd49e84f5cc1aeaeca1e0c30c2773a7c59ed3e0c5a",
+      "afterSha256": "711a4fa68adabf3b5bfa52a88e02d5373fa676717f94ca74eec6dec02f2ff9d8"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/verify-current-gallery.mjs",
+      "beforeSha256": "5be1e1f3125dc333973d22af30c15965eb6d94f3e3aa0936e78b91cf2668406a",
+      "afterSha256": "6446421ed05136170d8c0cdc68f2e57132b65870794828695f8d8a115726ace9"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/apply-fr004-implementation.mjs",
+      "beforeSha256": null,
+      "afterSha256": "4416df9647172b49f44db01c31bf8e479de782029a90ab9026e4115d6249c84b"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/verify-fr004-implementation.mjs",
+      "beforeSha256": null,
+      "afterSha256": "24f3cb1641f95a5a04a418fbfda14c78689f7b46035497b0ff3d2085cca76733"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/templates/gallery-fr004.mjs",
+      "beforeSha256": null,
+      "afterSha256": "91f8464f3c3aad9b07599d57b32efc16938a924714f6dea566422fa282cd8eb9"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/atlas-current.json",
+      "beforeSha256": "8dac335a7a65b72bdc0fc912ff966e182217f69523e1815ca3e6c13535a14f52",
+      "afterSha256": "65e3d482192dcdc844d74c77fa2e6c9815314295bb461e681c1e50278ac9c553"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-catalogue-current.json",
+      "beforeSha256": "a0e4c3735f7f48990a7e7d79f1fdd58bd8c4f79ddbf45d4a3d146d95d6dfb6fc",
+      "afterSha256": "74105d126464477efcb29eb96d86bee647b402f3458d35d4b31169dccad42998"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/gallery-current.mjs",
+      "beforeSha256": "9feb8c9c3e41438d7e58ec413a72bae9ba5a2e6444fc915e6cff99d8d6215b8b",
+      "afterSha256": "91f8464f3c3aad9b07599d57b32efc16938a924714f6dea566422fa282cd8eb9"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/app.mjs",
+      "beforeSha256": "26a63b2aa3e34df0372f8598e686c3efeb5cfc6c81f0becbed591060650eef91",
+      "afterSha256": "a820d4accdb2d6bc36e2abf456caf85642512fe0928dcaf16575395f49b44b86"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-fr001.mjs",
+      "beforeSha256": "1093ddb1eb70a982e7b137f0d9e1b97578db4a2ad0a000c8388540b515098b96",
+      "afterSha256": "aae0e6ad32dca771f2b34f7343dccfc3dcf23cd7f20cc03657be2cbb6466bd01"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.json",
+      "beforeSha256": "3520979d88aa95e941f1da528ebc26604a63c173e3812f9df6144edd95747902",
+      "afterSha256": "31e826db8baf4fcf5ef9b9e82b59e3494e62e00d26d4e9b3974b7554d1adfdab"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.csv",
+      "beforeSha256": "f442eb30822b1ea2ff8cca6c3e10f215ecd8c1b57284b34ee9d5bd1a3c3c2c9e",
+      "afterSha256": "439292b6f98269eb8205aca2ba0e807d9cf0fa532d40d1961c5ae8d39ca69261"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/gallery-current.css",
+      "beforeSha256": "1e95248161f377c83dafbbed79318b5c378deeae761f02976c75645cf623c682",
+      "afterSha256": "18ee04ec3db948e384b2e4ad273396124d0e963e422a2c988de922e81ad464a7"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/index.html",
+      "beforeSha256": "221aa45e402c911dbf27b7706897d46c685c493be879ba58b1fcf3883d2db85d",
+      "afterSha256": "7bfe75f9068b18a012104a1be78baa3d5957fff85e4a6aa330dff357662e09d0"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/design-notes.md",
+      "beforeSha256": "1ada3e548b163d6984c311bb94da336861e97405dad52ae809d54698bd8d3d14",
+      "afterSha256": "54cf8712c5f101f1da14eb694b9630978bf1cd91e8d42d3b7709e52c5ddb6689"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/dwarf-damage-preview.md",
+      "beforeSha256": "304a7e96b95a5c66ee6eddd35601396fe936569cb00f1b69563372359de3e699",
+      "afterSha256": "356eec5f3f86511c83429088429216fa45c9efdc62696ca6aa8262729d296f75"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/FR004-implemented.md",
+      "beforeSha256": null,
+      "afterSha256": "54cf8712c5f101f1da14eb694b9630978bf1cd91e8d42d3b7709e52c5ddb6689"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/fr004-implementation.json",
+      "beforeSha256": null,
+      "afterSha256": "288529603d9ef6f917d39e08c0456c9cbafe2ed7a7174cdc03ae9aa3fc7a5ff5"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/preview-config.json",
+      "beforeSha256": "1ac15b00ce42ecab0c4097348589c978be3001e060177c08b753d395c422f0cc",
+      "afterSha256": "916c115e03bc2bb4623c8dd8925dc3acb828396eb823c55dd29b635c5f1203d7"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/README.md",
+      "beforeSha256": "3d22b8391b00fc8d116be1b2591bafacb0b0cd91ce2ce0c4f428438f9cb47ec4",
+      "afterSha256": "b333c0ec6b2c0dc3203c585cd8eda197fa4889f7f83cfdd81aa2d4678cfbe19c"
+    },
+    {
+      "file": "design/gallery/canonical-gallery.json",
+      "beforeSha256": "515549b91d32651cfe6d6fd0804dd588fd77afba3da8bcb0f4b0ae227ff78a70",
+      "afterSha256": "dcd2b01db88cbfd9817d6bd7c39a502ee289452b948036667a1f841fd7429f9c"
+    }
+  ],
+  "reviewStorageTouched": false,
+  "originalPromptRecordsChanged": false
+}

@@ -8,8 +8,8 @@ export const validId=value=>typeof value==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4
 const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
 export function validateFactionIdentity(row){
  const newer=typeof row.version==='string'&&(Number(row.version.split('.')[0])>0||Number(row.version.split('.')[1])>=6);
- const [major,minor,patch]=String(row.version).split('.').map(Number),fr003=major>0||minor>6||minor===6&&patch>=6,fr002=major>0||minor>6||minor===6&&patch>=5;
- if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(fr003?'fr003-r2-20261101':fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
+ const [major,minor,patch]=String(row.version).split('.').map(Number),fr004=major>0||minor>6||minor===6&&patch>=7,fr003=major>0||minor>6||minor===6&&patch>=6,fr002=major>0||minor>6||minor===6&&patch>=5;
+ if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(fr004?'fr004-r1-20261101':fr003?'fr003-r2-20261101':fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
  if(!newer&&row.factionId!=null)throw Error('Invalid legacy faction attribution.');
  return row.factionId??null;
 }

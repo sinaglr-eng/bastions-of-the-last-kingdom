@@ -1,0 +1,672 @@
+{
+  "status": "passed",
+  "base": "e353d441189959d52658138fd619b59029f89f3d",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6257,
+  "payload": [
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "ee5bf27494abd4d1a73a94ed23e4302a39947d55034ab07dc81a756d7d0d685a"
+    },
+    {
+      "file": "README.md",
+      "sha256": "b099518410f8d8dab4a16f1b9dcec9fbc1eecd6ed2d32a9e48035aaf4e45c3fb"
+    },
+    {
+      "file": "backend/validation.js",
+      "sha256": "d1769943376f41cc459ea1927cbd37d61be0fe0b9df2d029c295c3739b940f9d"
+    },
+    {
+      "file": "data/fr004.json",
+      "sha256": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1"
+    },
+    {
+      "file": "docs/FR004_IMPLEMENTATION.md",
+      "sha256": "f1b51d5d761b64752c267c183fb5ccd4d3678a8d177b0d3c1f725e5ca959bc83"
+    },
+    {
+      "file": "game/core/factions.js",
+      "sha256": "7f0e86e01cd21b3a57af2e24266f559be458563be5fc8407fbbe6bc33c11d508"
+    },
+    {
+      "file": "game/core/fr004-registry.js",
+      "sha256": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c"
+    },
+    {
+      "file": "game/main.js",
+      "sha256": "7329ff1589890499b893109fca579d5d1a959dc46b4f1ecb5edbfb49173af248"
+    },
+    {
+      "file": "game/release.js",
+      "sha256": "00c268794caea96c1e18f7715e805503382f9423a8bc613d7677e0efec44d9e9"
+    },
+    {
+      "file": "output/implementation/fr004-current/REPORT.md",
+      "sha256": "6667210b6907889c179fd3df52d8887bd3e6ef6714628bd0fcfb109658a1cae8"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/DWARF_DAMAGE_AND_PHYSICAL_IMMUNITY_AURA_FR004_20261101.md",
+      "sha256": "8b05b40d0396ac1e8c87d72fe66ee622e23bb71b7f4514efd0911dbe7767c745"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/ability-catalogue-preview.json",
+      "sha256": "a0e4c3735f7f48990a7e7d79f1fdd58bd8c4f79ddbf45d4a3d146d95d6dfb6fc"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/atlas-preview.json",
+      "sha256": "8dac335a7a65b72bdc0fc912ff966e182217f69523e1815ca3e6c13535a14f52"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/aura-owner-changes.csv",
+      "sha256": "0977fb0bc412a80c092d9c858496b6d0b640f0f66ccf8ef31aff254c866257e3"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/changes.json",
+      "sha256": "3a9977f0aec2c13f9bcbc55a5e728c71bffc49e205bc3a4cf1752121d1fee172"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/implementation-handoff.json",
+      "sha256": "604f655f868bc2cf8fa1698edf28345edb1c58bb829d30018badbcef31ac178e"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/preview-config.json",
+      "sha256": "1ac15b00ce42ecab0c4097348589c978be3001e060177c08b753d395c422f0cc"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/profile-changes.csv",
+      "sha256": "ee14a84fb7bc5864ace445132fdd6d23f0ad393172057e64ebbb97eb8ec95671"
+    },
+    {
+      "file": "output/implementation/fr004-current/balance-summary.json",
+      "sha256": "def3621bdf269af615befc0c54164238d4c2ec38db4616a2011af884aa271a37"
+    },
+    {
+      "file": "output/implementation/fr004-current/build.log",
+      "sha256": "115e19dc4024c4281f6424bd1a384abb6cd44761532a4c5cbff943b7da07eb8f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign-results.csv",
+      "sha256": "023b19319f8b2e8671076ad35334579e3d110bb7a5105af0595ddabc4019cd62"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/execution.log",
+      "sha256": "03f3881c1da0a90e38f19f0b07a07cc24cbf65588b5cb4b4379bdad7ffce654d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13000019.json",
+      "sha256": "60b8aea7180f1073161a697a05a1a49b2b62ade77f91e0e102c3b65f5648492d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13104748.json",
+      "sha256": "a777cd52f5a16f405f163436017228c3211011b0bf1bdd27824bbccfe5e34d75"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13209477.json",
+      "sha256": "aa92870ae537015f953c43cca10e234fda1e6efc1cd40f6df89619541d2794f1"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13314206.json",
+      "sha256": "f1249fa72b41e8a14fda13130efe75a40f312c34b1d98212ac22daf0c6091f86"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13418935.json",
+      "sha256": "2df84297edbee569825f4ddef43e0b625b99d0f4381078ffaa8ca17dfc06da33"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13523664.json",
+      "sha256": "f036ae969807db29d2168a6ab1d016b367526b35767ecb97c5b70be674e62b9f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13628393.json",
+      "sha256": "a1805202cb590b843d0a97c8fc692f9219fd57787616a8fbd63240016e8b9ed8"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13733122.json",
+      "sha256": "75eb3adb4bd080f4a9943bd476a00b7a5ea53d34cd5ee5eeae94b17be07b9693"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13837851.json",
+      "sha256": "9a87c8c7e98fbd4005e0b15e05c418e4188e89e9f260a52899d7080ee59e07e2"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-13942580.json",
+      "sha256": "8476b87ded2eb5d85af8b9a1edf0b14f44a53aad5b1113f1f87c5b0677fcad2c"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-14047309.json",
+      "sha256": "bb44a10532f1d8871ae0144feb4fa955705086ecfa7528423027ec86965948ed"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/forge-immediate-14152038.json",
+      "sha256": "aff02c3415ba3473360c090c8391fd892bfaaf183d6330554844f61c09544d96"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-immediate/manifest.json",
+      "sha256": "d30675eaa2782486add9dd5a81bdc563a2ef09ec3858c84eac7d8b4d0a24b960"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/execution.log",
+      "sha256": "ca81c0661e40ffae713a5ee242644d7a4d22d01a1d8b67ac6a8731578c32f677"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13000019.json",
+      "sha256": "3dcf5ebb9878d8c0ddc0b3b52ae7c5fec1308bc0dee9a4334207b5ff6224ff1c"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13104748.json",
+      "sha256": "98791c08760b29bbc28c4c5f8fc04b51cf6502dc181b154ad3a43a3705278180"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13209477.json",
+      "sha256": "4481f03281d6f246a17726502d73c4c1fd2c7c65eef3e70725d4a5f49ebbce60"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13314206.json",
+      "sha256": "470afa54813a0054b796bd3ec20e4dc909d3ba6ab2939556ecf20a746e605417"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13418935.json",
+      "sha256": "b5e54cc0c65692b22987b279f9f86fbdaf1c55971629a8db3d289c8317cccd71"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13523664.json",
+      "sha256": "2212f45cfc90e15b36f953b796481831848901bc8aed1e199f5c294aee8106c9"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13628393.json",
+      "sha256": "f38f81843511de0b5fe8f12ef6410a394b2d269aeb97a07cb4502c05de9e32ae"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13733122.json",
+      "sha256": "2d8a047e71022d29fce5d001222ed42ab1800914c7cbbe7f4f9476b721b29ac4"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13837851.json",
+      "sha256": "7b394011f6e9ec1819e24ec8f8b67e7a708d4bccaf6b41d8bfb7275ec24004bd"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-13942580.json",
+      "sha256": "fc0fb34773b25c036cdadedc63b618ece4b26ccf4068c3bfe141d92df0f7b191"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-14047309.json",
+      "sha256": "ff9a9f434f455d6b49be0b775fc056855f2bc3ffe20b57a7e168563e418d326a"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/forge-recipe-planner-14152038.json",
+      "sha256": "178d943f0dde929585c4f14fbb8e283cb9d481a15eb1b8bd821594e76e34e0dc"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/baseline/forge-recipe-planner/manifest.json",
+      "sha256": "8842b5fa6514b6e49f85a808a5b1f3795e8e8a344e875ecb65a3424a0fbf7d34"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13000019.json",
+      "sha256": "2d9dc74c8326852b7239e5eac0a5b6f239c883950f0922091d3bcf9e42e86e92"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13104748.json",
+      "sha256": "7b69882e3b65fc63d4827c6c334ca5fe30c75e23b6cd5733caf6dc27ac6891a1"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13209477.json",
+      "sha256": "41f0134695777ba184e0a1e716f553e62178a278bf2f5e8c405eda5758987f50"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13314206.json",
+      "sha256": "9bb4ebd80b499f5d0ba221d353f50c932dd066e6f35b71dcde646a25134fb235"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13418935.json",
+      "sha256": "133572d78d2ac4725bbcf1579829dd032df5016b92c84e0ac0353ce659140385"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13523664.json",
+      "sha256": "7f889497af6027e23beac67bcd1ba3f5d4ac46586bcbc76499e1659f0773ec23"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13628393.json",
+      "sha256": "018d2ffdd4bd4540fb06ca9280b99afb63b4aff27b1671cb9ad73b1e481e3db1"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13733122.json",
+      "sha256": "c43b5d7820bdf2adffef1427fc4c4556889bea2ed8542e27a0cebe4e8d6bd9d9"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13837851.json",
+      "sha256": "1d781f26dfd0c6c94c1867d063b545963b84d555ec776b536d0450dea0f70d24"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-13942580.json",
+      "sha256": "bec6f1222f25c87f86ec61be1f58a6bacbdab3baf49bb09cda940649f81cb874"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-14047309.json",
+      "sha256": "5973b88aafe5e08a27145e8efa2ad03ab4ed20ffe0db1ebea43f6e5e72bde726"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/crown-immediate-14152038.json",
+      "sha256": "f8fb234e15f63c4220d00da0d5043e9d8158d19d4b93cf05bc4c9794a37600e7"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/execution.log",
+      "sha256": "553b4ddc69fd13300748a39962361de699b6be263c861460c66361280018e1b8"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-immediate/manifest.json",
+      "sha256": "30acc96997a12ad3e9ab3d2b5d4a6938d8c70e7a2f84ed8faa56ec6a2a16d9dd"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13000019.json",
+      "sha256": "c53ca060fb61d531fd3bfd891378393701f78d22c176f134695590218ec1ae6f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13104748.json",
+      "sha256": "b5c5f2e9ecf4e700a534031c88152bc8a5928ea5a98dd3a525ae08ffbdc38df2"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13209477.json",
+      "sha256": "00e1ce551219e7b68716f61cbbaa3f839c6f645cabfc4086765ce5cb8a482e09"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13314206.json",
+      "sha256": "3ebe67b23d733c42e044a44e5a1d96a48313a77086b1590ae979677f4a1ea8c2"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13418935.json",
+      "sha256": "f95e9b590a911a26f01e25c0615606cbd23775fda0d86ec7f23d54566eda806a"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13523664.json",
+      "sha256": "8bbeb3ae4a3123c5090bcbcc5c830938838435d958cafc691e5afbbb3e9d164f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13628393.json",
+      "sha256": "2eaba3de1766af95f125a086656b0acb3ebe31d203689dd6f5c0d01bcd5363df"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13733122.json",
+      "sha256": "988aff9332e79e5353628c6a51e65d1b5f1d048c3fda8e8f0eaa35c61fc2f832"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13837851.json",
+      "sha256": "31e05c0c66d3a593141e263323bc0b1c924d7c974f2d7772c1633afb9922704f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-13942580.json",
+      "sha256": "d1f38c2afad87295ee43c6cf2928a49a67effb73c214347da9ea80dd4ded20b2"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-14047309.json",
+      "sha256": "2027b18f47f6c7e476db79b926459bfeb571e86c04f7ad4081ad63f03776cf6d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/crown-recipe-planner-14152038.json",
+      "sha256": "b5f0c8f91cdb0268bc49e29183b7dd0f28de1a6fd9c3af12ac91f112d0731537"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/execution.log",
+      "sha256": "657976dd359f64f4fa994eab5a0de7964ee7a570112e98088acdda83ec8a71fd"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/crown-recipe-planner/manifest.json",
+      "sha256": "a55a4c186c1635263d12f2f53ea0d6e905333001a3e88b05de41902ead2226f4"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/execution.log",
+      "sha256": "ed41523202027d2ce8c60de77f65f9fe3639a58a3289222ba1c841c3e7c7d7cb"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13000019.json",
+      "sha256": "ef47831f5e93f4cbd57453025efd5cec3d666243bc23af2d59a22325c4106639"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13104748.json",
+      "sha256": "83027a75cf998b20650f89dda28ee4cd8a2515fc97322c1e33a5f4a2ac623bee"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13209477.json",
+      "sha256": "0798429936aa7f3bd58e26f3f28f845857ea34f5ced7f6df88e9ae6f16370acf"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13314206.json",
+      "sha256": "06d4b63f1e75906d535371e00b5e0efcece19df37bb3216f07fb26416ae8cb69"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13418935.json",
+      "sha256": "923727f8906947ec363d826f6b95379cae8948f3db341b24fab8893da7d7f284"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13523664.json",
+      "sha256": "6d7f7001489bcb625fb4e4e984abb8bdd73c242ba719acc4c1380c499ca02456"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13628393.json",
+      "sha256": "3ea39ece4e4abd0701a713285fefa937d3c3784a41cab9792c7c73735a769e1e"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13733122.json",
+      "sha256": "0f3682415c82066630a9325d6914c6fdb606668f76a79093f6639725e5128133"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13837851.json",
+      "sha256": "917b760c17d010d2f83e3524efb13924d70bd8ee65fe06ae6842e2138e036e07"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-13942580.json",
+      "sha256": "04ff3462b515d5b510d3cd0d768ba85e7476fd801123aa8a1b0d965e7c870b7c"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-14047309.json",
+      "sha256": "fd29a4aac946a2a8e54f603f887c0ec6e39735f99a45e718e675f4379ce47c4e"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/forge-immediate-14152038.json",
+      "sha256": "ae7e085581d78ba171434d1d8fc13f28a11f976cef566923e24c33fe6b1b87a5"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-immediate/manifest.json",
+      "sha256": "fe0a0ee6157cd9ca6a6cb203473f094326e6f0d2192ab995ea829f9e929e42a9"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/execution.log",
+      "sha256": "28ae59da79df832af47a320a87b584bd7e7dce7b0257792757ee0c745436606a"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13000019.json",
+      "sha256": "333658acec6e602aa681f9b579e893316591d7fc97a77da187e117f918387da5"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13104748.json",
+      "sha256": "7136a741a6915fe3dd6ac39678f7b82fa67f2d83cc575940aa630773dc6a67e5"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13209477.json",
+      "sha256": "018d2aa5b3f68c68e34690f50059a6422bda241f2cd7c5da9ac04304f833a934"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13314206.json",
+      "sha256": "952a44ae571d0593d638bab11a961fd919c8422588d4c97214696e0c863b4423"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13418935.json",
+      "sha256": "b33f6d22f73c3e04703e5e35d7862336c121bc0c60509637781d6bf4c1a3bcb0"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13523664.json",
+      "sha256": "9ba23b8a33c4f18df0cfc28d86edbbd603213cfba9319fe4e34cdbf34d54e728"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13628393.json",
+      "sha256": "b417f8992a320f81f8d22f69997892b12ed3ef9b036ce97a8f39d4d328f662ae"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13733122.json",
+      "sha256": "6931c4dc88021216ab9cd66b56980a3fa5018efcb0d42a261d2f67f44e1c1572"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13837851.json",
+      "sha256": "131d16abc29b5d02f6dee297427d5c0bcaac741568e0cbc6cf93d12faaad1724"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-13942580.json",
+      "sha256": "e3d814f099445cd984f261c133e2080ecef3fb21c1e3a7d934be484c5abb6f2c"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-14047309.json",
+      "sha256": "6f9305108be71830e44a242fb38fd28d7526b156312253f6098f546db8c58fe9"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/forge-recipe-planner-14152038.json",
+      "sha256": "273ea9fd8f9a6a3e639f3d330e725c37c592b01724d7c1c14d8c776bb9771808"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/forge-recipe-planner/manifest.json",
+      "sha256": "69d800d7b52069de9361f13f94cf51d454979a2aa8ba8e1aa2d1762c7bae0e78"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/execution.log",
+      "sha256": "5eb9beb275c7856866f3d0276dd9106c2cbd7d12a620f1ef08651abfe3544007"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13000019.json",
+      "sha256": "73816b3e623a50d995a3420efb843b6def87f1e220e5212a00fc75106d292e12"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13104748.json",
+      "sha256": "944ba54df7e478ca845b26184d445f6584aeb50329b28c27c9dd8dff235d4a1f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13209477.json",
+      "sha256": "ff478455b8311950dfc5955600ff4d83aa13be9d12bf0e54a6b1a2c5df860b9d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13314206.json",
+      "sha256": "719519d13fd047c7388ad6a0bfa3a74fe14bc4b742508621556c61298b2cbdf5"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13418935.json",
+      "sha256": "ba536ffc8c8753d9f60da375fef9916c176e0a1bda3948bee313c4d908e796a1"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13523664.json",
+      "sha256": "f03e10ea55617df6d06337f7b24aa54481d988b172e05f1ab1d7f17261d31831"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13628393.json",
+      "sha256": "b42b637f1a8a23043b5fd0cf7eeb23fa085e773cdc34c0088e748ab882a4a78b"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13733122.json",
+      "sha256": "0c1d1a26f939f44e08e87c96edacd6cad7cd24c8d954b45d4b1e42c9afabaebd"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13837851.json",
+      "sha256": "b4c574808bf0e764030493e0962fe0991337a48d8bba1dce818bdbdd253f7ce5"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-13942580.json",
+      "sha256": "e7fcb9b7bccf56e43e30e349373e74a9d1b59d9fc3a1a5f87edff6ababe2f3c8"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-14047309.json",
+      "sha256": "3aa65d609249c9c47b031eb18d1457241b82c5b6e55a4daf092b16705c7a820a"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/grove-immediate-14152038.json",
+      "sha256": "e402e7b2614617d4a18f360cf6155fb3066e362beef11e4650a32c26b123d7ff"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-immediate/manifest.json",
+      "sha256": "2610ecb52c5996aca41a6e0ed2d3bf74b2e9ad86c17538477149ac2bc5b1af77"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/execution.log",
+      "sha256": "2b7e4e2b6b6342789d243580e20445a7f2135df8206c973f434763c4127ca885"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13000019.json",
+      "sha256": "70185f53da8de4f0cc00140f13e3b0797353f6f27f98de9c1130fd6dd942ea90"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13104748.json",
+      "sha256": "71ee01fa96574d47b050c538b0c11c8a12b3a22cf3b413c7df6af243cdff8fe2"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13209477.json",
+      "sha256": "7f9f117556fe83345a347d3f902c6a3a8554f0f77b91e6914ca0d36581e0387d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13314206.json",
+      "sha256": "90aa045211c5fea0e59c36eb3c915dc0c8fff627b46223fbdbafe87ac7a0ff08"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13418935.json",
+      "sha256": "8651c5d159619a928cb09b6561d3d1e4d7336e756037013414c9b914c2841f4f"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13523664.json",
+      "sha256": "3e1737e1c2cc0776d08873646a219ffb14ea3894f349c1e61c56eb31950ff2ba"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13628393.json",
+      "sha256": "51aa90959d704ecf44542ef7d96d15b8635605e6a3a47e56a07be89f621680d7"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13733122.json",
+      "sha256": "3761076c111086f6642b171e4190da47e493b0becb961e81e173b856b854c69d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13837851.json",
+      "sha256": "af5ee14dc0d0a6b19e120079007e5ac92ff812cec2d191b5ede25fa0b9999324"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-13942580.json",
+      "sha256": "d69bb839a68dc4805a74df0549a0adf2b81918ed1e5cfafc4353e5c41e7c55a1"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-14047309.json",
+      "sha256": "34ff2b398d91fa4998d7acfb607fedb01eedf0b50532f043b10fcd819e341197"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/grove-recipe-planner-14152038.json",
+      "sha256": "02ee35e74fc5cb91e95b46e65df825423c10923adf89e86c38eb9cab3670a13d"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/current/grove-recipe-planner/manifest.json",
+      "sha256": "0b38ce8eda6b1a16ed4055335874c1b5f42fbef13a13dcac7f6e6f34409197c9"
+    },
+    {
+      "file": "output/implementation/fr004-current/campaign/manifest.json",
+      "sha256": "29e570f6a671b48f863b18cc6ffdab25deeffcd41f0775b96c905f58d2937055"
+    },
+    {
+      "file": "output/implementation/fr004-current/controlled/manifest.json",
+      "sha256": "fa7df5347c4afbf20e08f4a8c19e1d535af479d2dcb5deaa74fc2905c3f7d680"
+    },
+    {
+      "file": "output/implementation/fr004-current/controlled/results.json",
+      "sha256": "fd9d0938d5ec09083c70816fc2c312d3d27da8814ffefedc6fb87fc324bacdf4"
+    },
+    {
+      "file": "output/implementation/fr004-current/controlled/summary.json",
+      "sha256": "3a479030928ec5cf73c8e2926e18c0f22335684bbc169f276c4b4c79b7ff8e64"
+    },
+    {
+      "file": "output/implementation/fr004-current/gallery-handoff.json",
+      "sha256": "7148108b189acfa5ca576fd7e6e7fe6a9c02f577d79cc960409b9b386583681b"
+    },
+    {
+      "file": "output/implementation/fr004-current/result.json",
+      "sha256": "fbdc3b24dbd34b9b6e5af1076ab127162260ba7893a2ed2ea0e7746ea7058fe9"
+    },
+    {
+      "file": "output/implementation/fr004-current/runtime-gallery-compatibility.json",
+      "sha256": "09315e484b5033b40af041896543a79443d8b0f527759826cedfc1d38154233d"
+    },
+    {
+      "file": "output/implementation/fr004-current/runtime-install.json",
+      "sha256": "5e4c026244a5f6d682decf70c50b8b77557039a65498490830edc94f13c980af"
+    },
+    {
+      "file": "output/implementation/fr004-current/sources-tested.json",
+      "sha256": "973a947b8f50019885ccaf359c1f8738239a2287cb204c72eb2d1ddcc1391fa9"
+    },
+    {
+      "file": "output/implementation/fr004-current/tests.log",
+      "sha256": "c1c0863846ccb4fb2335d19d3272abc561ebf7591d221fae26da9b336d484fda"
+    },
+    {
+      "file": "output/implementation/fr004-current/validation.json",
+      "sha256": "b1ddf8a016128e923acb1ba9bea075185a0573789d0ad282030e975d5adeb36d"
+    },
+    {
+      "file": "package.json",
+      "sha256": "26083ae4666c7d29a5cb0a4058a7ddbb09dfce8ab84d02af3946dde6ee52b29a"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "64c300415caf87e72640820afffa297f9a7a5e3971f3dfae7d90b6473d390900"
+    },
+    {
+      "file": "tests/fr003-combat.test.mjs",
+      "sha256": "1d7a8178ec1034cd71daf5227fead8366133f3105f197e20a912058ab23e29f1"
+    },
+    {
+      "file": "tests/fr003-data.test.mjs",
+      "sha256": "6633381690009345d9e1cd05c210b2eabf168a397055ad8f889fa119e6196a10"
+    },
+    {
+      "file": "tests/fr003-statistics.test.mjs",
+      "sha256": "30534ff707b3b73ebdead4d3e9e8e8e0d4cb22b6add29d9318270c19e032e210"
+    },
+    {
+      "file": "tests/fr004-combat.test.mjs",
+      "sha256": "b091bfd29c475e134137f7be71a9f10f4663299c7526321f28167386142196a4"
+    },
+    {
+      "file": "tests/fr004-data.test.mjs",
+      "sha256": "4c61656bd1cd506cd90ac84fdd8a41664f9cff035f086965e2dff35d162a54e1"
+    },
+    {
+      "file": "tests/fr004-statistics.test.mjs",
+      "sha256": "83af490e6462ad169f1758e9246409d0b25e8b5a03e08940ec4a896be744da63"
+    },
+    {
+      "file": "tools/current-datasets.mjs",
+      "sha256": "4005d51fa3360a872b2e1d8cc7a433d61cdd17c491d8d0216e099347ee4bebe9"
+    },
+    {
+      "file": "tools/fr003-validation/datasets.mjs",
+      "sha256": "535ab17c86cdcaea1a4233fce989833bafdc96a8b5776e9278dda2e6f4252b73"
+    },
+    {
+      "file": "tools/fr004-validation/compatibility.mjs",
+      "sha256": "48a151949d56a7180ae4c10b26875e526be3154286b79249d36e164f9edd8200"
+    },
+    {
+      "file": "tools/fr004-validation/controlled/armies.mjs",
+      "sha256": "6cc262d47da06ee52ec71e6414e025ca1dce1e2b0f97a6734d8f3d507ed807d9"
+    },
+    {
+      "file": "tools/fr004-validation/controlled/fixed-inputs.json",
+      "sha256": "fed5992dcf11d18664c5341fc428e64cd47eea2ed8d4adfd95e68fd573516b05"
+    },
+    {
+      "file": "tools/fr004-validation/controlled/fixtures.mjs",
+      "sha256": "0976cbedf095fe41b4e157682b821a778ad7a3c60609d1a7919082afaba031ff"
+    },
+    {
+      "file": "tools/fr004-validation/controlled/run.mjs",
+      "sha256": "24ceb4484c8728112679c9f8c9aa83cf6d2ba44d1e697c5b636f0ff0e10de5cf"
+    },
+    {
+      "file": "tools/fr004-validation/diamond/campaign.mjs",
+      "sha256": "0f34b5235358215edf36a98da3996a5fac49885b6f6028bfbd65917c05357107"
+    },
+    {
+      "file": "tools/fr004-validation/diamond/placement-plan.json",
+      "sha256": "152d891b6a9b85a44469846c6a9e855d8f2b0aa1069fa79f4605e24ae371841a"
+    },
+    {
+      "file": "tools/fr004-validation/protocol.json",
+      "sha256": "96e4e2676dc16fc125112c11c29fb04f54b20568eef5a91f40bd4aa1b64a219c"
+    },
+    {
+      "file": "tools/fr004-validation/run-campaigns.mjs",
+      "sha256": "06ec0d04cf6315f398e2fa5b6ad91c0bb5d9b52ecdd70a885b398510e2cefa76"
+    },
+    {
+      "file": "tools/fr004-validation/summarize.mjs",
+      "sha256": "6ade0be6fcc7e3c830088f2b2b3b162c39355d6a4334322715c5675829ecc088"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sha256": "b8ca0e3b2fe39f7b5f3b51fdcc8e2ee40867a572c852a119fe5fbda9a4f108cf"
+    },
+    {
+      "file": "output/implementation/fr004-current/static-delivery.json",
+      "sha256": "ffb4094f6bc7e9dbfb5d14143310fd7fdb7b2ba8b953db8117ef02d5ce525ca9"
+    }
+  ]
+}

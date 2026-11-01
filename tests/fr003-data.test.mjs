@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {loadFr003Datasets} from '../tools/fr003-validation/datasets.mjs';import {towerStats} from '../game/core/math.js';import {baseAttackDps} from '../ui/grimoire.js';import {recipeCapabilities} from '../ui/recipe-filters.js';
-const approved=JSON.parse(fs.readFileSync(new URL('../data/fr003-approved.json',import.meta.url))),before=loadFr003Datasets({baseline:true}),after=loadFr003Datasets();
+const approved=JSON.parse(fs.readFileSync(new URL('../data/fr003-approved.json',import.meta.url))),before=loadFr003Datasets({baseline:true}),after=loadFr003Datasets({revision:'fr003'});
 test('FR-003 applies exactly 37 approved profile deltas over actual FR-002 and preserves all recipes, Claire, other Human profiles and native bindings',()=>{
  assert.equal(approved.changes.length,37);assert.equal(approved.changes.filter(c=>c.factionId==='crown').length,1);const changed=new Set(approved.changes.map(c=>c.key));let count=0;
  for(const id of Object.keys(after)){assert.equal(after[id].rulesetRevision,'fr003-r2-20261101');assert.deepEqual(after[id].recipes,before[id].recipes);assert.deepEqual(after[id].defenderAssets,before[id].defenderAssets);

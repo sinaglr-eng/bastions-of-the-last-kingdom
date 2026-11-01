@@ -1,0 +1,659 @@
+{
+  "status": "passed",
+  "version": "0.6.7",
+  "requirementId": "FR-004",
+  "currentCampaigns": 72,
+  "pairedDwarfBaselineCampaigns": 24,
+  "independentInitialSeedClusters": 12,
+  "groups": [
+    {
+      "faction": "crown",
+      "runs": 24,
+      "wins": 0,
+      "meanCompleted": 25,
+      "bestCompleted": 38,
+      "fullDiamond": 14,
+      "bossKills": 37,
+      "naturalClaireEligible": 0,
+      "naturalClaireEligibilityEvents": 0,
+      "secretEligibilityRoundsChecked": 624,
+      "claireAcquired": 0,
+      "lostWaves": {
+        "12": 1,
+        "14": 1,
+        "15": 2,
+        "16": 4,
+        "25": 2,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "30": 5,
+        "35": 2,
+        "38": 3,
+        "39": 1
+      }
+    },
+    {
+      "faction": "forge",
+      "runs": 24,
+      "wins": 0,
+      "meanCompleted": 24.208333333333332,
+      "bestCompleted": 27,
+      "fullDiamond": 11,
+      "bossKills": 47,
+      "naturalClaireEligible": 0,
+      "naturalClaireEligibilityEvents": 0,
+      "secretEligibilityRoundsChecked": 605,
+      "claireAcquired": 0,
+      "lostWaves": {
+        "18": 1,
+        "21": 1,
+        "23": 5,
+        "25": 6,
+        "27": 7,
+        "28": 4
+      }
+    },
+    {
+      "faction": "grove",
+      "runs": 24,
+      "wins": 0,
+      "meanCompleted": 23.541666666666668,
+      "bestCompleted": 34,
+      "fullDiamond": 5,
+      "bossKills": 41,
+      "naturalClaireEligible": 0,
+      "naturalClaireEligibilityEvents": 0,
+      "secretEligibilityRoundsChecked": 589,
+      "claireAcquired": 0,
+      "lostWaves": {
+        "15": 1,
+        "16": 1,
+        "21": 2,
+        "23": 1,
+        "25": 14,
+        "27": 4,
+        "35": 1
+      }
+    }
+  ],
+  "dwarfComparison": {
+    "beforeMean": 21.125,
+    "afterMean": 24.208333333333332,
+    "pairedMeanDifference": 3.0833333333333335,
+    "pairs": [
+      {
+        "seed": 13000019,
+        "policy": "recipe-planner",
+        "before": 13,
+        "after": 22,
+        "difference": 9
+      },
+      {
+        "seed": 13104748,
+        "policy": "recipe-planner",
+        "before": 20,
+        "after": 26,
+        "difference": 6
+      },
+      {
+        "seed": 13209477,
+        "policy": "recipe-planner",
+        "before": 24,
+        "after": 22,
+        "difference": -2
+      },
+      {
+        "seed": 13314206,
+        "policy": "recipe-planner",
+        "before": 24,
+        "after": 24,
+        "difference": 0
+      },
+      {
+        "seed": 13418935,
+        "policy": "recipe-planner",
+        "before": 14,
+        "after": 20,
+        "difference": 6
+      },
+      {
+        "seed": 13523664,
+        "policy": "recipe-planner",
+        "before": 26,
+        "after": 27,
+        "difference": 1
+      },
+      {
+        "seed": 13628393,
+        "policy": "recipe-planner",
+        "before": 22,
+        "after": 27,
+        "difference": 5
+      },
+      {
+        "seed": 13733122,
+        "policy": "recipe-planner",
+        "before": 11,
+        "after": 17,
+        "difference": 6
+      },
+      {
+        "seed": 13837851,
+        "policy": "recipe-planner",
+        "before": 22,
+        "after": 24,
+        "difference": 2
+      },
+      {
+        "seed": 13942580,
+        "policy": "recipe-planner",
+        "before": 24,
+        "after": 24,
+        "difference": 0
+      },
+      {
+        "seed": 14047309,
+        "policy": "recipe-planner",
+        "before": 16,
+        "after": 27,
+        "difference": 11
+      },
+      {
+        "seed": 14152038,
+        "policy": "recipe-planner",
+        "before": 22,
+        "after": 26,
+        "difference": 4
+      },
+      {
+        "seed": 13000019,
+        "policy": "immediate",
+        "before": 20,
+        "after": 24,
+        "difference": 4
+      },
+      {
+        "seed": 13104748,
+        "policy": "immediate",
+        "before": 22,
+        "after": 24,
+        "difference": 2
+      },
+      {
+        "seed": 13209477,
+        "policy": "immediate",
+        "before": 22,
+        "after": 26,
+        "difference": 4
+      },
+      {
+        "seed": 13314206,
+        "policy": "immediate",
+        "before": 26,
+        "after": 26,
+        "difference": 0
+      },
+      {
+        "seed": 13418935,
+        "policy": "immediate",
+        "before": 13,
+        "after": 22,
+        "difference": 9
+      },
+      {
+        "seed": 13523664,
+        "policy": "immediate",
+        "before": 24,
+        "after": 26,
+        "difference": 2
+      },
+      {
+        "seed": 13628393,
+        "policy": "immediate",
+        "before": 22,
+        "after": 26,
+        "difference": 4
+      },
+      {
+        "seed": 13733122,
+        "policy": "immediate",
+        "before": 22,
+        "after": 22,
+        "difference": 0
+      },
+      {
+        "seed": 13837851,
+        "policy": "immediate",
+        "before": 26,
+        "after": 26,
+        "difference": 0
+      },
+      {
+        "seed": 13942580,
+        "policy": "immediate",
+        "before": 22,
+        "after": 27,
+        "difference": 5
+      },
+      {
+        "seed": 14047309,
+        "policy": "immediate",
+        "before": 26,
+        "after": 22,
+        "difference": -4
+      },
+      {
+        "seed": 14152038,
+        "policy": "immediate",
+        "before": 24,
+        "after": 24,
+        "difference": 0
+      }
+    ]
+  },
+  "duplicates": {
+    "method": "Abstract legal actions and exact combat outcomes; ignore faction identity, family/recipe names and utility estimates. Conservative diagnostic, not a claim of statistical independence.",
+    "groups": []
+  },
+  "controlled": {
+    "cases": 117,
+    "summary": [
+      {
+        "name": "human-current",
+        "faction": "crown",
+        "material": 600,
+        "active": 16,
+        "scheduled": {
+          "cases": 27,
+          "fullClears": 27,
+          "leakCount": 0,
+          "bossKills": 6,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "forcedBossForms": {
+          "cases": 9,
+          "fullClears": 9,
+          "leakCount": 0,
+          "bossKills": 9,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "halfStep": {
+          "cases": 3,
+          "fullClears": 3,
+          "leakCount": 0,
+          "bossKills": 1,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "failures": []
+      },
+      {
+        "name": "dwarf-current",
+        "faction": "forge",
+        "material": 600,
+        "active": 19,
+        "scheduled": {
+          "cases": 27,
+          "fullClears": 24,
+          "leakCount": 3,
+          "bossKills": 3,
+          "bossEscapes": 3,
+          "timeouts": 0
+        },
+        "forcedBossForms": {
+          "cases": 9,
+          "fullClears": 0,
+          "leakCount": 9,
+          "bossKills": 0,
+          "bossEscapes": 9,
+          "timeouts": 0
+        },
+        "halfStep": {
+          "cases": 3,
+          "fullClears": 3,
+          "leakCount": 0,
+          "bossKills": 1,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "failures": [
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910001,
+            "wave": 50,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 1850.2953464575876,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 1850.2953464575876,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910019,
+            "wave": 50,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 179662.77618115488,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 179662.77618115488,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910037,
+            "wave": 50,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 170940.78883125616,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 170940.78883125616,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910001,
+            "wave": 50,
+            "variant": 0,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 14580.79985698184,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 14580.79985698184,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910001,
+            "wave": 50,
+            "variant": 1,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 74614.46345145143,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 74614.46345145143,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910001,
+            "wave": 50,
+            "variant": 2,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 29259.799856981837,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 29259.799856981837,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910019,
+            "wave": 50,
+            "variant": 0,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 154789.55361575255,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 154789.55361575255,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910019,
+            "wave": 50,
+            "variant": 1,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 214823.21721022268,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 214823.21721022268,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910019,
+            "wave": 50,
+            "variant": 2,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 169468.55361575267,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 169468.55361575267,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910037,
+            "wave": 50,
+            "variant": 0,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 123179.79751819168,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 123179.79751819168,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910037,
+            "wave": 50,
+            "variant": 1,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 183213.46111266146,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 183213.46111266146,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          },
+          {
+            "stage": "forced-final-boss-form",
+            "seed": 910037,
+            "wave": 50,
+            "variant": 2,
+            "dt": 0.1,
+            "leaks": 1,
+            "escapedHp": 137858.79751819168,
+            "bossEscapes": [
+              {
+                "id": 1,
+                "type": "host_50",
+                "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+                "hp": 137858.79751819168,
+                "maxHp": 1460171,
+                "leak": 10,
+                "time": 75.59999999999998,
+                "boss": true
+              }
+            ],
+            "remaining": []
+          }
+        ]
+      },
+      {
+        "name": "elf-current",
+        "faction": "grove",
+        "material": 600,
+        "active": 18,
+        "scheduled": {
+          "cases": 27,
+          "fullClears": 24,
+          "leakCount": 18,
+          "bossKills": 6,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "forcedBossForms": {
+          "cases": 9,
+          "fullClears": 9,
+          "leakCount": 0,
+          "bossKills": 9,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "halfStep": {
+          "cases": 3,
+          "fullClears": 3,
+          "leakCount": 0,
+          "bossKills": 1,
+          "bossEscapes": 0,
+          "timeouts": 0
+        },
+        "failures": [
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910001,
+            "wave": 46,
+            "dt": 0.1,
+            "leaks": 7,
+            "escapedHp": 283319.31395348813,
+            "bossEscapes": [],
+            "remaining": []
+          },
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910019,
+            "wave": 46,
+            "dt": 0.1,
+            "leaks": 5,
+            "escapedHp": 186552.5697674417,
+            "bossEscapes": [],
+            "remaining": []
+          },
+          {
+            "stage": "scheduled-real-wave",
+            "seed": 910037,
+            "wave": 46,
+            "dt": 0.1,
+            "leaks": 6,
+            "escapedHp": 243433.33720930212,
+            "bossEscapes": [],
+            "remaining": []
+          }
+        ]
+      }
+    ]
+  },
+  "completionCertified": false,
+  "limitations": [
+    "Both fixed legal policies lost all observed campaigns; no no-TOP 50-wave completion is certified.",
+    "Paired initial seeds do not impose the same later draws after combat diverges. Twelve initial seeds, rather than 72 independent faction-strength samples, define the paired clusters.",
+    "The controlled 600-material armies are injected capacity tests and do not establish legal acquisition.",
+    "The fixed Dwarf army failed its 0.1-second final-boss checks while the selected 0.05-second seed check cleared it; this sensitivity remains reported without retuning gameplay.",
+    "Natural Claire eligibility is observed separately from acquisition. Secret is excluded by both ordinary policies."
+  ],
+  "checkedAt": "2026-11-01T21:04:40.307Z"
+}

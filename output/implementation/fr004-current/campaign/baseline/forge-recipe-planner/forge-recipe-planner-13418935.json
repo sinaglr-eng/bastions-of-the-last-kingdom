@@ -1,0 +1,5217 @@
+{
+  "schemaVersion": 1,
+  "faction": "forge",
+  "seed": 13418935,
+  "policy": "recipe-planner",
+  "allowSecret": false,
+  "dt": 0.1,
+  "controllerHash": "0f34b5235358215edf36a98da3996a5fac49885b6f6028bfbd65917c05357107",
+  "placementPlanHash": "b06c9bf0453eff32fbdc4501fe776f15229b8613231b3538fcc048fae1a45d3e",
+  "placementPlanFile": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tools\\fr004-validation\\diamond\\placement-plan.json",
+  "sourceHashes": {
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/enemy-designs.json": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5",
+    "data/faction-attack-visuals.json": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9",
+    "data/faction-classifications.json": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c",
+    "data/faction-memberships.json": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
+    "data/faction-outcome-scenes-v063.json": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce",
+    "data/faction-outcome-scenes-v064.json": "ab0669c52cd38d00914e30f5a93f5a8376087741dde12dea2db82ebdd879dd21",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "data/fr003-approved.json": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+    "data/fr004.json": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1",
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/scenery-v5.json": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519",
+    "data/scenery-v6.json": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd",
+    "data/scenery-v7.json": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502",
+    "data/scenery-v8-camp.json": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "game/core/approved-defender-names.js": "5e55c833ba9f559e517c9e02a06df13b403372c63a71e95ff9053bc7c2b92ddf",
+    "game/core/army-readiness.js": "398a38a40697918dde8c0d46bf90de0f655ce46a9da331d858052310f5d5058b",
+    "game/core/atelier-roster.js": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af",
+    "game/core/blueprints.js": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "game/core/combat-rules.js": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1",
+    "game/core/combat.js": "2ea644fec45fb9ad98911b081805a909c5d236b3a80dc211aee5afda46dd8e79",
+    "game/core/command-move.js": "85efe14f888db6b2db214de22fdaa188db4fc8bfdcc6a8e89a207a368b64b644",
+    "game/core/command-points.js": "2e72cd04d5d094443f494327e3e231ced4a78f7d1f2414103be45e786fa9441d",
+    "game/core/commander-maze.js": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27",
+    "game/core/debug-review.js": "26fdb23c43b498826f492fa4ebbabe964601240747389cc969359a82aa9789e0",
+    "game/core/developer-console.js": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+    "game/core/draft.js": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
+    "game/core/enemy-rules.js": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/factions.js": "7f0e86e01cd21b3a57af2e24266f559be458563be5fc8407fbbe6bc33c11d508",
+    "game/core/fr002-combat.js": "7fce041f54356621a38c16ae0be198db5d3c941533cca5e936ae74e47ffa5db7",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "game/core/fr003-registry.js": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+    "game/core/fr004-registry.js": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c",
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/immunity-auras.js": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+    "game/core/math.js": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+    "game/core/maze-search.js": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961",
+    "game/core/maze-seeds.js": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110",
+    "game/core/maze-worker.js": "c5f2f27953a54e6fde367e2c2bbf9d28a53fafb1cf4edbe2b0fc07118ebe4ba3",
+    "game/core/maze.js": "a9bf68ac3e875d8cb3fb36ebb3ac2a68f62773d6e150bb9bdc80e39ecb544797",
+    "game/core/mvp.js": "a6709982ff3baa435d2df655810bd32c30949df999f2949192d7c40e6e63e4b5",
+    "game/core/progression.js": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9",
+    "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+    "game/core/run-statistics.js": "a01bc02ae34c7ef1803803ddffff2cc6a627961b1029102bfdc385ce7029eefd",
+    "game/core/save.js": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a",
+    "game/core/spiral-maze.js": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8",
+    "game/core/statistics-client.js": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b",
+    "game/core/tower-dps.js": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+    "game/core/unit-label.js": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e",
+    "game/core/visibility.js": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c",
+    "game/core/warband-info.js": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+    "game/core/wave-threats.js": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+    "game/release.js": "00c268794caea96c1e18f7715e805503382f9423a8bc613d7677e0efec44d9e9",
+    "package.json": "26083ae4666c7d29a5cb0a4058a7ddbb09dfce8ab84d02af3946dde6ee52b29a"
+  },
+  "maze": "diamond-spiral",
+  "noTop": true,
+  "outcome": "lost",
+  "completed": 14,
+  "lastWave": 15,
+  "lives": 0,
+  "kills": 117,
+  "leaks": 30,
+  "score": 26790,
+  "foundations": 75,
+  "fullDiamondReached": false,
+  "cp": 0,
+  "gold": 940,
+  "events": {
+    "spawns": 153,
+    "deaths": 117,
+    "leaks": 30,
+    "bossSpawns": 1,
+    "bossDeaths": 1,
+    "bossLeaks": 0,
+    "waveComplete": 14,
+    "recovery": 0
+  },
+  "finalWaveFullClear": false,
+  "finalBossKilled": false,
+  "damageByFamily": {
+    "dw_grenadier": 14615.187874226418,
+    "dw_furnacetender": 12606.584223609518,
+    "dw_boarrider": 1852.5638541436817,
+    "dw_shieldguard": 735.1406677970523,
+    "dw_musketeer": 5142.009895673548,
+    "dw_griffinhandler": 17477.4958573379,
+    "dw_engineer": 1341.157548138866,
+    "dw_runemortar": 1951.9148602724877
+  },
+  "crafts": [
+    {
+      "round": 13,
+      "recipe": "dw_runemortar",
+      "result": "dw_runemortar",
+      "name": "Rune Dwarf"
+    }
+  ],
+  "secretCrafts": 0,
+  "merges": 2,
+  "moves": 4,
+  "reserves": 0,
+  "rerolls": 0,
+  "steps": 10656,
+  "finiteChecks": 51,
+  "secretEligibility": [],
+  "secretCheckedRounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "rulesetRevision": "fr003-r2-20261101",
+  "wallMs": 9728,
+  "waves": [
+    {
+      "round": 1,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_grenadier": 72
+      },
+      "livesBefore": 30,
+      "killsBefore": 0,
+      "leaksBefore": 0,
+      "timeBefore": 0,
+      "cpBefore": 3,
+      "goldBefore": 90,
+      "mastery": 0,
+      "foundations": 5,
+      "diamondFoundations": 5,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 8,
+      "leaksAfter": 0,
+      "simulatedSeconds": 38.20000000000027,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_grenadier": 186.67741935483855,
+        "dw_furnacetender": 229.32258064516068
+      },
+      "livesBefore": 30,
+      "killsBefore": 8,
+      "leaksBefore": 0,
+      "timeBefore": 38.20000000000027,
+      "cpBefore": 3,
+      "goldBefore": 140,
+      "mastery": 0,
+      "foundations": 10,
+      "diamondFoundations": 10,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 16,
+      "leaksAfter": 0,
+      "simulatedSeconds": 48.19999999999909,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 8,
+      "leaks": 1,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_03",
+          "boss": false,
+          "hp": 0.8157894736841693,
+          "maxHp": 68,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_grenadier": 209.33552631578965,
+        "dw_furnacetender": 199.72368421052641,
+        "dw_boarrider": 202.12499999999994
+      },
+      "livesBefore": 30,
+      "killsBefore": 16,
+      "leaksBefore": 0,
+      "timeBefore": 86.39999999999937,
+      "cpBefore": 3,
+      "goldBefore": 190,
+      "mastery": 1,
+      "foundations": 15,
+      "diamondFoundations": 15,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 29,
+      "killsAfter": 24,
+      "leaksAfter": 1,
+      "simulatedSeconds": 60.699999999996564,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 8,
+      "leaks": 1,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_04",
+          "boss": false,
+          "hp": 19.272727272727277,
+          "maxHp": 104,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_grenadier": 206.81818181818224,
+        "dw_shieldguard": 322.4545454545455,
+        "dw_boarrider": 225.45454545454544,
+        "dw_furnacetender": 162.00000000000006
+      },
+      "livesBefore": 29,
+      "killsBefore": 24,
+      "leaksBefore": 1,
+      "timeBefore": 147.09999999999593,
+      "cpBefore": 3,
+      "goldBefore": 240,
+      "mastery": 1,
+      "foundations": 20,
+      "diamondFoundations": 20,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 28,
+      "killsAfter": 32,
+      "leaksAfter": 2,
+      "simulatedSeconds": 69.99999999999602,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 20,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 2,
+      "leaks": 7,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 70.72727272727283,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 70.72727272727285,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 64.00000000000023,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 52.545454545454476,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 70.72727272727283,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 45.81818181818185,
+          "maxHp": 132,
+          "leak": 1
+        },
+        {
+          "type": "host_05",
+          "boss": false,
+          "hp": 27.63636363636373,
+          "maxHp": 132,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_musketeer": 435.4545454545456,
+        "dw_grenadier": 350.363636363639
+      },
+      "livesBefore": 28,
+      "killsBefore": 32,
+      "leaksBefore": 2,
+      "timeBefore": 217.09999999999195,
+      "cpBefore": 1,
+      "goldBefore": 290,
+      "mastery": 2,
+      "foundations": 25,
+      "diamondFoundations": 25,
+      "routeSteps": 138,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 20,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 21,
+      "killsAfter": 34,
+      "leaksAfter": 9,
+      "simulatedSeconds": 54.10000000000122,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 20,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "completed": true,
+      "spawns": 10,
+      "deaths": 10,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_furnacetender": 1207.4999999999986,
+        "dw_musketeer": 148.23529411764704,
+        "dw_grenadier": 45.647058823529356,
+        "dw_shieldguard": 174.38235294117646,
+        "dw_boarrider": 84.23529411764697
+      },
+      "livesBefore": 21,
+      "killsBefore": 34,
+      "leaksBefore": 9,
+      "timeBefore": 271.19999999999317,
+      "cpBefore": 1,
+      "goldBefore": 340,
+      "mastery": 3,
+      "foundations": 30,
+      "diamondFoundations": 30,
+      "routeSteps": 148,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 20,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 21,
+      "killsAfter": 44,
+      "leaksAfter": 9,
+      "simulatedSeconds": 27.00000000000614,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 11,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_grenadier": 205.9445676274935,
+        "dw_musketeer": 355.5210643015523,
+        "dw_griffinhandler": 877.2350332594242,
+        "dw_shieldguard": 238.30376940133044,
+        "dw_furnacetender": 599.9955654102001
+      },
+      "livesBefore": 21,
+      "killsBefore": 44,
+      "leaksBefore": 9,
+      "timeBefore": 298.1999999999993,
+      "cpBefore": 1,
+      "goldBefore": 390,
+      "mastery": 3,
+      "foundations": 35,
+      "diamondFoundations": 35,
+      "routeSteps": 168,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 21,
+      "killsAfter": 55,
+      "leaksAfter": 9,
+      "simulatedSeconds": 70.20000000001596,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 3,
+      "leaks": 8,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_musketeer": 378,
+        "dw_griffinhandler": 2059.509090909092,
+        "dw_furnacetender": 946.1090909090876
+      },
+      "livesBefore": 21,
+      "killsBefore": 55,
+      "leaksBefore": 9,
+      "timeBefore": 368.40000000001527,
+      "cpBefore": 1,
+      "goldBefore": 440,
+      "mastery": 4,
+      "foundations": 40,
+      "diamondFoundations": 40,
+      "routeSteps": 184,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 13,
+      "killsAfter": 58,
+      "leaksAfter": 17,
+      "simulatedSeconds": 89.50000000002035,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "completed": true,
+      "spawns": 12,
+      "deaths": 11,
+      "leaks": 1,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_09",
+          "boss": false,
+          "hp": 17.823529411764362,
+          "maxHp": 314,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_furnacetender": 1078.5529411764712,
+        "dw_grenadier": 247.5764705882345,
+        "dw_musketeer": 449.3294117647053,
+        "dw_griffinhandler": 1579.5999999999995,
+        "dw_boarrider": 395.1176470588235
+      },
+      "livesBefore": 13,
+      "killsBefore": 58,
+      "leaksBefore": 17,
+      "timeBefore": 457.9000000000356,
+      "cpBefore": 1,
+      "goldBefore": 490,
+      "mastery": 5,
+      "foundations": 45,
+      "diamondFoundations": 45,
+      "routeSteps": 190,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 12,
+      "killsAfter": 69,
+      "leaksAfter": 18,
+      "simulatedSeconds": 87.00000000001972,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "completed": true,
+      "spawns": 1,
+      "deaths": 1,
+      "leaks": 0,
+      "bossSpawns": 1,
+      "bossDeaths": 1,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_furnacetender": 488.9090909090913,
+        "dw_grenadier": 1441.030303030328,
+        "dw_musketeer": 386.59090909090907,
+        "dw_griffinhandler": 1325.8333333333335,
+        "dw_boarrider": 583.6363636363636
+      },
+      "livesBefore": 12,
+      "killsBefore": 69,
+      "leaksBefore": 18,
+      "timeBefore": 544.9000000000553,
+      "cpBefore": 1,
+      "goldBefore": 540,
+      "mastery": 5,
+      "foundations": 50,
+      "diamondFoundations": 50,
+      "routeSteps": 200,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 12,
+      "killsAfter": 70,
+      "leaksAfter": 18,
+      "simulatedSeconds": 111.00000000002524,
+      "cpAfter": 6,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_furnacetender": 1628.3765765765763,
+        "dw_grenadier": 2208.4558558558583,
+        "dw_musketeer": 540.6306306306313,
+        "dw_griffinhandler": 1693.536936936939
+      },
+      "livesBefore": 12,
+      "killsBefore": 70,
+      "leaksBefore": 18,
+      "timeBefore": 655.9000000000806,
+      "cpBefore": 0,
+      "goldBefore": 740,
+      "mastery": 6,
+      "foundations": 55,
+      "diamondFoundations": 55,
+      "routeSteps": 208,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 12,
+      "killsAfter": 83,
+      "leaksAfter": 18,
+      "simulatedSeconds": 73.9000000000168,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 2
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_furnacetender": 2333.810526315794,
+        "dw_grenadier": 2793.300000000003,
+        "dw_musketeer": 712.894736842105,
+        "dw_griffinhandler": 1117.2157894736847,
+        "dw_engineer": 261.4631578947371,
+        "dw_boarrider": 126.31578947368422
+      },
+      "livesBefore": 12,
+      "killsBefore": 83,
+      "leaksBefore": 18,
+      "timeBefore": 729.8000000000974,
+      "cpBefore": 0,
+      "goldBefore": 790,
+      "mastery": 6,
+      "foundations": 60,
+      "diamondFoundations": 60,
+      "routeSteps": 236,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 2
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 12,
+      "killsAfter": 96,
+      "leaksAfter": 18,
+      "simulatedSeconds": 82.80000000001883,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 3
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 13,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 14,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "dw_furnacetender": 1905.9421052631642,
+        "dw_grenadier": 3938.278947368414,
+        "dw_musketeer": 606.7894736842104,
+        "dw_griffinhandler": 2240.26315789474,
+        "dw_engineer": 310.4105263157899,
+        "dw_runemortar": 518.3157894736919
+      },
+      "livesBefore": 12,
+      "killsBefore": 96,
+      "leaksBefore": 18,
+      "timeBefore": 812.6000000001162,
+      "cpBefore": 0,
+      "goldBefore": 840,
+      "mastery": 7,
+      "foundations": 65,
+      "diamondFoundations": 65,
+      "routeSteps": 256,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 3
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 12,
+      "killsAfter": 110,
+      "leaksAfter": 18,
+      "simulatedSeconds": 64.2000000000146,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 7,
+      "leaks": 7,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 188.30114566284877,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 800.2340425531916,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 698.1063829787234,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 445.27168576104907,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 476.7577741407541,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 528.0409165302794,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 697.4042553191499,
+          "maxHp": 816,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_furnacetender": 1826.342062193138,
+        "dw_musketeer": 411.06382978723406,
+        "dw_grenadier": 2234.3599070798773,
+        "dw_griffinhandler": 1964.8891821973507,
+        "dw_engineer": 283.95053059500697,
+        "dw_runemortar": 633.5990707987962,
+        "dw_boarrider": 235.67921440261867
+      },
+      "livesBefore": 12,
+      "killsBefore": 110,
+      "leaksBefore": 18,
+      "timeBefore": 876.8000000001308,
+      "cpBefore": 0,
+      "goldBefore": 890,
+      "mastery": 8,
+      "foundations": 70,
+      "diamondFoundations": 70,
+      "routeSteps": 278,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "dw_griffinhandler",
+          "tier": 4,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 5,
+      "killsAfter": 117,
+      "leaksAfter": 25,
+      "simulatedSeconds": 133.80000000003042,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 4
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "dw_griffinhandler",
+          "tier": 4,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 15,
+      "completed": false,
+      "spawns": 11,
+      "deaths": 0,
+      "leaks": 5,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "dw_griffinhandler": 4619.413333333334,
+        "dw_musketeer": 717.5,
+        "dw_grenadier": 475.3999999999956,
+        "dw_engineer": 485.3333333333332,
+        "dw_runemortar": 800.0000000000002
+      },
+      "livesBefore": 5,
+      "killsBefore": 117,
+      "leaksBefore": 25,
+      "timeBefore": 1010.6000000001612,
+      "cpBefore": 0,
+      "goldBefore": 940,
+      "mastery": 8,
+      "foundations": 75,
+      "diamondFoundations": 75,
+      "routeSteps": 310,
+      "army": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 4
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "dw_griffinhandler",
+          "tier": 4,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 71,
+          "family": "dw_boarrider",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "livesAfter": 0,
+      "killsAfter": 117,
+      "leaksAfter": 30,
+      "simulatedSeconds": 50.49999999996919,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "dw_grenadier",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 2
+        },
+        {
+          "id": 8,
+          "family": "dw_furnacetender",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 2,
+          "x": 18,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 17,
+          "family": "dw_shieldguard",
+          "tier": 2,
+          "x": 17,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 23,
+          "family": "dw_musketeer",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 3,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 4
+        },
+        {
+          "id": 34,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 3
+        },
+        {
+          "id": 36,
+          "family": "dw_griffinhandler",
+          "tier": 3,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 0
+        },
+        {
+          "id": 44,
+          "family": "dw_boarrider",
+          "tier": 3,
+          "x": 19,
+          "z": 28,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 50,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 12,
+          "mvpLevel": 1
+        },
+        {
+          "id": 55,
+          "family": "dw_grenadier",
+          "tier": 3,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 57,
+          "family": "dw_engineer",
+          "tier": 3,
+          "x": 31,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "dw_runemortar",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "dw_griffinhandler",
+          "tier": 4,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 71,
+          "family": "dw_boarrider",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 1,
+      "defender": {
+        "id": 1,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 2,
+      "defender": {
+        "id": 2,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 19,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 3,
+      "defender": {
+        "id": 3,
+        "family": "dw_musketeer",
+        "tier": 1,
+        "x": 17,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 4,
+      "defender": {
+        "id": 4,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 20,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 5,
+      "defender": {
+        "id": 5,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 16,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 1,
+      "kind": "keep",
+      "anchor": 1,
+      "before": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "chosenUtility": 146.44055079598866,
+      "delta": 146.44055079598866,
+      "defender": {
+        "id": 1,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 1,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 6,
+      "defender": {
+        "id": 6,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 18,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 7,
+      "defender": {
+        "id": 7,
+        "family": "dw_engineer",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 8,
+      "defender": {
+        "id": 8,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 19,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 9,
+      "defender": {
+        "id": 9,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 19,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 10,
+      "defender": {
+        "id": 10,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 18,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "keep",
+      "anchor": 8,
+      "before": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "chosenUtility": 208.04999924524708,
+      "delta": 62.12098280760233,
+      "defender": {
+        "id": 8,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 19,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 8,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 19,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 11,
+      "defender": {
+        "id": 11,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 18,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 12,
+      "defender": {
+        "id": 12,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 18,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 13,
+      "defender": {
+        "id": 13,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 19,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 14,
+      "defender": {
+        "id": 14,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 20,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 15,
+      "defender": {
+        "id": 15,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 20,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "merge",
+      "anchor": 11,
+      "before": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "chosenUtility": 238.92598065846886,
+      "delta": 36.04137081255803,
+      "ingredients": [
+        {
+          "id": 11,
+          "family": "dw_boarrider",
+          "tier": 1,
+          "x": 18,
+          "z": 20,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 14,
+          "family": "dw_boarrider",
+          "tier": 1,
+          "x": 20,
+          "z": 17,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 11,
+        "family": "dw_boarrider",
+        "tier": 2,
+        "x": 18,
+        "z": 20,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 16,
+      "defender": {
+        "id": 16,
+        "family": "dw_grenadier",
+        "tier": 2,
+        "x": 16,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 17,
+      "defender": {
+        "id": 17,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 17,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 18,
+      "defender": {
+        "id": 18,
+        "family": "dw_runesmith",
+        "tier": 1,
+        "x": 16,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 19,
+      "defender": {
+        "id": 19,
+        "family": "dw_runesmith",
+        "tier": 1,
+        "x": 17,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 20,
+      "defender": {
+        "id": 20,
+        "family": "dw_griffinhandler",
+        "tier": 2,
+        "x": 4,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "keep",
+      "anchor": 17,
+      "before": {
+        "cp": 3,
+        "gold": 240,
+        "lives": 29
+      },
+      "chosenUtility": 282.9493446279408,
+      "delta": 56.22357127143988,
+      "defender": {
+        "id": 17,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 17,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 240,
+        "lives": 29
+      },
+      "resultDefender": {
+        "id": 17,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 17,
+        "z": 19,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 21,
+      "defender": {
+        "id": 21,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 3,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 22,
+      "defender": {
+        "id": 22,
+        "family": "dw_engineer",
+        "tier": 2,
+        "x": 2,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 23,
+      "defender": {
+        "id": 23,
+        "family": "dw_musketeer",
+        "tier": 1,
+        "x": 1,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 24,
+      "defender": {
+        "id": 24,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 0,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 25,
+      "defender": {
+        "id": 25,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 5,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 138
+    },
+    {
+      "round": 5,
+      "kind": "keep",
+      "anchor": 23,
+      "before": {
+        "cp": 3,
+        "gold": 290,
+        "lives": 28
+      },
+      "chosenUtility": 315.03510186394885,
+      "delta": 57.89535913521172,
+      "defender": {
+        "id": 23,
+        "family": "dw_musketeer",
+        "tier": 1,
+        "x": 1,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 290,
+        "lives": 28
+      },
+      "resultDefender": {
+        "id": 23,
+        "family": "dw_musketeer",
+        "tier": 1,
+        "x": 1,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 5,
+      "kind": "move",
+      "id": 23,
+      "wall": 12,
+      "value": 336.807208451497,
+      "from": {
+        "x": 1,
+        "z": 18
+      },
+      "to": {
+        "x": 18,
+        "z": 19
+      },
+      "cpBefore": 3,
+      "cpAfter": 1
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 26,
+      "defender": {
+        "id": 26,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 6,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 140
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 27,
+      "defender": {
+        "id": 27,
+        "family": "dw_furnacetender",
+        "tier": 2,
+        "x": 7,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 142
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 28,
+      "defender": {
+        "id": 28,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 8,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 144
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 29,
+      "defender": {
+        "id": 29,
+        "family": "dw_furnacetender",
+        "tier": 2,
+        "x": 9,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 146
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 30,
+      "defender": {
+        "id": 30,
+        "family": "dw_engineer",
+        "tier": 3,
+        "x": 10,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 148
+    },
+    {
+      "round": 6,
+      "kind": "merge",
+      "anchor": 29,
+      "before": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 21
+      },
+      "chosenUtility": 731.5516629130924,
+      "delta": 376.4052459674543,
+      "ingredients": [
+        {
+          "id": 29,
+          "family": "dw_furnacetender",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 27,
+          "family": "dw_furnacetender",
+          "tier": 2,
+          "x": 7,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 21
+      },
+      "resultDefender": {
+        "id": 29,
+        "family": "dw_furnacetender",
+        "tier": 3,
+        "x": 9,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 31,
+      "defender": {
+        "id": 31,
+        "family": "dw_griffinhandler",
+        "tier": 2,
+        "x": 11,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 150
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 32,
+      "defender": {
+        "id": 32,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 12,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 154
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 33,
+      "defender": {
+        "id": 33,
+        "family": "dw_grenadier",
+        "tier": 2,
+        "x": 12,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 156
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 34,
+      "defender": {
+        "id": 34,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 13,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 162
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 35,
+      "defender": {
+        "id": 35,
+        "family": "dw_musketeer",
+        "tier": 1,
+        "x": 14,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 168
+    },
+    {
+      "round": 7,
+      "kind": "keep",
+      "anchor": 34,
+      "before": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 21
+      },
+      "chosenUtility": 923.592721729525,
+      "delta": 309.03270135752734,
+      "defender": {
+        "id": 34,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 13,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 21
+      },
+      "resultDefender": {
+        "id": 34,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 13,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 36,
+      "defender": {
+        "id": 36,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 15,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 180
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 37,
+      "defender": {
+        "id": 37,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 19,
+        "z": 32,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 38,
+      "defender": {
+        "id": 38,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 19,
+        "z": 31,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 39,
+      "defender": {
+        "id": 39,
+        "family": "dw_boarrider",
+        "tier": 2,
+        "x": 19,
+        "z": 33,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 40,
+      "defender": {
+        "id": 40,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 19,
+        "z": 30,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "keep",
+      "anchor": 36,
+      "before": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 21
+      },
+      "chosenUtility": 1025.5927116980877,
+      "delta": 89.13981186029616,
+      "defender": {
+        "id": 36,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 15,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 21
+      },
+      "resultDefender": {
+        "id": 36,
+        "family": "dw_griffinhandler",
+        "tier": 3,
+        "x": 15,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 41,
+      "defender": {
+        "id": 41,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 19,
+        "z": 34,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 42,
+      "defender": {
+        "id": 42,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 19,
+        "z": 29,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 43,
+      "defender": {
+        "id": 43,
+        "family": "dw_musketeer",
+        "tier": 2,
+        "x": 19,
+        "z": 35,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 44,
+      "defender": {
+        "id": 44,
+        "family": "dw_boarrider",
+        "tier": 3,
+        "x": 19,
+        "z": 28,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 45,
+      "defender": {
+        "id": 45,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 19,
+        "z": 36,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 190
+    },
+    {
+      "round": 9,
+      "kind": "keep",
+      "anchor": 44,
+      "before": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 13
+      },
+      "chosenUtility": 1246.6408307308875,
+      "delta": 230.09247911249076,
+      "defender": {
+        "id": 44,
+        "family": "dw_boarrider",
+        "tier": 3,
+        "x": 19,
+        "z": 28,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 13
+      },
+      "resultDefender": {
+        "id": 44,
+        "family": "dw_boarrider",
+        "tier": 3,
+        "x": 19,
+        "z": 28,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 46,
+      "defender": {
+        "id": 46,
+        "family": "dw_furnacetender",
+        "tier": 1,
+        "x": 20,
+        "z": 27,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 192
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 47,
+      "defender": {
+        "id": 47,
+        "family": "dw_griffinhandler",
+        "tier": 1,
+        "x": 21,
+        "z": 26,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 194
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 48,
+      "defender": {
+        "id": 48,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 22,
+        "z": 25,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 196
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 49,
+      "defender": {
+        "id": 49,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 23,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 198
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 50,
+      "defender": {
+        "id": 50,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 24,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 200
+    },
+    {
+      "round": 10,
+      "kind": "keep",
+      "anchor": 50,
+      "before": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 12
+      },
+      "chosenUtility": 1580.8996969481786,
+      "delta": 318.6506105279432,
+      "defender": {
+        "id": 50,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 24,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 50,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 24,
+        "z": 23,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "boss-cp",
+      "amount": 5,
+      "reason": "boss",
+      "enemyId": 88,
+      "balance": 6
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 51,
+      "defender": {
+        "id": 51,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 25,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 202
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 52,
+      "defender": {
+        "id": 52,
+        "family": "dw_boarrider",
+        "tier": 2,
+        "x": 26,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 204
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 53,
+      "defender": {
+        "id": 53,
+        "family": "dw_furnacetender",
+        "tier": 2,
+        "x": 27,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 54,
+      "defender": {
+        "id": 54,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 28,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 55,
+      "defender": {
+        "id": 55,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 29,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 208
+    },
+    {
+      "round": 11,
+      "kind": "keep",
+      "anchor": 55,
+      "before": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 12
+      },
+      "chosenUtility": 1828.2542891646522,
+      "delta": 187.76993168433046,
+      "defender": {
+        "id": 55,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 29,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 55,
+        "family": "dw_grenadier",
+        "tier": 3,
+        "x": 29,
+        "z": 19,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 29,
+      "wall": 47,
+      "value": 1945.9100094913292,
+      "from": {
+        "x": 9,
+        "z": 18
+      },
+      "to": {
+        "x": 21,
+        "z": 26
+      },
+      "cpBefore": 6,
+      "cpAfter": 4
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 34,
+      "wall": 48,
+      "value": 2024.5114032658212,
+      "from": {
+        "x": 13,
+        "z": 21
+      },
+      "to": {
+        "x": 22,
+        "z": 25
+      },
+      "cpBefore": 4,
+      "cpAfter": 2
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 55,
+      "wall": 49,
+      "value": 2099.4031133245353,
+      "from": {
+        "x": 29,
+        "z": 19
+      },
+      "to": {
+        "x": 23,
+        "z": 24
+      },
+      "cpBefore": 2,
+      "cpAfter": 0
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 56,
+      "defender": {
+        "id": 56,
+        "family": "dw_boarrider",
+        "tier": 3,
+        "x": 30,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 212
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 57,
+      "defender": {
+        "id": 57,
+        "family": "dw_engineer",
+        "tier": 3,
+        "x": 31,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 216
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 58,
+      "defender": {
+        "id": 58,
+        "family": "dw_boarrider",
+        "tier": 2,
+        "x": 32,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 224
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 59,
+      "defender": {
+        "id": 59,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 33,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 232
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 60,
+      "defender": {
+        "id": 60,
+        "family": "dw_shieldguard",
+        "tier": 2,
+        "x": 33,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 236
+    },
+    {
+      "round": 12,
+      "kind": "keep",
+      "anchor": 57,
+      "before": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 12
+      },
+      "chosenUtility": 2287.468416092469,
+      "delta": 283.53497520707856,
+      "defender": {
+        "id": 57,
+        "family": "dw_engineer",
+        "tier": 3,
+        "x": 31,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 57,
+        "family": "dw_engineer",
+        "tier": 3,
+        "x": 31,
+        "z": 17,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 61,
+      "defender": {
+        "id": 61,
+        "family": "dw_runesmith",
+        "tier": 2,
+        "x": 33,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 240
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 62,
+      "defender": {
+        "id": 62,
+        "family": "dw_engineer",
+        "tier": 1,
+        "x": 33,
+        "z": 12,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 244
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 63,
+      "defender": {
+        "id": 63,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 33,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 248
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 64,
+      "defender": {
+        "id": 64,
+        "family": "dw_runesmith",
+        "tier": 1,
+        "x": 33,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 252
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 65,
+      "defender": {
+        "id": 65,
+        "family": "dw_grenadier",
+        "tier": 2,
+        "x": 33,
+        "z": 9,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 256
+    },
+    {
+      "round": 13,
+      "kind": "craft",
+      "anchor": 61,
+      "before": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 12
+      },
+      "chosenUtility": 2662.7986322374477,
+      "delta": 305.3367624363732,
+      "recipe": "dw_runemortar",
+      "result": "dw_runemortar",
+      "ingredients": [
+        {
+          "id": 61,
+          "family": "dw_runesmith",
+          "tier": 2,
+          "x": 33,
+          "z": 13,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 65,
+          "family": "dw_grenadier",
+          "tier": 2,
+          "x": 33,
+          "z": 9,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 62,
+          "family": "dw_engineer",
+          "tier": 1,
+          "x": 33,
+          "z": 12,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 61,
+        "family": "dw_runemortar",
+        "tier": 1,
+        "x": 33,
+        "z": 13,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 66,
+      "defender": {
+        "id": 66,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 33,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 260
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 67,
+      "defender": {
+        "id": 67,
+        "family": "dw_runesmith",
+        "tier": 1,
+        "x": 33,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 264
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 68,
+      "defender": {
+        "id": 68,
+        "family": "dw_furnacetender",
+        "tier": 2,
+        "x": 33,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 268
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 69,
+      "defender": {
+        "id": 69,
+        "family": "dw_griffinhandler",
+        "tier": 4,
+        "x": 33,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 272
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 70,
+      "defender": {
+        "id": 70,
+        "family": "dw_shieldguard",
+        "tier": 1,
+        "x": 33,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 278
+    },
+    {
+      "round": 14,
+      "kind": "keep",
+      "anchor": 69,
+      "before": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 12
+      },
+      "chosenUtility": 3254.0945463113076,
+      "delta": 751.3649213938897,
+      "defender": {
+        "id": 69,
+        "family": "dw_griffinhandler",
+        "tier": 4,
+        "x": 33,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 69,
+        "family": "dw_griffinhandler",
+        "tier": 4,
+        "x": 33,
+        "z": 5,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 71,
+      "defender": {
+        "id": 71,
+        "family": "dw_boarrider",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 286
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 72,
+      "defender": {
+        "id": 72,
+        "family": "dw_engineer",
+        "tier": 3,
+        "x": 31,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 292
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 73,
+      "defender": {
+        "id": 73,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 30,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 298
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 74,
+      "defender": {
+        "id": 74,
+        "family": "dw_boarrider",
+        "tier": 1,
+        "x": 29,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 304
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 75,
+      "defender": {
+        "id": 75,
+        "family": "dw_grenadier",
+        "tier": 1,
+        "x": 28,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 310
+    },
+    {
+      "round": 15,
+      "kind": "keep",
+      "anchor": 71,
+      "before": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 5
+      },
+      "chosenUtility": 3455.6877922358767,
+      "delta": 464.65400157247905,
+      "defender": {
+        "id": 71,
+        "family": "dw_boarrider",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 5
+      },
+      "resultDefender": {
+        "id": 71,
+        "family": "dw_boarrider",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    }
+  ]
+}

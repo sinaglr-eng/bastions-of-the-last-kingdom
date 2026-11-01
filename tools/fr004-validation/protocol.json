@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-004",
+  "frozenAt": "2026-11-01T20:52:47.014Z",
+  "candidateVersion": "0.6.7",
+  "baselineRuleset": "fr003-r2-20261101",
+  "currentRuleset": "fr004-r1-20261101",
+  "seeds": [
+    13000019,
+    13104748,
+    13209477,
+    13314206,
+    13418935,
+    13523664,
+    13628393,
+    13733122,
+    13837851,
+    13942580,
+    14047309,
+    14152038
+  ],
+  "policies": [
+    "immediate",
+    "recipe-planner"
+  ],
+  "factions": [
+    "crown",
+    "forge",
+    "grove"
+  ],
+  "currentCampaigns": 72,
+  "pairedDwarfBaselineCampaigns": 24,
+  "allowSecret": false,
+  "naturalClaireEligibility": "Observed through real availableRecipes on current candidates, separately from acquisition; no Secret permission or injection.",
+  "noTOP": true,
+  "rankVIAllowed": true,
+  "controllerSha256": "0f34b5235358215edf36a98da3996a5fac49885b6f6028bfbd65917c05357107",
+  "placementPlanSha256": "152d891b6a9b85a44469846c6a9e855d8f2b0aa1069fa79f4605e24ae371841a",
+  "baselineControllerSha256": "905459f8bd0c235bb5ee71a4bc40b57d7454d6e7bee8164c14f65c57d9c32d75",
+  "controllerChanges": "Only data-loader revision, paths, metadata and observational natural-Claire eligibility logging; decision functions and construction order are unchanged.",
+  "controlledInputsSha256": "fed5992dcf11d18664c5341fc428e64cd47eea2ed8d4adfd95e68fd573516b05"
+}

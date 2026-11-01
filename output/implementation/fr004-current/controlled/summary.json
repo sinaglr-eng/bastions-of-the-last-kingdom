@@ -1,0 +1,396 @@
+{
+  "status": "passed",
+  "runtimeVersion": "0.6.7",
+  "cases": 117,
+  "wallSeconds": 118.523,
+  "protectedSourcesUnchanged": true,
+  "sharedRuntimeDataUnchanged": true,
+  "summary": [
+    {
+      "name": "human-current",
+      "faction": "crown",
+      "material": 600,
+      "active": 16,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 27,
+        "leakCount": 0,
+        "bossKills": 6,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 9,
+        "leakCount": 0,
+        "bossKills": 9,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": []
+    },
+    {
+      "name": "dwarf-current",
+      "faction": "forge",
+      "material": 600,
+      "active": 19,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 24,
+        "leakCount": 3,
+        "bossKills": 3,
+        "bossEscapes": 3,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 0,
+        "leakCount": 9,
+        "bossKills": 0,
+        "bossEscapes": 9,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": [
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910001,
+          "wave": 50,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 1850.2953464575876,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 1850.2953464575876,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910019,
+          "wave": 50,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 179662.77618115488,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 179662.77618115488,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910037,
+          "wave": 50,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 170940.78883125616,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 170940.78883125616,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910001,
+          "wave": 50,
+          "variant": 0,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 14580.79985698184,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 14580.79985698184,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910001,
+          "wave": 50,
+          "variant": 1,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 74614.46345145143,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 74614.46345145143,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910001,
+          "wave": 50,
+          "variant": 2,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 29259.799856981837,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 29259.799856981837,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910019,
+          "wave": 50,
+          "variant": 0,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 154789.55361575255,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 154789.55361575255,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910019,
+          "wave": 50,
+          "variant": 1,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 214823.21721022268,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 214823.21721022268,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910019,
+          "wave": 50,
+          "variant": 2,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 169468.55361575267,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 169468.55361575267,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910037,
+          "wave": 50,
+          "variant": 0,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 123179.79751819168,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 123179.79751819168,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910037,
+          "wave": 50,
+          "variant": 1,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 183213.46111266146,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 183213.46111266146,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        },
+        {
+          "stage": "forced-final-boss-form",
+          "seed": 910037,
+          "wave": 50,
+          "variant": 2,
+          "dt": 0.1,
+          "leaks": 1,
+          "escapedHp": 137858.79751819168,
+          "bossEscapes": [
+            {
+              "id": 1,
+              "type": "host_50",
+              "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+              "hp": 137858.79751819168,
+              "maxHp": 1460171,
+              "leak": 10,
+              "time": 75.59999999999998,
+              "boss": true
+            }
+          ],
+          "remaining": []
+        }
+      ]
+    },
+    {
+      "name": "elf-current",
+      "faction": "grove",
+      "material": 600,
+      "active": 18,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 24,
+        "leakCount": 18,
+        "bossKills": 6,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 9,
+        "leakCount": 0,
+        "bossKills": 9,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": [
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910001,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 7,
+          "escapedHp": 283319.31395348813,
+          "bossEscapes": [],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910019,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 5,
+          "escapedHp": 186552.5697674417,
+          "bossEscapes": [],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910037,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 6,
+          "escapedHp": 243433.33720930212,
+          "bossEscapes": [],
+          "remaining": []
+        }
+      ]
+    }
+  ]
+}

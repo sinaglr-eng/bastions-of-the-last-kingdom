@@ -1,0 +1,1181 @@
+{
+  "requirementId": "FR-004",
+  "status": "FR-004 proposal — pending approval; not implemented",
+  "approved": false,
+  "implemented": false,
+  "baselineRuntimeVersion": "0.6.6",
+  "scope": {
+    "nativeUnits": 45,
+    "profiles": 85,
+    "defaultDamageProfiles": 80,
+    "machineDamageProfiles": 5,
+    "discreteProfiles": 81,
+    "continuousProfiles": 4,
+    "physicalAuraOwners": 10,
+    "physicalAuraLevels": 6,
+    "sharedLadyClaireChanged": false,
+    "humanOrElfCombatChanged": false,
+    "recipesChanged": false,
+    "artChanged": false
+  },
+  "primaryDamageChanges": [
+    {
+      "key": "forge/dw_shieldguard/1",
+      "field": "damage",
+      "before": 18,
+      "after": 27
+    },
+    {
+      "key": "forge/dw_shieldguard/2",
+      "field": "damage",
+      "before": 36,
+      "after": 54
+    },
+    {
+      "key": "forge/dw_shieldguard/3",
+      "field": "damage",
+      "before": 72,
+      "after": 108
+    },
+    {
+      "key": "forge/dw_shieldguard/4",
+      "field": "damage",
+      "before": 128,
+      "after": 192
+    },
+    {
+      "key": "forge/dw_shieldguard/5",
+      "field": "damage",
+      "before": 220,
+      "after": 330
+    },
+    {
+      "key": "forge/dw_shieldguard/6",
+      "field": "damage",
+      "before": 480,
+      "after": 720
+    },
+    {
+      "key": "forge/dw_musketeer/1",
+      "field": "damage",
+      "before": 20,
+      "after": 30
+    },
+    {
+      "key": "forge/dw_musketeer/2",
+      "field": "damage",
+      "before": 40,
+      "after": 60
+    },
+    {
+      "key": "forge/dw_musketeer/3",
+      "field": "damage",
+      "before": 80,
+      "after": 120
+    },
+    {
+      "key": "forge/dw_musketeer/4",
+      "field": "damage",
+      "before": 150,
+      "after": 225
+    },
+    {
+      "key": "forge/dw_musketeer/5",
+      "field": "damage",
+      "before": 300,
+      "after": 450
+    },
+    {
+      "key": "forge/dw_musketeer/6",
+      "field": "damage",
+      "before": 650,
+      "after": 975
+    },
+    {
+      "key": "forge/dw_runesmith/1",
+      "field": "damage",
+      "before": 7,
+      "after": 10.5
+    },
+    {
+      "key": "forge/dw_runesmith/2",
+      "field": "damage",
+      "before": 14,
+      "after": 21
+    },
+    {
+      "key": "forge/dw_runesmith/3",
+      "field": "damage",
+      "before": 28,
+      "after": 42
+    },
+    {
+      "key": "forge/dw_runesmith/4",
+      "field": "damage",
+      "before": 56,
+      "after": 84
+    },
+    {
+      "key": "forge/dw_runesmith/5",
+      "field": "damage",
+      "before": 114,
+      "after": 171
+    },
+    {
+      "key": "forge/dw_runesmith/6",
+      "field": "damage",
+      "before": 246,
+      "after": 369
+    },
+    {
+      "key": "forge/dw_boarrider/1",
+      "field": "damage",
+      "before": 20,
+      "after": 30
+    },
+    {
+      "key": "forge/dw_boarrider/2",
+      "field": "damage",
+      "before": 40,
+      "after": 60
+    },
+    {
+      "key": "forge/dw_boarrider/3",
+      "field": "damage",
+      "before": 80,
+      "after": 120
+    },
+    {
+      "key": "forge/dw_boarrider/4",
+      "field": "damage",
+      "before": 150,
+      "after": 225
+    },
+    {
+      "key": "forge/dw_boarrider/5",
+      "field": "damage",
+      "before": 280,
+      "after": 420
+    },
+    {
+      "key": "forge/dw_boarrider/6",
+      "field": "damage",
+      "before": 610,
+      "after": 915
+    },
+    {
+      "key": "forge/dw_grenadier/1",
+      "field": "damage",
+      "before": 14,
+      "after": 21
+    },
+    {
+      "key": "forge/dw_grenadier/2",
+      "field": "damage",
+      "before": 28,
+      "after": 42
+    },
+    {
+      "key": "forge/dw_grenadier/3",
+      "field": "damage",
+      "before": 56,
+      "after": 84
+    },
+    {
+      "key": "forge/dw_grenadier/4",
+      "field": "damage",
+      "before": 112,
+      "after": 168
+    },
+    {
+      "key": "forge/dw_grenadier/5",
+      "field": "damage",
+      "before": 220,
+      "after": 330
+    },
+    {
+      "key": "forge/dw_grenadier/6",
+      "field": "damage",
+      "before": 475,
+      "after": 712.5
+    },
+    {
+      "key": "forge/dw_engineer/1",
+      "field": "damage",
+      "before": 7,
+      "after": 10.5
+    },
+    {
+      "key": "forge/dw_engineer/2",
+      "field": "damage",
+      "before": 14,
+      "after": 21
+    },
+    {
+      "key": "forge/dw_engineer/3",
+      "field": "damage",
+      "before": 28,
+      "after": 42
+    },
+    {
+      "key": "forge/dw_engineer/4",
+      "field": "damage",
+      "before": 56,
+      "after": 84
+    },
+    {
+      "key": "forge/dw_engineer/5",
+      "field": "damage",
+      "before": 114,
+      "after": 171
+    },
+    {
+      "key": "forge/dw_engineer/6",
+      "field": "damage",
+      "before": 246,
+      "after": 369
+    },
+    {
+      "key": "forge/dw_griffinhandler/1",
+      "field": "damage",
+      "before": 11,
+      "after": 16.5
+    },
+    {
+      "key": "forge/dw_griffinhandler/2",
+      "field": "damage",
+      "before": 22,
+      "after": 33
+    },
+    {
+      "key": "forge/dw_griffinhandler/3",
+      "field": "damage",
+      "before": 44,
+      "after": 66
+    },
+    {
+      "key": "forge/dw_griffinhandler/4",
+      "field": "damage",
+      "before": 88,
+      "after": 132
+    },
+    {
+      "key": "forge/dw_griffinhandler/5",
+      "field": "damage",
+      "before": 176,
+      "after": 264
+    },
+    {
+      "key": "forge/dw_griffinhandler/6",
+      "field": "damage",
+      "before": 380,
+      "after": 570
+    },
+    {
+      "key": "forge/dw_furnacetender/1",
+      "field": "damage",
+      "before": 10,
+      "after": 15
+    },
+    {
+      "key": "forge/dw_furnacetender/2",
+      "field": "damage",
+      "before": 20,
+      "after": 30
+    },
+    {
+      "key": "forge/dw_furnacetender/3",
+      "field": "damage",
+      "before": 40,
+      "after": 60
+    },
+    {
+      "key": "forge/dw_furnacetender/4",
+      "field": "damage",
+      "before": 80,
+      "after": 120
+    },
+    {
+      "key": "forge/dw_furnacetender/5",
+      "field": "damage",
+      "before": 166,
+      "after": 249
+    },
+    {
+      "key": "forge/dw_furnacetender/6",
+      "field": "damage",
+      "before": 359,
+      "after": 538.5
+    },
+    {
+      "key": "forge/dw_ironwarden/1",
+      "field": "damage",
+      "before": 150,
+      "after": 225
+    },
+    {
+      "key": "forge/dw_ashshield/1",
+      "field": "damage",
+      "before": 450,
+      "after": 675
+    },
+    {
+      "key": "forge/dw_bulwarkcaptain/1",
+      "field": "damage",
+      "before": 1200,
+      "after": 1800
+    },
+    {
+      "key": "forge/dw_forgeking/1",
+      "field": "damage",
+      "before": 3000,
+      "after": 4500
+    },
+    {
+      "key": "forge/dw_longrifle/1",
+      "field": "damage",
+      "before": 280,
+      "after": 420
+    },
+    {
+      "key": "forge/dw_thunderlock/1",
+      "field": "damage",
+      "before": 1200,
+      "after": 1800
+    },
+    {
+      "key": "forge/dw_steamrail/1",
+      "field": "damage",
+      "before": 3600,
+      "after": 5400
+    },
+    {
+      "key": "forge/dw_grapeshotcart/1",
+      "field": "damage",
+      "before": 2200,
+      "after": 3300
+    },
+    {
+      "key": "forge/dw_ironstorm/1",
+      "field": "damage",
+      "before": 9000,
+      "after": 13500
+    },
+    {
+      "key": "forge/dw_boarlancer/1",
+      "field": "damage",
+      "before": 150,
+      "after": 225
+    },
+    {
+      "key": "forge/dw_boarstandard/1",
+      "field": "damage",
+      "before": 400,
+      "after": 600
+    },
+    {
+      "key": "forge/dw_goreback/1",
+      "field": "damage",
+      "before": 1000,
+      "after": 1500
+    },
+    {
+      "key": "forge/dw_warcaller/1",
+      "field": "damage",
+      "before": 1150,
+      "after": 1725
+    },
+    {
+      "key": "forge/dw_boaravatar/1",
+      "field": "damage",
+      "before": 3000,
+      "after": 4500
+    },
+    {
+      "key": "forge/dw_fuserunner/1",
+      "field": "damage",
+      "before": 65,
+      "after": 97.5
+    },
+    {
+      "key": "forge/dw_firebomber/1",
+      "field": "damage",
+      "before": 235,
+      "after": 352.5
+    },
+    {
+      "key": "forge/dw_griffinbomber/1",
+      "field": "damage",
+      "before": 700,
+      "after": 1050
+    },
+    {
+      "key": "forge/dw_cinderhowitzer/1",
+      "field": "damage",
+      "before": 1328.25,
+      "after": 1992.375
+    },
+    {
+      "key": "forge/dw_dwarship/1",
+      "field": "damage",
+      "before": 1800,
+      "after": 2700
+    },
+    {
+      "key": "forge/dw_repeatercrew/1",
+      "field": "damage",
+      "before": 65,
+      "after": 130
+    },
+    {
+      "key": "forge/dw_ironclad/1",
+      "field": "damage",
+      "before": 155,
+      "after": 310
+    },
+    {
+      "key": "forge/dw_breachorgan/1",
+      "field": "damage",
+      "before": 520,
+      "after": 1040
+    },
+    {
+      "key": "forge/dw_deepdelve/1",
+      "field": "damage",
+      "before": 708.4,
+      "after": 1416.8
+    },
+    {
+      "key": "forge/dw_salvomarshal/1",
+      "field": "damage",
+      "before": 1250,
+      "after": 2500
+    },
+    {
+      "key": "forge/dw_runemortar/1",
+      "field": "damage",
+      "before": 100,
+      "after": 150
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "field": "damage",
+      "before": 245,
+      "after": 367.5
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "field": "damage",
+      "before": 650,
+      "after": 975
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "field": "damage",
+      "before": 1700,
+      "after": 2550
+    },
+    {
+      "key": "forge/dw_griffinscout/1",
+      "field": "damage",
+      "before": 110,
+      "after": 165
+    },
+    {
+      "key": "forge/dw_skyhook/1",
+      "field": "damage",
+      "before": 310,
+      "after": 465
+    },
+    {
+      "key": "forge/dw_talonlord/1",
+      "field": "damage",
+      "before": 720,
+      "after": 1080
+    },
+    {
+      "key": "forge/dw_highthane/1",
+      "field": "damage",
+      "before": 1800,
+      "after": 2700
+    },
+    {
+      "key": "forge/dw_pressuresmith/1",
+      "field": "damage",
+      "before": 100,
+      "after": 150
+    },
+    {
+      "key": "forge/dw_steamharpooner/1",
+      "field": "continuousAttack.dps",
+      "before": 1500,
+      "after": 2250
+    },
+    {
+      "key": "forge/dw_flamewarden/1",
+      "field": "continuousAttack.dps",
+      "before": 1800,
+      "after": 2700
+    },
+    {
+      "key": "forge/dw_emberanvil/1",
+      "field": "continuousAttack.dps",
+      "before": 2070,
+      "after": 3105
+    },
+    {
+      "key": "forge/dw_bombardking/1",
+      "field": "continuousAttack.dps",
+      "before": 9000,
+      "after": 13500
+    }
+  ],
+  "derivedMetricChanges": [
+    {
+      "key": "forge/dw_shieldguard/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 20,
+      "after": 30
+    },
+    {
+      "key": "forge/dw_shieldguard/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 40,
+      "after": 60
+    },
+    {
+      "key": "forge/dw_shieldguard/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 80,
+      "after": 120
+    },
+    {
+      "key": "forge/dw_shieldguard/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 142.22,
+      "after": 213.33333333333331
+    },
+    {
+      "key": "forge/dw_shieldguard/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 244.44,
+      "after": 366.6666666666667
+    },
+    {
+      "key": "forge/dw_shieldguard/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 533.33,
+      "after": 800
+    },
+    {
+      "key": "forge/dw_musketeer/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 25,
+      "after": 37.49999999999999
+    },
+    {
+      "key": "forge/dw_musketeer/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 50,
+      "after": 74.99999999999999
+    },
+    {
+      "key": "forge/dw_musketeer/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 100,
+      "after": 149.99999999999997
+    },
+    {
+      "key": "forge/dw_musketeer/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 150,
+      "after": 225
+    },
+    {
+      "key": "forge/dw_musketeer/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 281.25,
+      "after": 421.875
+    },
+    {
+      "key": "forge/dw_musketeer/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 609.38,
+      "after": 914.0625
+    },
+    {
+      "key": "forge/dw_runesmith/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 6.36,
+      "after": 9.545454545454545
+    },
+    {
+      "key": "forge/dw_runesmith/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 12.73,
+      "after": 19.09090909090909
+    },
+    {
+      "key": "forge/dw_runesmith/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 25.45,
+      "after": 38.18181818181818
+    },
+    {
+      "key": "forge/dw_runesmith/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 50.91,
+      "after": 76.36363636363636
+    },
+    {
+      "key": "forge/dw_runesmith/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 103.64,
+      "after": 155.45454545454544
+    },
+    {
+      "key": "forge/dw_runesmith/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 223.64,
+      "after": 335.45454545454544
+    },
+    {
+      "key": "forge/dw_boarrider/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 16.67,
+      "after": 25
+    },
+    {
+      "key": "forge/dw_boarrider/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 33.33,
+      "after": 50
+    },
+    {
+      "key": "forge/dw_boarrider/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 66.67,
+      "after": 100
+    },
+    {
+      "key": "forge/dw_boarrider/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 125,
+      "after": 187.5
+    },
+    {
+      "key": "forge/dw_boarrider/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 233.33,
+      "after": 350
+    },
+    {
+      "key": "forge/dw_boarrider/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 508.33,
+      "after": 762.5
+    },
+    {
+      "key": "forge/dw_grenadier/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 11.67,
+      "after": 17.5
+    },
+    {
+      "key": "forge/dw_grenadier/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 23.33,
+      "after": 35
+    },
+    {
+      "key": "forge/dw_grenadier/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 46.67,
+      "after": 70
+    },
+    {
+      "key": "forge/dw_grenadier/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 93.33,
+      "after": 140
+    },
+    {
+      "key": "forge/dw_grenadier/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 183.33,
+      "after": 275
+    },
+    {
+      "key": "forge/dw_grenadier/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 395.83,
+      "after": 593.75
+    },
+    {
+      "key": "forge/dw_engineer/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 8.75,
+      "after": 13.125
+    },
+    {
+      "key": "forge/dw_engineer/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 17.5,
+      "after": 26.25
+    },
+    {
+      "key": "forge/dw_engineer/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 35,
+      "after": 52.5
+    },
+    {
+      "key": "forge/dw_engineer/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 70,
+      "after": 105
+    },
+    {
+      "key": "forge/dw_engineer/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 142.5,
+      "after": 213.75
+    },
+    {
+      "key": "forge/dw_engineer/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 307.5,
+      "after": 461.25
+    },
+    {
+      "key": "forge/dw_griffinhandler/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 12.22,
+      "after": 18.333333333333332
+    },
+    {
+      "key": "forge/dw_griffinhandler/2",
+      "field": "cycleMetrics.primaryDps",
+      "before": 24.44,
+      "after": 36.666666666666664
+    },
+    {
+      "key": "forge/dw_griffinhandler/3",
+      "field": "cycleMetrics.primaryDps",
+      "before": 48.89,
+      "after": 73.33333333333333
+    },
+    {
+      "key": "forge/dw_griffinhandler/4",
+      "field": "cycleMetrics.primaryDps",
+      "before": 97.78,
+      "after": 146.66666666666666
+    },
+    {
+      "key": "forge/dw_griffinhandler/5",
+      "field": "cycleMetrics.primaryDps",
+      "before": 195.56,
+      "after": 293.3333333333333
+    },
+    {
+      "key": "forge/dw_griffinhandler/6",
+      "field": "cycleMetrics.primaryDps",
+      "before": 422.22,
+      "after": 633.3333333333334
+    },
+    {
+      "key": "forge/dw_ironwarden/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 166.67,
+      "after": 250
+    },
+    {
+      "key": "forge/dw_ashshield/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 529.41,
+      "after": 794.1176470588235
+    },
+    {
+      "key": "forge/dw_bulwarkcaptain/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1411.76,
+      "after": 2117.6470588235293
+    },
+    {
+      "key": "forge/dw_forgeking/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 3529.41,
+      "after": 5294.117647058823
+    },
+    {
+      "key": "forge/dw_longrifle/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 119.15,
+      "after": 178.72340425531917
+    },
+    {
+      "key": "forge/dw_longrifle/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 166.80851063829786,
+      "after": 250.2127659574468
+    },
+    {
+      "key": "forge/dw_thunderlock/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 292.68,
+      "after": 439.0243902439025
+    },
+    {
+      "key": "forge/dw_thunderlock/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 409.7560975609756,
+      "after": 614.6341463414634
+    },
+    {
+      "key": "forge/dw_steamrail/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 800,
+      "after": 1200
+    },
+    {
+      "key": "forge/dw_steamrail/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 1120,
+      "after": 1680
+    },
+    {
+      "key": "forge/dw_grapeshotcart/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 517.65,
+      "after": 776.4705882352941
+    },
+    {
+      "key": "forge/dw_ironstorm/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 2250,
+      "after": 3375
+    },
+    {
+      "key": "forge/dw_ironstorm/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 4050,
+      "after": 6075
+    },
+    {
+      "key": "forge/dw_boarlancer/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 130.43,
+      "after": 195.6521739130435
+    },
+    {
+      "key": "forge/dw_boarlancer/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 182.6086956521739,
+      "after": 273.9130434782609
+    },
+    {
+      "key": "forge/dw_boarstandard/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 363.64,
+      "after": 545.4545454545454
+    },
+    {
+      "key": "forge/dw_boarstandard/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 509.09090909090907,
+      "after": 763.6363636363635
+    },
+    {
+      "key": "forge/dw_goreback/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 952.38,
+      "after": 1428.5714285714284
+    },
+    {
+      "key": "forge/dw_goreback/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 1714.2857142857142,
+      "after": 2571.428571428571
+    },
+    {
+      "key": "forge/dw_warcaller/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1045.45,
+      "after": 1568.181818181818
+    },
+    {
+      "key": "forge/dw_warcaller/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 1881.8181818181815,
+      "after": 2822.7272727272725
+    },
+    {
+      "key": "forge/dw_boaravatar/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 2857.14,
+      "after": 4285.714285714285
+    },
+    {
+      "key": "forge/dw_boaravatar/1",
+      "field": "expectedMetrics.primaryDps",
+      "before": 5142.857142857142,
+      "after": 7714.285714285714
+    },
+    {
+      "key": "forge/dw_fuserunner/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 72.22,
+      "after": 108.33333333333333
+    },
+    {
+      "key": "forge/dw_firebomber/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 223.81,
+      "after": 335.7142857142857
+    },
+    {
+      "key": "forge/dw_griffinbomber/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 608.7,
+      "after": 913.0434782608696
+    },
+    {
+      "key": "forge/dw_cinderhowitzer/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 504.4,
+      "after": 756.5981012658228
+    },
+    {
+      "key": "forge/dw_dwarship/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1521.13,
+      "after": 2281.6901408450703
+    },
+    {
+      "key": "forge/dw_repeatercrew/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 100,
+      "after": 200
+    },
+    {
+      "key": "forge/dw_ironclad/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 269.57,
+      "after": 539.1304347826087
+    },
+    {
+      "key": "forge/dw_breachorgan/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 650,
+      "after": 1300
+    },
+    {
+      "key": "forge/dw_deepdelve/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 578.29,
+      "after": 1156.5714285714284
+    },
+    {
+      "key": "forge/dw_salvomarshal/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1573.43,
+      "after": 3146.853146853147
+    },
+    {
+      "key": "forge/dw_runemortar/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 71.43,
+      "after": 107.14285714285715
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 188.46,
+      "after": 282.6923076923077
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 541.67,
+      "after": 812.5
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1478.26,
+      "after": 2217.3913043478265
+    },
+    {
+      "key": "forge/dw_griffinscout/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 110,
+      "after": 165
+    },
+    {
+      "key": "forge/dw_skyhook/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 295.24,
+      "after": 442.85714285714283
+    },
+    {
+      "key": "forge/dw_talonlord/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 720,
+      "after": 1080
+    },
+    {
+      "key": "forge/dw_highthane/1",
+      "field": "cycleMetrics.primaryDps",
+      "before": 1800,
+      "after": 2700
+    }
+  ],
+  "abilityChanges": [
+    {
+      "key": "forge/dw_runesmith/1",
+      "field": "abilities.1.radius",
+      "before": 2.5,
+      "after": 4
+    },
+    {
+      "key": "forge/dw_runesmith/1",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 2.5 tiles take 25% of normal Physical damage.",
+      "after": "Immune enemies within 4 tiles take 25% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runesmith/2",
+      "field": "abilities.1.radius",
+      "before": 2.5,
+      "after": 4
+    },
+    {
+      "key": "forge/dw_runesmith/2",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 2.5 tiles take 25% of normal Physical damage.",
+      "after": "Immune enemies within 4 tiles take 25% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runesmith/3",
+      "field": "abilities.1.radius",
+      "before": 3,
+      "after": 4.5
+    },
+    {
+      "key": "forge/dw_runesmith/3",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 3 tiles take 35% of normal Physical damage.",
+      "after": "Immune enemies within 4.5 tiles take 35% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runesmith/4",
+      "field": "abilities.1.radius",
+      "before": 3,
+      "after": 4.5
+    },
+    {
+      "key": "forge/dw_runesmith/4",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 3 tiles take 35% of normal Physical damage.",
+      "after": "Immune enemies within 4.5 tiles take 35% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runesmith/5",
+      "field": "abilities.1.radius",
+      "before": 3.5,
+      "after": 5
+    },
+    {
+      "key": "forge/dw_runesmith/5",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+      "after": "Immune enemies within 5 tiles take 50% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runesmith/6",
+      "field": "abilities.1.radius",
+      "before": 3.5,
+      "after": 5
+    },
+    {
+      "key": "forge/dw_runesmith/6",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+      "after": "Immune enemies within 5 tiles take 50% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_runemortar/1",
+      "field": "abilities.1.radius",
+      "before": 3.5,
+      "after": 5
+    },
+    {
+      "key": "forge/dw_runemortar/1",
+      "field": "abilities.1.text",
+      "before": "Immune enemies within 3.5 tiles take 50% of normal Physical damage.",
+      "after": "Immune enemies within 5 tiles take 50% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "field": "abilities.2.radius",
+      "before": 4,
+      "after": 5.5
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "field": "abilities.2.text",
+      "before": "Immune enemies within 4 tiles take 65% of normal Physical damage.",
+      "after": "Immune enemies within 5.5 tiles take 65% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "field": "abilities.2.radius",
+      "before": 4.5,
+      "after": 6
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "field": "abilities.2.text",
+      "before": "Immune enemies within 4.5 tiles take 80% of normal Physical damage.",
+      "after": "Immune enemies within 6 tiles take 80% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "field": "abilities.2.radius",
+      "before": 5,
+      "after": 6.5
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "field": "abilities.2.text",
+      "before": "Immune enemies within 5 tiles take 100% of normal Physical damage.",
+      "after": "Immune enemies within 6.5 tiles take 100% of normal Physical damage."
+    },
+    {
+      "key": "forge/dw_steamharpooner/1",
+      "field": "abilities.1.text",
+      "before": "Deal 1,500 damage/s to ground enemies in a 60° cone reaching 4.5 tiles.",
+      "after": "Base Flame Cone II: 1,500 damage/s. Dwarf primary damage +50%: 2,250 effective weapon damage/s to ground enemies in a 60° cone reaching 4.5 tiles. The primary bonus is already included in the weapon DPS."
+    },
+    {
+      "key": "forge/dw_flamewarden/1",
+      "field": "abilities.1.text",
+      "before": "Deal 1,800 damage/s to ground enemies in a 75° cone reaching 5.25 tiles.",
+      "after": "Base Flame Cone III: 1,800 damage/s. Dwarf primary damage +50%: 2,700 effective weapon damage/s to ground enemies in a 75° cone reaching 5.25 tiles. The primary bonus is already included in the weapon DPS."
+    },
+    {
+      "key": "forge/dw_emberanvil/1",
+      "field": "abilities.2.text",
+      "before": "Deal 2,070 damage/s to ground enemies in a 75° cone reaching 4 tiles.",
+      "after": "Base Flame Cone IV: 2,070 damage/s. Dwarf primary damage +50%: 3,105 effective weapon damage/s to ground enemies in a 75° cone reaching 4 tiles. The primary bonus is already included in the weapon DPS."
+    },
+    {
+      "key": "forge/dw_bombardking/1",
+      "field": "abilities.1.text",
+      "before": "Deal 9,000 damage/s to ground enemies in a 90° cone reaching 6 tiles.",
+      "after": "Base Flame Cone V: 9,000 damage/s. Dwarf primary damage +50%: 13,500 effective weapon damage/s to ground enemies in a 90° cone reaching 6 tiles. The primary bonus is already included in the weapon DPS."
+    }
+  ],
+  "continuousModifierPolicy": "Shared Flame Cone levels retain canonical base DPS. Dwarf effective primary DPS is displayed separately with the +50% modifier; do not apply it twice.",
+  "application": "The bonus is already included in damage or continuousAttack.dps. primaryDamageBonusPercent is display metadata, not another multiplier."
+}
