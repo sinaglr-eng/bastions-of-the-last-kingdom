@@ -42,3 +42,5 @@ Browser and physical iPad verification remain explicitly waived by the user. No 
 The one English design gallery remains local only at `http://127.0.0.1:59544/`. It maintains the current approved data in place, with no archived gallery versions, comparison copies or version controls. Approved original artwork, prompts, appearance decisions, voices, review storage and local model files retain their separate identities. Approval-time evidence remains separate from implementation and publication records.
 
 The default runtime, exact CI/deployment checks, public files, statistics deployment and local-only gallery metadata are recorded under `output/releases/v0.6.6/`. The existing `v0.6.5` tag remains the previous working game backup.
+
+Verified activation: **0.6.6** is the default public game at https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/. Runtime c2d95c85b74cf9ab3e3dec37c4fd3db9e96de9e9 is pinned by tag v0.6.6. All required GitHub tests/build/upload/deployment checks passed for this exact commit. All 1004 public files match the production inventory, including 312 exact native model identities. Previous v0.6.5 remains available for recovery.

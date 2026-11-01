@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "distribution": "local-only",
+  "published": false,
+  "currentOnly": true,
+  "profiles": 258,
+  "abilityOccurrences": 570,
+  "recipes": 114,
+  "combatContractPreserved": true,
+  "reviewStorageTouched": false,
+  "modelBinariesUploaded": false,
+  "preserved": [
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/visual-catalogue-v24.json",
+      "sha256": "fa98c287ea1c5f4f70bf0a06bbbaccde1cedb9ee3abb19cb2ef1434bb4600054"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/character-voice-v19.json",
+      "sha256": "f6f66f91ff0c2f5b848c731daef9670c49e34cde7d385b67b9661188b50c94fb"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/character-voice-v23.mjs",
+      "sha256": "d529067a127542ed9ac9b80da4ceb5eb5ebc62b9eb606fa219a9b9fce3426a35"
+    },
+    {
+      "file": "design/gallery/approvals/dwarves-v24-20261026.json",
+      "sha256": "9df34da32da38ab044da84fe5821bf9543077c89a61b63b56d86c45f4450f71f"
+    }
+  ],
+  "changed": [
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/atlas-current.json",
+      "beforeSha256": "1c83b20b9e1e69d6404e31062ed893816175b8020f79937ed3224d3a6d8a90a5",
+      "afterSha256": "c5dbc9e50a3480459caf4df7cad6fc6b6333883481743e2c7e6f3c9d8ea4323b"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-catalogue-current.json",
+      "beforeSha256": "4e599cce4ed741ba527ad6e5e63872ae2f5337ad1ab1b77ed73f19e2f9afb9be",
+      "afterSha256": "3cf8c85bce954f06a91191b5f0b71be68a692217ba23b789c4e36b2319562ee9"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/gallery-current.mjs",
+      "beforeSha256": "81aa6222a3edf484046b26c4c99e567fd107b513d29cdf7b143a50e9fd96fab2",
+      "afterSha256": "9b35ae14b87808ebed2f4483fd144bb9a2e04c3ea6a6bcebf0cb1faa026b9ea8"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/app.mjs",
+      "beforeSha256": "407676d41153d3617a246b46c0ad562e5fcb5ab7b3dd66bf076b1528fcdd27d3",
+      "afterSha256": "7cb4634a89e57660d18958ab33951f42a3544a7ea8e6e9d38fa22e435d60c362"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-fr001.mjs",
+      "beforeSha256": "e8c0f8c01576c295f082a425de18f4538727f8b327291f02962c6a7a2d9c6b85",
+      "afterSha256": "e18806c0764be27e788c735d2f0498c86a0cba73abb210d26170f91364aa09e7"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.json",
+      "beforeSha256": "ff1dd73700c09b2b55075b2df687defc55eec6c144c6479991d4d3302ea63218",
+      "afterSha256": "22ccb39dd7129a9aec77f3a2e52da25108183bd8bafd9eb953e0b889b820d943"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.csv",
+      "beforeSha256": "16ffe354e1e5078d6baa897cf314607fa3361fc1cc8a55c953e4171911fc7fef",
+      "afterSha256": "4e4793e76ec98b917b3195e8e321296acffce88551f08a92611d079c3b76a87f"
+    },
+    {
+      "file": "design/gallery/canonical-gallery.json",
+      "beforeSha256": "ffdc5c8f6e77191d96eaf1c5526d37a4ddc84de9b5f5d1f20d256b8535b9b9b4",
+      "afterSha256": "3c8e23f28432ca955a08b220fb1e8e3cf45320a9ee37e1411507e0bc866ccdda"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/fr003-implementation.json",
+      "beforeSha256": null,
+      "afterSha256": "219863419234cac2aa54e0e39b3698926ed5c5a00f6af9bfa94aa978e18cd243"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/FR-003-approved.md",
+      "beforeSha256": "0447e774f1dc7757a6c16b6afc08a272c90c6442b4d99ffd3d9eaf7023f846ff",
+      "afterSha256": "eb3485e7fbd1439c9e32822bd4527f5825ea826296e9237400d9ac7ae33b9a6d"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/design-notes.md",
+      "beforeSha256": "b40afe01058ce1821e7347f3511b7b90edaaa19d1a094dc263cafb32817caf8c",
+      "afterSha256": "4077c0941df15ec03da689bf2f7bbe556ebf2fa5e5ce6d827e30cd16ab9ec0e8"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/README.md",
+      "beforeSha256": "38f2854cdcce8feac0ff65610c4556a66d68655749b30685b6044b1f1f42aea9",
+      "afterSha256": "f72482eb719dc52e80b67d56624c3d2c9dd83a4092a9bb2d8a2df46b011dc68b"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/dist/index.html",
+      "beforeSha256": "4f1ac60547a8a96c4b4314b28d286dcb7cb53a44c7bb64068f5de190c7673ded",
+      "afterSha256": "c5093d6815c0f2642fb9d12b0bbbc3cd9b07eacfec3f223d155c99b5cd7f5ec5"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/apply-fr003-implementation.mjs",
+      "afterSha256": "58d523a1db0cc7d1c968b17ad1eed5f727e4f175c8b61425cdd211492042c876"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
+      "afterSha256": "44d2e57b9756b90c29462540aae9ae91869f6a9472b6fd86f55d83a43d50692b"
+    },
+    {
+      "file": "sites/defender-faction-atlas-20261021/scripts/verify-fr003-approval.mjs",
+      "afterSha256": "f5eb489c846d70bfde6dc1ea6d4000a38a4671b38149a04f893c1c99247221bc"
+    },
+    {
+      "file": "output/design/fr003-approval-20261101/gallery-verification.json",
+      "afterSha256": "49e88ca45e6f5cb3213fe28d08776bd197a4f27138dbbec8bcdd6c994876b372"
+    }
+  ],
+  "localVerification": {
+    "status": "passed",
+    "approvalId": "fr003-revision2-user-approval-20261101",
+    "approved": true,
+    "implemented": true,
+    "currentOnly": true,
+    "exactApprovedSource": true,
+    "combatContractPreserved": true,
+    "profiles": 258,
+    "abilityOccurrences": 570,
+    "coverageRows": 49,
+    "gameChanged": true,
+    "published": false
+  },
+  "syntaxChecked": [
+    "sites/defender-faction-atlas-20261021/dist/app.mjs",
+    "sites/defender-faction-atlas-20261021/dist/gallery-current.mjs",
+    "sites/defender-faction-atlas-20261021/dist/ability-coverage-fr001.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/apply-fr003-implementation.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/verify-fr003-approval.mjs"
+  ],
+  "archivedGalleryCopiesCreated": false
+}
