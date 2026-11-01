@@ -1,0 +1,1521 @@
+{
+  "status": "passed",
+  "method": "Observed every real Game change in the unchanged fixed legal Dwarf controller through wave 24, then replayed its actual placed-model requests through the production lifetime loader. Old policy retained every previously requested key. File bytes are decoded source size, not a browser heap/VRAM measurement; PNG RGBA/mip sizes are estimates.",
+  "seed": 13000019,
+  "policy": "immediate",
+  "simulatedOutcome": "lost",
+  "completed": 24,
+  "observedTransitions": 144,
+  "loads": 86,
+  "releases": 70,
+  "peakOldModels": 33,
+  "peakNewModels": 19,
+  "peakOldDecodedBytes": 314091392,
+  "peakNewDecodedBytes": 218041344,
+  "peakOldTextureRgbaMipEstimate": 276762816,
+  "peakNewTextureRgbaMipEstimate": 159348288,
+  "wave24": [
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    }
+  ],
+  "rows": [
+    {
+      "wave": 1,
+      "needed": 1,
+      "oldRetainedModels": 1,
+      "newRetainedModels": 1,
+      "oldDecodedBytes": 19332380,
+      "newDecodedBytes": 19332380,
+      "oldTextureRgbaMipEstimate": 8386752,
+      "newTextureRgbaMipEstimate": 8386752
+    },
+    {
+      "wave": 1,
+      "needed": 2,
+      "oldRetainedModels": 2,
+      "newRetainedModels": 2,
+      "oldDecodedBytes": 22813664,
+      "newDecodedBytes": 22813664,
+      "oldTextureRgbaMipEstimate": 16773504,
+      "newTextureRgbaMipEstimate": 16773504
+    },
+    {
+      "wave": 1,
+      "needed": 3,
+      "oldRetainedModels": 3,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 47051488,
+      "newDecodedBytes": 47051488,
+      "oldTextureRgbaMipEstimate": 25160256,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 1,
+      "needed": 4,
+      "oldRetainedModels": 4,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 50567732,
+      "newDecodedBytes": 50567732,
+      "oldTextureRgbaMipEstimate": 33547008,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 1,
+      "needed": 4,
+      "oldRetainedModels": 4,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 50567732,
+      "newDecodedBytes": 50567732,
+      "oldTextureRgbaMipEstimate": 33547008,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 1,
+      "needed": 1,
+      "oldRetainedModels": 5,
+      "newRetainedModels": 1,
+      "oldDecodedBytes": 70316984,
+      "newDecodedBytes": 19749252,
+      "oldTextureRgbaMipEstimate": 41933760,
+      "newTextureRgbaMipEstimate": 8386752
+    },
+    {
+      "wave": 2,
+      "needed": 2,
+      "oldRetainedModels": 6,
+      "newRetainedModels": 2,
+      "oldDecodedBytes": 74863920,
+      "newDecodedBytes": 24296188,
+      "oldTextureRgbaMipEstimate": 50320512,
+      "newTextureRgbaMipEstimate": 16773504
+    },
+    {
+      "wave": 2,
+      "needed": 3,
+      "oldRetainedModels": 6,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 74863920,
+      "newDecodedBytes": 43628568,
+      "oldTextureRgbaMipEstimate": 50320512,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 2,
+      "needed": 4,
+      "oldRetainedModels": 7,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 78024228,
+      "newDecodedBytes": 46788876,
+      "oldTextureRgbaMipEstimate": 58707264,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 2,
+      "needed": 5,
+      "oldRetainedModels": 7,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 78024228,
+      "newDecodedBytes": 50305120,
+      "oldTextureRgbaMipEstimate": 58707264,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 2,
+      "needed": 5,
+      "oldRetainedModels": 7,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 78024228,
+      "newDecodedBytes": 50305120,
+      "oldTextureRgbaMipEstimate": 58707264,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 2,
+      "needed": 2,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 2,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 23746156,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 16773504
+    },
+    {
+      "wave": 3,
+      "needed": 3,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 27262400,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 3,
+      "needed": 3,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 27262400,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 3,
+      "needed": 3,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 27262400,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 3,
+      "needed": 4,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 46594780,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 3,
+      "needed": 5,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 50076064,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 3,
+      "needed": 2,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 2,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 23746156,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 16773504
+    },
+    {
+      "wave": 4,
+      "needed": 3,
+      "oldRetainedModels": 8,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 82021132,
+      "newDecodedBytes": 27262400,
+      "oldTextureRgbaMipEstimate": 67094016,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 4,
+      "needed": 4,
+      "oldRetainedModels": 9,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 85469984,
+      "newDecodedBytes": 30711252,
+      "oldTextureRgbaMipEstimate": 75480768,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 4,
+      "needed": 5,
+      "oldRetainedModels": 9,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 85469984,
+      "newDecodedBytes": 34192536,
+      "oldTextureRgbaMipEstimate": 75480768,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 4,
+      "needed": 5,
+      "oldRetainedModels": 9,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 85469984,
+      "newDecodedBytes": 34192536,
+      "oldTextureRgbaMipEstimate": 75480768,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 4,
+      "needed": 5,
+      "oldRetainedModels": 9,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 85469984,
+      "newDecodedBytes": 34192536,
+      "oldTextureRgbaMipEstimate": 75480768,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 4,
+      "needed": 2,
+      "oldRetainedModels": 9,
+      "newRetainedModels": 2,
+      "oldDecodedBytes": 85469984,
+      "newDecodedBytes": 23746156,
+      "oldTextureRgbaMipEstimate": 75480768,
+      "newTextureRgbaMipEstimate": 16773504
+    },
+    {
+      "wave": 5,
+      "needed": 3,
+      "oldRetainedModels": 10,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 110074792,
+      "newDecodedBytes": 48350964,
+      "oldTextureRgbaMipEstimate": 83867520,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 5,
+      "needed": 4,
+      "oldRetainedModels": 10,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 110074792,
+      "newDecodedBytes": 51511272,
+      "oldTextureRgbaMipEstimate": 83867520,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 5,
+      "needed": 5,
+      "oldRetainedModels": 10,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 110074792,
+      "newDecodedBytes": 54960124,
+      "oldTextureRgbaMipEstimate": 83867520,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 5,
+      "needed": 5,
+      "oldRetainedModels": 10,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 110074792,
+      "newDecodedBytes": 54960124,
+      "oldTextureRgbaMipEstimate": 83867520,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 5,
+      "needed": 5,
+      "oldRetainedModels": 10,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 110074792,
+      "newDecodedBytes": 54960124,
+      "oldTextureRgbaMipEstimate": 83867520,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 5,
+      "needed": 3,
+      "oldRetainedModels": 11,
+      "newRetainedModels": 3,
+      "oldDecodedBytes": 113823620,
+      "newDecodedBytes": 27494984,
+      "oldTextureRgbaMipEstimate": 92254272,
+      "newTextureRgbaMipEstimate": 25160256
+    },
+    {
+      "wave": 6,
+      "needed": 4,
+      "oldRetainedModels": 12,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 118407196,
+      "newDecodedBytes": 32078560,
+      "oldTextureRgbaMipEstimate": 100641024,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 6,
+      "needed": 5,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 35644212,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 6,
+      "needed": 6,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 6,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 39125496,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 50320512
+    },
+    {
+      "wave": 6,
+      "needed": 6,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 6,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 39125496,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 50320512
+    },
+    {
+      "wave": 6,
+      "needed": 7,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 7,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 43672432,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 58707264
+    },
+    {
+      "wave": 6,
+      "needed": 4,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 4,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 32078560,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 33547008
+    },
+    {
+      "wave": 7,
+      "needed": 5,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 35559844,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 7,
+      "needed": 6,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 6,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 40106780,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 50320512
+    },
+    {
+      "wave": 7,
+      "needed": 7,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 7,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 59439160,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 58707264
+    },
+    {
+      "wave": 7,
+      "needed": 8,
+      "oldRetainedModels": 13,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 121972848,
+      "newDecodedBytes": 62955404,
+      "oldTextureRgbaMipEstimate": 109027776,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 7,
+      "needed": 9,
+      "oldRetainedModels": 14,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 125522240,
+      "newDecodedBytes": 66504796,
+      "oldTextureRgbaMipEstimate": 117414528,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 7,
+      "needed": 5,
+      "oldRetainedModels": 14,
+      "newRetainedModels": 5,
+      "oldDecodedBytes": 125522240,
+      "newDecodedBytes": 35627952,
+      "oldTextureRgbaMipEstimate": 117414528,
+      "newTextureRgbaMipEstimate": 41933760
+    },
+    {
+      "wave": 8,
+      "needed": 6,
+      "oldRetainedModels": 14,
+      "newRetainedModels": 6,
+      "oldDecodedBytes": 125522240,
+      "newDecodedBytes": 40174888,
+      "oldTextureRgbaMipEstimate": 117414528,
+      "newTextureRgbaMipEstimate": 50320512
+    },
+    {
+      "wave": 8,
+      "needed": 7,
+      "oldRetainedModels": 15,
+      "newRetainedModels": 7,
+      "oldDecodedBytes": 129841064,
+      "newDecodedBytes": 44493712,
+      "oldTextureRgbaMipEstimate": 125801280,
+      "newTextureRgbaMipEstimate": 58707264
+    },
+    {
+      "wave": 8,
+      "needed": 8,
+      "oldRetainedModels": 15,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 129841064,
+      "newDecodedBytes": 69098520,
+      "oldTextureRgbaMipEstimate": 125801280,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 8,
+      "needed": 9,
+      "oldRetainedModels": 15,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 129841064,
+      "newDecodedBytes": 88430900,
+      "oldTextureRgbaMipEstimate": 125801280,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 8,
+      "needed": 10,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 113186480,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 8,
+      "needed": 6,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 6,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 60383532,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 50320512
+    },
+    {
+      "wave": 9,
+      "needed": 7,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 7,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 63543840,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 58707264
+    },
+    {
+      "wave": 9,
+      "needed": 8,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 67060084,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 9,
+      "needed": 9,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 70508936,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 9,
+      "needed": 10,
+      "oldRetainedModels": 16,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 154596644,
+      "newDecodedBytes": 94746760,
+      "oldTextureRgbaMipEstimate": 134188032,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 9,
+      "needed": 11,
+      "oldRetainedModels": 17,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 158397600,
+      "newDecodedBytes": 98547716,
+      "oldTextureRgbaMipEstimate": 142574784,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 9,
+      "needed": 7,
+      "oldRetainedModels": 18,
+      "newRetainedModels": 7,
+      "oldDecodedBytes": 179538904,
+      "newDecodedBytes": 81524836,
+      "oldTextureRgbaMipEstimate": 150961536,
+      "newTextureRgbaMipEstimate": 58707264
+    },
+    {
+      "wave": 10,
+      "needed": 8,
+      "oldRetainedModels": 18,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 179538904,
+      "newDecodedBytes": 84685144,
+      "oldTextureRgbaMipEstimate": 150961536,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 10,
+      "needed": 9,
+      "oldRetainedModels": 18,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 179538904,
+      "newDecodedBytes": 108922968,
+      "oldTextureRgbaMipEstimate": 150961536,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 10,
+      "needed": 10,
+      "oldRetainedModels": 19,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 184186108,
+      "newDecodedBytes": 113570172,
+      "oldTextureRgbaMipEstimate": 159348288,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 10,
+      "needed": 11,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 116995440,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 10,
+      "needed": 12,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 120511684,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 10,
+      "needed": 8,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 86172040,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 11,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 110776848,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 11,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 110776848,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 11,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 110776848,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 11,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 110776848,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 11,
+      "needed": 10,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 114225700,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 11,
+      "needed": 8,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 86172040,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 12,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 90718976,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 12,
+      "needed": 10,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 94200260,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 12,
+      "needed": 10,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 94200260,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 12,
+      "needed": 10,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 94200260,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 12,
+      "needed": 11,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 97649112,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 12,
+      "needed": 8,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 8,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 86172040,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 67094016
+    },
+    {
+      "wave": 13,
+      "needed": 9,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 89620892,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 13,
+      "needed": 10,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 92781200,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 13,
+      "needed": 11,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 112113580,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 13,
+      "needed": 11,
+      "oldRetainedModels": 20,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 187611376,
+      "newDecodedBytes": 112113580,
+      "oldTextureRgbaMipEstimate": 167735040,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 13,
+      "needed": 12,
+      "oldRetainedModels": 21,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 213077376,
+      "newDecodedBytes": 137579580,
+      "oldTextureRgbaMipEstimate": 176121792,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 13,
+      "needed": 9,
+      "oldRetainedModels": 21,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 213077376,
+      "newDecodedBytes": 111638040,
+      "oldTextureRgbaMipEstimate": 176121792,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 14,
+      "needed": 9,
+      "oldRetainedModels": 21,
+      "newRetainedModels": 9,
+      "oldDecodedBytes": 213077376,
+      "newDecodedBytes": 111638040,
+      "oldTextureRgbaMipEstimate": 176121792,
+      "newTextureRgbaMipEstimate": 75480768
+    },
+    {
+      "wave": 14,
+      "needed": 10,
+      "oldRetainedModels": 21,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 213077376,
+      "newDecodedBytes": 136242848,
+      "oldTextureRgbaMipEstimate": 176121792,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 14,
+      "needed": 11,
+      "oldRetainedModels": 22,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 217473752,
+      "newDecodedBytes": 140639224,
+      "oldTextureRgbaMipEstimate": 184508544,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 14,
+      "needed": 12,
+      "oldRetainedModels": 22,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 217473752,
+      "newDecodedBytes": 159971604,
+      "oldTextureRgbaMipEstimate": 184508544,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 14,
+      "needed": 13,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 163655716,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 14,
+      "needed": 10,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 115322152,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 15,
+      "needed": 10,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 115322152,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 15,
+      "needed": 11,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 119640976,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 15,
+      "needed": 11,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 119640976,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 15,
+      "needed": 12,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 122801284,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 15,
+      "needed": 12,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 122801284,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 15,
+      "needed": 10,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 10,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 115322152,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 83867520
+    },
+    {
+      "wave": 16,
+      "needed": 11,
+      "oldRetainedModels": 23,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 221157864,
+      "newDecodedBytes": 118803436,
+      "oldTextureRgbaMipEstimate": 192895296,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 16,
+      "needed": 12,
+      "oldRetainedModels": 24,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 226047480,
+      "newDecodedBytes": 123693052,
+      "oldTextureRgbaMipEstimate": 201282048,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 16,
+      "needed": 13,
+      "oldRetainedModels": 25,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 230684104,
+      "newDecodedBytes": 128329676,
+      "oldTextureRgbaMipEstimate": 209668800,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 16,
+      "needed": 13,
+      "oldRetainedModels": 25,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 230684104,
+      "newDecodedBytes": 128329676,
+      "oldTextureRgbaMipEstimate": 209668800,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 16,
+      "needed": 14,
+      "oldRetainedModels": 25,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 230684104,
+      "newDecodedBytes": 132876612,
+      "oldTextureRgbaMipEstimate": 209668800,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 16,
+      "needed": 11,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 11,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 120331412,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 92254272
+    },
+    {
+      "wave": 17,
+      "needed": 12,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 123847656,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 17,
+      "needed": 12,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 123847656,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 17,
+      "needed": 12,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 123847656,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 17,
+      "needed": 13,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 148452464,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 17,
+      "needed": 14,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 153089088,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 17,
+      "needed": 12,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 12,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 124968036,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 100641024
+    },
+    {
+      "wave": 18,
+      "needed": 13,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 149205860,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 18,
+      "needed": 13,
+      "oldRetainedModels": 26,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 235693364,
+      "newDecodedBytes": 149205860,
+      "oldTextureRgbaMipEstimate": 218055552,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 18,
+      "needed": 14,
+      "oldRetainedModels": 27,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 239918224,
+      "newDecodedBytes": 153430720,
+      "oldTextureRgbaMipEstimate": 226442304,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 18,
+      "needed": 14,
+      "oldRetainedModels": 27,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 239918224,
+      "newDecodedBytes": 153430720,
+      "oldTextureRgbaMipEstimate": 226442304,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 18,
+      "needed": 14,
+      "oldRetainedModels": 27,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 239918224,
+      "newDecodedBytes": 153430720,
+      "oldTextureRgbaMipEstimate": 226442304,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 18,
+      "needed": 13,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 129335464,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 19,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133136420,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 19,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133136420,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 19,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133136420,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 19,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133136420,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 19,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133136420,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 19,
+      "needed": 13,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 129335464,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 20,
+      "needed": 14,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 133731840,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 20,
+      "needed": 15,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 138278776,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 20,
+      "needed": 15,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 138278776,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 20,
+      "needed": 15,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 138278776,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 20,
+      "needed": 15,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 138278776,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 20,
+      "needed": 13,
+      "oldRetainedModels": 28,
+      "newRetainedModels": 13,
+      "oldDecodedBytes": 244285652,
+      "newDecodedBytes": 129335464,
+      "oldTextureRgbaMipEstimate": 234829056,
+      "newTextureRgbaMipEstimate": 109027776
+    },
+    {
+      "wave": 21,
+      "needed": 14,
+      "oldRetainedModels": 29,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 264637888,
+      "newDecodedBytes": 149687700,
+      "oldTextureRgbaMipEstimate": 243215808,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 21,
+      "needed": 14,
+      "oldRetainedModels": 29,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 264637888,
+      "newDecodedBytes": 149687700,
+      "oldTextureRgbaMipEstimate": 243215808,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 21,
+      "needed": 14,
+      "oldRetainedModels": 29,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 264637888,
+      "newDecodedBytes": 149687700,
+      "oldTextureRgbaMipEstimate": 243215808,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 21,
+      "needed": 15,
+      "oldRetainedModels": 30,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 268581112,
+      "newDecodedBytes": 153630924,
+      "oldTextureRgbaMipEstimate": 251602560,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 21,
+      "needed": 16,
+      "oldRetainedModels": 31,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 272521368,
+      "newDecodedBytes": 157571180,
+      "oldTextureRgbaMipEstimate": 259989312,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 21,
+      "needed": 14,
+      "oldRetainedModels": 32,
+      "newRetainedModels": 14,
+      "oldDecodedBytes": 294299236,
+      "newDecodedBytes": 151113332,
+      "oldTextureRgbaMipEstimate": 268376064,
+      "newTextureRgbaMipEstimate": 117414528
+    },
+    {
+      "wave": 22,
+      "needed": 15,
+      "oldRetainedModels": 32,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 294299236,
+      "newDecodedBytes": 154678984,
+      "oldTextureRgbaMipEstimate": 268376064,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 22,
+      "needed": 16,
+      "oldRetainedModels": 32,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 294299236,
+      "newDecodedBytes": 178916808,
+      "oldTextureRgbaMipEstimate": 268376064,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 22,
+      "needed": 17,
+      "oldRetainedModels": 32,
+      "newRetainedModels": 17,
+      "oldDecodedBytes": 294299236,
+      "newDecodedBytes": 198249188,
+      "oldTextureRgbaMipEstimate": 268376064,
+      "newTextureRgbaMipEstimate": 142574784
+    },
+    {
+      "wave": 22,
+      "needed": 17,
+      "oldRetainedModels": 32,
+      "newRetainedModels": 17,
+      "oldDecodedBytes": 294299236,
+      "newDecodedBytes": 198249188,
+      "oldTextureRgbaMipEstimate": 268376064,
+      "newTextureRgbaMipEstimate": 142574784
+    },
+    {
+      "wave": 22,
+      "needed": 18,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 18,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 218041344,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 150961536
+    },
+    {
+      "wave": 22,
+      "needed": 15,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 15,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 154678984,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 125801280
+    },
+    {
+      "wave": 23,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158997808,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 23,
+      "needed": 17,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 17,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 162941032,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 142574784
+    },
+    {
+      "wave": 23,
+      "needed": 18,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 18,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 167337408,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 150961536
+    },
+    {
+      "wave": 23,
+      "needed": 18,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 18,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 167337408,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 150961536
+    },
+    {
+      "wave": 23,
+      "needed": 19,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 19,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 171562268,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 159348288
+    },
+    {
+      "wave": 23,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    },
+    {
+      "wave": 24,
+      "needed": 16,
+      "oldRetainedModels": 33,
+      "newRetainedModels": 16,
+      "oldDecodedBytes": 314091392,
+      "newDecodedBytes": 158622208,
+      "oldTextureRgbaMipEstimate": 276762816,
+      "newTextureRgbaMipEstimate": 134188032
+    }
+  ]
+}

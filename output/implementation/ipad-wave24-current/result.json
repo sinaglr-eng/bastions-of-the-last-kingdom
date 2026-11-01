@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "version": "0.6.7",
+  "issue": "iPad black enemies and page restart around Dwarf wave 24",
+  "publicVersionObserved": "0.6.6",
+  "renderBaseline": [
+    {
+      "file": "game/render/defender-model-loader.js",
+      "sharedByPublic066AndCandidateBeforeFix": true,
+      "sha256": "a9171f9d661c76594c50503824048ef03438bddf072194b95c1a47347f4f307e"
+    },
+    {
+      "file": "game/render/world.js",
+      "sharedByPublic066AndCandidateBeforeFix": true,
+      "sha256": "5415319718d92e3cbfe387b1628c1749f2bb178bd43d991fa25ef52488238b69"
+    },
+    {
+      "file": "game/render/packed-model.js",
+      "sharedByPublic066AndCandidateBeforeFix": true,
+      "sha256": "29fa297bcecca5df699754c12b321af273e805b696c35fed29d619644a730294"
+    },
+    {
+      "file": "game/render/scenery-landmarks.js",
+      "sharedByPublic066AndCandidateBeforeFix": true,
+      "sha256": "91102fb603c693a2f65f17f1273a85072cb1b02a8a2c612586cdcec2f146a1b3"
+    }
+  ],
+  "confirmedCodeDefects": [
+    "Placed defender templates accumulated without a lifetime bound.",
+    "Independent loaders could overlap five large native model decodes.",
+    "Packed GLB parsing made an unnecessary full-span decoded-buffer copy.",
+    "Context loss was recorded but did not gate simulation or offer an in-memory pause/recovery flow.",
+    "Private imported landmark PBR maps/bitmaps were not released on cleanup."
+  ],
+  "diagnosis": "These confirmed memory/lifecycle defects are compatible with the report. The exact physical iPad crash cause is not proven without its logs and device details.",
+  "wave24": {
+    "modelsBefore": 33,
+    "modelsAfter": 16,
+    "decodedSourceBytesBefore": 314091392,
+    "decodedSourceBytesAfter": 158622208,
+    "rgbaMipEstimateBefore": 276762816,
+    "rgbaMipEstimateAfter": 134188032
+  },
+  "protectedCodeDataAndMediaFiles": 2259,
+  "gameplayRulesAndOriginalMediaUnchanged": true,
+  "tests": 2023,
+  "modules": 229,
+  "localOnly": true,
+  "published": false,
+  "physicalIPadVerified": false,
+  "osProcessReloadRecoveryClaimed": false,
+  "checkedAt": "2026-11-01T22:13:25.652Z",
+  "closedRendererContextReleased": true
+}

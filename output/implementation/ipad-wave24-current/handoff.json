@@ -1,0 +1,120 @@
+{
+  "status": "passed",
+  "base": "690b2571094991530b2e6aff1089e9d07c82c033",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6411,
+  "payload": [
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "5353d43ad7560b0687079c3d72c7cebb85d6b3a6e986c81433b5df3194583b0b"
+    },
+    {
+      "file": "README.md",
+      "sha256": "87ac60272c86a699a5669c37ac097c599ad47c17560b7f69c07c061e55cf9632"
+    },
+    {
+      "file": "docs/IPAD_WAVE24_FIX.md",
+      "sha256": "ad202a001fdcf7fbea4e9e3a76443305a10361127989fb4a1767cf62c8c28241"
+    },
+    {
+      "file": "game/main.js",
+      "sha256": "50dd3b31b4c46a4d5c9abbeed73aa64f6a4a6ae31587513a0d57978271ab5e17"
+    },
+    {
+      "file": "game/render/defender-model-loader.js",
+      "sha256": "3e5117104418ea01ad039f95072033c44846a7afd80cfc497a4f495d24f5af5a"
+    },
+    {
+      "file": "game/render/graphics-recovery.js",
+      "sha256": "c8f5f55e4855f83d614dcccfa4d80e494657b6c1a57c71a8087ae893ab019e1c"
+    },
+    {
+      "file": "game/render/packed-model.js",
+      "sha256": "d258f6a01e94925c0ca3e1ccaf4dbdf7eefda25aa19e9ec14e71da1e6af28855"
+    },
+    {
+      "file": "game/render/render-budget.js",
+      "sha256": "eb2c323302a7860a03f3a2f25478a3ee02861a42ce1beece1eb6b29285378968"
+    },
+    {
+      "file": "game/render/scenery-landmarks.js",
+      "sha256": "1469021a4205358ccae6c3f142c10bbf1011f371657aabf7580f024fc68a7e3a"
+    },
+    {
+      "file": "game/render/world.js",
+      "sha256": "997846cc3df98cc3208f77be44cce7d0d28269844911d6f821784f5fd39bf677"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/asset-audit.json",
+      "sha256": "815affde1a29ae9d9097253a06192a1f13aa9a050254de9eee63a1a0bc65d2d8"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/build.log",
+      "sha256": "bc65f2f8655b3400fb8b8aaf0aec46f902dbc8645fd0ee0f09b0c4d39b68665f"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/cache-audit.json",
+      "sha256": "194c7cb18d917f6fff36f6e5107eb21e1916cc095217658fd9819ea1e80d67fa"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/public-release-observation.json",
+      "sha256": "4680741d074ae9d120ef55240ec1f9821eaeb638d91b0383a8f1c13d7da4de65"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/result.json",
+      "sha256": "02de3504f3060ce962b5f221a69dc97bc7f49a1167ecbfa4bacac73185fe7777"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/sources-tested.json",
+      "sha256": "469257f53b6a83291b84ba1a453cc00d6aa3bd31fa2b0e1124b28cc09e500b23"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/tests.log",
+      "sha256": "b5b24c92eef33ded1e8c315f51b5034a627ed927496f085e2409510fc541d41d"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/validation.json",
+      "sha256": "8cb8b25f282c4ed605ff37a2ac7e577f7182b4b0d3af604eea954eb345fa4846"
+    },
+    {
+      "file": "tests/defender-cache-lifetime.test.mjs",
+      "sha256": "c7c5a1c6b86709dbe79332c64e4ac67766af5c2f957c9a2342b14e1d02b647ee"
+    },
+    {
+      "file": "tests/graphics-recovery.test.mjs",
+      "sha256": "dc2723a9d47afa473ea9cc42a2481748aecd096571865f6f8cf1be98cf331f3d"
+    },
+    {
+      "file": "tests/landmark-resource-lifetime.test.mjs",
+      "sha256": "a564e0ad5356a2bc61cf38522af5f00c1edd929729c196c7d5fc62e5a65af396"
+    },
+    {
+      "file": "tests/render-budget.test.mjs",
+      "sha256": "49655b4347eaf258bac1ad35433ba4321fc4f6d8950284876ffd039c65d1e741"
+    },
+    {
+      "file": "tests/wave24-render-resources.test.mjs",
+      "sha256": "c73e959d6a2ce1b1458817eded3068a21685952ccb24538284f496a889d31058"
+    },
+    {
+      "file": "tools/renderer-validation/assets.mjs",
+      "sha256": "33ac685ca1f9689f90a39f9f5ebbbed14eb2d1103935a6c7c8241adc41c97671"
+    },
+    {
+      "file": "tools/renderer-validation/cache-audit.mjs",
+      "sha256": "1dca91217029bff5e5475922c5a22df14b382909203cf10948c5520de4fd1a9b"
+    },
+    {
+      "file": "ui/graphics-recovery.css",
+      "sha256": "6375f52f3cb97039a69ea1e271f11c4bb7456a165a9a603cccc1229f454bf9e3"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/runtime-install.json",
+      "sha256": "43b2c7e8c441e45fdcb8e0e6e78f698c557a3e3e9b85762f7ebad0837c3b4b20"
+    },
+    {
+      "file": "output/implementation/ipad-wave24-current/static-delivery.json",
+      "sha256": "7523ac11ef8788e5923a22345cd89cdc0deea0f81db783906f9bbdc61b99f6d3"
+    }
+  ]
+}

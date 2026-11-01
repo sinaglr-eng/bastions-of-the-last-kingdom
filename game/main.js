@@ -78,6 +78,7 @@ import {enemyTraitsMarkup} from '../ui/enemy-trait-symbols.js';
 import {connectApprovedPortraitVisibility} from '../ui/portrait-visibility.js';
 import '../ui/portrait-visibility.css';
 import '../ui/defender-loading.css';
+import '../ui/graphics-recovery.css';
 import '../ui/battlefield-command.css';
 import '../ui/draft-presentation.css';
 import '../ui/header-command.css';
@@ -472,5 +473,5 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
   world.loadAssets();render();offerTutorial({replacement:!!replacement});
 }
 try{const thumbnails=makeThumbnails(data);images={ruin:thumbnails.ruin,...referencePortraitImageMap()};void requestFactionRun();
-  function frame(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world){statistics.sample(dt,elapsedDt);game.tick(dt,elapsedDt);world.update(dt);uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}}requestAnimationFrame(frame);}requestAnimationFrame(frame);
+  function frame(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world){const graphicsReady=world.contextRecovery?.update()!==false;statistics.sample(dt,elapsedDt);game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady)world.update(dt);uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}}requestAnimationFrame(frame);}requestAnimationFrame(frame);
 }catch(error){console.error(error);app.innerHTML=`<div class="error-screen"><h1>The battlefield could not be drawn.</h1><p>This game needs a browser with WebGL enabled. Try a recent Chrome, Edge, or Firefox with hardware acceleration turned on.</p><p>${String(error.message).replace(/[<>]/g,'')}</p><button class="primary-button" onclick="location.reload()" style="margin-top:20px">Try again</button></div>`;}

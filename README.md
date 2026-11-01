@@ -14,6 +14,8 @@ The faction chooser now shows large battle illustrations and clear faction speci
 
 FR-004 raises all 85 native Dwarf primary profiles by 50%, with 100% for five golem/Gatling champions, and adds 1.5 tiles to the existing Physical immunity aura. Shared ability bases, fixed secondary damage, other factions and recipes remain exact. [Implementation and verification](docs/FR004_IMPLEMENTATION.md).
 
+The local 0.6.7 candidate also bounds native model memory and pauses safely during graphics-context interruption. [iPad wave-24 repair and verification limits](docs/IPAD_WAVE24_FIX.md).
+
 ## Run locally
 
 Use Node.js 22.15+ and pnpm:

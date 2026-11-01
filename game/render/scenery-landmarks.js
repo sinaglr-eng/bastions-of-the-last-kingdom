@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {disposeGeometricResources} from './geometric-resources.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {releaseAsset} from '../release.js';
 import {keepModel,campModel,optimize} from './models.js';
@@ -19,6 +20,7 @@ export function landmarkClearingDistance(x,z){
 export const isLandmarkClearing=(x,z,margin=0)=>landmarkClearingDistance(x,z)<=margin;
 
 function disposeVisual(object){
+  if(object.userData.importedLandmark){disposeGeometricResources(object);object.removeFromParent();return;}
   const geometries=new Set(),materials=new Set();
   object.traverse(part=>{
     if(part.geometry)geometries.add(part.geometry);

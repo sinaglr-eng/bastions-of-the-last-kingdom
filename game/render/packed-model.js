@@ -18,5 +18,6 @@ export async function decodedModelBytes(response,{sha256,signal}={}){
 }
 export async function loadPackedModel(loader,entry){
  const url=releaseAsset(entry.packedFile),bytes=await decodedModelBytes(await fetch(url),entry);
- return loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),new URL('.',new URL(url,globalThis.location?.href||'http://localhost/')).href);
+ const buffer=bytes.byteOffset===0&&bytes.byteLength===bytes.buffer.byteLength?bytes.buffer:bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength);
+ return loader.parseAsync(buffer,new URL('.',new URL(url,globalThis.location?.href||'http://localhost/')).href);
 }

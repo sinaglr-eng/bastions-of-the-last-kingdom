@@ -1,4 +1,4 @@
-import {adoptDecodedGeometricAsset} from './geometric-resources.js';
+import {adoptDecodedGeometricAsset,disposeDecodedGeometricAsset} from './geometric-resources.js';
 
 // Only authoritative, placed board units may reveal which defender GLB is
 // needed. A latent draft card or reserved identity snapshot is not a unit.
@@ -14,9 +14,10 @@ export function defenderTemplateKey(tower,definitions){
 // The manifests are cheap indexes, not a preload list. Requests made before
 // they arrive wait for indexing; each family/rank then owns one shared job.
 export class DefenderModelLoader {
-  constructor({load,install,onFailure=()=>{},onStateChange=()=>{},isDisposed=()=>false,isNeeded=()=>true,concurrency=3,maxAttempts=2,retryDelayMs=10000,maxBatches=3,now=()=>Date.now()}){
+  constructor({load,install,release=(_key,asset)=>disposeDecodedGeometricAsset(asset),protectedKeys=()=>new Set(),maxCachedUnused=2,onFailure=()=>{},onStateChange=()=>{},isDisposed=()=>false,isNeeded=()=>true,concurrency=3,maxAttempts=2,retryDelayMs=10000,maxBatches=3,now=()=>Date.now()}){
     this.load=load;this.install=install;this.onFailure=onFailure;this.isDisposed=isDisposed;
     this.onStateChange=onStateChange;this.now=now;this.isNeeded=isNeeded;
+    this.release=release;this.protectedKeys=protectedKeys;this.maxCachedUnused=Math.max(0,Math.min(8,Math.floor(maxCachedUnused)||0));this.assets=new Map();this.suspended=false;
     this.retryDelayMs=Math.max(1000,Number(retryDelayMs)||10000);
     this.maxBatches=Math.min(3,Math.max(1,Math.floor(maxBatches)||1));
     this.concurrency=Math.min(3,Math.max(1,Math.floor(concurrency)||1));
@@ -55,6 +56,7 @@ export class DefenderModelLoader {
     if(!key||this.unavailable)return Promise.resolve(false);
     const previous=this.requests.get(key);
     if(previous){
+      if(previous.status==='loaded'&&this.assets.has(key)){const asset=this.assets.get(key);this.assets.delete(key);this.assets.set(key,asset);}
       if(previous.status==='unavailable'&&this.entries.has(key)&&(!previous.entry||previous.notNeeded)){
         this.requests.delete(key);return this.startRequest(key,1);
       }
@@ -94,6 +96,7 @@ export class DefenderModelLoader {
   }
   pump(){
     if(this.unavailable){this.dispose();return;}
+    if(this.suspended)return;
     while(this.activeCount<this.concurrency&&this.queue.length){
       const request=this.queue.shift();
       if(!this.isNeeded(request.key)){request.notNeeded=true;this.finish(request,false);continue;}
@@ -106,17 +109,31 @@ export class DefenderModelLoader {
     try{
       for(let attempt=0;attempt<this.maxAttempts&&!this.unavailable;attempt++){
         try{
+          if(!this.isNeeded(request.key)){request.notNeeded=true;this.finish(request,false);return;}
           const gltf=await this.load(request.entry);
-          const accepted=adoptDecodedGeometricAsset(gltf,asset=>this.install(request.entry,asset),{isDisposed:()=>this.unavailable});
+          if(!this.isNeeded(request.key))request.notNeeded=true;
+          const accepted=adoptDecodedGeometricAsset(gltf,asset=>this.install(request.entry,asset),{isDisposed:()=>this.unavailable||request.notNeeded});
+          // Do not retain GLTFParser caches/raw transport buffers. Installed
+          // scenes own their shared render resources and animation clips.
+          if(accepted)this.assets.set(request.key,{scene:gltf.scene,scenes:gltf.scenes});
           this.finish(request,accepted);return;
         }catch(error){failure=error;}
       }
       this.finish(request,false);
       if(failure&&!this.unavailable)this.onFailure(request.entry,failure);
     }finally{
-      this.activeCount--;this.pump();
+      this.activeCount--;this.trim();this.pump();
     }
   }
+  setSuspended(value){this.suspended=!!value;if(!this.suspended)this.pump();}
+  trim(){
+    if(this.unavailable)return 0;
+    const protectedSet=new Set(this.protectedKeys()),unused=[];
+    for(const [key,asset]of this.assets)if(!this.isNeeded(key)&&!protectedSet.has(key))unused.push([key,asset]);
+    let released=0;for(const [key,asset]of unused.slice(0,Math.max(0,unused.length-this.maxCachedUnused))){this.assets.delete(key);this.requests.delete(key);this.release(key,asset);released++;}
+    return released;
+  }
+  snapshot(){return {loaded:this.assets.size,active:this.activeCount,queued:this.queue.length,suspended:this.suspended,maxCachedUnused:this.maxCachedUnused};}
   dispose(){
     if(this.disposed)return;
     this.disposed=true;
@@ -124,5 +141,6 @@ export class DefenderModelLoader {
     // asset through adoptDecodedGeometricAsset and release its GPU resources.
     for(const request of this.requests.values())this.finish(request,false);
     this.queue.length=0;this.entries.clear();this.requests.clear();
+    for(const [key,asset]of this.assets)this.release(key,asset);this.assets.clear();
   }
 }
