@@ -1,5 +1,11 @@
 # Current release
 
+## 0.6.9 — Dwarf ground-and-air primary attacks — 2 November 2026
+
+- All Dwarf defenders can attack flying enemies, including 35 formerly ground-only profiles and four continuous Flame Cone weapons.
+- Preserves primary damage, DPS, timing, range, recipes, canonical abilities, other factions and approved media. Separate Heat pulses retain their ground-only scope.
+- Updates the single English local gallery and keeps 0.6.8 score identities separate. Publication of this amendment was explicitly authorized on 2 November 2026. [Details](docs/DWARF_AIR_TARGETING.md).
+
 ## 0.6.8 — FR-005 revision 2 — 2 November 2026
 
 - Optimizes repeated base-stat work and batches compatible V3 skeletal surfaces without changing combat or approved models. Controlled CPU work is 3.96× faster; the measured loaded scene renders in 28.8 ms instead of 61.1 ms. Passes 2,063 tests. [Measurements and limits](docs/LATE_WAVE_PERFORMANCE.md).

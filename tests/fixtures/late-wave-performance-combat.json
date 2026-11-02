@@ -1,7 +1,7 @@
 {
   "baselineCommit": "5321b8313be2c1b7320ab31c4bc7f7f2c05b7882",
-  "ruleset": "fr005-r2-20261102",
-  "method": "Actual unchanged engine, frozen FR-005 600-material controlled armies on a complete Diamond Spiral, seed 910001, dt0.1. Full ordered damage/spawn/death/leak digest plus terminal state and next RNG sample.",
+  "ruleset": "fr005-r2-dwarf-air-20261102",
+  "method": "Current authorized engine, frozen FR-005 600-material controlled armies on a complete Diamond Spiral, seed 910001, dt0.1. Full ordered damage/spawn/death/leak digest plus terminal state and next RNG sample. Only Dwarf waves 35 and 50 changed under the 2026-11-02 authorized air-targeting amendment; reverting those target fields in memory exactly recovered their previous digests, terminal states and next RNG samples. All ten other rows remain exact.",
   "rows": [
     {
       "faction": "crown",
@@ -63,15 +63,15 @@
       "faction": "forge",
       "wave": 35,
       "seed": 910001,
-      "steps": 225,
-      "seconds": 22.50000000000005,
+      "steps": 220,
+      "seconds": 22.000000000000043,
       "outcome": "won",
       "lives": 30,
       "kills": 15,
       "leaks": 0,
       "score": 8750,
-      "combatDigest": "daabc302165fa34739fc9a6656be4a42f9bfcc68eabc75962a0c9ff224142d77",
-      "nextRandom": 0.7104312344454229
+      "combatDigest": "b173ce7946ab3d25ec174c5f1d561c2c3da8f3756703477311e0b3a0b1813929",
+      "nextRandom": 0.7173184473067522
     },
     {
       "faction": "forge",
@@ -105,15 +105,15 @@
       "faction": "forge",
       "wave": 50,
       "seed": 910001,
-      "steps": 221,
-      "seconds": 22.100000000000044,
+      "steps": 194,
+      "seconds": 19.400000000000006,
       "outcome": "won",
       "lives": 30,
       "kills": 1,
       "leaks": 0,
       "score": 40000,
-      "combatDigest": "61d23b7d1e02d4543e8665b95ca93d0ae53bd139080f4b0985e11aeaf802bb83",
-      "nextRandom": 0.30856452928856015
+      "combatDigest": "7c3887e956d155c6c361b9d2c867452f1cfda17b66b1da00110b432bb492edde",
+      "nextRandom": 0.006615584949031472
     },
     {
       "faction": "grove",

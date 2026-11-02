@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "requirementId": "FR-005",
   "revision": 2,
-  "rulesetRevision": "fr005-r2-20261102",
+  "rulesetRevision": "fr005-r2-dwarf-air-20261102",
   "baselineRulesetRevision": "fr004-r1-20261101",
   "approval": {
     "source": "User request in Master verze hry: Prosim naimplementuj FR-005 revize 2 z druheho chatu",
@@ -5620,5 +5620,517 @@
     "fr002-r3-proposed-splash-4-b645894aa2": "fr005-proposed-splash-4-bc43ecb3c4",
     "fr002-r3-proposed-splash-5-f22e4ea29c": "fr005-proposed-splash-5-3d2dd5ffa5",
     "fr002-r3-proposed-stone-gaze-1-f97f62fda9": "fr002-r3-proposed-stun-1-256f970c35"
-  }
+  },
+  "userAuthorizedTargetingAmendment": {
+    "date": "2026-11-02",
+    "source": "Prosim dej vsem trpaslikum utok i proti letajicim nepratelum",
+    "rulesetRevision": "fr005-r2-dwarf-air-20261102",
+    "scope": {
+      "factionId": "forge",
+      "eligibleProfiles": 86,
+      "nativeProfiles": 85,
+      "changedProfiles": 35,
+      "continuousProfiles": 4
+    },
+    "primaryNumericStatsChanged": false,
+    "abilityAssignmentsChanged": false,
+    "groundTargetingPreserved": true,
+    "otherFactionsChanged": false,
+    "secondaryAbilityTargetingChanged": false,
+    "publicationAuthorized": false
+  },
+  "targetingProfileChanges": [
+    {
+      "key": "forge/dw_shieldguard/1",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_shieldguard/2",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 2,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_shieldguard/3",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 3,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_shieldguard/4",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 4,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_shieldguard/5",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 5,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_shieldguard/6",
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 6,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/1",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/2",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/3",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/4",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/5",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarrider/6",
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/1",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/2",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/3",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/4",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/5",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 5,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_furnacetender/6",
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 6,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_ironwarden/1",
+      "factionId": "forge",
+      "unitId": "dw_ironwarden",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_ashshield/1",
+      "factionId": "forge",
+      "unitId": "dw_ashshield",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_bulwarkcaptain/1",
+      "factionId": "forge",
+      "unitId": "dw_bulwarkcaptain",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_forgeking/1",
+      "factionId": "forge",
+      "unitId": "dw_forgeking",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_grapeshotcart/1",
+      "factionId": "forge",
+      "unitId": "dw_grapeshotcart",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarlancer/1",
+      "factionId": "forge",
+      "unitId": "dw_boarlancer",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boarstandard/1",
+      "factionId": "forge",
+      "unitId": "dw_boarstandard",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_goreback/1",
+      "factionId": "forge",
+      "unitId": "dw_goreback",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_warcaller/1",
+      "factionId": "forge",
+      "unitId": "dw_warcaller",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_boaravatar/1",
+      "factionId": "forge",
+      "unitId": "dw_boaravatar",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_cinderhowitzer/1",
+      "factionId": "forge",
+      "unitId": "dw_cinderhowitzer",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_deepdelve/1",
+      "factionId": "forge",
+      "unitId": "dw_deepdelve",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_pressuresmith/1",
+      "factionId": "forge",
+      "unitId": "dw_pressuresmith",
+      "rank": 1,
+      "before": {
+        "groundOnly": true
+      },
+      "after": {
+        "groundOnly": false
+      }
+    },
+    {
+      "key": "forge/dw_steamharpooner/1",
+      "factionId": "forge",
+      "unitId": "dw_steamharpooner",
+      "rank": 1,
+      "before": {
+        "groundOnly": true,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 2250,
+          "angleDegrees": 60,
+          "range": 4.5,
+          "damageType": "physical",
+          "targeting": "ground",
+          "maxTargets": null
+        }
+      },
+      "after": {
+        "groundOnly": false,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 2250,
+          "angleDegrees": 60,
+          "range": 4.5,
+          "damageType": "physical",
+          "targeting": "ground-and-air",
+          "maxTargets": null
+        }
+      }
+    },
+    {
+      "key": "forge/dw_flamewarden/1",
+      "factionId": "forge",
+      "unitId": "dw_flamewarden",
+      "rank": 1,
+      "before": {
+        "groundOnly": true,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 2700,
+          "angleDegrees": 75,
+          "range": 5.25,
+          "damageType": "physical",
+          "targeting": "ground",
+          "maxTargets": null
+        }
+      },
+      "after": {
+        "groundOnly": false,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 2700,
+          "angleDegrees": 75,
+          "range": 5.25,
+          "damageType": "physical",
+          "targeting": "ground-and-air",
+          "maxTargets": null
+        }
+      }
+    },
+    {
+      "key": "forge/dw_emberanvil/1",
+      "factionId": "forge",
+      "unitId": "dw_emberanvil",
+      "rank": 1,
+      "before": {
+        "groundOnly": true,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 3105,
+          "angleDegrees": 75,
+          "range": 4,
+          "damageType": "physical",
+          "targeting": "ground",
+          "maxTargets": null
+        }
+      },
+      "after": {
+        "groundOnly": false,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 3105,
+          "angleDegrees": 75,
+          "range": 4,
+          "damageType": "physical",
+          "targeting": "ground-and-air",
+          "maxTargets": null
+        }
+      }
+    },
+    {
+      "key": "forge/dw_bombardking/1",
+      "factionId": "forge",
+      "unitId": "dw_bombardking",
+      "rank": 1,
+      "before": {
+        "groundOnly": true,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 13500,
+          "angleDegrees": 90,
+          "range": 6,
+          "damageType": "physical",
+          "targeting": "ground",
+          "maxTargets": null
+        }
+      },
+      "after": {
+        "groundOnly": false,
+        "continuousAttack": {
+          "familyId": "flame-cone",
+          "dps": 13500,
+          "angleDegrees": 90,
+          "range": 6,
+          "damageType": "physical",
+          "targeting": "ground-and-air",
+          "maxTargets": null
+        }
+      }
+    }
+  ]
 }

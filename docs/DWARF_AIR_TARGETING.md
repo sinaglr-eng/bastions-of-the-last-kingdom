@@ -1,0 +1,13 @@
+# Dwarf ground-and-air primary attacks
+
+The user authorized every Dwarf defender to attack flying enemies on 2 November 2026. Local game **0.6.9** applies ruleset **fr005-r2-dwarf-air-20261102**. Public deployment was explicitly authorized on 2 November 2026.
+
+All 86 Dwarf-faction profiles are air-capable: 85 native Dwarf profiles and the unchanged shared Lady Claire. Exactly 35 formerly ground-only profiles change, including all ranks of Shieldguard, Boar Rider and Blacksmith and 17 champions. Four continuous Flame Cone weapons aim at and damage flying enemies inside their ordinary range and cone angle.
+
+Primary damage, sustained single-target DPS, attack timing, range, magazines, reloads, recipes and canonical ability assignments remain unchanged. Shared Flame Cone ability parameters retain their ground-only base for Elves; Dwarf continuous weapons explicitly override effective targeting to ground-and-air. The separate Heat pulse remains ground-only. Detection, evasion, immunities and control gates still apply. Sky Hunt remains an air-only Slow aura.
+
+The canonical [targeting delta](../data/fr005-approved.json) records the exact user authorization and 35 guarded profile changes. The original FR-005 authority and implementation receipt remain historical regression evidence. The single English [local gallery](http://127.0.0.1:59544/#view=roster&faction=forge) applies the same delta during every rebuild. Original artwork, camouflage portraits, prompts, reviews, model files and player records are preserved.
+
+Focused combat tests verify an actual flying-enemy hit by each of the 86 profiles, mixed ground/air cone victims, cone angle and range boundaries, ordinary immunity and visibility gates, retained ground-only Heat and unchanged Elf cones. Independent local data and browser QA checks all 258 runtime/gallery profiles, all 559 ability assignments, every Dwarf rank, the four cone details, and mobile layout. Current [validation](../output/implementation/dwarf-air-current/validation.json) record verification results.
+
+The earlier FR-005 campaigns and controlled battles predate this targeting amendment. They do not establish current campaign balance or a legal 50-wave completion. Score validation preserves the original 0.6.8 contract and separates new 0.6.9 records without migrating or deleting existing scores.

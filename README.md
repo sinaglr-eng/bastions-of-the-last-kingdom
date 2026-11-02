@@ -1,8 +1,8 @@
-# Forged Alliances TD — 0.6.8
+# Forged Alliances TD — 0.6.9
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**0.6.8 implements FR-005 revision 2 and is the default public game.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**Version 0.6.9 gives every Dwarf defender ground-and-air primary attacks.** [Targeting change and validation](docs/DWARF_AIR_TARGETING.md). [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
 The current performance patch reduces repeated combat-stat work and V3 model draw submissions while preserving combat results and approved appearance. [Measured improvements and limits](docs/LATE_WAVE_PERFORMANCE.md).
 
@@ -49,7 +49,7 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only current release 0.6.8 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current local release 0.6.9 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
 FR-005 revision 2 supplies the current recipe and ability refinements while retaining the implemented FR-004 primary values and immunity auras. [Current changes and verification](docs/RELEASE_0_6_8.md). The single English design gallery remains local only.
 

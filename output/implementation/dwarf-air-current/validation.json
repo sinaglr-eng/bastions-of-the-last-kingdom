@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "version": "0.6.9",
+  "rulesetRevision": "fr005-r2-dwarf-air-20261102",
+  "authorization": {
+    "date": "2026-11-02",
+    "source": "Prosim dej vsem trpaslikum utok i proti letajicim nepratelum",
+    "rulesetRevision": "fr005-r2-dwarf-air-20261102",
+    "scope": {
+      "factionId": "forge",
+      "eligibleProfiles": 86,
+      "nativeProfiles": 85,
+      "changedProfiles": 35,
+      "continuousProfiles": 4
+    },
+    "primaryNumericStatsChanged": false,
+    "abilityAssignmentsChanged": false,
+    "groundTargetingPreserved": true,
+    "otherFactionsChanged": false,
+    "secondaryAbilityTargetingChanged": false,
+    "publicationAuthorized": false
+  },
+  "tests": 2067,
+  "failures": 0,
+  "build": "passed",
+  "profiles": 258,
+  "dwarfFactionProfilesAirCapable": 86,
+  "nativeDwarfProfilesAirCapable": 85,
+  "changedTargetingProfiles": 35,
+  "continuousWeaponOverrides": 4,
+  "primaryNumericStatsAndDpsUnchanged": true,
+  "abilityAssignmentsUnchanged": 559,
+  "recipesUnchanged": 114,
+  "otherFactionTargetingUnchanged": true,
+  "artAndReviewsChanged": false,
+  "playerRecordsChanged": false,
+  "publicDeployment": false,
+  "campaignBalanceRetested": false,
+  "browserChecks": 8,
+  "sourceHashes": {
+    "data/fr005-approved.json": "d53394da00449be77efe6e30085ff67ecf34fe4d7174e5c557c5f3bd2734c612",
+    "game/core/fr005-registry.js": "3adb9facdb70032d8290d448c90dc3048a4fd37265f4114eafa062fc6fb4450f",
+    "game/core/fr002-combat.js": "0b852614a1cf402e1a2d8db35e1c50c199ea56b2500ced43a0f4a2d0c42e393f",
+    "game/release.js": "d33ddc4fc8d24dda0f2a04ca76b57b9a9992948536528aa548a9c3e56b4dff26",
+    "public/release.json": "9ec1d16d82d17d17a9e34d5e5394fc0b649c8203849c4fc012eae6f4cab1add7"
+  },
+  "checkedAt": "2026-11-02T18:00:26.305Z"
+}

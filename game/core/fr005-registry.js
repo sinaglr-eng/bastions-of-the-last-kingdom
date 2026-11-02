@@ -8,10 +8,12 @@ export function applyFr005Registry(baseline){
  if(baseline.revision!==approved.baselineRulesetRevision||!baseline.fr004||baseline.fr005)throw Error('FR-005 revision 2 requires the exact FR-004 baseline exactly once');
  for(const c of approved.recipeChanges)if(canonical(unitAt(baseline,c)?.recipe)!==canonical(c.before))throw Error('FR-005 recipe baseline drift: '+c.unitId);
  for(const c of approved.abilityProfileChanges)if(canonical(unitAt(baseline,c)?.profiles[c.rank-1]?.abilities)!==canonical(c.before))throw Error('FR-005 ability baseline drift: '+c.key);
+ for(const c of approved.targetingProfileChanges||[]){const p=unitAt(baseline,c)?.profiles[c.rank-1];for(const [key,value]of Object.entries(c.before))if(canonical(p?.[key])!==canonical(value))throw Error('FR-005 targeting baseline drift: '+c.key+'/'+key);}
  const registry=structuredClone(baseline);registry.revision=FR005_RULESET_REVISION;registry.fr005=true;
  for(const c of approved.recipeChanges)unitAt(registry,c).recipe=structuredClone(c.after);
  for(const c of approved.abilityProfileChanges)unitAt(registry,c).profiles[c.rank-1].abilities=structuredClone(c.after);
  for(const c of approved.unitMetadataChanges)unitAt(registry,c)[c.field]=structuredClone(c.after);
+ for(const c of approved.targetingProfileChanges||[])Object.assign(unitAt(registry,c).profiles[c.rank-1],structuredClone(c.after));
  return registry;
 }
 // Humans retain their established attack engine. Only Golem's approved
