@@ -1,15 +1,17 @@
 {
-  "source": "c7564149587b459d9c6470e4f601f01b9d5ef2fe",
-  "parent": "bb93714517a9986bf610a6122c5092c155d35ff7",
-  "tree": "5c8b915dc72790b827e3452112787d650b5bec78",
-  "commit": "15e33b484dc94553de804946208491c9ac01bed8",
-  "excludedLocalGalleryFiles": [
+  "source": "95e61f841b7663fdee1727a6eb57e90c00caf1c1",
+  "parent": "e655c86994c3a0afbb113ec27b6c52209aadd466",
+  "commit": "32d60ddfc1a2bd36bf28b7d67f6ede9e2d720578",
+  "tree": "bcef256f6440255ea78fd16b09a37037e8c1e691",
+  "excludedLocalOnlyFiles": [
     "output/implementation/fr005-current/gallery-browser-qa.json",
     "output/implementation/fr005-current/gallery-build.log",
     "output/implementation/fr005-current/gallery-current.jpg",
     "output/implementation/fr005-current/gallery-handoff.json",
     "output/implementation/fr005-current/handoff.json",
     "output/implementation/fr005-current/local-gallery-files.json",
+    "output/implementation/late-wave-current/handoff.json",
+    "output/releases/v0.6.8/handoff.json",
     "sites/defender-faction-atlas-20261021/scripts/apply-fr005-implementation.mjs",
     "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
     "sites/defender-faction-atlas-20261021/scripts/templates/gallery-fr005-current.mjs",
@@ -17,5 +19,5 @@
     "sites/defender-faction-atlas-20261021/scripts/verify-fr005-implementation.mjs"
   ],
   "localHistoryPreserved": true,
-  "publicationBranchIsForwardOnly": true
+  "forwardOnly": true
 }

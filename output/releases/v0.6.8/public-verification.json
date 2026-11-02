@@ -1,18 +1,18 @@
 {
   "status": "passed",
   "version": "0.6.8",
-  "commit": "15e33b484dc94553de804946208491c9ac01bed8",
+  "commit": "32d60ddfc1a2bd36bf28b7d67f6ede9e2d720578",
   "base": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "checkedAt": "2026-11-02T13:43:03.845Z",
+  "checkedAt": "2026-11-02T16:49:45.850Z",
   "checks": 1004,
-  "bytes": 916422588,
+  "bytes": 916423081,
   "approvedModels": 312,
   "allDecodedModelsMatch": true,
   "allFilesFetchedFresh": false,
-  "previousVerificationCommit": "8dece7e8b574479f4633548ed022e2a44b17905b",
-  "previousVerifiedAt": "2026-11-02T06:20:20.099Z",
+  "previousVerificationCommit": "15e33b484dc94553de804946208491c9ac01bed8",
+  "previousVerifiedAt": "2026-11-02T13:44:27.449Z",
   "scope": "Previously verified immutable files are reused only by exact hash (or exact decoded enemy-model hash); all new media, compiled entries and metadata are checked after this exact final deployment. Canonical copied text uses exact Git blobs. CI-derived enemy gzip streams may differ by zlib platform; their decoded SHA-256 remains exact.",
-  "browserQa": "Local Chromium smoke passed before publication. Post-deployment checks compare exact live assets against the tested build; no new public browser session was created.",
+  "browserQa": "Actual current public Chromium smoke check recorded separately; immutable model bytes verified independently.",
   "files": [
     {
       "file": "archer.html",
@@ -3142,18 +3142,18 @@
       "status": 200
     },
     {
+      "file": "assets/game-B2t8RAmM.js",
+      "sha256": "f36c1c7b4397f5a7ea844a1e21cd5029eba781b8de57f722a16cc3acb053ab28",
+      "status": 200,
+      "bytes": 2541880,
+      "checkedAt": "2026-11-02T16:49:45.740Z"
+    },
+    {
       "file": "assets/game-tqWnCibm.css",
       "sha256": "103ff20e9a5f5f4529151c7dae03d307a52b803575c01dbab7098a9bb031e55f",
       "status": 200,
       "bytes": 346392,
-      "checkedAt": "2026-11-02T13:43:02.779Z"
-    },
-    {
-      "file": "assets/game-wYsY8Cyd.js",
-      "sha256": "1f81022ad24538f6a95e6878ffbc82906f54604950e79bc7034b86190dd05ad3",
-      "status": 200,
-      "bytes": 2541416,
-      "checkedAt": "2026-11-02T13:43:02.888Z"
+      "checkedAt": "2026-11-02T16:49:45.848Z"
     },
     {
       "file": "assets/geometric/approved-enemies-v6/host_01.glb.gz",
@@ -6337,24 +6337,24 @@
     },
     {
       "file": "index.html",
-      "sha256": "164d14373a71889546cf2d87564a016c8abc07a885fd63e43aa451bcaa44bad5",
+      "sha256": "3c86ec153eb800e57a37c605ffa2699a07e771bcc7ed88f0bbe560117e8de3a4",
       "status": 200,
       "bytes": 1814,
-      "checkedAt": "2026-11-02T13:43:02.748Z"
+      "checkedAt": "2026-11-02T16:49:45.593Z"
     },
     {
       "file": "release.json",
-      "sha256": "dd012908dffebd5732c4c321487cf5a6d2175e05e819d57155cce8982fca465b",
+      "sha256": "b9761b5978430940393be4b93c0e5b54d90e8ce6493dead38feb436fa5671f6f",
       "status": 200,
-      "bytes": 2017,
-      "checkedAt": "2026-11-02T13:43:02.755Z"
+      "bytes": 2046,
+      "checkedAt": "2026-11-02T16:49:45.586Z"
     },
     {
       "file": "runtime-assets.json",
-      "sha256": "c4dc5d336e28f5e8934914b748e0dad41fd0716baed148ed1844f0ae5a983237",
+      "sha256": "59904cce3569af6adc7350b879ea2f8902c90b7b796113ed14ec2ce1955b7d34",
       "status": 200,
       "bytes": 195193,
-      "checkedAt": "2026-11-02T13:43:03.844Z",
+      "checkedAt": "2026-11-02T16:49:45.606Z",
       "verification": "Canonical contents; filesystem row order is immaterial"
     }
   ]
