@@ -4,6 +4,9 @@ import {Group,Mesh,RingGeometry,BoxGeometry,MeshBasicMaterial,DoubleSide} from '
 import {prepareReconstructedDefender} from './reconstruction-adapter.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
 import {prepareApprovedMotionTemplate,prepareApprovedMotionActor,disposeApprovedMotion} from './approved-model-motion.js';
+import {batchPrivateSkinnedActor} from './skinned-batching.js';
+const factionBatches=new WeakMap();
+export const factionTemplateBatching=scene=>factionBatches.get(scene)||null;
 
 // A pending asset must not impersonate a defender from a different renderer
 // or rank. This low, selectable dial retains the occupied tile while the
@@ -43,7 +46,14 @@ export function disposeDefenderInstance(actor){
 
 export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
-  if(entry.factionAnimation){scene.userData.factionAttackEntry=entry;prepareFactionVfxAnchors(scene,entry);}else if(!prepareApprovedMotionTemplate(scene,entry)){
+  if(entry.factionAnimation){
+    scene.userData.factionAttackEntry=entry;prepareFactionVfxAnchors(scene,entry);
+    // Merge compatible source skin surfaces once, before cloning. Each actor
+    // still has its private bones, while immutable merged geometry is shared
+    // with the cached asset and disposed at that asset's ownership boundary.
+    // Literal source nodes remain for animations, anchors and inspection.
+    if(!factionBatches.has(scene))factionBatches.set(scene,batchPrivateSkinnedActor(scene));
+  }else if(!prepareApprovedMotionTemplate(scene,entry)){
     prepareReconstructedDefender(scene,entry);
     optimizeGeometricSiblings(scene,{animations});
   }

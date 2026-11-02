@@ -2,7 +2,7 @@ import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {fr002DamageResolved,flushFr002Pulses,applyCanonicalControlContact} from './fr002-combat.js';
 import {skyHuntAura,skyHuntSlow} from './sky-hunt.js';
 import {immunityAuraCoverage} from './immunity-auras.js';
-import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
+import {distance,damageDefenseBreakdown,readTowerStats as towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
 import {damageType,effectDamageType,statusEffectAllowed,attackTargetAllowed,slowAuraApplies} from './combat-rules.js';

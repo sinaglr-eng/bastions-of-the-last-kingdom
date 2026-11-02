@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {distance,towerStats,offensiveAuraRange} from '../core/math.js';
+import {distance,readTowerStats as towerStats,offensiveAuraRange} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
 import {statusEffectAllowed,slowAuraApplies} from '../core/combat-rules.js';
 import {immunityAuraCoverage} from '../core/immunity-auras.js';
@@ -260,7 +260,7 @@ export class SupportEffects{
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};
-      const auraTowers=towers.filter(t=>{if(t.state!=='active')return false;const s=statsFor(t);return !t.attackPaused&&['slowAura','armorShredAura'].some(k=>s[k])||data.fr003&&(s.abilities||[]).some(a=>['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId));});
+      const auraTowers=towers.filter(t=>{if(t.state!=='active')return false;const s=statsFor(t);return !!skyHuntAura(s)||!t.attackPaused&&['slowAura','armorShredAura'].some(k=>s[k])||data.fr003&&(s.abilities||[]).some(a=>['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId));});
       for(const enemy of combat.enemies||[]){
         if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);

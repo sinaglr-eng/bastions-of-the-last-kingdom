@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {Game} from '../game/core/game.js';import {towerStats} from '../game/core/math.js';import {loadCurrentDatasets} from '../tools/current-datasets.mjs';import {skyHuntAura,skyHuntCoverage,skyHuntSlow} from '../game/core/sky-hunt.js';import {fr002Impact,updateFr002Tower} from '../game/core/fr002-combat.js';import {supportSourceAreas,enemyStatusState} from '../game/render/support-effects.js';import {RunStatistics} from '../game/core/run-statistics.js';
+import {Game} from '../game/core/game.js';import {towerStats} from '../game/core/math.js';import {loadCurrentDatasets} from '../tools/current-datasets.mjs';import {skyHuntAura,skyHuntCoverage,skyHuntSlow} from '../game/core/sky-hunt.js';import {fr002Impact,updateFr002Tower} from '../game/core/fr002-combat.js';import {SupportEffects,supportSourceAreas,enemyStatusState} from '../game/render/support-effects.js';import {RunStatistics} from '../game/core/run-statistics.js';import {Scene} from 'three';
 const data=loadCurrentDatasets(),baseline=loadCurrentDatasets({revision:'fr004'}),near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 function scene(faction='forge',family='dw_griffinhandler',tier=1,d=data[faction]){
  const g=new Game(d,{seed:19}),c=g.combat,t={id:1,family,tier,state:'active',x:10,z:10,kills:0,cooldown:0,mvpLevel:0};g.phase='combat';g.towers=[t];g.rng=()=>.999999;
@@ -32,6 +32,16 @@ test('Sky Hunt coverage ignores damage defenses but preserves existing Slow immu
 test('Sky Hunt statistics attribute strongest aura control without counting attacks or revealing its victim',()=>{
  const h=scene(),tracker=new RunStatistics(h.g,{version:'0.6.8'});tracker.event('wave',{});const e=h.enemy(12.8,10,{flying:true,stealth:true});h.t.attackPaused=true;h.c.update(.01);tracker.sample(.25);
  assert.equal(tracker.current.towers[0].shots,0);assert.equal(tracker.current.towers[0].controlSeconds,.25);assert.equal(tracker.current.effects.slowAura,.25);assert.equal(h.c.canSee(e,h.t),false);tracker.dispose();
+});
+
+test('batched enemy markers retain passive Sky Hunt from a paused defender and follow coverage immediately',()=>{
+ const h=scene(),e=h.enemy(12,10,{flying:true}),fx=new SupportEffects(new Scene());h.t.attackPaused=true;
+ const sync=()=>fx.sync(h.g.towers,h.g.data,{phase:'combat',combat:h.c});
+ try{sync();assert.equal(fx.enemyStates.get(e.id)?.find(s=>s.key==='slow').value,.25);assert.equal(fx.batches.get('enemy:slow').count,1);
+  e.x=14;sync();assert.equal(fx.enemyStates.has(e.id),false);assert.equal(fx.batches.get('enemy:slow').count,0);
+  e.x=12;e.flying=false;sync();assert.equal(fx.enemyStates.has(e.id),false);
+  e.flying=true;e.cloaked=true;sync();assert.equal(fx.enemyStates.has(e.id),false,'Markers never expose hidden enemies');
+ }finally{fx.dispose();}
 });
 const machines=[['dw_repeatercrew',2,1],['dw_ironclad',3,1],['dw_breachorgan',5,2],['dw_deepdelve',5,2],['dw_salvomarshal',10,2]];
 test('five machine Multishot contracts use distinct targets while full magazine, spin-up and reload schedules stay identical',()=>{

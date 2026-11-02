@@ -48,7 +48,7 @@ import {upcomingInvader} from './warcamp-preview.js';
 import {createLandmarkScenery} from './scenery-landmarks.js';
 import {valleyEnvironment} from './environment.js';
 import {meadowTerrain,interiorGrid} from './terrain.js';
-import {towerStats,supportBonuses,combatTowerStats,offensiveAuraRange,distance} from '../core/math.js';
+import {readTowerStats as towerStats,supportBonuses,combatTowerStats,offensiveAuraRange,distance} from '../core/math.js';
 import {statusEffectAllowed} from '../core/combat-rules.js';
 import {optimize} from './models.js';
 

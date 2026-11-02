@@ -1,4 +1,4 @@
-import {distance,towerStats} from './math.js';
+import {distance,readTowerStats as towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
 const ability=(s,id)=>s.abilities?.find(a=>a.familyId===id),chance=(c,n)=>c.game.rng()<Math.max(0,Math.min(1,n/100));
 const channel=(type,s)=>type==='profile'?s.type:type==='magical-or-holy'?(s.type==='holy'?'holy':'magical'):type;

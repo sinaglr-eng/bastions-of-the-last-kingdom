@@ -2,6 +2,7 @@
 
 ## 0.6.8 — FR-005 revision 2 — 2 November 2026
 
+- Optimizes repeated base-stat work and batches compatible V3 skeletal surfaces without changing combat or approved models. Controlled CPU work is 3.96× faster; the measured loaded scene renders in 28.8 ms instead of 61.1 ms. Passes 2,063 tests. [Measurements and limits](docs/LATE_WAVE_PERFORMANCE.md).
 - Adds the continuous flying-only Sky Hunt Slow aura at 25/50/75% within 3/4/5 tiles, independently of attack contact and without lingering or extra detection.
 - Gives the five Dwarf machine champions classified Multishot and Ricochet, Heavy Sniper canonical Execution I, and Siege Cannon Freeze I.
 - Replaces Golem Stone Gaze with Stun I while retaining Freeze I; increases shared Splash reach; removes exactly 21 selected Visibility assignments.

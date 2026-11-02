@@ -4,6 +4,8 @@ A browser tower-defense game: place five mystery recruits, keep one or combine e
 
 **0.6.8 implements FR-005 revision 2 and is the default public game.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
+The current performance patch reduces repeated combat-stat work and V3 model draw submissions while preserving combat results and approved appearance. [Measured improvements and limits](docs/LATE_WAVE_PERFORMANCE.md).
+
 Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
 
 The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/RELEASE_0_6_8.md).

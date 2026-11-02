@@ -1,0 +1,50 @@
+{
+  "frames": 120,
+  "medianMs": 61,
+  "p95Ms": 63.19999980926514,
+  "calls": 18454,
+  "triangles": 3057372,
+  "geometryBuffers": 4762,
+  "textureBuffers": 63,
+  "shaderPrograms": 54,
+  "webglContext": {
+    "lost": false,
+    "losses": 0,
+    "restores": 0,
+    "lastEvent": null
+  },
+  "defenderCache": {
+    "loaded": 7,
+    "active": 0,
+    "queued": 0,
+    "suspended": false,
+    "maxCachedUnused": 2
+  },
+  "assetLoads": {
+    "running": 0,
+    "queued": 0,
+    "suspended": false,
+    "concurrency": 3
+  },
+  "enemyStaticSurfaces": {
+    "geometries": 4,
+    "borrowers": 4,
+    "bytes": 220272,
+    "unsharedBytes": 220272
+  },
+  "enemyModels": [
+    "host_01",
+    "host_46"
+  ],
+  "pendingEnemies": 0,
+  "visibleEnemies": 0,
+  "corpses": 0,
+  "detailedVfx": 0,
+  "fallbackPaths": 0,
+  "statusInstances": 0,
+  "statusBatches": 0,
+  "statusTargets": [],
+  "combatTime": 0,
+  "paused": false,
+  "speed": 1
+}

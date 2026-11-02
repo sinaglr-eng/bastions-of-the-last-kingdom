@@ -1,0 +1,155 @@
+{
+  "status": "passed",
+  "version": "0.6.8",
+  "performanceRevision": "late-wave-stat-snapshots-and-shared-skin-batches-20261102",
+  "baselineCommit": "5321b8313be2c1b7320ab31c4bc7f7f2c05b7882",
+  "combat": {
+    "cases": 12,
+    "factions": 3,
+    "waves": [
+      35,
+      46,
+      49,
+      50
+    ],
+    "method": "Actual deterministic combat, frozen controlled 19-defender armies and complete Diamond Spiral, dt 0.1, seed 910001. Both timings use the Node CPU profiler on the same PC. This is CPU work, not wall-clock campaign duration or a legal acquisition run.",
+    "beforeMs": 18650.6624,
+    "afterMs": 4714.2217,
+    "speedup": 3.956254836296732,
+    "exactOrderedHitsSpawnDeathLeakFinalStateAndNextRng": true,
+    "rows": [
+      {
+        "faction": "crown",
+        "wave": 35,
+        "beforeMs": 312.70579999999995,
+        "afterMs": 82.07069999999999,
+        "speedup": 3.810200229801866,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "crown",
+        "wave": 46,
+        "beforeMs": 2319.6085000000003,
+        "afterMs": 349.87200000000007,
+        "speedup": 6.629877498056431,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "crown",
+        "wave": 49,
+        "beforeMs": 1524.6895000000004,
+        "afterMs": 214.18779999999992,
+        "speedup": 7.118470333044184,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "crown",
+        "wave": 50,
+        "beforeMs": 661.8886999999995,
+        "afterMs": 113.21250000000009,
+        "speedup": 5.846427735453232,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "forge",
+        "wave": 35,
+        "beforeMs": 342.1869999999999,
+        "afterMs": 118.41830000000004,
+        "speedup": 2.889646279333513,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "forge",
+        "wave": 46,
+        "beforeMs": 1204.8378000000002,
+        "afterMs": 336.20769999999993,
+        "speedup": 3.583611559164173,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "forge",
+        "wave": 49,
+        "beforeMs": 1384.7425999999996,
+        "afterMs": 369.28909999999996,
+        "speedup": 3.7497521589453893,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "forge",
+        "wave": 50,
+        "beforeMs": 182.47410000000127,
+        "afterMs": 60.60750000000007,
+        "speedup": 3.0107511446603317,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "grove",
+        "wave": 35,
+        "beforeMs": 492.47789999999986,
+        "afterMs": 171.33130000000028,
+        "speedup": 2.8744187431018093,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "grove",
+        "wave": 46,
+        "beforeMs": 8797.4819,
+        "afterMs": 2459.4284,
+        "speedup": 3.5770433081117554,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "grove",
+        "wave": 49,
+        "beforeMs": 974.5499999999993,
+        "afterMs": 283.6153000000004,
+        "speedup": 3.436168641113501,
+        "exactOrderedCombatAndRng": true
+      },
+      {
+        "faction": "grove",
+        "wave": 50,
+        "beforeMs": 453.0185999999994,
+        "afterMs": 155.98109999999997,
+        "speedup": 2.904317253821133,
+        "exactOrderedCombatAndRng": true
+      }
+    ]
+  },
+  "render": {
+    "method": "Actual local Chromium, same default camera, Dwarf 19-defender army and 128 foundations, wave 46 READY, all seven defender profiles loaded and queues empty, 120 steady frames. No combat or corpse count differs in this paired comparison.",
+    "beforeMedianMs": 61,
+    "afterMedianMs": 28.799999952316284,
+    "beforeP95Ms": 63.19999980926514,
+    "afterP95Ms": 30.700000047683716,
+    "beforeCalls": 18454,
+    "afterCalls": 4931,
+    "drawCallReduction": 0.7327950579820093,
+    "beforeGeometryBuffers": 4762,
+    "afterGeometryBuffers": 1127,
+    "webglLosses": 0
+  },
+  "validation": {
+    "status": "passed",
+    "version": "0.6.8",
+    "tests": 2063,
+    "failures": 0,
+    "modules": 233,
+    "sourceFiles": 623,
+    "productionBase": "/bastions-of-the-last-kingdom/",
+    "sourceStable": true,
+    "browserQa": "Local paired late-wave scene measured separately; no physical iPad is attached.",
+    "checkedAt": "2026-11-02T16:27:41.584Z"
+  },
+  "nativeProfiles": 258,
+  "nativeClipPoses": 1548,
+  "approvedOriginalAssetsChanged": false,
+  "gameplayAndScoresChanged": false,
+  "browserErrors": [],
+  "limits": [
+    "No physical iPad/Safari performance measurement is claimed.",
+    "Frame improvement is this controlled scene on this PC; no universal 60 FPS guarantee.",
+    "A separate unpaired active 5x wave-46 sample with seven living enemies and 23 corpses still measured 72.3 ms median; heavy enemy rendering remains a cost. That wave completed without errors or graphics losses."
+  ],
+  "checkedAt": "2026-11-02T16:33:23.120Z"
+}

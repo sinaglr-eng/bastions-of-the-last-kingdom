@@ -1,3 +1,4 @@
+import {withTowerStatSnapshot} from './math.js';
 import {GridManager} from './grid.js';
 import {seededRandom} from './math.js';
 import {DraftManager} from './draft.js';
@@ -275,6 +276,6 @@ export class Game {
     // Total run time uses real seconds, independently of combat speed and its
     // frame-step cap. Construction and pauses count; ended runs stay frozen.
     if(!['won','lost'].includes(this.phase)&&Number.isFinite(elapsedDt)&&elapsedDt>0)this.elapsedSeconds+=elapsedDt;
-    if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);this.pruneEnemySelection();
+    if(this.phase==='combat'&&!this.paused)withTowerStatSnapshot(this.data,()=>this.combat.update(dt*this.speed));this.pruneEnemySelection();
   }
 }

@@ -1,4 +1,4 @@
-import {distance,towerStats} from './math.js';
+import {distance,readTowerStats as towerStats} from './math.js';
 import {enemyRulesFor} from './enemy-rules.js';
 
 // Checkpoint beacons, close defenders and detection towers reveal the same enemy

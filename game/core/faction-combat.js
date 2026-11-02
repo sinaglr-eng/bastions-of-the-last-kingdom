@@ -1,4 +1,4 @@
-import {distance,combatTowerStats,towerStats} from './math.js';
+import {distance,combatTowerStats,readTowerStats as towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
 import {fr002Impact,updateFr002Tower} from './fr002-combat.js';
 const ability=(s,id)=>s.abilities?.find(a=>a.familyId===id);
@@ -7,8 +7,9 @@ const fraction=n=>Math.max(0,Math.min(1,(n||0)/100));
 const status=(e,key,row)=>{const old=e.statuses[key];if(!old||row.amount>=(old.amount||0)||row.dps>=(old.dps||0))e.statuses[key]=row;else old.time=Math.max(old.time,row.time);};
 export function factionPrimaryBonuses(stats,tower,towers){
  if(!stats.factionProfile)return stats;
- let factor=1;const active=towers.filter(t=>t!==tower&&t.state==='active'),cardinal=t=>Math.abs(t.x-tower.x)+Math.abs(t.z-tower.z)===1;
+ let factor=1;const cardinal=t=>Math.abs(t.x-tower.x)+Math.abs(t.z-tower.z)===1;
  const lone=ability(stats,'lone-vigil'),bond=ability(stats,'bonded-formation');
+ const active=lone||bond?towers.filter(t=>t!==tower&&t.state==='active'):[];
  if(lone&&!active.some(cardinal))factor*=1+lone.bonusPercent/100;
  if(bond&&active.some(t=>cardinal(t)&&bond.partnerIds?.includes(t.family)))factor*=1+bond.bonusPercent/100;
  const rage=ability(stats,'berserker'),now=tower.factionNow||0;

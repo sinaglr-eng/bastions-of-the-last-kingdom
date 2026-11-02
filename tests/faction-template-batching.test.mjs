@@ -1,0 +1,3 @@
+import test from'node:test';import fs from'node:fs';import assert from'node:assert/strict';import{proveFactionSkin}from'./helpers/faction-skin-proof.mjs';
+const entries=JSON.parse(fs.readFileSync(new URL('../data/factions-v060.json',import.meta.url))).factions.flatMap(f=>f.assets);
+for(const family of ['dw_steamrail','dw_breachorgan','el_twilight_huntress','soldier'])test('shared skin material batches preserve native surfaces, six poses and ownership: '+family,async()=>{const proof=await proveFactionSkin(entries.find(e=>e.family===family&&e.tier===1));assert.ok(proof.drawSurfacesAfter<proof.drawSurfacesBefore);assert.equal(proof.poses,6);});

@@ -1,3 +1,4 @@
+import {withTowerStatSnapshot} from './core/math.js';
 import {releaseAsset} from './release.js';
 import factionRegistry from '../data/factions-v060.json';
 import {applyFr002Registry} from './core/fr002-registry.js';
@@ -477,5 +478,5 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
 }
 try{const thumbnails=makeThumbnails(data);images={ruin:thumbnails.ruin,...referencePortraitImageMap()};void requestFactionRun();
   let frameStage='idle';
-  startFrameLoop({step(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world){const graphicsReady=world.contextRecovery?.update()!==false;frameStage='statistics';statistics.sample(dt,elapsedDt);frameStage='simulation';game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady){frameStage='battlefield';world.update(dt);}frameStage='interface';uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}if(graphicsReady)world.contextRecovery?.frameSucceeded();}},onError(error){if(game)game.paused=true;if(world?.contextRecovery)world.contextRecovery.fail(error,{stage:frameStage});else console.error(error);}});
+  startFrameLoop({step(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world)withTowerStatSnapshot(game.data,()=>{const graphicsReady=world.contextRecovery?.update()!==false;frameStage='statistics';statistics.sample(dt,elapsedDt);frameStage='simulation';game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady){frameStage='battlefield';world.update(dt);}frameStage='interface';uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}if(graphicsReady)world.contextRecovery?.frameSucceeded();});},onError(error){if(game)game.paused=true;if(world?.contextRecovery)world.contextRecovery.fail(error,{stage:frameStage});else console.error(error);}});
 }catch(error){console.error(error);app.innerHTML=`<div class="error-screen"><h1>The battlefield could not be drawn.</h1><p>This game needs a browser with WebGL enabled. Try a recent Chrome, Edge, or Firefox with hardware acceleration turned on.</p><p>${String(error.message).replace(/[<>]/g,'')}</p><button class="primary-button" onclick="location.reload()" style="margin-top:20px">Try again</button></div>`;}

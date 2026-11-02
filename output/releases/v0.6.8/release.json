@@ -38,5 +38,14 @@
   "backendDeployment": "appgdep_6ae890cda5088191912cf55cf578a7f1",
   "backendVersion": 17,
   "galleryPublished": false,
-  "verifiedAt": "2026-11-02T13:44:27.449Z"
+  "verifiedAt": "2026-11-02T13:44:27.449Z",
+  "performancePatch": {
+    "revision": "late-wave-stat-snapshots-and-shared-skin-batches-20261102",
+    "status": "local-verified-publication-pending",
+    "rulesetChanged": false,
+    "scoreCohortChanged": false,
+    "tests": 2063,
+    "report": "docs/LATE_WAVE_PERFORMANCE.md",
+    "measurements": "output/implementation/late-wave-current/performance.json"
+  }
 }

@@ -44,11 +44,26 @@ export function towerStats(tower, data) {
   const aura=stats.aura?{...stats.aura,...(stats.aura.hasteGroups?{hasteGroups:{...stats.aura.hasteGroups}}:{})}:null;
   return canonicalCombatStats({...scaleDamageStats(stats,multiplier),...(aura?{aura}:{}),range:stats.range+(stats.advanced?0:data.balance.tierRange[tower.tier-1])});
 }
+// A synchronous simulation/render pass reads immutable base definitions many
+// times. Share only that derived base within the pass. Live positions, support,
+// MVP, targets, statuses and RNG are still evaluated by their normal handlers.
+// towerStats itself retains its fresh, mutable return-value contract.
+const statPasses=new WeakMap();
+export function withTowerStatSnapshot(data,read){
+  if(statPasses.has(data))return read();
+  statPasses.set(data,new Map());try{return read();}finally{statPasses.delete(data);}
+}
+export function readTowerStats(tower,data){
+  const pass=statPasses.get(data);if(!pass)return towerStats(tower,data);
+  const definition=data.towers[tower.family],profile=definition?.levels?.[tower.tier-1],key=tower.family+':'+tower.tier;
+  let row=pass.get(key);if(!row||row.definition!==definition||row.profile!==profile){row={definition,profile,value:towerStats(tower,data)};pass.set(key,row);}
+  return row.value;
+}
 export function supportBonuses(tower,towers,data) {
   const haste=new Map();let damage=0,range=0,trueStrike=false,controlResistance=0;
   for(const other of towers){
     if(other.state!=='active')continue;
-    const definition=towerStats(other,data);
+    const definition=readTowerStats(other,data);
     if(definition.factionProfile){for(const a of definition.abilities||[]){if(distance(tower,other)>(a.radius||0))continue;switch(a.familyId){case'attack-speed-aura':haste.set('standard',Math.max(haste.get('standard')||0,a.bonusPercent/100));break;case'damage-aura':damage=Math.max(damage,a.bonusPercent/100);break;case'range-aura':range=Math.max(range,a.rangeBonus);break;case'protection-aura':controlResistance=Math.max(controlResistance,a.protectionPercent/100);break;case'true-strike-aura':trueStrike||=a.evasionIgnorePercent===100;break;}}continue;}
     const aura=definition.aura;
     if(!aura||distance(tower,other)>aura.range)continue;
@@ -61,7 +76,7 @@ export function supportBonuses(tower,towers,data) {
 }
 export function combatTowerStats(tower,towers,data){
   const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower))*bonuses.damage;
-  const stats=factionPrimaryBonuses(scaleDamageStats(towerStats(tower,data),multiplier),tower,towers);
+  const stats=factionPrimaryBonuses(scaleDamageStats(readTowerStats(tower,data),multiplier),tower,towers);
   if(stats.damage>0||stats.continuousAttack)stats.range+=bonuses.range;
   if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier};
   stats.trueStrike||=!!bonuses.trueStrike;
