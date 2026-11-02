@@ -5,6 +5,7 @@ import {createEnemyMotion} from './approved-motion-v1/enemy-motion.js';
 import {createRig} from './optimized-motion-rig.js';
 import {optimizeGeometricSiblings,releaseSharedGeometricBatches} from './geometric-batching.js';
 import {batchPrivateSkinnedActor} from './skinned-batching.js';
+import {batchDynamicActor} from './dynamic-batching.js';
 import {ENEMY_RULES} from '../core/enemy-rules.js';
 
 // Approved authoring files stay immutable. Controllers and deforming buffers
@@ -39,12 +40,12 @@ export function prepareApprovedMotionActor(actor){
   source.scale.setScalar(entry.presentationScale);
   return source;
 }
-export function bindApprovedMotion(actor){
+export function bindApprovedMotion(actor,{palette=true,dynamicBatches=true,memoizeCoordinates=true}={}){
   if(actors.has(actor))return actors.get(actor);
   const entry=actor?.userData?.approvedMotionTemplate;if(!entry)return null;
   const source=prepareApprovedMotionActor(actor);
   actor.updateWorldMatrix(true,true);
-  let runtimeRig=null;const helpers={createRig(...args){return runtimeRig=createRig(...args);}};
+  let runtimeRig=null;const helpers={createRig(three,scene){return runtimeRig=createRig(three,scene,{memoizeCoordinates:entry.kind==='enemy'&&memoizeCoordinates});}};
   const motion=entry.kind==='basic'?createBasicMotion(THREE,source,{...entry,rank:entry.tier}):
     entry.kind==='champion'?createChampionMotion(THREE,source,entry,helpers):
       createEnemyMotion(THREE,source,entry,helpers);
@@ -64,25 +65,32 @@ export function bindApprovedMotion(actor){
   // excluded; compatible static siblings keep their original parent transform.
   source.userData.geometricRig=true;
   if(entry.kind==='basic')controller.skinnedBatching=batchPrivateSkinnedActor(source);
-  controller.batching=optimizeGeometricSiblings(source,{sharedScope:entry.kind==='enemy'?entry.poseGeneration:null});
+  controller.batching=optimizeGeometricSiblings(source,{sharedScope:entry.kind==='enemy'?entry.poseGeneration:null,palette:entry.kind==='enemy'&&palette});
+  if(entry.kind==='enemy'&&dynamicBatches)controller.dynamicBatching=batchDynamicActor(source);
   controller.ownedStaticGeometry=new Set();source.traverse(node=>{if(node.userData.geometricBatch&&!node.userData.sharedGeometricBatch&&node.geometry)controller.ownedStaticGeometry.add(node.geometry);});
+  controller.ownedStaticMaterials=new Set();source.traverse(node=>{if(node.userData.diffusePalette&&node.userData.geometricBatch&&!node.userData.sharedGeometricBatch)controller.ownedStaticMaterials.add(node.material);});
   return controller;
 }
 
 export const approvedMotionController=actor=>actors.get(actor)||null;
+export function retireApprovedEnemyPose(actor){
+  const c=actors.get(actor),poses=c&&enemyPoses.get(c.entry.poseGeneration);if(!poses)return;
+  for(const[mode,row]of poses)if(row.controller===c)poses.delete(mode);if(!poses.size)enemyPoses.delete(c.entry.poseGeneration);
+}
 export function disposeApprovedMotion(actor){
   const c=actors.get(actor);if(!c||c.disposed)return;
   const poses=enemyPoses.get(c.entry.poseGeneration);
   if(poses){for(const [mode,row]of poses)if(row.controller===c)poses.delete(mode);if(!poses.size)enemyPoses.delete(c.entry.poseGeneration);}
-  c.skinnedBatching?.dispose();c.motion.dispose?.();releaseSharedGeometricBatches(c.source);for(const geometry of c.ownedStaticGeometry)geometry.dispose();c.ownedStaticGeometry.clear();c.disposed=true;actors.delete(actor);
+  c.skinnedBatching?.dispose();c.dynamicBatching?.dispose();c.motion.dispose?.();releaseSharedGeometricBatches(c.source);for(const geometry of c.ownedStaticGeometry)geometry.dispose();for(const material of c.ownedStaticMaterials)material.dispose();c.ownedStaticGeometry.clear();c.ownedStaticMaterials.clear();c.disposed=true;actors.delete(actor);
 }
 function evaluate(c,phase,{idle=false,reducedMotion=false,melancholy=false}={}){
-  if(reducedMotion){c.motion.reset();return;}
+  if(reducedMotion){c.motion.reset();c.actor.updateWorldMatrix(true,true);c.dynamicBatching?.sync();return;}
   c.runtimeRig?.beginUpdate();try{
     if(c.entry.kind==='basic')c.motion.update(c.clock,{mode:idle?'rest':'attack',phase});
     else c.motion.update(idle?c.clock:phase*c.motion.duration,{mode:idle?'idle':'attack',melancholy});
   }finally{c.runtimeRig?.endUpdate();}
   c.actor.updateWorldMatrix(true,true);
+  c.dynamicBatching?.sync();
 }
 export function releaseApprovedAttack(c,payload={}){
   if(!c||c.disposed)return false;
@@ -117,7 +125,7 @@ export function animateApprovedAttack(c,dt,time,context={}){
   evaluate(c,c.phase,{idle:c.stage==='idle',reducedMotion:context.reducedMotion,melancholy:context.melancholy});
 }
 export function resetApprovedAttack(c){
-  if(!c||c.disposed)return;c.stage='idle';c.phase=0;c.elapsed=c.duration;c.motion.reset();
+  if(!c||c.disposed)return;c.stage='idle';c.phase=0;c.elapsed=c.duration;c.motion.reset();c.actor.updateWorldMatrix(true,true);c.dynamicBatching?.sync();
 }
 export function sampleApprovedAttack(c,phase,options={}){
   if(!c||c.disposed)return;c.phase=clamp(phase);evaluate(c,c.phase,options);
@@ -138,11 +146,12 @@ export function animateApprovedEnemy(actor,enemy,time,{moving=true,reducedMotion
   // Reuse requires its exact recorded revision, not merely a matching key.
   let poses=enemyPoses.get(c.entry.poseGeneration);if(!poses){poses=new Map();enemyPoses.set(c.entry.poseGeneration,poses);}
   const cached=poses.get(mode);
+  let shared=false;
   if(!cached||cached.clock!==clock||cached.controller.disposed||cached.revision!==cached.controller.runtimeRig.poseRevision||!c.runtimeRig.copyPoseFrom(cached.controller.runtimeRig)){
     c.runtimeRig?.beginUpdate();try{c.motion.update(clock,{mode,speed:1});}finally{c.runtimeRig?.endUpdate();}
     poses.set(mode,{clock,controller:c,revision:c.runtimeRig.poseRevision});
-  }
-  actor.updateWorldMatrix(true,true);return 0;
+  }else shared=!!c.dynamicBatching?.shareFrom(cached.controller.dynamicBatching);
+  actor.updateWorldMatrix(true,true);if(!shared)c.dynamicBatching?.sync();return 0;
 }
 
 const labels=node=>{const names=[node.name];for(let p=node;p;p=p.parent){if(p.userData?.name)names.push(p.userData.name);if(p.userData?.semanticPart)names.push(p.userData.semanticPart);}return names.join(' ').replace(/_/g,' ');};

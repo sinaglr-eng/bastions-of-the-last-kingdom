@@ -7,7 +7,7 @@ import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSec
 import {geometricMetadata,beginGroundedDeath,animateGroundedDeath} from './geometric-motion.js';
 import {applyReconstructedAttack} from './reconstruction-adapter.js';
 import {createEnemyDeathMotion,resolveEnemyDeathId} from './model-death-motion.js';
-import {bindApprovedMotion,approvedMotionAnchor,releaseApprovedAttack,animateApprovedAttack,resetApprovedAttack,sampleApprovedAttack,disposeApprovedMotion} from './approved-model-motion.js';
+import {bindApprovedMotion,approvedMotionAnchor,releaseApprovedAttack,animateApprovedAttack,resetApprovedAttack,sampleApprovedAttack,disposeApprovedMotion,retireApprovedEnemyPose} from './approved-model-motion.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -32,6 +32,7 @@ export function beginDeath(root,enemy){
   if(root.userData.death)return root;
   const assetId=resolveEnemyDeathId(enemy,root,{assetId:root.userData.assetKey});
   if(root.userData.body?.userData.approvedMotionTemplate&&assetId){
+    retireApprovedEnemyPose(root.userData.body);
     const motion=createEnemyDeathMotion(THREE,root,enemy,{groundHeight:root.userData.groundY??0,clearance:.025,assetId});
     root.userData.modelDeath=motion;
     root.userData.death={elapsed:0,duration:motion.duration,settled:false,kind:'approved-model-motion'};

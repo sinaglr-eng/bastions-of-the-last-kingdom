@@ -10,6 +10,7 @@ import {enemyFigure,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {beginDeath,animateDeath} from '../game/render/battle-animation.js';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
+import {materialPaletteKey} from '../game/render/material-palette.js';
 
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const root=new URL('../public/assets/geometric/',import.meta.url);
@@ -21,7 +22,7 @@ function digest(actor){
     h.update(JSON.stringify([node.name,node.visible,...node.matrixWorld.elements]));
     if(!node.isMesh)return;
     for(const [key,a]of Object.entries(node.geometry.attributes)){h.update(key);h.update(Buffer.from(a.array.buffer,a.array.byteOffset,a.array.byteLength));}
-    for(const m of Array.isArray(node.material)?node.material:[node.material])h.update(JSON.stringify([m.uuid,m.color?.getHex(),m.emissive?.getHex(),m.metalness,m.roughness,m.map?.uuid,m.normalMap?.uuid]));
+    for(const m of Array.isArray(node.material)?node.material:[node.material]){let identity=m.uuid;if(node.userData.diffusePalette){const probe=m.clone();probe.vertexColors=false;identity=materialPaletteKey(probe);assert.ok(identity,'Palette material has a complete rendering contract');probe.dispose();}h.update(JSON.stringify([identity,m.color?.getHex(),m.emissive?.getHex(),m.metalness,m.roughness,m.map?.uuid,m.normalMap?.uuid]));}
   });return h.digest('hex');
 }
 async function load(id){
@@ -104,8 +105,8 @@ test('the actual 29-enemy wave44 static geometry budget is one surface set and r
   const figures=Array.from({length:29},(_,i)=>enemyFigure({id:i+1,type:'host_44',statuses:{}},templates));
   try{
     const stats=sharedGeometricBatchStats();assert.equal(stats.geometries,7);assert.equal(stats.borrowers,29*7);
-    assert.equal(stats.bytes,29263488);assert.equal(stats.unsharedBytes,848641152);
-    assert.equal(stats.unsharedBytes-stats.bytes,819377664,'no vertex removal or render-quality reduction is needed for this saving');
+    assert.ok(stats.bytes>=29263488&&stats.bytes<=29263488*1.01,'The exact original buffers plus bounded diffuse-color attributes occupy one shared set');assert.equal(stats.unsharedBytes,stats.bytes*29);
+    assert.ok(stats.unsharedBytes-stats.bytes>=819377664,'no vertex removal or render-quality reduction is needed for this saving');
   }finally{figures.forEach(disposeEnemyFigure);disposeDecodedGeometricAsset(gltf);}
   assert.deepEqual(sharedGeometricBatchStats(),{geometries:0,borrowers:0,bytes:0,unsharedBytes:0});
 });

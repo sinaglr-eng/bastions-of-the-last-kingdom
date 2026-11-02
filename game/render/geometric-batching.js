@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {materialPaletteKey,withPaletteColor,paletteMaterial} from './material-palette.js';
 
 const optimized=new WeakMap(),retired=new WeakMap();
 // Enemy copies keep independent transforms and deforming surfaces. Compatible
@@ -16,7 +17,7 @@ export function releaseSharedGeometricBatches(root){
   for(const [row,count]of borrowed){
     row.users-=count;
     if(row.users)continue;
-    row.geometry.dispose();disposed++;row.scope.delete(row.key);
+    row.geometry.dispose();if(row.palette)row.material.dispose();disposed++;row.scope.delete(row.key);
     if(!row.scope.size)sharedScopes.delete(row.scopeId);
   }
   return disposed;
@@ -48,7 +49,7 @@ function eligible(node,animated){
   return node.matrix.determinant()>0;
 }
 
-export function optimizeGeometricSiblings(root,{animations=root?.animations||[],sharedScope=null}={}){
+export function optimizeGeometricSiblings(root,{animations=root?.animations||[],sharedScope=null,palette=false}={}){
   if(!root)return {before:0,after:0,mergedGroups:0,retiredMeshes:0};
   if(optimized.has(root))return optimized.get(root);
   let geometric=false;root.traverse(node=>{if(node.userData.geometricRig)geometric=true;});
@@ -56,14 +57,16 @@ export function optimizeGeometricSiblings(root,{animations=root?.animations||[],
   if(!geometric)return stats;
   const animated=new Set();
   for(const animation of animations)for(const track of animation.tracks){try{animated.add(THREE.PropertyBinding.parseTrackName(track.name).nodeName);}catch{}}
-  root.updateMatrixWorld(true);const groups=new Map(),originals=new Set();
+  root.updateMatrixWorld(true);const groups=new Map(),originals=new Set(),materialKeys=new Map();
   root.traverse(node=>{
     if(!eligible(node,animated))return;
-    const key=[node.parent.uuid,node.material.uuid,layout(node.geometry),node.renderOrder,node.castShadow,node.receiveShadow,node.layers.mask,node.frustumCulled].join(';');
-    if(!groups.has(key))groups.set(key,[]);groups.get(key).push(node);
+    if(!materialKeys.has(node.material))materialKeys.set(node.material,palette?materialPaletteKey(node.material):null);
+    const colorKey=!node.geometry.attributes.color&&materialKeys.get(node.material),key=[node.parent.uuid,colorKey||node.material.uuid,layout(node.geometry),node.renderOrder,node.castShadow,node.receiveShadow,node.layers.mask,node.frustumCulled].join(';');
+    if(!groups.has(key))groups.set(key,{siblings:[],palette:!!colorKey});groups.get(key).siblings.push(node);
   });
-  for(const siblings of groups.values()){
+  for(const {siblings,palette:canPalette} of groups.values()){
     if(siblings.length<2)continue;
+    const usePalette=canPalette&&siblings.some(node=>!node.material.color.equals(siblings[0].material.color));
     let scope,key,row;
     if(sharedScope!==null){
       scope=sharedScopes.get(sharedScope);key=sharedSignature(siblings);row=scope?.get(key);
@@ -71,18 +74,19 @@ export function optimizeGeometricSiblings(root,{animations=root?.animations||[],
     let geometry=row?.geometry;
     if(!geometry){
       const copies=siblings.map(node=>{
-        const copy=node.geometry.clone(),geometry=copy.index?copy.toNonIndexed():copy;
+        const copy=usePalette?withPaletteColor(node.geometry,node.material.color):node.geometry.clone(),geometry=copy.index?copy.toNonIndexed():copy;
         if(geometry!==copy)copy.dispose();return geometry.applyMatrix4(node.matrix);
       });
       try{geometry=mergeGeometries(copies,false);}finally{for(const copy of copies)copy.dispose();}
       if(geometry){geometry.computeBoundingBox();geometry.computeBoundingSphere();}
     }
     if(!geometry)continue;
-    const first=siblings[0],parent=first.parent,merged=new THREE.Mesh(geometry,first.material);
+    const first=siblings[0],parent=first.parent,material=row?.material||(usePalette?paletteMaterial(first.material):first.material),merged=new THREE.Mesh(geometry,material);
     merged.name=`geometric_batch_${stats.mergedGroups+1}`;merged.userData.geometricBatch=true;
+    if(usePalette)merged.userData.diffusePalette=true;
     if(sharedScope!==null){
       if(!scope){scope=new Map();sharedScopes.set(sharedScope,scope);}
-      if(!row){row={geometry,scope,key,scopeId:sharedScope,users:0};scope.set(key,row);}
+      if(!row){row={geometry,material,palette:usePalette,scope,key,scopeId:sharedScope,users:0};scope.set(key,row);}
       row.users++;let borrowed=borrowedBatches.get(root);if(!borrowed){borrowed=new Map();borrowedBatches.set(root,borrowed);}borrowed.set(row,(borrowed.get(row)||0)+1);
       merged.userData.sharedGeometricBatch=true;
     }

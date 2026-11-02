@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {campaignEnemies} from '../game/core/campaign-roster.js';
 import {enemyFigure,disposeEnemyFigure} from '../game/render/enemy-assets.js';
-import {BATTLEFIELD_UNIT_SCALE,BATTLEFIELD_BOSS_MULTIPLIER,scaleBattlefieldUnit,animateBattlefieldIdleScale} from '../game/render/battlefield-scale.js';
+import {BATTLEFIELD_UNIT_SCALE,BATTLEFIELD_BOSS_MULTIPLIER,LARGE_ENEMY_PRESENTATION_IDS,enemyPresentationMultiplier,scaleBattlefieldUnit,animateBattlefieldIdleScale} from '../game/render/battlefield-scale.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {createEnemyAura} from '../game/render/enemy-aura.js';
 import {beginDeath,animateDeath} from '../game/render/battle-animation.js';
@@ -13,20 +13,26 @@ const enemies=campaignEnemies(JSON.parse(readFileSync(new URL('../data/enemies.j
 const bosses=Object.entries(enemies).filter(([id,e])=>id.startsWith('host_')&&e.boss);
 const size=actor=>new THREE.Box3().setFromObject(actor,true).getSize(new THREE.Vector3());
 async function asset(id){const bytes=readFileSync(new URL('../public/assets/geometric/enemies/'+id+'.glb',import.meta.url));return (await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;}
-test('every actual imported boss is sixteen percent smaller than046 while preserving its source proportions and gameplay data',async()=>{
- assert.equal(bosses.length,5);assert.equal(BATTLEFIELD_BOSS_MULTIPLIER,1.875*.84);
+test('every actual imported boss is twenty-five percent smaller than the previous presentation while preserving source proportions and gameplay data',async()=>{
+ assert.equal(bosses.length,5);assert.equal(BATTLEFIELD_BOSS_MULTIPLIER,1.875*.84*.75);
  for(const [id,definition] of bosses){
   const source=await asset(id),native=size(source),sourceScale=source.scale.clone(),enemy={...definition,id:1,type:id,traveled:0,statuses:{}},figure=enemyFigure(enemy,new Map([[id,source]]));
   scaleBattlefieldUnit(figure,enemy);scaleBattlefieldUnit(figure,enemy);scaleBattlefieldUnit(figure);figure.updateMatrixWorld(true);
-  const enlarged=size(figure),baseline=native.clone().multiplyScalar(BATTLEFIELD_UNIT_SCALE*1.875);
-  for(const axis of ['x','y','z'])assert.ok(Math.abs(enlarged[axis]/baseline[axis]-.84)<1e-6,id+' '+axis+' is sixteen percent smaller than046');
+  const enlarged=size(figure),baseline=native.clone().multiplyScalar(BATTLEFIELD_UNIT_SCALE*1.875*.84);
+  for(const axis of ['x','y','z'])assert.ok(Math.abs(enlarged[axis]/baseline[axis]-.75)<1e-6,id+' '+axis+' is twenty-five percent smaller than the prior release');
   assert.ok(source.scale.equals(sourceScale));assert.ok(size(source).equals(native),'source model geometry is unchanged');
-  for(const stretch of [.018,-.018,0])animateBattlefieldIdleScale(figure,stretch);assert.ok(Math.abs(size(figure).y/baseline.y-.84)<1e-6,'idle normalization retains the reduced boss base');
+  for(const stretch of [.018,-.018,0])animateBattlefieldIdleScale(figure,stretch);assert.ok(Math.abs(size(figure).y/baseline.y-.75)<1e-6,'idle normalization retains the reduced boss base');
   const aura=createEnemyAura(enemy,figure.userData.body);if(aura){figure.add(aura);figure.userData.aura=aura;assert.equal(aura.parent,figure);}
   for(const time of [0,.1,.25,.4]){enemy.traveled=time*.2;figure.position.y=(enemy.flying?.8:0)+animateEnemyMotion(figure,enemy,time);figure.updateMatrixWorld(true);assert.ok(size(figure.userData.body).toArray().every(Number.isFinite));}
   beginDeath(figure,enemy);for(let i=0;i<30;i++)animateDeath(figure,.04);figure.updateMatrixWorld(true);assert.ok(new THREE.Box3().setFromObject(figure.userData.body,true).min.y>=.02499,'enlarged physical corpse rests on terrain');
   disposeEnemyFigure(figure);const resources=new Set();source.traverse(o=>{if(o.geometry)resources.add(o.geometry);if(o.material)resources.add(o.material);});resources.forEach(o=>o.dispose());
  }
+});
+
+test('exactly seven largest ordinary silhouettes shrink by 25%; all smaller ordinary models keep their size and combat definitions',()=>{
+ const before=JSON.stringify(enemies),manifest=JSON.parse(readFileSync('public/assets/geometric/geometric-enemies.json')).entries,expected=manifest.filter(e=>!enemies[e.id]?.boss&&e.motion.height>=3.7).map(e=>e.id).sort();assert.deepEqual([...LARGE_ENEMY_PRESENTATION_IDS].sort(),expected);
+ for(const entry of manifest){const enemy={...enemies[entry.id],type:entry.id};if(enemy.boss)continue;assert.equal(enemyPresentationMultiplier(enemy),expected.includes(entry.id)?.75:1,entry.id);}
+ assert.equal(JSON.stringify(enemies),before);
 });
 test('fallback bosses receive the same reduced presentation; ordinary enemies and gameplay data remain unchanged',()=>{
  for(const [id,definition] of bosses){

@@ -7,6 +7,7 @@ import {createChampionAura,attachChampionAura,animateChampionAura,disposeChampio
 import {MvpAwardEffects} from './mvp-halo.js';
 import {DefenderPauseMarkers} from './defender-pause-markers.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
+import {WallInstances} from './wall-instances.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {pointedEnemy,createEnemySelectionRing,syncEnemySelectionRing,disposeEnemySelectionRing} from './enemy-pointer.js';
 import {animateEnemyMotion} from './enemy-motion.js';
@@ -27,11 +28,13 @@ import {disposeGeometricResources,disposeDecodedGeometricAsset} from './geometri
 import {renderBudget,AssetLoadQueue} from './render-budget.js';
 import {GraphicsRecovery,recordGraphicsIncident} from './graphics-recovery.js';
 import {sharedGeometricBatchStats} from './geometric-batching.js';
+import {freezeSettledPose} from './settled-pose.js';
 import {observeWebGLContext} from './webgl-diagnostics.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower,defenderLoadingTemplate} from './defender-assets.js';
 import {applyDefenderClassificationScale} from './defender-classification-scale.js';
 import {DefenderModelLoader,defenderTemplateKey} from './defender-model-loader.js';
+import {defenderWarmPlan} from './defender-warm-plan.js';
 import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
 import {CommandMoveEffects} from './command-move-effects.js';
@@ -74,8 +77,8 @@ export class Battlefield {
     this.defenderRecoveryAt=0;this.defenderManifestRetryAt=Infinity;this.defenderManifestAttempts=0;
     const defenderGLTF=new GLTFLoader();
     this.defenderLoader=new DefenderModelLoader({
-      load:entry=>this.assetLoads.run(()=>entry.packedFile?loadPackedModel(defenderGLTF,entry):defenderGLTF.loadAsync(geometricEntryUrl(entry))),
-      concurrency:this.renderBudget.defenderConcurrency,maxCachedUnused:this.renderBudget.maxCachedUnused,
+      load:(entry,{preload=false}={})=>this.assetLoads.run(()=>entry.packedFile?loadPackedModel(defenderGLTF,entry):defenderGLTF.loadAsync(geometricEntryUrl(entry)),{priority:preload?10:0}),
+      concurrency:this.renderBudget.defenderConcurrency,maxCachedUnused:this.renderBudget.maxCachedUnused,maxWarm:2,
       protectedKeys:()=>new Set([...this.models.values()].map(model=>model.modelKey).filter(Boolean)),
       release:(key,asset)=>{if(this.imported.get(key)===asset.scene)this.imported.delete(key);disposeDecodedGeometricAsset(asset);},
       install:(entry,asset)=>{
@@ -90,6 +93,7 @@ export class Battlefield {
     this.reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.edgePointer=null;this.compass=container.parentElement.querySelector('.map-compass');
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#9bbcc1');this.scene.fog=new THREE.Fog('#9bbcc1',88,155);
+    this.wallInstances=new WallInstances(this.scene);
     this.mvpAwards=new MvpAwardEffects(this.scene,{position:v3,reducedMotion:()=>!!this.reducedMotion?.matches});
     this.defenderPauseMarkers=new DefenderPauseMarkers(container,{name:tower=>this.game.data.towers[tower.family]?.name||`Defender #${tower.id}`});
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
@@ -162,7 +166,7 @@ export class Battlefield {
     box.setAttribute('role','status');box.setAttribute('aria-live','polite');resume.type='button';resume.textContent='Resume game';resume.addEventListener('click',()=>this.contextRecovery.fault?this.contextRecovery.retry():this.contextRecovery.resume());box.append(title,message,resume,details);notice.append(box);this.container.append(notice);this.graphicsNotice=notice;
     this.contextRecovery=new GraphicsRecovery(this.renderer.domElement,this.game,{
       onLost:()=>{
-        this.cancelInput?.();this.assetLoads.setSuspended(true);this.defenderLoader.setSuspended(true);this.defenderLoader.maxCachedUnused=0;this.defenderLoader.trim();this.enemyLoader.cacheSize=0;this.enemyLoader.trim();
+        this.cancelInput?.();this.assetLoads.setSuspended(true);this.defenderLoader.setSuspended(true);this.defenderLoader.maxCachedUnused=0;this.defenderLoader.setWarmKeys([]);this.defenderLoader.trim();this.enemyLoader.cacheSize=0;this.enemyLoader.trim();
         try{recordGraphicsIncident(globalThis.localStorage,{version:GAME_VERSION,faction:this.game.data.factionId,wave:this.game.round,at:new Date().toISOString(),defenders:this.defenderLoader.snapshot(),enemyTemplates:this.enemyTemplates.size,geometries:this.renderer.info.memory.geometries,textures:this.renderer.info.memory.textures,pixelRatio:this.renderer.getPixelRatio()});}catch{}
       },
       onRestored:()=>{
@@ -208,6 +212,7 @@ export class Battlefield {
       for(const result of rosters)if(result.status==='rejected')console.warn('Geometric roster unavailable.',result.reason);
       this.defenderLoader.index(entries.filter(entry=>entry.kind==='tower'&&this.game.data.towers[entry.family]));
       for(const tower of this.game.towers)this.defenderLoader.requestTower(tower,this.game.data.towers);
+      this.warmDefenders?.();
       this.defenderManifestRetryAt=rosters.some(result=>result.status==='rejected')&&this.defenderManifestAttempts<3?Date.now()+15000*this.defenderManifestAttempts:Infinity;
     }catch(error){
       if(!this.disposed){console.warn('Defender assets unavailable.',error);if(!this.defenderLoader.indexed)this.defenderLoader.index([]);this.defenderManifestRetryAt=this.defenderManifestAttempts<3?Date.now()+15000*this.defenderManifestAttempts:Infinity;}
@@ -218,9 +223,13 @@ export class Battlefield {
     this.defenderRefreshPending=true;
     queueMicrotask(()=>{this.defenderRefreshPending=false;if(!this.disposed)this.sync();});
   }
+  warmDefenders(){
+    this.defenderLoader?.setWarmKeys(defenderWarmPlan(this.game));
+  }
   recoverDefenderModels(now=Date.now()){
     if(this.disposed||now<(this.defenderRecoveryAt||0))return;
     this.defenderRecoveryAt=now+1000;
+    this.warmDefenders?.();
     for(const tower of this.game.towers){
       const key=defenderTemplateKey(tower,this.game.data.towers);
       if(key&&!this.imported.has(key))this.defenderLoader.requestTower(tower,this.game.data.towers);
@@ -299,6 +308,7 @@ export class Battlefield {
   }
   sync() {
     if(this.contextRecovery?.blocked)return;
+    this.warmDefenders?.();
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
     for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
@@ -325,6 +335,7 @@ export class Battlefield {
       // signature. Position must still follow the authoritative board object.
       value.object.position.copy(v3(t.x,0,t.z));
     }
+    if(this.wallInstances){const masonry=[];for(const value of this.models.values())value.object.traverse(node=>{if(node.isMesh&&node.userData.castleMasonry)masonry.push(node);});this.wallInstances.sync(masonry);}
     this.defenderLoader?.trim();
     this.updateDefenderLoadingStatus();
     this.draftMarkers.sync(this.game,this.models);
@@ -441,7 +452,7 @@ export class Battlefield {
     for(const v of this.models.values())if(v.tower.state!=='reserved'){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
     this.valley.update(dt,this.time,this.camera.position.distanceTo(this.controls.target));
     this.landmarks.update?.(dt,this.time);
-    for(const corpse of this.corpses.values())animateDeath(corpse,battleDt);
+    for(const corpse of this.corpses.values()){animateDeath(corpse,battleDt);freezeSettledPose(corpse);}
     const pan=new THREE.Vector3();const forward=new THREE.Vector3().subVectors(this.controls.target,this.camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,new THREE.Vector3(0,1,0));
     if(this.keys.has('w')||this.keys.has('arrowup'))pan.add(forward);if(this.keys.has('s')||this.keys.has('arrowdown'))pan.sub(forward);if(this.keys.has('d')||this.keys.has('arrowright'))pan.add(right);if(this.keys.has('a')||this.keys.has('arrowleft'))pan.sub(right);
     const edge=(!document.hidden&&!document.querySelector('dialog[open]'))?edgePan(this.edgePointer,this.container.clientWidth,this.container.clientHeight):{x:0,y:0};
@@ -501,6 +512,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
+    this.wallInstances?.dispose();
     this.contextRecovery?.dispose();this.graphicsNotice?.remove();
     this.webglDiagnostics?.dispose();
     this.defenderPauseMarkers?.dispose();

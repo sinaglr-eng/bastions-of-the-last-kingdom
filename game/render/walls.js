@@ -122,6 +122,6 @@ export function castleWallModel(mask=0,platform=false){
   // A little lichen low on the stone, never tall scenery on the playable field.
   block(-.10,.095,.257,.09,.031,.016,4);block(.14,.235,-.205,.07,.023,.016,4);
   const root=new THREE.Group();root.name='Castle masonry';
-  batches.forEach((parts,i)=>{if(!parts.length)return;const mesh=new THREE.Mesh(mergeGeometries(parts),mats[i]);mesh.castShadow=mesh.receiveShadow=true;root.add(mesh);parts.forEach(g=>g.dispose());});
+  batches.forEach((parts,i)=>{if(!parts.length)return;const mesh=new THREE.Mesh(mergeGeometries(parts),mats[i]);mesh.userData.castleMasonry=true;mesh.castShadow=mesh.receiveShadow=true;root.add(mesh);parts.forEach(g=>g.dispose());});
   return root;
 }

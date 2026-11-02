@@ -10,7 +10,7 @@ export function renderBudget({pixelRatio=1,coarsePointer=false,platform='',maxTo
 // original ownership boundary so late completions can dispose them safely.
 export class AssetLoadQueue{
  constructor(concurrency=1){this.concurrency=Math.max(1,Math.min(3,Math.floor(concurrency)||1));this.running=0;this.queue=[];this.suspended=false;this.disposed=false;}
- run(task){if(this.disposed)return Promise.reject(Error('Battlefield closed.'));return new Promise((resolve,reject)=>{this.queue.push({task,resolve,reject});this.pump();});}
+ run(task,{priority=0}={}){if(this.disposed)return Promise.reject(Error('Battlefield closed.'));return new Promise((resolve,reject)=>{this.queue.push({task,resolve,reject,priority});this.queue.sort((a,b)=>a.priority-b.priority);this.pump();});}
  pump(){if(this.disposed||this.suspended)return;while(this.running<this.concurrency&&this.queue.length){const job=this.queue.shift();this.running++;Promise.resolve().then(job.task).then(job.resolve,job.reject).finally(()=>{this.running--;this.pump();});}}
  setSuspended(value){this.suspended=!!value;if(!this.suspended)this.pump();}
  dispose(){if(this.disposed)return;this.disposed=true;for(const job of this.queue)job.reject(Error('Battlefield closed.'));this.queue.length=0;}

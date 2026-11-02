@@ -112,6 +112,11 @@ export function createEnemyDeathMotion(THREE, figure, enemyOrEntry = {}, options
     if (!mesh.isMesh || !mesh.geometry?.attributes?.position) return;
     let visible = true; for (let n = mesh; n; n = n.parent) { if (!n.visible || excludedIndicators.has(n)) visible = false; if (n === body) break; }
     if (!visible) return;
+    meshes.push(mesh);
+    // Draw batches duplicate private source surfaces, not extra anatomy. Use
+    // their original support boxes for the same grounded fall, while material
+    // fade ownership still includes the actual submitted batch above.
+    if(mesh.userData.dynamicActorBatch)return;
     const attr = mesh.geometry.attributes.position, scratch = new THREE.Vector3();
     const dynamic = !!mesh.isSkinnedMesh || !!mesh.morphTargetInfluences?.some(x => x !== 0);
     // Death retains the current pose. Capture eight local support-box corners
@@ -123,7 +128,7 @@ export function createEnemyDeathMotion(THREE, figure, enemyOrEntry = {}, options
     else {if(mesh.geometry.userData.motionOwned||!mesh.geometry.boundingBox)mesh.geometry.computeBoundingBox();localBox.copy(mesh.geometry.boundingBox);}
     const xyz=new Float64Array(24);let index=0;
     for(const x of [localBox.min.x,localBox.max.x])for(const y of [localBox.min.y,localBox.max.y])for(const z of [localBox.min.z,localBox.max.z]){xyz[index++]=x;xyz[index++]=y;xyz[index++]=z;}
-    clouds.push({ mesh, xyz, dynamic:false, count:8, renderedVertexCount:attr.count }); meshes.push(mesh);
+    clouds.push({ mesh, xyz, dynamic:false, count:8, renderedVertexCount:attr.count });
   });
   if (!clouds.length) throw new Error('Death motion requires actual mesh vertices.');
   const scratch = new THREE.Vector3();

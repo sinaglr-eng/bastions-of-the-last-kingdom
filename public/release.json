@@ -37,7 +37,7 @@
   "developerConsole": true,
   "classificationScaleStep": 1.1,
   "uiRevision": "faction-widescreen-ornament-20261030-v3",
-  "performanceRevision": "late-wave-stat-snapshots-and-shared-skin-batches-20261102",
+  "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
   "brandRevision": "forged-alliances-20261030-v3",
   "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
   "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
@@ -66,5 +66,8 @@
   "babyFireDragonPresentationScale": 3.85,
   "abilityRevision": "fr005-r2-combat-refinements-20261102",
   "rulesetRevision": "fr005-r2-dwarf-air-20261102",
-  "targetingRevision": "dwarf-ground-and-air-20261102"
+  "targetingRevision": "dwarf-ground-and-air-20261102",
+  "largeEnemyPresentationScale": 0.75,
+  "largeEnemyPresentationModels": 12,
+  "championWarmModelLimit": 2
 }

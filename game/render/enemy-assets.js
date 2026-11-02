@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {enemyModel} from './models.js';
 import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
 import {prepareApprovedMotionTemplate,bindApprovedMotion,disposeApprovedMotion} from './approved-model-motion.js';
+import {restoreSettledPose} from './settled-pose.js';
 
 // These combat variant names use the same approved solid source model. Only
 // the four explicitly authored spectral variants have separate GLB identities.
@@ -20,11 +21,11 @@ export function enemyAssetKey(enemy,templates){
   const variant=`${enemy.type}-${enemy.model}`;
   return templates.has(variant)?variant:enemy.type;
 }
-export function enemyFigure(enemy,templates){
+export function enemyFigure(enemy,templates,motionOptions){
   const key=enemyAssetKey(enemy,templates),template=templates.get(key);
   if(!template){const fallback=enemyModel(enemy.type,enemy);fallback.userData.assetKey=null;return fallback;}
   const root=new THREE.Group(),body=template.clone(true),limbs=[],wings=[];
-  bindApprovedMotion(body);
+  bindApprovedMotion(body,motionOptions);
   root.add(body);root.userData.sharedAsset=true;root.userData.body=body;root.userData.assetKey=key;
   root.userData.visualCues=[];root.userData.ownedMaterials=[];
   body.traverse(o=>{
@@ -70,6 +71,7 @@ export function animateEnemyCues(root,enemy,elapsed,{reducedMotion=false}={}){
   }
 }
 export function disposeEnemyFigure(root){
+  restoreSettledPose(root);
   root.userData.modelDeath?.dispose();disposeApprovedMotion(root.userData.body);
   // Imported clones share the pack's geometries and materials with future spawns.
   root.userData.bar?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});

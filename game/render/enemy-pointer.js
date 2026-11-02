@@ -3,7 +3,7 @@ import * as THREE from 'three';
 function visibleSurface(node,figure){
   const excluded=[figure.userData.bar,figure.userData.aura,figure.userData.shards];
   for(let current=node;current;current=current.parent){
-    if(!current.visible||excluded.includes(current)||current.userData.sourceOrbitGem||current.userData.enemyPickIgnore)return false;
+    if((!current.visible&&!current.userData.wallInstanceSource)||excluded.includes(current)||current.userData.sourceOrbitGem||current.userData.enemyPickIgnore)return false;
   }
   return true;
 }

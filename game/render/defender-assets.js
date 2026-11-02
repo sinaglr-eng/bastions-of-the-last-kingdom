@@ -52,7 +52,7 @@ export function installDefenderTemplate(field,entry,scene,animations=scene.anima
     // still has its private bones, while immutable merged geometry is shared
     // with the cached asset and disposed at that asset's ownership boundary.
     // Literal source nodes remain for animations, anchors and inspection.
-    if(!factionBatches.has(scene))factionBatches.set(scene,batchPrivateSkinnedActor(scene));
+    if(!factionBatches.has(scene))factionBatches.set(scene,batchPrivateSkinnedActor(scene,{palette:true}));
   }else if(!prepareApprovedMotionTemplate(scene,entry)){
     prepareReconstructedDefender(scene,entry);
     optimizeGeometricSiblings(scene,{animations});

@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "version": "0.6.9",
+  "scope": "Actual current Game and Battlefield in an isolated controlled renderer fixture, ordinary developer exclusion enabled and no statistics client. These are frozen injected armies and queue controls, not legal acquisition or campaign completion evidence.",
+  "craft": [
+    {
+      "target": "dw_griffinscout",
+      "warmedBeforeFinalIngredient": true,
+      "crafted": true,
+      "immediateModelStatus": "ready",
+      "synchronousCraftMs": 31.90000009536743,
+      "webglContext": {
+        "lost": false,
+        "losses": 0,
+        "restores": 0,
+        "lastEvent": null
+      }
+    },
+    {
+      "target": "dw_steamrail",
+      "warmedBeforeFinalIngredient": true,
+      "crafted": true,
+      "immediateModelStatus": "ready",
+      "synchronousCraftMs": 7.400000095367432,
+      "webglContext": {
+        "lost": false,
+        "losses": 0,
+        "restores": 0,
+        "lastEvent": null
+      }
+    },
+    {
+      "target": "dw_breachorgan",
+      "warmedBeforeFinalIngredient": true,
+      "crafted": true,
+      "immediateModelStatus": "ready",
+      "synchronousCraftMs": 9.800000190734863,
+      "webglContext": {
+        "lost": false,
+        "losses": 0,
+        "restores": 0,
+        "lastEvent": null
+      }
+    }
+  ],
+  "combat": [
+    {
+      "wave": 24,
+      "speed": 5,
+      "elapsedSimulationSeconds": 388.08900000000017,
+      "corpses": 30,
+      "live": 0,
+      "context": {
+        "lost": false,
+        "losses": 0,
+        "restores": 0,
+        "lastEvent": null
+      }
+    },
+    {
+      "wave": 46,
+      "speed": 5,
+      "elapsedSimulationSeconds": 353.5604999999971,
+      "corpses": 30,
+      "live": 0,
+      "context": {
+        "lost": false,
+        "losses": 0,
+        "restores": 0,
+        "lastEvent": null
+      }
+    }
+  ],
+  "unexpectedFinalBrowserIssues": 0,
+  "playerScoresWritten": false,
+  "checkedAt": "2026-11-02T23:49:03.617Z"
+}

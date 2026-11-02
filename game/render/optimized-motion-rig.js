@@ -1,7 +1,20 @@
 // The approved workshop implementation remains preserved in approved-motion-v1.
 // This runtime adapter evaluates the same fields on private actor buffers while
 // avoiding a restore immediately before every field overwrites those buffers.
-export function createRig(THREE,scene){
+// Native flat-shaded meshes repeat positions at face and UV seams. Approved
+// enemy fields depend only on the point and part name, so those exact inputs
+// can share a result without joining vertices or changing their normals/UVs.
+const coordinateRepresentatives=new WeakMap();
+function representatives(rest){
+  if(coordinateRepresentatives.has(rest))return coordinateRepresentatives.get(rest);
+  const bits=new Uint32Array(rest.buffer,rest.byteOffset,rest.length),seen=new Map(),rows=new Uint32Array(rest.length/3);
+  for(let i=0;i<rows.length;i++){
+    const at=i*3,key=bits[at]+','+bits[at+1]+','+bits[at+2];
+    if(!seen.has(key))seen.set(key,i);rows[i]=seen.get(key);
+  }
+  coordinateRepresentatives.set(rest,rows);return rows;
+}
+export function createRig(THREE,scene,{memoizeCoordinates=false}={}){
   scene.updateMatrixWorld(true);
   const nodes=new Map();scene.traverse(node=>{if(node.isMesh)nodes.set(node.name,node);});
   const joints=new Map(),deformers=[],compatible=new WeakMap();
@@ -24,7 +37,7 @@ export function createRig(THREE,scene){
     scene.updateMatrixWorld(true);const sceneInverse=scene.matrixWorld.clone().invert();
     const meshes=names.map(name=>{
       const node=typeof name==='string'?nodes.get(name):name;if(!node)throw new Error('Missing deforming part: '+name);
-      const sourceGeometry=node.geometry,geometry=sourceGeometry.clone();geometry.userData.motionOwned=true;node.geometry=geometry;
+      const sourceGeometry=node.geometry,geometry=sourceGeometry.clone();geometry.userData={...sourceGeometry.userData,motionOwned:true};node.geometry=geometry;
       const position=geometry.getAttribute('position'),normal=geometry.getAttribute('normal');
       // Cached authoring buffers are immutable and live as long as this actor.
       // An overlapping runtime field still needs a private captured rest pose.
@@ -33,6 +46,7 @@ export function createRig(THREE,scene){
       const toScene=sceneInverse.clone().multiply(node.matrixWorld),fromScene=toScene.clone().invert();
       if(!geometry.boundingBox)geometry.computeBoundingBox();if(!geometry.boundingSphere)geometry.computeBoundingSphere();
       return {node,geometry,sourceGeometry,position,rest,normal,restNormals,toScene,fromScene,
+        representatives:memoizeCoordinates?representatives(rest):null,
         restBox:geometry.boundingBox.clone(),restSphere:geometry.boundingSphere.clone(),normalEvaluated:false};
     });
     const point=new THREE.Vector3();let dirty=false,pendingReset=false;
@@ -41,9 +55,10 @@ export function createRig(THREE,scene){
       for(const mesh of meshes){
         const {position,geometry}=mesh;let changed=false,minX=Infinity,minY=Infinity,minZ=Infinity,maxX=-Infinity,maxY=-Infinity,maxZ=-Infinity;
         for(let i=0;i<position.count;i++){
-          point.fromArray(mesh.rest,i*3).applyMatrix4(mesh.toScene);fn(point,mesh.node.name,i);point.applyMatrix4(mesh.fromScene);
           const x=position.getX(i),y=position.getY(i),z=position.getZ(i);
-          position.setXYZ(i,point.x,point.y,point.z);
+          const first=fn.length<3?mesh.representatives?.[i]:undefined;
+          if(first!==undefined&&first!==i)position.setXYZ(i,position.getX(first),position.getY(first),position.getZ(first));
+          else{point.fromArray(mesh.rest,i*3).applyMatrix4(mesh.toScene);fn(point,mesh.node.name,i);point.applyMatrix4(mesh.fromScene);position.setXYZ(i,point.x,point.y,point.z);}
           const nx=position.getX(i),ny=position.getY(i),nz=position.getZ(i);
           if(nx!==x||ny!==y||nz!==z)changed=true;
           minX=Math.min(minX,nx);minY=Math.min(minY,ny);minZ=Math.min(minZ,nz);maxX=Math.max(maxX,nx);maxY=Math.max(maxY,ny);maxZ=Math.max(maxZ,nz);

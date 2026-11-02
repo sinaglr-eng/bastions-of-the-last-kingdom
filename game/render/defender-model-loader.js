@@ -14,10 +14,11 @@ export function defenderTemplateKey(tower,definitions){
 // The manifests are cheap indexes, not a preload list. Requests made before
 // they arrive wait for indexing; each family/rank then owns one shared job.
 export class DefenderModelLoader {
-  constructor({load,install,release=(_key,asset)=>disposeDecodedGeometricAsset(asset),protectedKeys=()=>new Set(),maxCachedUnused=2,onFailure=()=>{},onStateChange=()=>{},isDisposed=()=>false,isNeeded=()=>true,concurrency=3,maxAttempts=2,retryDelayMs=10000,maxBatches=3,now=()=>Date.now()}){
+  constructor({load,install,release=(_key,asset)=>disposeDecodedGeometricAsset(asset),protectedKeys=()=>new Set(),maxCachedUnused=2,maxWarm=0,onFailure=()=>{},onStateChange=()=>{},isDisposed=()=>false,isNeeded=()=>true,concurrency=3,maxAttempts=2,retryDelayMs=10000,maxBatches=3,now=()=>Date.now()}){
     this.load=load;this.install=install;this.onFailure=onFailure;this.isDisposed=isDisposed;
     this.onStateChange=onStateChange;this.now=now;this.isNeeded=isNeeded;
     this.release=release;this.protectedKeys=protectedKeys;this.maxCachedUnused=Math.max(0,Math.min(8,Math.floor(maxCachedUnused)||0));this.assets=new Map();this.suspended=false;
+    this.maxWarm=Math.max(0,Math.min(3,Math.floor(maxWarm)||0));this.warmKeys=new Set();
     this.retryDelayMs=Math.max(1000,Number(retryDelayMs)||10000);
     this.maxBatches=Math.min(3,Math.max(1,Math.floor(maxBatches)||1));
     this.concurrency=Math.min(3,Math.max(1,Math.floor(concurrency)||1));
@@ -26,6 +27,13 @@ export class DefenderModelLoader {
     this.indexed=false;this.disposed=false;this.activeCount=0;
   }
   get unavailable(){return this.disposed||this.isDisposed();}
+  needed(key){return this.isNeeded(key)||this.warmKeys.has(key);}
+  setWarmKeys(keys=[]){
+    if(this.unavailable)return;
+    const next=[...new Set(keys)].filter(key=>typeof key==='string'&&(!this.indexed||this.entries.has(key))).slice(0,this.maxWarm);
+    if(next.length===this.warmKeys.size&&next.every(key=>this.warmKeys.has(key)))return;
+    this.warmKeys=new Set(next);for(const key of next)this.requestKey(key);this.trim();this.pump();
+  }
   index(entries){
     if(this.unavailable)return 0;
     const added=new Set();
@@ -39,7 +47,7 @@ export class DefenderModelLoader {
       if(request.status==='waiting')this.enqueue(request);
       // A partial/offline roster is not a permanent negative cache. A newly
       // supplied key immediately restarts its already requested placed unit.
-      else if(request.status==='unavailable'&&added.has(request.key)&&this.isNeeded(request.key)){
+      else if(request.status==='unavailable'&&added.has(request.key)&&this.needed(request.key)){
         this.requests.delete(request.key);this.startRequest(request.key,1);
       }
     }
@@ -54,6 +62,11 @@ export class DefenderModelLoader {
   requestTower(tower,definitions){
     const key=defenderTemplateKey(tower,definitions);
     if(!key||this.unavailable)return Promise.resolve(false);
+    const previous=this.requests.get(key);if(previous?.status==='unavailable'&&previous.speculative)this.requests.delete(key);
+    return this.requestKey(key);
+  }
+  requestKey(key){
+    if(this.unavailable)return Promise.resolve(false);
     const previous=this.requests.get(key);
     if(previous){
       if(previous.status==='loaded'&&this.assets.has(key)){const asset=this.assets.get(key);this.assets.delete(key);this.assets.set(key,asset);}
@@ -78,13 +91,13 @@ export class DefenderModelLoader {
   startRequest(key,batch){
     let resolve;
     const promise=new Promise(done=>{resolve=done;});
-    const request={key,promise,resolve,status:'waiting',settled:false,batch,retryAt:Infinity};
+    const request={key,promise,resolve,status:'waiting',settled:false,batch,retryAt:Infinity,speculative:!this.isNeeded(key)};
     this.requests.set(key,request);
     if(this.indexed){this.enqueue(request);this.pump();}
     return promise;
   }
   enqueue(request){
-    if(!this.isNeeded(request.key)){request.notNeeded=true;this.finish(request,false);return;}
+    if(!this.needed(request.key)){request.notNeeded=true;this.finish(request,false);return;}
     const entry=this.entries.get(request.key);
     if(!entry){this.finish(request,false);return;}
     request.entry=entry;this.setStatus(request,'queued');this.queue.push(request);
@@ -97,9 +110,13 @@ export class DefenderModelLoader {
   pump(){
     if(this.unavailable){this.dispose();return;}
     if(this.suspended)return;
+    this.queue.sort((a,b)=>Number(!this.isNeeded(a.key))-Number(!this.isNeeded(b.key)));
     while(this.activeCount<this.concurrency&&this.queue.length){
+      // Speculative decodes never occupy several slots or jump ahead of a
+      // placed unit. Active combat clears the warm shortlist at the host.
+      if(!this.isNeeded(this.queue[0].key)&&this.activeCount>0)break;
       const request=this.queue.shift();
-      if(!this.isNeeded(request.key)){request.notNeeded=true;this.finish(request,false);continue;}
+      if(!this.needed(request.key)){request.notNeeded=true;this.finish(request,false);continue;}
       this.setStatus(request,'loading');this.activeCount++;
       void this.run(request);
     }
@@ -109,9 +126,9 @@ export class DefenderModelLoader {
     try{
       for(let attempt=0;attempt<this.maxAttempts&&!this.unavailable;attempt++){
         try{
-          if(!this.isNeeded(request.key)){request.notNeeded=true;this.finish(request,false);return;}
-          const gltf=await this.load(request.entry);
-          if(!this.isNeeded(request.key))request.notNeeded=true;
+          if(!this.needed(request.key)){request.notNeeded=true;this.finish(request,false);return;}
+          const gltf=await this.load(request.entry,{preload:!this.isNeeded(request.key)});
+          if(!this.needed(request.key))request.notNeeded=true;
           const accepted=adoptDecodedGeometricAsset(gltf,asset=>this.install(request.entry,asset),{isDisposed:()=>this.unavailable||request.notNeeded});
           // Do not retain GLTFParser caches/raw transport buffers. Installed
           // scenes own their shared render resources and animation clips.
@@ -129,7 +146,7 @@ export class DefenderModelLoader {
   trim(){
     if(this.unavailable)return 0;
     const protectedSet=new Set(this.protectedKeys()),unused=[];
-    for(const [key,asset]of this.assets)if(!this.isNeeded(key)&&!protectedSet.has(key))unused.push([key,asset]);
+    for(const [key,asset]of this.assets)if(!this.needed(key)&&!protectedSet.has(key))unused.push([key,asset]);
     let released=0;for(const [key,asset]of unused.slice(0,Math.max(0,unused.length-this.maxCachedUnused))){this.assets.delete(key);this.requests.delete(key);this.release(key,asset);released++;}
     return released;
   }
@@ -140,7 +157,7 @@ export class DefenderModelLoader {
     // Decode itself cannot be cancelled. Running jobs still take the late
     // asset through adoptDecodedGeometricAsset and release its GPU resources.
     for(const request of this.requests.values())this.finish(request,false);
-    this.queue.length=0;this.entries.clear();this.requests.clear();
+    this.queue.length=0;this.entries.clear();this.requests.clear();this.warmKeys.clear();
     for(const [key,asset]of this.assets)this.release(key,asset);this.assets.clear();
   }
 }

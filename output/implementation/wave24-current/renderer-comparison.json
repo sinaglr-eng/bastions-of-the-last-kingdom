@@ -1,0 +1,647 @@
+{
+  "status": "passed",
+  "version": "0.6.9",
+  "baselineRuntime": "210679f3a22aad7ffb8e7d55ae54d9c999c43676",
+  "baselineSource": "b4790a12a90f1bcf05f3222af30e5e1cd952c92b",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "renderer": "Actual Chromium/WebGL, same PC, camera, 128-wall Diamond Spiral, fixed 19-defender Dwarf army and 30 enemy figures",
+  "samplesPerWindow": 120,
+  "scope": "Paired warmed renderer measurements. Frozen cases exclude simulation; moving case runs approved native gait with fixed positions and no combat. Profiler overhead is present in the optimized moving case. Active real combat smoke is recorded separately. These are stress fixtures, not a physical iPad measurement or a guaranteed frame rate.",
+  "allFrozenSubmittedTriangleCountsEqual": true,
+  "movingSubmittedTriangleDifference": 2,
+  "rows": [
+    {
+      "scene": "Wave 24, 30 living, frozen simulation",
+      "key": "wave24",
+      "before": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 55.210833324988684,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 63.59999990463257,
+        "p95Ms": 65.39999985694885,
+        "calls": 14860,
+        "triangles": 11047126,
+        "geometryBuffers": 5478,
+        "textureBuffers": 133,
+        "shaderPrograms": 55,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "after": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 20.569166656335195,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 29.200000047683716,
+        "p95Ms": 30.600000143051147,
+        "calls": 3306,
+        "triangles": 11047126,
+        "geometryBuffers": 794,
+        "textureBuffers": 133,
+        "shaderPrograms": 61,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "medianReductionPercent": 54.088050170646596
+    },
+    {
+      "scene": "Wave 24, 10 living + 20 completed corpses",
+      "key": "wave24-corpses",
+      "before": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 57.44166666865349,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 63.90000009536743,
+        "p95Ms": 65.79999995231628,
+        "calls": 14700,
+        "triangles": 11037366,
+        "geometryBuffers": 5478,
+        "textureBuffers": 133,
+        "shaderPrograms": 55,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 10,
+        "corpses": 20,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "after": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 17.89083334604899,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 23.899999856948853,
+        "p95Ms": 25.5,
+        "calls": 3146,
+        "triangles": 11037366,
+        "geometryBuffers": 794,
+        "textureBuffers": 133,
+        "shaderPrograms": 61,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 10,
+        "corpses": 20,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "medianReductionPercent": 62.59780935637036
+    },
+    {
+      "scene": "Wave 46, 30 living, frozen simulation",
+      "key": "wave46",
+      "before": {
+        "scene": "46",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 46.9058333436648,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 55.200000047683716,
+        "p95Ms": 57.19999980926514,
+        "calls": 11563,
+        "triangles": 8331390,
+        "geometryBuffers": 3047,
+        "textureBuffers": 89,
+        "shaderPrograms": 55,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 18,
+          "borrowers": 134,
+          "bytes": 12281232,
+          "unsharedBytes": 18669120
+        },
+        "enemyModels": [
+          "host_46",
+          "host_24",
+          "host_47"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "after": {
+        "scene": "46",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 30.343333331743874,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 38.5,
+        "p95Ms": 39.90000009536743,
+        "calls": 7723,
+        "triangles": 8331390,
+        "geometryBuffers": 2336,
+        "textureBuffers": 89,
+        "shaderPrograms": 63,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 17,
+          "borrowers": 133,
+          "bytes": 12403260,
+          "unsharedBytes": 18791148
+        },
+        "enemyModels": [
+          "host_46",
+          "host_24",
+          "host_47"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "medianReductionPercent": 30.25362324865519
+    },
+    {
+      "scene": "Wave 46, 10 living + 20 completed corpses",
+      "key": "wave46-corpses",
+      "before": {
+        "scene": "46",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 48.537499992052716,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 55.200000047683716,
+        "p95Ms": 56.799999952316284,
+        "calls": 11403,
+        "triangles": 8316910,
+        "geometryBuffers": 3047,
+        "textureBuffers": 89,
+        "shaderPrograms": 55,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 18,
+          "borrowers": 134,
+          "bytes": 12281232,
+          "unsharedBytes": 18669120
+        },
+        "enemyModels": [
+          "host_46",
+          "host_24",
+          "host_47"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 10,
+        "corpses": 20,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "after": {
+        "scene": "46",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 31.619166656335196,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 37.80000019073486,
+        "p95Ms": 39.80000019073486,
+        "calls": 7563,
+        "triangles": 8316910,
+        "geometryBuffers": 2336,
+        "textureBuffers": 89,
+        "shaderPrograms": 63,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 17,
+          "borrowers": 133,
+          "bytes": 12403260,
+          "unsharedBytes": 18791148
+        },
+        "enemyModels": [
+          "host_46",
+          "host_24",
+          "host_47"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 10,
+        "corpses": 20,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 0,
+        "paused": true,
+        "speed": 1
+      },
+      "medianReductionPercent": 31.52173884405456
+    },
+    {
+      "scene": "Wave 24, 30 living, moving native animation on fixed layout",
+      "key": "wave24-animated",
+      "before": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 69.13916668097178,
+          "fields": 0,
+          "copies": 0,
+          "batches": 0,
+          "shares": 0
+        },
+        "frames": 120,
+        "medianMs": 107.5,
+        "p95Ms": 110.40000009536743,
+        "calls": 14860,
+        "triangles": 11047126,
+        "geometryBuffers": 5478,
+        "textureBuffers": 133,
+        "shaderPrograms": 55,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 20.80000000000016,
+        "paused": true,
+        "speed": 1
+      },
+      "after": {
+        "scene": "24",
+        "activeCombat": false,
+        "craftReview": null,
+        "frameStages": {
+          "draw": 22.474166685342787,
+          "fields": 16.59500000079473,
+          "copies": 5.965833361943563,
+          "batches": 4.3200000087420145,
+          "shares": 0.22500001788139343
+        },
+        "frames": 120,
+        "medianMs": 61,
+        "p95Ms": 62.69999980926514,
+        "calls": 3305,
+        "triangles": 11047124,
+        "geometryBuffers": 800,
+        "textureBuffers": 133,
+        "shaderPrograms": 61,
+        "webglContext": {
+          "lost": false,
+          "losses": 0,
+          "restores": 0,
+          "lastEvent": null
+        },
+        "defenderCache": {
+          "loaded": 7,
+          "active": 0,
+          "queued": 0,
+          "suspended": false,
+          "maxCachedUnused": 2
+        },
+        "assetLoads": {
+          "running": 0,
+          "queued": 0,
+          "suspended": false,
+          "concurrency": 3
+        },
+        "enemyStaticSurfaces": {
+          "geometries": 16,
+          "borrowers": 277,
+          "bytes": 3791808,
+          "unsharedBytes": 104784192
+        },
+        "enemyModels": [
+          "host_25",
+          "host_24"
+        ],
+        "pendingEnemies": 0,
+        "visibleEnemies": 30,
+        "corpses": 0,
+        "detailedVfx": 0,
+        "fallbackPaths": 0,
+        "statusInstances": 0,
+        "statusBatches": 0,
+        "statusTargets": [],
+        "combatTime": 53.217999999999115,
+        "paused": true,
+        "speed": 1
+      },
+      "medianReductionPercent": 43.25581395348838
+    }
+  ],
+  "checkedAt": "2026-11-02T23:49:03.901Z"
+}
