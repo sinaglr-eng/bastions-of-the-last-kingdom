@@ -1,14 +1,13 @@
 {
   "status": "passed",
   "version": "0.6.7",
-  "base": "/bastions-of-the-last-kingdom/",
-  "sourceFiles": 598,
-  "modules": 229,
-  "targetedTests": 24,
-  "priorFullTests": 2023,
-  "runtimeCodeMatchesFullSuite": true,
+  "tests": 2028,
+  "failures": 0,
+  "modules": 230,
+  "sourceFiles": 600,
+  "productionBase": "/bastions-of-the-last-kingdom/",
   "sourceStable": true,
-  "galleryPublished": false,
-  "physicalIPadVerified": false,
-  "checkedAt": "2026-11-02T06:04:09.526Z"
+  "browserQa": "Desktop Chromium: actual Griffin Scout recipe and wave 5 at 5x; injected drawing failure during combat, paused successful probe, explicit resume and wave completion verified. Original desktop freeze remains unreproduced.",
+  "checkedAt": "2026-11-02T07:51:00.826Z",
+  "runtimeCommit": "8dece7e8b574479f4633548ed022e2a44b17905b"
 }

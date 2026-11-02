@@ -1,0 +1,1508 @@
+{
+  "status": "passed",
+  "cases": 150,
+  "method": "All three actual faction engines, each authored wave 1–50, fixed seed, injected full profile army and 300 keep health, at 0.1 s for up to 180 s or the natural end of that wave. Normal combat APIs and real abilities; offline only.",
+  "limitations": "Controlled runtime-error smoke cases, not played campaigns, legal acquisition, 50-wave wins or balance certification. No renderer or physical GPU is exercised.",
+  "rows": [
+    {
+      "faction": "crown",
+      "wave": 1,
+      "steps": 190,
+      "shots": 12,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 2,
+      "steps": 54,
+      "shots": 8,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 3,
+      "steps": 77,
+      "shots": 12,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 4,
+      "steps": 80,
+      "shots": 12,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 5,
+      "steps": 92,
+      "shots": 54,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 6,
+      "steps": 77,
+      "shots": 12,
+      "spawns": 10,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 7,
+      "steps": 80,
+      "shots": 12,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 8,
+      "steps": 136,
+      "shots": 132,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 9,
+      "steps": 77,
+      "shots": 12,
+      "spawns": 12,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 10,
+      "steps": 41,
+      "shots": 5,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 11,
+      "steps": 102,
+      "shots": 16,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 12,
+      "steps": 101,
+      "shots": 16,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 13,
+      "steps": 104,
+      "shots": 16,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 14,
+      "steps": 106,
+      "shots": 28,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 15,
+      "steps": 112,
+      "shots": 87,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 16,
+      "steps": 104,
+      "shots": 16,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 17,
+      "steps": 102,
+      "shots": 16,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 18,
+      "steps": 154,
+      "shots": 192,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 19,
+      "steps": 110,
+      "shots": 51,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 20,
+      "steps": 41,
+      "shots": 5,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 21,
+      "steps": 131,
+      "shots": 40,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 22,
+      "steps": 132,
+      "shots": 41,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 23,
+      "steps": 161,
+      "shots": 211,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 24,
+      "steps": 141,
+      "shots": 45,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 25,
+      "steps": 135,
+      "shots": 147,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 26,
+      "steps": 142,
+      "shots": 58,
+      "spawns": 20,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 27,
+      "steps": 165,
+      "shots": 243,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 28,
+      "steps": 152,
+      "shots": 189,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 29,
+      "steps": 146,
+      "shots": 155,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 30,
+      "steps": 56,
+      "shots": 47,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 31,
+      "steps": 174,
+      "shots": 124,
+      "spawns": 22,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 32,
+      "steps": 146,
+      "shots": 56,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 33,
+      "steps": 186,
+      "shots": 373,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 34,
+      "steps": 155,
+      "shots": 160,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 35,
+      "steps": 285,
+      "shots": 691,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 36,
+      "steps": 204,
+      "shots": 197,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 37,
+      "steps": 172,
+      "shots": 51,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 38,
+      "steps": 219,
+      "shots": 293,
+      "spawns": 26,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 39,
+      "steps": 456,
+      "shots": 423,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 40,
+      "steps": 106,
+      "shots": 159,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 41,
+      "steps": 245,
+      "shots": 445,
+      "spawns": 27,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 42,
+      "steps": 510,
+      "shots": 1602,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 43,
+      "steps": 183,
+      "shots": 98,
+      "spawns": 28,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 44,
+      "steps": 376,
+      "shots": 1222,
+      "spawns": 29,
+      "phase": "build",
+      "keepHealth": 30,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 45,
+      "steps": 401,
+      "shots": 625,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 30,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 46,
+      "steps": 475,
+      "shots": 1636,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 47,
+      "steps": 594,
+      "shots": 2688,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 48,
+      "steps": 711,
+      "shots": 1501,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 49,
+      "steps": 298,
+      "shots": 646,
+      "spawns": 31,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "crown",
+      "wave": 50,
+      "steps": 287,
+      "shots": 515,
+      "spawns": 1,
+      "phase": "won",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 1,
+      "steps": 203,
+      "shots": 5,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 2,
+      "steps": 93,
+      "shots": 8,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 3,
+      "steps": 90,
+      "shots": 8,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 4,
+      "steps": 85,
+      "shots": 4,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 5,
+      "steps": 91,
+      "shots": 9,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 6,
+      "steps": 90,
+      "shots": 8,
+      "spawns": 10,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 7,
+      "steps": 115,
+      "shots": 6,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 8,
+      "steps": 124,
+      "shots": 39,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 9,
+      "steps": 102,
+      "shots": 10,
+      "spawns": 12,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 10,
+      "steps": 60,
+      "shots": 1,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 11,
+      "steps": 123,
+      "shots": 10,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 12,
+      "steps": 120,
+      "shots": 10,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 13,
+      "steps": 133,
+      "shots": 11,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 14,
+      "steps": 130,
+      "shots": 21,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 15,
+      "steps": 100,
+      "shots": 13,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 16,
+      "steps": 139,
+      "shots": 16,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 17,
+      "steps": 143,
+      "shots": 18,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 18,
+      "steps": 151,
+      "shots": 58,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 19,
+      "steps": 128,
+      "shots": 30,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 20,
+      "steps": 75,
+      "shots": 8,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 21,
+      "steps": 177,
+      "shots": 31,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 22,
+      "steps": 174,
+      "shots": 36,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 23,
+      "steps": 182,
+      "shots": 147,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 24,
+      "steps": 183,
+      "shots": 36,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 25,
+      "steps": 133,
+      "shots": 25,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 26,
+      "steps": 193,
+      "shots": 41,
+      "spawns": 20,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 27,
+      "steps": 217,
+      "shots": 82,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 28,
+      "steps": 150,
+      "shots": 66,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 29,
+      "steps": 191,
+      "shots": 141,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 30,
+      "steps": 115,
+      "shots": 53,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 31,
+      "steps": 201,
+      "shots": 164,
+      "spawns": 22,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 32,
+      "steps": 212,
+      "shots": 74,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 33,
+      "steps": 191,
+      "shots": 164,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 34,
+      "steps": 186,
+      "shots": 122,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 35,
+      "steps": 190,
+      "shots": 142,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 36,
+      "steps": 216,
+      "shots": 190,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 37,
+      "steps": 209,
+      "shots": 155,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 38,
+      "steps": 246,
+      "shots": 179,
+      "spawns": 26,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 39,
+      "steps": 403,
+      "shots": 170,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 40,
+      "steps": 371,
+      "shots": 173,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 41,
+      "steps": 251,
+      "shots": 224,
+      "spawns": 27,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 42,
+      "steps": 250,
+      "shots": 196,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 43,
+      "steps": 287,
+      "shots": 101,
+      "spawns": 28,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 44,
+      "steps": 246,
+      "shots": 233,
+      "spawns": 29,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 45,
+      "steps": 362,
+      "shots": 220,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 46,
+      "steps": 317,
+      "shots": 300,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 47,
+      "steps": 264,
+      "shots": 207,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 48,
+      "steps": 620,
+      "shots": 463,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 49,
+      "steps": 342,
+      "shots": 326,
+      "spawns": 31,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "forge",
+      "wave": 50,
+      "steps": 828,
+      "shots": 340,
+      "spawns": 1,
+      "phase": "won",
+      "keepHealth": 290,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 1,
+      "steps": 278,
+      "shots": 24,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 2,
+      "steps": 103,
+      "shots": 9,
+      "spawns": 8,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 3,
+      "steps": 99,
+      "shots": 9,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 4,
+      "steps": 107,
+      "shots": 9,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 5,
+      "steps": 102,
+      "shots": 5,
+      "spawns": 9,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 6,
+      "steps": 117,
+      "shots": 12,
+      "spawns": 10,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 7,
+      "steps": 125,
+      "shots": 12,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 8,
+      "steps": 132,
+      "shots": 27,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 9,
+      "steps": 117,
+      "shots": 12,
+      "spawns": 12,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 10,
+      "steps": 91,
+      "shots": 4,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 11,
+      "steps": 139,
+      "shots": 15,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 12,
+      "steps": 135,
+      "shots": 15,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 13,
+      "steps": 150,
+      "shots": 30,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 14,
+      "steps": 147,
+      "shots": 32,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 15,
+      "steps": 126,
+      "shots": 18,
+      "spawns": 11,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 16,
+      "steps": 173,
+      "shots": 91,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 17,
+      "steps": 160,
+      "shots": 17,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 18,
+      "steps": 158,
+      "shots": 43,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 19,
+      "steps": 132,
+      "shots": 37,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 20,
+      "steps": 108,
+      "shots": 15,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 21,
+      "steps": 170,
+      "shots": 48,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 22,
+      "steps": 182,
+      "shots": 64,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 23,
+      "steps": 181,
+      "shots": 59,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 24,
+      "steps": 178,
+      "shots": 59,
+      "spawns": 19,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 25,
+      "steps": 256,
+      "shots": 140,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 26,
+      "steps": 206,
+      "shots": 149,
+      "spawns": 20,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 27,
+      "steps": 214,
+      "shots": 81,
+      "spawns": 13,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 28,
+      "steps": 259,
+      "shots": 166,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 29,
+      "steps": 249,
+      "shots": 162,
+      "spawns": 14,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 30,
+      "steps": 270,
+      "shots": 104,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 31,
+      "steps": 234,
+      "shots": 175,
+      "spawns": 22,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 32,
+      "steps": 230,
+      "shots": 171,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 33,
+      "steps": 202,
+      "shots": 172,
+      "spawns": 23,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 34,
+      "steps": 266,
+      "shots": 195,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 35,
+      "steps": 281,
+      "shots": 271,
+      "spawns": 15,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 36,
+      "steps": 330,
+      "shots": 280,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 37,
+      "steps": 232,
+      "shots": 204,
+      "spawns": 25,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 38,
+      "steps": 376,
+      "shots": 387,
+      "spawns": 26,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 39,
+      "steps": 339,
+      "shots": 275,
+      "spawns": 16,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 40,
+      "steps": 349,
+      "shots": 208,
+      "spawns": 1,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 41,
+      "steps": 412,
+      "shots": 550,
+      "spawns": 27,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 42,
+      "steps": 320,
+      "shots": 581,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 43,
+      "steps": 526,
+      "shots": 707,
+      "spawns": 28,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 44,
+      "steps": 402,
+      "shots": 940,
+      "spawns": 29,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 45,
+      "steps": 330,
+      "shots": 482,
+      "spawns": 17,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 46,
+      "steps": 532,
+      "shots": 993,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 47,
+      "steps": 518,
+      "shots": 1039,
+      "spawns": 30,
+      "phase": "build",
+      "keepHealth": 299,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 48,
+      "steps": 486,
+      "shots": 879,
+      "spawns": 18,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 49,
+      "steps": 593,
+      "shots": 1318,
+      "spawns": 31,
+      "phase": "build",
+      "keepHealth": 300,
+      "remaining": 0
+    },
+    {
+      "faction": "grove",
+      "wave": 50,
+      "steps": 829,
+      "shots": 501,
+      "spawns": 1,
+      "phase": "won",
+      "keepHealth": 290,
+      "remaining": 0
+    }
+  ]
+}

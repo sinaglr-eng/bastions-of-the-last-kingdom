@@ -5,8 +5,24 @@
   "protectedPaths": 6406,
   "payload": [
     {
+      "file": "CHANGELOG.md",
+      "sha256": "04743f7c7704369a6329e648839665231782f13f3c92dcbd549745147e2daa73"
+    },
+    {
+      "file": "README.md",
+      "sha256": "a5eeb5807c69db746ceb0f286a19f2faaf5d0a24c2dc7a7ff5a63964312d4a63"
+    },
+    {
+      "file": "docs/RELEASE_0_6_7.md",
+      "sha256": "3b50a5ac5c4998bd8e4d155d7414ef990f5d8b6dcd6adec3f15b6630c58af3f5"
+    },
+    {
       "file": "game/main.js",
       "sha256": "7bb03a71174f87b215d99690c2d8f74f3262addd04d7dcde26e9a32039a61acb"
+    },
+    {
+      "file": "game/render/frame-loop.js",
+      "sha256": "713365390da8894d0df7062a16e2e911839b7a78df51d70a09127f0ca6b8a4ac"
     },
     {
       "file": "game/render/graphics-recovery.js",
@@ -17,44 +33,8 @@
       "sha256": "32437ca1d37301730c5de5b361694381da4e576c29eb002dac17272369f079e9"
     },
     {
-      "file": "game/render/frame-loop.js",
-      "sha256": "713365390da8894d0df7062a16e2e911839b7a78df51d70a09127f0ca6b8a4ac"
-    },
-    {
-      "file": "ui/graphics-recovery.css",
-      "sha256": "9f4e61a0803c9b38273cf7b289c7acf5ecc46f5b150806b066cbac47554f04c3"
-    },
-    {
-      "file": "tests/graphics-recovery.test.mjs",
-      "sha256": "b833fd3b44f867fe68a12b9db51fcf0e9bb2329b469dd79a8724ee9488a4b9a2"
-    },
-    {
-      "file": "tests/frame-loop.test.mjs",
-      "sha256": "568429bdd3a66cccff903d97b8508a39888fa00f712a66778af3aa04c6445ad1"
-    },
-    {
-      "file": "tools/renderer-validation/native-smoke.mjs",
-      "sha256": "d4ad0f621b5517ccb565ad33d8752fc0868d145f9257599fa37c6c58e2854ee7"
-    },
-    {
-      "file": "public/release.json",
-      "sha256": "af83f0d23c026d390af34bd469817cc13936c659722681021d8dd57ae6ca5d31"
-    },
-    {
-      "file": "README.md",
-      "sha256": "a5eeb5807c69db746ceb0f286a19f2faaf5d0a24c2dc7a7ff5a63964312d4a63"
-    },
-    {
-      "file": "CHANGELOG.md",
-      "sha256": "04743f7c7704369a6329e648839665231782f13f3c92dcbd549745147e2daa73"
-    },
-    {
-      "file": "docs/RELEASE_0_6_7.md",
-      "sha256": "f07da4bd5316e86dadaa94e248f01a35fcf6f3fd7d897e7b7e83383af98a6ee2"
-    },
-    {
       "file": "output/implementation/griffin-current/REPORT.md",
-      "sha256": "61983cbd0eab017373dca693da458f8ef83c83517fc78fcc08a1b64324a3c70d"
+      "sha256": "c0a9aae69817727e29999d2a9a142eda64ae865d60799bad79f7c8ba88ab7b19"
     },
     {
       "file": "output/implementation/griffin-current/baseline-crafted-scout.jpg",
@@ -79,6 +59,102 @@
     {
       "file": "output/implementation/griffin-current/validation.json",
       "sha256": "abf70b49bcff3b817dcb78be5d146e2c925220124c539c6e2de507afaabd770b"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "af83f0d23c026d390af34bd469817cc13936c659722681021d8dd57ae6ca5d31"
+    },
+    {
+      "file": "tests/frame-loop.test.mjs",
+      "sha256": "568429bdd3a66cccff903d97b8508a39888fa00f712a66778af3aa04c6445ad1"
+    },
+    {
+      "file": "tests/graphics-recovery.test.mjs",
+      "sha256": "b833fd3b44f867fe68a12b9db51fcf0e9bb2329b469dd79a8724ee9488a4b9a2"
+    },
+    {
+      "file": "tools/renderer-validation/native-smoke.mjs",
+      "sha256": "d4ad0f621b5517ccb565ad33d8752fc0868d145f9257599fa37c6c58e2854ee7"
+    },
+    {
+      "file": "ui/graphics-recovery.css",
+      "sha256": "9f4e61a0803c9b38273cf7b289c7acf5ecc46f5b150806b066cbac47554f04c3"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci.json",
+      "sha256": "0225cda2e96d4967d10e2649a33c1effa6f5059b221546be358ebf51a35b9405"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci-jobs.json",
+      "sha256": "ec14ffa3079cf80219af17e0b8c94b4ce9b29cc7b1961b846c3a369899266f59"
+    },
+    {
+      "file": "output/releases/v0.6.7/public-verification.json",
+      "sha256": "31b3751f0ec0529c819e4320a6a92186e8ac7814497605dd4c97d21666f6dea3"
+    },
+    {
+      "file": "output/releases/v0.6.7/release.json",
+      "sha256": "c4eff82e519c0ea6fce9815529da7e172869ddbc5a4d1fc750fe5bd2525d90ac"
+    },
+    {
+      "file": "output/releases/v0.6.7/local-install.json",
+      "sha256": "0afe44e6797fe1f8e12c486f25959e7d2cb14c2fdef31bca3a88b0c3e8cd14a2"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci-build.log",
+      "sha256": "b2077bbade0c947e705f1188d1254ae64af53b9e17094f6f4136b82ab8b955a6"
+    },
+    {
+      "file": "output/releases/v0.6.7/build.log",
+      "sha256": "4c514a20f4ddd2d37afaa030422895d5a6e9c9057beacb936238b1ea7dfaada2"
+    },
+    {
+      "file": "output/releases/v0.6.7/build-local.log",
+      "sha256": "0a663cd0bc8073081651fe4c2238c75e5c75bd90995b65a1f8e09028a1f52f89"
+    },
+    {
+      "file": "output/releases/v0.6.7/sources-built.json",
+      "sha256": "3e67d4f5069a6dad7046432f7f15ae74b401eadd2eabf8d9f539262743de4673"
+    },
+    {
+      "file": "output/releases/v0.6.7/public-build.json",
+      "sha256": "867f7f2b68d8c69e28b264079951f899781fd285004453a27e8c7ddda6e6c0b2"
+    },
+    {
+      "file": "output/implementation/griffin-current/after-recovery.jpg",
+      "sha256": "c5aa539561fdccb5460283e0e39e7d251e298bcae3f689e32502457675f8d4aa"
+    },
+    {
+      "file": "output/implementation/griffin-current/browser-qa.json",
+      "sha256": "ce2c5e0fd87cc32e58674a186ec3ca63c68560ef694c7c152db3aeca30a9f265"
+    },
+    {
+      "file": "output/implementation/griffin-current/build-local.log",
+      "sha256": "0a663cd0bc8073081651fe4c2238c75e5c75bd90995b65a1f8e09028a1f52f89"
+    },
+    {
+      "file": "output/implementation/griffin-current/ci-build.log",
+      "sha256": "b2077bbade0c947e705f1188d1254ae64af53b9e17094f6f4136b82ab8b955a6"
+    },
+    {
+      "file": "output/implementation/griffin-current/local-install.json",
+      "sha256": "0afe44e6797fe1f8e12c486f25959e7d2cb14c2fdef31bca3a88b0c3e8cd14a2"
+    },
+    {
+      "file": "output/implementation/griffin-current/paused-error-check.jpg",
+      "sha256": "8540c8f886ad0d2e2566e7df0e82c643649088bdb6ed82064a0ecc78831e4e66"
+    },
+    {
+      "file": "output/implementation/griffin-current/result.json",
+      "sha256": "00a72223e4f6bd97497a39be498087dbc3ba6f07cabb19dc92aae2b7a00006be"
+    },
+    {
+      "file": "output/implementation/griffin-current/retention.json",
+      "sha256": "cff5f7587bd8df2cdd9ab6e2daf8aa8f33fd173594c0e776bd95d04c29022c19"
+    },
+    {
+      "file": "output/implementation/griffin-current/wave-smoke.json",
+      "sha256": "d5c6d9fb23702ae50b1a41eb951e6f6daa4e574e499b6494f1fb3b4ecadd8ec9"
     }
   ]
 }

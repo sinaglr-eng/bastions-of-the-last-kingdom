@@ -1,16 +1,18 @@
 {
   "status": "passed",
   "version": "0.6.7",
-  "commit": "f830540a4f15a3f7af054e2442808b842cb2dd64",
+  "commit": "8dece7e8b574479f4633548ed022e2a44b17905b",
   "base": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "checkedAt": "2026-11-02T08:09:35.607Z",
   "checks": 1004,
+  "bytes": 916278856,
   "approvedModels": 312,
   "allDecodedModelsMatch": true,
-  "allFilesFetchedFresh": true,
-  "bytes": 916275358,
-  "scope": "Fresh exact compiled/copied-byte checks against the final Git/build identity; platform-generated enemy gzip streams use exact decoded approved SHA-256. Runtime inventory is checked semantically against every freshly fetched asset.",
-  "browserQa": "Previously waived; no physical iPad or GPU pixel verification claimed",
-  "checkedAt": "2026-11-02T06:20:20.099Z",
+  "allFilesFetchedFresh": false,
+  "previousVerificationCommit": "f830540a4f15a3f7af054e2442808b842cb2dd64",
+  "previousVerifiedAt": "2026-11-02T06:20:20.099Z",
+  "scope": "Previously verified immutable files are reused only by exact hash (or exact decoded enemy-model hash); all new media, compiled entries and metadata are checked after this exact final deployment. Canonical copied text uses exact Git blobs. CI-derived enemy gzip streams may differ by zlib platform; their decoded SHA-256 remains exact.",
+  "browserQa": "Actual desktop Chromium recipe/5x/recovery checks passed; original-PC failure and physical iPad replay not reproduced.",
   "files": [
     {
       "file": "archer.html",
@@ -3139,16 +3141,18 @@
       "status": 200
     },
     {
-      "file": "assets/game-Bc60KFIJ.js",
-      "sha256": "f1a9bfc77dbe50f3647c3efd16746b8fda0079ae2f3f13df3086752926b389af",
-      "bytes": 2394507,
-      "status": 200
+      "file": "assets/game-Dr7HM_Ft.js",
+      "sha256": "318949ca8ee4c7d1ba8d5e7d48500856676663df44b0a7eb51774169cd49f72a",
+      "status": 200,
+      "bytes": 2397684,
+      "checkedAt": "2026-11-02T08:09:35.607Z"
     },
     {
-      "file": "assets/game-Doz987z5.css",
-      "sha256": "6a5e2a6fffe4efa858a6dda94d1637c6bcc322b92fa9e088647220a6178e5db7",
-      "bytes": 346070,
-      "status": 200
+      "file": "assets/game-tqWnCibm.css",
+      "sha256": "103ff20e9a5f5f4529151c7dae03d307a52b803575c01dbab7098a9bb031e55f",
+      "status": 200,
+      "bytes": 346392,
+      "checkedAt": "2026-11-02T08:09:35.515Z"
     },
     {
       "file": "assets/geometric/approved-enemies-v6/host_01.glb.gz",
@@ -6332,21 +6336,25 @@
     },
     {
       "file": "index.html",
-      "sha256": "284202a3cd515dfac27c6f05638a2ab62bec1ac193e7aa10f2113c4a2ff7dbe4",
+      "sha256": "3634811099a26a49a51f48262ee8b397f5f740f0d0bf0c283722a26f53e09bf4",
+      "status": 200,
       "bytes": 1814,
-      "status": 200
+      "checkedAt": "2026-11-02T08:09:35.479Z"
     },
     {
       "file": "release.json",
-      "sha256": "9b58e7de920bad1be1f8595e4b5ba12abcfdfb0ab84acde336da57b52f0cd80d",
-      "bytes": 2018,
-      "status": 200
+      "sha256": "af83f0d23c026d390af34bd469817cc13936c659722681021d8dd57ae6ca5d31",
+      "status": 200,
+      "bytes": 2017,
+      "checkedAt": "2026-11-02T08:09:35.482Z"
     },
     {
       "file": "runtime-assets.json",
-      "sha256": "33a658dc03b421752fdeeb22b84c53738e6f36d52d7e5c8e17c410c7c26b8086",
+      "sha256": "28d07d7832e093c01735b4d36538d68419d213654cd6d3cea80adf038e5872a2",
+      "status": 200,
       "bytes": 195193,
-      "status": 200
+      "checkedAt": "2026-11-02T08:09:35.578Z",
+      "verification": "Canonical contents; filesystem row order is immaterial"
     }
   ]
 }

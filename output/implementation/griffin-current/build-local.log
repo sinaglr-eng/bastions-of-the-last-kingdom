@@ -1,0 +1,17 @@
+vite v7.1.7 building for production...
+transforming...
+✓ 230 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                           1.69 kB │ gzip:   0.90 kB
+dist/assets/cartographer-open-book-v044-CB8IdUF8.svg      4.53 kB │ gzip:   1.60 kB
+dist/assets/game-Bpqbg2gn.css                           346.36 kB │ gzip:  66.46 kB
+dist/assets/three-B5YIJHz1.js                           771.64 kB │ gzip: 199.25 kB
+dist/assets/game-CZGQZQfa.js                          2,397.66 kB │ gzip: 429.22 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.88s
+Current runtime media: 998 files, 912.6 MB; lossless model transport.

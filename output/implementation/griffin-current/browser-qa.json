@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "version": "0.6.7",
+  "runtimeCommit": "8dece7e8b574479f4633548ed022e2a44b17905b",
+  "environment": "Actual in-app Chromium browser; normal GLTFLoader and renderer",
+  "reportedOriginalFreezeReproduced": false,
+  "recipeCraftAndWave5At5xPassed": true,
+  "injectedFailure": "Developer graphics recovery check (deliberate test, not the reported original exception)",
+  "combatFaultWave": 5,
+  "recoveryNotice": "Battlefield recovered\n\nYour game is still paused. Continue when you are ready.\n\nResume game",
+  "waveStayedUnchangedUntilExplicitResume": true,
+  "resumeWasExplicit": true,
+  "completedWaveAfterRecovery": "6 / 50",
+  "unexpectedConsoleErrors": [],
+  "intentionalFaults": 2,
+  "reviewAfter": {
+    "frames": 120,
+    "medianMs": 17.5,
+    "p95Ms": 18.5,
+    "calls": 2088,
+    "triangles": 825307,
+    "geometryBuffers": 3688,
+    "textureBuffers": 120,
+    "shaderPrograms": 36,
+    "webglContext": {
+      "lost": false,
+      "losses": 0,
+      "restores": 0,
+      "lastEvent": null
+    },
+    "defenderCache": {
+      "loaded": 4,
+      "active": 0,
+      "queued": 0,
+      "suspended": false,
+      "maxCachedUnused": 2
+    },
+    "assetLoads": {
+      "running": 0,
+      "queued": 0,
+      "suspended": false,
+      "concurrency": 3
+    },
+    "enemyStaticSurfaces": {
+      "geometries": 4,
+      "borrowers": 4,
+      "bytes": 287760,
+      "unsharedBytes": 287760
+    },
+    "enemyModels": [
+      "host_01",
+      "host_05",
+      "host_06"
+    ],
+    "pendingEnemies": 0,
+    "visibleEnemies": 0,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "fallbackPaths": 0,
+    "statusInstances": 0,
+    "statusBatches": 0,
+    "statusTargets": [],
+    "combatTime": 19.780000000000296,
+    "paused": false,
+    "speed": 5
+  },
+  "physicalOriginalDesktopReplay": false,
+  "checkedAt": "2026-11-02T08:19:21.434Z"
+}
