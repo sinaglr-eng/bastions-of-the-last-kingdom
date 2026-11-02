@@ -2,7 +2,7 @@
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Version 0.6.9 gives every Dwarf defender ground-and-air primary attacks.** [Targeting change and validation](docs/DWARF_AIR_TARGETING.md). [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**Public version 0.6.9 gives every Dwarf defender ground-and-air primary attacks.** [Targeting change and validation](docs/DWARF_AIR_TARGETING.md). [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
 The current performance patch reduces repeated combat-stat work and V3 model draw submissions while preserving combat results and approved appearance. [Measured improvements and limits](docs/LATE_WAVE_PERFORMANCE.md).
 

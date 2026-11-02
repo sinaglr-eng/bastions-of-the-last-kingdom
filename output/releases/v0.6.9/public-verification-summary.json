@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "version": "0.6.9",
+  "rulesetRevision": "fr005-r2-dwarf-air-20261102",
+  "commit": "210679f3a22aad7ffb8e7d55ae54d9c999c43676",
+  "base": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "checks": [
+    "Fresh public release metadata identifies 0.6.9 and the exact Dwarf targeting ruleset.",
+    "The delivered compiled entry contains the exact 35 authorized targeting changes, including four unchanged-strength continuous weapons.",
+    "Current public media identities match the local approved sources; changed rows are fetched and unchanged verified media stays exact.",
+    "The actual public Dwarf game starts and activates its supported Developer Console; ordinary score writes are blocked in this isolated browser.",
+    "Actual deployed combat records flying-wave hit traces for a formerly ground-only Shieldguard and a continuous Flamethrower, in excluded Sandbox runs."
+  ],
+  "media": {
+    "files": 998,
+    "previouslyVerifiedUnchanged": 996,
+    "freshlyVerified": 2,
+    "priorVerification": "32d60ddfc1a2bd36bf28b7d67f6ede9e2d720578",
+    "canonicalText": [
+      "assets/audio/selection/catalogue.json",
+      "assets/geometric/geometric-enemies.json",
+      "assets/scenery/manifest.json",
+      "assets/ui/reference-enemy-fronts/manifest.json"
+    ],
+    "scope": "Previously verified immutable media is reused only by exact transport or decoded model hash. Every changed media/metadata row is fetched afresh. Copied text permits only the Git LF/Windows CRLF checkout difference."
+  },
+  "approvedModels": 312,
+  "freshFiles": [
+    {
+      "file": "/bastions-of-the-last-kingdom/release.json",
+      "status": 200,
+      "bytes": 2122,
+      "sha256": "9ec1d16d82d17d17a9e34d5e5394fc0b649c8203849c4fc012eae6f4cab1add7"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/index.html",
+      "status": 200,
+      "bytes": 1814,
+      "sha256": "0a1a1935016fc9e08f0b7a99653001b619234d9a7980476590e202a8224d357f"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/assets/game-Dt_AJuXJ.js",
+      "status": 200,
+      "bytes": 2547849,
+      "sha256": "cdc1f6d55b6c9d073c02720904a5837a1df243ed3df4b1896f26ae21a8808233"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/assets/three-B5YIJHz1.js",
+      "status": 200,
+      "bytes": 771640,
+      "sha256": "592119c0f91a9714915e15ebadb5a047e0b91aaf1247377f32eea4432a1d1ec7"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/runtime-assets.json",
+      "status": 200,
+      "bytes": 195193,
+      "sha256": "3cb64ebb842e2045d6db493c225f4627824f7e01826ccf98ace5928ad9fee9c0"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/release.json",
+      "status": 200,
+      "bytes": 2122,
+      "sha256": "9ec1d16d82d17d17a9e34d5e5394fc0b649c8203849c4fc012eae6f4cab1add7"
+    },
+    {
+      "file": "/bastions-of-the-last-kingdom/archer.html",
+      "status": 200,
+      "bytes": 243,
+      "sha256": "db41e6f5a2cbf8a48ffc6f0f80a5f6366ec05982f95622a5fe02cfa4674ee4b2"
+    }
+  ],
+  "airCombat": [
+    {
+      "family": "dw_shieldguard",
+      "wave": 5,
+      "enemyType": "host_05",
+      "positiveHits": 2
+    },
+    {
+      "family": "dw_steamharpooner",
+      "wave": 5,
+      "enemyType": "host_05",
+      "positiveHits": 14
+    }
+  ],
+  "pageErrors": 0,
+  "httpErrors": 0,
+  "ordinaryScoreWritesSent": 0,
+  "checkedAt": "2026-11-02T18:18:03.016Z"
+}

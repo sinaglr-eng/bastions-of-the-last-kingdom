@@ -1,6 +1,6 @@
 # Dwarf ground-and-air primary attacks
 
-The user authorized every Dwarf defender to attack flying enemies on 2 November 2026. Local game **0.6.9** applies ruleset **fr005-r2-dwarf-air-20261102**. Public deployment was explicitly authorized on 2 November 2026.
+The user authorized every Dwarf defender to attack flying enemies on 2 November 2026. Local game **0.6.9** applies ruleset **fr005-r2-dwarf-air-20261102**. The [public game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/) and its existing statistics service were deployed and verified on 2 November 2026. All 2,067 CI tests passed; deployed Shieldguard and Flamethrower attacks removed HP from flying enemies in excluded Sandbox checks. No player score was written. See the [release receipt](../output/releases/v0.6.9/release.json).
 
 All 86 Dwarf-faction profiles are air-capable: 85 native Dwarf profiles and the unchanged shared Lady Claire. Exactly 35 formerly ground-only profiles change, including all ranks of Shieldguard, Boar Rider and Blacksmith and 17 champions. Four continuous Flame Cone weapons aim at and damage flying enemies inside their ordinary range and cone angle.
 

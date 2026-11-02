@@ -4,7 +4,7 @@
 
 - All Dwarf defenders can attack flying enemies, including 35 formerly ground-only profiles and four continuous Flame Cone weapons.
 - Preserves primary damage, DPS, timing, range, recipes, canonical abilities, other factions and approved media. Separate Heat pulses retain their ground-only scope.
-- Updates the single English local gallery and keeps 0.6.8 score identities separate. Publication of this amendment was explicitly authorized on 2 November 2026. [Details](docs/DWARF_AIR_TARGETING.md).
+- Updates the single English local gallery and keeps 0.6.8 score identities separate. Published and verified as the current public game, with its statistics service updated on the same database. [Details](docs/DWARF_AIR_TARGETING.md).
 
 ## 0.6.8 — FR-005 revision 2 — 2 November 2026
 

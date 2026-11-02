@@ -8,4 +8,4 @@ The current local targeting validation is under `output/implementation/dwarf-air
 
 The earlier automatic-review exception for `artifacts/bastions-statistics-site.tar.gz` remains recorded in the retention receipt. That obsolete service packaging file is not a game release, and this publication did not retry its previously blocked deletion.
 
-The public game and existing statistics service now run 0.6.8. Their deployed state is not a retained local backup. Historical implementation authorities used by regression tests remain preserved as data, with no older runnable release package.
+The public game and existing statistics service now run 0.6.9. Their deployed state is not a retained local backup. Historical implementation authorities used by regression tests remain preserved as data, with no older runnable release package.
