@@ -2,15 +2,22 @@
 // freezes the same in-memory run during interruption; it never reloads a page,
 // replaces Game, rewinds RNG, or resumes an unseen battle automatically.
 export class GraphicsRecovery{
- constructor(canvas,game,{onLost=()=>{},onRestored=()=>{},onStateChange=()=>{}}={}){
-  this.canvas=canvas;this.game=game;this.onLost=onLost;this.onRestored=onRestored;this.onStateChange=onStateChange;this.lost=false;this.awaitingResume=false;this.disposed=false;
+ constructor(canvas,game,{onLost=()=>{},onRestored=()=>{},onFault=()=>{},onStateChange=()=>{}}={}){
+  this.canvas=canvas;this.game=game;this.onLost=onLost;this.onRestored=onRestored;this.onFault=onFault;this.onStateChange=onStateChange;this.lost=false;this.awaitingResume=false;this.disposed=false;this.fault=null;this.retryPending=false;
   this.loss=()=>{if(this.disposed||this.lost)return;this.lost=true;this.awaitingResume=true;game.paused=true;this.onLost();this.notify();};
-  this.restore=()=>{if(this.disposed||!this.lost)return;this.lost=false;game.paused=true;this.onRestored();this.notify();};
+  this.restore=()=>{if(this.disposed||!this.lost)return;this.lost=false;game.paused=true;if(this.fault?.recoverable)this.retryPending=true;try{this.onRestored();}catch(error){this.fail(error,{stage:'battlefield'});}this.notify();};
   canvas.addEventListener('webglcontextlost',this.loss,{passive:true});canvas.addEventListener('webglcontextrestored',this.restore,{passive:true});
  }
- notify(){this.onStateChange(this.lost?'lost':this.awaitingResume?'restored':'ready');this.game.emit?.('change');}
- update(){if(this.lost){this.game.paused=true;return false;}if(this.awaitingResume&&!this.game.paused){this.awaitingResume=false;this.onStateChange('ready');}return true;}
- resume(){if(this.disposed||this.lost||!this.awaitingResume)return false;this.awaitingResume=false;this.game.paused=false;this.notify();return true;}
+ get blocked(){return this.lost||!!this.fault&&!this.retryPending;}
+ notify(){this.onStateChange(this.lost?'lost':this.fault?this.retryPending?'recovering':'fault':this.awaitingResume?'restored':'ready',this.fault);this.game.emit?.('change');}
+ fail(error,{stage='battlefield'}={}){
+  if(this.disposed||this.fault&&!this.retryPending)return false;
+  this.fault={stage,message:String(error?.message??error).slice(0,600),stack:String(error?.stack??'').slice(0,2000),recoverable:stage!=='simulation'};this.retryPending=false;this.awaitingResume=true;this.game.paused=true;this.onFault(this.fault);this.notify();return true;
+ }
+ retry(){if(this.disposed||this.lost||!this.fault?.recoverable)return false;this.retryPending=true;this.game.paused=true;try{this.notify();}catch(error){this.fail(error,{stage:'battlefield'});}return this.retryPending;}
+ frameSucceeded(){if(this.disposed||this.lost||!this.fault||!this.retryPending)return false;this.fault=null;this.retryPending=false;this.game.paused=true;this.notify();return true;}
+ update(){if(this.blocked){this.game.paused=true;return false;}if(this.fault){this.game.paused=true;return true;}if(this.awaitingResume&&!this.game.paused){this.awaitingResume=false;this.onStateChange('ready');}return true;}
+ resume(){if(this.disposed||this.lost||this.fault||!this.awaitingResume)return false;this.awaitingResume=false;this.game.paused=false;this.notify();return true;}
  dispose(){if(this.disposed)return;this.disposed=true;this.canvas.removeEventListener('webglcontextlost',this.loss);this.canvas.removeEventListener('webglcontextrestored',this.restore);}
 }
 

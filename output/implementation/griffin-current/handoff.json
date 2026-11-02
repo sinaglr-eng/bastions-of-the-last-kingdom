@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "base": "7a442b0c685eac84fb245ed7d426683952448d04",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6406,
+  "payload": [
+    {
+      "file": "game/main.js",
+      "sha256": "7bb03a71174f87b215d99690c2d8f74f3262addd04d7dcde26e9a32039a61acb"
+    },
+    {
+      "file": "game/render/graphics-recovery.js",
+      "sha256": "ba51ab8fd222f7ed24606c9eb509270012e181b8d85b55232967ba7f4f78dcee"
+    },
+    {
+      "file": "game/render/world.js",
+      "sha256": "32437ca1d37301730c5de5b361694381da4e576c29eb002dac17272369f079e9"
+    },
+    {
+      "file": "game/render/frame-loop.js",
+      "sha256": "713365390da8894d0df7062a16e2e911839b7a78df51d70a09127f0ca6b8a4ac"
+    },
+    {
+      "file": "ui/graphics-recovery.css",
+      "sha256": "9f4e61a0803c9b38273cf7b289c7acf5ecc46f5b150806b066cbac47554f04c3"
+    },
+    {
+      "file": "tests/graphics-recovery.test.mjs",
+      "sha256": "b833fd3b44f867fe68a12b9db51fcf0e9bb2329b469dd79a8724ee9488a4b9a2"
+    },
+    {
+      "file": "tests/frame-loop.test.mjs",
+      "sha256": "568429bdd3a66cccff903d97b8508a39888fa00f712a66778af3aa04c6445ad1"
+    },
+    {
+      "file": "tools/renderer-validation/native-smoke.mjs",
+      "sha256": "d4ad0f621b5517ccb565ad33d8752fc0868d145f9257599fa37c6c58e2854ee7"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "af83f0d23c026d390af34bd469817cc13936c659722681021d8dd57ae6ca5d31"
+    },
+    {
+      "file": "README.md",
+      "sha256": "a5eeb5807c69db746ceb0f286a19f2faaf5d0a24c2dc7a7ff5a63964312d4a63"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "04743f7c7704369a6329e648839665231782f13f3c92dcbd549745147e2daa73"
+    },
+    {
+      "file": "docs/RELEASE_0_6_7.md",
+      "sha256": "f07da4bd5316e86dadaa94e248f01a35fcf6f3fd7d897e7b7e83383af98a6ee2"
+    },
+    {
+      "file": "output/implementation/griffin-current/REPORT.md",
+      "sha256": "61983cbd0eab017373dca693da458f8ef83c83517fc78fcc08a1b64324a3c70d"
+    },
+    {
+      "file": "output/implementation/griffin-current/baseline-crafted-scout.jpg",
+      "sha256": "e4a226dcaac3b8d0d35e032ca3a86ed9d57ce6e704ce32e4a2fdc6fb03d41d9d"
+    },
+    {
+      "file": "output/implementation/griffin-current/build.log",
+      "sha256": "4c514a20f4ddd2d37afaa030422895d5a6e9c9057beacb936238b1ea7dfaada2"
+    },
+    {
+      "file": "output/implementation/griffin-current/native-profiles.json",
+      "sha256": "232c6b23d3ca60cd1a63dda27666cf87192ed5421fa4f91435caaaf9a4425b40"
+    },
+    {
+      "file": "output/implementation/griffin-current/sources-tested.json",
+      "sha256": "67c83a676de0ac13801ad20bfc1103b98406dcae6c0d8beac89ea291269cda4c"
+    },
+    {
+      "file": "output/implementation/griffin-current/tests.log",
+      "sha256": "2b94342f75db0c668f3fbf801ec260d4bcc2950cda122dd0e3b4e7499d4ed573"
+    },
+    {
+      "file": "output/implementation/griffin-current/validation.json",
+      "sha256": "abf70b49bcff3b817dcb78be5d146e2c925220124c539c6e2de507afaabd770b"
+    }
+  ]
+}

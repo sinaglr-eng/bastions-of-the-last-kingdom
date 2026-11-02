@@ -1,0 +1,13 @@
+# Griffin Scout / interrupted desktop battlefield investigation
+
+The user reported a blank, frozen desktop battlefield after crafting Griffin Scout in wave 5. The precise original desktop exception has not been captured, and this report does not claim that its cause has been reproduced.
+
+The original public 0.6.7 build was exercised in the actual in-app Chromium browser. Griffin Scout was added directly and completed wave 5. A second fresh battlefield used the actual Griffin Handler I + Musketeer I + Dwarf Miner I recipe, Dwarf Axeman MVP 4, 26 keep health, 290 gold, and seed 13,000,019. The ordinary recipe controls consumed the three ingredients and created Griffin Scout; wave 5 completed at both 1x and 5x. The latter setup also produced the reported four Moon Clan / five ordinary Bat Scout split. No warning or error was captured. This is a controlled developer run excluded from scores, not a reproduction of the user's unknown complete army, camera, hardware or prior actions.
+
+A separate concrete defect was confirmed: requestAnimationFrame was queued only after application code returned. Any uncaught synchronous simulation, drawing or HUD exception could therefore remove the sole frame callback permanently. The successor is now queued before application code. An interrupted frame pauses the existing Game, holds further combat, shows a bounded local diagnostic and keeps the browser callback alive. A recoverable presentation error requires an explicit paused test frame followed by a separate Resume action. Persistent drawing errors remain paused. Partially interrupted simulation errors cannot be retried as graphics errors and require a new run. No automatic reload, RNG rewind or replacement army is used.
+
+The developer console includes a deliberately labelled one-shot drawing-error test so the actual production guard can be verified through ordinary UI controls. Its synthetic error is separate from the reported Griffin Scout failure.
+
+All 2,028 tests passed. Exact GLB digests and native Idle/Attack/emission samples passed for all 258 defender profiles using current FR-004 stats. The Node native check uses verified embedded PNG bindings with tiny DataTextures; it is a geometry/skin/playback check, not a physical GPU or texture-pixel test. The real browser checks above use the normal renderer, approved models and actual image decoding. Game rules, original media, the statistics service and the local-only gallery remain unchanged.
+
+This is an in-place repair of current release 0.6.7. The final production deployment, public verification and post-change browser recovery check are recorded alongside this report. No earlier release, tag or backup is created.

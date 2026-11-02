@@ -157,8 +157,9 @@ export class Battlefield {
   }
   createGraphicsRecovery(){
     const notice=document.createElement('div');notice.className='graphics-recovery-notice';notice.hidden=true;
-    const box=document.createElement('div'),title=document.createElement('strong'),message=document.createElement('p'),resume=document.createElement('button');
-    box.setAttribute('role','status');box.setAttribute('aria-live','polite');resume.type='button';resume.textContent='Resume game';resume.addEventListener('click',()=>this.contextRecovery.resume());box.append(title,message,resume);notice.append(box);this.container.append(notice);this.graphicsNotice=notice;
+    const box=document.createElement('div'),title=document.createElement('strong'),message=document.createElement('p'),resume=document.createElement('button'),details=document.createElement('details'),summary=document.createElement('summary'),report=document.createElement('pre');
+    summary.textContent='Error details';details.append(summary,report);details.hidden=true;
+    box.setAttribute('role','status');box.setAttribute('aria-live','polite');resume.type='button';resume.textContent='Resume game';resume.addEventListener('click',()=>this.contextRecovery.fault?this.contextRecovery.retry():this.contextRecovery.resume());box.append(title,message,resume,details);notice.append(box);this.container.append(notice);this.graphicsNotice=notice;
     this.contextRecovery=new GraphicsRecovery(this.renderer.domElement,this.game,{
       onLost:()=>{
         this.cancelInput?.();this.assetLoads.setSuspended(true);this.defenderLoader.setSuspended(true);this.defenderLoader.maxCachedUnused=0;this.defenderLoader.trim();this.enemyLoader.cacheSize=0;this.enemyLoader.trim();
@@ -168,7 +169,17 @@ export class Battlefield {
         const budget=renderBudget({pixelRatio:globalThis.devicePixelRatio,recovering:true});this.renderer.setPixelRatio(budget.pixelRatio);this.sun.shadow.map?.dispose();this.sun.shadow.map=null;this.sun.shadow.mapSize.set(budget.shadowMapSize,budget.shadowMapSize);this.sun.shadow.needsUpdate=true;
         this.assetLoads.concurrency=1;this.defenderLoader.concurrency=1;this.assetLoads.setSuspended(false);this.defenderLoader.setSuspended(false);this.sync();
       },
-      onStateChange:state=>{notice.hidden=state==='ready';resume.hidden=state!=='restored';title.textContent=state==='lost'?'Graphics interrupted':'Battlefield recovered';message.textContent=state==='lost'?'The game is paused while the battlefield recovers.':'Your game is still paused. Continue when you are ready.';},
+      onFault:fault=>{
+        this.cancelInput?.();this.assetLoads.setSuspended(true);this.defenderLoader.setSuspended(true);
+        const incident={version:GAME_VERSION,faction:this.game.data.factionId,wave:this.game.round,at:new Date().toISOString(),kind:'frame-error',...fault,models:[...this.models.values()].map(v=>v.modelKey).filter(Boolean).slice(0,32)};
+        report.textContent=JSON.stringify(incident,null,2);try{recordGraphicsIncident(globalThis.localStorage,incident);}catch{}console.error('The game frame was interrupted.',fault.stage,fault.message,fault.stack);
+      },
+      onStateChange:(state,fault)=>{
+        notice.hidden=state==='ready';resume.hidden=state!=='restored'&&(state!=='fault'||!fault?.recoverable);details.hidden=!fault;resume.textContent=state==='fault'?'Try recovering battlefield':'Resume game';
+        title.textContent=state==='lost'?'Graphics interrupted':state==='fault'?'Game interrupted':state==='recovering'?'Recovering battlefield':'Battlefield recovered';
+        message.textContent=state==='lost'?'The game is paused while the battlefield recovers.':state==='fault'?fault?.recoverable?'The game is paused after an unexpected error. Try recovering the battlefield.':'An unexpected game error interrupted this run. Start a new run from the game menu. Error details are available below.':state==='recovering'?'Checking the battlefield. The game remains paused.':'Your game is still paused. Continue when you are ready.';
+        if(state==='recovering'){this.assetLoads.setSuspended(false);this.defenderLoader.setSuspended(false);}
+      },
     });
   }
   async loadAssets() {
@@ -287,7 +298,7 @@ export class Battlefield {
     return this.templates.get(markerKey);
   }
   sync() {
-    if(this.contextRecovery?.lost)return;
+    if(this.contextRecovery?.blocked)return;
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
     for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
@@ -418,6 +429,7 @@ export class Battlefield {
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
     if(this.contextRecovery?.update()===false)return;
+    if(this.game.developerMode&&this.frameFailureProbe){this.frameFailureProbe=false;throw Error('Developer graphics recovery check');}
     this.recoverDefenderModels();
     this.requestEnemyModels();
     this.time+=dt;this.mvpAwards?.update(this.time);this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);

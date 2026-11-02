@@ -79,6 +79,7 @@ import {connectApprovedPortraitVisibility} from '../ui/portrait-visibility.js';
 import '../ui/portrait-visibility.css';
 import '../ui/defender-loading.css';
 import '../ui/graphics-recovery.css';
+import {startFrameLoop} from './render/frame-loop.js';
 import '../ui/battlefield-command.css';
 import '../ui/draft-presentation.css';
 import '../ui/header-command.css';
@@ -341,7 +342,7 @@ async function openDeveloperConsole(){
   });
   await developerSession.activate();
   openDialog(`${dialogHeader('Run-local test tools','Developer Console')}<div class="dialog-body">${developerConsoleMarkup(developerSession)}</div>`);
-  $('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend','<section class="developer-audio-review"><h3>Recorded audio check</h3><button type="button" class="text-button" data-action="audio-bank-review">Check all 113 approved audio clips</button><p id="audio-review-status" role="status">Silent browser decoding: 92 voices, 15 attack sounds and 6 music tracks.</p><details><summary>Decode report</summary><pre id="audio-review-report" style="max-height:250px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>');
+  $('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend','<section class="developer-audio-review"><h3>Graphics recovery check</h3><button type="button" class="text-button" data-action="frame-recovery-review">Test paused recovery</button><p>Triggers one drawing error in this excluded test run. Combat must pause and require recovery before you resume.</p><h3>Recorded audio check</h3><button type="button" class="text-button" data-action="audio-bank-review">Check all 113 approved audio clips</button><p id="audio-review-status" role="status">Silent browser decoding: 92 voices, 15 attack sounds and 6 music tracks.</p><details><summary>Decode report</summary><pre id="audio-review-report" style="max-height:250px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>');
   developerConnection=connectDeveloperConsole($('dialog-content'),developerSession,{onMutation:action=>{if(action==='simulation')modalPaused=game.paused;threatAnalyzer=new WaveThreatAnalyzer(game.data);armyReadiness=new ArmyReadiness(game.data);intelligenceKey=null;world.sync();render();},onRun:()=>{modalPaused=game.paused;closeDialog();}});
   render();
 }
@@ -386,6 +387,7 @@ window.addEventListener('lostpointercapture',event=>draftPointerInput.lostCaptur
 function handleCommand(e){
   const b=e.target.closest('[data-action]');if(!b||b.disabled)return;audio.unlock();const action=b.dataset.action;
   if(action==='debug-audio-review'&&debug){void reviewRecordedVoices(b);return;}
+  if(action==='frame-recovery-review'&&game.developerMode){world.frameFailureProbe=true;closeDialog();return;}
   if(action==='audio-bank-review'&&game.developerMode){void reviewAllRecordedAudio(b);return;}
   if(action==='tutorial-start'){startTutorial();return;}if(action==='tutorial-skip'){skipTutorial();return;}
   if(action==='draw'&&!world.maze.editing){draftPointerInput.click(game,e);return;}
@@ -473,5 +475,6 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
   world.loadAssets();render();offerTutorial({replacement:!!replacement});
 }
 try{const thumbnails=makeThumbnails(data);images={ruin:thumbnails.ruin,...referencePortraitImageMap()};void requestFactionRun();
-  function frame(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world){const graphicsReady=world.contextRecovery?.update()!==false;statistics.sample(dt,elapsedDt);game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady)world.update(dt);uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}}requestAnimationFrame(frame);}requestAnimationFrame(frame);
+  let frameStage='idle';
+  startFrameLoop({step(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world){const graphicsReady=world.contextRecovery?.update()!==false;frameStage='statistics';statistics.sample(dt,elapsedDt);frameStage='simulation';game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady){frameStage='battlefield';world.update(dt);}frameStage='interface';uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}if(graphicsReady)world.contextRecovery?.frameSucceeded();}},onError(error){if(game)game.paused=true;if(world?.contextRecovery)world.contextRecovery.fail(error,{stage:frameStage});else console.error(error);}});
 }catch(error){console.error(error);app.innerHTML=`<div class="error-screen"><h1>The battlefield could not be drawn.</h1><p>This game needs a browser with WebGL enabled. Try a recent Chrome, Edge, or Firefox with hardware acceleration turned on.</p><p>${String(error.message).replace(/[<>]/g,'')}</p><button class="primary-button" onclick="location.reload()" style="margin-top:20px">Try again</button></div>`;}

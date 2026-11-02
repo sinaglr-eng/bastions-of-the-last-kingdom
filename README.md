@@ -50,3 +50,5 @@ Only release 0.6.7 is maintained. Previous game packages, offline backups, obsol
 FR-004 supplies the approved Dwarf primary damage and Physical immunity aura reach, on top of FR-003 revision 2. [Current changes and verification](docs/RELEASE_0_6_7.md). The single English design gallery remains local only.
 
 Current models, artwork, animations, audio and exact original prompts/review records remain intact. Required regression data and image provenance are source dependencies, not playable older releases. Statistics and saved player results are preserved. [Backend setup](docs/STATISTICS_BACKEND.md).
+
+A synchronous frame error now pauses the existing run and shows recoverable drawing-error details instead of silently dropping the animation loop. The original Griffin Scout desktop failure remains unreproduced; [investigation and verification limits](output/implementation/griffin-current/REPORT.md).
