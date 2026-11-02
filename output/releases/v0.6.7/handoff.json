@@ -10,7 +10,7 @@
     },
     {
       "file": "CHANGELOG.md",
-      "sha256": "7d030346fc2da649fb9a622dd475e5fac99e2247978563e066748100bdf756d9"
+      "sha256": "ac8813ed6cdbf4d79e802fb3784ccb48310a80ff27300f63efa8bd9006b2a14f"
     },
     {
       "file": "README.md",
@@ -38,7 +38,7 @@
     },
     {
       "file": "docs/RELEASE_0_6_7.md",
-      "sha256": "1cf27ec8d3020a6e12e712dcf3aff13b80325814ea008ae7a481fb2a9ae16656"
+      "sha256": "f07da4bd5316e86dadaa94e248f01a35fcf6f3fd7d897e7b7e83383af98a6ee2"
     },
     {
       "file": "docs/RELEASE_RETENTION.md",
@@ -297,6 +297,10 @@
       "sha256": "19584d66d9be531a86dd2bb8584fb02c10097370b612e182c51cd36eb79205dd"
     },
     {
+      "file": "tools/package-runtime-assets.mjs",
+      "sha256": "06670fd68bcca81b550bcdba799922b6631e4ec2e7bf4ce870547b1156c7f993"
+    },
+    {
       "file": "tools/verify-faction-rendering.mjs",
       "sha256": "f065ba7e68875ea222c7a961ff48ac23eb7dac7d78f08910ea7aca5add0bf45c"
     },
@@ -313,8 +317,40 @@
       "sha256": "9cf6729482c5b056b5b03c7cbf2ca33e5d03dc7818bdeb94d0e9ac58e735371a"
     },
     {
-      "file": "tools/package-runtime-assets.mjs",
-      "sha256": "06670fd68bcca81b550bcdba799922b6631e4ec2e7bf4ce870547b1156c7f993"
+      "file": "output/releases/v0.6.7/build-local.log",
+      "sha256": "7bdac4f4f8e26e6eefd64365a30314392d32766248fc95b895016a918b9476a7"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci-build.log",
+      "sha256": "f7ac8299bacde6f181b2ad4b58a57aef0f50af9ae20256ca1c816543f8623887"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci-jobs.json",
+      "sha256": "b481b83244e025cd85622684c07decab97680318fa166a4a4ede6986823f069c"
+    },
+    {
+      "file": "output/releases/v0.6.7/ci.json",
+      "sha256": "44b548f625f9debe75f4712a6db34da0f99c6f20a226b4cd1db3cd513bdb4167"
+    },
+    {
+      "file": "output/releases/v0.6.7/local-install.json",
+      "sha256": "3191d194d384d35aab1fe47a98ae0b1d1dfa538de23788319bb94ba6189cfd73"
+    },
+    {
+      "file": "output/releases/v0.6.7/public-verification.json",
+      "sha256": "53a1bb56d229a01b0253d71bbd20c6746af323897c6814d92a3c06d86a84063c"
+    },
+    {
+      "file": "output/releases/v0.6.7/refs-cleanup.json",
+      "sha256": "9f5a124daf040be59551ee3b9fe9c2f624ba873b84c67e31da60a80e870251f8"
+    },
+    {
+      "file": "output/releases/v0.6.7/release.json",
+      "sha256": "27972c79b5e0d1d61b8ce3bf97bd3dfb1a119a565b4b3c88c52ab8c2ffc56cf0"
+    },
+    {
+      "file": "output/releases/v0.6.7/retention.json",
+      "sha256": "968525bf5237ddd11e4d0f3312cea60a5e2f22e12090ea8aae596fc6b5d7ea02"
     }
   ]
 }
