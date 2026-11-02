@@ -1,9 +1,9 @@
 # Current game release only
 
-The only retained game release is **0.6.6**. Previous release directories, source/production backup packages, obsolete temporary game copies, old release tags and the old backup branch are removed at the user's explicit request. Manual publishing uses the current checked-out source; it offers no previous-release selector.
+The sole maintained game release is **0.6.7**, replacing 0.6.6 at the user's authorization on 2 November 2026. Previous release directories, source/production backup packages, old release tags and backup branches are not maintained. Ordinary Git change history is retained.
 
-Required regression fixtures and exact original portrait images/prompts are maintained as current dependencies outside release archives. They contain no runnable older game. Gameplay, current models, graphics, animations, local gallery and player score records remain unchanged. Ordinary Git development history is retained.
+Exact original artwork, models, recorded prompts/reviews, current runtime dependencies and player score records remain intact. The exact FR-003 terminal-comparison input required by the FR-002/FR-003 army verifiers is retained as `tests/fixtures/fr003-approved-terminal-results.json`; its source hash is unchanged and it contains no older runnable game. The exact approval verification is retained under `design/reviews/`.
 
-The exact cleanup and current-runtime verification are recorded in `output/releases/v0.6.6/retention/result.json`.
+The current publication and retention receipts are under `output/releases/v0.6.7/`. The single English design gallery stays local only. No new release tag or backup package is created.
 
-Automatic approval review blocked deletion of one obsolete local statistics-service packaging file, `artifacts/bastions-statistics-site.tar.gz`. It is not a retained game release or backup version. The exact exception is recorded in the retention receipt.
+The earlier automatic-review exception for `artifacts/bastions-statistics-site.tar.gz` remains recorded in the retention receipt. That obsolete service packaging file is not a game release, and this publication did not retry its previously blocked deletion.

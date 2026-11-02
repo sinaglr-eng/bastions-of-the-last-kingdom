@@ -10,7 +10,7 @@ const baseline=loadDatasets(),candidate=loadDatasets({patchFiles});
 assert.deepEqual(candidate.crown,baseline.crown,'Human unchanged');
 const tag=process.argv.find(x=>x.startsWith('--tag='))?.split('=')[1]||'final';
 if(!/^[a-z0-9-]+$/.test(tag))throw Error('Invalid tag');
-const out=resolve(root,'output/releases/v0.6.6/validation/0-6-2/fr001/combat',tag);mkdirSync(out,{recursive:true});
+const out=resolve(root,'output/implementation/fr001-current/combat',tag);mkdirSync(out,{recursive:true});
 const datasets=[{id:'crown-baseline',data:baseline.crown},{id:'forge-baseline',data:baseline.forge},{id:'forge-candidate',data:candidate.forge},{id:'grove-baseline',data:baseline.grove},{id:'grove-candidate',data:candidate.grove}];
 const scenarios=[{id:'early-air',wave:5,variant:0},{id:'evasion',wave:9},{id:'early-boss',wave:10},{id:'magical-immunity',wave:16},{id:'regeneration',wave:21},{id:'heavy-armor',wave:22},{id:'physical-immunity-refraction',wave:23},{id:'late-air-magical-immunity',wave:42},{id:'missing-health-recharge',wave:49},{id:'final-flying-boss',wave:50,variant:0},{id:'final-magic-immune-flying-boss',wave:50,variant:1},{id:'final-physical-immune-flying-boss',wave:50,variant:2}];
 const rounded=n=>Math.round(n*1e6)/1e6;

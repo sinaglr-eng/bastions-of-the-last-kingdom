@@ -13,7 +13,7 @@ import {createFactionData} from '../../game/core/factions.js';
 import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../../game/core/campaign-roster.js';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
-const out=resolve(root,'output/releases/v0.6.6/fr003/claire');
+const out=resolve(root,'output/implementation/fr003-current/claire');
 const read=path=>JSON.parse(readFileSync(resolve(root,path),'utf8'));
 const sha=path=>createHash('sha256').update(readFileSync(resolve(root,path))).digest('hex');
 const registry=applyFr003Registry(applyFr002Registry(read('data/factions-v060.json')));

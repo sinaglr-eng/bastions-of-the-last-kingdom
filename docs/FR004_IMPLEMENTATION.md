@@ -1,5 +1,7 @@
 # FR-004 — implemented locally in game 0.6.7
 
+This is the implementation-stage record from 1 November 2026. Public deployment was subsequently authorized on 2 November; current activation evidence is linked from [release 0.6.7](RELEASE_0_6_7.md).
+
 The user requested implementation of the exact FR-004 handoff from Audit Tower Defense Game. The local candidate uses **fr004-r1-20261101**. Hosted publication was not requested; the existing public release and statistics deployment remain separate. No new release tag, branch, archived game, gallery copy or backup package was created.
 
 All 85 native Dwarf primary fields match the target: 80 at 1.5 times the implemented 0.6.6 base and five Iron golem/Gatling champions at 2 times that base. Forge Sentinel remains exactly 1,416.8. Four continuous weapons deal 2,250 / 2,700 / 3,105 / 13,500 DPS before existing support and personal MVP. Shared Flame Cone base levels and fixed secondary effects remain exact; percentage effects inherit the changed primary base once.

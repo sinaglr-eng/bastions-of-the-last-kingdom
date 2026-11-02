@@ -14,10 +14,10 @@ export function packageRuntimeAssets({root=process.cwd(),outDir='dist'}={}){
  for(const absolute of files){const file=path.relative(source,absolute).replaceAll('\\','/');if(keep(file))emit(file,fs.readFileSync(absolute));}
  const manifest=JSON.parse(fs.readFileSync(path.join(source,'assets/geometric/geometric-enemies.json'))),entries=manifest.assets||manifest.entries||manifest.models||manifest.subjects;
  for(const entry of entries){const file=entry.file.startsWith('assets/')?entry.file:'assets/geometric/'+entry.file;if(!file.startsWith('assets/geometric/approved-enemies-v6/')||!file.endsWith('.glb'))throw Error('Unexpected active enemy path');const bytes=fs.readFileSync(path.join(source,file)),compressed=gzipSync(bytes,{level:9,mtime:0});if(sha(gunzipSync(compressed))!==sha(bytes))throw Error('Enemy transport differs');emit(file+'.gz',compressed,sha(bytes));}
- // The earlier modeling atelier stays in source and the 0.5.2 backup. Its old
- // public entry now returns to the current game, which owns the V3 roster.
+ // Required approved modeling sources stay local. The former atelier
+ // public entry returns to the current game, which owns the V3 roster.
  const gameBase=process.env.VITE_BASE_PATH||'/';emit('archer.html',Buffer.from(`<!doctype html><html lang="en"><meta charset="utf-8"><title>Forged Alliances TD</title><meta http-equiv="refresh" content="0;url=${gameBase}"><a href="${gameBase}">Open Forged Alliances TD ${GAME_VERSION}</a></html>`));
  const total=rows.reduce((n,r)=>n+r.bytes,0);if(total>980000000)throw Error(`Runtime exceeds publication budget: ${total}`);
- const receipt={status:'passed',version:GAME_VERSION,files:rows.length,bytes:total,allEnemyDecodedHashesMatch:true,scope:'Only current game media. Historical models, turnarounds and review deliveries remain local in source and backup.',assets:rows};
+ const receipt={status:'passed',version:GAME_VERSION,files:rows.length,bytes:total,allEnemyDecodedHashesMatch:true,scope:'Only current game media. Approved original models, turnarounds and recorded reviews remain local source dependencies.',assets:rows};
  fs.writeFileSync(path.join(output,'runtime-assets.json'),JSON.stringify(receipt,null,2)+'\n');console.log(`Current runtime media: ${rows.length} files, ${(total/1e6).toFixed(1)} MB; lossless model transport.`);return receipt;
 }

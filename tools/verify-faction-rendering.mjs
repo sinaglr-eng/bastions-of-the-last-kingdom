@@ -25,5 +25,5 @@ for(const f of registry.factions)for(const a of f.assets){
  if(rows.length%24===0){console.log('Verified '+rows.length+' actual native profiles');global.gc?.();}
 }
 assert.equal(rows.length,258);
-fs.writeFileSync('output/releases/v0.6.6/native-render-verification.json',JSON.stringify({status:'passed',actualNativeProfiles:258,method:'Exact approved packed GLBs; real imported skins, private actors, current runtime attack profiles, three actual animation samples and emitting surfaces. No model bytes or combat data altered.',rows},null,2)+'\n');
+fs.mkdirSync('output/implementation/native-render-current',{recursive:true});fs.writeFileSync('output/implementation/native-render-current/verification.json',JSON.stringify({status:'passed',actualNativeProfiles:258,method:'Exact approved packed GLBs; real imported skins, private actors, current runtime attack profiles, three actual animation samples and emitting surfaces. No model bytes or combat data altered.',rows},null,2)+'\n');
 console.log('Verified all 258 actual native profiles.');
