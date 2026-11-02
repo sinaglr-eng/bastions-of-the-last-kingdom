@@ -2,7 +2,7 @@
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Local 0.6.8 implements FR-005 revision 2.** The public deployment remains 0.6.7. [Public game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**0.6.8 implements FR-005 revision 2 and is the default public game.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
 Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
 
@@ -47,7 +47,7 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only the current local release 0.6.8 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current release 0.6.8 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
 FR-005 revision 2 supplies the current recipe and ability refinements while retaining the implemented FR-004 primary values and immunity auras. [Current changes and verification](docs/RELEASE_0_6_8.md). The single English design gallery remains local only.
 

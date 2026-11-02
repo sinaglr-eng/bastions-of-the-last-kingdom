@@ -8,4 +8,4 @@ The current local release and retention receipts are under `output/releases/v0.6
 
 The earlier automatic-review exception for `artifacts/bastions-statistics-site.tar.gz` remains recorded in the retention receipt. That obsolete service packaging file is not a game release, and this publication did not retry its previously blocked deletion.
 
-The public game and statistics service remain at 0.6.7 until deployment is requested. Their deployed state is not a retained local backup. Historical implementation authorities used by regression tests remain preserved as data, with no older runnable release package.
+The public game and existing statistics service now run 0.6.8. Their deployed state is not a retained local backup. Historical implementation authorities used by regression tests remain preserved as data, with no older runnable release package.

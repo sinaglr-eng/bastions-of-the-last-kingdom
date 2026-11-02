@@ -4,6 +4,6 @@ FR-005 revision 2 is implemented locally: Sky Hunt flying-only Slow aura, classi
 
 Validation: 2,042 tests, a 233-module build, all 258 native model profiles, 72 matched legal no-TOP campaigns and 234 equal-material controlled late battles. Actual local Chromium testing confirmed the new ability text, source-attributed attack speed, paused Sky Hunt projection and a 5x wave without a graphics error. No iPad-specific result or legal 50-wave win is certified.
 
-The public game and hosted statistics remain 0.6.7. Local backend validation is ready for the 0.6.8 score cohort without database migrations. Deployment is a separate action.
+Version 0.6.8 is now the default public game at https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/. The existing public statistics service uses the same D1 binding, preserving player records and separate version/faction cohorts without migrations. GitHub passed all 2042 tests, the production build, upload and deployment. Public metadata and compiled entries match the exact runtime commit; immutable media proof is reused only by exact content or decoded-model hash. [Publication receipt](../output/releases/v0.6.8/release.json) · [CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41453941546).
 
 [Implementation and detailed limits](FR005_IMPLEMENTATION.md). [Current retention policy](RELEASE_RETENTION.md).

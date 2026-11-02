@@ -1,0 +1,12 @@
+✔ historical FR-004 identities remain distinct from other rule cohorts (0.8511ms)
+✔ real current checkpoints are accepted and version/faction score filtering preserves old 0.6.6 rows (169.8056ms)
+✔ FR-005 revision 2 has its own edition and ruleset identity; old score cohorts retain their contracts (1.1449ms)
+✔ real FR-004 and FR-005 snapshots coexist without migrations, score deletion or cross-version ranking (196.4498ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 287.52

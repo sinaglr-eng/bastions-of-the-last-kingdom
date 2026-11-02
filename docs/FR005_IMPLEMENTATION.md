@@ -1,6 +1,6 @@
 # FR-005 revision 2 — local implementation
 
-Local game **0.6.8**, ruleset **fr005-r2-20261102**. The exact revision 2 implementation was authorized by the user request in Master verze hry. Public game and hosted statistics have not been deployed.
+Local game **0.6.8**, ruleset **fr005-r2-20261102**. The exact revision 2 implementation was authorized by the user request in Master verze hry. Public game 0.6.8 and its existing statistics service are deployed and verified on 2 November 2026. [Publication receipt](../output/releases/v0.6.8/release.json) and [successful CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41453941546).
 
 ## Verified changes
 

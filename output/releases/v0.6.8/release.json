@@ -3,8 +3,8 @@
   "rulesetRevision": "fr005-r2-20261102",
   "requirement": "FR-005 revision 2",
   "implemented": true,
-  "published": false,
-  "publicRuntimeVersion": "0.6.7",
+  "published": true,
+  "publicRuntimeVersion": "0.6.8",
   "baselineCommit": "bb93714517a9986bf610a6122c5092c155d35ff7",
   "tests": 2042,
   "modules": 233,
@@ -24,6 +24,19 @@
     "checkedAt": "2026-11-02T10:26:46.504Z"
   },
   "implementationReport": "output/implementation/fr005-current/REPORT.md",
-  "backend": "Local code ready; existing public service and player database unchanged.",
-  "createdAt": "2026-11-02T10:28:51.507Z"
+  "backend": "Existing public statistics service updated to 0.6.8 on the same D1 binding; no migration or live test score.",
+  "createdAt": "2026-11-02T10:28:51.507Z",
+  "status": "passed",
+  "runtimeCommit": "15e33b484dc94553de804946208491c9ac01bed8",
+  "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "ciRequiredChecksPassed": true,
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41453941546",
+  "publicFiles": 1004,
+  "approvedModelIdentities": 312,
+  "allDecodedModelsMatch": true,
+  "allPublicFilesFetchedFresh": false,
+  "backendDeployment": "appgdep_6ae890cda5088191912cf55cf578a7f1",
+  "backendVersion": 17,
+  "galleryPublished": false,
+  "verifiedAt": "2026-11-02T13:44:27.449Z"
 }

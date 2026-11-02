@@ -1,0 +1,184 @@
+{
+  "status": "passed",
+  "version": "0.6.8",
+  "readOnly": true,
+  "noSyntheticLiveResults": true,
+  "dbBindingUnchanged": true,
+  "migrationFilesUnchanged": true,
+  "earlierLeaderboardSamplesPreserved": true,
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "value": {
+        "ok": true,
+        "storage": "SQLite",
+        "edition": "0.6.8",
+        "releaseName": "Preserved commander scores · Developer runs excluded"
+      }
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.8&faction=crown",
+      "status": 200,
+      "value": {
+        "top": [],
+        "current": null,
+        "mode": 50,
+        "version": "0.6.8",
+        "factionId": "crown",
+        "legacyVersions": [
+          "0.2.7",
+          "0.2.8",
+          "0.3.10",
+          "0.3.11",
+          "0.3.16",
+          "0.3.21",
+          "0.3.23",
+          "0.3.24",
+          "0.3.25",
+          "0.3.26",
+          "0.3.27",
+          "0.3.31",
+          "0.3.5",
+          "0.4.5",
+          "0.4.7",
+          "0.4.9",
+          "0.5.0",
+          "0.5.1"
+        ],
+        "versions": []
+      }
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.8&faction=forge",
+      "status": 200,
+      "value": {
+        "top": [],
+        "current": null,
+        "mode": 50,
+        "version": "0.6.8",
+        "factionId": "forge",
+        "legacyVersions": [
+          "0.2.7",
+          "0.2.8",
+          "0.3.10",
+          "0.3.11",
+          "0.3.16",
+          "0.3.21",
+          "0.3.23",
+          "0.3.24",
+          "0.3.25",
+          "0.3.26",
+          "0.3.27",
+          "0.3.31",
+          "0.3.5",
+          "0.4.5",
+          "0.4.7",
+          "0.4.9",
+          "0.5.0",
+          "0.5.1"
+        ],
+        "versions": []
+      }
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.8&faction=grove",
+      "status": 200,
+      "value": {
+        "top": [],
+        "current": null,
+        "mode": 50,
+        "version": "0.6.8",
+        "factionId": "grove",
+        "legacyVersions": [
+          "0.2.7",
+          "0.2.8",
+          "0.3.10",
+          "0.3.11",
+          "0.3.16",
+          "0.3.21",
+          "0.3.23",
+          "0.3.24",
+          "0.3.25",
+          "0.3.26",
+          "0.3.27",
+          "0.3.31",
+          "0.3.5",
+          "0.4.5",
+          "0.4.7",
+          "0.4.9",
+          "0.5.0",
+          "0.5.1"
+        ],
+        "versions": [
+          "0.6.3"
+        ]
+      }
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.7&faction=forge",
+      "status": 200,
+      "value": {
+        "top": [],
+        "current": null,
+        "mode": 50,
+        "version": "0.6.7",
+        "factionId": "forge",
+        "legacyVersions": [
+          "0.2.7",
+          "0.2.8",
+          "0.3.10",
+          "0.3.11",
+          "0.3.16",
+          "0.3.21",
+          "0.3.23",
+          "0.3.24",
+          "0.3.25",
+          "0.3.26",
+          "0.3.27",
+          "0.3.31",
+          "0.3.5",
+          "0.4.5",
+          "0.4.7",
+          "0.4.9",
+          "0.5.0",
+          "0.5.1"
+        ],
+        "versions": []
+      }
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.6&faction=crown",
+      "status": 200,
+      "value": {
+        "top": [],
+        "current": null,
+        "mode": 50,
+        "version": "0.6.6",
+        "factionId": "crown",
+        "legacyVersions": [
+          "0.2.7",
+          "0.2.8",
+          "0.3.10",
+          "0.3.11",
+          "0.3.16",
+          "0.3.21",
+          "0.3.23",
+          "0.3.24",
+          "0.3.25",
+          "0.3.26",
+          "0.3.27",
+          "0.3.31",
+          "0.3.5",
+          "0.4.5",
+          "0.4.7",
+          "0.4.9",
+          "0.5.0",
+          "0.5.1"
+        ],
+        "versions": []
+      }
+    }
+  ],
+  "checkedAt": "2026-11-02T13:33:05.839Z"
+}
