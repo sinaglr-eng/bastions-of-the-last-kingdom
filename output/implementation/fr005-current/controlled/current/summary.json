@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "runtimeVersion": "0.6.8",
+  "cohort": "current",
+  "cases": 117,
+  "wallSeconds": 113.508,
+  "protectedSourcesUnchanged": true,
+  "sharedRuntimeDataUnchanged": true,
+  "summary": [
+    {
+      "name": "human-fixed",
+      "faction": "crown",
+      "material": 600,
+      "active": 16,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 27,
+        "leakCount": 0,
+        "bossKills": 6,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 9,
+        "leakCount": 0,
+        "bossKills": 9,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": []
+    },
+    {
+      "name": "dwarf-fixed",
+      "faction": "forge",
+      "material": 600,
+      "active": 19,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 27,
+        "leakCount": 0,
+        "bossKills": 6,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 9,
+        "leakCount": 0,
+        "bossKills": 9,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": []
+    },
+    {
+      "name": "elf-fixed",
+      "faction": "grove",
+      "material": 600,
+      "active": 18,
+      "scheduled": {
+        "cases": 27,
+        "fullClears": 24,
+        "leakCount": 15,
+        "bossKills": 6,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "forcedBossForms": {
+        "cases": 9,
+        "fullClears": 9,
+        "leakCount": 0,
+        "bossKills": 9,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "halfStep": {
+        "cases": 3,
+        "fullClears": 3,
+        "leakCount": 0,
+        "bossKills": 1,
+        "bossEscapes": 0,
+        "timeouts": 0
+      },
+      "failures": [
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910001,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 5,
+          "escapedHp": 182451.61023255793,
+          "bossEscapes": [],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910019,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 5,
+          "escapedHp": 201308.9167441858,
+          "bossEscapes": [],
+          "remaining": []
+        },
+        {
+          "stage": "scheduled-real-wave",
+          "seed": 910037,
+          "wave": 46,
+          "dt": 0.1,
+          "leaks": 5,
+          "escapedHp": 225955.80186046494,
+          "bossEscapes": [],
+          "remaining": []
+        }
+      ]
+    }
+  ]
+}

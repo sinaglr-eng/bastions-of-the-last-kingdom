@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {Game} from '../game/core/game.js';import {loadCurrentDatasets} from '../tools/current-datasets.mjs';import {towerStats,combatTowerStats} from '../game/core/math.js';import {fr002Impact,updateFr002Tower} from '../game/core/fr002-combat.js';import {immunityAuraCoverage} from '../game/core/immunity-auras.js';import {supportSourceAreas} from '../game/render/support-effects.js';
-const after=loadCurrentDatasets(),before=loadCurrentDatasets({revision:'fr003'}),spec=JSON.parse(fs.readFileSync(new URL('../data/fr004.json',import.meta.url)));
+const after=loadCurrentDatasets({revision:'fr004'}),before=loadCurrentDatasets({revision:'fr003'}),spec=JSON.parse(fs.readFileSync(new URL('../data/fr004.json',import.meta.url)));
 const close=(a,b,label)=>assert.ok(Math.abs(a-b)<1e-6,`${label}: ${a} != ${b}`);
 function setup(data,family='dw_shieldguard',tier=1){const g=new Game(data,{seed:71}),c=g.combat,t={id:1,family,tier,state:'active',x:5,z:5,kills:0,cooldown:0,mvpLevel:0};g.towers=[t];g.phase='combat';g.rng=()=>.999999;const enemy=(x=6,z=5)=>Object.assign(c.spawn('grunt'),{x,z,hp:1e8,maxHp:1e8,armor:0,speed:0,physicalImmune:false,magicImmune:false,krakenShell:0});return{g,c,t,enemy,s:towerStats(t,data)};}
 const impact=(h,e,s=h.s)=>fr002Impact(h.c,{source:h.t,target:e,stats:s,firstPrimary:true,directTargets:[e],releaseCount:1});

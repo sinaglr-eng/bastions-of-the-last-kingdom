@@ -1,5 +1,6 @@
 import {updateFactionTower,factionImpact} from './faction-combat.js';
-import {fr002DamageResolved,flushFr002Pulses} from './fr002-combat.js';
+import {fr002DamageResolved,flushFr002Pulses,applyCanonicalControlContact} from './fr002-combat.js';
+import {skyHuntAura,skyHuntSlow} from './sky-hunt.js';
 import {immunityAuraCoverage} from './immunity-auras.js';
 import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
@@ -117,7 +118,8 @@ export class CombatManager {
     if(!statusEffectAllowed(enemy,'poison'))stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0,healingBlockDuration:0};
     if(!landedDamage)stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0};
     if(stats.slow){const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}
-    if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
+    if(stats.fr005CanonicalControl)applyCanonicalControlContact(this,source,enemy,stats);
+    else if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
     for(const key of ['burn','poison','bleed'])if(stats[key]||(key==='poison'&&stats.poisonDps)||(key==='burn'&&stats.burnDps)) {
       const previous=enemy.statuses[key];
       const dps=key==='poison'&&stats.poisonDps?stats.poisonDps:key==='burn'&&stats.burnDps?stats.burnDps:stats.damage*stats[key];
@@ -237,6 +239,7 @@ export class CombatManager {
     this.elapsed+=dt;for(const tower of this.game.towers)tower.factionNow=this.elapsed;
     while(this.spawnQueue.length && this.spawnQueue[0].time<=this.elapsed) {const item=this.spawnQueue.shift();this.spawn(item.type,item.modifiers);}
     this.updateStoneGazes(dt);
+    const skyAuras=this.game.data.fr005?this.game.towers.filter(t=>t.state==='active').map(t=>({tower:t,stats:towerStats(t,this.game.data)})).filter(({stats})=>skyHuntAura(stats)):[];
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
       for(const key of ['slow','freeze','stun','root','gazeSlow','poison','burn','healBlock','regenReduction'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
@@ -269,6 +272,7 @@ export class CombatManager {
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       this.prepareArmor(enemy);
       for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(slowAuraApplies(s,enemy)&&distance(t,enemy)<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);}
+      for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy));
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
       const move=amount=>{
         let travel=amount;

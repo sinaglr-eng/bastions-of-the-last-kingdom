@@ -1,0 +1,4781 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-005",
+  "revision": 2,
+  "status": "FR-005 revision 2 proposal — pending approval; not implemented",
+  "approved": false,
+  "implemented": false,
+  "combatImplemented": false,
+  "gameImplementationAuthorized": false,
+  "publicationAuthorized": false,
+  "baselineRuntimeVersion": "0.6.7",
+  "baselineRulesetRevision": "fr004-r1-20261101",
+  "targetRevision": "fr005-preview-r2-20261102",
+  "scope": {
+    "comments": 15,
+    "profiles": 258,
+    "recipes": 114,
+    "recipeChanges": 1,
+    "changedAbilityProfiles": 44,
+    "abilityOccurrencesBefore": 570,
+    "abilityOccurrencesAfter": 559,
+    "abilityFamiliesBefore": 42,
+    "abilityFamiliesAfter": 41,
+    "canonicalLevelNumbersBefore": 160,
+    "canonicalLevelNumbersAfter": 159,
+    "parameterVariantsBefore": 168,
+    "parameterVariantsAfter": 167,
+    "canonicalLevelChanges": 8,
+    "visibilityRemovals": 21,
+    "multishotAdditions": 4,
+    "freezeAdditions": 1,
+    "executionAdditions": 1,
+    "ricochetAdditions": 5,
+    "ricochetRemovals": 1,
+    "stoneGazeToStun": 1,
+    "primaryFieldsChanged": false,
+    "primaryDpsChanged": false,
+    "gameChanged": false,
+    "artChanged": false,
+    "originalArtChanged": false,
+    "galleryVisualMappingChanged": true,
+    "visualSourceRevision": "approved-faction-models-v3-20261030",
+    "voiceOrModelReviewChanged": false
+  },
+  "galleryVisualMapping": {
+    "comment": 14,
+    "changed": true,
+    "manifestFile": "sniper-visual-current.json",
+    "sourceRevision": "approved-faction-models-v3-20261030",
+    "scope": [
+      "forge/dw_steamrail/1",
+      "forge/dw_ironstorm/1"
+    ],
+    "unchangedIntermediate": "forge/dw_thunderlock/1",
+    "originalImagesChanged": false,
+    "originalApprovalRecordsChanged": false,
+    "gameOrModelChanged": false,
+    "localOnly": true
+  },
+  "protectedBaselineHashes": {
+    "package.json": "26083ae4666c7d29a5cb0a4058a7ddbb09dfce8ab84d02af3946dde6ee52b29a",
+    "game/release.js": "00c268794caea96c1e18f7715e805503382f9423a8bc613d7677e0efec44d9e9",
+    "game/main.js": "7bb03a71174f87b215d99690c2d8f74f3262addd04d7dcde26e9a32039a61acb",
+    "tools/current-datasets.mjs": "4005d51fa3360a872b2e1d8cc7a433d61cdd17c491d8d0216e099347ee4bebe9",
+    "game/core/approved-defender-names.js": "5e55c833ba9f559e517c9e02a06df13b403372c63a71e95ff9053bc7c2b92ddf",
+    "game/core/army-readiness.js": "398a38a40697918dde8c0d46bf90de0f655ce46a9da331d858052310f5d5058b",
+    "game/core/atelier-roster.js": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af",
+    "game/core/blueprints.js": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "game/core/combat-rules.js": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1",
+    "game/core/combat.js": "2ea644fec45fb9ad98911b081805a909c5d236b3a80dc211aee5afda46dd8e79",
+    "game/core/command-move.js": "85efe14f888db6b2db214de22fdaa188db4fc8bfdcc6a8e89a207a368b64b644",
+    "game/core/command-points.js": "2e72cd04d5d094443f494327e3e231ced4a78f7d1f2414103be45e786fa9441d",
+    "game/core/commander-maze.js": "681200abf95b9854070f6a41fbfa59728cbaa695f2602a35e28297a51d0e829c",
+    "game/core/debug-review.js": "26fdb23c43b498826f492fa4ebbabe964601240747389cc969359a82aa9789e0",
+    "game/core/developer-console.js": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+    "game/core/draft.js": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
+    "game/core/enemy-rules.js": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/factions.js": "7f0e86e01cd21b3a57af2e24266f559be458563be5fc8407fbbe6bc33c11d508",
+    "game/core/fr002-combat.js": "7fce041f54356621a38c16ae0be198db5d3c941533cca5e936ae74e47ffa5db7",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "game/core/fr003-registry.js": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+    "game/core/fr004-registry.js": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c",
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/immunity-auras.js": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+    "game/core/math.js": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+    "game/core/maze-search.js": "7efdc604666b62a1882d3510fd1fa5c76755fe71b7dc51b5c60eba6d630fc994",
+    "game/core/maze-seeds.js": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110",
+    "game/core/maze-worker.js": "28d02d12aedf0f7afae6930cefab513355ff9c557ba86a9b781e9734eee33629",
+    "game/core/maze.js": "e1eab58659552758aed9a47129d63448a92568194c40a2939d1e588f4d8fc38b",
+    "game/core/mvp.js": "a6709982ff3baa435d2df655810bd32c30949df999f2949192d7c40e6e63e4b5",
+    "game/core/progression.js": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9",
+    "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+    "game/core/run-statistics.js": "a01bc02ae34c7ef1803803ddffff2cc6a627961b1029102bfdc385ce7029eefd",
+    "game/core/save.js": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a",
+    "game/core/spiral-maze.js": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8",
+    "game/core/statistics-client.js": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b",
+    "game/core/tower-dps.js": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+    "game/core/unit-label.js": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e",
+    "game/core/visibility.js": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c",
+    "game/core/warband-info.js": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+    "game/core/wave-threats.js": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/enemy-designs.json": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5",
+    "data/faction-attack-visuals.json": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9",
+    "data/faction-classifications.json": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c",
+    "data/faction-memberships.json": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
+    "data/faction-outcome-scenes-v063.json": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce",
+    "data/faction-outcome-scenes-v064.json": "ab0669c52cd38d00914e30f5a93f5a8376087741dde12dea2db82ebdd879dd21",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "data/fr003-approved.json": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+    "data/fr004.json": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1",
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/scenery-v5.json": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519",
+    "data/scenery-v6.json": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd",
+    "data/scenery-v7.json": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502",
+    "data/scenery-v8-camp.json": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "output/implementation/fr004-current/authority/atlas-preview.json": "8dac335a7a65b72bdc0fc912ff966e182217f69523e1815ca3e6c13535a14f52",
+    "output/implementation/fr004-current/authority/ability-catalogue-preview.json": "a0e4c3735f7f48990a7e7d79f1fdd58bd8c4f79ddbf45d4a3d146d95d6dfb6fc",
+    "sites/defender-faction-atlas-20261021/dist/visual-catalogue-v24.json": "fa98c287ea1c5f4f70bf0a06bbbaccde1cedb9ee3abb19cb2ef1434bb4600054",
+    "sites/defender-faction-atlas-20261021/dist/character-voice-v19.json": "f6f66f91ff0c2f5b848c731daef9670c49e34cde7d385b67b9661188b50c94fb",
+    "sites/defender-faction-atlas-20261021/dist/character-voice-v23.mjs": "d529067a127542ed9ac9b80da4ceb5eb5ebc62b9eb606fa219a9b9fce3426a35",
+    "design/gallery/approvals/dwarves-v24-20261026.json": "9df34da32da38ab044da84fe5821bf9543077c89a61b63b56d86c45f4450f71f"
+  },
+  "sourceFiles": [
+    {
+      "file": "output/implementation/fr004-current/authority/atlas-preview.json",
+      "sha256": "8dac335a7a65b72bdc0fc912ff966e182217f69523e1815ca3e6c13535a14f52"
+    },
+    {
+      "file": "output/implementation/fr004-current/authority/ability-catalogue-preview.json",
+      "sha256": "a0e4c3735f7f48990a7e7d79f1fdd58bd8c4f79ddbf45d4a3d146d95d6dfb6fc"
+    }
+  ],
+  "recipeChanges": [
+    {
+      "comment": 1,
+      "factionId": "forge",
+      "unitId": "dw_boarlancer",
+      "name": "Boar Lancer",
+      "before": [
+        {
+          "id": "dw_boarrider",
+          "rank": 3
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 2
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarrider",
+          "rank": 3
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        }
+      ]
+    }
+  ],
+  "canonicalLevelChanges": [
+    {
+      "familyId": "sky-hunt",
+      "level": 1,
+      "before": {
+        "id": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+        "parameters": {
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        "summary": "Physical attacks deal +50% damage to flying enemies.",
+        "fullRules": [
+          "Physical attacks deal +50% damage to flying enemies."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-sky-hunt-1-e282a10d24",
+        "parameters": {
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        "summary": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+        "fullRules": [
+          "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "The slow applies only while inside an active aura; no hit is required and no slow lingers after leaving.",
+          "Ground enemies are unaffected. Existing Slow immunity applies; only the strongest applicable movement slow or Slow Aura applies."
+        ]
+      }
+    },
+    {
+      "familyId": "sky-hunt",
+      "level": 2,
+      "before": {
+        "id": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+        "parameters": {
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        "summary": "Physical attacks deal +60% damage to flying enemies.",
+        "fullRules": [
+          "Physical attacks deal +60% damage to flying enemies."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-sky-hunt-2-f902543c4f",
+        "parameters": {
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        "summary": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+        "fullRules": [
+          "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "The slow applies only while inside an active aura; no hit is required and no slow lingers after leaving.",
+          "Ground enemies are unaffected. Existing Slow immunity applies; only the strongest applicable movement slow or Slow Aura applies."
+        ]
+      }
+    },
+    {
+      "familyId": "sky-hunt",
+      "level": 3,
+      "before": {
+        "id": "fr002-r3-proposed-sky-hunt-3-e8bc1b4927",
+        "parameters": {
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        "summary": "Physical attacks deal +75% damage to flying enemies.",
+        "fullRules": [
+          "Physical attacks deal +75% damage to flying enemies."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+        "parameters": {
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 75,
+          "slowAuraRadius": 5,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        "summary": "Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+        "fullRules": [
+          "Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+          "The slow applies only while inside an active aura; no hit is required and no slow lingers after leaving.",
+          "Ground enemies are unaffected. Existing Slow immunity applies; only the strongest applicable movement slow or Slow Aura applies."
+        ]
+      }
+    },
+    {
+      "familyId": "splash",
+      "level": 1,
+      "before": {
+        "id": "fr002-r3-proposed-splash-1-aceb27c344",
+        "parameters": {
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1
+        },
+        "summary": "Deal 25% damage to other enemies within 1 tiles.",
+        "fullRules": [
+          "Deal 25% damage to other enemies within 1 tiles."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-splash-1-27c1157e3b",
+        "parameters": {
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        },
+        "summary": "Deal 25% damage to other enemies within 2 tiles.",
+        "fullRules": [
+          "Deal 25% damage to other enemies within 2 tiles."
+        ]
+      }
+    },
+    {
+      "familyId": "splash",
+      "level": 2,
+      "before": {
+        "id": "fr002-r3-proposed-splash-2-ad945b8059",
+        "parameters": {
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        },
+        "summary": "Deal 40% damage to other enemies within 1.25 tiles.",
+        "fullRules": [
+          "Deal 40% damage to other enemies within 1.25 tiles."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-splash-2-5e327772a3",
+        "parameters": {
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        },
+        "summary": "Deal 40% damage to other enemies within 2.25 tiles.",
+        "fullRules": [
+          "Deal 40% damage to other enemies within 2.25 tiles."
+        ]
+      }
+    },
+    {
+      "familyId": "splash",
+      "level": 3,
+      "before": {
+        "id": "fr002-r3-proposed-splash-3-0f4115ca7d",
+        "parameters": {
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.5
+        },
+        "summary": "Deal 60% damage to other enemies within 1.5 tiles.",
+        "fullRules": [
+          "Deal 60% damage to other enemies within 1.5 tiles."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-splash-3-3ee425c365",
+        "parameters": {
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.5
+        },
+        "summary": "Deal 60% damage to other enemies within 2.5 tiles.",
+        "fullRules": [
+          "Deal 60% damage to other enemies within 2.5 tiles."
+        ]
+      }
+    },
+    {
+      "familyId": "splash",
+      "level": 4,
+      "before": {
+        "id": "fr002-r3-proposed-splash-4-b645894aa2",
+        "parameters": {
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.75
+        },
+        "summary": "Deal 80% damage to other enemies within 1.75 tiles.",
+        "fullRules": [
+          "Deal 80% damage to other enemies within 1.75 tiles."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-splash-4-bc43ecb3c4",
+        "parameters": {
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.75
+        },
+        "summary": "Deal 80% damage to other enemies within 2.75 tiles.",
+        "fullRules": [
+          "Deal 80% damage to other enemies within 2.75 tiles."
+        ]
+      }
+    },
+    {
+      "familyId": "splash",
+      "level": 5,
+      "before": {
+        "id": "fr002-r3-proposed-splash-5-f22e4ea29c",
+        "parameters": {
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        },
+        "summary": "Deal 100% damage to other enemies within 2 tiles.",
+        "fullRules": [
+          "Deal 100% damage to other enemies within 2 tiles."
+        ]
+      },
+      "after": {
+        "id": "fr005-proposed-splash-5-3d2dd5ffa5",
+        "parameters": {
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 3
+        },
+        "summary": "Deal 100% damage to other enemies within 3 tiles.",
+        "fullRules": [
+          "Deal 100% damage to other enemies within 3 tiles."
+        ]
+      }
+    }
+  ],
+  "abilityProfileChanges": [
+    {
+      "key": "crown/emeraldgolem/1",
+      "factionId": "crown",
+      "unitId": "emeraldgolem",
+      "name": "Golem",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 20 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-5-7b67516d72",
+          "level": 5,
+          "levelLabel": "Armor Reduction V",
+          "armorReduction": 20,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Freeze",
+          "text": "Hits have a 10% chance to freeze enemies for 2 s.",
+          "familyId": "freeze",
+          "levelId": "fr002-r3-proposed-freeze-1-071023e781",
+          "level": 1,
+          "levelLabel": "Freeze I",
+          "bossDurationMultiplier": 0.5,
+          "chancePercent": 10,
+          "duration": 2,
+          "physicalDamageBonusPercent": 25
+        },
+        {
+          "name": "Stone Gaze",
+          "text": "Hits have a 1% chance to slow enemies by 80%; enemies facing the defender can be petrified.",
+          "familyId": "stone-gaze",
+          "levelId": "fr002-r3-proposed-stone-gaze-1-f97f62fda9",
+          "level": 1,
+          "levelLabel": "Stone Gaze I",
+          "chancePercent": 1,
+          "duration": 6,
+          "facingTime": 2,
+          "petrifyDuration": 3,
+          "petrifyIgnoresImmunity": true,
+          "physicalBonusPercent": 100,
+          "range": 7,
+          "slowPercent": 80
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 20 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-5-7b67516d72",
+          "level": 5,
+          "levelLabel": "Armor Reduction V",
+          "armorReduction": 20,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Freeze",
+          "text": "Hits have a 10% chance to freeze enemies for 2 s.",
+          "familyId": "freeze",
+          "levelId": "fr002-r3-proposed-freeze-1-071023e781",
+          "level": 1,
+          "levelLabel": "Freeze I",
+          "bossDurationMultiplier": 0.5,
+          "chancePercent": 10,
+          "duration": 2,
+          "physicalDamageBonusPercent": 25
+        },
+        {
+          "name": "Stun",
+          "text": "Hits have a 20% chance to stun for 2 s.",
+          "familyId": "stun",
+          "levelId": "fr002-r3-proposed-stun-1-256f970c35",
+          "level": 1,
+          "levelLabel": "Stun I",
+          "chancePercent": 20,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/1",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 4 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-1-5033c841c5",
+          "level": 1,
+          "levelLabel": "Burn I",
+          "damageType": "magical",
+          "dps": 4,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 1 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-1-aceb27c344",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 4 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-1-5033c841c5",
+          "level": 1,
+          "levelLabel": "Burn I",
+          "damageType": "magical",
+          "dps": 4,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-1-27c1157e3b",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/2",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 2,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 8 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-2-822f4f6c43",
+          "level": 2,
+          "levelLabel": "Burn II",
+          "damageType": "magical",
+          "dps": 8,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 1 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-1-aceb27c344",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 8 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-2-822f4f6c43",
+          "level": 2,
+          "levelLabel": "Burn II",
+          "damageType": "magical",
+          "dps": 8,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-1-27c1157e3b",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/3",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 3,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 32 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-3-00a3295c5f",
+          "level": 3,
+          "levelLabel": "Burn III",
+          "damageType": "magical",
+          "dps": 32,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 1 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-1-aceb27c344",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 32 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-3-00a3295c5f",
+          "level": 3,
+          "levelLabel": "Burn III",
+          "damageType": "magical",
+          "dps": 32,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 25% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-1-27c1157e3b",
+          "level": 1,
+          "levelLabel": "Splash I",
+          "damagePercent": 25,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/4",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 4,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 64 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-4-cf30222f39",
+          "level": 4,
+          "levelLabel": "Burn IV",
+          "damageType": "magical",
+          "dps": 64,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 64 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-4-cf30222f39",
+          "level": 4,
+          "levelLabel": "Burn IV",
+          "damageType": "magical",
+          "dps": 64,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/5",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 5,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 240 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-5-59f836386b",
+          "level": 5,
+          "levelLabel": "Burn V",
+          "damageType": "magical",
+          "dps": 240,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 240 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-5-59f836386b",
+          "level": 5,
+          "levelLabel": "Burn V",
+          "damageType": "magical",
+          "dps": 240,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grenadier/6",
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 6,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/1",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 2 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-1-682dc34c7d",
+          "level": 1,
+          "levelLabel": "Armor Reduction I",
+          "armorReduction": 2,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 2 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-1-682dc34c7d",
+          "level": 1,
+          "levelLabel": "Armor Reduction I",
+          "armorReduction": 2,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/2",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 2,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 4 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-2-b81871b729",
+          "level": 2,
+          "levelLabel": "Armor Reduction II",
+          "armorReduction": 4,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 4 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-2-b81871b729",
+          "level": 2,
+          "levelLabel": "Armor Reduction II",
+          "armorReduction": 4,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/3",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 3,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-2-f902543c4f",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/4",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 4,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-2-f902543c4f",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/5",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 5,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-3-e8bc1b4927",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 75,
+          "slowAuraRadius": 5,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinhandler/6",
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 6,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-3-e8bc1b4927",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 75,
+          "slowAuraRadius": 5,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_steamrail/1",
+      "factionId": "forge",
+      "unitId": "dw_steamrail",
+      "name": "Heavy Sniper",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 25% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-3-50982a9d21",
+          "level": 3,
+          "levelLabel": "Armor Penetration III",
+          "armorIgnorePercent": 25
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-d5c64a9823",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_warcaller"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Critical Strike",
+          "text": "Attacks have a 10% chance to deal ×5 damage.",
+          "familyId": "critical-strike",
+          "levelId": "fr002-r3-proposed-critical-strike-1-6d1067f1fd",
+          "level": 1,
+          "levelLabel": "Critical Strike I",
+          "chancePercent": 10,
+          "multiplier": 5
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 40% chance to bounce to 3 additional enemies, retaining 70% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-3-85a00d8743",
+          "level": 3,
+          "levelLabel": "Ricochet III",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 40,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 30,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 3,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "True Strike",
+          "text": "Attacks ignore 100% of enemy evasion.",
+          "familyId": "true-strike",
+          "levelId": "fr002-r3-proposed-true-strike-4-3e48dd59a1",
+          "level": 4,
+          "levelLabel": "True Strike IV",
+          "evasionIgnorePercent": 100,
+          "scope": "self"
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 25% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-3-50982a9d21",
+          "level": 3,
+          "levelLabel": "Armor Penetration III",
+          "armorIgnorePercent": 25
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-d5c64a9823",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_warcaller"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Critical Strike",
+          "text": "Attacks have a 10% chance to deal ×5 damage.",
+          "familyId": "critical-strike",
+          "levelId": "fr002-r3-proposed-critical-strike-1-6d1067f1fd",
+          "level": 1,
+          "levelLabel": "Critical Strike I",
+          "chancePercent": 10,
+          "multiplier": 5
+        },
+        {
+          "name": "Execution",
+          "text": "Every 15 s, execute one normal enemy or deal ×10 damage to a boss.",
+          "familyId": "execution",
+          "levelId": "fr002-r3-proposed-execution-1-9d669752a7",
+          "level": 1,
+          "levelLabel": "Execution I",
+          "bossCriticalMultiplier": 10,
+          "cooldown": 15,
+          "instantKillNormal": true,
+          "targets": 1
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 40% chance to bounce to 3 additional enemies, retaining 70% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-3-85a00d8743",
+          "level": 3,
+          "levelLabel": "Ricochet III",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 40,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 30,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 3,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "True Strike",
+          "text": "Attacks ignore 100% of enemy evasion.",
+          "familyId": "true-strike",
+          "levelId": "fr002-r3-proposed-true-strike-4-3e48dd59a1",
+          "level": 4,
+          "levelLabel": "True Strike IV",
+          "evasionIgnorePercent": 100,
+          "scope": "self"
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_grapeshotcart/1",
+      "factionId": "forge",
+      "unitId": "dw_grapeshotcart",
+      "name": "Mortar Dwarf",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 20% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-2-cbf6a3d1cf",
+          "level": 2,
+          "levelLabel": "Armor Penetration II",
+          "armorIgnorePercent": 20
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 50% chance to bounce to 4 additional enemies, retaining 80% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-4-8ccf3deba1",
+          "level": 4,
+          "levelLabel": "Ricochet IV",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 50,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 20,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 4,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 50% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-8-68319ab9ef",
+          "level": 8,
+          "levelLabel": "Slow VIII",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 3,
+          "slowPercent": 50,
+          "targeting": "eligible"
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-5-f22e4ea29c",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        },
+        {
+          "name": "True Strike",
+          "text": "Attacks ignore 60% of enemy evasion.",
+          "familyId": "true-strike",
+          "levelId": "fr002-r3-proposed-true-strike-3-c5338ccada",
+          "level": 3,
+          "levelLabel": "True Strike III",
+          "evasionIgnorePercent": 60,
+          "scope": "self"
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 20% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-2-cbf6a3d1cf",
+          "level": 2,
+          "levelLabel": "Armor Penetration II",
+          "armorIgnorePercent": 20
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 50% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-8-68319ab9ef",
+          "level": 8,
+          "levelLabel": "Slow VIII",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 3,
+          "slowPercent": 50,
+          "targeting": "eligible"
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 3 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-5-3d2dd5ffa5",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 3
+        },
+        {
+          "name": "True Strike",
+          "text": "Attacks ignore 60% of enemy evasion.",
+          "familyId": "true-strike",
+          "levelId": "fr002-r3-proposed-true-strike-3-c5338ccada",
+          "level": 3,
+          "levelLabel": "True Strike III",
+          "evasionIgnorePercent": 60,
+          "scope": "self"
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_fuserunner/1",
+      "factionId": "forge",
+      "unitId": "dw_fuserunner",
+      "name": "Bomb Dwarf",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 32 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-3-00a3295c5f",
+          "level": 3,
+          "levelLabel": "Burn III",
+          "damageType": "magical",
+          "dps": 32,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        }
+      ],
+      "after": [
+        {
+          "name": "Burn",
+          "text": "Hits apply 32 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-3-00a3295c5f",
+          "level": 3,
+          "levelLabel": "Burn III",
+          "damageType": "magical",
+          "dps": 32,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_firebomber/1",
+      "factionId": "forge",
+      "unitId": "dw_firebomber",
+      "name": "Fire Bomber",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4 tiles have 20 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-1-216257324a",
+          "level": 1,
+          "levelLabel": "Armor Reduction Aura I",
+          "armorReduction": 20,
+          "radius": 4
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 64 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-4-cf30222f39",
+          "level": 4,
+          "levelLabel": "Burn IV",
+          "damageType": "magical",
+          "dps": 64,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 1.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-3-0f4115ca7d",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.5
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4 tiles have 20 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-1-216257324a",
+          "level": 1,
+          "levelLabel": "Armor Reduction Aura I",
+          "armorReduction": 20,
+          "radius": 4
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 64 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-4-cf30222f39",
+          "level": 4,
+          "levelLabel": "Burn IV",
+          "damageType": "magical",
+          "dps": 64,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 2.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-3-3ee425c365",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.5
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinbomber/1",
+      "factionId": "forge",
+      "unitId": "dw_griffinbomber",
+      "name": "Griffin Bomber",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4.5 tiles have 35 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-2-4301ba9ca3",
+          "level": 2,
+          "levelLabel": "Armor Reduction Aura II",
+          "armorReduction": 35,
+          "radius": 4.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 240 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-5-59f836386b",
+          "level": 5,
+          "levelLabel": "Burn V",
+          "damageType": "magical",
+          "dps": 240,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 1.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-4-b645894aa2",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.75
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4.5 tiles have 35 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-2-4301ba9ca3",
+          "level": 2,
+          "levelLabel": "Armor Reduction Aura II",
+          "armorReduction": 35,
+          "radius": 4.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 240 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-5-59f836386b",
+          "level": 5,
+          "levelLabel": "Burn V",
+          "damageType": "magical",
+          "dps": 240,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 2.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-4-bc43ecb3c4",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.75
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_cinderhowitzer/1",
+      "factionId": "forge",
+      "unitId": "dw_cinderhowitzer",
+      "name": "Siege Cannon",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4.5 tiles have 35 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-2-4301ba9ca3",
+          "level": 2,
+          "levelLabel": "Armor Reduction Aura II",
+          "armorReduction": 35,
+          "radius": 4.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Fire Aura",
+          "text": "Enemies within 2.5 tiles take 60 Magical damage/s.",
+          "familyId": "fire-aura",
+          "levelId": "fr002-r3-proposed-fire-aura-1-28004ce250",
+          "level": 1,
+          "levelLabel": "Fire Aura I",
+          "damageType": "magical",
+          "dps": 60,
+          "radius": 2.5
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-5-f22e4ea29c",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 4.5 tiles have 35 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-2-4301ba9ca3",
+          "level": 2,
+          "levelLabel": "Armor Reduction Aura II",
+          "armorReduction": 35,
+          "radius": 4.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Fire Aura",
+          "text": "Enemies within 2.5 tiles take 60 Magical damage/s.",
+          "familyId": "fire-aura",
+          "levelId": "fr002-r3-proposed-fire-aura-1-28004ce250",
+          "level": 1,
+          "levelLabel": "Fire Aura I",
+          "damageType": "magical",
+          "dps": 60,
+          "radius": 2.5
+        },
+        {
+          "name": "Freeze",
+          "text": "Hits have a 10% chance to freeze enemies for 2 s.",
+          "familyId": "freeze",
+          "levelId": "fr002-r3-proposed-freeze-1-071023e781",
+          "level": 1,
+          "levelLabel": "Freeze I",
+          "bossDurationMultiplier": 0.5,
+          "chancePercent": 10,
+          "duration": 2,
+          "physicalDamageBonusPercent": 25
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 3 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-5-3d2dd5ffa5",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 3
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_dwarship/1",
+      "factionId": "forge",
+      "unitId": "dw_dwarship",
+      "name": "Dwarf Airship",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 5.5 tiles have 45 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-3-77b82a96e9",
+          "level": 3,
+          "levelLabel": "Armor Reduction Aura III",
+          "armorReduction": 45,
+          "radius": 5.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 2 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-5-f22e4ea29c",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction Aura",
+          "text": "Enemies within 5.5 tiles have 45 less armor.",
+          "familyId": "armor-reduction-aura",
+          "levelId": "fr002-r3-proposed-armor-reduction-aura-3-77b82a96e9",
+          "level": 3,
+          "levelLabel": "Armor Reduction Aura III",
+          "armorReduction": 45,
+          "radius": 5.5
+        },
+        {
+          "name": "Burn",
+          "text": "Hits apply 600 Magical damage/s for 3 s.",
+          "familyId": "burn",
+          "levelId": "fr002-r3-proposed-burn-6-e5bb53f275",
+          "level": 6,
+          "levelLabel": "Burn VI",
+          "damageType": "magical",
+          "dps": 600,
+          "duration": 3
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 100% damage to other enemies within 3 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-5-3d2dd5ffa5",
+          "level": 5,
+          "levelLabel": "Splash V",
+          "damagePercent": 100,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 3
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_repeatercrew/1",
+      "factionId": "forge",
+      "unitId": "dw_repeatercrew",
+      "name": "Gatling Gunner",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +20% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-1-282ad4a73a",
+          "level": 1,
+          "levelLabel": "Attack Speed Aura I",
+          "bonusPercent": 20,
+          "radius": 5,
+          "stackGroup": "standard"
+        }
+      ],
+      "after": [
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +20% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-1-282ad4a73a",
+          "level": 1,
+          "levelLabel": "Attack Speed Aura I",
+          "bonusPercent": 20,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 2 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-1-2f94cd077a",
+          "level": 1,
+          "levelLabel": "Multishot I",
+          "distinct": true,
+          "targets": 2
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 20% chance to bounce to 1 additional enemy, retaining 50% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-1-55768b94a9",
+          "level": 1,
+          "levelLabel": "Ricochet I",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 20,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 50,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 1,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_ironclad/1",
+      "factionId": "forge",
+      "unitId": "dw_ironclad",
+      "name": "Iron Golem",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +20% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-1-282ad4a73a",
+          "level": 1,
+          "levelLabel": "Attack Speed Aura I",
+          "bonusPercent": 20,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +20% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-1-282ad4a73a",
+          "level": 1,
+          "levelLabel": "Attack Speed Aura I",
+          "bonusPercent": 20,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 3 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-2-2c10d211bc",
+          "level": 2,
+          "levelLabel": "Multishot II",
+          "distinct": true,
+          "targets": 3
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 20% chance to bounce to 1 additional enemy, retaining 50% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-1-55768b94a9",
+          "level": 1,
+          "levelLabel": "Ricochet I",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 20,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 50,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 1,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_breachorgan/1",
+      "factionId": "forge",
+      "unitId": "dw_breachorgan",
+      "name": "Gatling Golem",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +30% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-3-33ec6477f4",
+          "level": 3,
+          "levelLabel": "Attack Speed Aura III",
+          "bonusPercent": 30,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 1.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-3-0f4115ca7d",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.5
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +30% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-3-33ec6477f4",
+          "level": 3,
+          "levelLabel": "Attack Speed Aura III",
+          "bonusPercent": 30,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 5 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-3-9eda165649",
+          "level": 3,
+          "levelLabel": "Multishot III",
+          "distinct": true,
+          "targets": 5
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 30% chance to bounce to 2 additional enemies, retaining 60% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-2-53acda626d",
+          "level": 2,
+          "levelLabel": "Ricochet II",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 30,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 40,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 2,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 2.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-3-3ee425c365",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.5
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_deepdelve/1",
+      "factionId": "forge",
+      "unitId": "dw_deepdelve",
+      "name": "Forge Sentinel",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 25% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-3-50982a9d21",
+          "level": 3,
+          "levelLabel": "Armor Penetration III",
+          "armorIgnorePercent": 25
+        },
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +70% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-7-50aeea66e2",
+          "level": 7,
+          "levelLabel": "Attack Speed Aura VII",
+          "bonusPercent": 70,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Stun",
+          "text": "Hits have a 20% chance to stun for 2 s.",
+          "familyId": "stun",
+          "levelId": "fr002-r3-proposed-stun-1-256f970c35",
+          "level": 1,
+          "levelLabel": "Stun I",
+          "chancePercent": 20,
+          "duration": 2
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Penetration",
+          "text": "Direct damage ignores 25% of enemy armor.",
+          "familyId": "armor-penetration",
+          "levelId": "fr002-r3-proposed-armor-penetration-3-50982a9d21",
+          "level": 3,
+          "levelLabel": "Armor Penetration III",
+          "armorIgnorePercent": 25
+        },
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +70% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-7-50aeea66e2",
+          "level": 7,
+          "levelLabel": "Attack Speed Aura VII",
+          "bonusPercent": 70,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 5 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-3-9eda165649",
+          "level": 3,
+          "levelLabel": "Multishot III",
+          "distinct": true,
+          "targets": 5
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 30% chance to bounce to 2 additional enemies, retaining 60% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-2-53acda626d",
+          "level": 2,
+          "levelLabel": "Ricochet II",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 30,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 40,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 2,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Stun",
+          "text": "Hits have a 20% chance to stun for 2 s.",
+          "familyId": "stun",
+          "levelId": "fr002-r3-proposed-stun-1-256f970c35",
+          "level": 1,
+          "levelLabel": "Stun I",
+          "chancePercent": 20,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_salvomarshal/1",
+      "factionId": "forge",
+      "unitId": "dw_salvomarshal",
+      "name": "Iron Colossus",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +50% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-5-0f94184fca",
+          "level": 5,
+          "levelLabel": "Attack Speed Aura V",
+          "bonusPercent": 50,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 10 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-4-b277ab3c0b",
+          "level": 4,
+          "levelLabel": "Multishot IV",
+          "distinct": true,
+          "targets": 10
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 1.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-4-b645894aa2",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.75
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Attack Speed Aura",
+          "text": "Allies within 5 tiles gain +50% attack speed.",
+          "familyId": "attack-speed-aura",
+          "levelId": "fr002-r3-proposed-attack-speed-aura-5-0f94184fca",
+          "level": 5,
+          "levelLabel": "Attack Speed Aura V",
+          "bonusPercent": 50,
+          "radius": 5,
+          "stackGroup": "standard"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-231ba0ad1d",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_nullifier",
+            "dw_tunnelsapper",
+            "dw_worldanvil"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 10 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-4-b277ab3c0b",
+          "level": 4,
+          "levelLabel": "Multishot IV",
+          "distinct": true,
+          "targets": 10
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 30% chance to bounce to 2 additional enemies, retaining 60% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-2-53acda626d",
+          "level": 2,
+          "levelLabel": "Ricochet II",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 30,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 40,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 2,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 2.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-4-bc43ecb3c4",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.75
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_tunnelsapper/1",
+      "factionId": "forge",
+      "unitId": "dw_tunnelsapper",
+      "name": "Rune Mage",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 5.5 tiles take 65% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-4",
+          "level": 4,
+          "levelLabel": "Cancel Physical Immunity Aura IV",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 0.65,
+          "radius": 5.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 3.5 tiles move 25% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-1-91a45b5100",
+          "level": 1,
+          "levelLabel": "Slow Aura I",
+          "groundOnly": false,
+          "radius": 3.5,
+          "slowPercent": 25
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 5.5 tiles take 65% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-4",
+          "level": 4,
+          "levelLabel": "Cancel Physical Immunity Aura IV",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 0.65,
+          "radius": 5.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 3.5 tiles move 25% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-1-91a45b5100",
+          "level": 1,
+          "levelLabel": "Slow Aura I",
+          "groundOnly": false,
+          "radius": 3.5,
+          "slowPercent": 25
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_nullifier/1",
+      "factionId": "forge",
+      "unitId": "dw_nullifier",
+      "name": "Rune Guardian",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 6 tiles take 80% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-5",
+          "level": 5,
+          "levelLabel": "Cancel Physical Immunity Aura V",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 0.8,
+          "radius": 6,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 4 tiles move 40% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-3-b70380d29e",
+          "level": 3,
+          "levelLabel": "Slow Aura III",
+          "groundOnly": false,
+          "radius": 4,
+          "slowPercent": 40
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 1.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-3-0f4115ca7d",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.5
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 6 tiles take 80% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-5",
+          "level": 5,
+          "levelLabel": "Cancel Physical Immunity Aura V",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 0.8,
+          "radius": 6,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 4 tiles move 40% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-3-b70380d29e",
+          "level": 3,
+          "levelLabel": "Slow Aura III",
+          "groundOnly": false,
+          "radius": 4,
+          "slowPercent": 40
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 60% damage to other enemies within 2.5 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-3-3ee425c365",
+          "level": 3,
+          "levelLabel": "Splash III",
+          "damagePercent": 60,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.5
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_worldanvil/1",
+      "factionId": "forge",
+      "unitId": "dw_worldanvil",
+      "name": "Rune Master",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 6.5 tiles take 100% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-6",
+          "level": 6,
+          "levelLabel": "Cancel Physical Immunity Aura VI",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 1,
+          "radius": 6.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 5 tiles move 75% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-4-09554a37ec",
+          "level": 4,
+          "levelLabel": "Slow Aura IV",
+          "groundOnly": false,
+          "radius": 5,
+          "slowPercent": 75
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 1.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-4-b645894aa2",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.75
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Bonded Formation",
+          "text": "Gain +20% direct damage beside an eligible partner.",
+          "familyId": "bonded-formation",
+          "levelId": "fr002-r3-proposed-bonded-formation-1-c91d944faa",
+          "level": 1,
+          "levelLabel": "Bonded Formation I",
+          "bonusPercent": 20,
+          "cardinalAdjacencyOnly": true,
+          "partnerIds": [
+            "dw_breachorgan",
+            "dw_deepdelve",
+            "dw_ironclad",
+            "dw_salvomarshal"
+          ],
+          "primaryOnly": true
+        },
+        {
+          "name": "Cancel Physical Immunity Aura",
+          "text": "Immune enemies within 6.5 tiles take 100% of normal Physical damage.",
+          "familyId": "cancel-physical-immunity-aura",
+          "levelId": "fr003-proposed-cancel-physical-immunity-aura-6",
+          "level": 6,
+          "levelLabel": "Cancel Physical Immunity Aura VI",
+          "mode": "aura",
+          "immunity": "physical",
+          "damageMultiplier": 1,
+          "radius": 6.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Slow Aura",
+          "text": "Enemies within 5 tiles move 75% more slowly.",
+          "familyId": "slow-aura",
+          "levelId": "fr002-r3-proposed-slow-aura-4-09554a37ec",
+          "level": 4,
+          "levelLabel": "Slow Aura IV",
+          "groundOnly": false,
+          "radius": 5,
+          "slowPercent": 75
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 80% damage to other enemies within 2.75 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-4-bc43ecb3c4",
+          "level": 4,
+          "levelLabel": "Splash IV",
+          "damagePercent": 80,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.75
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_griffinscout/1",
+      "factionId": "forge",
+      "unitId": "dw_griffinscout",
+      "name": "Griffin Scout",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 8 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-3-e257d3517c",
+          "level": 3,
+          "levelLabel": "Armor Reduction III",
+          "armorReduction": 8,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_skyhook/1",
+      "factionId": "forge",
+      "unitId": "dw_skyhook",
+      "name": "Griffin Gunner",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +1 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-1-95f977f6ee",
+          "level": 1,
+          "levelLabel": "Range Aura I",
+          "radius": 5,
+          "rangeBonus": 1
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 25% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-4-d5a6199942",
+          "level": 4,
+          "levelLabel": "Slow IV",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 0,
+          "slowPercent": 25,
+          "targeting": "eligible"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +1 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-1-95f977f6ee",
+          "level": 1,
+          "levelLabel": "Range Aura I",
+          "radius": 5,
+          "rangeBonus": 1
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-2-f902543c4f",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 25% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-4-d5a6199942",
+          "level": 4,
+          "levelLabel": "Slow IV",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 0,
+          "slowPercent": 25,
+          "targeting": "eligible"
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_talonlord/1",
+      "factionId": "forge",
+      "unitId": "dw_talonlord",
+      "name": "Armored Griffin Rider",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +1 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-1-95f977f6ee",
+          "level": 1,
+          "levelLabel": "Range Aura I",
+          "radius": 5,
+          "rangeBonus": 1
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 40% chance to bounce to 3 additional enemies, retaining 70% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-3-85a00d8743",
+          "level": 3,
+          "levelLabel": "Ricochet III",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 40,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 30,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 3,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-3-e8bc1b4927",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 36% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-6-8469cace00",
+          "level": 6,
+          "levelLabel": "Slow VI",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 0,
+          "slowPercent": 36,
+          "targeting": "eligible"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +1 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-1-95f977f6ee",
+          "level": 1,
+          "levelLabel": "Range Aura I",
+          "radius": 5,
+          "rangeBonus": 1
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 40% chance to bounce to 3 additional enemies, retaining 70% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-3-85a00d8743",
+          "level": 3,
+          "levelLabel": "Ricochet III",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 40,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 30,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 3,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+          "level": 3,
+          "levelLabel": "Sky Hunt III",
+          "bonusPercent": 75,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 75,
+          "slowAuraRadius": 5,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 36% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-6-8469cace00",
+          "level": 6,
+          "levelLabel": "Slow VI",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 0,
+          "slowPercent": 36,
+          "targeting": "eligible"
+        }
+      ]
+    },
+    {
+      "key": "forge/dw_highthane/1",
+      "factionId": "forge",
+      "unitId": "dw_highthane",
+      "name": "Griffin Commander",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 3 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-2-2c10d211bc",
+          "level": 2,
+          "levelLabel": "Multishot II",
+          "distinct": true,
+          "targets": 3
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +3 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-2-6d34e5c91c",
+          "level": 2,
+          "levelLabel": "Range Aura II",
+          "radius": 5,
+          "rangeBonus": 3
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 50% chance to bounce to 4 additional enemies, retaining 80% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-4-8ccf3deba1",
+          "level": 4,
+          "levelLabel": "Ricochet IV",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 50,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 20,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 4,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 50% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-8-68319ab9ef",
+          "level": 8,
+          "levelLabel": "Slow VIII",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 3,
+          "slowPercent": 50,
+          "targeting": "eligible"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 64 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-9-e8e39f2c0a",
+          "level": 9,
+          "levelLabel": "Armor Reduction IX",
+          "armorReduction": 64,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 3 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-2-2c10d211bc",
+          "level": 2,
+          "levelLabel": "Multishot II",
+          "distinct": true,
+          "targets": 3
+        },
+        {
+          "name": "Range Aura",
+          "text": "Allies within 5 tiles gain +3 attack range.",
+          "familyId": "range-aura",
+          "levelId": "fr002-r3-proposed-range-aura-2-6d34e5c91c",
+          "level": 2,
+          "levelLabel": "Range Aura II",
+          "radius": 5,
+          "rangeBonus": 3
+        },
+        {
+          "name": "Ricochet",
+          "text": "Hits have a 50% chance to bounce to 4 additional enemies, retaining 80% damage with each bounce.",
+          "familyId": "ricochet",
+          "levelId": "fr002-r3-proposed-ricochet-4-8ccf3deba1",
+          "level": 4,
+          "levelLabel": "Ricochet IV",
+          "canApplyOnHit": true,
+          "canCrit": true,
+          "canTriggerAbilities": true,
+          "carriesSplash": false,
+          "chancePercent": 50,
+          "continuousAggregationSeconds": 1,
+          "criticalRule": "one fresh ordinary critical roll per bounce, using the owner critical ability and a pre-critical bounce basis",
+          "damageBasis": "triggering packet before target defenses, critical multiplier and Execution replacement",
+          "damageReductionPercent": 20,
+          "damageType": "triggering hit",
+          "descendantRicochetEligible": false,
+          "excludeOriginTarget": true,
+          "jumpRange": null,
+          "lineageRule": "a proc child cannot retrigger an ancestor ability in the same originating hit lineage",
+          "maxBounces": 4,
+          "noRepeatTargets": true,
+          "onHitRule": "ordinary on-hit statuses and procs are allowed; attack-release and timed abilities retain their own trigger",
+          "preventAncestorAbilityRetrigger": true,
+          "recursive": false,
+          "selectionOrder": "nearest eligible enemy, then stable enemy identity",
+          "selectionScope": "all visible eligible enemies on the battlefield",
+          "trigger": "any owned damaging hit",
+          "triggerScope": [
+            "primary",
+            "secondary",
+            "damage-over-time",
+            "aura",
+            "continuous"
+          ],
+          "unlimitedBounceDistance": true
+        },
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        },
+        {
+          "name": "Slow",
+          "text": "Hits slow enemies by 50% for 3 s.",
+          "familyId": "slow",
+          "levelId": "fr002-r3-proposed-slow-8-68319ab9ef",
+          "level": 8,
+          "levelLabel": "Slow VIII",
+          "duration": 3,
+          "ignoresSlowImmunity": false,
+          "radius": 3,
+          "slowPercent": 50,
+          "targeting": "eligible"
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/1",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/2",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 2,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/3",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 3,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/4",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 4,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-1-d42c241df3",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +50% damage to flying enemies. Flying enemies within 3 tiles are slowed by 25%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-1-e282a10d24",
+          "level": 1,
+          "levelLabel": "Sky Hunt I",
+          "bonusPercent": 50,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 25,
+          "slowAuraRadius": 3,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/5",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 5,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-2-f902543c4f",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_grove_archer/6",
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 6,
+      "before": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies.",
+          "familyId": "sky-hunt",
+          "levelId": "fr002-r3-proposed-sky-hunt-2-292a7e7db3",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying"
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Sky Hunt",
+          "text": "Physical attacks deal +60% damage to flying enemies. Flying enemies within 4 tiles are slowed by 50%.",
+          "familyId": "sky-hunt",
+          "levelId": "fr005-proposed-sky-hunt-2-f902543c4f",
+          "level": 2,
+          "levelLabel": "Sky Hunt II",
+          "bonusPercent": 60,
+          "damageType": "physical",
+          "targeting": "flying",
+          "slowPercent": 50,
+          "slowAuraRadius": 4,
+          "slowTargeting": "flying",
+          "slowTrigger": "continuous aura",
+          "slowStacking": "strongest movement slow only",
+          "ignoresSlowImmunity": false
+        }
+      ]
+    },
+    {
+      "key": "grove/el_elven_archer/1",
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "name": "Moonlight Ranger Scout",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 2 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-1-2f94cd077a",
+          "level": 1,
+          "levelLabel": "Multishot I",
+          "distinct": true,
+          "targets": 2
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 2 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-1-2f94cd077a",
+          "level": 1,
+          "levelLabel": "Multishot I",
+          "distinct": true,
+          "targets": 2
+        }
+      ]
+    },
+    {
+      "key": "grove/el_elven_bowmaster/1",
+      "factionId": "grove",
+      "unitId": "el_elven_bowmaster",
+      "name": "Moonlight Ranger Captain",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 2 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-1-2f94cd077a",
+          "level": 1,
+          "levelLabel": "Multishot I",
+          "distinct": true,
+          "targets": 2
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 2 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-1-2f94cd077a",
+          "level": 1,
+          "levelLabel": "Multishot I",
+          "distinct": true,
+          "targets": 2
+        }
+      ]
+    },
+    {
+      "key": "grove/el_tempest_bowmage/1",
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "name": "Moonlight Ranger Warden",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 3 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-2-2c10d211bc",
+          "level": 2,
+          "levelLabel": "Multishot II",
+          "distinct": true,
+          "targets": 3
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 3 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-2-2c10d211bc",
+          "level": 2,
+          "levelLabel": "Multishot II",
+          "distinct": true,
+          "targets": 3
+        }
+      ]
+    },
+    {
+      "key": "grove/el_starfall_bowmaster/1",
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "name": "Moonlight Eagle Rider",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 10 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-4-b277ab3c0b",
+          "level": 4,
+          "levelLabel": "Multishot IV",
+          "distinct": true,
+          "targets": 10
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 16 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-4-df9f7cd67e",
+          "level": 4,
+          "levelLabel": "Armor Reduction IV",
+          "armorReduction": 16,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 10 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-4-b277ab3c0b",
+          "level": 4,
+          "levelLabel": "Multishot IV",
+          "distinct": true,
+          "targets": 10
+        }
+      ]
+    },
+    {
+      "key": "grove/el_twilight_huntress/1",
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "name": "Moonshadow Huntress",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Critical Strike",
+          "text": "Attacks have a 10% chance to deal ×5 damage.",
+          "familyId": "critical-strike",
+          "levelId": "fr002-r3-proposed-critical-strike-1-6d1067f1fd",
+          "level": 1,
+          "levelLabel": "Critical Strike I",
+          "chancePercent": 10,
+          "multiplier": 5
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 5 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-3-9eda165649",
+          "level": 3,
+          "levelLabel": "Multishot III",
+          "distinct": true,
+          "targets": 5
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        },
+        {
+          "name": "Execution",
+          "text": "Every 15 s, execute one normal enemy or deal ×10 damage to a boss.",
+          "familyId": "execution",
+          "levelId": "fr002-r3-proposed-execution-1-9d669752a7",
+          "level": 1,
+          "levelLabel": "Execution I",
+          "bossCriticalMultiplier": 10,
+          "cooldown": 15,
+          "instantKillNormal": true,
+          "targets": 1
+        }
+      ],
+      "after": [
+        {
+          "name": "Armor Reduction",
+          "text": "Hits remove 32 armor for 4 s.",
+          "familyId": "armor-reduction",
+          "levelId": "fr002-r3-proposed-armor-reduction-6-93c2d66f86",
+          "level": 6,
+          "levelLabel": "Armor Reduction VI",
+          "armorReduction": 32,
+          "duration": 4,
+          "targeting": "all-eligible"
+        },
+        {
+          "name": "Critical Strike",
+          "text": "Attacks have a 10% chance to deal ×5 damage.",
+          "familyId": "critical-strike",
+          "levelId": "fr002-r3-proposed-critical-strike-1-6d1067f1fd",
+          "level": 1,
+          "levelLabel": "Critical Strike I",
+          "chancePercent": 10,
+          "multiplier": 5
+        },
+        {
+          "name": "Execution",
+          "text": "Every 15 s, execute one normal enemy or deal ×10 damage to a boss.",
+          "familyId": "execution",
+          "levelId": "fr002-r3-proposed-execution-1-9d669752a7",
+          "level": 1,
+          "levelLabel": "Execution I",
+          "bossCriticalMultiplier": 10,
+          "cooldown": 15,
+          "instantKillNormal": true,
+          "targets": 1
+        },
+        {
+          "name": "Lone Vigil",
+          "text": "Gain +20% direct damage while no ally stands beside this defender.",
+          "familyId": "lone-vigil",
+          "levelId": "fr002-r3-proposed-lone-vigil-1-f04c720c06",
+          "level": 1,
+          "levelLabel": "Lone Vigil I",
+          "bonusPercent": 20,
+          "cardinalEmpty": true,
+          "primaryOnly": true
+        },
+        {
+          "name": "Multishot",
+          "text": "Each attack hits up to 5 different enemies.",
+          "familyId": "multishot",
+          "levelId": "fr002-r3-proposed-multishot-3-9eda165649",
+          "level": 3,
+          "levelLabel": "Multishot III",
+          "distinct": true,
+          "targets": 5
+        }
+      ]
+    },
+    {
+      "key": "grove/el_stag_oracle/1",
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "name": "Crescent Revenant",
+      "rank": 1,
+      "before": [
+        {
+          "name": "Anti-Regeneration",
+          "text": "Hits reduce enemy healing by 100% for 5 s.",
+          "familyId": "anti-regeneration",
+          "levelId": "fr002-r3-proposed-anti-regeneration-2-b449929c7a",
+          "level": 2,
+          "levelLabel": "Anti-Regeneration II",
+          "duration": 5,
+          "reductionPercent": 100,
+          "scope": "all-healing"
+        },
+        {
+          "name": "Cancel Magic Immunity Aura",
+          "text": "Immune enemies within 4.5 tiles take 80% of normal Magical damage.",
+          "familyId": "cancel-magic-immunity-aura",
+          "levelId": "fr003-proposed-cancel-magic-immunity-aura-5",
+          "level": 5,
+          "levelLabel": "Cancel Magic Immunity Aura V",
+          "mode": "aura",
+          "immunity": "magical",
+          "damageMultiplier": 0.8,
+          "radius": 4.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Protection Aura",
+          "text": "Allies within 4 tiles gain 50% protection from disarm and attack slowing.",
+          "familyId": "protection-aura",
+          "levelId": "fr002-r3-proposed-protection-aura-2-3b60529f5c",
+          "level": 2,
+          "levelLabel": "Protection Aura II",
+          "protectionPercent": 50,
+          "radius": 4
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 1.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr002-r3-proposed-splash-2-ad945b8059",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 1.25
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        },
+        {
+          "name": "Keep Recovery",
+          "text": "A damaging attack has a 1% chance to restore 1 keep health.",
+          "familyId": "keep-recovery",
+          "levelId": "fr002-r3-proposed-keep-recovery-1-9366679458",
+          "level": 1,
+          "levelLabel": "Keep Recovery I",
+          "chancePercent": 1,
+          "health": 1,
+          "maximum": "starting keep health"
+        }
+      ],
+      "after": [
+        {
+          "name": "Anti-Regeneration",
+          "text": "Hits reduce enemy healing by 100% for 5 s.",
+          "familyId": "anti-regeneration",
+          "levelId": "fr002-r3-proposed-anti-regeneration-2-b449929c7a",
+          "level": 2,
+          "levelLabel": "Anti-Regeneration II",
+          "duration": 5,
+          "reductionPercent": 100,
+          "scope": "all-healing"
+        },
+        {
+          "name": "Cancel Magic Immunity Aura",
+          "text": "Immune enemies within 4.5 tiles take 80% of normal Magical damage.",
+          "familyId": "cancel-magic-immunity-aura",
+          "levelId": "fr003-proposed-cancel-magic-immunity-aura-5",
+          "level": 5,
+          "levelLabel": "Cancel Magic Immunity Aura V",
+          "mode": "aura",
+          "immunity": "magical",
+          "damageMultiplier": 0.8,
+          "radius": 4.5,
+          "stacking": "strongest-per-damage-type",
+          "groundOnly": false
+        },
+        {
+          "name": "Keep Recovery",
+          "text": "A damaging attack has a 1% chance to restore 1 keep health.",
+          "familyId": "keep-recovery",
+          "levelId": "fr002-r3-proposed-keep-recovery-1-9366679458",
+          "level": 1,
+          "levelLabel": "Keep Recovery I",
+          "chancePercent": 1,
+          "health": 1,
+          "maximum": "starting keep health"
+        },
+        {
+          "name": "Protection Aura",
+          "text": "Allies within 4 tiles gain 50% protection from disarm and attack slowing.",
+          "familyId": "protection-aura",
+          "levelId": "fr002-r3-proposed-protection-aura-2-3b60529f5c",
+          "level": 2,
+          "levelLabel": "Protection Aura II",
+          "protectionPercent": 50,
+          "radius": 4
+        },
+        {
+          "name": "Splash",
+          "text": "Deal 40% damage to other enemies within 2.25 tiles.",
+          "familyId": "splash",
+          "levelId": "fr005-proposed-splash-2-5e327772a3",
+          "level": 2,
+          "levelLabel": "Splash II",
+          "damagePercent": 40,
+          "damageType": "profile",
+          "maxTargets": null,
+          "radius": 2.25
+        },
+        {
+          "name": "Visibility",
+          "text": "Reveal hidden enemies within 6 tiles for the army.",
+          "familyId": "visibility",
+          "levelId": "fr002-r3-proposed-visibility-1-5a7a474e3c",
+          "level": 1,
+          "levelLabel": "Visibility I",
+          "radius": 6
+        }
+      ]
+    }
+  ],
+  "removedFamilyChanges": [
+    {
+      "comment": 7,
+      "familyId": "stone-gaze",
+      "before": {
+        "id": "stone-gaze",
+        "name": "Stone Gaze",
+        "category": "Control",
+        "description": "An active gaze slows eligible enemies and petrifies enemies facing the source.",
+        "orderingMode": "potency",
+        "orderingNote": "Levels ascend by physical vulnerability after petrification (%); retired numbers stay reserved where exact requested labels are preserved.",
+        "orderingAxes": [
+          "physicalBonusPercent"
+        ],
+        "levels": [
+          {
+            "id": "fr002-r3-proposed-stone-gaze-1-f97f62fda9",
+            "familyId": "stone-gaze",
+            "parameters": {
+              "chancePercent": 1,
+              "duration": 6,
+              "facingTime": 2,
+              "petrifyDuration": 3,
+              "petrifyIgnoresImmunity": true,
+              "physicalBonusPercent": 100,
+              "range": 7,
+              "slowPercent": 80
+            },
+            "summary": "Hits have a 1% chance to slow enemies by 80%; enemies facing the defender can be petrified.",
+            "fullRules": [
+              "Hits have a 1% chance to slow enemies by 80%; enemies facing the defender can be petrified."
+            ],
+            "sourceVariants": [
+              {
+                "name": "Stone Gaze",
+                "text": "Hits have a 1% chance to slow enemies by 80%; enemies facing the defender can be petrified.",
+                "familyId": "stone-gaze",
+                "levelId": "fr002-r3-proposed-stone-gaze-1-f97f62fda9",
+                "level": 1,
+                "levelLabel": "Stone Gaze I",
+                "chancePercent": 1,
+                "duration": 6,
+                "facingTime": 2,
+                "petrifyDuration": 3,
+                "petrifyIgnoresImmunity": true,
+                "physicalBonusPercent": 100,
+                "range": 7,
+                "slowPercent": 80
+              }
+            ],
+            "usedBy": [
+              {
+                "factionId": "crown",
+                "unitId": "emeraldgolem",
+                "rank": 1,
+                "sourceIndex": 2
+              }
+            ],
+            "status": "approved",
+            "approvalStatus": "approved",
+            "orderingMode": "potency",
+            "level": 1,
+            "roman": "I",
+            "label": "Stone Gaze I",
+            "powerMetric": {
+              "field": "physicalBonusPercent",
+              "value": 100,
+              "unit": "Physical vulnerability after petrification (%)"
+            },
+            "variantLabel": "Hits have a 1% chance to slow enemies by 80%; enemies facing the defender can be petrified."
+          }
+        ],
+        "levelCount": 1,
+        "levelSpan": 1,
+        "activeLevelNumbers": [
+          1
+        ],
+        "retiredLevels": [],
+        "variantCount": 1,
+        "potencyValues": [
+          100
+        ],
+        "displayGrouping": "one-row-per-full-level-label"
+      },
+      "after": null,
+      "replacementFamilyId": "stun",
+      "replacementLevelId": "fr002-r3-proposed-stun-1-256f970c35"
+    }
+  ],
+  "legacyLevelRemapping": {
+    "fr002-r3-proposed-sky-hunt-1-d42c241df3": "fr005-proposed-sky-hunt-1-e282a10d24",
+    "fr005-proposed-sky-hunt-1-7e100386e1": "fr005-proposed-sky-hunt-1-e282a10d24",
+    "fr002-r3-proposed-sky-hunt-2-292a7e7db3": "fr005-proposed-sky-hunt-2-f902543c4f",
+    "fr005-proposed-sky-hunt-2-7bc09f1fb8": "fr005-proposed-sky-hunt-2-f902543c4f",
+    "fr002-r3-proposed-sky-hunt-3-e8bc1b4927": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+    "fr005-proposed-sky-hunt-3-f770a51eae": "fr005-proposed-sky-hunt-3-e7bb6f5ba1",
+    "fr002-r3-proposed-splash-1-aceb27c344": "fr005-proposed-splash-1-27c1157e3b",
+    "fr002-r3-proposed-splash-2-ad945b8059": "fr005-proposed-splash-2-5e327772a3",
+    "fr002-r3-proposed-splash-3-0f4115ca7d": "fr005-proposed-splash-3-3ee425c365",
+    "fr002-r3-proposed-splash-4-b645894aa2": "fr005-proposed-splash-4-bc43ecb3c4",
+    "fr002-r3-proposed-splash-5-f22e4ea29c": "fr005-proposed-splash-5-3d2dd5ffa5",
+    "fr002-r3-proposed-stone-gaze-1-f97f62fda9": "fr002-r3-proposed-stun-1-256f970c35"
+  },
+  "visibilityScope": {
+    "forge": [
+      "dw_griffinhandler",
+      "dw_griffinscout",
+      "dw_skyhook",
+      "dw_talonlord",
+      "dw_highthane"
+    ],
+    "grove": [
+      "el_grove_archer",
+      "el_elven_archer",
+      "el_elven_bowmaster",
+      "el_tempest_bowmage",
+      "el_twilight_huntress",
+      "el_starfall_bowmaster"
+    ]
+  },
+  "machineMultishotLevels": {
+    "dw_repeatercrew": 1,
+    "dw_ironclad": 2,
+    "dw_breachorgan": 3,
+    "dw_deepdelve": 3,
+    "dw_salvomarshal": 4
+  },
+  "machineRicochetLevels": {
+    "dw_repeatercrew": 1,
+    "dw_ironclad": 1,
+    "dw_breachorgan": 2,
+    "dw_deepdelve": 2,
+    "dw_salvomarshal": 2
+  },
+  "implementationRules": [
+    "Assert the exact FR-004 baseline and apply each specified recipe/ability replacement once before faction conversion.",
+    "Do not change any primary attack field, full-cycle DPS, damage type, target mode, weapon cycle, continuous weapon, immunity aura, recipe outside Boar Lancer, approved artwork, review identity, casting, model binary or player score.",
+    "Sky Hunt slowing is a continuous enemy-targeted air-only aura. No attack or hit is required; Physical immunity and evasion do not stop its geometric coverage. Apply it only inside the radius of an active source, without a three-second linger. Existing Slow immunity and control/boss rules still apply; combine by strongest applicable movement slow, including ordinary Slow and Slow Aura, never addition.",
+    "Sky Hunt remains one ability with a Physical anti-air damage bonus and an independent Slow aura; it does not add a second Slow-family assignment. The damage bonus retains its existing Physical attack contract.",
+    "Use existing canonical Freeze I and Stun I contracts, including current boss recovery and control-immunity gates. Golem keeps its existing Freeze I.",
+    "Heavy Sniper receives the exact canonical Execution I contract already used by Master Sniper; all five machine Ricochet I/II assignments reuse the current canonical definitions and proc rules without changing other owners.",
+    "Multishot uses the existing distinct-target contract and magazine/reload/spin-up mechanics; displayed single-target primary DPS is not multiplied by the target count.",
+    "Splash radius is a shared global change; damage percentages, damage type, eligibility, original-victim exclusion and proc rules remain exact.",
+    "Remove Stone Gaze from current family/assignment output and redirect its old family/level links to Stun I. Preserve original evidence.",
+    "Update current roster, ability catalogue, coverage exports, exact used-by lists, role/inheritance copy and all legacy aliases together.",
+    "Keep one local gallery without version switches, alternative datasets, archives or hosting. Preview status must remain pending until actual approval/implementation."
+  ],
+  "acceptanceTests": [
+    "Verify 258 profiles and 114 recipes; exactly one Boar Lancer ingredient changes.",
+    "Verify 559 ability occurrences, 41 families, 159 distinct family-level numbers and 167 preserved parameter variants.",
+    "Verify Sky Hunt I/II/III continuously slow flying enemies 25/50/75% inside 3/4/5 tiles, with no hit requirement or lingering duration, strongest-only and respecting existing Slow immunity.",
+    "Verify all five machine champions have exactly one classified Multishot assignment with 2/3/5/5/10 distinct targets.",
+    "Verify Siege Cannon Freeze I; Golem Stun I plus retained Freeze I and no Stone Gaze; Mortar Dwarf no Ricochet.",
+    "Verify Heavy Sniper has exactly the canonical Execution I contract already used by Master Sniper, and the five machine Ricochet assignments are I/I/II/II/II without duplicates or unrelated level changes.",
+    "Verify all21selected Visibility assignments are removed and every unrelated Visibility owner remains exact.",
+    "Verify shared Splash radii 2/2.25/2.5/2.75/3 and every unchangedparameter/owner.",
+    "Verify existing and new legacy links resolve and no removed or phantom assignment remains.",
+    "Verify all primary fields/DPS, other abilities and otherrecipesexact; all protected source/media/review identities unchanged.",
+    "After implementation only, run actual-engine on-hit/immunity/control/proc regression tests and paired Diamond Spiral campaigns without TOP; do not reuse current FR-004 results as validation of FR-005."
+  ]
+}

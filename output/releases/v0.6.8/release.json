@@ -1,0 +1,29 @@
+{
+  "version": "0.6.8",
+  "rulesetRevision": "fr005-r2-20261102",
+  "requirement": "FR-005 revision 2",
+  "implemented": true,
+  "published": false,
+  "publicRuntimeVersion": "0.6.7",
+  "baselineCommit": "bb93714517a9986bf610a6122c5092c155d35ff7",
+  "tests": 2042,
+  "modules": 233,
+  "profiles": 258,
+  "abilityOccurrences": 559,
+  "campaigns": 72,
+  "controlledCases": 234,
+  "localInstall": {
+    "status": "passed",
+    "version": "0.6.8",
+    "installedFiles": 1004,
+    "changedFiles": 5,
+    "backupCreated": false,
+    "target": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\dist",
+    "publicDeploymentVerified": false,
+    "oldGeneratedEntriesToRetire": 1,
+    "checkedAt": "2026-11-02T10:26:46.504Z"
+  },
+  "implementationReport": "output/implementation/fr005-current/REPORT.md",
+  "backend": "Local code ready; existing public service and player database unchanged.",
+  "createdAt": "2026-11-02T10:28:51.507Z"
+}

@@ -1,0 +1,7696 @@
+{
+  "schemaVersion": 1,
+  "faction": "grove",
+  "seed": 16523664,
+  "policy": "immediate",
+  "allowSecret": false,
+  "dt": 0.1,
+  "controllerHash": "cb2c1234cca13ed46f69f185e42c285b81e5213ae075d0d2ceff6c33e5f6bda5",
+  "placementPlanHash": "b06c9bf0453eff32fbdc4501fe776f15229b8613231b3538fcc048fae1a45d3e",
+  "placementPlanFile": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tools\\fr005-validation\\diamond\\placement-plan.json",
+  "sourceHashes": {
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/enemy-designs.json": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5",
+    "data/faction-attack-visuals.json": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9",
+    "data/faction-classifications.json": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c",
+    "data/faction-memberships.json": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
+    "data/faction-outcome-scenes-v063.json": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce",
+    "data/faction-outcome-scenes-v064.json": "ab0669c52cd38d00914e30f5a93f5a8376087741dde12dea2db82ebdd879dd21",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "data/fr003-approved.json": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+    "data/fr004.json": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1",
+    "data/fr005-approved.json": "0f7de0724f5e66eb3410ae8f90bb32b9873343407b25f7d92afd5c6629fbf5ef",
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/scenery-v5.json": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519",
+    "data/scenery-v6.json": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd",
+    "data/scenery-v7.json": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502",
+    "data/scenery-v8-camp.json": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "game/core/approved-defender-names.js": "5e55c833ba9f559e517c9e02a06df13b403372c63a71e95ff9053bc7c2b92ddf",
+    "game/core/army-readiness.js": "398a38a40697918dde8c0d46bf90de0f655ce46a9da331d858052310f5d5058b",
+    "game/core/atelier-roster.js": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af",
+    "game/core/blueprints.js": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "game/core/combat-rules.js": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1",
+    "game/core/combat.js": "21e90538a48b30d672adc8a2890a0acedb9f86f41245cc1a92d74b87cb495960",
+    "game/core/command-move.js": "85efe14f888db6b2db214de22fdaa188db4fc8bfdcc6a8e89a207a368b64b644",
+    "game/core/command-points.js": "2e72cd04d5d094443f494327e3e231ced4a78f7d1f2414103be45e786fa9441d",
+    "game/core/commander-maze.js": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27",
+    "game/core/debug-review.js": "26fdb23c43b498826f492fa4ebbabe964601240747389cc969359a82aa9789e0",
+    "game/core/developer-console.js": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+    "game/core/draft.js": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
+    "game/core/enemy-rules.js": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/factions.js": "750f2ae0adc0715ac48b5bcccd9350fb36cadba4e605fb35d1b6fa1b6d6b3b99",
+    "game/core/fr002-combat.js": "163d626f519f02e9e638362fc69d3e1eeb07ba650eaeb03cc5cd9c7d0235ceb2",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "game/core/fr003-registry.js": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+    "game/core/fr004-registry.js": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c",
+    "game/core/fr005-registry.js": "334c30fd8701a0eb806d11d7362a44e8ce8840651a4fbeb48d5d7d56df5800d4",
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/immunity-auras.js": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+    "game/core/math.js": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+    "game/core/maze-search.js": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961",
+    "game/core/maze-seeds.js": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110",
+    "game/core/maze-worker.js": "c5f2f27953a54e6fde367e2c2bbf9d28a53fafb1cf4edbe2b0fc07118ebe4ba3",
+    "game/core/maze.js": "a9bf68ac3e875d8cb3fb36ebb3ac2a68f62773d6e150bb9bdc80e39ecb544797",
+    "game/core/mvp.js": "a6709982ff3baa435d2df655810bd32c30949df999f2949192d7c40e6e63e4b5",
+    "game/core/progression.js": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9",
+    "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+    "game/core/run-statistics.js": "74ab536492116c0372fa23f2c78579f1d56b82b8002ad4e0d284135a22129c5c",
+    "game/core/save.js": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a",
+    "game/core/sky-hunt.js": "085b0ca2fd97145aa44306ecf9506c4558bf3e07f415e1ba60161d2b0542d41e",
+    "game/core/spiral-maze.js": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8",
+    "game/core/statistics-client.js": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b",
+    "game/core/tower-dps.js": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+    "game/core/unit-label.js": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e",
+    "game/core/visibility.js": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c",
+    "game/core/warband-info.js": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+    "game/core/wave-threats.js": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+    "game/release.js": "2c5857029528e613af3bcae68d3e70443ec9efe763c1fe5a760e5dbf8235189c",
+    "package.json": "5633fefb2aef4deccf8f2a0dc9cd91a04bcc454db5954d441703af3125d90a07"
+  },
+  "maze": "diamond-spiral",
+  "noTop": true,
+  "outcome": "lost",
+  "completed": 20,
+  "lastWave": 21,
+  "lives": 0,
+  "kills": 198,
+  "leaks": 30,
+  "score": 63580,
+  "foundations": 105,
+  "fullDiamondReached": false,
+  "cp": 1,
+  "gold": 1390,
+  "events": {
+    "spawns": 236,
+    "deaths": 198,
+    "leaks": 30,
+    "bossSpawns": 2,
+    "bossDeaths": 2,
+    "bossLeaks": 0,
+    "waveComplete": 20,
+    "recovery": 0
+  },
+  "finalWaveFullClear": false,
+  "finalBossKilled": false,
+  "damageByFamily": {
+    "el_dragon_keeper": 27324.734463777342,
+    "el_drow_acolyte": 110522.7123715245,
+    "el_elven_mage": 53747.38972022861,
+    "el_drow_cinder": 12545.530164434691,
+    "el_sealweaver": 79.76470588235294,
+    "el_veil_adept": 22390.301064708547,
+    "el_spark_adept": 144591.67001503,
+    "el_drow_blade": 1821.6708074417434,
+    "el_grove_archer": 12122.716350843995,
+    "el_elven_archer": 28602.686392513962,
+    "el_moonblade": 88573.52959806267
+  },
+  "crafts": [
+    {
+      "round": 3,
+      "recipe": "el_elven_mage",
+      "result": "el_elven_mage",
+      "name": "Stormspear Initiate"
+    },
+    {
+      "round": 7,
+      "recipe": "el_veil_adept",
+      "result": "el_veil_adept",
+      "name": "Drow Wraithcaller"
+    },
+    {
+      "round": 13,
+      "recipe": "el_elven_archer",
+      "result": "el_elven_archer",
+      "name": "Moonlight Ranger Scout"
+    }
+  ],
+  "secretCrafts": 0,
+  "merges": 5,
+  "moves": 6,
+  "reserves": 0,
+  "rerolls": 0,
+  "steps": 17691,
+  "finiteChecks": 78,
+  "secretEligibility": [],
+  "secretCheckedRounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "rulesetRevision": "fr005-r2-20261102",
+  "wallMs": 16974,
+  "waves": [
+    {
+      "round": 1,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 72
+      },
+      "livesBefore": 30,
+      "killsBefore": 0,
+      "leaksBefore": 0,
+      "timeBefore": 0,
+      "cpBefore": 3,
+      "goldBefore": 90,
+      "mastery": 0,
+      "foundations": 5,
+      "diamondFoundations": 5,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 8,
+      "leaksAfter": 0,
+      "simulatedSeconds": 40.80000000000031,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_drow_acolyte": 157.48387096774192,
+        "el_dragon_keeper": 258.51612903225833
+      },
+      "livesBefore": 30,
+      "killsBefore": 8,
+      "leaksBefore": 0,
+      "timeBefore": 40.80000000000031,
+      "cpBefore": 3,
+      "goldBefore": 140,
+      "mastery": 0,
+      "foundations": 10,
+      "diamondFoundations": 10,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 7,
+          "family": "el_drow_acolyte",
+          "tier": 1,
+          "x": 17,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 16,
+      "leaksAfter": 0,
+      "simulatedSeconds": 45.099999999999085,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_drow_acolyte",
+          "tier": 1,
+          "x": 17,
+          "z": 18,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_elven_mage": 612
+      },
+      "livesBefore": 30,
+      "killsBefore": 16,
+      "leaksBefore": 0,
+      "timeBefore": 85.8999999999994,
+      "cpBefore": 1,
+      "goldBefore": 190,
+      "mastery": 1,
+      "foundations": 15,
+      "diamondFoundations": 15,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 25,
+      "leaksAfter": 0,
+      "simulatedSeconds": 15.599999999999113,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_elven_mage": 791.9999999999999,
+        "el_drow_acolyte": 144
+      },
+      "livesBefore": 30,
+      "killsBefore": 25,
+      "leaksBefore": 0,
+      "timeBefore": 101.49999999999851,
+      "cpBefore": 1,
+      "goldBefore": 240,
+      "mastery": 1,
+      "foundations": 20,
+      "diamondFoundations": 20,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 34,
+      "leaksAfter": 0,
+      "simulatedSeconds": 19.399999999998897,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_drow_cinder": 204.54545454545456,
+        "el_elven_mage": 917.0545454545454,
+        "el_drow_acolyte": 66.39999999999998
+      },
+      "livesBefore": 30,
+      "killsBefore": 34,
+      "leaksBefore": 0,
+      "timeBefore": 120.8999999999974,
+      "cpBefore": 1,
+      "goldBefore": 290,
+      "mastery": 2,
+      "foundations": 25,
+      "diamondFoundations": 25,
+      "routeSteps": 138,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 43,
+      "leaksAfter": 0,
+      "simulatedSeconds": 17.099999999999042,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 3
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "completed": true,
+      "spawns": 10,
+      "deaths": 10,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_sealweaver": 79.76470588235294,
+        "el_drow_cinder": 217.0588235294117,
+        "el_drow_acolyte": 389.6764705882352,
+        "el_elven_mage": 933.7529411764708,
+        "el_dragon_keeper": 39.74705882352943
+      },
+      "livesBefore": 30,
+      "killsBefore": 43,
+      "leaksBefore": 0,
+      "timeBefore": 137.99999999999645,
+      "cpBefore": 1,
+      "goldBefore": 340,
+      "mastery": 3,
+      "foundations": 30,
+      "diamondFoundations": 30,
+      "routeSteps": 148,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 3
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 30,
+          "family": "el_sealweaver",
+          "tier": 1,
+          "x": 10,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 53,
+      "leaksAfter": 0,
+      "simulatedSeconds": 27.899999999998414,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 4
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 30,
+          "family": "el_sealweaver",
+          "tier": 1,
+          "x": 10,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 11,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_elven_mage": 1351.9756097560974,
+        "el_drow_acolyte": 333.8048780487805,
+        "el_veil_adept": 574.0975609756099,
+        "el_drow_cinder": 17.121951219512212
+      },
+      "livesBefore": 30,
+      "killsBefore": 53,
+      "leaksBefore": 0,
+      "timeBefore": 165.89999999999486,
+      "cpBefore": 1,
+      "goldBefore": 390,
+      "mastery": 3,
+      "foundations": 35,
+      "diamondFoundations": 35,
+      "routeSteps": 168,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 4
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 64,
+      "leaksAfter": 0,
+      "simulatedSeconds": 28.69999999999837,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 5
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 6,
+      "leaks": 5,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "el_dragon_keeper": 414.26181818181976,
+        "el_elven_mage": 1865.8072727272727,
+        "el_drow_acolyte": 926.545454545454,
+        "el_drow_cinder": 528.5454545454546,
+        "el_veil_adept": 1848.8181818181827
+      },
+      "livesBefore": 30,
+      "killsBefore": 64,
+      "leaksBefore": 0,
+      "timeBefore": 194.59999999999323,
+      "cpBefore": 1,
+      "goldBefore": 440,
+      "mastery": 4,
+      "foundations": 40,
+      "diamondFoundations": 40,
+      "routeSteps": 184,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 5
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 25,
+      "killsAfter": 70,
+      "leaksAfter": 5,
+      "simulatedSeconds": 89.50000000000287,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 34,
+          "mvpLevel": 6
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "completed": true,
+      "spawns": 12,
+      "deaths": 12,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 294.14117647058805,
+        "el_elven_mage": 1484.505882352941,
+        "el_drow_acolyte": 640.5058823529411,
+        "el_drow_cinder": 382.5647058823529,
+        "el_veil_adept": 966.2823529411759
+      },
+      "livesBefore": 25,
+      "killsBefore": 70,
+      "leaksBefore": 5,
+      "timeBefore": 284.0999999999961,
+      "cpBefore": 1,
+      "goldBefore": 490,
+      "mastery": 5,
+      "foundations": 45,
+      "diamondFoundations": 45,
+      "routeSteps": 190,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 34,
+          "mvpLevel": 6
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 82,
+      "leaksAfter": 5,
+      "simulatedSeconds": 66.50000000001512,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 36,
+          "mvpLevel": 7
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "completed": true,
+      "spawns": 1,
+      "deaths": 1,
+      "leaks": 0,
+      "bossSpawns": 1,
+      "bossDeaths": 1,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 332.2909090909093,
+        "el_elven_mage": 1214.9999999999998,
+        "el_drow_acolyte": 322.63636363636357,
+        "el_spark_adept": 719.9999999999998,
+        "el_drow_cinder": 348.54545454545456,
+        "el_veil_adept": 1050,
+        "el_drow_blade": 237.52727272727708
+      },
+      "livesBefore": 25,
+      "killsBefore": 82,
+      "leaksBefore": 5,
+      "timeBefore": 350.6000000000112,
+      "cpBefore": 1,
+      "goldBefore": 540,
+      "mastery": 5,
+      "foundations": 50,
+      "diamondFoundations": 50,
+      "routeSteps": 200,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 36,
+          "mvpLevel": 7
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 83,
+      "leaksAfter": 5,
+      "simulatedSeconds": 99.00000000002251,
+      "cpAfter": 6,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 36,
+          "mvpLevel": 8
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 3,
+          "z": 18,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 351.30569105691035,
+        "el_drow_acolyte": 843.8146341463423,
+        "el_drow_cinder": 541.8943089430892,
+        "el_veil_adept": 1033.9544715447153,
+        "el_spark_adept": 961.7560975609755,
+        "el_elven_mage": 2338.274796747967
+      },
+      "livesBefore": 25,
+      "killsBefore": 83,
+      "leaksBefore": 5,
+      "timeBefore": 449.60000000003373,
+      "cpBefore": 0,
+      "goldBefore": 740,
+      "mastery": 6,
+      "foundations": 55,
+      "diamondFoundations": 55,
+      "routeSteps": 208,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 36,
+          "mvpLevel": 8
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 17,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 96,
+      "leaksAfter": 5,
+      "simulatedSeconds": 45.40000000001032,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 43,
+          "mvpLevel": 9
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 191.3498452012385,
+        "el_drow_acolyte": 1230.352941176472,
+        "el_drow_cinder": 466.19504643962847,
+        "el_veil_adept": 764.0386996904025,
+        "el_spark_adept": 740.8219814241481,
+        "el_elven_mage": 3673.6842105263127,
+        "el_grove_archer": 278.55727554179566
+      },
+      "livesBefore": 25,
+      "killsBefore": 96,
+      "leaksBefore": 5,
+      "timeBefore": 495.00000000004405,
+      "cpBefore": 0,
+      "goldBefore": 790,
+      "mastery": 6,
+      "foundations": 60,
+      "diamondFoundations": 60,
+      "routeSteps": 236,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 43,
+          "mvpLevel": 9
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 109,
+      "leaksAfter": 5,
+      "simulatedSeconds": 55.00000000001245,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 48,
+          "mvpLevel": 10
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 13,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 14,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 472.2910216718273,
+        "el_drow_cinder": 898.3777089783277,
+        "el_veil_adept": 1816.4024767801852,
+        "el_spark_adept": 1889.1176470588232,
+        "el_elven_mage": 3915.3529411764684,
+        "el_drow_acolyte": 177.8823529411764,
+        "el_grove_archer": 187.24458204334366,
+        "el_elven_archer": 163.33126934984475
+      },
+      "livesBefore": 25,
+      "killsBefore": 109,
+      "leaksBefore": 5,
+      "timeBefore": 550.0000000000565,
+      "cpBefore": 0,
+      "goldBefore": 840,
+      "mastery": 7,
+      "foundations": 65,
+      "diamondFoundations": 65,
+      "routeSteps": 256,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 48,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 123,
+      "leaksAfter": 5,
+      "simulatedSeconds": 57.70000000001312,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 54,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 14,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_dragon_keeper": 116.59178624443376,
+        "el_drow_cinder": 390.1454725383472,
+        "el_elven_mage": 3006.3503216229606,
+        "el_veil_adept": 1300.800593765463,
+        "el_spark_adept": 2214.893617021277,
+        "el_drow_acolyte": 534.3414151410195,
+        "el_grove_archer": 934.5423057892133,
+        "el_elven_archer": 2716.031667491339,
+        "el_drow_blade": 210.3028203859476
+      },
+      "livesBefore": 25,
+      "killsBefore": 123,
+      "leaksBefore": 5,
+      "timeBefore": 607.7000000000696,
+      "cpBefore": 0,
+      "goldBefore": 890,
+      "mastery": 8,
+      "foundations": 70,
+      "diamondFoundations": 70,
+      "routeSteps": 278,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 54,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 0
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 25,
+      "killsAfter": 137,
+      "leaksAfter": 5,
+      "simulatedSeconds": 115.50000000002626,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 15,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 0,
+      "leaks": 11,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "el_drow_cinder": 483.75,
+        "el_dragon_keeper": 1107.9999999999986,
+        "el_drow_acolyte": 537.8333333333331,
+        "el_grove_archer": 1665,
+        "el_elven_archer": 2756.25,
+        "el_spark_adept": 5183.75,
+        "el_elven_mage": 2010.9375
+      },
+      "livesBefore": 25,
+      "killsBefore": 137,
+      "leaksBefore": 5,
+      "timeBefore": 723.2000000000959,
+      "cpBefore": 0,
+      "goldBefore": 940,
+      "mastery": 8,
+      "foundations": 75,
+      "diamondFoundations": 75,
+      "routeSteps": 310,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 14,
+      "killsAfter": 137,
+      "leaksAfter": 16,
+      "simulatedSeconds": 56.60000000001287,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 16,
+      "completed": true,
+      "spawns": 15,
+      "deaths": 15,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_drow_cinder": 65.25,
+        "el_elven_mage": 1024.75,
+        "el_veil_adept": 166.66666666666669,
+        "el_dragon_keeper": 112.33333333333334,
+        "el_spark_adept": 157.5,
+        "el_moonblade": 8634.625,
+        "el_elven_archer": 5512.875,
+        "el_grove_archer": 1756
+      },
+      "livesBefore": 14,
+      "killsBefore": 137,
+      "leaksBefore": 16,
+      "timeBefore": 779.8000000001088,
+      "cpBefore": 0,
+      "goldBefore": 990,
+      "mastery": 9,
+      "foundations": 80,
+      "diamondFoundations": 80,
+      "routeSteps": 340,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 14,
+      "killsAfter": 152,
+      "leaksAfter": 16,
+      "simulatedSeconds": 108.00000000002456,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 17,
+      "completed": true,
+      "spawns": 16,
+      "deaths": 14,
+      "leaks": 2,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_17",
+          "boss": false,
+          "hp": 203.7073170731694,
+          "maxHp": 1380,
+          "leak": 1
+        },
+        {
+          "type": "host_17",
+          "boss": false,
+          "hp": 46.62557679630835,
+          "maxHp": 1380,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "el_dragon_keeper": 894.5794330916326,
+        "el_spark_adept": 6547.103493737643,
+        "el_drow_cinder": 365.5767963085036,
+        "el_veil_adept": 1079.7626895187868,
+        "el_elven_mage": 2017.3724456163468,
+        "el_drow_acolyte": 3452.8220171390903,
+        "el_moonblade": 4228.682926829265,
+        "el_elven_archer": 2152.1707317073165,
+        "el_grove_archer": 851.121951219512,
+        "el_drow_blade": 240.47462096242583
+      },
+      "livesBefore": 14,
+      "killsBefore": 152,
+      "leaksBefore": 16,
+      "timeBefore": 887.8000000001333,
+      "cpBefore": 0,
+      "goldBefore": 1040,
+      "mastery": 10,
+      "foundations": 85,
+      "diamondFoundations": 85,
+      "routeSteps": 378,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 55,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 21,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 12,
+      "killsAfter": 166,
+      "leaksAfter": 18,
+      "simulatedSeconds": 180.29999999999075,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 56,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 18,
+      "completed": true,
+      "spawns": 16,
+      "deaths": 13,
+      "leaks": 3,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_18",
+          "boss": false,
+          "hp": 620.2309582309585,
+          "maxHp": 1636,
+          "leak": 1
+        },
+        {
+          "type": "host_18",
+          "boss": false,
+          "hp": 80.4742014741995,
+          "maxHp": 1636,
+          "leak": 1
+        },
+        {
+          "type": "host_18",
+          "boss": false,
+          "hp": 148.2162162162146,
+          "maxHp": 1636,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "el_drow_cinder": 1860.2825552825498,
+        "el_dragon_keeper": 1680.7076167076395,
+        "el_spark_adept": 6864.149877149868,
+        "el_veil_adept": 1986.9557739557738,
+        "el_elven_mage": 4558.270270270269,
+        "el_moonblade": 4330.2997542997555,
+        "el_drow_acolyte": 1935.4668304668282,
+        "el_grove_archer": 525.4054054054052,
+        "el_elven_archer": 1455.8108108108113,
+        "el_drow_blade": 129.72972972972974
+      },
+      "livesBefore": 12,
+      "killsBefore": 166,
+      "leaksBefore": 18,
+      "timeBefore": 1068.100000000124,
+      "cpBefore": 0,
+      "goldBefore": 1090,
+      "mastery": 10,
+      "foundations": 90,
+      "diamondFoundations": 90,
+      "routeSteps": 458,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 56,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 1
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 9,
+      "killsAfter": 179,
+      "leaksAfter": 21,
+      "simulatedSeconds": 200.69999999981746,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 2
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 19,
+      "completed": true,
+      "spawns": 17,
+      "deaths": 17,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_moonblade": 10159.312039312037,
+        "el_drow_cinder": 950.4176904176904,
+        "el_dragon_keeper": 931.6658476658517,
+        "el_spark_adept": 10379.461916461907,
+        "el_elven_mage": 4303.710073710074,
+        "el_veil_adept": 1960.6879606879609,
+        "el_drow_acolyte": 1942.1228501228481,
+        "el_grove_archer": 682.5651105651071,
+        "el_elven_archer": 1551.056511056509
+      },
+      "livesBefore": 9,
+      "killsBefore": 179,
+      "leaksBefore": 21,
+      "timeBefore": 1268.7999999999415,
+      "cpBefore": 0,
+      "goldBefore": 1140,
+      "mastery": 11,
+      "foundations": 95,
+      "diamondFoundations": 95,
+      "routeSteps": 482,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 2
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 9,
+      "killsAfter": 196,
+      "leaksAfter": 21,
+      "simulatedSeconds": 48.19999999995616,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 20,
+      "completed": true,
+      "spawns": 1,
+      "deaths": 1,
+      "leaks": 0,
+      "bossSpawns": 1,
+      "bossDeaths": 1,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "el_moonblade": 3477.264423077028,
+        "el_drow_cinder": 825.576923076923,
+        "el_dragon_keeper": 3783.634615384613,
+        "el_spark_adept": 9420.86538461539,
+        "el_elven_mage": 2062.5,
+        "el_drow_acolyte": 1159.4230769230767,
+        "el_elven_archer": 2076.274038461537,
+        "el_grove_archer": 1398.4615384615365,
+        "el_veil_adept": 875
+      },
+      "livesBefore": 9,
+      "killsBefore": 196,
+      "leaksBefore": 21,
+      "timeBefore": 1316.9999999998977,
+      "cpBefore": 0,
+      "goldBefore": 1190,
+      "mastery": 11,
+      "foundations": 100,
+      "diamondFoundations": 100,
+      "routeSteps": 510,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 96,
+          "family": "el_dragon_keeper",
+          "tier": 4,
+          "x": 20,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 9,
+      "killsAfter": 197,
+      "leaksAfter": 21,
+      "simulatedSeconds": 202.99999999981537,
+      "cpAfter": 5,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 33,
+          "z": 6,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 25,
+          "z": 10,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 96,
+          "family": "el_dragon_keeper",
+          "tier": 4,
+          "x": 20,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 21,
+      "completed": false,
+      "spawns": 18,
+      "deaths": 1,
+      "leaks": 9,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        },
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "el_moonblade": 57743.34545454594,
+        "el_drow_acolyte": 95727.59999999625,
+        "el_drow_cinder": 3999.6818181818376,
+        "el_spark_adept": 99512.24999999955,
+        "el_dragon_keeper": 16271.318181817707,
+        "el_elven_mage": 15664.09090909091,
+        "el_veil_adept": 6966.833636363622,
+        "el_elven_archer": 10218.886363636346,
+        "el_grove_archer": 3843.8181818181765,
+        "el_drow_blade": 1003.6363636363633
+      },
+      "livesBefore": 9,
+      "killsBefore": 197,
+      "leaksBefore": 21,
+      "timeBefore": 1519.999999999713,
+      "cpBefore": 1,
+      "goldBefore": 1390,
+      "mastery": 12,
+      "foundations": 105,
+      "diamondFoundations": 105,
+      "routeSteps": 562,
+      "army": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 17,
+          "z": 17,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 96,
+          "family": "el_dragon_keeper",
+          "tier": 4,
+          "x": 20,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 101,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 17,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "livesAfter": 0,
+      "killsAfter": 198,
+      "leaksAfter": 30,
+      "simulatedSeconds": 242.79999999977917,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 2,
+          "x": 20,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 2
+        },
+        {
+          "id": 7,
+          "family": "el_elven_mage",
+          "tier": 1,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 57,
+          "mvpLevel": 10
+        },
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_veil_adept",
+          "tier": 1,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 31,
+          "mvpLevel": 0
+        },
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 2,
+          "x": 15,
+          "z": 21,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "el_drow_blade",
+          "tier": 3,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 54,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 28,
+          "z": 20,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 59,
+          "family": "el_grove_archer",
+          "tier": 3,
+          "x": 33,
+          "z": 15,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_elven_archer",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 1
+        },
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 5,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 71,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 32,
+          "z": 3,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 78,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 17,
+          "z": 17,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 81,
+          "family": "el_spark_adept",
+          "tier": 3,
+          "x": 22,
+          "z": 13,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 88,
+          "family": "el_moonblade",
+          "tier": 4,
+          "x": 15,
+          "z": 16,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 1
+        },
+        {
+          "id": 94,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 22,
+          "z": 19,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 96,
+          "family": "el_dragon_keeper",
+          "tier": 4,
+          "x": 20,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 101,
+          "family": "el_drow_acolyte",
+          "tier": 4,
+          "x": 17,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 1,
+      "defender": {
+        "id": 1,
+        "family": "el_grove_archer",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 2,
+      "defender": {
+        "id": 2,
+        "family": "el_spark_adept",
+        "tier": 1,
+        "x": 19,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 3,
+      "defender": {
+        "id": 3,
+        "family": "el_moonblade",
+        "tier": 1,
+        "x": 17,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 4,
+      "defender": {
+        "id": 4,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 20,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 5,
+      "defender": {
+        "id": 5,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 16,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 1,
+      "kind": "merge",
+      "anchor": 4,
+      "before": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "chosenUtility": 56.1098286632289,
+      "delta": 56.1098286632289,
+      "ingredients": [
+        {
+          "id": 4,
+          "family": "el_dragon_keeper",
+          "tier": 1,
+          "x": 20,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 5,
+          "family": "el_dragon_keeper",
+          "tier": 1,
+          "x": 16,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 4,
+        "family": "el_dragon_keeper",
+        "tier": 2,
+        "x": 20,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 6,
+      "defender": {
+        "id": 6,
+        "family": "el_moonblade",
+        "tier": 1,
+        "x": 18,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 7,
+      "defender": {
+        "id": 7,
+        "family": "el_drow_acolyte",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 8,
+      "defender": {
+        "id": 8,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 19,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 9,
+      "defender": {
+        "id": 9,
+        "family": "el_drow_blade",
+        "tier": 1,
+        "x": 19,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 10,
+      "defender": {
+        "id": 10,
+        "family": "el_drow_blade",
+        "tier": 1,
+        "x": 18,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "keep",
+      "anchor": 7,
+      "before": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "chosenUtility": 89.6438160546574,
+      "delta": 34.96163919366561,
+      "defender": {
+        "id": 7,
+        "family": "el_drow_acolyte",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 7,
+        "family": "el_drow_acolyte",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 11,
+      "defender": {
+        "id": 11,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 18,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 12,
+      "defender": {
+        "id": 12,
+        "family": "el_drow_blade",
+        "tier": 1,
+        "x": 18,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 13,
+      "defender": {
+        "id": 13,
+        "family": "el_spark_adept",
+        "tier": 1,
+        "x": 19,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 14,
+      "defender": {
+        "id": 14,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 20,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 15,
+      "defender": {
+        "id": 15,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 20,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "craft",
+      "anchor": 7,
+      "before": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "chosenUtility": 305.5038790373276,
+      "delta": 222.54641586502834,
+      "recipe": "el_elven_mage",
+      "result": "el_elven_mage",
+      "ingredients": [
+        {
+          "id": 13,
+          "family": "el_spark_adept",
+          "tier": 1,
+          "x": 19,
+          "z": 16,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 7,
+          "family": "el_drow_acolyte",
+          "tier": 1,
+          "x": 17,
+          "z": 18,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 15,
+          "family": "el_dragon_keeper",
+          "tier": 1,
+          "x": 20,
+          "z": 16,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 7,
+        "family": "el_elven_mage",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "active",
+        "kills": 1,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 3,
+      "kind": "move",
+      "id": 7,
+      "wall": 1,
+      "value": 327.0653160070448,
+      "from": {
+        "x": 17,
+        "z": 18
+      },
+      "to": {
+        "x": 18,
+        "z": 18
+      },
+      "cpBefore": 3,
+      "cpAfter": 1
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 16,
+      "defender": {
+        "id": 16,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 16,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 17,
+      "defender": {
+        "id": 17,
+        "family": "el_drow_acolyte",
+        "tier": 1,
+        "x": 17,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 18,
+      "defender": {
+        "id": 18,
+        "family": "el_sealweaver",
+        "tier": 2,
+        "x": 16,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 19,
+      "defender": {
+        "id": 19,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 17,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 20,
+      "defender": {
+        "id": 20,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 4,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "keep",
+      "anchor": 19,
+      "before": {
+        "cp": 1,
+        "gold": 240,
+        "lives": 30
+      },
+      "chosenUtility": 408.48904111885224,
+      "delta": 79.33187002413632,
+      "defender": {
+        "id": 19,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 17,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 240,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 19,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 17,
+        "z": 20,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 21,
+      "defender": {
+        "id": 21,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 3,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 22,
+      "defender": {
+        "id": 22,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 2,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 23,
+      "defender": {
+        "id": 23,
+        "family": "el_moonblade",
+        "tier": 1,
+        "x": 1,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 24,
+      "defender": {
+        "id": 24,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 0,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 25,
+      "defender": {
+        "id": 25,
+        "family": "el_moonblade",
+        "tier": 1,
+        "x": 5,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 138
+    },
+    {
+      "round": 5,
+      "kind": "merge",
+      "anchor": 21,
+      "before": {
+        "cp": 1,
+        "gold": 290,
+        "lives": 30
+      },
+      "chosenUtility": 445.7529684956929,
+      "delta": 67.11940382539387,
+      "ingredients": [
+        {
+          "id": 21,
+          "family": "el_drow_cinder",
+          "tier": 1,
+          "x": 3,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 24,
+          "family": "el_drow_cinder",
+          "tier": 1,
+          "x": 0,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 290,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 21,
+        "family": "el_drow_cinder",
+        "tier": 2,
+        "x": 3,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 26,
+      "defender": {
+        "id": 26,
+        "family": "el_drow_cinder",
+        "tier": 2,
+        "x": 6,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 140
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 27,
+      "defender": {
+        "id": 27,
+        "family": "el_grove_archer",
+        "tier": 1,
+        "x": 7,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 142
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 28,
+      "defender": {
+        "id": 28,
+        "family": "el_spark_adept",
+        "tier": 1,
+        "x": 8,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 144
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 29,
+      "defender": {
+        "id": 29,
+        "family": "el_moonblade",
+        "tier": 2,
+        "x": 9,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 146
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 30,
+      "defender": {
+        "id": 30,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 10,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 148
+    },
+    {
+      "round": 6,
+      "kind": "keep",
+      "anchor": 30,
+      "before": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 30
+      },
+      "chosenUtility": 486.52652919026735,
+      "delta": 57.170273123295374,
+      "defender": {
+        "id": 30,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 10,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 30,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 10,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 31,
+      "defender": {
+        "id": 31,
+        "family": "el_drow_blade",
+        "tier": 1,
+        "x": 11,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 150
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 32,
+      "defender": {
+        "id": 32,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 12,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 154
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 33,
+      "defender": {
+        "id": 33,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 12,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 156
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 34,
+      "defender": {
+        "id": 34,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 13,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 162
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 35,
+      "defender": {
+        "id": 35,
+        "family": "el_moonblade",
+        "tier": 1,
+        "x": 14,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 168
+    },
+    {
+      "round": 7,
+      "kind": "craft",
+      "anchor": 34,
+      "before": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 30
+      },
+      "chosenUtility": 631.486187419545,
+      "delta": 191.63436541848313,
+      "recipe": "el_veil_adept",
+      "result": "el_veil_adept",
+      "ingredients": [
+        {
+          "id": 30,
+          "family": "el_sealweaver",
+          "tier": 1,
+          "x": 10,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 31,
+          "family": "el_drow_blade",
+          "tier": 1,
+          "x": 11,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 34,
+          "family": "el_drow_cinder",
+          "tier": 1,
+          "x": 13,
+          "z": 21,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 34,
+        "family": "el_veil_adept",
+        "tier": 1,
+        "x": 13,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 36,
+      "defender": {
+        "id": 36,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 15,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 180
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 37,
+      "defender": {
+        "id": 37,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 19,
+        "z": 32,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 38,
+      "defender": {
+        "id": 38,
+        "family": "el_drow_acolyte",
+        "tier": 1,
+        "x": 19,
+        "z": 31,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 39,
+      "defender": {
+        "id": 39,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 19,
+        "z": 33,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 40,
+      "defender": {
+        "id": 40,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 19,
+        "z": 30,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "merge",
+      "anchor": 36,
+      "before": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 30
+      },
+      "chosenUtility": 716.8198171314829,
+      "delta": 41.85391913158162,
+      "ingredients": [
+        {
+          "id": 36,
+          "family": "el_drow_cinder",
+          "tier": 1,
+          "x": 15,
+          "z": 21,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 40,
+          "family": "el_drow_cinder",
+          "tier": 1,
+          "x": 19,
+          "z": 30,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 36,
+        "family": "el_drow_cinder",
+        "tier": 2,
+        "x": 15,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 41,
+      "defender": {
+        "id": 41,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 19,
+        "z": 34,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 42,
+      "defender": {
+        "id": 42,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 19,
+        "z": 29,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 43,
+      "defender": {
+        "id": 43,
+        "family": "el_moonblade",
+        "tier": 2,
+        "x": 19,
+        "z": 35,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 44,
+      "defender": {
+        "id": 44,
+        "family": "el_spark_adept",
+        "tier": 2,
+        "x": 19,
+        "z": 28,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 45,
+      "defender": {
+        "id": 45,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 19,
+        "z": 36,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 190
+    },
+    {
+      "round": 9,
+      "kind": "keep",
+      "anchor": 42,
+      "before": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 25
+      },
+      "chosenUtility": 737.9946127477738,
+      "delta": 94.39308197872288,
+      "defender": {
+        "id": 42,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 19,
+        "z": 29,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 42,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 19,
+        "z": 29,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 46,
+      "defender": {
+        "id": 46,
+        "family": "el_grove_archer",
+        "tier": 1,
+        "x": 20,
+        "z": 27,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 192
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 47,
+      "defender": {
+        "id": 47,
+        "family": "el_dragon_keeper",
+        "tier": 3,
+        "x": 21,
+        "z": 26,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 194
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 48,
+      "defender": {
+        "id": 48,
+        "family": "el_spark_adept",
+        "tier": 2,
+        "x": 22,
+        "z": 25,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 196
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 49,
+      "defender": {
+        "id": 49,
+        "family": "el_spark_adept",
+        "tier": 2,
+        "x": 23,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 198
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 50,
+      "defender": {
+        "id": 50,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 24,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 200
+    },
+    {
+      "round": 10,
+      "kind": "merge",
+      "anchor": 48,
+      "before": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 25
+      },
+      "chosenUtility": 932.1395802060704,
+      "delta": 222.16724873332714,
+      "ingredients": [
+        {
+          "id": 48,
+          "family": "el_spark_adept",
+          "tier": 2,
+          "x": 22,
+          "z": 25,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 49,
+          "family": "el_spark_adept",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 48,
+        "family": "el_spark_adept",
+        "tier": 3,
+        "x": 22,
+        "z": 25,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "boss-cp",
+      "amount": 5,
+      "reason": "boss",
+      "enemyId": 88,
+      "balance": 6
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 51,
+      "defender": {
+        "id": 51,
+        "family": "el_sealweaver",
+        "tier": 1,
+        "x": 25,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 202
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 52,
+      "defender": {
+        "id": 52,
+        "family": "el_moonblade",
+        "tier": 2,
+        "x": 26,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 204
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 53,
+      "defender": {
+        "id": 53,
+        "family": "el_grove_archer",
+        "tier": 1,
+        "x": 27,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 54,
+      "defender": {
+        "id": 54,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 28,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 55,
+      "defender": {
+        "id": 55,
+        "family": "el_spark_adept",
+        "tier": 2,
+        "x": 29,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 208
+    },
+    {
+      "round": 11,
+      "kind": "keep",
+      "anchor": 54,
+      "before": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 25
+      },
+      "chosenUtility": 940.4438752998159,
+      "delta": 87.4802294385421,
+      "defender": {
+        "id": 54,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 28,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 54,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 28,
+        "z": 20,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 7,
+      "wall": 47,
+      "value": 1168.8565168721766,
+      "from": {
+        "x": 18,
+        "z": 18
+      },
+      "to": {
+        "x": 21,
+        "z": 26
+      },
+      "cpBefore": 6,
+      "cpAfter": 4
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 34,
+      "wall": 49,
+      "value": 1271.2640577858501,
+      "from": {
+        "x": 13,
+        "z": 21
+      },
+      "to": {
+        "x": 23,
+        "z": 24
+      },
+      "cpBefore": 4,
+      "cpAfter": 2
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 21,
+      "wall": 50,
+      "value": 1303.1471665629626,
+      "from": {
+        "x": 3,
+        "z": 18
+      },
+      "to": {
+        "x": 24,
+        "z": 23
+      },
+      "cpBefore": 2,
+      "cpAfter": 0
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 56,
+      "defender": {
+        "id": 56,
+        "family": "el_grove_archer",
+        "tier": 2,
+        "x": 30,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 212
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 57,
+      "defender": {
+        "id": 57,
+        "family": "el_sealweaver",
+        "tier": 2,
+        "x": 31,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 216
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 58,
+      "defender": {
+        "id": 58,
+        "family": "el_dragon_keeper",
+        "tier": 1,
+        "x": 32,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 224
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 59,
+      "defender": {
+        "id": 59,
+        "family": "el_grove_archer",
+        "tier": 3,
+        "x": 33,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 232
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 60,
+      "defender": {
+        "id": 60,
+        "family": "el_sealweaver",
+        "tier": 3,
+        "x": 33,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 236
+    },
+    {
+      "round": 12,
+      "kind": "keep",
+      "anchor": 59,
+      "before": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 25
+      },
+      "chosenUtility": 1432.9247313085327,
+      "delta": 257.8003772973484,
+      "defender": {
+        "id": 59,
+        "family": "el_grove_archer",
+        "tier": 3,
+        "x": 33,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 59,
+        "family": "el_grove_archer",
+        "tier": 3,
+        "x": 33,
+        "z": 15,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 61,
+      "defender": {
+        "id": 61,
+        "family": "el_spark_adept",
+        "tier": 1,
+        "x": 33,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 240
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 62,
+      "defender": {
+        "id": 62,
+        "family": "el_dragon_keeper",
+        "tier": 2,
+        "x": 33,
+        "z": 12,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 244
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 63,
+      "defender": {
+        "id": 63,
+        "family": "el_sealweaver",
+        "tier": 2,
+        "x": 33,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 248
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 64,
+      "defender": {
+        "id": 64,
+        "family": "el_drow_acolyte",
+        "tier": 2,
+        "x": 33,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 252
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 65,
+      "defender": {
+        "id": 65,
+        "family": "el_grove_archer",
+        "tier": 2,
+        "x": 33,
+        "z": 9,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 256
+    },
+    {
+      "round": 13,
+      "kind": "craft",
+      "anchor": 61,
+      "before": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 25
+      },
+      "chosenUtility": 2253.2427519190333,
+      "delta": 721.8650774664357,
+      "recipe": "el_elven_archer",
+      "result": "el_elven_archer",
+      "ingredients": [
+        {
+          "id": 65,
+          "family": "el_grove_archer",
+          "tier": 2,
+          "x": 33,
+          "z": 9,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 19,
+          "family": "el_drow_acolyte",
+          "tier": 2,
+          "x": 17,
+          "z": 20,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 61,
+          "family": "el_spark_adept",
+          "tier": 1,
+          "x": 33,
+          "z": 13,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 61,
+        "family": "el_elven_archer",
+        "tier": 1,
+        "x": 33,
+        "z": 13,
+        "state": "active",
+        "kills": 10,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 66,
+      "defender": {
+        "id": 66,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 33,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 260
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 67,
+      "defender": {
+        "id": 67,
+        "family": "el_spark_adept",
+        "tier": 2,
+        "x": 33,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 264
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 68,
+      "defender": {
+        "id": 68,
+        "family": "el_spark_adept",
+        "tier": 4,
+        "x": 33,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 268
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 69,
+      "defender": {
+        "id": 69,
+        "family": "el_spark_adept",
+        "tier": 4,
+        "x": 33,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 272
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 70,
+      "defender": {
+        "id": 70,
+        "family": "el_moonblade",
+        "tier": 2,
+        "x": 33,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 278
+    },
+    {
+      "round": 14,
+      "kind": "merge",
+      "anchor": 68,
+      "before": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 25
+      },
+      "chosenUtility": 2966.22693579276,
+      "delta": 1006.4873372214979,
+      "ingredients": [
+        {
+          "id": 68,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 33,
+          "z": 6,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "el_spark_adept",
+          "tier": 4,
+          "x": 33,
+          "z": 5,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 68,
+        "family": "el_spark_adept",
+        "tier": 5,
+        "x": 33,
+        "z": 6,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 71,
+      "defender": {
+        "id": 71,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 286
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 72,
+      "defender": {
+        "id": 72,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 31,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 292
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 73,
+      "defender": {
+        "id": 73,
+        "family": "el_moonblade",
+        "tier": 3,
+        "x": 30,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 298
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 74,
+      "defender": {
+        "id": 74,
+        "family": "el_sealweaver",
+        "tier": 4,
+        "x": 29,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 304
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 75,
+      "defender": {
+        "id": 75,
+        "family": "el_drow_cinder",
+        "tier": 2,
+        "x": 28,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 310
+    },
+    {
+      "round": 15,
+      "kind": "keep",
+      "anchor": 71,
+      "before": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 25
+      },
+      "chosenUtility": 2731.0725868245863,
+      "delta": 407.3945007358184,
+      "defender": {
+        "id": 71,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 25
+      },
+      "resultDefender": {
+        "id": 71,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 32,
+        "z": 3,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 76,
+      "defender": {
+        "id": 76,
+        "family": "el_grove_archer",
+        "tier": 3,
+        "x": 27,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 316
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 77,
+      "defender": {
+        "id": 77,
+        "family": "el_drow_acolyte",
+        "tier": 3,
+        "x": 26,
+        "z": 9,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 322
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 78,
+      "defender": {
+        "id": 78,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 25,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 328
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 79,
+      "defender": {
+        "id": 79,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 24,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 334
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 80,
+      "defender": {
+        "id": 80,
+        "family": "el_dragon_keeper",
+        "tier": 2,
+        "x": 23,
+        "z": 12,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 340
+    },
+    {
+      "round": 16,
+      "kind": "keep",
+      "anchor": 78,
+      "before": {
+        "cp": 0,
+        "gold": 990,
+        "lives": 14
+      },
+      "chosenUtility": 4207.86692191611,
+      "delta": 588.3380134544318,
+      "defender": {
+        "id": 78,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 25,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 990,
+        "lives": 14
+      },
+      "resultDefender": {
+        "id": 78,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 25,
+        "z": 10,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 81,
+      "defender": {
+        "id": 81,
+        "family": "el_spark_adept",
+        "tier": 3,
+        "x": 22,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 346
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 82,
+      "defender": {
+        "id": 82,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 21,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 356
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 83,
+      "defender": {
+        "id": 83,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 20,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 362
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 84,
+      "defender": {
+        "id": 84,
+        "family": "el_drow_cinder",
+        "tier": 1,
+        "x": 19,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 368
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 85,
+      "defender": {
+        "id": 85,
+        "family": "el_sealweaver",
+        "tier": 3,
+        "x": 18,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 378
+    },
+    {
+      "round": 17,
+      "kind": "keep",
+      "anchor": 81,
+      "before": {
+        "cp": 0,
+        "gold": 1040,
+        "lives": 14
+      },
+      "chosenUtility": 4905.610340741818,
+      "delta": 378.92836129784064,
+      "defender": {
+        "id": 81,
+        "family": "el_spark_adept",
+        "tier": 3,
+        "x": 22,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1040,
+        "lives": 14
+      },
+      "resultDefender": {
+        "id": 81,
+        "family": "el_spark_adept",
+        "tier": 3,
+        "x": 22,
+        "z": 13,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 86,
+      "defender": {
+        "id": 86,
+        "family": "el_drow_cinder",
+        "tier": 2,
+        "x": 17,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 388
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 87,
+      "defender": {
+        "id": 87,
+        "family": "el_sealweaver",
+        "tier": 3,
+        "x": 16,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 410
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 88,
+      "defender": {
+        "id": 88,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 15,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 432
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 89,
+      "defender": {
+        "id": 89,
+        "family": "el_drow_acolyte",
+        "tier": 3,
+        "x": 14,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 454
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 90,
+      "defender": {
+        "id": 90,
+        "family": "el_spark_adept",
+        "tier": 3,
+        "x": 22,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 458
+    },
+    {
+      "round": 18,
+      "kind": "keep",
+      "anchor": 88,
+      "before": {
+        "cp": 0,
+        "gold": 1090,
+        "lives": 12
+      },
+      "chosenUtility": 7142.697289344926,
+      "delta": 1273.575757575757,
+      "defender": {
+        "id": 88,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 15,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1090,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 88,
+        "family": "el_moonblade",
+        "tier": 4,
+        "x": 15,
+        "z": 16,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 91,
+      "defender": {
+        "id": 91,
+        "family": "el_moonblade",
+        "tier": 2,
+        "x": 22,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 462
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 92,
+      "defender": {
+        "id": 92,
+        "family": "el_dragon_keeper",
+        "tier": 3,
+        "x": 22,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 466
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 93,
+      "defender": {
+        "id": 93,
+        "family": "el_sealweaver",
+        "tier": 3,
+        "x": 22,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 470
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 94,
+      "defender": {
+        "id": 94,
+        "family": "el_spark_adept",
+        "tier": 4,
+        "x": 22,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 474
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 95,
+      "defender": {
+        "id": 95,
+        "family": "el_drow_blade",
+        "tier": 2,
+        "x": 21,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 482
+    },
+    {
+      "round": 19,
+      "kind": "keep",
+      "anchor": 94,
+      "before": {
+        "cp": 0,
+        "gold": 1140,
+        "lives": 9
+      },
+      "chosenUtility": 8807.00672919606,
+      "delta": 785.9211353692353,
+      "defender": {
+        "id": 94,
+        "family": "el_spark_adept",
+        "tier": 4,
+        "x": 22,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1140,
+        "lives": 9
+      },
+      "resultDefender": {
+        "id": 94,
+        "family": "el_spark_adept",
+        "tier": 4,
+        "x": 22,
+        "z": 19,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 96,
+      "defender": {
+        "id": 96,
+        "family": "el_dragon_keeper",
+        "tier": 4,
+        "x": 20,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 490
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 97,
+      "defender": {
+        "id": 97,
+        "family": "el_sealweaver",
+        "tier": 2,
+        "x": 19,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 498
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 98,
+      "defender": {
+        "id": 98,
+        "family": "el_spark_adept",
+        "tier": 1,
+        "x": 18,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 502
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 99,
+      "defender": {
+        "id": 99,
+        "family": "el_sealweaver",
+        "tier": 2,
+        "x": 15,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 506
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 100,
+      "defender": {
+        "id": 100,
+        "family": "el_drow_acolyte",
+        "tier": 3,
+        "x": 16,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 510
+    },
+    {
+      "round": 20,
+      "kind": "keep",
+      "anchor": 96,
+      "before": {
+        "cp": 0,
+        "gold": 1190,
+        "lives": 9
+      },
+      "chosenUtility": 7236.014575807106,
+      "delta": 452.7198740057738,
+      "defender": {
+        "id": 96,
+        "family": "el_dragon_keeper",
+        "tier": 4,
+        "x": 20,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1190,
+        "lives": 9
+      },
+      "resultDefender": {
+        "id": 96,
+        "family": "el_dragon_keeper",
+        "tier": 4,
+        "x": 20,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 20,
+      "kind": "boss-cp",
+      "amount": 5,
+      "reason": "boss",
+      "enemyId": 218,
+      "balance": 5
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 101,
+      "defender": {
+        "id": 101,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 17,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 514
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 102,
+      "defender": {
+        "id": 102,
+        "family": "el_dragon_keeper",
+        "tier": 3,
+        "x": 19,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 522
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 103,
+      "defender": {
+        "id": 103,
+        "family": "el_drow_acolyte",
+        "tier": 3,
+        "x": 20,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 530
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 104,
+      "defender": {
+        "id": 104,
+        "family": "el_drow_blade",
+        "tier": 3,
+        "x": 21,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 546
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 105,
+      "defender": {
+        "id": 105,
+        "family": "el_sealweaver",
+        "tier": 3,
+        "x": 22,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 562
+    },
+    {
+      "round": 21,
+      "kind": "keep",
+      "anchor": 101,
+      "before": {
+        "cp": 5,
+        "gold": 1390,
+        "lives": 9
+      },
+      "chosenUtility": 9763.005785362247,
+      "delta": 1142.6806503299576,
+      "defender": {
+        "id": 101,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 17,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 5,
+        "gold": 1390,
+        "lives": 9
+      },
+      "resultDefender": {
+        "id": 101,
+        "family": "el_drow_acolyte",
+        "tier": 4,
+        "x": 17,
+        "z": 24,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 21,
+      "kind": "move",
+      "id": 68,
+      "wall": 47,
+      "value": 12575.92644343178,
+      "from": {
+        "x": 33,
+        "z": 6
+      },
+      "to": {
+        "x": 18,
+        "z": 18
+      },
+      "cpBefore": 5,
+      "cpAfter": 3
+    },
+    {
+      "round": 21,
+      "kind": "move",
+      "id": 78,
+      "wall": 3,
+      "value": 14238.277509934454,
+      "from": {
+        "x": 25,
+        "z": 10
+      },
+      "to": {
+        "x": 17,
+        "z": 17
+      },
+      "cpBefore": 3,
+      "cpAfter": 1
+    }
+  ]
+}

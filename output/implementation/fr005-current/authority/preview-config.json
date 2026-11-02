@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-005",
+  "revision": 2,
+  "revisionId": "fr005-preview-r2-20261102",
+  "date": "2026-11-02",
+  "status": "FR-005 revision 2 proposal — pending approval; not implemented",
+  "approved": false,
+  "implemented": false,
+  "combatImplemented": false,
+  "baselineRuntimeVersion": "0.6.7",
+  "baselineRulesetRevision": "fr004-r1-20261101",
+  "runtimeVersion": "0.6.7",
+  "requirementFile": "fr005-proposal.md",
+  "configFile": "preview-config.json",
+  "currentOnly": true,
+  "gameImplementationAuthorized": false,
+  "publicationAuthorized": false,
+  "galleryVisualMappingChanged": true,
+  "galleryVisualMapping": {
+    "comment": 14,
+    "changed": true,
+    "manifestFile": "sniper-visual-current.json",
+    "sourceRevision": "approved-faction-models-v3-20261030",
+    "scope": [
+      "forge/dw_steamrail/1",
+      "forge/dw_ironstorm/1"
+    ],
+    "unchangedIntermediate": "forge/dw_thunderlock/1",
+    "originalImagesChanged": false,
+    "originalApprovalRecordsChanged": false,
+    "gameOrModelChanged": false,
+    "localOnly": true
+  },
+  "skyHuntSlowPercent": [
+    25,
+    50,
+    75
+  ],
+  "skyHuntSlowAuraRadii": [
+    3,
+    4,
+    5
+  ],
+  "splashRadii": [
+    2,
+    2.25,
+    2.5,
+    2.75,
+    3
+  ],
+  "machineMultishot": {
+    "BASIC": 1,
+    "INTERMEDIATE": 2,
+    "ADVANCED": 3,
+    "TOP": 4
+  },
+  "machineRicochet": {
+    "dw_repeatercrew": 1,
+    "dw_ironclad": 1,
+    "dw_breachorgan": 2,
+    "dw_deepdelve": 2,
+    "dw_salvomarshal": 2
+  },
+  "scope": "Fifteen cumulative gallery comments: one Boar Lancer ingredient; Sky Hunt air-only Slow aura; Siege Cannon Freeze; classified machine Multishot and Ricochet; Heavy Sniper Execution; Mortar Dwarf Ricochet removal; shared Splash reach; Golem Stone Gaze replaced by Stun; selected Griffin and Elf Ranger Visibility removal."
+}

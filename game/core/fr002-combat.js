@@ -24,8 +24,11 @@ function contact(c,t,e,s,landed,lineage,randomEffects=true){
 }
 function poisonContact(c,t,e,s,lineage,landed){const a=ability(s,'poison');if(a&&landed&&!e.dead){c.applyEffects(e,{type:s.type,poisonDps:a.dps},t);const last=e.statuses.poison?.applications?.at(-1);if(last?.source===t&&!last.fr002Packet)last.fr002Packet=packet(s,lineage);}}
 function chanceContact(c,t,e,s,lineage,landed){
- if(!e.dead)for(const id of ['freeze','stun']){const a=ability(s,id);if(a&&statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.factionControlRecovery||0)&&chance(c,a.chancePercent)){const duration=a.duration*(e.boss?.5:1);e.statuses[id]={time:duration,source:t};e.factionControlRecovery=c.elapsed+duration+2;}}
+ applyCanonicalControlContact(c,t,e,s);
  if(landed)lightning(c,t,e,s,lineage);
+}
+export function applyCanonicalControlContact(c,t,e,s){
+ if(!e.dead)for(const id of ['freeze','stun']){const a=ability(s,id);if(a&&statusEffectAllowed(e,id)&&c.elapsed>=(e.factionControlRecovery||0)&&chance(c,a.chancePercent)){const duration=a.duration*(e.boss?(a.bossDurationMultiplier??.5):1);e.statuses[id]={time:duration,source:t};e.factionControlRecovery=c.elapsed+duration+2;}}
 }
 function lightning(c,t,origin,s,lineage){
  const a=ability(s,'lightning');if(!a||lineage.includes('lightning')||!chance(c,a.chancePercent))return;

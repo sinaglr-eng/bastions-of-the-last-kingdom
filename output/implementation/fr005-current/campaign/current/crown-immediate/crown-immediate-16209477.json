@@ -1,0 +1,8145 @@
+{
+  "schemaVersion": 1,
+  "faction": "crown",
+  "seed": 16209477,
+  "policy": "immediate",
+  "allowSecret": false,
+  "dt": 0.1,
+  "controllerHash": "cb2c1234cca13ed46f69f185e42c285b81e5213ae075d0d2ceff6c33e5f6bda5",
+  "placementPlanHash": "b06c9bf0453eff32fbdc4501fe776f15229b8613231b3538fcc048fae1a45d3e",
+  "placementPlanFile": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tools\\fr005-validation\\diamond\\placement-plan.json",
+  "sourceHashes": {
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/enemy-designs.json": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5",
+    "data/faction-attack-visuals.json": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9",
+    "data/faction-classifications.json": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c",
+    "data/faction-memberships.json": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
+    "data/faction-outcome-scenes-v063.json": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce",
+    "data/faction-outcome-scenes-v064.json": "ab0669c52cd38d00914e30f5a93f5a8376087741dde12dea2db82ebdd879dd21",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "data/fr003-approved.json": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+    "data/fr004.json": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1",
+    "data/fr005-approved.json": "0f7de0724f5e66eb3410ae8f90bb32b9873343407b25f7d92afd5c6629fbf5ef",
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/scenery-v5.json": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519",
+    "data/scenery-v6.json": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd",
+    "data/scenery-v7.json": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502",
+    "data/scenery-v8-camp.json": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "game/core/approved-defender-names.js": "5e55c833ba9f559e517c9e02a06df13b403372c63a71e95ff9053bc7c2b92ddf",
+    "game/core/army-readiness.js": "398a38a40697918dde8c0d46bf90de0f655ce46a9da331d858052310f5d5058b",
+    "game/core/atelier-roster.js": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af",
+    "game/core/blueprints.js": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "game/core/combat-rules.js": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1",
+    "game/core/combat.js": "21e90538a48b30d672adc8a2890a0acedb9f86f41245cc1a92d74b87cb495960",
+    "game/core/command-move.js": "85efe14f888db6b2db214de22fdaa188db4fc8bfdcc6a8e89a207a368b64b644",
+    "game/core/command-points.js": "2e72cd04d5d094443f494327e3e231ced4a78f7d1f2414103be45e786fa9441d",
+    "game/core/commander-maze.js": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27",
+    "game/core/debug-review.js": "26fdb23c43b498826f492fa4ebbabe964601240747389cc969359a82aa9789e0",
+    "game/core/developer-console.js": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+    "game/core/draft.js": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
+    "game/core/enemy-rules.js": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/factions.js": "750f2ae0adc0715ac48b5bcccd9350fb36cadba4e605fb35d1b6fa1b6d6b3b99",
+    "game/core/fr002-combat.js": "163d626f519f02e9e638362fc69d3e1eeb07ba650eaeb03cc5cd9c7d0235ceb2",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "game/core/fr003-registry.js": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+    "game/core/fr004-registry.js": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c",
+    "game/core/fr005-registry.js": "334c30fd8701a0eb806d11d7362a44e8ce8840651a4fbeb48d5d7d56df5800d4",
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/immunity-auras.js": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+    "game/core/math.js": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+    "game/core/maze-search.js": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961",
+    "game/core/maze-seeds.js": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110",
+    "game/core/maze-worker.js": "c5f2f27953a54e6fde367e2c2bbf9d28a53fafb1cf4edbe2b0fc07118ebe4ba3",
+    "game/core/maze.js": "a9bf68ac3e875d8cb3fb36ebb3ac2a68f62773d6e150bb9bdc80e39ecb544797",
+    "game/core/mvp.js": "a6709982ff3baa435d2df655810bd32c30949df999f2949192d7c40e6e63e4b5",
+    "game/core/progression.js": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9",
+    "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+    "game/core/run-statistics.js": "74ab536492116c0372fa23f2c78579f1d56b82b8002ad4e0d284135a22129c5c",
+    "game/core/save.js": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a",
+    "game/core/sky-hunt.js": "085b0ca2fd97145aa44306ecf9506c4558bf3e07f415e1ba60161d2b0542d41e",
+    "game/core/spiral-maze.js": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8",
+    "game/core/statistics-client.js": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b",
+    "game/core/tower-dps.js": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+    "game/core/unit-label.js": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e",
+    "game/core/visibility.js": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c",
+    "game/core/warband-info.js": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+    "game/core/wave-threats.js": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+    "game/release.js": "2c5857029528e613af3bcae68d3e70443ec9efe763c1fe5a760e5dbf8235189c",
+    "package.json": "5633fefb2aef4deccf8f2a0dc9cd91a04bcc454db5954d441703af3125d90a07"
+  },
+  "maze": "diamond-spiral",
+  "noTop": true,
+  "outcome": "lost",
+  "completed": 20,
+  "lastWave": 21,
+  "lives": 0,
+  "kills": 193,
+  "leaks": 30,
+  "score": 63630,
+  "foundations": 105,
+  "fullDiamondReached": false,
+  "cp": 0,
+  "gold": 1390,
+  "events": {
+    "spawns": 236,
+    "deaths": 193,
+    "leaks": 30,
+    "bossSpawns": 2,
+    "bossDeaths": 2,
+    "bossLeaks": 0,
+    "waveComplete": 20,
+    "recovery": 0
+  },
+  "finalWaveFullClear": false,
+  "finalBossKilled": false,
+  "damageByFamily": {
+    "stormcaller": 6500.5596713901,
+    "druid": 120674.54360632999,
+    "archer": 38333.108410287,
+    "cleric": 3388.7901269500708,
+    "runebreaker": 2667.122744107989,
+    "thornwarden": 53440.97596248577,
+    "frostwarden": 2339.7962573987033,
+    "kingdomprotector": 120191.60964203067,
+    "wyvernhunter": 15747.55481005475,
+    "mage": 5854.153846153909
+  },
+  "crafts": [
+    {
+      "round": 8,
+      "recipe": "thornwarden",
+      "result": "thornwarden",
+      "name": "Royal Scout"
+    },
+    {
+      "round": 15,
+      "recipe": "kingdomprotector",
+      "result": "kingdomprotector",
+      "name": "Paladin"
+    },
+    {
+      "round": 19,
+      "recipe": "wyvernhunter",
+      "result": "wyvernhunter",
+      "name": "Ranger"
+    }
+  ],
+  "secretCrafts": 0,
+  "merges": 3,
+  "moves": 6,
+  "reserves": 0,
+  "rerolls": 1,
+  "steps": 19713,
+  "finiteChecks": 82,
+  "secretEligibility": [],
+  "secretCheckedRounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "rulesetRevision": "fr005-r2-20261102",
+  "wallMs": 19954,
+  "waves": [
+    {
+      "round": 1,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 72
+      },
+      "livesBefore": 30,
+      "killsBefore": 0,
+      "leaksBefore": 0,
+      "timeBefore": 0,
+      "cpBefore": 3,
+      "goldBefore": 90,
+      "mastery": 0,
+      "foundations": 5,
+      "diamondFoundations": 5,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 8,
+      "leaksAfter": 0,
+      "simulatedSeconds": 38.00000000000027,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "completed": true,
+      "spawns": 8,
+      "deaths": 8,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 155.70967741935482,
+        "druid": 260.29032258064484
+      },
+      "livesBefore": 30,
+      "killsBefore": 8,
+      "leaksBefore": 0,
+      "timeBefore": 38.00000000000027,
+      "cpBefore": 3,
+      "goldBefore": 140,
+      "mastery": 0,
+      "foundations": 10,
+      "diamondFoundations": 10,
+      "routeSteps": 130,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 16,
+      "leaksAfter": 0,
+      "simulatedSeconds": 22.200000000000315,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 147.43947368421064,
+        "druid": 462.85000000000315,
+        "archer": 1.7105263157895791
+      },
+      "livesBefore": 30,
+      "killsBefore": 16,
+      "leaksBefore": 0,
+      "timeBefore": 60.200000000000585,
+      "cpBefore": 3,
+      "goldBefore": 190,
+      "mastery": 1,
+      "foundations": 15,
+      "diamondFoundations": 15,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 25,
+      "leaksAfter": 0,
+      "simulatedSeconds": 42.999999999997826,
+      "cpAfter": 3,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 197.59090909090912,
+        "druid": 723.5909090909092,
+        "archer": 14.818181818181703
+      },
+      "livesBefore": 30,
+      "killsBefore": 25,
+      "leaksBefore": 0,
+      "timeBefore": 103.19999999999841,
+      "cpBefore": 1,
+      "goldBefore": 240,
+      "mastery": 1,
+      "foundations": 20,
+      "diamondFoundations": 20,
+      "routeSteps": 132,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 34,
+      "leaksAfter": 0,
+      "simulatedSeconds": 49.29999999999721,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "completed": true,
+      "spawns": 9,
+      "deaths": 9,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "cleric": 32.72727272727273,
+        "stormcaller": 154.63636363636365,
+        "druid": 626.1272727272718,
+        "archer": 374.5090909090911
+      },
+      "livesBefore": 30,
+      "killsBefore": 34,
+      "leaksBefore": 0,
+      "timeBefore": 152.49999999999562,
+      "cpBefore": 1,
+      "goldBefore": 290,
+      "mastery": 2,
+      "foundations": 25,
+      "diamondFoundations": 25,
+      "routeSteps": 138,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 43,
+      "leaksAfter": 0,
+      "simulatedSeconds": 36.499999999997925,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "completed": true,
+      "spawns": 10,
+      "deaths": 10,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "druid": 1471.155882352909,
+        "cleric": 34.411764705882355,
+        "stormcaller": 154.43235294117625
+      },
+      "livesBefore": 30,
+      "killsBefore": 43,
+      "leaksBefore": 0,
+      "timeBefore": 188.99999999999355,
+      "cpBefore": 1,
+      "goldBefore": 340,
+      "mastery": 3,
+      "foundations": 30,
+      "diamondFoundations": 30,
+      "routeSteps": 148,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 53,
+      "leaksAfter": 0,
+      "simulatedSeconds": 29.599999999998317,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 11,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 154.1776532630191,
+        "runebreaker": 338.40474620962414,
+        "druid": 1754.6944627554142,
+        "cleric": 29.723137771918257
+      },
+      "livesBefore": 30,
+      "killsBefore": 53,
+      "leaksBefore": 0,
+      "timeBefore": 218.59999999999187,
+      "cpBefore": 1,
+      "goldBefore": 390,
+      "mastery": 3,
+      "foundations": 35,
+      "diamondFoundations": 35,
+      "routeSteps": 168,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 1
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 30,
+      "killsAfter": 64,
+      "leaksAfter": 0,
+      "simulatedSeconds": 41.29999999999873,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 0,
+      "leaks": 11,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        },
+        {
+          "type": "host_08",
+          "boss": false,
+          "hp": 256,
+          "maxHp": 256,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "archer": 710.1818181818187,
+        "stormcaller": 214.7727272727273,
+        "druid": 3021.1963636363957,
+        "runebreaker": 156,
+        "thornwarden": 899.9999999999995
+      },
+      "livesBefore": 30,
+      "killsBefore": 64,
+      "leaksBefore": 0,
+      "timeBefore": 259.8999999999906,
+      "cpBefore": 1,
+      "goldBefore": 440,
+      "mastery": 4,
+      "foundations": 40,
+      "diamondFoundations": 40,
+      "routeSteps": 184,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 3
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 19,
+      "killsAfter": 64,
+      "leaksAfter": 11,
+      "simulatedSeconds": 89.50000000002035,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "completed": true,
+      "spawns": 12,
+      "deaths": 12,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 604.3800000000002,
+        "druid": 2687.3152941176168,
+        "stormcaller": 203.6370588235298,
+        "runebreaker": 235.76470588235298,
+        "thornwarden": 36.90294117647021
+      },
+      "livesBefore": 19,
+      "killsBefore": 64,
+      "leaksBefore": 11,
+      "timeBefore": 349.40000000001095,
+      "cpBefore": 1,
+      "goldBefore": 490,
+      "mastery": 5,
+      "foundations": 45,
+      "diamondFoundations": 45,
+      "routeSteps": 190,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 14,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 23,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 0
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 19,
+      "killsAfter": 76,
+      "leaksAfter": 11,
+      "simulatedSeconds": 71.00000000001614,
+      "cpAfter": 1,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "completed": true,
+      "spawns": 1,
+      "deaths": 1,
+      "leaks": 0,
+      "bossSpawns": 1,
+      "bossDeaths": 1,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 292.090909090909,
+        "stormcaller": 51.545454545454554,
+        "druid": 3433.181818182061,
+        "runebreaker": 142.36363636363637,
+        "thornwarden": 306.8181818181818
+      },
+      "livesBefore": 19,
+      "killsBefore": 76,
+      "leaksBefore": 11,
+      "timeBefore": 420.4000000000271,
+      "cpBefore": 1,
+      "goldBefore": 540,
+      "mastery": 5,
+      "foundations": 50,
+      "diamondFoundations": 50,
+      "routeSteps": 200,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 19,
+      "killsAfter": 77,
+      "leaksAfter": 11,
+      "simulatedSeconds": 108.80000000002468,
+      "cpAfter": 6,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 9,
+          "z": 18,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 694.2395121951247,
+        "stormcaller": 144.9,
+        "druid": 2812.419512195193,
+        "thornwarden": 2145.0995121951264,
+        "runebreaker": 274.3414634146342
+      },
+      "livesBefore": 19,
+      "killsBefore": 77,
+      "leaksBefore": 11,
+      "timeBefore": 529.2000000000518,
+      "cpBefore": 0,
+      "goldBefore": 740,
+      "mastery": 6,
+      "foundations": 55,
+      "diamondFoundations": 55,
+      "routeSteps": 208,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 24,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 22,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 19,
+      "killsAfter": 90,
+      "leaksAfter": 11,
+      "simulatedSeconds": 48.10000000001094,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 26,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "completed": true,
+      "spawns": 13,
+      "deaths": 13,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 580.7368421052628,
+        "stormcaller": 290.96052631578965,
+        "druid": 4383.110216718208,
+        "thornwarden": 1775.3317337461183,
+        "runebreaker": 229.5975232198141,
+        "frostwarden": 85.26315789473685
+      },
+      "livesBefore": 19,
+      "killsBefore": 90,
+      "leaksBefore": 11,
+      "timeBefore": 577.3000000000627,
+      "cpBefore": 0,
+      "goldBefore": 790,
+      "mastery": 6,
+      "foundations": 60,
+      "diamondFoundations": 60,
+      "routeSteps": 236,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 26,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 25,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 19,
+      "killsAfter": 103,
+      "leaksAfter": 11,
+      "simulatedSeconds": 82.90000000001885,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 27,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 27,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 2
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 13,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 14,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 1317.178328173371,
+        "stormcaller": 186.51315789473693,
+        "druid": 4420.377089783298,
+        "thornwarden": 3152.766563467499,
+        "runebreaker": 354.9845201238387,
+        "frostwarden": 88.18034055727283
+      },
+      "livesBefore": 19,
+      "killsBefore": 103,
+      "leaksBefore": 11,
+      "timeBefore": 660.2000000000816,
+      "cpBefore": 0,
+      "goldBefore": 840,
+      "mastery": 7,
+      "foundations": 65,
+      "diamondFoundations": 65,
+      "routeSteps": 256,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 27,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 27,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 11,
+          "mvpLevel": 2
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 63,
+          "family": "archer",
+          "tier": 4,
+          "x": 33,
+          "z": 11,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 19,
+      "killsAfter": 117,
+      "leaksAfter": 11,
+      "simulatedSeconds": 58.10000000001321,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 3
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 63,
+          "family": "archer",
+          "tier": 4,
+          "x": 33,
+          "z": 11,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "completed": true,
+      "spawns": 14,
+      "deaths": 7,
+      "leaks": 7,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 434.36170212765444,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 257.23404255318763,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 135.35106382978142,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 401.71276595743893,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 347.6170212765917,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 227.55319148935777,
+          "maxHp": 816,
+          "leak": 1
+        },
+        {
+          "type": "host_14",
+          "boss": false,
+          "hp": 344.744680851061,
+          "maxHp": 816,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "archer": 2748.1065809005368,
+        "druid": 4128.4796140523795,
+        "stormcaller": 119.24680851063525,
+        "thornwarden": 2076.613805047005,
+        "runebreaker": 30.638297872340427,
+        "frostwarden": 172.34042553191495
+      },
+      "livesBefore": 19,
+      "killsBefore": 117,
+      "leaksBefore": 11,
+      "timeBefore": 718.3000000000948,
+      "cpBefore": 0,
+      "goldBefore": 890,
+      "mastery": 8,
+      "foundations": 70,
+      "diamondFoundations": 70,
+      "routeSteps": 278,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 13,
+          "mvpLevel": 3
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 63,
+          "family": "archer",
+          "tier": 4,
+          "x": 33,
+          "z": 11,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 12,
+      "killsAfter": 124,
+      "leaksAfter": 18,
+      "simulatedSeconds": 133.80000000003042,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 63,
+          "family": "archer",
+          "tier": 4,
+          "x": 33,
+          "z": 11,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 15,
+      "completed": true,
+      "spawns": 11,
+      "deaths": 0,
+      "leaks": 11,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        },
+        {
+          "type": "host_15",
+          "boss": false,
+          "hp": 975,
+          "maxHp": 975,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "runebreaker": 211.25,
+        "stormcaller": 395.71875000000006,
+        "druid": 4264.093750000174,
+        "archer": 1702.4375,
+        "frostwarden": 180,
+        "kingdomprotector": 3800,
+        "thornwarden": 1575
+      },
+      "livesBefore": 12,
+      "killsBefore": 124,
+      "leaksBefore": 18,
+      "timeBefore": 852.1000000001252,
+      "cpBefore": 0,
+      "goldBefore": 940,
+      "mastery": 8,
+      "foundations": 75,
+      "diamondFoundations": 75,
+      "routeSteps": 310,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": false,
+      "livesAfter": 1,
+      "killsAfter": 124,
+      "leaksAfter": 29,
+      "simulatedSeconds": 56.60000000001287,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        }
+      ]
+    },
+    {
+      "round": 16,
+      "completed": true,
+      "spawns": 15,
+      "deaths": 15,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 1030.050000000002,
+        "thornwarden": 4416.049999999999,
+        "runebreaker": 353,
+        "cleric": 315,
+        "kingdomprotector": 10951.399999999998,
+        "frostwarden": 364.5
+      },
+      "livesBefore": 1,
+      "killsBefore": 124,
+      "leaksBefore": 29,
+      "timeBefore": 908.7000000001381,
+      "cpBefore": 0,
+      "goldBefore": 990,
+      "mastery": 9,
+      "foundations": 80,
+      "diamondFoundations": 80,
+      "routeSteps": 340,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 15,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 1
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 1,
+      "killsAfter": 139,
+      "leaksAfter": 29,
+      "simulatedSeconds": 144.89999999999918,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 17,
+      "completed": true,
+      "spawns": 16,
+      "deaths": 16,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "archer": 1747.8585365853703,
+        "stormcaller": 297.32926829268297,
+        "druid": 6619.57020435112,
+        "thornwarden": 1426.7106130520763,
+        "runebreaker": 87.8048780487805,
+        "cleric": 114.14634146341464,
+        "kingdomprotector": 11641.702109426487,
+        "frostwarden": 144.87804878048777
+      },
+      "livesBefore": 1,
+      "killsBefore": 139,
+      "leaksBefore": 29,
+      "timeBefore": 1053.6000000001372,
+      "cpBefore": 0,
+      "goldBefore": 1040,
+      "mastery": 10,
+      "foundations": 85,
+      "diamondFoundations": 85,
+      "routeSteps": 378,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 29,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 2
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 1,
+      "killsAfter": 155,
+      "leaksAfter": 29,
+      "simulatedSeconds": 160.59999999985394,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 26,
+          "mvpLevel": 3
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 18,
+      "completed": true,
+      "spawns": 16,
+      "deaths": 16,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "runebreaker": 252.97297297297308,
+        "stormcaller": 524.7420147420156,
+        "druid": 10803.016953316446,
+        "archer": 1739.8648648648568,
+        "cleric": 175.13513513513516,
+        "kingdomprotector": 11968.280589680537,
+        "frostwarden": 72.97297297297297,
+        "thornwarden": 639.0144963144863
+      },
+      "livesBefore": 1,
+      "killsBefore": 155,
+      "leaksBefore": 29,
+      "timeBefore": 1214.1999999999912,
+      "cpBefore": 0,
+      "goldBefore": 1090,
+      "mastery": 10,
+      "foundations": 90,
+      "diamondFoundations": 90,
+      "routeSteps": 458,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 30,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 9,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 18,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 3,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 26,
+          "mvpLevel": 3
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 1,
+      "killsAfter": 171,
+      "leaksAfter": 29,
+      "simulatedSeconds": 183.99999999983265,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 31,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 34,
+          "mvpLevel": 4
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 19,
+      "completed": true,
+      "spawns": 17,
+      "deaths": 17,
+      "leaks": 0,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 766.2162162162181,
+        "druid": 12433.997297297807,
+        "archer": 5587.732432432426,
+        "wyvernhunter": 2882.4324324324357,
+        "thornwarden": 2451.8918918918907,
+        "cleric": 330.810810810811,
+        "kingdomprotector": 8101.432432432516,
+        "frostwarden": 306.48648648648634
+      },
+      "livesBefore": 1,
+      "killsBefore": 171,
+      "leaksBefore": 29,
+      "timeBefore": 1398.1999999998238,
+      "cpBefore": 0,
+      "goldBefore": 1140,
+      "mastery": 11,
+      "foundations": 95,
+      "diamondFoundations": 95,
+      "routeSteps": 482,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 31,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 34,
+          "mvpLevel": 4
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 2,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 1,
+      "killsAfter": 188,
+      "leaksAfter": 29,
+      "simulatedSeconds": 82.69999999992478,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 39,
+          "mvpLevel": 5
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 20,
+      "completed": true,
+      "spawns": 1,
+      "deaths": 1,
+      "leaks": 0,
+      "bossSpawns": 1,
+      "bossDeaths": 1,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [],
+      "damageByFamily": {
+        "stormcaller": 348.923076923077,
+        "druid": 9690.03846153625,
+        "archer": 3741.5769230769242,
+        "wyvernhunter": 1973.0769230769267,
+        "thornwarden": 1059.2307692307695,
+        "mage": 346.1538461538462,
+        "cleric": 166.15384615384616,
+        "kingdomprotector": 7442.307692307686,
+        "frostwarden": 311.53846153846143
+      },
+      "livesBefore": 1,
+      "killsBefore": 188,
+      "leaksBefore": 29,
+      "timeBefore": 1480.8999999997486,
+      "cpBefore": 0,
+      "goldBefore": 1190,
+      "mastery": 11,
+      "foundations": 100,
+      "diamondFoundations": 100,
+      "routeSteps": 510,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 39,
+          "mvpLevel": 5
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 5,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 100,
+          "family": "mage",
+          "tier": 2,
+          "x": 16,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "fullClear": true,
+      "livesAfter": 1,
+      "killsAfter": 189,
+      "leaksAfter": 29,
+      "simulatedSeconds": 241.69999999978018,
+      "cpAfter": 5,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 22,
+          "z": 25,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 31,
+          "z": 4,
+          "state": "active",
+          "kills": 39,
+          "mvpLevel": 6
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 100,
+          "family": "mage",
+          "tier": 2,
+          "x": 16,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    },
+    {
+      "round": 21,
+      "completed": false,
+      "spawns": 18,
+      "deaths": 4,
+      "leaks": 1,
+      "bossSpawns": 0,
+      "bossDeaths": 0,
+      "bossLeaks": 0,
+      "recovery": 0,
+      "leakedEnemies": [
+        {
+          "type": "host_21",
+          "boss": false,
+          "hp": 2683,
+          "maxHp": 2683,
+          "leak": 1
+        }
+      ],
+      "damageByFamily": {
+        "stormcaller": 1920.068181818177,
+        "kingdomprotector": 66286.48681818167,
+        "thornwarden": 31479.545454544837,
+        "druid": 46679.03818183823,
+        "archer": 15445.636363636288,
+        "wyvernhunter": 10892.045454545409,
+        "cleric": 2190.6818181818157,
+        "mage": 5508.000000000047,
+        "frostwarden": 613.6363636363631
+      },
+      "livesBefore": 1,
+      "killsBefore": 189,
+      "leaksBefore": 29,
+      "timeBefore": 1722.5999999995288,
+      "cpBefore": 0,
+      "goldBefore": 1390,
+      "mastery": 12,
+      "foundations": 105,
+      "diamondFoundations": 105,
+      "routeSteps": 562,
+      "army": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 32,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 39,
+          "mvpLevel": 6
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 100,
+          "family": "mage",
+          "tier": 2,
+          "x": 16,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 105,
+          "family": "cleric",
+          "tier": 5,
+          "x": 22,
+          "z": 22,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "livesAfter": 0,
+      "killsAfter": 193,
+      "leaksAfter": 30,
+      "simulatedSeconds": 242.39999999977954,
+      "cpAfter": 0,
+      "armyAfter": [
+        {
+          "id": 1,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 18,
+          "z": 18,
+          "state": "active",
+          "kills": 16,
+          "mvpLevel": 1
+        },
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 2,
+          "x": 24,
+          "z": 23,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 4
+        },
+        {
+          "id": 14,
+          "family": "archer",
+          "tier": 2,
+          "x": 20,
+          "z": 17,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 1
+        },
+        {
+          "id": 18,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 19,
+          "state": "active",
+          "kills": 33,
+          "mvpLevel": 1
+        },
+        {
+          "id": 29,
+          "family": "druid",
+          "tier": 2,
+          "x": 23,
+          "z": 24,
+          "state": "active",
+          "kills": 10,
+          "mvpLevel": 2
+        },
+        {
+          "id": 37,
+          "family": "thornwarden",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "active",
+          "kills": 19,
+          "mvpLevel": 4
+        },
+        {
+          "id": 42,
+          "family": "druid",
+          "tier": 2,
+          "x": 19,
+          "z": 29,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 47,
+          "family": "druid",
+          "tier": 2,
+          "x": 21,
+          "z": 26,
+          "state": "active",
+          "kills": 6,
+          "mvpLevel": 1
+        },
+        {
+          "id": 52,
+          "family": "archer",
+          "tier": 3,
+          "x": 26,
+          "z": 21,
+          "state": "active",
+          "kills": 8,
+          "mvpLevel": 0
+        },
+        {
+          "id": 58,
+          "family": "frostwarden",
+          "tier": 3,
+          "x": 32,
+          "z": 16,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 69,
+          "family": "druid",
+          "tier": 3,
+          "x": 33,
+          "z": 5,
+          "state": "active",
+          "kills": 1,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "kingdomprotector",
+          "tier": 1,
+          "x": 18,
+          "z": 19,
+          "state": "active",
+          "kills": 41,
+          "mvpLevel": 6
+        },
+        {
+          "id": 76,
+          "family": "cleric",
+          "tier": 4,
+          "x": 27,
+          "z": 8,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 83,
+          "family": "archer",
+          "tier": 3,
+          "x": 20,
+          "z": 14,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 90,
+          "family": "druid",
+          "tier": 3,
+          "x": 22,
+          "z": 15,
+          "state": "active",
+          "kills": 7,
+          "mvpLevel": 0
+        },
+        {
+          "id": 92,
+          "family": "wyvernhunter",
+          "tier": 1,
+          "x": 22,
+          "z": 17,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 100,
+          "family": "mage",
+          "tier": 2,
+          "x": 16,
+          "z": 24,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 105,
+          "family": "cleric",
+          "tier": 5,
+          "x": 22,
+          "z": 22,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 1,
+      "defender": {
+        "id": 1,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 2,
+      "defender": {
+        "id": 2,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 19,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 124
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 3,
+      "defender": {
+        "id": 3,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 17,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 4,
+      "defender": {
+        "id": 4,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 20,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 128
+    },
+    {
+      "round": 1,
+      "kind": "place",
+      "index": 5,
+      "defender": {
+        "id": 5,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 16,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 1,
+      "kind": "keep",
+      "anchor": 1,
+      "before": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "chosenUtility": 38.98946517574881,
+      "delta": 38.98946517574881,
+      "defender": {
+        "id": 1,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 90,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 1,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 18,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 6,
+      "defender": {
+        "id": 6,
+        "family": "soldier",
+        "tier": 1,
+        "x": 18,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 7,
+      "defender": {
+        "id": 7,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 17,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 8,
+      "defender": {
+        "id": 8,
+        "family": "druid",
+        "tier": 1,
+        "x": 19,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 9,
+      "defender": {
+        "id": 9,
+        "family": "runebreaker",
+        "tier": 1,
+        "x": 19,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "place",
+      "index": 10,
+      "defender": {
+        "id": 10,
+        "family": "druid",
+        "tier": 1,
+        "x": 18,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 130
+    },
+    {
+      "round": 2,
+      "kind": "merge",
+      "anchor": 8,
+      "before": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "chosenUtility": 159.84556000638204,
+      "delta": 121.06218845930584,
+      "ingredients": [
+        {
+          "id": 8,
+          "family": "druid",
+          "tier": 1,
+          "x": 19,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 10,
+          "family": "druid",
+          "tier": 1,
+          "x": 18,
+          "z": 16,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 3,
+        "gold": 140,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 8,
+        "family": "druid",
+        "tier": 2,
+        "x": 19,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 11,
+      "defender": {
+        "id": 11,
+        "family": "soldier",
+        "tier": 1,
+        "x": 18,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 12,
+      "defender": {
+        "id": 12,
+        "family": "frostwarden",
+        "tier": 2,
+        "x": 18,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 13,
+      "defender": {
+        "id": 13,
+        "family": "mage",
+        "tier": 1,
+        "x": 19,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 14,
+      "defender": {
+        "id": 14,
+        "family": "archer",
+        "tier": 2,
+        "x": 20,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "place",
+      "index": 15,
+      "defender": {
+        "id": 15,
+        "family": "soldier",
+        "tier": 2,
+        "x": 20,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 3,
+      "kind": "keep",
+      "anchor": 14,
+      "before": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "chosenUtility": 182.72272449686045,
+      "delta": 35.628210897451254,
+      "defender": {
+        "id": 14,
+        "family": "archer",
+        "tier": 2,
+        "x": 20,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 190,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 14,
+        "family": "archer",
+        "tier": 2,
+        "x": 20,
+        "z": 17,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 16,
+      "defender": {
+        "id": 16,
+        "family": "archer",
+        "tier": 1,
+        "x": 16,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 17,
+      "defender": {
+        "id": 17,
+        "family": "archer",
+        "tier": 1,
+        "x": 17,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 18,
+      "defender": {
+        "id": 18,
+        "family": "druid",
+        "tier": 2,
+        "x": 16,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 19,
+      "defender": {
+        "id": 19,
+        "family": "soldier",
+        "tier": 2,
+        "x": 17,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "place",
+      "index": 20,
+      "defender": {
+        "id": 20,
+        "family": "frostwarden",
+        "tier": 2,
+        "x": 4,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 132
+    },
+    {
+      "round": 4,
+      "kind": "keep",
+      "anchor": 18,
+      "before": {
+        "cp": 3,
+        "gold": 240,
+        "lives": 30
+      },
+      "chosenUtility": 257.00391769902717,
+      "delta": 78.32996514383547,
+      "defender": {
+        "id": 18,
+        "family": "druid",
+        "tier": 2,
+        "x": 16,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 3,
+        "gold": 240,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 18,
+        "family": "druid",
+        "tier": 2,
+        "x": 16,
+        "z": 19,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 4,
+      "kind": "move",
+      "id": 18,
+      "wall": 2,
+      "value": 290.8638980443421,
+      "from": {
+        "x": 16,
+        "z": 19
+      },
+      "to": {
+        "x": 19,
+        "z": 19
+      },
+      "cpBefore": 3,
+      "cpAfter": 1
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 21,
+      "defender": {
+        "id": 21,
+        "family": "mage",
+        "tier": 1,
+        "x": 3,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 22,
+      "defender": {
+        "id": 22,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 2,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 23,
+      "defender": {
+        "id": 23,
+        "family": "druid",
+        "tier": 1,
+        "x": 1,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 24,
+      "defender": {
+        "id": 24,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 0,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 134
+    },
+    {
+      "round": 5,
+      "kind": "place",
+      "index": 25,
+      "defender": {
+        "id": 25,
+        "family": "cleric",
+        "tier": 1,
+        "x": 5,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 138
+    },
+    {
+      "round": 5,
+      "kind": "keep",
+      "anchor": 25,
+      "before": {
+        "cp": 1,
+        "gold": 290,
+        "lives": 30
+      },
+      "chosenUtility": 294.99285378005135,
+      "delta": 28.20958380252398,
+      "defender": {
+        "id": 25,
+        "family": "cleric",
+        "tier": 1,
+        "x": 5,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 290,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 25,
+        "family": "cleric",
+        "tier": 1,
+        "x": 5,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 26,
+      "defender": {
+        "id": 26,
+        "family": "runebreaker",
+        "tier": 3,
+        "x": 6,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 140
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 27,
+      "defender": {
+        "id": 27,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 7,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 142
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 28,
+      "defender": {
+        "id": 28,
+        "family": "frostwarden",
+        "tier": 2,
+        "x": 8,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 144
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 29,
+      "defender": {
+        "id": 29,
+        "family": "druid",
+        "tier": 2,
+        "x": 9,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 146
+    },
+    {
+      "round": 6,
+      "kind": "place",
+      "index": 30,
+      "defender": {
+        "id": 30,
+        "family": "cleric",
+        "tier": 1,
+        "x": 10,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 148
+    },
+    {
+      "round": 6,
+      "kind": "keep",
+      "anchor": 29,
+      "before": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 30
+      },
+      "chosenUtility": 430.42949514054555,
+      "delta": 140.15605810092507,
+      "defender": {
+        "id": 29,
+        "family": "druid",
+        "tier": 2,
+        "x": 9,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 340,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 29,
+        "family": "druid",
+        "tier": 2,
+        "x": 9,
+        "z": 18,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 31,
+      "defender": {
+        "id": 31,
+        "family": "mage",
+        "tier": 1,
+        "x": 11,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 150
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 32,
+      "defender": {
+        "id": 32,
+        "family": "runebreaker",
+        "tier": 1,
+        "x": 12,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 154
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 33,
+      "defender": {
+        "id": 33,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 12,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 156
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 34,
+      "defender": {
+        "id": 34,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 13,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 162
+    },
+    {
+      "round": 7,
+      "kind": "place",
+      "index": 35,
+      "defender": {
+        "id": 35,
+        "family": "runebreaker",
+        "tier": 1,
+        "x": 14,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 168
+    },
+    {
+      "round": 7,
+      "kind": "merge",
+      "anchor": 32,
+      "before": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 30
+      },
+      "chosenUtility": 380.9895339400978,
+      "delta": 69.49271743100621,
+      "ingredients": [
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 1,
+          "x": 12,
+          "z": 19,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 35,
+          "family": "runebreaker",
+          "tier": 1,
+          "x": 14,
+          "z": 22,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 390,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 32,
+        "family": "runebreaker",
+        "tier": 2,
+        "x": 12,
+        "z": 19,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 36,
+      "defender": {
+        "id": 36,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 15,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 180
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 37,
+      "defender": {
+        "id": 37,
+        "family": "archer",
+        "tier": 1,
+        "x": 19,
+        "z": 32,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 38,
+      "defender": {
+        "id": 38,
+        "family": "mage",
+        "tier": 1,
+        "x": 19,
+        "z": 31,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 182
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 39,
+      "defender": {
+        "id": 39,
+        "family": "druid",
+        "tier": 1,
+        "x": 19,
+        "z": 33,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "place",
+      "index": 40,
+      "defender": {
+        "id": 40,
+        "family": "archer",
+        "tier": 1,
+        "x": 19,
+        "z": 30,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 184
+    },
+    {
+      "round": 8,
+      "kind": "craft",
+      "anchor": 37,
+      "before": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 30
+      },
+      "chosenUtility": 545.8714593990073,
+      "delta": 80.04459179624405,
+      "recipe": "thornwarden",
+      "result": "thornwarden",
+      "ingredients": [
+        {
+          "id": 25,
+          "family": "cleric",
+          "tier": 1,
+          "x": 5,
+          "z": 18,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 39,
+          "family": "druid",
+          "tier": 1,
+          "x": 19,
+          "z": 33,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 37,
+          "family": "archer",
+          "tier": 1,
+          "x": 19,
+          "z": 32,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 1,
+        "gold": 440,
+        "lives": 30
+      },
+      "resultDefender": {
+        "id": 37,
+        "family": "thornwarden",
+        "tier": 1,
+        "x": 19,
+        "z": 32,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 41,
+      "defender": {
+        "id": 41,
+        "family": "archer",
+        "tier": 2,
+        "x": 19,
+        "z": 34,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 42,
+      "defender": {
+        "id": 42,
+        "family": "druid",
+        "tier": 2,
+        "x": 19,
+        "z": 29,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 186
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 43,
+      "defender": {
+        "id": 43,
+        "family": "mage",
+        "tier": 2,
+        "x": 19,
+        "z": 35,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 44,
+      "defender": {
+        "id": 44,
+        "family": "cleric",
+        "tier": 3,
+        "x": 19,
+        "z": 28,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 188
+    },
+    {
+      "round": 9,
+      "kind": "place",
+      "index": 45,
+      "defender": {
+        "id": 45,
+        "family": "druid",
+        "tier": 1,
+        "x": 19,
+        "z": 36,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 190
+    },
+    {
+      "round": 9,
+      "kind": "keep",
+      "anchor": 42,
+      "before": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 19
+      },
+      "chosenUtility": 714.8010247444674,
+      "delta": 106.86798588113822,
+      "defender": {
+        "id": 42,
+        "family": "druid",
+        "tier": 2,
+        "x": 19,
+        "z": 29,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 490,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 42,
+        "family": "druid",
+        "tier": 2,
+        "x": 19,
+        "z": 29,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 46,
+      "defender": {
+        "id": 46,
+        "family": "cleric",
+        "tier": 2,
+        "x": 20,
+        "z": 27,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 192
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 47,
+      "defender": {
+        "id": 47,
+        "family": "druid",
+        "tier": 2,
+        "x": 21,
+        "z": 26,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 194
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 48,
+      "defender": {
+        "id": 48,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 22,
+        "z": 25,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 196
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 49,
+      "defender": {
+        "id": 49,
+        "family": "runebreaker",
+        "tier": 1,
+        "x": 23,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 198
+    },
+    {
+      "round": 10,
+      "kind": "place",
+      "index": 50,
+      "defender": {
+        "id": 50,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 24,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 200
+    },
+    {
+      "round": 10,
+      "kind": "keep",
+      "anchor": 47,
+      "before": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 19
+      },
+      "chosenUtility": 815.1878088999968,
+      "delta": 156.00822273591723,
+      "defender": {
+        "id": 47,
+        "family": "druid",
+        "tier": 2,
+        "x": 21,
+        "z": 26,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 1,
+        "gold": 540,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 47,
+        "family": "druid",
+        "tier": 2,
+        "x": 21,
+        "z": 26,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 10,
+      "kind": "boss-cp",
+      "amount": 5,
+      "reason": "boss",
+      "enemyId": 88,
+      "balance": 6
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 51,
+      "defender": {
+        "id": 51,
+        "family": "cleric",
+        "tier": 1,
+        "x": 25,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 202
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 52,
+      "defender": {
+        "id": 52,
+        "family": "archer",
+        "tier": 3,
+        "x": 26,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 204
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 53,
+      "defender": {
+        "id": 53,
+        "family": "mage",
+        "tier": 2,
+        "x": 27,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 54,
+      "defender": {
+        "id": 54,
+        "family": "druid",
+        "tier": 1,
+        "x": 28,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 206
+    },
+    {
+      "round": 11,
+      "kind": "place",
+      "index": 55,
+      "defender": {
+        "id": 55,
+        "family": "frostwarden",
+        "tier": 2,
+        "x": 29,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 208
+    },
+    {
+      "round": 11,
+      "kind": "keep",
+      "anchor": 52,
+      "before": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 19
+      },
+      "chosenUtility": 878.1999508494587,
+      "delta": 117.3624160542762,
+      "defender": {
+        "id": 52,
+        "family": "archer",
+        "tier": 3,
+        "x": 26,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 6,
+        "gold": 740,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 52,
+        "family": "archer",
+        "tier": 3,
+        "x": 26,
+        "z": 21,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 37,
+      "wall": 48,
+      "value": 1178.2709078495736,
+      "from": {
+        "x": 19,
+        "z": 32
+      },
+      "to": {
+        "x": 22,
+        "z": 25
+      },
+      "cpBefore": 6,
+      "cpAfter": 4
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 29,
+      "wall": 49,
+      "value": 1272.1971718660802,
+      "from": {
+        "x": 9,
+        "z": 18
+      },
+      "to": {
+        "x": 23,
+        "z": 24
+      },
+      "cpBefore": 4,
+      "cpAfter": 2
+    },
+    {
+      "round": 11,
+      "kind": "move",
+      "id": 8,
+      "wall": 50,
+      "value": 1328.1730646208307,
+      "from": {
+        "x": 19,
+        "z": 18
+      },
+      "to": {
+        "x": 24,
+        "z": 23
+      },
+      "cpBefore": 2,
+      "cpAfter": 0
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 56,
+      "defender": {
+        "id": 56,
+        "family": "stormcaller",
+        "tier": 2,
+        "x": 30,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 212
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 57,
+      "defender": {
+        "id": 57,
+        "family": "druid",
+        "tier": 1,
+        "x": 31,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 216
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 58,
+      "defender": {
+        "id": 58,
+        "family": "frostwarden",
+        "tier": 3,
+        "x": 32,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 224
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 59,
+      "defender": {
+        "id": 59,
+        "family": "archer",
+        "tier": 3,
+        "x": 33,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 232
+    },
+    {
+      "round": 12,
+      "kind": "place",
+      "index": 60,
+      "defender": {
+        "id": 60,
+        "family": "runebreaker",
+        "tier": 2,
+        "x": 33,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 236
+    },
+    {
+      "round": 12,
+      "kind": "keep",
+      "anchor": 58,
+      "before": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 19
+      },
+      "chosenUtility": 1488.6172563926511,
+      "delta": 273.32721883645445,
+      "defender": {
+        "id": 58,
+        "family": "frostwarden",
+        "tier": 3,
+        "x": 32,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 790,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 58,
+        "family": "frostwarden",
+        "tier": 3,
+        "x": 32,
+        "z": 16,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 61,
+      "defender": {
+        "id": 61,
+        "family": "druid",
+        "tier": 1,
+        "x": 33,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 240
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 62,
+      "defender": {
+        "id": 62,
+        "family": "soldier",
+        "tier": 1,
+        "x": 33,
+        "z": 12,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 244
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 63,
+      "defender": {
+        "id": 63,
+        "family": "archer",
+        "tier": 4,
+        "x": 33,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 248
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 64,
+      "defender": {
+        "id": 64,
+        "family": "stormcaller",
+        "tier": 2,
+        "x": 33,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 252
+    },
+    {
+      "round": 13,
+      "kind": "place",
+      "index": 65,
+      "defender": {
+        "id": 65,
+        "family": "stormcaller",
+        "tier": 2,
+        "x": 33,
+        "z": 9,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 256
+    },
+    {
+      "round": 13,
+      "kind": "keep",
+      "anchor": 63,
+      "before": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 19
+      },
+      "chosenUtility": 1996.4550489656724,
+      "delta": 469.4533400402677,
+      "defender": {
+        "id": 63,
+        "family": "archer",
+        "tier": 4,
+        "x": 33,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 840,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 63,
+        "family": "archer",
+        "tier": 4,
+        "x": 33,
+        "z": 11,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 66,
+      "defender": {
+        "id": 66,
+        "family": "frostwarden",
+        "tier": 3,
+        "x": 33,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 260
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 67,
+      "defender": {
+        "id": 67,
+        "family": "mage",
+        "tier": 3,
+        "x": 33,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 264
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 68,
+      "defender": {
+        "id": 68,
+        "family": "mage",
+        "tier": 1,
+        "x": 33,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 268
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 69,
+      "defender": {
+        "id": 69,
+        "family": "druid",
+        "tier": 3,
+        "x": 33,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 272
+    },
+    {
+      "round": 14,
+      "kind": "place",
+      "index": 70,
+      "defender": {
+        "id": 70,
+        "family": "archer",
+        "tier": 3,
+        "x": 33,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 278
+    },
+    {
+      "round": 14,
+      "kind": "keep",
+      "anchor": 69,
+      "before": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 19
+      },
+      "chosenUtility": 2001.8051385501444,
+      "delta": 276.12038357570464,
+      "defender": {
+        "id": 69,
+        "family": "druid",
+        "tier": 3,
+        "x": 33,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 890,
+        "lives": 19
+      },
+      "resultDefender": {
+        "id": 69,
+        "family": "druid",
+        "tier": 3,
+        "x": 33,
+        "z": 5,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 71,
+      "defender": {
+        "id": 71,
+        "family": "cleric",
+        "tier": 2,
+        "x": 32,
+        "z": 3,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 286
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 72,
+      "defender": {
+        "id": 72,
+        "family": "soldier",
+        "tier": 4,
+        "x": 31,
+        "z": 4,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 292
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 73,
+      "defender": {
+        "id": 73,
+        "family": "frostwarden",
+        "tier": 2,
+        "x": 30,
+        "z": 5,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 298
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 74,
+      "defender": {
+        "id": 74,
+        "family": "stormcaller",
+        "tier": 4,
+        "x": 29,
+        "z": 6,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 304
+    },
+    {
+      "round": 15,
+      "kind": "place",
+      "index": 75,
+      "defender": {
+        "id": 75,
+        "family": "soldier",
+        "tier": 1,
+        "x": 28,
+        "z": 7,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 310
+    },
+    {
+      "round": 15,
+      "kind": "craft",
+      "anchor": 72,
+      "before": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 12
+      },
+      "chosenUtility": 2845.8231152606413,
+      "delta": 1347.0607663032822,
+      "recipe": "kingdomprotector",
+      "result": "kingdomprotector",
+      "ingredients": [
+        {
+          "id": 63,
+          "family": "archer",
+          "tier": 4,
+          "x": 33,
+          "z": 11,
+          "state": "active",
+          "kills": 4,
+          "mvpLevel": 0
+        },
+        {
+          "id": 72,
+          "family": "soldier",
+          "tier": 4,
+          "x": 31,
+          "z": 4,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 71,
+          "family": "cleric",
+          "tier": 2,
+          "x": 32,
+          "z": 3,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 0,
+        "gold": 940,
+        "lives": 12
+      },
+      "resultDefender": {
+        "id": 72,
+        "family": "kingdomprotector",
+        "tier": 1,
+        "x": 31,
+        "z": 4,
+        "state": "active",
+        "kills": 4,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 76,
+      "defender": {
+        "id": 76,
+        "family": "cleric",
+        "tier": 4,
+        "x": 27,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 316
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 77,
+      "defender": {
+        "id": 77,
+        "family": "druid",
+        "tier": 1,
+        "x": 26,
+        "z": 9,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 322
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 78,
+      "defender": {
+        "id": 78,
+        "family": "frostwarden",
+        "tier": 4,
+        "x": 25,
+        "z": 10,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 328
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 79,
+      "defender": {
+        "id": 79,
+        "family": "druid",
+        "tier": 3,
+        "x": 24,
+        "z": 11,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 334
+    },
+    {
+      "round": 16,
+      "kind": "place",
+      "index": 80,
+      "defender": {
+        "id": 80,
+        "family": "soldier",
+        "tier": 1,
+        "x": 23,
+        "z": 12,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 340
+    },
+    {
+      "round": 16,
+      "kind": "keep",
+      "anchor": 76,
+      "before": {
+        "cp": 0,
+        "gold": 990,
+        "lives": 1
+      },
+      "chosenUtility": 3901.901507373486,
+      "delta": 428.564771731732,
+      "defender": {
+        "id": 76,
+        "family": "cleric",
+        "tier": 4,
+        "x": 27,
+        "z": 8,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 990,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 76,
+        "family": "cleric",
+        "tier": 4,
+        "x": 27,
+        "z": 8,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 81,
+      "defender": {
+        "id": 81,
+        "family": "soldier",
+        "tier": 4,
+        "x": 22,
+        "z": 13,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 346
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 82,
+      "defender": {
+        "id": 82,
+        "family": "druid",
+        "tier": 2,
+        "x": 21,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 356
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 83,
+      "defender": {
+        "id": 83,
+        "family": "archer",
+        "tier": 3,
+        "x": 20,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 362
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 84,
+      "defender": {
+        "id": 84,
+        "family": "cleric",
+        "tier": 4,
+        "x": 19,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 368
+    },
+    {
+      "round": 17,
+      "kind": "place",
+      "index": 85,
+      "defender": {
+        "id": 85,
+        "family": "cleric",
+        "tier": 2,
+        "x": 18,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 378
+    },
+    {
+      "round": 17,
+      "kind": "keep",
+      "anchor": 83,
+      "before": {
+        "cp": 0,
+        "gold": 1040,
+        "lives": 1
+      },
+      "chosenUtility": 4680.480610015066,
+      "delta": 408.70863901501434,
+      "defender": {
+        "id": 83,
+        "family": "archer",
+        "tier": 3,
+        "x": 20,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1040,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 83,
+        "family": "archer",
+        "tier": 3,
+        "x": 20,
+        "z": 14,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 86,
+      "defender": {
+        "id": 86,
+        "family": "soldier",
+        "tier": 2,
+        "x": 17,
+        "z": 14,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 388
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 87,
+      "defender": {
+        "id": 87,
+        "family": "frostwarden",
+        "tier": 1,
+        "x": 16,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 410
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 88,
+      "defender": {
+        "id": 88,
+        "family": "frostwarden",
+        "tier": 4,
+        "x": 15,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 432
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 89,
+      "defender": {
+        "id": 89,
+        "family": "frostwarden",
+        "tier": 3,
+        "x": 14,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 454
+    },
+    {
+      "round": 18,
+      "kind": "place",
+      "index": 90,
+      "defender": {
+        "id": 90,
+        "family": "druid",
+        "tier": 3,
+        "x": 22,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 458
+    },
+    {
+      "round": 18,
+      "kind": "keep",
+      "anchor": 90,
+      "before": {
+        "cp": 0,
+        "gold": 1090,
+        "lives": 1
+      },
+      "chosenUtility": 6015.538532210332,
+      "delta": 724.1711375680707,
+      "defender": {
+        "id": 90,
+        "family": "druid",
+        "tier": 3,
+        "x": 22,
+        "z": 15,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1090,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 90,
+        "family": "druid",
+        "tier": 3,
+        "x": 22,
+        "z": 15,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 91,
+      "defender": {
+        "id": 91,
+        "family": "stormcaller",
+        "tier": 2,
+        "x": 22,
+        "z": 16,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 462
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 92,
+      "defender": {
+        "id": 92,
+        "family": "druid",
+        "tier": 4,
+        "x": 22,
+        "z": 17,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 466
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 93,
+      "defender": {
+        "id": 93,
+        "family": "mage",
+        "tier": 3,
+        "x": 22,
+        "z": 18,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 470
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 94,
+      "defender": {
+        "id": 94,
+        "family": "mage",
+        "tier": 1,
+        "x": 22,
+        "z": 19,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 474
+    },
+    {
+      "round": 19,
+      "kind": "place",
+      "index": 95,
+      "defender": {
+        "id": 95,
+        "family": "cleric",
+        "tier": 2,
+        "x": 21,
+        "z": 20,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 482
+    },
+    {
+      "round": 19,
+      "kind": "craft",
+      "anchor": 92,
+      "before": {
+        "cp": 0,
+        "gold": 1140,
+        "lives": 1
+      },
+      "chosenUtility": 9430.196036029092,
+      "delta": 2719.82163680733,
+      "recipe": "wyvernhunter",
+      "result": "wyvernhunter",
+      "ingredients": [
+        {
+          "id": 92,
+          "family": "druid",
+          "tier": 4,
+          "x": 22,
+          "z": 17,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 93,
+          "family": "mage",
+          "tier": 3,
+          "x": 22,
+          "z": 18,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 32,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 12,
+          "z": 19,
+          "state": "active",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 0,
+        "gold": 1140,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 92,
+        "family": "wyvernhunter",
+        "tier": 1,
+        "x": 22,
+        "z": 17,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 96,
+      "defender": {
+        "id": 96,
+        "family": "archer",
+        "tier": 2,
+        "x": 20,
+        "z": 21,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 490
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 97,
+      "defender": {
+        "id": 97,
+        "family": "archer",
+        "tier": 1,
+        "x": 19,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 498
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 98,
+      "defender": {
+        "id": 98,
+        "family": "archer",
+        "tier": 1,
+        "x": 18,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 502
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 99,
+      "defender": {
+        "id": 99,
+        "family": "runebreaker",
+        "tier": 2,
+        "x": 15,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 506
+    },
+    {
+      "round": 20,
+      "kind": "place",
+      "index": 100,
+      "defender": {
+        "id": 100,
+        "family": "mage",
+        "tier": 2,
+        "x": 16,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 510
+    },
+    {
+      "round": 20,
+      "kind": "keep",
+      "anchor": 100,
+      "before": {
+        "cp": 0,
+        "gold": 1190,
+        "lives": 1
+      },
+      "chosenUtility": 8322.42378521225,
+      "delta": 261.95333126667174,
+      "defender": {
+        "id": 100,
+        "family": "mage",
+        "tier": 2,
+        "x": 16,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "after": {
+        "cp": 0,
+        "gold": 1190,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 100,
+        "family": "mage",
+        "tier": 2,
+        "x": 16,
+        "z": 24,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 20,
+      "kind": "boss-cp",
+      "amount": 5,
+      "reason": "boss",
+      "enemyId": 218,
+      "balance": 5
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 101,
+      "defender": {
+        "id": 101,
+        "family": "soldier",
+        "tier": 3,
+        "x": 17,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 514
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 102,
+      "defender": {
+        "id": 102,
+        "family": "runebreaker",
+        "tier": 2,
+        "x": 19,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 522
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 103,
+      "defender": {
+        "id": 103,
+        "family": "runebreaker",
+        "tier": 4,
+        "x": 20,
+        "z": 24,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 530
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 104,
+      "defender": {
+        "id": 104,
+        "family": "archer",
+        "tier": 2,
+        "x": 21,
+        "z": 23,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 546
+    },
+    {
+      "round": 21,
+      "kind": "place",
+      "index": 105,
+      "defender": {
+        "id": 105,
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 22,
+        "z": 22,
+        "state": "draft",
+        "kills": 0,
+        "mvpLevel": 0
+      },
+      "routeSteps": 562
+    },
+    {
+      "round": 21,
+      "kind": "reroll",
+      "before": [
+        {
+          "id": 101,
+          "family": "soldier",
+          "tier": 3,
+          "x": 17,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 102,
+          "family": "runebreaker",
+          "tier": 2,
+          "x": 19,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 103,
+          "family": "runebreaker",
+          "tier": 4,
+          "x": 20,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 104,
+          "family": "archer",
+          "tier": 2,
+          "x": 21,
+          "z": 23,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 105,
+          "family": "stormcaller",
+          "tier": 1,
+          "x": 22,
+          "z": 22,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": [
+        {
+          "id": 101,
+          "family": "frostwarden",
+          "tier": 4,
+          "x": 17,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 102,
+          "family": "mage",
+          "tier": 4,
+          "x": 19,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 103,
+          "family": "cleric",
+          "tier": 4,
+          "x": 20,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 104,
+          "family": "frostwarden",
+          "tier": 1,
+          "x": 21,
+          "z": 23,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 105,
+          "family": "cleric",
+          "tier": 4,
+          "x": 22,
+          "z": 22,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "cpBefore": 5,
+      "cpAfter": 4
+    },
+    {
+      "round": 21,
+      "kind": "merge",
+      "anchor": 105,
+      "before": {
+        "cp": 4,
+        "gold": 1390,
+        "lives": 1
+      },
+      "chosenUtility": 13399.967779206738,
+      "delta": 3032.890291681306,
+      "ingredients": [
+        {
+          "id": 105,
+          "family": "cleric",
+          "tier": 4,
+          "x": 22,
+          "z": 22,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        },
+        {
+          "id": 103,
+          "family": "cleric",
+          "tier": 4,
+          "x": 20,
+          "z": 24,
+          "state": "draft",
+          "kills": 0,
+          "mvpLevel": 0
+        }
+      ],
+      "after": {
+        "cp": 4,
+        "gold": 1390,
+        "lives": 1
+      },
+      "resultDefender": {
+        "id": 105,
+        "family": "cleric",
+        "tier": 5,
+        "x": 22,
+        "z": 22,
+        "state": "active",
+        "kills": 0,
+        "mvpLevel": 0
+      }
+    },
+    {
+      "round": 21,
+      "kind": "move",
+      "id": 72,
+      "wall": 12,
+      "value": 22424.07513531303,
+      "from": {
+        "x": 31,
+        "z": 4
+      },
+      "to": {
+        "x": 18,
+        "z": 19
+      },
+      "cpBefore": 4,
+      "cpAfter": 2
+    },
+    {
+      "round": 21,
+      "kind": "move",
+      "id": 37,
+      "wall": 50,
+      "value": 24463.325812493447,
+      "from": {
+        "x": 22,
+        "z": 25
+      },
+      "to": {
+        "x": 19,
+        "z": 18
+      },
+      "cpBefore": 2,
+      "cpAfter": 0
+    }
+  ]
+}

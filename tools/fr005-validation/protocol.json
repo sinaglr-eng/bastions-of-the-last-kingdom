@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-005",
+  "revision": 2,
+  "candidateVersion": "0.6.8",
+  "baselineRuleset": "fr004-r1-20261101",
+  "currentRuleset": "fr005-r2-20261102",
+  "frozenAt": "2026-11-02T10:00:19.325Z",
+  "seeds": [
+    16000019,
+    16104748,
+    16209477,
+    16314206,
+    16418935,
+    16523664
+  ],
+  "policies": [
+    "immediate",
+    "recipe-planner"
+  ],
+  "factions": [
+    "crown",
+    "forge",
+    "grove"
+  ],
+  "cohorts": [
+    "baseline",
+    "current"
+  ],
+  "campaigns": 72,
+  "noTOP": true,
+  "allowSecret": false,
+  "rankVIAllowed": true,
+  "controllerSha256": "cb2c1234cca13ed46f69f185e42c285b81e5213ae075d0d2ceff6c33e5f6bda5",
+  "placementPlanSha256": "152d891b6a9b85a44469846c6a9e855d8f2b0aa1069fa79f4605e24ae371841a",
+  "baselineControllerSha256": "0f34b5235358215edf36a98da3996a5fac49885b6f6028bfbd65917c05357107",
+  "controllerChanges": "Only named registry loader, revision metadata and output paths. Decision functions and construction order unchanged. Six fresh paired initial seed clusters; divergent downstream randomness is not forced equal.",
+  "controlledInputsSha256": "823a82752fe79bb2b5ede8447a87354ae7f9156382b65c05799cf75841e7241d"
+}

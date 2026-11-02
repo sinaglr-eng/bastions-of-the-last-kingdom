@@ -3,6 +3,7 @@ import {distance,towerStats,offensiveAuraRange} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
 import {statusEffectAllowed,slowAuraApplies} from '../core/combat-rules.js';
 import {immunityAuraCoverage} from '../core/immunity-auras.js';
+import {skyHuntAura,skyHuntSlow} from '../core/sky-hunt.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
 // A source includes itself in the current game. Maxima win inside each haste
@@ -115,6 +116,7 @@ export const supportLegend=(tower,towers,data,options={})=>towerSupportState(tow
 export function supportSourceAreas(tower,data,{towers=[]}={}){
   if(tower?.state!=='active'||!data.towers[tower.family])return [];
   const s=towerStats(tower,data),R=enemyRulesFor(data),areas=[];
+  const sky=skyHuntAura(s);if(sky)areas.push({key:'slow',keys:['slow'],radius:sky.slowAuraRadius,label:`${sky.levelLabel} · ${sky.slowPercent}% movement slow · ${sky.slowAuraRadius} tiles · flying only`,color:'#71d1e6',glyph:ENEMY_EFFECT_STYLES.slow.glyph});
   if(data.fr003)for(const a of s.abilities||[])if(['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId)){
     const key=a.immunity==='physical'?'physicalPass':'magicalPass',style=ENEMY_EFFECT_STYLES[key];
     areas.push({key,keys:[key],radius:a.radius,label:`${a.levelLabel} · ${percent(a.damageMultiplier)} normal ${a.immunity==='physical'?'Physical':'Magical'} damage · ${a.radius} tiles`,color:style.color,glyph:style.glyph});
@@ -140,6 +142,7 @@ export function enemyStatusState(enemy,towers,data,options={}){
   let slow=statusEffectAllowed(enemy,'slow')?Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0):0,armor=statuses.shred?.amount||0;
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
+    slow=Math.max(slow,skyHuntSlow(s,tower,enemy));
     if(tower.attackPaused)continue;
     if(slowAuraApplies(s,enemy)&&d<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);
     if(d<=offensiveAuraRange(s,'armor'))armor=Math.max(armor,s.armorShredAura||0);

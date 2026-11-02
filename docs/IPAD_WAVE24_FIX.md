@@ -1,6 +1,6 @@
 # iPad wave-24 graphics/memory repair — local game 0.6.7
 
-This is the implementation-stage record from 1 November 2026. Public deployment was subsequently authorized on 2 November; current activation evidence is linked from [release 0.6.7](RELEASE_0_6_7.md).
+This is the implementation-stage record from 1 November 2026. Public deployment was subsequently authorized on 2 November; the current local release is documented in [release 0.6.8](RELEASE_0_6_8.md). The public game still runs 0.6.7 until a new deployment is requested.
 
 The public game observed during this investigation was **0.6.6**. Its rendering/loader code for the affected paths was byte-identical in Git to the local candidate before this repair. The reported wave has **19 Riveted Goblin Mutants (host_24)**. The exact approved GLB digest passed; its model, embedded PNG bindings and finite animated geometry passed a 19-private-actor CPU test. This test does not reproduce Safari pixels or its GPU driver.
 

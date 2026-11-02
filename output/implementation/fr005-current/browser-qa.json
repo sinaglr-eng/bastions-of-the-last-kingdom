@@ -1,0 +1,77 @@
+{
+  "version": "0.6.8",
+  "url": "http://127.0.0.1:5173/",
+  "developerMode": true,
+  "checks": [
+    "Dwarf faction startup",
+    "Exact current Gatling Golem Multishot III, Ricochet II and 2.5-tile Splash displayed in the recipe book",
+    "Sandbox wave 5 completed at 5x, no lost keep health",
+    "Paused Griffin Handler VI projects Sky Hunt III: 75% slow, 5 tiles, flying only",
+    "Attack speed +30% attributed to Gatling Golem #3 in the selected defender panel"
+  ],
+  "wave": "6 / 50",
+  "panel": "Griffin Handler\n\nActual rank VI · Keeper · Attacks paused\n\n1 built at rank VI\n\nMVP Level: 0 / 10\n\nOwn damage +0%\n\nACTIVE BONUSES & PENALTIES\nAttack speed +30%\nFrom Gatling Golem #3\nProjected by this defender\nSky Hunt III · 75% movement slow · 5 tiles · flying only\nPHYSICAL\nCOMPARE RANKS\nActual rank VI\nI\nII\nIII\nIV\nV\nVI\nDamage / hit\n570\nDirect DPS\n0\nRange\n5.25\nInterval\n—\nAttacks paused\nTarget priority\nFirst\nLast\nStrongest\nWeakest\nFastest\nSlowest\nUnit attacks paused · Support and existing damage-over-time effects continue.\nArmor Reduction IX: Hits remove 64 armor for 4 s.\nSky Hunt III: Physical attacks deal +75% damage to flying enemies. Flying enemies within 5 tiles are slowed by 75%.",
+  "renderer": {
+    "frames": 120,
+    "medianMs": 17.300000190734863,
+    "p95Ms": 18.700000047683716,
+    "calls": 3349,
+    "triangles": 719057,
+    "geometryBuffers": 3363,
+    "textureBuffers": 122,
+    "shaderPrograms": 39,
+    "webglContext": {
+      "lost": false,
+      "losses": 0,
+      "restores": 0,
+      "lastEvent": null
+    },
+    "defenderCache": {
+      "loaded": 3,
+      "active": 0,
+      "queued": 0,
+      "suspended": false,
+      "maxCachedUnused": 2
+    },
+    "assetLoads": {
+      "running": 0,
+      "queued": 0,
+      "suspended": false,
+      "concurrency": 3
+    },
+    "enemyStaticSurfaces": {
+      "geometries": 4,
+      "borrowers": 4,
+      "bytes": 287760,
+      "unsharedBytes": 287760
+    },
+    "enemyModels": [
+      "host_01",
+      "host_05",
+      "host_06"
+    ],
+    "pendingEnemies": 0,
+    "visibleEnemies": 0,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "fallbackPaths": 0,
+    "statusInstances": 0,
+    "statusBatches": 0,
+    "statusTargets": [],
+    "combatTime": 15.76769999999996,
+    "paused": false,
+    "speed": 5
+  },
+  "logs": [
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-11-02T10:09:17.840Z",
+      "url": "http://127.0.0.1:5173/game/core/statistics-client.js"
+    }
+  ],
+  "limitations": [
+    "Actual local Chromium smoke check, not an iPad/Safari or exhaustive visual/performance certification.",
+    "One statistics network warning was captured before Developer Mode activation. Local backend accepts the new version in tests; the public service is unchanged until deployment."
+  ]
+}

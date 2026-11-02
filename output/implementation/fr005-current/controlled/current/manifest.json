@@ -1,0 +1,374 @@
+{
+  "status": "Matched FR-005 controlled combat diagnostics",
+  "cohort": "current",
+  "runtimeVersion": "0.6.8",
+  "requirement": "FR-005 revision 2 compared with implemented FR-004",
+  "frozenAt": "2026-11-02T10:03:17.708Z",
+  "sourceHashes": {
+    "package.json": "5633fefb2aef4deccf8f2a0dc9cd91a04bcc454db5954d441703af3125d90a07",
+    "game/release.js": "2c5857029528e613af3bcae68d3e70443ec9efe763c1fe5a760e5dbf8235189c",
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/combat.js": "21e90538a48b30d672adc8a2890a0acedb9f86f41245cc1a92d74b87cb495960",
+    "game/core/immunity-auras.js": "55c4cbb38dd684755e713056937e1bf8e9bce24b08894c60fc250061e44659ee",
+    "game/core/fr003-registry.js": "b39c1c01884413a627cd02e43db3209cae650bbf39f2d1faad2ce004da0e472a",
+    "game/core/fr002-combat.js": "163d626f519f02e9e638362fc69d3e1eeb07ba650eaeb03cc5cd9c7d0235ceb2",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/math.js": "3074c50d74bdd307b433af239b60ea74f36a1a5d9f00015eb678027680431672",
+    "game/core/factions.js": "750f2ae0adc0715ac48b5bcccd9350fb36cadba4e605fb35d1b6fa1b6d6b3b99",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "data/fr004.json": "46d13c65b43f5216e77a536279e120c2717dffc4b438305bb9ea0ed00d14fdd1",
+    "game/core/fr004-registry.js": "af68c12bbc9cdf44796857fc0e2a869fe142bf8212b1534d2322139354ea2d6c",
+    "data/fr005-approved.json": "0f7de0724f5e66eb3410ae8f90bb32b9873343407b25f7d92afd5c6629fbf5ef",
+    "game/core/fr005-registry.js": "334c30fd8701a0eb806d11d7362a44e8ce8840651a4fbeb48d5d7d56df5800d4",
+    "game/core/sky-hunt.js": "085b0ca2fd97145aa44306ecf9506c4558bf3e07f415e1ba60161d2b0542d41e",
+    "tools/current-datasets.mjs": "4486466432ea96f80ef70d60b5b14436f9f8fe496e4df37569f123c62ce93cf4",
+    "data/fr003-approved.json": "03d6e876dee0b0c3f2ab7db33d7c0bfc671ad26e64052afba958393ba4aa05ef",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "tools/fr003-validation/datasets.mjs": "535ab17c86cdcaea1a4233fce989833bafdc96a8b5776e9278dda2e6f4252b73",
+    "tools/fr005-validation/controlled/fixtures.mjs": "ea1290aeee4b264f415911d14a340f6b66b7df2810d7a5bd88c27f5a89c9d3b3",
+    "tools/fr005-validation/controlled/armies.mjs": "6cc262d47da06ee52ec71e6414e025ca1dce1e2b0f97a6734d8f3d507ed807d9",
+    "tools/fr005-validation/controlled/run.mjs": "bde81b6b5db03f6b6ec88c9aea6116ab533b8d3155e0dc544f3d741baed6c5f2"
+  },
+  "method": "Independent real-engine battles with complete Diamond Spiral foundations and an injected fixed army. This diagnoses combat capacity, not acquisition or campaign completion. Exactly 600 recursively expanded rank-I ingredient equivalents per faction, <=19 active core positions, MVP0, no TOP or Secret, 30 starting lives. Report enemy full clears and genuine boss deaths independently from the engine won phase. Principal armies and positions are matched; filler follows the exact frozen 600-material input file.",
+  "seeds": [
+    910001,
+    910019,
+    910037
+  ],
+  "waves": [
+    27,
+    35,
+    40,
+    43,
+    45,
+    46,
+    48,
+    49,
+    50
+  ],
+  "choices": [
+    {
+      "name": "human-fixed",
+      "faction": "crown",
+      "army": [
+        {
+          "family": "monk",
+          "tier": 1
+        },
+        {
+          "family": "rangermentor",
+          "tier": 1
+        },
+        {
+          "family": "archangel",
+          "tier": 1
+        },
+        {
+          "family": "royalranger",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "thunderheart",
+          "tier": 1
+        },
+        {
+          "family": "thunderheart",
+          "tier": 1
+        },
+        {
+          "family": "thunderheart",
+          "tier": 1
+        },
+        {
+          "family": "archer",
+          "tier": 5
+        },
+        {
+          "family": "archer",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "name": "dwarf-fixed",
+      "faction": "forge",
+      "army": [
+        {
+          "family": "dw_warcaller",
+          "tier": 1
+        },
+        {
+          "family": "dw_nullifier",
+          "tier": 1
+        },
+        {
+          "family": "dw_nullifier",
+          "tier": 1
+        },
+        {
+          "family": "dw_talonlord",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 6
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 5
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "name": "elf-fixed",
+      "faction": "grove",
+      "army": [
+        {
+          "family": "el_moonwell_seer",
+          "tier": 1
+        },
+        {
+          "family": "el_stag_oracle",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_furnace_seer",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_twilight_huntress",
+          "tier": 1
+        },
+        {
+          "family": "el_wisp_conductor",
+          "tier": 1
+        },
+        {
+          "family": "el_wisp_conductor",
+          "tier": 1
+        },
+        {
+          "family": "el_elven_archer",
+          "tier": 1
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 4
+        }
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "x": 18,
+      "z": 18
+    },
+    {
+      "x": 18,
+      "z": 17
+    },
+    {
+      "x": 17,
+      "z": 18
+    },
+    {
+      "x": 19,
+      "z": 18
+    },
+    {
+      "x": 18,
+      "z": 19
+    },
+    {
+      "x": 17,
+      "z": 17
+    },
+    {
+      "x": 19,
+      "z": 17
+    },
+    {
+      "x": 17,
+      "z": 19
+    },
+    {
+      "x": 19,
+      "z": 19
+    },
+    {
+      "x": 18,
+      "z": 16
+    },
+    {
+      "x": 16,
+      "z": 18
+    },
+    {
+      "x": 20,
+      "z": 18
+    },
+    {
+      "x": 18,
+      "z": 20
+    },
+    {
+      "x": 19,
+      "z": 16
+    },
+    {
+      "x": 20,
+      "z": 17
+    },
+    {
+      "x": 16,
+      "z": 19
+    },
+    {
+      "x": 17,
+      "z": 20
+    },
+    {
+      "x": 20,
+      "z": 16
+    },
+    {
+      "x": 16,
+      "z": 20
+    }
+  ],
+  "diamond": {
+    "foundations": 128,
+    "core": 19,
+    "routeSteps": 718
+  },
+  "smoke": false
+}
