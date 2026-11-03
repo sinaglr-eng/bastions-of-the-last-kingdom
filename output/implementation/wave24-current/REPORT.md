@@ -26,3 +26,7 @@ All frozen paired scenes submit the same number of triangles. The moving samples
 - World selection and occlusion still use the original per-tile wall surfaces. Shared submitted enemy poses use copy-on-write so living actors and completed corpses cannot overwrite one another.
 
 Detailed observations are in the neighboring JSON files. Public deployment and source/mirror receipts are recorded separately when complete. No gallery is published and no test score is submitted.
+
+## Public deployment
+
+The current 0.6.9 patch is published at https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/ from commit 3b4722ecf5a725226b3cb089a8ec37d479b2c1c9. Both CI build and deployment passed: https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41548549855. The public compiled entry and current media identities were verified separately from the actual public browser smoke check. Existing statistics storage and score rules are unchanged.

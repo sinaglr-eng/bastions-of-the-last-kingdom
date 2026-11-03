@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "commit": "3b4722ecf5a725226b3cb089a8ec37d479b2c1c9",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?verify=3b4722ecf5a725226b3cb089a8ec37d479b2c1c9",
+  "checks": [
+    "Public faction chooser starts Dwarves.",
+    "Actual public Griffin Scout model loads, renders with its reference portrait and remains responsive.",
+    "Developer Mode visibly disables statistics for this Sandbox run.",
+    "Actual public wave 24 spawns all 19 Riveted Goblin Mutants and the Griffin records direct damage.",
+    "Speed advances through the exact visible sequence 1×, 2×, 3×, 5×.",
+    "Wave 24 completes and advances to wave 25 with 11 keep health and zero graphics losses."
+  ],
+  "scope": "Actual current public Chromium UI and supported excluded Sandbox controls. One freely placed champion; no claim of legal acquisition, ordinary campaign completion or a physical iPad frame rate.",
+  "graphics": {
+    "lost": false,
+    "losses": 0,
+    "restores": 0,
+    "lastEvent": null
+  },
+  "unexpectedConsoleIssues": [],
+  "scoreSubmitted": false,
+  "checkedAt": "2026-11-03T00:10:44.090Z"
+}

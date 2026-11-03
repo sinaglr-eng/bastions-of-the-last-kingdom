@@ -5,8 +5,8 @@
   "implemented": true,
   "published": true,
   "status": "passed",
-  "runtimeCommit": "210679f3a22aad7ffb8e7d55ae54d9c999c43676",
-  "tests": 2067,
+  "runtimeCommit": "3b4722ecf5a725226b3cb089a8ec37d479b2c1c9",
+  "tests": 2090,
   "profiles": 258,
   "dwarfProfilesAirCapable": 86,
   "changedTargetingProfiles": 35,
@@ -17,7 +17,7 @@
   "publicDeploymentAuthorized": true,
   "authorizationSource": "User: Udelej tuto verzi rovnou verejnou",
   "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41497266818",
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41548549855",
   "backendDeployment": "appgdep_6ae8d16df80c819188c3aabf976390d6",
   "backendVersion": 18,
   "backendPublicChecks": "passed",
@@ -28,16 +28,25 @@
   "createdAt": "2026-11-02T18:10:31.768Z",
   "publicRuntimeVersion": "0.6.9",
   "ciRequiredChecksPassed": true,
-  "modules": 233,
-  "publicMediaFiles": 998,
+  "modules": 238,
+  "publicMediaFiles": 999,
   "approvedModelIdentities": 312,
-  "publicBrowserChecks": 5,
+  "publicBrowserChecks": 6,
   "publicAirCombatChecks": [
     "dw_shieldguard",
     "dw_steamharpooner"
   ],
   "noLiveTestScoreWritten": true,
   "allPublicFilesFetchedFresh": false,
-  "mediaVerificationScope": "Previously verified immutable media is reused only by exact transport or decoded model hash. Every changed media/metadata row is fetched afresh. Copied text permits only the Git LF/Windows CRLF checkout difference.",
-  "verifiedAt": "2026-11-02T18:18:03.016Z"
+  "mediaVerificationScope": "Previously verified immutable files are reused only by exact hash (or exact decoded enemy-model hash); all new media, compiled entries and metadata are checked after this exact final deployment. Canonical copied text uses exact Git blobs. CI-derived enemy gzip streams may differ by zlib platform; their decoded SHA-256 remains exact.",
+  "verifiedAt": "2026-11-03T00:11:46.025Z",
+  "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
+  "rulesetAndScoreCohortUnchanged": true,
+  "performance": {
+    "movingWave24MedianBeforeMs": 107.5,
+    "movingWave24MedianAfterMs": 61,
+    "largestEnemyScale": 0.75,
+    "largestEnemyModels": 12,
+    "championWarmLimit": 2
+  }
 }

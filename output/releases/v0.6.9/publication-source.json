@@ -1,9 +1,25 @@
 {
-  "parent": "89efb3443a63c227760dc547557012152b2d13b0",
-  "tree": "a5114e1533fe7d551711d39f7e18fd806d566407",
-  "commit": "210679f3a22aad7ffb8e7d55ae54d9c999c43676",
+  "parent": "6704f9f90d9d9340017ddd9e41039e4a34cfa1e8",
+  "tree": "6ec889c8ce808dd278db1887ec3b719d873c304b",
+  "commit": "3b4722ecf5a725226b3cb089a8ec37d479b2c1c9",
+  "sourceCommit": "900125027f59582207b47a720259ace00367180f",
   "forwardOnly": true,
   "localHistoryPreserved": true,
   "galleryPublished": false,
-  "payloadPaths": 18
+  "excludedLocalOnlyFiles": [
+    "output/implementation/fr005-current/gallery-browser-qa.json",
+    "output/implementation/fr005-current/gallery-build.log",
+    "output/implementation/fr005-current/gallery-current.jpg",
+    "output/implementation/fr005-current/gallery-handoff.json",
+    "output/implementation/fr005-current/handoff.json",
+    "output/implementation/fr005-current/local-gallery-files.json",
+    "output/implementation/late-wave-current/handoff.json",
+    "output/implementation/wave24-current/handoff.json",
+    "output/releases/v0.6.8/handoff.json",
+    "sites/defender-faction-atlas-20261021/scripts/apply-fr005-implementation.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/templates/gallery-fr005-current.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/verify-current-gallery.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/verify-fr005-implementation.mjs"
+  ]
 }

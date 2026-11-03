@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "readOnly": true,
+  "backendUnchanged": true,
+  "existingBindingPreserved": true,
+  "noScoreWrites": true,
+  "checkedAt": "2026-11-02T23:55:08.660Z",
+  "rows": [
+    {
+      "endpoint": "/api/health",
+      "status": 200,
+      "value": {
+        "ok": true,
+        "storage": "SQLite",
+        "edition": "0.6.9",
+        "releaseName": "Preserved commander scores · Developer runs excluded"
+      }
+    },
+    {
+      "endpoint": "/api/leaderboard?mode=50&version=0.6.9&faction=forge",
+      "status": 200,
+      "value": {
+        "mode": 50,
+        "version": "0.6.9",
+        "factionId": "forge",
+        "publicEntryCount": 1
+      }
+    }
+  ]
+}
