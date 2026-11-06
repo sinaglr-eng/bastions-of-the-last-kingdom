@@ -1,0 +1,1750 @@
+{
+  "factionId": "grove",
+  "branches": [
+    {
+      "id": "moonblade",
+      "name": "Emerald Guardians",
+      "mainId": "el_moonblade",
+      "supportIds": [
+        "el_grove_archer",
+        "el_spark_adept"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_moonblade",
+        "el_grove_archer",
+        "el_spark_adept"
+      ],
+      "reason": "Retain Emerald Elf as the explicit main family. Ranger and Stormspear support the current Physical frontline and preserve its later Stormspear ingredients with one ordinary-family replacement.",
+      "comments": [
+        10
+      ]
+    },
+    {
+      "id": "grovebow",
+      "name": "Moonlight Rangers",
+      "mainId": "el_grove_archer",
+      "supportIds": [
+        "el_drow_acolyte",
+        "el_spark_adept"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_grove_archer",
+        "el_drow_acolyte",
+        "el_spark_adept"
+      ],
+      "reason": "The existing ordinary recipe ingredients already fit Ranger, Priestess and Stormspear; only the Basic main rank needs reducing.",
+      "comments": [
+        11
+      ]
+    },
+    {
+      "id": "stormcraft",
+      "name": "Thunder Phoenixes",
+      "mainId": "el_spark_adept",
+      "supportIds": [
+        "el_drow_acolyte",
+        "el_sealweaver"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_spark_adept",
+        "el_drow_acolyte",
+        "el_sealweaver"
+      ],
+      "reason": "Priestess and Lunar Spirit Shaman preserve the current later magical and immunity-support ingredients; replacing the entry Dragon Keeper makes one coherent three-family normal pool.",
+      "comments": [
+        13
+      ]
+    },
+    {
+      "id": "unweave",
+      "name": "Drow Phantoms",
+      "mainId": "el_sealweaver",
+      "supportIds": [
+        "el_drow_blade",
+        "el_drow_cinder"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_sealweaver",
+        "el_drow_blade",
+        "el_drow_cinder"
+      ],
+      "reason": "Moonblade Assassin and Nightweaver Spider retain the existing lunar entry recipe and most later ingredients. Priestess becomes an external terminal-specialist ingredient instead of an ordinary-branch ingredient.",
+      "comments": [
+        14
+      ]
+    },
+    {
+      "id": "cinder",
+      "name": "Nightweaver Brood",
+      "mainId": "el_drow_cinder",
+      "supportIds": [
+        "el_sealweaver",
+        "el_drow_blade"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_drow_cinder",
+        "el_sealweaver",
+        "el_drow_blade"
+      ],
+      "reason": "Lunar Spirit Shaman and Moonblade Assassin preserve every ordinary native family already used by this lunar branch.",
+      "comments": [
+        15
+      ]
+    },
+    {
+      "id": "drowblade",
+      "name": "Shadow Assassins",
+      "mainId": "el_drow_blade",
+      "supportIds": [
+        "el_moonblade",
+        "el_drow_cinder"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_drow_blade",
+        "el_moonblade",
+        "el_drow_cinder"
+      ],
+      "reason": "Emerald Elf and Nightweaver Spider preserve the current entry and most later Physical and healing-denial ingredients; the normal Advanced Shaman is replaced by Emerald Elf.",
+      "comments": [
+        16
+      ]
+    },
+    {
+      "id": "eclipse",
+      "name": "Elven Battlemages",
+      "mainId": "el_drow_acolyte",
+      "supportIds": [
+        "el_spark_adept",
+        "el_moonblade"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_drow_acolyte",
+        "el_spark_adept",
+        "el_moonblade"
+      ],
+      "reason": "Stormspear and Emerald Elf preserve the current entry, Advanced and TOP family set; the Intermediate Ranger becomes Emerald Elf.",
+      "comments": [
+        18
+      ]
+    },
+    {
+      "id": "dragon",
+      "name": "Fire dragons",
+      "mainId": "el_dragon_keeper",
+      "supportIds": [
+        "el_spark_adept",
+        "el_drow_acolyte"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": false,
+      "normalPool": [
+        "el_dragon_keeper",
+        "el_spark_adept",
+        "el_drow_acolyte"
+      ],
+      "reason": "Stormspear and Elven Priestess preserve the current dragon entry and TOP support families. Repeated Dragon Keeper ingredients at different ranks remain valid distinct instances.",
+      "comments": [
+        19
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "unitId": "el_moonblade_sentinel",
+      "before": [
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Emerald Elf I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 3,
+      "materialAfter": 3,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_elite_warrior",
+      "before": [
+        {
+          "id": "el_moonblade_sentinel",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_moonblade_sentinel",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 9,
+      "materialAfter": 9,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_stormblade_warden",
+      "before": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 3
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 3
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 29,
+      "materialAfter": 29,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_elven_king",
+      "before": [
+        {
+          "id": "el_stormblade_warden",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 6
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_stormblade_warden",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 6
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 93,
+      "materialAfter": 93,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_stag_knight",
+      "before": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 4
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 3
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "moonblade",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "el_dragon_keeper"
+      ],
+      "reason": "Terminal Advanced specialist: retains its branch predecessor and includes Dragon Keeper outside the normal branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 33,
+      "materialAfter": 29,
+      "materialDelta": -4
+    },
+    {
+      "unitId": "el_elven_archer",
+      "before": [
+        {
+          "id": "el_grove_archer",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "grovebow",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Elven Ranger I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        11,
+        12
+      ],
+      "materialBefore": 5,
+      "materialAfter": 4,
+      "materialDelta": -1
+    },
+    {
+      "unitId": "el_elven_bowmaster",
+      "before": [
+        {
+          "id": "el_elven_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elven_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 2
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "grovebow",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        11
+      ],
+      "materialBefore": 14,
+      "materialAfter": 10,
+      "materialDelta": -4
+    },
+    {
+      "unitId": "el_tempest_bowmage",
+      "before": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "grovebow",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        11
+      ],
+      "materialBefore": 34,
+      "materialAfter": 30,
+      "materialDelta": -4
+    },
+    {
+      "unitId": "el_starfall_bowmaster",
+      "before": [
+        {
+          "id": "el_tempest_bowmage",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_tempest_bowmage",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "grovebow",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        11
+      ],
+      "materialBefore": 98,
+      "materialAfter": 94,
+      "materialDelta": -4
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "before": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 4
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 4
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "grovebow",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "el_dragon_keeper"
+      ],
+      "reason": "Terminal Advanced specialist: retains its branch predecessor and includes Dragon Keeper outside the normal branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        11
+      ],
+      "materialBefore": 38,
+      "materialAfter": 34,
+      "materialDelta": -4
+    },
+    {
+      "unitId": "el_elven_mage",
+      "before": [
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "stormcraft",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Stormspear I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 3,
+      "materialAfter": 3,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_storm_conductor",
+      "before": [
+        {
+          "id": "el_elven_mage",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elven_mage",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "stormcraft",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 9,
+      "materialAfter": 15,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_elven_archmage",
+      "before": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "stormcraft",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 29,
+      "materialAfter": 35,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "before": [
+        {
+          "id": "el_elven_archmage",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elven_archmage",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "stormcraft",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 93,
+      "materialAfter": 99,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_wisp_conductor",
+      "before": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 4
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 4
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "stormcraft",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "el_moonblade"
+      ],
+      "reason": "Terminal Advanced specialist: retains its branch predecessor and includes Emerald Elf outside the normal branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 33,
+      "materialAfter": 39,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_veil_adept",
+      "before": [
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Lunar Spirit Shaman I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 3,
+      "materialAfter": 3,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_sealwarden",
+      "before": [
+        {
+          "id": "el_veil_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "el_veil_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 4
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 12,
+      "materialAfter": 13,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "el_moonwell_seer",
+      "before": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 3
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 3
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 32,
+      "materialAfter": 25,
+      "materialDelta": -7
+    },
+    {
+      "unitId": "el_eclipse_unbinder",
+      "before": [
+        {
+          "id": "el_moonwell_seer",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_moonwell_seer",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 96,
+      "materialAfter": 89,
+      "materialDelta": -7
+    },
+    {
+      "unitId": "el_stag_oracle",
+      "before": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 4
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 4
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "unweave",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "el_drow_acolyte"
+      ],
+      "reason": "Terminal Advanced specialist: retains its branch predecessor and includes Elven Priestess outside the normal branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 36,
+      "materialAfter": 37,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "el_drow_ember_novice",
+      "before": [
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "cinder",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Nightweaver Spider I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 5,
+      "materialAfter": 5,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_drow_pyromancer",
+      "before": [
+        {
+          "id": "el_drow_ember_novice",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_ember_novice",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "cinder",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 11,
+      "materialAfter": 11,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_drow_ember_matron",
+      "before": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 3
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 3
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "cinder",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 31,
+      "materialAfter": 31,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_drow_cinderqueen",
+      "before": [
+        {
+          "id": "el_drow_ember_matron",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_ember_matron",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "cinder",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 95,
+      "materialAfter": 95,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_drow_furnace_seer",
+      "before": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "cinder",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "el_grove_archer"
+      ],
+      "reason": "Terminal Advanced specialist: retains its branch predecessor and includes Elven Ranger outside the normal branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 35,
+      "materialAfter": 27,
+      "materialDelta": -8
+    },
+    {
+      "unitId": "el_drow_blade_initiate",
+      "before": [
+        {
+          "id": "el_drow_blade",
+          "rank": 2
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_blade",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "drowblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Moonblade Assassin I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        16,
+        17
+      ],
+      "materialBefore": 5,
+      "materialAfter": 5,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_drow_duelist",
+      "before": [
+        {
+          "id": "el_drow_blade_initiate",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_blade_initiate",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "drowblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        16
+      ],
+      "materialBefore": 11,
+      "materialAfter": 17,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_drow_ashblade",
+      "before": [
+        {
+          "id": "el_drow_duelist",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_duelist",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "drowblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        16
+      ],
+      "materialBefore": 35,
+      "materialAfter": 41,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_drow_eclipse_duelist",
+      "before": [
+        {
+          "id": "el_drow_ashblade",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_ashblade",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 6
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "drowblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        16
+      ],
+      "materialBefore": 99,
+      "materialAfter": 105,
+      "materialDelta": 6
+    },
+    {
+      "unitId": "el_drow_gloom_initiate",
+      "before": [
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "eclipse",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Elven Priestess I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        18
+      ],
+      "materialBefore": 5,
+      "materialAfter": 4,
+      "materialDelta": -1
+    },
+    {
+      "unitId": "el_drow_eclipse_priest",
+      "before": [
+        {
+          "id": "el_drow_gloom_initiate",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_gloom_initiate",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 3
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "eclipse",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        18
+      ],
+      "materialBefore": 11,
+      "materialAfter": 12,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "el_veilfire_hierophant",
+      "before": [
+        {
+          "id": "el_drow_eclipse_priest",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_eclipse_priest",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "eclipse",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        18
+      ],
+      "materialBefore": 35,
+      "materialAfter": 36,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "el_drow_night_hierarch",
+      "before": [
+        {
+          "id": "el_veilfire_hierophant",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_veilfire_hierophant",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 6
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "eclipse",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        18
+      ],
+      "materialBefore": 99,
+      "materialAfter": 100,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "before": [
+        {
+          "id": "el_dragon_keeper",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_dragon_keeper",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "dragon",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Dragon Keeper I. All draft ingredients are rank II or below; exact ranks also balance each defender's direct successor choices.",
+      "comments": [
+        19,
+        20
+      ],
+      "materialBefore": 5,
+      "materialAfter": 5,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "before": [
+        {
+          "id": "el_baby_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 3
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "el_baby_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 3
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 2
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "dragon",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        19
+      ],
+      "materialBefore": 11,
+      "materialAfter": 11,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "before": [
+        {
+          "id": "el_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 4
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 4
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "dragon",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor and adds only native basics from the declared branch pool. Exact draft ranks balance successor choices.",
+      "comments": [
+        19
+      ],
+      "materialBefore": 35,
+      "materialAfter": 35,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "before": [
+        {
+          "id": "el_mother_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 6
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "el_mother_fire_dragon",
+          "rank": 1
+        },
+        {
+          "id": "el_dragon_keeper",
+          "rank": 6
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "dragon",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two distinct physical rank-VI basic defenders from the branch pool.",
+      "comments": [
+        19
+      ],
+      "materialBefore": 99,
+      "materialAfter": 99,
+      "materialDelta": 0
+    }
+  ],
+  "notes": [
+    "Main and support family identities follow the branch policies. Ranks balance direct successors for each exact family/rank profile, including the unchanged shared Secret recipe.",
+    "All Basic main families remain at rank I, with draft inputs no higher than II; Intermediate draft inputs remain no higher than IV.",
+    "TOP recipes require the preceding Advanced champion and two rank-VI basics. Terminal Advanced recipes retain an external family except the explicitly selected Mortar Dwarf recipe.",
+    "The goal is a majority of basic profiles with exactly two successor recipes, no dead rank and no profile with more than three. Material changes require later acquisition/balance testing."
+  ],
+  "verification": {
+    "status": "passed",
+    "directSuccessorDefinition": "Distinct output recipes containing the exact family and rank; a repeated ingredient in one recipe counts as one output.",
+    "basicProfiles": 48,
+    "exactlyTwo": 29,
+    "allBasicsHaveSuccessor": true,
+    "maximumDirectSuccessors": 3,
+    "sharedSecretRecipeIncludedInCounts": true,
+    "changedRecipes": 19
+  }
+}

@@ -1,14 +1,16 @@
-# Forged Alliances TD — 0.6.9
+# Forged Alliances TD — 0.6.11
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Public version 0.6.9 gives every Dwarf defender ground-and-air primary attacks.** [Targeting change and validation](docs/DWARF_AIR_TARGETING.md). [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**Current release 0.6.11 implements FR-006 and FR-007 revision 3.** It includes final-boss defeat, 15% wave-49 recharge, faction score context, all defender size adjustments and the latest 16 recipe changes. Dwarf and Elf rank-I defenders have one immediate recipe choice where possible, two maximum. All 258 combat profiles, approved artwork and models remain exact. [Implementation and verification](docs/FR006_FR007_IMPLEMENTATION.md).
+
+All battlefield defenders are now at least 20% smaller. Basic champions match ordinary draft size references, while the approved models keep their exact body and equipment proportions. [Current sizing policy and verification](docs/DEFENDER_PRESENTATION.md).
 
 The current performance patch reduces repeated combat-stat work and V3 model draw submissions while preserving combat results and approved appearance. [Measured improvements and limits](docs/LATE_WAVE_PERFORMANCE.md).
 
 Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
 
-The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/RELEASE_0_6_8.md).
+The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 15% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/RELEASE_0_6_8.md).
 
 The tutorial now introduces **Choose your maze shape** as its second step, before placing recruits. Open the ordinary Maze plans picker and choose a plan to continue. A previously saved plan can be selected again; simply opening or closing the picker does not complete the step. Each new run still offers Start tutorial or Skip tutorial.
 
@@ -49,9 +51,9 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only current local release 0.6.9 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current release 0.6.11 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
-FR-005 revision 2 supplies the current recipe and ability refinements while retaining the implemented FR-004 primary values and immunity auras. [Current changes and verification](docs/RELEASE_0_6_8.md). The single English design gallery remains local only.
+FR-006 and FR-007 revision 2 supply the current recipe and final-boss rules, retaining FR-005 abilities and the FR-004 primary values and immunity auras. [Current changes and verification](docs/FR006_FR007_IMPLEMENTATION.md). The single English design gallery remains local only.
 
 Current models, artwork, animations, audio and exact original prompts/review records remain intact. Required regression data and image provenance are source dependencies, not playable older releases. Statistics and saved player results are preserved. [Backend setup](docs/STATISTICS_BACKEND.md).
 

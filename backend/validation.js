@@ -8,8 +8,8 @@ export const validId=value=>typeof value==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4
 const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
 export function validateFactionIdentity(row){
  const newer=typeof row.version==='string'&&(Number(row.version.split('.')[0])>0||Number(row.version.split('.')[1])>=6);
- const [major,minor,patch]=String(row.version).split('.').map(Number),dwarfAir=major>0||minor>6||minor===6&&patch>=9,fr005=major>0||minor>6||minor===6&&patch>=8,fr004=major>0||minor>6||minor===6&&patch>=7,fr003=major>0||minor>6||minor===6&&patch>=6,fr002=major>0||minor>6||minor===6&&patch>=5;
- if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(dwarfAir?'fr005-r2-dwarf-air-20261102':fr005?'fr005-r2-20261102':fr004?'fr004-r1-20261101':fr003?'fr003-r2-20261101':fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
+ const [major,minor,patch]=String(row.version).split('.').map(Number),fr007r3=major>0||minor>6||minor===6&&patch>=11,fr006=major>0||minor>6||minor===6&&patch>=10,dwarfAir=major>0||minor>6||minor===6&&patch>=9,fr005=major>0||minor>6||minor===6&&patch>=8,fr004=major>0||minor>6||minor===6&&patch>=7,fr003=major>0||minor>6||minor===6&&patch>=6,fr002=major>0||minor>6||minor===6&&patch>=5;
+ if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(fr007r3?'fr006-fr007-r3-20261106':fr006?'fr006-fr007-r2-20261106':dwarfAir?'fr005-r2-dwarf-air-20261102':fr005?'fr005-r2-20261102':fr004?'fr004-r1-20261101':fr003?'fr003-r2-20261101':fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
  if(!newer&&row.factionId!=null)throw Error('Invalid legacy faction attribution.');
  return row.factionId??null;
 }
@@ -37,6 +37,11 @@ export function validateSnapshot(s,{families,waveDefinitions,enemyDefinitions}){
     const types=Object.entries(w.enemyTypes);
     if(types.some(([key,v])=>v.spawned>definition.groups.filter(g=>g.type===key).reduce((n,g)=>n+g.count,0)))throw new Error('Invalid per-type enemy count.');
     if(types.reduce((n,[,v])=>n+v.spawned,0)!==w.spawned||types.reduce((n,[,v])=>n+v.kills,0)!==w.kills||types.reduce((n,[,v])=>n+v.leaks,0)!==w.leaks||types.reduce((n,[key,v])=>n+(enemyDefinitions?.[key]?.boss?v.kills:0),0)!==w.bossKills)throw new Error('Invalid warband totals.');
+    if(['fr006-fr007-r2-20261106','fr006-fr007-r3-20261106'].includes(s.rulesetRevision)&&s.mode===50&&w.index===50){
+      const boss=w.enemyTypes.host_50;
+      if(boss?.leaks&&(boss.leaks!==1||boss.kills!==0||w.completed||w.endHealth!==0||w.healthLost<w.startHealth||w.healthLost>30||s.outcome!=='lost'))throw Error('Final boss escape must end the run in defeat.');
+      if(w.completed&&(!boss||boss.kills!==1||boss.leaks!==0))throw Error('Final boss must be defeated to complete the campaign.');
+    }
     score+=w.index*((w.kills-w.bossKills)*10+w.bossKills*500);if(w.completed){completed++;score+=w.index*(100+(w.boss?200:0));}
   }
   if(s.waves.length&&s.health!==s.waves.at(-1).endHealth)throw new Error('Invalid final keep health.');

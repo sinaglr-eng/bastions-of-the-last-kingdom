@@ -1,0 +1,22 @@
+{
+  "version": "0.6.11",
+  "rulesetRevision": "fr006-fr007-r3-20261106",
+  "implemented": true,
+  "published": false,
+  "requirements": [
+    "FR-006",
+    "FR-007 revision 3",
+    "defender-size-feedback-20261106"
+  ],
+  "recipeChanges": 16,
+  "materialChanges": 51,
+  "combatProfilesUnchanged": 258,
+  "tests": {
+    "passed": 2144,
+    "failed": 0,
+    "log": "full-tests.log"
+  },
+  "publicBuildPassed": true,
+  "galleryDistribution": "local-only",
+  "originalArtworkAndModelsPreserved": true
+}

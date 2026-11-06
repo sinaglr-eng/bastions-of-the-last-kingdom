@@ -1,3 +1,12 @@
+import presentationConfig from '../../data/defender-presentation-v3.json' with {type:'json'};
+const profiles=new Map(presentationConfig.profiles.map(p=>[`${p.factionId}:${p.family}:${p.tier}`,p]));
+export const DEFENDER_BATTLEFIELD_PRESENTATION_SCALE=presentationConfig.globalBattlefieldScale;
+export function defenderPresentationProfile(entry){
+  if(!entry?.factionAnimation)return null;
+  const profile=profiles.get(`${entry.factionId}:${entry.family}:${entry.tier}`);
+  return profile&&profile.sourceGlbSha256===entry.sha256?profile:null;
+}
+export const humanPresentationProfile=entry=>entry?.factionId==='crown'?defenderPresentationProfile(entry):null;
 import {championClassification,championAuraLevel} from './champion-classification.js';
 
 // Classification is cosmetic and separate from ordinary equipment ranks,
@@ -18,13 +27,20 @@ const actorScales=new WeakMap();
 // Apply to a private clone before battlefield scaling or preview framing.
 // Repeated calls for the same class leave battlefield/idle transforms intact.
 export function applyDefenderClassificationScale(actor,family){
-  const classification=defenderClassificationMultiplier(family),presentation=defenderPresentationMultiplier(family,actor.userData.factionAttackEntry?.factionId);
-  const multiplier=classification*presentation;
+  const entry=actor.userData.factionAttackEntry,normalized=defenderPresentationProfile(entry);
+  const classification=defenderClassificationMultiplier(family),presentation=normalized?normalized.multiplier/classification:defenderPresentationMultiplier(family,entry?.factionId);
+  // Only real V3 defenders carry this marker. Walls, enemies, loading dials
+  // and preserved legacy inspection actors keep their own authored sizing.
+  const battlefield=entry?.factionAnimation?DEFENDER_BATTLEFIELD_PRESENTATION_SCALE:1;
+  const multiplier=classification*presentation*battlefield;
   let state=actorScales.get(actor);
   if(!state){state={base:actor.scale.clone(),multiplier:null};actorScales.set(actor,state);}
   if(state.multiplier!==multiplier){actor.scale.copy(state.base).multiplyScalar(multiplier);state.multiplier=multiplier;}
+  actor.userData.defenderBodyNormalization=normalized?{revision:presentationConfig.revision,metric:normalized.metric,target:normalized.battlefieldTarget}:null;
+  actor.userData.humanBodyNormalization=entry?.factionId==='crown'?actor.userData.defenderBodyNormalization:null;
   actor.userData.classificationScale=classification;
   actor.userData.defenderPresentationScale=presentation;
+  actor.userData.defenderGlobalPresentationScale=battlefield;
   actor.userData.championClassification=championClassification(family);
   return actor;
 }

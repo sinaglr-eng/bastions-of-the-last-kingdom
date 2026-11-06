@@ -1,0 +1,3943 @@
+{
+  "summary": [
+    {
+      "factionId": "crown",
+      "name": "Human",
+      "basicProfiles": 48,
+      "exactlyOne": 16,
+      "exactlyTwo": 31,
+      "exactlyThree": 1,
+      "zero": 0,
+      "overThree": 0
+    },
+    {
+      "factionId": "forge",
+      "name": "Dwarves",
+      "basicProfiles": 48,
+      "exactlyOne": 15,
+      "exactlyTwo": 29,
+      "exactlyThree": 4,
+      "zero": 0,
+      "overThree": 0
+    },
+    {
+      "factionId": "grove",
+      "name": "Elves",
+      "basicProfiles": 48,
+      "exactlyOne": 15,
+      "exactlyTwo": 29,
+      "exactlyThree": 4,
+      "zero": 0,
+      "overThree": 0
+    }
+  ],
+  "rows": [
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "rimewatch",
+          "name": "Frostsword Watchmen"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "verdantguard",
+          "name": "Royal Marksman"
+        },
+        {
+          "id": "kingsreach",
+          "name": "Ballista"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "roseguard",
+          "name": "Lionheart Champion"
+        },
+        {
+          "id": "emeraldgolem",
+          "name": "Golem"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "sunward",
+          "name": "Priest"
+        },
+        {
+          "id": "kingdomprotector",
+          "name": "Paladin"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "roseguard",
+          "name": "Lionheart Champion"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "soldier",
+      "name": "Soldier",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "crownofages",
+          "name": "King"
+        },
+        {
+          "id": "mothernature",
+          "name": "Mother Nature"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "thornwarden",
+          "name": "Royal Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "frostblade",
+          "name": "Frost Knight"
+        },
+        {
+          "id": "fireballista",
+          "name": "Fire Ballista"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "eldergrove",
+          "name": "Archdruid"
+        },
+        {
+          "id": "sunward",
+          "name": "Priest"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "starfall",
+          "name": "Storm Eagle"
+        },
+        {
+          "id": "kingdomprotector",
+          "name": "Paladin"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "royalmarshal",
+          "name": "Royal Grenadier"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archer",
+      "name": "Archer",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "royalarsenal",
+          "name": "Tempest Sovereign"
+        },
+        {
+          "id": "archbishop",
+          "name": "Archbishop"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "thornwarden",
+          "name": "Royal Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "royalmarshal",
+          "name": "Royal Grenadier"
+        },
+        {
+          "id": "griffinbomber",
+          "name": "Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "greenheart",
+          "name": "Master Druid"
+        },
+        {
+          "id": "royalranger",
+          "name": "Master Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "wyvernhunter",
+          "name": "Ranger"
+        },
+        {
+          "id": "rangermentor",
+          "name": "Nature Spirit"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "stonewarden",
+          "name": "Catapult"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "druid",
+      "name": "Druid",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "phoenix",
+          "name": "Grand Pyromancer"
+        },
+        {
+          "id": "mechanicalgolem",
+          "name": "Royal Battery"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "embercrown",
+          "name": "Cinder Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "embercrown",
+          "name": "Cinder Adept"
+        },
+        {
+          "id": "thunderheart",
+          "name": "Stormfire Sorcerer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "frostblade",
+          "name": "Frost Knight"
+        },
+        {
+          "id": "wyvernhunter",
+          "name": "Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "worldfire",
+          "name": "Inferno Magister"
+        },
+        {
+          "id": "winterhold",
+          "name": "Frozen Paladin"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "starfall",
+          "name": "Storm Eagle"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mage",
+      "name": "Mage",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "phoenix",
+          "name": "Grand Pyromancer"
+        },
+        {
+          "id": "elvenking",
+          "name": "Ranger Oathbreaker"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "thornwarden",
+          "name": "Royal Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "tempest",
+          "name": "Lightning Weaver"
+        },
+        {
+          "id": "kingdomprotector",
+          "name": "Paladin"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "greenheart",
+          "name": "Master Druid"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "royalmarshal",
+          "name": "Royal Grenadier"
+        },
+        {
+          "id": "monk",
+          "name": "High Priest"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "sunward",
+          "name": "Priest"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "cleric",
+      "name": "Cleric",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dawnspire",
+          "name": "Glacial High Paladin"
+        },
+        {
+          "id": "archbishop",
+          "name": "Archbishop"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "embercrown",
+          "name": "Cinder Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "wyvernhunter",
+          "name": "Ranger"
+        },
+        {
+          "id": "rangermentor",
+          "name": "Nature Spirit"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "worldfire",
+          "name": "Inferno Magister"
+        },
+        {
+          "id": "starfall",
+          "name": "Storm Eagle"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "kingsreach",
+          "name": "Ballista"
+        },
+        {
+          "id": "kingsrangerguard",
+          "name": "Dark Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "kingsreach",
+          "name": "Ballista"
+        },
+        {
+          "id": "fireballista",
+          "name": "Fire Ballista"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "runebreaker",
+      "name": "Human Engineer",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "crownofages",
+          "name": "King"
+        },
+        {
+          "id": "mechanicalgolem",
+          "name": "Royal Battery"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "rimewatch",
+          "name": "Frostsword Watchmen"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "greenheart",
+          "name": "Master Druid"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "tempest",
+          "name": "Lightning Weaver"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "eldergrove",
+          "name": "Archdruid"
+        },
+        {
+          "id": "stonewarden",
+          "name": "Catapult"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "winterhold",
+          "name": "Frozen Paladin"
+        },
+        {
+          "id": "archangel",
+          "name": "Paladin Oathbreaker"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostwarden",
+      "name": "Frost Warden",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dawnspire",
+          "name": "Glacial High Paladin"
+        },
+        {
+          "id": "mothernature",
+          "name": "Mother Nature"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "rimewatch",
+          "name": "Frostsword Watchmen"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "stonewarden",
+          "name": "Catapult"
+        },
+        {
+          "id": "kingsrangerguard",
+          "name": "Dark Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "roseguard",
+          "name": "Lionheart Champion"
+        },
+        {
+          "id": "verdantguard",
+          "name": "Royal Marksman"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "winterhold",
+          "name": "Frozen Paladin"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "tempest",
+          "name": "Lightning Weaver"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcaller",
+      "name": "Stormcaller",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "royalarsenal",
+          "name": "Tempest Sovereign"
+        },
+        {
+          "id": "elvenking",
+          "name": "Ranger Oathbreaker"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "rimewatch",
+      "name": "Frostsword Watchmen",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "frostblade",
+          "name": "Frost Knight"
+        },
+        {
+          "id": "highking",
+          "name": "Kingslayer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "frostblade",
+      "name": "Frost Knight",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "highking",
+          "name": "Kingslayer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "roseguard",
+      "name": "Lionheart Champion",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "highking",
+          "name": "Kingslayer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "highking",
+      "name": "Kingslayer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "crownofages",
+          "name": "King"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "crownofages",
+      "name": "King",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "thornwarden",
+      "name": "Royal Scout",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "verdantguard",
+          "name": "Royal Marksman"
+        },
+        {
+          "id": "stormcitadel",
+          "name": "Stormbow Magister"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "verdantguard",
+      "name": "Royal Marksman",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "stormcitadel",
+          "name": "Stormbow Magister"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "tempest",
+      "name": "Lightning Weaver",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "stormcitadel",
+          "name": "Stormbow Magister"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stormcitadel",
+      "name": "Stormbow Magister",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "royalarsenal",
+          "name": "Tempest Sovereign"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "embercrown",
+      "name": "Cinder Adept",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "worldfire",
+          "name": "Inferno Magister"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "worldfire",
+      "name": "Inferno Magister",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "thunderheart",
+          "name": "Stormfire Sorcerer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "starfall",
+      "name": "Storm Eagle",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "thunderheart",
+          "name": "Stormfire Sorcerer"
+        },
+        {
+          "id": "archangel",
+          "name": "Paladin Oathbreaker"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "thunderheart",
+      "name": "Stormfire Sorcerer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "phoenix",
+          "name": "Grand Pyromancer"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "phoenix",
+      "name": "Grand Pyromancer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "greenheart",
+      "name": "Master Druid",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "eldergrove",
+          "name": "Archdruid"
+        },
+        {
+          "id": "royalranger",
+          "name": "Master Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "eldergrove",
+      "name": "Archdruid",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "rangermentor",
+          "name": "Nature Spirit"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "kingsreach",
+      "name": "Ballista",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "fireballista",
+          "name": "Fire Ballista"
+        },
+        {
+          "id": "emeraldgolem",
+          "name": "Golem"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "sunward",
+      "name": "Priest",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "monk",
+          "name": "High Priest"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "winterhold",
+      "name": "Frozen Paladin",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dawnspire",
+          "name": "Glacial High Paladin"
+        },
+        {
+          "id": "archangel",
+          "name": "Paladin Oathbreaker"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "dawnspire",
+      "name": "Glacial High Paladin",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "royalmarshal",
+      "name": "Royal Grenadier",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "griffinbomber",
+          "name": "Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "stonewarden",
+      "name": "Catapult",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "emeraldgolem",
+          "name": "Golem"
+        },
+        {
+          "id": "griffinbomber",
+          "name": "Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "wyvernhunter",
+      "name": "Ranger",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "royalranger",
+          "name": "Master Ranger"
+        },
+        {
+          "id": "kingsrangerguard",
+          "name": "Dark Ranger"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "royalarsenal",
+      "name": "Tempest Sovereign",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "rangermentor",
+      "name": "Nature Spirit",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "mothernature",
+          "name": "Mother Nature"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "kingdomprotector",
+      "name": "Paladin",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "monk",
+          "name": "High Priest"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mothernature",
+      "name": "Mother Nature",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "royalranger",
+      "name": "Master Ranger",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "kingsrangerguard",
+      "name": "Dark Ranger",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "elvenking",
+          "name": "Ranger Oathbreaker"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "elvenking",
+      "name": "Ranger Oathbreaker",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "fireballista",
+      "name": "Fire Ballista",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "emeraldgolem",
+      "name": "Golem",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "griffinbomber",
+      "name": "Cannon",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "mechanicalgolem",
+          "name": "Royal Battery"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "mechanicalgolem",
+      "name": "Royal Battery",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "monk",
+      "name": "High Priest",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "archbishop",
+          "name": "Archbishop"
+        }
+      ]
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archbishop",
+      "name": "Archbishop",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "archangel",
+      "name": "Paladin Oathbreaker",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "crown",
+      "unitId": "ladyclaire",
+      "name": "Lady Claire",
+      "rank": 1,
+      "kind": "secret",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_ironwarden",
+          "name": "Dwarf Axeman"
+        },
+        {
+          "id": "dw_boarlancer",
+          "name": "Boar Lancer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_ashshield",
+          "name": "Dwarf Dualist"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_goreback",
+          "name": "Armored Boar Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_deepdelve",
+          "name": "Forge Sentinel"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "name": "Dwarf Berserker"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "name": "Shieldguard",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_forgeking",
+          "name": "Berserker Champion"
+        },
+        {
+          "id": "dw_boaravatar",
+          "name": "Boar Warlord"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_longrifle",
+          "name": "Dwarf Rifleman"
+        },
+        {
+          "id": "dw_repeatercrew",
+          "name": "Gatling Gunner"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_breachorgan",
+          "name": "Gatling Golem"
+        },
+        {
+          "id": "dw_griffinscout",
+          "name": "Griffin Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_thunderlock",
+          "name": "Dwarf Sniper"
+        },
+        {
+          "id": "dw_skyhook",
+          "name": "Griffin Gunner"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_grapeshotcart",
+          "name": "Mortar Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_steamrail",
+          "name": "Heavy Sniper"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "name": "Musketeer",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_ironstorm",
+          "name": "Master Sniper"
+        },
+        {
+          "id": "dw_salvomarshal",
+          "name": "Iron Colossus"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_runemortar",
+          "name": "Rune Dwarf"
+        },
+        {
+          "id": "dw_griffinscout",
+          "name": "Griffin Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_warcaller",
+          "name": "War Drummer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_tunnelsapper",
+          "name": "Rune Mage"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_talonlord",
+          "name": "Armored Griffin Rider"
+        },
+        {
+          "id": "dw_emberanvil",
+          "name": "Forge Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_nullifier",
+          "name": "Rune Guardian"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "name": "Runesmith",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_worldanvil",
+          "name": "Rune Master"
+        },
+        {
+          "id": "dw_highthane",
+          "name": "Griffin Commander"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_boarlancer",
+          "name": "Boar Lancer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_ironwarden",
+          "name": "Dwarf Axeman"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_boarstandard",
+          "name": "Boar Drummer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_goreback",
+          "name": "Armored Boar Rider"
+        },
+        {
+          "id": "dw_cinderhowitzer",
+          "name": "Siege Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_warcaller",
+          "name": "War Drummer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "name": "Boar Rider",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_forgeking",
+          "name": "Berserker Champion"
+        },
+        {
+          "id": "dw_boaravatar",
+          "name": "Boar Warlord"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_fuserunner",
+          "name": "Bomb Dwarf"
+        },
+        {
+          "id": "dw_repeatercrew",
+          "name": "Gatling Gunner"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_longrifle",
+          "name": "Dwarf Rifleman"
+        },
+        {
+          "id": "dw_pressuresmith",
+          "name": "Steam Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_thunderlock",
+          "name": "Dwarf Sniper"
+        },
+        {
+          "id": "dw_ironclad",
+          "name": "Iron Golem"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "dw_grapeshotcart",
+          "name": "Mortar Dwarf"
+        },
+        {
+          "id": "dw_firebomber",
+          "name": "Fire Bomber"
+        },
+        {
+          "id": "dw_steamharpooner",
+          "name": "Flamethrower"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_griffinbomber",
+          "name": "Griffin Bomber"
+        },
+        {
+          "id": "dw_cinderhowitzer",
+          "name": "Siege Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "name": "Grenadier",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_ironstorm",
+          "name": "Master Sniper"
+        },
+        {
+          "id": "dw_dwarship",
+          "name": "Dwarf Airship"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_repeatercrew",
+          "name": "Gatling Gunner"
+        },
+        {
+          "id": "dw_runemortar",
+          "name": "Rune Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_boarlancer",
+          "name": "Boar Lancer"
+        },
+        {
+          "id": "dw_pressuresmith",
+          "name": "Steam Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_boarstandard",
+          "name": "Boar Drummer"
+        },
+        {
+          "id": "dw_flamewarden",
+          "name": "Heavy Flamethrower"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_ironclad",
+          "name": "Iron Golem"
+        },
+        {
+          "id": "dw_nullifier",
+          "name": "Rune Guardian"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "dw_breachorgan",
+          "name": "Gatling Golem"
+        },
+        {
+          "id": "dw_deepdelve",
+          "name": "Forge Sentinel"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "name": "Dwarf Miner",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_salvomarshal",
+          "name": "Iron Colossus"
+        },
+        {
+          "id": "dw_bombardking",
+          "name": "Fire Furnace"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_fuserunner",
+          "name": "Bomb Dwarf"
+        },
+        {
+          "id": "dw_griffinscout",
+          "name": "Griffin Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_longrifle",
+          "name": "Dwarf Rifleman"
+        },
+        {
+          "id": "dw_skyhook",
+          "name": "Griffin Gunner"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_steamrail",
+          "name": "Heavy Sniper"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_griffinbomber",
+          "name": "Griffin Bomber"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_talonlord",
+          "name": "Armored Griffin Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "name": "Griffin Handler",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_dwarship",
+          "name": "Dwarf Airship"
+        },
+        {
+          "id": "dw_highthane",
+          "name": "Griffin Commander"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "dw_ironwarden",
+          "name": "Dwarf Axeman"
+        },
+        {
+          "id": "dw_fuserunner",
+          "name": "Bomb Dwarf"
+        },
+        {
+          "id": "dw_pressuresmith",
+          "name": "Steam Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_firebomber",
+          "name": "Fire Bomber"
+        },
+        {
+          "id": "dw_runemortar",
+          "name": "Rune Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_ashshield",
+          "name": "Dwarf Dualist"
+        },
+        {
+          "id": "dw_tunnelsapper",
+          "name": "Rune Mage"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "name": "Dwarf Berserker"
+        },
+        {
+          "id": "dw_steamharpooner",
+          "name": "Flamethrower"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "dw_flamewarden",
+          "name": "Heavy Flamethrower"
+        },
+        {
+          "id": "dw_emberanvil",
+          "name": "Forge Dwarf"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "name": "Blacksmith",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_worldanvil",
+          "name": "Rune Master"
+        },
+        {
+          "id": "dw_bombardking",
+          "name": "Fire Furnace"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_ironwarden",
+      "name": "Dwarf Axeman",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_ashshield",
+          "name": "Dwarf Dualist"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_ashshield",
+      "name": "Dwarf Dualist",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "name": "Dwarf Berserker"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_bulwarkcaptain",
+      "name": "Dwarf Berserker",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_forgeking",
+          "name": "Berserker Champion"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_forgeking",
+      "name": "Berserker Champion",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_longrifle",
+      "name": "Dwarf Rifleman",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_thunderlock",
+          "name": "Dwarf Sniper"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_thunderlock",
+      "name": "Dwarf Sniper",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_steamrail",
+          "name": "Heavy Sniper"
+        },
+        {
+          "id": "dw_grapeshotcart",
+          "name": "Mortar Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_steamrail",
+      "name": "Heavy Sniper",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_ironstorm",
+          "name": "Master Sniper"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grapeshotcart",
+      "name": "Mortar Dwarf",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_ironstorm",
+      "name": "Master Sniper",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarlancer",
+      "name": "Boar Lancer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_boarstandard",
+          "name": "Boar Drummer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarstandard",
+      "name": "Boar Drummer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_goreback",
+          "name": "Armored Boar Rider"
+        },
+        {
+          "id": "dw_warcaller",
+          "name": "War Drummer"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_goreback",
+      "name": "Armored Boar Rider",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_boaravatar",
+          "name": "Boar Warlord"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_warcaller",
+      "name": "War Drummer",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boaravatar",
+      "name": "Boar Warlord",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_fuserunner",
+      "name": "Bomb Dwarf",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_firebomber",
+          "name": "Fire Bomber"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_firebomber",
+      "name": "Fire Bomber",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_griffinbomber",
+          "name": "Griffin Bomber"
+        },
+        {
+          "id": "dw_cinderhowitzer",
+          "name": "Siege Cannon"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinbomber",
+      "name": "Griffin Bomber",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_dwarship",
+          "name": "Dwarf Airship"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_cinderhowitzer",
+      "name": "Siege Cannon",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_dwarship",
+      "name": "Dwarf Airship",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_repeatercrew",
+      "name": "Gatling Gunner",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_ironclad",
+          "name": "Iron Golem"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_ironclad",
+      "name": "Iron Golem",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_breachorgan",
+          "name": "Gatling Golem"
+        },
+        {
+          "id": "dw_deepdelve",
+          "name": "Forge Sentinel"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_breachorgan",
+      "name": "Gatling Golem",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_salvomarshal",
+          "name": "Iron Colossus"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_deepdelve",
+      "name": "Forge Sentinel",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_salvomarshal",
+      "name": "Iron Colossus",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runemortar",
+      "name": "Rune Dwarf",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_tunnelsapper",
+          "name": "Rune Mage"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_tunnelsapper",
+      "name": "Rune Mage",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_nullifier",
+          "name": "Rune Guardian"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_nullifier",
+      "name": "Rune Guardian",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_worldanvil",
+          "name": "Rune Master"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_worldanvil",
+      "name": "Rune Master",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinscout",
+      "name": "Griffin Scout",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_skyhook",
+          "name": "Griffin Gunner"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_skyhook",
+      "name": "Griffin Gunner",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_talonlord",
+          "name": "Armored Griffin Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_talonlord",
+      "name": "Armored Griffin Rider",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_highthane",
+          "name": "Griffin Commander"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_highthane",
+      "name": "Griffin Commander",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_pressuresmith",
+      "name": "Steam Dwarf",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_steamharpooner",
+          "name": "Flamethrower"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_steamharpooner",
+      "name": "Flamethrower",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "dw_flamewarden",
+          "name": "Heavy Flamethrower"
+        },
+        {
+          "id": "dw_emberanvil",
+          "name": "Forge Dwarf"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_flamewarden",
+      "name": "Heavy Flamethrower",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "dw_bombardking",
+          "name": "Fire Furnace"
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_emberanvil",
+      "name": "Forge Dwarf",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_bombardking",
+      "name": "Fire Furnace",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "forge",
+      "unitId": "ladyclaire",
+      "name": "Lady Claire",
+      "rank": 1,
+      "kind": "secret",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_moonblade_sentinel",
+          "name": "Emerald Sentry"
+        },
+        {
+          "id": "el_drow_gloom_initiate",
+          "name": "Elven Battlemage Apprentice"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elite_warrior",
+          "name": "Emerald Blademaster"
+        },
+        {
+          "id": "el_drow_blade_initiate",
+          "name": "Shadow Assassin Apprentice"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_stormblade_warden",
+          "name": "Ironbark Ent"
+        },
+        {
+          "id": "el_drow_eclipse_priest",
+          "name": "Elven Battlemage Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_wisp_conductor",
+          "name": "Stormwing Phoenix Rider"
+        },
+        {
+          "id": "el_drow_ashblade",
+          "name": "Shadow Assassin Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_stormblade_warden",
+          "name": "Ironbark Ent"
+        },
+        {
+          "id": "el_stag_knight",
+          "name": "Stag Bulwark"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "name": "Emerald Elf",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_king",
+          "name": "World Oak Ent"
+        },
+        {
+          "id": "el_drow_night_hierarch",
+          "name": "Elven Battlemage Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_moonblade_sentinel",
+          "name": "Emerald Sentry"
+        },
+        {
+          "id": "el_elven_archer",
+          "name": "Moonlight Ranger Scout"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_elven_bowmaster",
+          "name": "Moonlight Ranger Captain"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_elven_bowmaster",
+          "name": "Moonlight Ranger Captain"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_furnace_seer",
+          "name": "Moonweb Hunter"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_tempest_bowmage",
+          "name": "Moonlight Ranger Warden"
+        },
+        {
+          "id": "el_twilight_huntress",
+          "name": "Moonshadow Huntress"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "name": "Elven Ranger",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_king",
+          "name": "World Oak Ent"
+        },
+        {
+          "id": "el_starfall_bowmaster",
+          "name": "Moonlight Eagle Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "el_moonblade_sentinel",
+          "name": "Emerald Sentry"
+        },
+        {
+          "id": "el_elven_archer",
+          "name": "Moonlight Ranger Scout"
+        },
+        {
+          "id": "el_elven_mage",
+          "name": "Stormspear Initiate"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_drow_gloom_initiate",
+          "name": "Elven Battlemage Apprentice"
+        },
+        {
+          "id": "el_baby_fire_dragon",
+          "name": "Baby Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elite_warrior",
+          "name": "Emerald Blademaster"
+        },
+        {
+          "id": "el_tempest_bowmage",
+          "name": "Moonlight Ranger Warden"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_storm_conductor",
+          "name": "Thunderlance Guard"
+        },
+        {
+          "id": "el_veilfire_hierophant",
+          "name": "Elven Battlemage Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "el_elven_archmage",
+          "name": "Thunder Phoenix"
+        },
+        {
+          "id": "el_wisp_conductor",
+          "name": "Stormwing Phoenix Rider"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "name": "Stormspear",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_storm_sovereign",
+          "name": "Tempest Phoenix"
+        },
+        {
+          "id": "el_ancient_patriarch",
+          "name": "Ancient Dragon Patriarch"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_mage",
+          "name": "Stormspear Initiate"
+        },
+        {
+          "id": "el_veil_adept",
+          "name": "Drow Wraithcaller"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_sealwarden",
+          "name": "Drow Moon Specter"
+        },
+        {
+          "id": "el_drow_ember_novice",
+          "name": "Nightweaver Broodguard"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_archmage",
+          "name": "Thunder Phoenix"
+        },
+        {
+          "id": "el_drow_pyromancer",
+          "name": "Nightweaver Spider Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_moonwell_seer",
+          "name": "Moon Banshee"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_stag_oracle",
+          "name": "Crescent Revenant"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "name": "Lunar Spirit Shaman",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_eclipse_unbinder",
+          "name": "Eclipse Phantom"
+        },
+        {
+          "id": "el_drow_cinderqueen",
+          "name": "Eclipse Broodmother"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_veil_adept",
+          "name": "Drow Wraithcaller"
+        },
+        {
+          "id": "el_drow_ember_novice",
+          "name": "Nightweaver Broodguard"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_drow_pyromancer",
+          "name": "Nightweaver Spider Rider"
+        },
+        {
+          "id": "el_drow_blade_initiate",
+          "name": "Shadow Assassin Apprentice"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_duelist",
+          "name": "Shadow Assassin Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_sealwarden",
+          "name": "Drow Moon Specter"
+        },
+        {
+          "id": "el_drow_furnace_seer",
+          "name": "Moonweb Hunter"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_drow_ember_matron",
+          "name": "Nightweaver Spider Queen"
+        },
+        {
+          "id": "ladyclaire",
+          "name": "Lady Claire"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "name": "Nightweaver Spider",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "el_eclipse_unbinder",
+          "name": "Eclipse Phantom"
+        },
+        {
+          "id": "el_drow_cinderqueen",
+          "name": "Eclipse Broodmother"
+        },
+        {
+          "id": "el_drow_eclipse_duelist",
+          "name": "Shadow Assassin Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_veil_adept",
+          "name": "Drow Wraithcaller"
+        },
+        {
+          "id": "el_drow_blade_initiate",
+          "name": "Shadow Assassin Apprentice"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_ember_novice",
+          "name": "Nightweaver Broodguard"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_moonwell_seer",
+          "name": "Moon Banshee"
+        },
+        {
+          "id": "el_drow_ember_matron",
+          "name": "Nightweaver Spider Queen"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_duelist",
+          "name": "Shadow Assassin Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_ashblade",
+          "name": "Shadow Assassin Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "name": "Moonblade Assassin",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_eclipse_duelist",
+          "name": "Shadow Assassin Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_mage",
+          "name": "Stormspear Initiate"
+        },
+        {
+          "id": "el_drow_gloom_initiate",
+          "name": "Elven Battlemage Apprentice"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_archer",
+          "name": "Moonlight Ranger Scout"
+        },
+        {
+          "id": "el_baby_fire_dragon",
+          "name": "Baby Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_storm_conductor",
+          "name": "Thunderlance Guard"
+        },
+        {
+          "id": "el_drow_eclipse_priest",
+          "name": "Elven Battlemage Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_stag_oracle",
+          "name": "Crescent Revenant"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_veilfire_hierophant",
+          "name": "Elven Battlemage Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "name": "Elven Priestess",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 3,
+      "outputs": [
+        {
+          "id": "el_starfall_bowmaster",
+          "name": "Moonlight Eagle Rider"
+        },
+        {
+          "id": "el_storm_sovereign",
+          "name": "Tempest Phoenix"
+        },
+        {
+          "id": "el_drow_night_hierarch",
+          "name": "Elven Battlemage Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 1,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_baby_fire_dragon",
+          "name": "Baby Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 2,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_fire_dragon",
+          "name": "Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 3,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_stag_knight",
+          "name": "Stag Bulwark"
+        },
+        {
+          "id": "el_fire_dragon",
+          "name": "Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 4,
+      "kind": "basic",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_twilight_huntress",
+          "name": "Moonshadow Huntress"
+        },
+        {
+          "id": "el_mother_fire_dragon",
+          "name": "Mother Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 5,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_mother_fire_dragon",
+          "name": "Mother Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "name": "Dragon Keeper",
+      "rank": 6,
+      "kind": "basic",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_ancient_patriarch",
+          "name": "Ancient Dragon Patriarch"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade_sentinel",
+      "name": "Emerald Sentry",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_elite_warrior",
+          "name": "Emerald Blademaster"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "name": "Emerald Blademaster",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_stormblade_warden",
+          "name": "Ironbark Ent"
+        },
+        {
+          "id": "el_stag_knight",
+          "name": "Stag Bulwark"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "name": "Ironbark Ent",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_elven_king",
+          "name": "World Oak Ent"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_king",
+      "name": "World Oak Ent",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_knight",
+      "name": "Stag Bulwark",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "name": "Moonlight Ranger Scout",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_elven_bowmaster",
+          "name": "Moonlight Ranger Captain"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_bowmaster",
+      "name": "Moonlight Ranger Captain",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_tempest_bowmage",
+          "name": "Moonlight Ranger Warden"
+        },
+        {
+          "id": "el_twilight_huntress",
+          "name": "Moonshadow Huntress"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "name": "Moonlight Ranger Warden",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_starfall_bowmaster",
+          "name": "Moonlight Eagle Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "name": "Moonlight Eagle Rider",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "name": "Moonshadow Huntress",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "name": "Stormspear Initiate",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_storm_conductor",
+          "name": "Thunderlance Guard"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_conductor",
+      "name": "Thunderlance Guard",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_elven_archmage",
+          "name": "Thunder Phoenix"
+        },
+        {
+          "id": "el_wisp_conductor",
+          "name": "Stormwing Phoenix Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archmage",
+      "name": "Thunder Phoenix",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_storm_sovereign",
+          "name": "Tempest Phoenix"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "name": "Tempest Phoenix",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_wisp_conductor",
+      "name": "Stormwing Phoenix Rider",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "name": "Drow Wraithcaller",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_sealwarden",
+          "name": "Drow Moon Specter"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "name": "Drow Moon Specter",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_moonwell_seer",
+          "name": "Moon Banshee"
+        },
+        {
+          "id": "el_stag_oracle",
+          "name": "Crescent Revenant"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonwell_seer",
+      "name": "Moon Banshee",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_eclipse_unbinder",
+          "name": "Eclipse Phantom"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_eclipse_unbinder",
+      "name": "Eclipse Phantom",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "name": "Crescent Revenant",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_novice",
+      "name": "Nightweaver Broodguard",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_pyromancer",
+          "name": "Nightweaver Spider Rider"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "name": "Nightweaver Spider Rider",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 2,
+      "outputs": [
+        {
+          "id": "el_drow_ember_matron",
+          "name": "Nightweaver Spider Queen"
+        },
+        {
+          "id": "el_drow_furnace_seer",
+          "name": "Moonweb Hunter"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_matron",
+      "name": "Nightweaver Spider Queen",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_cinderqueen",
+          "name": "Eclipse Broodmother"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinderqueen",
+      "name": "Eclipse Broodmother",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_furnace_seer",
+      "name": "Moonweb Hunter",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade_initiate",
+      "name": "Shadow Assassin Apprentice",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_duelist",
+          "name": "Shadow Assassin Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_duelist",
+      "name": "Shadow Assassin Adept",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_ashblade",
+          "name": "Shadow Assassin Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ashblade",
+      "name": "Shadow Assassin Expert",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_eclipse_duelist",
+          "name": "Shadow Assassin Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_duelist",
+      "name": "Shadow Assassin Master",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_gloom_initiate",
+      "name": "Elven Battlemage Apprentice",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_eclipse_priest",
+          "name": "Elven Battlemage Adept"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_priest",
+      "name": "Elven Battlemage Adept",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_veilfire_hierophant",
+          "name": "Elven Battlemage Expert"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veilfire_hierophant",
+      "name": "Elven Battlemage Expert",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_drow_night_hierarch",
+          "name": "Elven Battlemage Master"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_night_hierarch",
+      "name": "Elven Battlemage Master",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "name": "Baby Fire Dragon",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_fire_dragon",
+          "name": "Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "name": "Fire Dragon",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_mother_fire_dragon",
+          "name": "Mother Fire Dragon"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "name": "Mother Fire Dragon",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 1,
+      "outputs": [
+        {
+          "id": "el_ancient_patriarch",
+          "name": "Ancient Dragon Patriarch"
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "name": "Ancient Dragon Patriarch",
+      "rank": 1,
+      "kind": "champion",
+      "successorCount": 0,
+      "outputs": []
+    },
+    {
+      "factionId": "grove",
+      "unitId": "ladyclaire",
+      "name": "Lady Claire",
+      "rank": 1,
+      "kind": "secret",
+      "successorCount": 0,
+      "outputs": []
+    }
+  ]
+}

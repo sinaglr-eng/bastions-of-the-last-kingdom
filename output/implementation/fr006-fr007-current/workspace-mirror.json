@@ -1,0 +1,371 @@
+{
+  "status": "passed",
+  "mainHeadPreserved": true,
+  "mainIndexPreserved": true,
+  "ownedFiles": [
+    {
+      "file": "docs/FR006_FINAL_BOSS_HUMAN_SCALE_REGEN_AND_SCORE_20261106.md",
+      "sha256": "c74310db2927b5cec797a50ceb2778d4a72be3d331bac4e8f07279350bf32710"
+    },
+    {
+      "file": "docs/FR007_FACTION_RECIPE_LINEAGES_20261106.md",
+      "sha256": "a40854fe086141156754d8c2ab9c3b3b64824fd67059ea0b00e711dba327aef2"
+    },
+    {
+      "file": "output/design/fr007-current/implementation-handoff.json",
+      "sha256": "98df5fa9772978dae8df6f8b8aeb4ad521e52ad883e46a4cdf3287bd7c6fdba5"
+    },
+    {
+      "file": "output/design/fr007-current/dwarf-plan.json",
+      "sha256": "2a5a48d5c984b021a90aa34f4809c656c69b212396f33a5aa9423bbb57e2c172"
+    },
+    {
+      "file": "output/design/fr007-current/elf-plan.json",
+      "sha256": "d175c0058381b30ae1fdc88365a8aca8e91166dd6d40d3956754c25135024bb1"
+    },
+    {
+      "file": "output/design/fr007-current/recipe-changes.json",
+      "sha256": "036279431dc4cc528d635fc948fdaefe74bdc18a4414bb4b3c36bbd2498c300e"
+    },
+    {
+      "file": "output/design/fr007-current/successor-counts.json",
+      "sha256": "205caf423e112509382df6f0d45745d261e1c6b4224a880185868086809ad920"
+    },
+    {
+      "file": "output/design/fr007-current/material-changes.json",
+      "sha256": "3946458f28743465e6aeede2e190479febcf9d7191b29d96d04a133c66adf35d"
+    },
+    {
+      "file": "output/design/fr007-current/qa/baseline-mechanics.json",
+      "sha256": "90f5ca83627855cb6f592229db5fb361487b6614d58082379a9eef387aeba56c"
+    },
+    {
+      "file": "output/design/fr007-current/qa/top-constraint-audit.json",
+      "sha256": "7c58607234e749f6bb81bc906a43ac06b3f70be5164050f8535ad448dacd2f3b"
+    },
+    {
+      "file": "output/design/next-requirement-current/human-size-audit.json",
+      "sha256": "1d3aaf7b195cfb97cd2fcfdf14318f11850bfa9e793c289b3dd603a85b3ec64b"
+    },
+    {
+      "file": "output/design/next-requirement-current/human-size-audit.csv",
+      "sha256": "bd39ce3ff11f4ddf3fb57db5f70e9748e1d8b53f47601f1760eb163081de9ca3"
+    },
+    {
+      "file": "output/design/next-requirement-current/HUMAN_SIZE_AUDIT.md",
+      "sha256": "03ee7762bb5f3c5e38b2551578153e8d05c0d76c22f57d46493f8b9e4ad706ed"
+    },
+    {
+      "file": "output/design/next-requirement-current/audit-human-scale.mjs",
+      "sha256": "84fed4635711a1c5fee1fef231a0e03a38df229e020df7f04c219ea644be4fb7"
+    },
+    {
+      "file": "AGENTS.md",
+      "sha256": "7a9bbe79e51efb848ff9cbd6d8b870c1d76963c14f168bf75284f1ccdd19f2fc"
+    },
+    {
+      "file": "README.md",
+      "sha256": "e3c4c4c6e44eadf8e261e0347631bee8e7f695dbedbad0eac3de05d911cfeac2"
+    },
+    {
+      "file": "backend/validation.js",
+      "sha256": "e7554c1917e7b4f1ee744afc984440419d765329d381f022e91981e6e48b4455"
+    },
+    {
+      "file": "docs/RELEASE_RETENTION.md",
+      "sha256": "7651a1fa240cd9be9e750115a1045465f6358042c68158d13fee6f4b7080d942"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "sha256": "16eab348fccde503e6f93e09ef232f44dd1760280a448915524884750a2a6c38"
+    },
+    {
+      "file": "game/core/combat.js",
+      "sha256": "c785d1de30ed6832e6668369789d1887501086b59bcf6b8ef02af12fa49dba3e"
+    },
+    {
+      "file": "game/core/factions.js",
+      "sha256": "cb764c2aa978456ba55856f58105f6b6cc61730d50b4fcba44e7af3683f03075"
+    },
+    {
+      "file": "game/core/game.js",
+      "sha256": "54721d19c9498b0982ebee86404391a1b75367c779a55fa84eb3edd17210693b"
+    },
+    {
+      "file": "game/core/run-statistics.js",
+      "sha256": "d66e2c6990bded1ad1eef93ed7875b7a6a5613739e99216881d483d7d0bf7af4"
+    },
+    {
+      "file": "game/main.js",
+      "sha256": "39a5c1fbb2c519884d1e48c56a86bb722860fcbb48c55a41eef9060c763a5d12"
+    },
+    {
+      "file": "game/release.js",
+      "sha256": "25aec6a30accdc76a6cf0b278ddd131d0cc57904b862a180c38eb3a17d87378b"
+    },
+    {
+      "file": "game/render/defender-classification-scale.js",
+      "sha256": "29fde52ff5c04a343f0dc80b752ad4547ca04a797778fc9193b54842b125499f"
+    },
+    {
+      "file": "package.json",
+      "sha256": "4855040d20c7bbc459c6dac2236f2f03ec3cf03b8aa78c043c5fee3921776d4f"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "4ff7449f8e3791caebf024636d5163cb42e8641159fa551ee772fd36b3e42548"
+    },
+    {
+      "file": "tests/enemy-abilities-v12.test.mjs",
+      "sha256": "c9b6bcb9ae24e4115f958c7fbd7e57c18245c4ced32e1f58b30b509a38405887"
+    },
+    {
+      "file": "tests/factions-v060.test.mjs",
+      "sha256": "46d958523dfcac5a81858a41ee9798806025476608c6c0480a73d69afe5e3c38"
+    },
+    {
+      "file": "tests/fr005-data.test.mjs",
+      "sha256": "755c7d577220f7084882928acaac1205ccf24f39525ccdf01f081e624f765b95"
+    },
+    {
+      "file": "tests/fr005-statistics.test.mjs",
+      "sha256": "dc4580b255bd63df5f92f04be39251e5a6352f21ebd5c5093c606a2b2a88b128"
+    },
+    {
+      "file": "tests/late-wave-performance-combat.test.mjs",
+      "sha256": "b75bf7e2b9d4e4a122b60e120851e7f57b96337c90b1d68c942ebdc6f1d14df9"
+    },
+    {
+      "file": "tests/leaderboard-display.test.mjs",
+      "sha256": "cd7d79b5857064536a579b39fc501ae87c2c595ff187e8eb8846594ef307f5c1"
+    },
+    {
+      "file": "tools/current-datasets.mjs",
+      "sha256": "e683573f07ec3ed08f5eed7ea1ec0038560587e8e86c4afc2da13429809131e9"
+    },
+    {
+      "file": "ui/leaderboard.css",
+      "sha256": "3fe6a423c180470c53cff0680aa1b304d79b44249a2c436659cb4afd23e2000d"
+    },
+    {
+      "file": "ui/leaderboard.js",
+      "sha256": "b215f4bf3af6a753df7df068bd9974b6459f8d91d09cbdf45ce9f6f487e49411"
+    },
+    {
+      "file": "ui/run-results.css",
+      "sha256": "8a5cba37877b1229fa1435d5fd3ea87a9fd55dec7f4cc00d9d1f883d0d70b731"
+    },
+    {
+      "file": "ui/run-results.js",
+      "sha256": "34328920d00001c124c50127a0e20ffb9a73f4ac915134f0a9b897f73aa111e5"
+    },
+    {
+      "file": "data/fr006-fr007-approved.json",
+      "sha256": "67fd675633a31284dda8ea692ac09678d08ccec302347b395c9886df1eac58be"
+    },
+    {
+      "file": "data/human-presentation-fr006.json",
+      "sha256": "7cefcc3940db8981b35c0d8a176ca5211adf691cde96f8c6dce9d3d109b3086e"
+    },
+    {
+      "file": "game/core/fr006-fr007-registry.js",
+      "sha256": "6e5750549a8315ae74920af106dea129216a03a15d00b5d25f89bf564dc4395f"
+    },
+    {
+      "file": "tests/fr006-combat.test.mjs",
+      "sha256": "f4dc4438eecae963091dcc8775d1d66d567ef59c46ca2200effa258258ead12c"
+    },
+    {
+      "file": "tests/fr006-human-scale.test.mjs",
+      "sha256": "f489cb6d6825165a887290367c7d72320d10ecad86331c00a0eec43eded50e1f"
+    },
+    {
+      "file": "tests/fr007-data.test.mjs",
+      "sha256": "7cfdfd4f527d0feacadf57c3fc7e0706a4d7d439a96ecc8080d87e12d4836f77"
+    },
+    {
+      "file": "tools/apply-fr006-fr007-gallery.mjs",
+      "sha256": "92334b3c19e9f79e8b9a396f1b034094d256e5a5420f3ad5a32c05001cd10837"
+    },
+    {
+      "file": "docs/FR006_FR007_IMPLEMENTATION.md",
+      "sha256": "9cc8be50c92403b457bfb6754611cabb014319fb527eb3335c827c6e2a06271a"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/build.log",
+      "sha256": "aa64264b677290d8b6533e3d2a1b2165e5e6f1a25c0fe161fa73031389157ad8"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/full-test.log",
+      "sha256": "57644d846825ab1f2c4db2ac91a8226c1d0cf2301b5489fc6af82e70c493daf4"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Advanced-1-attack.png",
+      "sha256": "7b5896a35b3fa4005be6f9c2fbdc24bc9ce5cbb59c8759fe6ddc845b0b84fb84"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Advanced-1-idle.png",
+      "sha256": "5cb1ba5bd9fa92e464641405f0d94bc8b887e3f73a18b7c7b0fdbe159adeaa00"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Advanced-2-attack.png",
+      "sha256": "9f74d1e26c444496d6a0a8cfbb135ac2db3413d4090e75e50dafb426a8351b5d"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Advanced-2-idle.png",
+      "sha256": "1f0425d929a761e8cff2e09ac505a4d3bf6983b2a804b725333fc0f7b38352af"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Basic-1-attack.png",
+      "sha256": "5455b38aa68259f2124166102e8b4980eeb7aeae8b79948101b517de4f227bf5"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Basic-idle.png",
+      "sha256": "830c5d64627620721297d4b1d683a48ca4d551ad88b2be346ce4165ad6e072bf"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft I-III-1-idle.png",
+      "sha256": "ae0c037a538552692f23ce987af332f313edf841ff220ce68c8c5d6d47ea9436"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft I-III-2-idle.png",
+      "sha256": "0d33d5270d6065019ac76ec872907aef52745c2ad5a25319a6179b2e32d03e05"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft I-III-3-idle.png",
+      "sha256": "2b2836763509c35e03f701e2f31d03baf86ed24f86886261a63df97301d3f8b6"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft IV-VI-1-idle.png",
+      "sha256": "82aab51cc5f52cc425c6f81563cd2859b41bb3245bf811ac11398d47ad86e53c"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft IV-VI-2-idle.png",
+      "sha256": "2c1372cd1b91e716dbda20ba7c16d68697ae003645a855f335578206fa775a9f"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Draft IV-VI-3-idle.png",
+      "sha256": "e56dd41a7f3627e164e7af6899a95e1d377f787c2983e321f334703d57b7879b"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Intermediate-1-attack.png",
+      "sha256": "bbf8f02afaf20cd7fcb1c7cc48575101dbad02e88375b2abc52eaf31d3ee3df3"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Intermediate-1-idle.png",
+      "sha256": "ce0be7de8609d7f74390d22616973c41b73caf93a69103a8e14979f7b775230c"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Intermediate-2-attack.png",
+      "sha256": "47c21a19f940b1d3e1b42fbae8765ea20667b779b30c15620610650bbbf3fad3"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Intermediate-2-idle.png",
+      "sha256": "29774885e4bc54490a7176241578bcc44c4f3b57db05161bfb5f004214085ff1"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-scale-native.json",
+      "sha256": "7e508350d2c598fe4340fcdc1807eaf467f04290ac728a9928fb3f7d4cf7d8f8"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-Secret-1-idle.png",
+      "sha256": "c046f8a830af07c070e804825d4d1991f4140386287cf1a060351e0c869792da"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-TOP-1-attack.png",
+      "sha256": "d42c8eda39bda2e83699f2afe950324f6016183e1e04e826d6ffffdd3d6ffc24"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/human-TOP-1-idle.png",
+      "sha256": "0a92e3019cda5cf3c9da4324a702c0c1e1b82f9df39853908e812de25563ff9d"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/recipe-acquisition.log",
+      "sha256": "54a90c44133717202b66bf7de0f83ec18558a6f582bc1fd68b217a88d0fb3522"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-crown-defeat-desktop.png",
+      "sha256": "a602728e22d31dad444648994d7bea53b3c837e6a97dab0ff5a747eca5928100"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-crown-lost-desktop.png",
+      "sha256": "e15c8676aa09015b843f192a11ed6cd5e15d19cb6d51bd24f0b0b165dd42242e"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-crown-lost-portrait.png",
+      "sha256": "77fdfbeb40b9d094861f7c7fc39fb1b30658a741f07e8ec9e8bafd5dd53c042b"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-crown-won-desktop.png",
+      "sha256": "59642acd6eb2a83cb583b1dea9bf96d84985eb99f65b7af73b99d29aa38a905e"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-crown-won-portrait.png",
+      "sha256": "90bbc2df6d41920144fbc52f47b667ecf8b1d815ffca1af1ff80c57f93834413"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-forge-lost-desktop.png",
+      "sha256": "424c4e54e2f2dc67eb06539c03be26b7cc2062061dd1445b2ae2ab2f930cc24b"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-forge-lost-portrait.png",
+      "sha256": "d2368338c31e008f017227cc2ec93ed2e857ead52c82770a8b8c42fc48cc0e2d"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-forge-won-desktop.png",
+      "sha256": "a076b21c41cb4338006c88eec7bdc1473299d879f80812ae93da3bc9bb2d8158"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-forge-won-portrait.png",
+      "sha256": "b0f7776f7675920cd5a45e28630b2a9b2b863595482a997f6590efacd98c53ef"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-grove-lost-desktop.png",
+      "sha256": "c599b3f6cc212e822bc0c6f98a0cb20757149446bcc3d342429375bbc30f5b5a"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-grove-lost-landscape.png",
+      "sha256": "f700edc3b98a86423a48ec510a2b25b13808142e3231efa2e201a50cab40864a"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-grove-lost-portrait.png",
+      "sha256": "2ec01a43a09af3a83040fc934487a907c9724f2960712e0df0fc9c9866ef68ed"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-grove-won-desktop.png",
+      "sha256": "e3f9cf6879844e1639ae0744312e004f0af7a0c2010be6a5a509ee3465e28f75"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-grove-won-portrait.png",
+      "sha256": "c7fdda6582afad31f084ef21e131a0ee1bd29290546dd7a131a3687bba3cde60"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result-legacy-desktop.png",
+      "sha256": "9efd3293eda138a60b739c84d47a692d65ed8eef4dfb5b5060a8e295d650348b"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result.json",
+      "sha256": "d2be9907aad5c99338784f2fe655d030aa8c9d1f2930ca18a9440605faf651ca"
+    }
+  ],
+  "productionFiles": 1004,
+  "productionUpdated": 6,
+  "retiredProductionFiles": [
+    "assets\\audio\\music\\review-20261011\\fallen_build.mp3",
+    "assets\\audio\\music\\review-20261011\\fallen_victory.mp3",
+    "assets\\audio\\music\\review-20261011\\iron_victory.mp3",
+    "assets\\audio\\music\\review-20261011\\iron_victory_celebration.mp3",
+    "assets\\audio\\music\\review-20261011\\wilds_victory.mp3",
+    "assets\\audio\\music\\review-20261011\\wilds_victory_celebration.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\fallen_victory_celebration_crowd.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\fallen_victory_celebration_trumpets.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\iron_victory_celebration_crowd.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\iron_victory_celebration_trumpets.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\wilds_victory_celebration_crowd.mp3",
+    "assets\\audio\\music\\victory-layers-20261011\\wilds_victory_celebration_trumpets.mp3",
+    "assets\\game-C02Ekqxh.js",
+    "assets\\game-tqWnCibm.css"
+  ],
+  "localVersion": "0.6.10",
+  "published": false
+}

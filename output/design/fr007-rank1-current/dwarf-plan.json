@@ -1,0 +1,1812 @@
+{
+  "factionId": "forge",
+  "baseline": "fr006-fr007-r2-20261106",
+  "status": "proposal-only-not-implemented",
+  "branches": [
+    {
+      "id": "iron",
+      "name": "Dwarf Berserkers",
+      "mainId": "dw_shieldguard",
+      "supportIds": [
+        "dw_boarrider",
+        "dw_furnacetender"
+      ],
+      "mainExplicit": false,
+      "supportsExplicit": false,
+      "normalPool": [
+        "dw_shieldguard",
+        "dw_boarrider",
+        "dw_furnacetender"
+      ],
+      "reason": "Existing Shieldguard-led lineage. Boar Rider is retained; the selected Axeman and Berserker replacements establish Blacksmith as the second support."
+    },
+    {
+      "id": "marksmen",
+      "name": "Muskets and snipers",
+      "mainId": "dw_musketeer",
+      "supportIds": [
+        "dw_griffinhandler",
+        "dw_grenadier"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_musketeer",
+        "dw_griffinhandler",
+        "dw_grenadier"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Musketeer, Griffin Handler and Grenadier."
+    },
+    {
+      "id": "boar",
+      "name": "Boar riders",
+      "mainId": "dw_boarrider",
+      "supportIds": [
+        "dw_shieldguard",
+        "dw_engineer"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_boarrider",
+        "dw_shieldguard",
+        "dw_engineer"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Boar Rider, Shieldguard and Dwarf Miner."
+    },
+    {
+      "id": "bombs",
+      "name": "Bombs and siege",
+      "mainId": "dw_grenadier",
+      "supportIds": [
+        "dw_furnacetender",
+        "dw_griffinhandler"
+      ],
+      "mainExplicit": false,
+      "supportsExplicit": false,
+      "normalPool": [
+        "dw_grenadier",
+        "dw_furnacetender",
+        "dw_griffinhandler"
+      ],
+      "reason": "Proposed three-family pool: existing Grenadier and Blacksmith entry/progression plus Griffin Handler from the Griffin Bomber path. The former Runesmith entry and Dwarf Miner TOP support are replaced."
+    },
+    {
+      "id": "machines",
+      "name": "Iron golems and crank Gatlings",
+      "mainId": "dw_engineer",
+      "supportIds": [
+        "dw_musketeer",
+        "dw_grenadier"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_engineer",
+        "dw_musketeer",
+        "dw_grenadier"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Dwarf Miner, Musketeer and Grenadier."
+    },
+    {
+      "id": "runes",
+      "name": "Runic magic and immunity weakening",
+      "mainId": "dw_runesmith",
+      "supportIds": [
+        "dw_furnacetender",
+        "dw_engineer"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_runesmith",
+        "dw_furnacetender",
+        "dw_engineer"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Runesmith, Blacksmith and Dwarf Miner."
+    },
+    {
+      "id": "griffin",
+      "name": "Griffin riders",
+      "mainId": "dw_griffinhandler",
+      "supportIds": [
+        "dw_musketeer",
+        "dw_runesmith"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_griffinhandler",
+        "dw_musketeer",
+        "dw_runesmith"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Griffin Handler, Musketeer and Runesmith."
+    },
+    {
+      "id": "forge",
+      "name": "Blacksmiths and flame machines",
+      "mainId": "dw_furnacetender",
+      "supportIds": [
+        "dw_engineer",
+        "dw_grenadier"
+      ],
+      "mainExplicit": true,
+      "supportsExplicit": true,
+      "normalPool": [
+        "dw_furnacetender",
+        "dw_engineer",
+        "dw_grenadier"
+      ],
+      "reason": "The user explicitly restricts ordinary recipes to Blacksmith, Dwarf Miner and Grenadier."
+    }
+  ],
+  "recipes": [
+    {
+      "unitId": "dw_ironwarden",
+      "name": "Dwarf Axeman",
+      "before": [
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 2
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 2
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "iron",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Shieldguard I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs. Selected Blacksmith I is retained as the named rank-I second-output exception.",
+      "comments": [
+        1,
+        2
+      ],
+      "materialBefore": 4,
+      "materialAfter": 4,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_ashshield",
+      "name": "Dwarf Dualist",
+      "before": [
+        {
+          "id": "dw_ironwarden",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 2
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_ironwarden",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 2
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "iron",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        1,
+        2
+      ],
+      "materialBefore": 10,
+      "materialAfter": 10,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_bulwarkcaptain",
+      "name": "Dwarf Berserker",
+      "before": [
+        {
+          "id": "dw_ashshield",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 5
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_ashshield",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 5
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "iron",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. Selected Blacksmith IV is retained.",
+      "comments": [
+        1,
+        2
+      ],
+      "materialBefore": 34,
+      "materialAfter": 34,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_forgeking",
+      "name": "Berserker Champion",
+      "before": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 6
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 6
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "iron",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        1,
+        2
+      ],
+      "materialBefore": 98,
+      "materialAfter": 98,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_longrifle",
+      "name": "Dwarf Rifleman",
+      "before": [
+        {
+          "id": "dw_musketeer",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_musketeer",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "marksmen",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Musketeer I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        3
+      ],
+      "materialBefore": 5,
+      "materialAfter": 5,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_thunderlock",
+      "name": "Dwarf Sniper",
+      "before": [
+        {
+          "id": "dw_longrifle",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_longrifle",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "marksmen",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        3
+      ],
+      "materialBefore": 13,
+      "materialAfter": 13,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_steamrail",
+      "name": "Heavy Sniper",
+      "before": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 5
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 5
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 3
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "marksmen",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        3
+      ],
+      "materialBefore": 33,
+      "materialAfter": 33,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_grapeshotcart",
+      "name": "Mortar Dwarf",
+      "before": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "marksmen",
+      "terminal": true,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. Latest selected correction requires Dwarf Sniper + Musketeer IV + Grenadier IV; this is the named exception to the terminal outside-family rule.",
+      "comments": [
+        3
+      ],
+      "materialBefore": 29,
+      "materialAfter": 29,
+      "materialDelta": 0,
+      "terminalPoolException": {
+        "explicitUserOverride": true,
+        "reason": "Latest selected correction requires Dwarf Sniper + Musketeer IV + Grenadier IV; this is the named exception to the terminal outside-family rule."
+      }
+    },
+    {
+      "unitId": "dw_ironstorm",
+      "name": "Master Sniper",
+      "before": [
+        {
+          "id": "dw_steamrail",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 6
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_steamrail",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 6
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "marksmen",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        3
+      ],
+      "materialBefore": 97,
+      "materialAfter": 97,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_boarlancer",
+      "name": "Boar Lancer",
+      "before": [
+        {
+          "id": "dw_boarrider",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarrider",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "boar",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Boar Rider I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_boarstandard",
+      "name": "Boar Drummer",
+      "before": [
+        {
+          "id": "dw_boarlancer",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 3
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarlancer",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 3
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "boar",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 12,
+      "materialAfter": 13,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_goreback",
+      "name": "Armored Boar Rider",
+      "before": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 4
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 4
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 3
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "boar",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 24,
+      "materialAfter": 25,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_warcaller",
+      "name": "War Drummer",
+      "before": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 2
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "boar",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "dw_runesmith"
+      ],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. The terminal specialist retains the named outside-pool family: Runesmith.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 30,
+      "materialAfter": 31,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_boaravatar",
+      "name": "Boar Warlord",
+      "before": [
+        {
+          "id": "dw_goreback",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 6
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_goreback",
+          "rank": 1
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 6
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "boar",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 88,
+      "materialAfter": 89,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_fuserunner",
+      "name": "Bomb Dwarf",
+      "before": [
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "bombs",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Grenadier I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_firebomber",
+      "name": "Fire Bomber",
+      "before": [
+        {
+          "id": "dw_fuserunner",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_fuserunner",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "bombs",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [],
+      "materialBefore": 13,
+      "materialAfter": 15,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_griffinbomber",
+      "name": "Griffin Bomber",
+      "before": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "bombs",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [],
+      "materialBefore": 37,
+      "materialAfter": 39,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_cinderhowitzer",
+      "name": "Siege Cannon",
+      "before": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 5
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 5
+        },
+        {
+          "id": "dw_boarrider",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "bombs",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "dw_boarrider"
+      ],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. The terminal specialist retains the named outside-pool family: Boar Rider.",
+      "comments": [],
+      "materialBefore": 37,
+      "materialAfter": 39,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_dwarship",
+      "name": "Dwarf Airship",
+      "before": [
+        {
+          "id": "dw_griffinbomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 6
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_griffinbomber",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 6
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "bombs",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [],
+      "materialBefore": 101,
+      "materialAfter": 103,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_repeatercrew",
+      "name": "Gatling Gunner",
+      "before": [
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Dwarf Miner I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_ironclad",
+      "name": "Iron Golem",
+      "before": [
+        {
+          "id": "dw_repeatercrew",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_repeatercrew",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 15,
+      "materialAfter": 17,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_breachorgan",
+      "name": "Gatling Golem",
+      "before": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 33,
+      "materialAfter": 41,
+      "materialDelta": 8
+    },
+    {
+      "unitId": "dw_deepdelve",
+      "name": "Forge Sentinel",
+      "before": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "machines",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "dw_shieldguard"
+      ],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. The terminal specialist retains the named outside-pool family: Shieldguard.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 39,
+      "materialAfter": 41,
+      "materialDelta": 2
+    },
+    {
+      "unitId": "dw_salvomarshal",
+      "name": "Iron Colossus",
+      "before": [
+        {
+          "id": "dw_breachorgan",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 6
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_breachorgan",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 6
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 97,
+      "materialAfter": 105,
+      "materialDelta": 8
+    },
+    {
+      "unitId": "dw_runemortar",
+      "name": "Rune Dwarf",
+      "before": [
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "runes",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Runesmith I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        6,
+        7
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_tunnelsapper",
+      "name": "Rune Mage",
+      "before": [
+        {
+          "id": "dw_runemortar",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 3
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_runemortar",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 3
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "runes",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        6,
+        7
+      ],
+      "materialBefore": 12,
+      "materialAfter": 13,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_nullifier",
+      "name": "Rune Guardian",
+      "before": [
+        {
+          "id": "dw_tunnelsapper",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 5
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_tunnelsapper",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 5
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "runes",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        6,
+        7
+      ],
+      "materialBefore": 36,
+      "materialAfter": 37,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_worldanvil",
+      "name": "Rune Master",
+      "before": [
+        {
+          "id": "dw_nullifier",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 6
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_nullifier",
+          "rank": 1
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 6
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "runes",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        6,
+        7
+      ],
+      "materialBefore": 100,
+      "materialAfter": 101,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_griffinscout",
+      "name": "Griffin Scout",
+      "before": [
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Griffin Handler I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "unitId": "dw_skyhook",
+      "name": "Griffin Gunner",
+      "before": [
+        {
+          "id": "dw_griffinscout",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_griffinscout",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 3
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 10,
+      "materialAfter": 13,
+      "materialDelta": 3
+    },
+    {
+      "unitId": "dw_talonlord",
+      "name": "Armored Griffin Rider",
+      "before": [
+        {
+          "id": "dw_skyhook",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_skyhook",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 34,
+      "materialAfter": 37,
+      "materialDelta": 3
+    },
+    {
+      "unitId": "dw_highthane",
+      "name": "Griffin Commander",
+      "before": [
+        {
+          "id": "dw_talonlord",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 6
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_talonlord",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 6
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 98,
+      "materialAfter": 101,
+      "materialDelta": 3
+    },
+    {
+      "unitId": "dw_pressuresmith",
+      "name": "Steam Dwarf",
+      "before": [
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "forge",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Blacksmith I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        9
+      ],
+      "materialBefore": 5,
+      "materialAfter": 5,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_steamharpooner",
+      "name": "Flamethrower",
+      "before": [
+        {
+          "id": "dw_pressuresmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_pressuresmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 4
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 4
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "forge",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        9
+      ],
+      "materialBefore": 21,
+      "materialAfter": 21,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_flamewarden",
+      "name": "Heavy Flamethrower",
+      "before": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 5
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 5
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 3
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "forge",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        9
+      ],
+      "materialBefore": 41,
+      "materialAfter": 41,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_emberanvil",
+      "name": "Forge Dwarf",
+      "before": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 5
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "forge",
+      "terminal": true,
+      "exceptionBasicIds": [
+        "dw_runesmith"
+      ],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry. The terminal specialist retains the named outside-pool family: Runesmith.",
+      "comments": [
+        9
+      ],
+      "materialBefore": 45,
+      "materialAfter": 45,
+      "materialDelta": 0
+    },
+    {
+      "unitId": "dw_bombardking",
+      "name": "Fire Furnace",
+      "before": [
+        {
+          "id": "dw_flamewarden",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 6
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 6
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_flamewarden",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 6
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 6
+        }
+      ],
+      "classification": "TOP",
+      "branchId": "forge",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires the preceding Advanced champion and two rank-VI basic defender instances from the branch pool.",
+      "comments": [
+        9
+      ],
+      "materialBefore": 105,
+      "materialAfter": 105,
+      "materialDelta": 0
+    }
+  ],
+  "notes": [
+    "This revision-3 recipe proposal is based on the actual approved game 0.6.10 recipes; it is not implemented or approved.",
+    "Rank-I basics normally lead only to their own Basic champion; the hard maximum is two distinct output recipes. Blacksmith I and Stormspear I are the two named second-output exceptions across the factions.",
+    "All Basic main families remain rank I, with support ingredients at rank II except the named rank-I exceptions. Intermediate directly added basics use II–IV and Advanced directly added basics use II–V.",
+    "TOP recipes remain Advanced + VI + VI. Existing branch families, champion predecessor links, exact selected rank corrections and the Mortar Dwarf terminal-pool exception are preserved.",
+    "Every basic rank has at least one and at most three successor recipes; a strict majority of higher ranks have exactly two. Material changes require later acquisition and balance testing."
+  ],
+  "verification": {
+    "status": "passed",
+    "directSuccessorDefinition": "Distinct immediate output recipes containing the exact basic family and rank; repeated ingredients in one recipe count as one output. Shared Secret recipes are included.",
+    "basicProfiles": 48,
+    "exactlyTwo": 25,
+    "rankI": {
+      "profiles": 8,
+      "maximum": 2,
+      "exactlyOne": 7,
+      "exactlyTwo": 1,
+      "exactlyThree": 0,
+      "zero": 0,
+      "overThree": 0,
+      "exceptions": [
+        {
+          "familyId": "dw_furnacetender",
+          "name": "Blacksmith",
+          "outputs": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman"
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf"
+            }
+          ]
+        }
+      ]
+    },
+    "higherRanks": {
+      "profiles": 40,
+      "ranks": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "exactlyOne": 10,
+      "exactlyTwo": 24,
+      "exactlyThree": 6,
+      "zero": 0,
+      "overThree": 0
+    },
+    "allBasicsHaveSuccessor": true,
+    "maximumDirectSuccessors": 3,
+    "maximumRankISuccessors": 2,
+    "sharedSecretRecipeIncludedInCounts": true,
+    "changedRecipes": 7,
+    "changedMaterialTotals": 23
+  },
+  "baselineRuntimeVersion": "0.6.10",
+  "revision": 3,
+  "revisionId": "fr007-preview-r3-20261106",
+  "approved": false,
+  "implemented": false,
+  "gameImplementationAuthorized": false,
+  "publicationAuthorized": false
+}

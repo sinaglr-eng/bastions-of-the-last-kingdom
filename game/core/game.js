@@ -271,7 +271,7 @@ export class Game {
     }
     this.activeDraw=this.draft.draws.findIndex(draw=>!draw.placed);this.selected=null;this.emit('change');return true;
   }
-  end(won){this.commandMove.cancel();this.draft.discardReserve();this.selectedEnemy=null;this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
+  end(won){if(['won','lost'].includes(this.phase))return;this.commandMove.cancel();this.draft.discardReserve();this.selectedEnemy=null;this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
   tick(dt,elapsedDt=dt){
     // Total run time uses real seconds, independently of combat speed and its
     // frame-step cap. Construction and pauses count; ended runs stay frozen.

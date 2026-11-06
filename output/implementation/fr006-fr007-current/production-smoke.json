@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "version": "0.6.10",
+  "origin": "http://127.0.0.1:4174/",
+  "productionBuild": true,
+  "faction": "forge",
+  "checks": [
+    "Faction selection and native package preparation completed.",
+    "Start/Skip tutorial prompt opened.",
+    "Preparation screen and 3D battlefield rendered.",
+    "Recipes opened with 38 Dwarf recipes.",
+    "Mortar Dwarf actual ingredients: Dwarf Sniper I + Musketeer IV + Grenadier IV.",
+    "Wave 49 actual guide: Restores 15% missing health every 4s; healing block prevents recharge.",
+    "No browser console errors in the production smoke test."
+  ],
+  "newScoresSubmitted": false,
+  "limits": "This smoke test does not play an entire live 50-wave campaign or run on physical iPad hardware."
+}

@@ -69,6 +69,7 @@ export class CombatManager {
     type=damageType(type,stats.type);
     const result={enemy,source,type,effect:stats.effect||stats.projectileEffect||type,requestedDamage:amount,beforeDefense:0,effectiveArmor:0,armorMultiplier:1,afterArmor:0,shellBlock:0,afterShell:0,appliedDamage:0,effectiveDamage:0,blockReason:null,directHit:!!stats.directHit,critical:!!stats.critical,visible:this.isRevealed(enemy),contact:false};
     const finish=()=>{this.game.emit('damage-trace',result);return result;};
+    if(['won','lost'].includes(this.game.phase)){result.blockReason='run-ended';return result;}
     if(enemy.dead){result.blockReason='dead';return finish();}
     if(!Number.isFinite(amount)||amount<=0){result.blockReason='invalid';return finish();}
     if(stats.directHit){
@@ -149,6 +150,7 @@ export class CombatManager {
     else delete enemy.statuses.poison;
   }
   landedProcs(stats,source,{landedDamage=true}={}) {
+    if(['won','lost'].includes(this.game.phase))return;
     if(landedDamage&&stats.recoverChance&&this.game.rng()<stats.recoverChance){const before=this.game.lives;this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));const amount=this.game.lives-before;if(amount>0)this.game.emit('recover',{source,amount});}
     if(stats.stoneGazeChance&&this.game.rng()<stats.stoneGazeChance)source.stoneGaze={remaining:stats.stoneGazeDuration||6,facing:new Map(),petrified:new Set(),stats};
   }
@@ -234,6 +236,7 @@ export class CombatManager {
     this.game.emit('impact',{source,target,stats,effect:stats.projectileEffect,x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
   }
   update(dt) {
+    if(['won','lost'].includes(this.game.phase))return;
     const R=this.rules;
     const frameStart=this.elapsed,dreadAtStart=new Map(this.game.towers.filter(t=>t.dread?.until>frameStart).map(t=>[t,{...t.dread}]));
     this.elapsed+=dt;for(const tower of this.game.towers)tower.factionNow=this.elapsed;
@@ -291,7 +294,19 @@ export class CombatManager {
       const stopped=enemy.statuses.petrify||enemy.statuses.freeze||enemy.statuses.stun||enemy.statuses.root;
       enemy.currentSpeed=stopped?0:enemy.speed*haste*frenzy*(1-slow);
       move(stopped?0:enemy.speed*dt*haste*frenzy*(1-slow));
-      if(enemy.pathIndex>=enemy.route.length){enemy.dead=true;this.game.lives=Math.max(0,this.game.lives-(enemy.leak||1));this.game.leaks++;if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);this.game.emit('leak',{enemy});}
+      if(enemy.pathIndex>=enemy.route.length){
+        const terminal=this.game.data.fr006&&this.game.waveLimit===50&&this.game.round===50&&enemy.type==='host_50';
+        const healthLost=terminal?this.game.lives:Math.min(this.game.lives,enemy.leak||1);
+        enemy.dead=true;enemy.escaped=true;this.game.lives=Math.max(0,this.game.lives-healthLost);this.game.leaks++;
+        if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);
+        this.game.emit('leak',{enemy,...(terminal?{healthLost,terminal:true}:{})});
+        if(terminal){
+          // No healing proc, queued hit, MVP award or wave reward may follow
+          // the final boss crossing the exit, even within this same update.
+          this.spawnQueue=[];this.projectiles=[];this.fr002Pulses?.clear();
+          this.enemies=this.enemies.filter(e=>!e.dead);this.game.end(false);return;
+        }
+      }
     }
     for(const tower of this.game.towers) {
       tower.weakened=Math.max(0,(tower.weakened||0)-dt);

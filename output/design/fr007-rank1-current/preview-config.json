@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "requirementId": "FR-007",
+  "revision": 3,
+  "revisionId": "fr007-preview-r3-20261106",
+  "date": "2026-11-06",
+  "status": "FR-007 revision 3 recipe proposal — pending review; not implemented",
+  "approved": false,
+  "implemented": false,
+  "combatImplemented": false,
+  "recipeOnly": true,
+  "runtimeVersion": "0.6.10",
+  "baselineRuntimeVersion": "0.6.10",
+  "baselineRulesetRevision": "fr006-fr007-r2-20261106",
+  "baselineImplemented": true,
+  "fr006Implemented": true,
+  "gameImplementationAuthorized": false,
+  "publicationAuthorized": false,
+  "currentOnly": true,
+  "localOnly": true,
+  "requirementFile": "fr007-proposal.md",
+  "configFile": "preview-config.json",
+  "topRecipePolicy": {
+    "scope": [
+      "forge",
+      "grove"
+    ],
+    "predecessorClassification": "ADVANCED",
+    "basicIngredientRanks": [
+      6,
+      6
+    ],
+    "preserveChampionPredecessor": true
+  },
+  "terminalPoolOverrides": [
+    {
+      "factionId": "forge",
+      "unitId": "dw_grapeshotcart",
+      "reason": "Explicit user selection: Dwarf Sniper + Musketeer IV + Grenadier IV."
+    }
+  ],
+  "successorPolicy": {
+    "scope": [
+      "forge",
+      "grove"
+    ],
+    "minimumPerBasicProfile": 1,
+    "maximumPerExactProfile": 3,
+    "rankI": {
+      "preferred": 1,
+      "maximum": 2,
+      "onlyBasicChampionIngredients": true
+    },
+    "higherRanks": {
+      "preferred": 2,
+      "maximum": 3
+    },
+    "countDefinition": "Distinct immediate output recipes per exact family/rank; repeated copies in one recipe count once. Includes shared Secret recipes.",
+    "summary": [
+      {
+        "factionId": "crown",
+        "name": "Human",
+        "basicProfiles": 48,
+        "exactlyOne": 16,
+        "exactlyTwo": 31,
+        "exactlyThree": 1,
+        "rankI": {
+          "profiles": 8,
+          "exactlyOne": 8,
+          "exactlyTwo": 0,
+          "exactlyThree": 0,
+          "exceptions": []
+        },
+        "higherRanks": {
+          "profiles": 40,
+          "exactlyOne": 8,
+          "exactlyTwo": 31,
+          "exactlyThree": 1
+        },
+        "zero": 0,
+        "overThree": 0
+      },
+      {
+        "factionId": "forge",
+        "name": "Dwarves",
+        "basicProfiles": 48,
+        "exactlyOne": 17,
+        "exactlyTwo": 25,
+        "exactlyThree": 6,
+        "rankI": {
+          "profiles": 8,
+          "exactlyOne": 7,
+          "exactlyTwo": 1,
+          "exactlyThree": 0,
+          "exceptions": [
+            {
+              "factionId": "forge",
+              "unitId": "dw_furnacetender",
+              "name": "Blacksmith",
+              "rank": 1,
+              "kind": "basic",
+              "successorCount": 2,
+              "outputs": [
+                {
+                  "id": "dw_ironwarden",
+                  "name": "Dwarf Axeman"
+                },
+                {
+                  "id": "dw_pressuresmith",
+                  "name": "Steam Dwarf"
+                }
+              ]
+            }
+          ]
+        },
+        "higherRanks": {
+          "profiles": 40,
+          "exactlyOne": 10,
+          "exactlyTwo": 24,
+          "exactlyThree": 6
+        },
+        "zero": 0,
+        "overThree": 0
+      },
+      {
+        "factionId": "grove",
+        "name": "Elves",
+        "basicProfiles": 48,
+        "exactlyOne": 17,
+        "exactlyTwo": 26,
+        "exactlyThree": 5,
+        "rankI": {
+          "profiles": 8,
+          "exactlyOne": 7,
+          "exactlyTwo": 1,
+          "exactlyThree": 0,
+          "exceptions": [
+            {
+              "factionId": "grove",
+              "unitId": "el_spark_adept",
+              "name": "Stormspear",
+              "rank": 1,
+              "kind": "basic",
+              "successorCount": 2,
+              "outputs": [
+                {
+                  "id": "el_moonblade_sentinel",
+                  "name": "Emerald Sentry"
+                },
+                {
+                  "id": "el_elven_mage",
+                  "name": "Stormspear Initiate"
+                }
+              ]
+            }
+          ]
+        },
+        "higherRanks": {
+          "profiles": 40,
+          "exactlyOne": 10,
+          "exactlyTwo": 25,
+          "exactlyThree": 5
+        },
+        "zero": 0,
+        "overThree": 0
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import factionRegistry from '../data/factions-v060.json';
 import {applyFr002Registry} from './core/fr002-registry.js';
 import {applyFr003Registry} from './core/fr003-registry.js';
 import {applyFr004Registry} from './core/fr004-registry.js';
+import {applyFr006Fr007Registry} from './core/fr006-fr007-registry.js';
 import {applyFr005Registry} from './core/fr005-registry.js';
 import {createFactionData} from './core/factions.js';
 import {decodedModelBytes} from './render/packed-model.js';
@@ -331,7 +332,7 @@ function help(){fieldGuide();$('dialog-content').querySelector('.help-grid').ins
 function showResult(){
  if(!game.developerMode){recordRunResult(profile,game,{id:statistics.tracker.id,version:statistics.tracker.version});saveProfile(profile);}
  const model=runResultModel(game,{tracker:statistics?.tracker,facts:resultFacts});
- openDialog(runResultMarkup(model,{scoreVersionMarkup:resultScoreVersionMarkup(profile,{version:statistics.tracker.version,factionId:game.factionId}),leaderboardMarkup:game.developerMode?'':resultLeaderboardMarkup()}));
+ openDialog(runResultMarkup(model,{scoreVersionMarkup:resultScoreVersionMarkup(profile,{version:statistics.tracker.version,factionId:game.factionId}),leaderboardMarkup:game.developerMode?'':resultLeaderboardMarkup({version:statistics.tracker.version,factionId:game.factionId,mode:game.waveLimit})}));
  if(!game.developerMode)connectResultLeaderboard($('dialog-content').querySelector('.result-leaderboard'),statistics);
 }
 function requestDeveloperConsole(){document.querySelector('.player-menu').open=false;if(game.developerMode){void openDeveloperConsole();return;}openDialog(dialogHeader('Advanced tools','Activate Developer Mode?')+'<div class="dialog-body developer-warning"><p>Activating Developer Mode permanently excludes this entire current run from local scores, leaderboards and statistics, including earlier checkpoints. Closing the console does not restore eligibility. Start a new ordinary run to record results again.</p><div class="actions"><button class="text-button" data-action="close">Cancel · Keep this run eligible</button><button class="primary-button" data-action="developer-confirm">Activate Developer Mode</button></div></div>');}
@@ -449,7 +450,7 @@ async function requestFactionRun(){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
  try{const committed=await chooseFaction({registry:factionRegistry,replace:!!previousGame,confirm:async(id,{signal})=>{
-  const selected=createFactionData(currentCampaign,applyFr005Registry(applyFr004Registry(applyFr003Registry(applyFr002Registry(factionRegistry)))),id);
+  const selected=createFactionData(currentCampaign,applyFr006Fr007Registry(applyFr005Registry(applyFr004Registry(applyFr003Registry(applyFr002Registry(factionRegistry))))),id);
   // Validate the actual opening skins before replacing an existing battlefield.
   for(const asset of selected.defenderAssets.filter(a=>a.tier===1&&!selected.towers[a.family].advanced)){
    const response=await fetch(releaseAsset(asset.packedFile||asset.file),{signal});if(!response.ok)throw Error('A required defender model is unavailable.');

@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "sourceRevision": "fr007-preview-r2-20261106",
+  "scope": "Dwarf and Elf TOP hard ranks, selected Sniper pins, named Mortar override; Human historical graph unchanged.",
+  "reports": [
+    {
+      "faction": "forge",
+      "fixedRankVITopCounts": {
+        "dw_shieldguard": 2,
+        "dw_musketeer": 2,
+        "dw_runesmith": 2,
+        "dw_boarrider": 2,
+        "dw_grenadier": 2,
+        "dw_engineer": 2,
+        "dw_griffinhandler": 2,
+        "dw_furnacetender": 2
+      },
+      "allAtLeastOneAndAtMostThree": true
+    },
+    {
+      "faction": "grove",
+      "fixedRankVITopCounts": {
+        "el_moonblade": 2,
+        "el_grove_archer": 2,
+        "el_spark_adept": 2,
+        "el_sealweaver": 2,
+        "el_drow_cinder": 3,
+        "el_drow_blade": 1,
+        "el_drow_acolyte": 3,
+        "el_dragon_keeper": 1
+      },
+      "allAtLeastOneAndAtMostThree": true
+    }
+  ],
+  "humanBaseline": [
+    {
+      "unitId": "crownofages",
+      "name": "King",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "highking",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "phoenix",
+      "name": "Grand Pyromancer",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "thunderheart",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "dawnspire",
+      "name": "Glacial High Paladin",
+      "nativeVI": true,
+      "advancedPredecessor": false,
+      "predecessor": [
+        {
+          "id": "winterhold",
+          "classification": "Intermediate"
+        }
+      ]
+    },
+    {
+      "unitId": "royalarsenal",
+      "name": "Tempest Sovereign",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "stormcitadel",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "mothernature",
+      "name": "Mother Nature",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "rangermentor",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "elvenking",
+      "name": "Ranger Oathbreaker",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "kingsrangerguard",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "mechanicalgolem",
+      "name": "Royal Battery",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "griffinbomber",
+          "classification": "Advanced"
+        }
+      ]
+    },
+    {
+      "unitId": "archbishop",
+      "name": "Archbishop",
+      "nativeVI": true,
+      "advancedPredecessor": true,
+      "predecessor": [
+        {
+          "id": "monk",
+          "classification": "Advanced"
+        }
+      ]
+    }
+  ]
+}

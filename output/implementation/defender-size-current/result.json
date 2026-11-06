@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "version": "0.6.10",
+  "revision": "defender-size-feedback-20261106",
+  "implemented": true,
+  "published": false,
+  "rulesetRevision": "fr006-fr007-r2-20261106",
+  "globalBattlefieldScale": 0.8,
+  "basicChampionProfiles": 21,
+  "normalizedProfiles": 53,
+  "verifiedProfiles": 258,
+  "policy": "All approved V3 defenders shrink uniformly by at least 20%. Basic champions use their own faction ordinary draft median as a cap, preserving smaller silhouettes and explicit broad-body exceptions.",
+  "unchanged": [
+    "Approved model bytes and internal proportions",
+    "Authored Idle/Attack clips and weapon ownership",
+    "Combat profiles, rules, recipes, ranges, grid occupancy and score cohort",
+    "Original artwork, recorded prompts/reviews and player score records"
+  ],
+  "verification": {
+    "nativeModels": "native-model-verification.json",
+    "poses": [
+      {
+        "clip": "Idle",
+        "phase": 0
+      },
+      {
+        "clip": "Attack",
+        "phase": 0
+      },
+      {
+        "clip": "Attack",
+        "phase": 0.25
+      },
+      {
+        "clip": "Attack",
+        "phase": 0.5
+      }
+    ],
+    "tests": {
+      "total": 2141,
+      "passed": 2141,
+      "failed": 0,
+      "log": "full-tests.log"
+    },
+    "productionBuild": {
+      "passed": true,
+      "mediaFiles": 998,
+      "log": "build.log"
+    },
+    "galleryInspection": "gallery-reference-inspection.json",
+    "visualReview": {
+      "screenshots": [
+        "dwarves-basic-champions-attack.png",
+        "dwarves-basic-champions-idle.png",
+        "elves-basic-champions-attack.png",
+        "elves-basic-champions-idle.png",
+        "gallery-current-sizing.png",
+        "higher-classes-and-shared-claire-attack.png",
+        "human-adjacent-comparison.png",
+        "human-basic-champions-idle.png",
+        "human-comparison-attack.png",
+        "human-comparison-idle.png"
+      ],
+      "commonCamera": true,
+      "nativeProductionLoader": true,
+      "consoleErrors": [],
+      "reviewed": "Human adjacent formation, all Basic champions across three factions, higher-class examples and shared Lady Claire at Idle/Attack."
+    },
+    "gallery": "gallery-verification.json",
+    "workspaceMirror": "workspace-mirror.json",
+    "concurrentGalleryProposalPreserved": true
+  },
+  "delivery": {
+    "localOnly": true,
+    "existingMatchLeftRunning": true,
+    "appliesOnNextPageLoad": true,
+    "publicDeploymentRequested": false,
+    "mainHeadAndIndexPreserved": true,
+    "mainRuntimeMirrored": true
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "mainHeadPreserved": true,
+  "mainIndexPreserved": true,
+  "localOnly": true,
+  "published": false,
+  "runtimeFiles": [
+    {
+      "file": "README.md",
+      "sha256": "ee1b53f6b7b16818fa225930fc08204af8557fee8ed252759e82c021de01fdb3"
+    },
+    {
+      "file": "data/defender-presentation-v3.json",
+      "sha256": "be126623107c14a18fd345195a0f0e303972779af8fc40b050746a93d97b1775"
+    },
+    {
+      "file": "data/human-presentation-fr006.json",
+      "sha256": null
+    },
+    {
+      "file": "docs/DEFENDER_PRESENTATION.md",
+      "sha256": "6bbee9a7445dea1fb424616deb393d5f211bd63175e67046aaf8fff7af6caadf"
+    },
+    {
+      "file": "docs/FR006_FR007_IMPLEMENTATION.md",
+      "sha256": "b5461d9be18685970b339e8512deaeaeeea848f4a769d80741baf93dbefe8f98"
+    },
+    {
+      "file": "game/render/defender-classification-scale.js",
+      "sha256": "d7981429d2ac99cf0685a4d18dba0e2427b632ab1bf2be56a15610d47fa17f46"
+    },
+    {
+      "file": "output/implementation/fr006-fr007-current/result.json",
+      "sha256": "923ffa95816384fd77e79472dda60913e09d31b02f618b2b4f5b0ebdbc543e59"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "2ce89e689107d52e526e3a24aabd831979b7601a5a5e24f18dbb9c007cdc8d09"
+    },
+    {
+      "file": "tests/defender-size-current.test.mjs",
+      "sha256": "a1805ef70b4dd454535cf03fec8534dec561f7f4be8b88602350e3752ee74362"
+    },
+    {
+      "file": "tests/dragon-presentation-v064.test.mjs",
+      "sha256": "36bd77b39e47bcd63c8550302b03444b0d9a834b18c7ff7f1b2664d28ecd9dd0"
+    },
+    {
+      "file": "tests/faction-presentation-v061.test.mjs",
+      "sha256": "2f8bbecb4bbd3d37b4bb42513f3c83a186d680abaf87e3838b665276593dc7f2"
+    },
+    {
+      "file": "tests/fr006-human-scale.test.mjs",
+      "sha256": null
+    },
+    {
+      "file": "tools/apply-defender-presentation-gallery.mjs",
+      "sha256": "940b1ea53e25d01ec285d6aa1927868ca9e2d54bde4932baea5cf89389701eb8"
+    }
+  ],
+  "productionFiles": 1004,
+  "productionUpdated": 4,
+  "retiredProductionFiles": [
+    "assets\\game-DTnGSK6Q.js"
+  ],
+  "existingMatchLeftRunning": true,
+  "canonicalGalleryFiles": [
+    "sites/defender-faction-atlas-20261021/dist/defender-presentation.json",
+    "sites/defender-faction-atlas-20261021/dist/battlefield-presentation.mjs",
+    "sites/defender-faction-atlas-20261021/dist/index.html",
+    "design/gallery/canonical-gallery.json"
+  ],
+  "concurrentGalleryPathsPreserved": 16
+}

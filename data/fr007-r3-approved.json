@@ -1,0 +1,704 @@
+{
+  "requirementId": "FR-007",
+  "recipeRevision": 3,
+  "authorization": "User instruction in Master game chat on 2026-11-06: implement all changes and the latest recipe revision in the public game.",
+  "rulesetRevision": "fr006-fr007-r3-20261106",
+  "baselineRulesetRevision": "fr006-fr007-r2-20261106",
+  "recipeChanges": [
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarlancer",
+      "name": "Boar Lancer",
+      "before": [
+        {
+          "id": "dw_boarrider",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_boarrider",
+          "rank": 1
+        },
+        {
+          "id": "dw_shieldguard",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "boar",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Boar Rider I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        4
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_fuserunner",
+      "name": "Bomb Dwarf",
+      "before": [
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "bombs",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Grenadier I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_repeatercrew",
+      "name": "Gatling Gunner",
+      "before": [
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 1
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_grenadier",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Dwarf Miner I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_breachorgan",
+      "name": "Gatling Golem",
+      "before": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 5
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 4
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "machines",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        5
+      ],
+      "materialBefore": 33,
+      "materialAfter": 41,
+      "materialDelta": 8
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runemortar",
+      "name": "Rune Dwarf",
+      "before": [
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        },
+        {
+          "id": "dw_furnacetender",
+          "rank": 2
+        },
+        {
+          "id": "dw_engineer",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "runes",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Runesmith I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        6,
+        7
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinscout",
+      "name": "Griffin Scout",
+      "before": [
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_griffinhandler",
+          "rank": 1
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 2
+        },
+        {
+          "id": "dw_runesmith",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Griffin Handler I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_skyhook",
+      "name": "Griffin Gunner",
+      "before": [
+        {
+          "id": "dw_griffinscout",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 2
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "dw_griffinscout",
+          "rank": 1
+        },
+        {
+          "id": "dw_griffinhandler",
+          "rank": 3
+        },
+        {
+          "id": "dw_musketeer",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "griffin",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        8
+      ],
+      "materialBefore": 10,
+      "materialAfter": 13,
+      "materialDelta": 3
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade_sentinel",
+      "before": [
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        },
+        {
+          "id": "el_grove_archer",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Emerald Elf I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs. Stormspear I is the second-output exception required by the Basic support pool and three-output limit at rank II.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 3,
+      "materialAfter": 4,
+      "materialDelta": 1
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "before": [
+        {
+          "id": "el_moonblade_sentinel",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_moonblade_sentinel",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 3
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 9,
+      "materialAfter": 12,
+      "materialDelta": 3
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "before": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 3
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        }
+      ],
+      "after": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 5
+        }
+      ],
+      "classification": "ADVANCED",
+      "branchId": "moonblade",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        10
+      ],
+      "materialBefore": 29,
+      "materialAfter": 44,
+      "materialDelta": 15
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "before": [
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_grove_archer",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "grovebow",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Elven Ranger I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        11,
+        12
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "before": [
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_spark_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_acolyte",
+          "rank": 2
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "stormcraft",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Stormspear I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        13
+      ],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "before": [
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_sealweaver",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_blade",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Lunar Spirit Shaman I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 3,
+      "materialAfter": 5,
+      "materialDelta": 2
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "before": [
+        {
+          "id": "el_veil_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 2
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 4
+        }
+      ],
+      "after": [
+        {
+          "id": "el_veil_adept",
+          "rank": 1
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 4
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 4
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "unweave",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        14
+      ],
+      "materialBefore": 13,
+      "materialAfter": 21,
+      "materialDelta": 8
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "before": [
+        {
+          "id": "el_drow_ember_novice",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 2
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_ember_novice",
+          "rank": 1
+        },
+        {
+          "id": "el_drow_cinder",
+          "rank": 3
+        },
+        {
+          "id": "el_sealweaver",
+          "rank": 3
+        }
+      ],
+      "classification": "INTERMEDIATE",
+      "branchId": "cinder",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Retains the existing champion predecessor; all directly added basic ingredients are rank II or higher to reserve rank-I defenders for Basic champion entry.",
+      "comments": [
+        15
+      ],
+      "materialBefore": 11,
+      "materialAfter": 13,
+      "materialDelta": 2
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_gloom_initiate",
+      "before": [
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 1
+        }
+      ],
+      "after": [
+        {
+          "id": "el_drow_acolyte",
+          "rank": 1
+        },
+        {
+          "id": "el_spark_adept",
+          "rank": 2
+        },
+        {
+          "id": "el_moonblade",
+          "rank": 2
+        }
+      ],
+      "classification": "BASIC",
+      "branchId": "eclipse",
+      "terminal": false,
+      "exceptionBasicIds": [],
+      "reason": "Requires Elven Priestess I. Support ingredients prefer rank II so rank-I defenders normally have only their main Basic champion output, never more than two outputs.",
+      "comments": [
+        18
+      ],
+      "materialBefore": 4,
+      "materialAfter": 5,
+      "materialDelta": 1
+    }
+  ]
+}

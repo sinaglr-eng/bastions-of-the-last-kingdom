@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {applyFr002Registry} from '../game/core/fr002-registry.js';import {applyFr003Registry} from '../game/core/fr003-registry.js';import {applyFr004Registry} from '../game/core/fr004-registry.js';import {applyFr005Registry} from '../game/core/fr005-registry.js';import {loadCurrentDatasets} from '../tools/current-datasets.mjs';import {towerStats} from '../game/core/math.js';import {baseAttackDps,abilityLines} from '../ui/grimoire.js';
-const read=f=>JSON.parse(fs.readFileSync(new URL('../'+f,import.meta.url))),spec=read('data/fr005-approved.json'),before=loadCurrentDatasets({revision:'fr004'}),after=loadCurrentDatasets(),base=applyFr004Registry(applyFr003Registry(applyFr002Registry(read('data/factions-v060.json'))));
+const read=f=>JSON.parse(fs.readFileSync(new URL('../'+f,import.meta.url))),spec=read('data/fr005-approved.json'),before=loadCurrentDatasets({revision:'fr004'}),after=loadCurrentDatasets({revision:'fr005'}),base=applyFr004Registry(applyFr003Registry(applyFr002Registry(read('data/factions-v060.json'))));
 const registry=applyFr005Registry(base),stable=o=>Array.isArray(o)?o.map(stable):o&&typeof o==='object'?Object.fromEntries(Object.keys(o).sort().map(k=>[k,stable(o[k])])):o;
 test('FR-005 r2 applies 44 assignment arrays, one recipe and the authorized 35-profile Dwarf air-targeting amendment; unlisted fields are preserved and drift is rejected',()=>{
  const expected=structuredClone(base);expected.revision=registry.revision;expected.fr005=true;

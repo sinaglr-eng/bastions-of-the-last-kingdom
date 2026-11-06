@@ -6,8 +6,8 @@ import {createHash} from 'node:crypto';
 import * as THREE from 'three';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {installDefenderTemplate,cloneDefenderTemplate} from '../game/render/defender-assets.js';
-import {applyDefenderClassificationScale} from '../game/render/defender-classification-scale.js';
-import {scaleBattlefieldUnit} from '../game/render/battlefield-scale.js';
+import {applyDefenderClassificationScale,DEFENDER_BATTLEFIELD_PRESENTATION_SCALE} from '../game/render/defender-classification-scale.js';
+import {scaleBattlefieldUnit,BATTLEFIELD_UNIT_SCALE} from '../game/render/battlefield-scale.js';
 import {attachChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
 const registry=JSON.parse(fs.readFileSync(new URL('../data/factions-v060.json',import.meta.url)));
 const height=a=>{a.updateMatrixWorld(true);return new THREE.Box3().setFromObject(a,true).getSize(new THREE.Vector3()).y;};
@@ -20,11 +20,11 @@ test('Baby Fire Dragon matches the native Fire Dragon height on the battlefield 
  const baby=await native('el_baby_fire_dragon'),fire=await native('el_fire_dragon'),baseBaby=height(baby.actor),baseSource=height(baby.source);
  applyDefenderClassificationScale(baby.actor,'el_baby_fire_dragon');applyDefenderClassificationScale(fire.actor,'el_fire_dragon');scaleBattlefieldUnit(baby.actor);scaleBattlefieldUnit(fire.actor);
  assert.ok(Math.abs(height(baby.actor)/height(fire.actor)-1)<.002);
- assert.equal(baby.actor.userData.defenderPresentationScale,3.85);assert.ok(height(baby.actor)>baseBaby*2.5);
+ assert.ok(Math.abs(baby.actor.userData.defenderPresentationScale-3.85)<1e-10);assert.ok(Math.abs(height(baby.actor)/baseBaby-3.85*BATTLEFIELD_UNIT_SCALE*DEFENDER_BATTLEFIELD_PRESENTATION_SCALE)<1e-6);
  assert.equal(height(baby.source),baseSource);const scale=baby.actor.scale.clone();applyDefenderClassificationScale(baby.actor,'el_baby_fire_dragon');assert.deepEqual(baby.actor.scale,scale);
- const aura=attachChampionAura(baby.actor,'el_baby_fire_dragon');assert.equal(aura.userData.classification,'Basic');assert.equal(aura.userData.color,'#247cff');assert.equal(aura.scale.x,1/3.85);disposeChampionAura(aura);
+ const aura=attachChampionAura(baby.actor,'el_baby_fire_dragon');assert.equal(aura.userData.classification,'Basic');assert.equal(aura.userData.color,'#247cff');assert.ok(Math.abs(aura.scale.x-1/3.85)<1e-10);disposeChampionAura(aura);
  baby.unchanged();fire.unchanged();
 });
 test('larger Elf dragon descendants retain their current model and classification proportions',async()=>{
- for(const family of ['el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch']){const n=await native(family),before=height(n.actor);applyDefenderClassificationScale(n.actor,family);assert.equal(n.actor.userData.defenderPresentationScale,1);assert.ok(Math.abs(height(n.actor)/before-n.actor.userData.classificationScale)<1e-7);n.unchanged();}
+ for(const family of ['el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch']){const n=await native(family),before=height(n.actor);applyDefenderClassificationScale(n.actor,family);assert.equal(n.actor.userData.defenderPresentationScale,1);assert.ok(Math.abs(height(n.actor)/before-n.actor.userData.classificationScale*DEFENDER_BATTLEFIELD_PRESENTATION_SCALE)<1e-7);n.unchanged();}
 });

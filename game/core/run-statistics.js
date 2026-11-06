@@ -28,7 +28,7 @@ export class RunStatistics {
     if(w&&type==='death'){w.kills++;if(p.enemy.boss)w.bossKills++;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].kills++;const row=this.waveUnits.get(this.lastSources.get(p.enemy.id));if(row)row.kills++;this.lastSources.delete(p.enemy.id);}
     // hit precedes death in CombatManager; remember the actual finishing source.
     if(w&&type==='hit')this.lastSources.set(p.enemy.id,p.source?.id);
-    if(w&&type==='leak'){w.leaks++;w.healthLost+=p.enemy.leak||1;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].leaks++;}
+    if(w&&type==='leak'){w.leaks++;w.healthLost+=p.healthLost??(p.enemy.leak||1);if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].leaks++;}
     if(type==='reward')this.finishWave(true);
     if(type==='won'){this.finishWave(true);this.outcome='won';this.finishedAt=this.clock();}
     if(type==='lost'){this.finishWave(false);this.outcome='lost';this.finishedAt=this.clock();}

@@ -1,0 +1,1249 @@
+{
+  "revision": "defender-size-feedback-20261106",
+  "globalBattlefieldScale": 0.8,
+  "source": "User size feedback on local game 0.6.10, 6 November 2026.",
+  "bodyProxyExcludedPattern": "weapon|sword|greatsword|blade|spear|staff|crozier|bow\\b|arrow|shield|brazier|crystal|orb\\b|vfx|flame|fireball|halo|wing",
+  "referencePolicy": "Median native/effective Idle body height of the 48 current draft profiles of each faction before the global 20% reduction. Human Basic begins at that reference; higher Human classes retain 10% steps. Other Basic champions are capped at their own draft reference, preserving smaller authored shapes.",
+  "references": [
+    {
+      "factionId": "crown",
+      "min": 1.1263999675418441,
+      "median": 1.1939840868333418,
+      "max": 1.3245343148601523
+    },
+    {
+      "factionId": "forge",
+      "min": 1.1876479476225585,
+      "median": 1.2820797427293587,
+      "max": 1.8909235455950217
+    },
+    {
+      "factionId": "grove",
+      "min": 0.8271999440928451,
+      "median": 1.3418370618564976,
+      "max": 2.048234480930337
+    }
+  ],
+  "scope": "All 258 current approved V3 defenders receive the uniform 0.8 battlefield factor. Profile corrections cover all 21 Basic champions and the existing 37 Human class-normalized models. Enemies, walls, gameplay rules, source files and internal proportions are unchanged.",
+  "profiles": [
+    {
+      "factionId": "crown",
+      "family": "rimewatch",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "9f8ac16a702f9ab39b6e907ed037ef08e729f03e5a4d3dc64353f981896b8ef6",
+      "metric": "body-height",
+      "target": 1.1939840868333418,
+      "battlefieldTarget": 0.9551872694666734,
+      "multiplier": 1.633911557083438,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.6674049855877097,
+        1.037999955377148,
+        0.5892521286423993
+      ],
+      "nativeFullSize": [
+        0.9820436611036643,
+        1.4170186092533708,
+        0.5892521286423993
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "frostblade",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "3535634a73e65b98be6b0590837caaea20392878112e71ec037df860e24aa3ba",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 0.9518368079147554,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.9137765534027933,
+        1.9599999917676811,
+        2.005766892590561
+      ],
+      "nativeFullSize": [
+        1.1027343571186166,
+        2.4799999540953235,
+        2.005766892590561
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "roseguard",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "7b2664ed42c9ce7f6aae1372f74944149b7265b2ea3ff04eb1bdb167fd9f92f5",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 0.8836618159257701,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.3177780038977898,
+        2.111215062204082,
+        2.005766892590561
+      ],
+      "nativeFullSize": [
+        1.6562284231186069,
+        2.4173497525006833,
+        2.005766892590561
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "highking",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "2c971fd951d88c189ad77eb6b729f6d3d5607cabf9c13c179360fe2b31f53c17",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.1869058615986408,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8713636226321431,
+        1.728999927998297,
+        2.0017676626969845
+      ],
+      "nativeFullSize": [
+        1.75484247275842,
+        2.222524349010948,
+        2.0017676626969845
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "crownofages",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "99599d1e9509bd3d2fda59bbefde7455ba998bcc1e6be767d88347f5c11dfdd5",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.2673151328263021,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8713636226321431,
+        1.7812271831197986,
+        2.005766892590561
+      ],
+      "nativeFullSize": [
+        1.59163206815721,
+        2.114752717644273,
+        2.005766892590561
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "thornwarden",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "488501f11317600507fb68f4e8852b04c256078c24392de65eaf01e23fbaa919",
+      "metric": "body-height",
+      "target": 1.1939840868333418,
+      "battlefieldTarget": 0.9551872694666734,
+      "multiplier": 0.9312386586158866,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.236871123313915,
+        1.8212303662990155,
+        0.9758157036452723
+      ],
+      "nativeFullSize": [
+        1.3650885224342462,
+        1.8212303662990155,
+        1.0078396797699622
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "verdantguard",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "62506132994cda67d333be897f001c565ce3c8c7639c7bbf23d96aaaf53abde2",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 0.9422223105771523,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.3680748343467832,
+        1.9799999583265386,
+        1.020583125264122
+      ],
+      "nativeFullSize": [
+        1.3845804333686944,
+        1.9799999583265386,
+        1.0465251636971824
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "tempest",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "4cd92f22338670ba34baea3ae5c63addbb5dd78316b6baebb9298380c5e1db94",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 0.8787788028186599,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        2.216182947158833,
+        2.12294621774357,
+        1.1152336777232943
+      ],
+      "nativeFullSize": [
+        2.216182947158833,
+        2.12294621774357,
+        1.1152336777232943
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "stormcitadel",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "729f1c2d5293d9c9fbf10a9dd54603f0cf708a7c75b3bffac2a0099cc1b3a985",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.1122819420722851,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.4278598427772649,
+        1.844999969541392,
+        1.0758160558651522
+      ],
+      "nativeFullSize": [
+        1.9062709212303315,
+        2.2105249493885126,
+        1.5225521534528403
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "embercrown",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "54deb2c643c21465691bead40d612f690f6c69a5d61d084827a42cb1adce0ac5",
+      "metric": "body-height",
+      "target": 1.1939840868333418,
+      "battlefieldTarget": 0.9551872694666734,
+      "multiplier": 0.8565657377320125,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.1218011379242028,
+        1.9799999563762969,
+        1.004993172650857
+      ],
+      "nativeFullSize": [
+        1.6057127714157227,
+        1.9799999563762969,
+        1.2284999680790414
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "worldfire",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "6690f18bceb15e9b31719bd7e8a3362550b1457b407b41966331404090e8654b",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.0385609014801398,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.4089930057525741,
+        1.796331956092584,
+        0.8125000460180364
+      ],
+      "nativeFullSize": [
+        1.850130081176772,
+        1.961051891486071,
+        0.8125000460180364
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "starfall",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "b32c5c5d2de71119d240c490c81bcf972f962fe8cb013ec3b71d0e644ef9cc42",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.1029264744556189,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        2.3805832862854186,
+        1.691500003749495,
+        1.0703184002278288
+      ],
+      "nativeFullSize": [
+        2.3805832862854186,
+        1.691500003749495,
+        1.0703184002278288
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "thunderheart",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "95269bacadca374c04db79b5349599dd3ed0ec45424a4db8bd3e7b1d618ea2f6",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.1140887918233162,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.868290424346938,
+        1.8420077145612819,
+        0.987442006547216
+      ],
+      "nativeFullSize": [
+        2.008533775806443,
+        1.9834441685952586,
+        1.0204420152642406
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "phoenix",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "f64455b5761130472bf14ed9a13c2614ad89505d2d8c83c73940283de6f6107d",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.1630425141918077,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        2.34571793531497,
+        1.940923170584118,
+        0.9790490240185123
+      ],
+      "nativeFullSize": [
+        2.34571793531497,
+        2.1903433306512476,
+        1.0666627765281516
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "greenheart",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "1fa253e64c12027e002dd3aa32236c2a5a96cd0b80656a670cf640044362ccb2",
+      "metric": "body-height",
+      "target": 1.1939840868333418,
+      "battlefieldTarget": 0.9551872694666734,
+      "multiplier": 1.5893670652316632,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8878229558467918,
+        1.0670915236912937,
+        0.4920192837917128
+      ],
+      "nativeFullSize": [
+        0.8953059911727985,
+        1.1179999729436394,
+        0.4920192837917128
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "eldergrove",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "764cb81a52f7d9a35b8966c63df747386d5c52bc3619ecb9837480558a8fa0a7",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.5441806449006816,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8652554750442556,
+        1.2081488923189347,
+        0.5441382222918132
+      ],
+      "nativeFullSize": [
+        0.8726058304309927,
+        1.2081488923189347,
+        0.5441382222918132
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "kingsreach",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "85432e44d8b745bbb0abcd07037942dc1f6c3fe2f2a581f45c5eee2125e3422c",
+      "metric": "maximum-body-footprint",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.2075082090467362,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.261000037193309,
+        0.7773826508111411,
+        1.5449999608283318
+      ],
+      "nativeFullSize": [
+        1.261000037193309,
+        0.7773826508111411,
+        1.5449999608283318
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "sunward",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "5fe80e0c843f8fb9ee2c85475a628faffa10c22a3050dcbb0eea4fece951e92c",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.9413113045357822,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8842563629150451,
+        0.9609999855861396,
+        0.4694280358083317
+      ],
+      "nativeFullSize": [
+        0.9601694345474328,
+        1.1759999575582711,
+        0.4694280358083317
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "winterhold",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "bbbfc78d8ce4b125f7d018300bd6dd6aa1099c5935634a07d154537b3302d02a",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.087813503144607,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.6638537645340128,
+        1.7149999795774695,
+        1.111714778518638
+      ],
+      "nativeFullSize": [
+        1.947460174560565,
+        1.7149999795774695,
+        1.113081691480406
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "dawnspire",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "3f503426451ef321140086ddd90353767592b74249959fe9fd1773fdc0428389",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.3007376592533675,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.919532060623189,
+        1.73545845167967,
+        1.1033191178283084
+      ],
+      "nativeFullSize": [
+        1.9239957332611286,
+        1.73545845167967,
+        1.1033191178283084
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "royalmarshal",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "ed7757bcbd4315ba63eda64c0653a6e0f9b9a8ef5c5c7e113e76e0abe52662af",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.1258903160436062,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.323078513145457,
+        1.6569998951876952,
+        1.2420877485235822
+      ],
+      "nativeFullSize": [
+        1.323078513145457,
+        1.6569998951876952,
+        1.2420877485235822
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "stonewarden",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "65c055bdc68a7cd6ebd67c9f3cf50994e4df6e364e63c1d7ca3f97c417f2c5b2",
+      "metric": "maximum-body-footprint",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.4854892352770905,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.0270000696182353,
+        1.3735309692267255,
+        1.2558826354127726
+      ],
+      "nativeFullSize": [
+        1.0270000696182353,
+        1.3735309692267255,
+        1.2558826354127726
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "wyvernhunter",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "8232690462834a23bce1d65791a0568887c7466134921ea4c6944fa17b874011",
+      "metric": "body-height",
+      "target": 1.1939840868333418,
+      "battlefieldTarget": 0.9551872694666734,
+      "multiplier": 1.508906642092262,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.1150450311614648,
+        1.12399274814718,
+        0.625400396176216
+      ],
+      "nativeFullSize": [
+        1.2043147683143687,
+        1.12399274814718,
+        0.6798505817037316
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "royalarsenal",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "84fde0d19a7a080cc5b0506f2a3848469c2aad7afbc3af66b0864a7f69fef132",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.2146808613342548,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.7872024178505075,
+        1.8584109094216683,
+        0.9234420032180679
+      ],
+      "nativeFullSize": [
+        1.7872024178505075,
+        1.8584109094216683,
+        0.9234420032180679
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "rangermentor",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "8dc5bab7f2241b463b377e7589d831c08c4be7685fea0188ac4ff25321c433de",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.747838970078017,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8555794679734358,
+        1.174112824108279,
+        0.5739659473067381
+      ],
+      "nativeFullSize": [
+        0.8555794679734358,
+        1.174112824108279,
+        0.5739659473067381
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "kingdomprotector",
+      "tier": 1,
+      "classification": "Intermediate",
+      "sourceGlbSha256": "6621b0a31bd2fd5045689023ccc0d66b6cb64fe425d47ea5440ced6f44e87361",
+      "metric": "body-height",
+      "target": 1.313382495516676,
+      "battlefieldTarget": 1.0507059964133407,
+      "multiplier": 1.5953755622769155,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.7620034813880983,
+        1.1693799126611402,
+        0.4916651699940092
+      ],
+      "nativeFullSize": [
+        0.9953135848045435,
+        1.1693799126611402,
+        0.5938474999099261
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "mothernature",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "79c8aea2d2e76566cd2d8b11806b1e3297d6790edf483b5c5f7ce7daaa8dcb85",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.9440885438877538,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.1772412061691373,
+        1.161148843382939,
+        0.5326795230690106
+      ],
+      "nativeFullSize": [
+        1.1772412061691373,
+        1.161148843382939,
+        0.5326795230690106
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "royalranger",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "22ff3f74eaab733575dd9f76a34eb1f0f63bd9324291811cd9e5156b68b5051e",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.7927780775083855,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.128940582275396,
+        1.1446816396243042,
+        0.6702642027688757
+      ],
+      "nativeFullSize": [
+        1.2043147683143687,
+        1.1446816396243042,
+        0.6798505817037316
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "kingsrangerguard",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "85bf07b4604446823ebb1b77eae84775dd2b7a20cd530644c30a948a0a2288e7",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.8257770369316373,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.1692894898368498,
+        1.12399274814718,
+        0.6445875180518006
+      ],
+      "nativeFullSize": [
+        1.2585592269897536,
+        1.12399274814718,
+        0.6990377035793163
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "elvenking",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "2a1b16648efe7b25e35cc5b266a0b9b5e5d401154a9eeece1a41f913489e1518",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.9401724982891584,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.2710014204310527,
+        1.1634925070630775,
+        0.6485875115622672
+      ],
+      "nativeFullSize": [
+        1.3015592694282603,
+        1.1634925070630775,
+        0.7030376938442996
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "fireballista",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "39a2e838ea0e90acc33cc64b7843e19a70c66c1035f9fa31c7ef6ee448c97e36",
+      "metric": "maximum-body-footprint",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.1275605521362568,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.5958893299102905,
+        1.340000031324888,
+        1.819999950651714
+      ],
+      "nativeFullSize": [
+        1.7763593196869039,
+        1.3799999962584875,
+        1.9900000312595987
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "emeraldgolem",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "495bad64596996ca2d6bcb61646090b2f005e79d880e0c2560ea5a44838a6d5b",
+      "metric": "maximum-body-footprint",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.342178057803946,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.528977572917951,
+        1.194892485717156,
+        1.1357218004130507
+      ],
+      "nativeFullSize": [
+        1.528977572917951,
+        1.194892485717156,
+        1.1357218004130507
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "griffinbomber",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "a47ba8004eed66ae9c646a0226bb09f74c1aeb380abaee1e8f3c47ba66588231",
+      "metric": "maximum-body-footprint",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 0.8520169698389387,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.525400161743172,
+        1.7058000071889547,
+        2.408590699352781
+      ],
+      "nativeFullSize": [
+        1.525400161743172,
+        1.7058000071889547,
+        2.4674998756833655
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "mechanicalgolem",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "e79b5ed8d85cd78ba8516e6732bc936ced65161434961907adfd326555746e38",
+      "metric": "maximum-body-footprint",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.1705347358019322,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.525400161743173,
+        1.7077999731461737,
+        1.9284999369307578
+      ],
+      "nativeFullSize": [
+        1.525400161743173,
+        1.7077999731461737,
+        1.9284999369307578
+      ],
+      "reason": "Low broad chassis or construct: longest body footprint uses the Human class reference, preserving authored proportions."
+    },
+    {
+      "factionId": "crown",
+      "family": "monk",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "9ea612020552f1b342b8663385fc63e4836aac68b0da26f7d15ce4b229ed38d0",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 2.1243894195446837,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.8773359954357218,
+        0.9659999858616516,
+        0.520905038880408
+      ],
+      "nativeFullSize": [
+        0.9532490670681095,
+        1.2069999746169977,
+        0.9100000195159736
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "archbishop",
+      "tier": 1,
+      "classification": "TOP",
+      "sourceGlbSha256": "86d1bd858d96f6d05d4fb3fb7c981dd6353bdda6547ca5a6ae09e66f03a906ab",
+      "metric": "body-height",
+      "target": 1.5891928195751783,
+      "battlefieldTarget": 1.2713542556601427,
+      "multiplier": 1.937604980427736,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        0.882995218038565,
+        1.165034249484103,
+        0.4757280221002388
+      ],
+      "nativeFullSize": [
+        0.9257894158363424,
+        1.165034249484103,
+        0.4757280221002388
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "crown",
+      "family": "archangel",
+      "tier": 1,
+      "classification": "Advanced",
+      "sourceGlbSha256": "4aeb65b3dc0df41a06962dceebffa8d36f1e7a1ba58606cf1dd368c7673a4264",
+      "metric": "body-height",
+      "target": 1.4447207450683437,
+      "battlefieldTarget": 1.155776596054675,
+      "multiplier": 1.2558735672990495,
+      "referenceDraftBodyHeight": 1.1939840868333418,
+      "nativeBodySize": [
+        1.3176352381706349,
+        1.6340499574796328,
+        0.941000036354402
+      ],
+      "nativeFullSize": [
+        1.7936890721321255,
+        1.6340499574796328,
+        0.941000036354402
+      ],
+      "reason": "Human class ladder begins at the ordinary draft median, with the existing 10% class step."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_ironwarden",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "c0ade07ce5721a89f980fd0d2dddd6d2bfea7c3bc07b5cce4240bf5f140b5eed",
+      "metric": "body-height",
+      "target": 1.168595334494079,
+      "battlefieldTarget": 0.9348762675952632,
+      "multiplier": 1.7500000000000004,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        0.8225293761555302,
+        0.9485351741023367,
+        0.43092702847523406
+      ],
+      "nativeFullSize": [
+        0.8225293761555302,
+        0.9485351741023367,
+        0.6245800035688098
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_longrifle",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "b5da89afb8d918cac8006dfdbe773e03d8606026da61f3165e06563c498f526b",
+      "metric": "body-height",
+      "target": 1.2405500514805738,
+      "battlefieldTarget": 0.9924400411844592,
+      "multiplier": 1.7500000000000004,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        0.7031993865966852,
+        1.006939976851115,
+        1.0854463328534205
+      ],
+      "nativeFullSize": [
+        0.7031993865966852,
+        1.006939976851115,
+        1.0854463328534205
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_boarlancer",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "aaf199267389d74fe7dd45b02c9b7255ee5e510bbc5215e4244f4c415dfafbe2",
+      "metric": "body-height",
+      "target": 1.2820797427293587,
+      "battlefieldTarget": 1.025663794183487,
+      "multiplier": 1.198363391014304,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        0.7649172544479457,
+        1.5196859415520767,
+        1.4047587694384602
+      ],
+      "nativeFullSize": [
+        0.7649172544479457,
+        1.5447998843525585,
+        1.4047587694384602
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_fuserunner",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "f217c37ae5eab6441b2aece5570e11b66b34405146d96dd5609bedac23968bac",
+      "metric": "body-height",
+      "target": 1.2820797427293587,
+      "battlefieldTarget": 1.025663794183487,
+      "multiplier": 1.7474797476659891,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        0.8397221863269868,
+        1.0421499880771157,
+        0.5013528089574719
+      ],
+      "nativeFullSize": [
+        0.8397221863269868,
+        1.0421499880771157,
+        0.5013528089574719
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_repeatercrew",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "383b0ed698c543e0d12cb3bad66ccb430439b833b04c7e2e7e5b4bd1596edd40",
+      "metric": "body-height",
+      "target": 1.1851962428329577,
+      "battlefieldTarget": 0.9481569942663661,
+      "multiplier": 1.7500000000000004,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        0.6628142595291189,
+        0.9620099373644135,
+        0.9182400084383291
+      ],
+      "nativeFullSize": [
+        0.6628142595291189,
+        0.9620099373644135,
+        0.9182400084383291
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_runemortar",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "3051759909cf94fadafc1e2762074ca3aec1308513cc84b34f2f6d21d3a858e7",
+      "metric": "body-height",
+      "target": 1.2820797427293587,
+      "battlefieldTarget": 1.025663794183487,
+      "multiplier": 1.3809479811797334,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        1.0488219261169536,
+        1.3187578554836867,
+        0.6028029215674511
+      ],
+      "nativeFullSize": [
+        1.0488219261169536,
+        1.3187578554836867,
+        0.6028029215674511
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_griffinscout",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "dc3fe60f11a0bccfb457b58a4730547e59e7d274bb6f415cfced4ebc11818a76",
+      "metric": "body-height",
+      "target": 1.2820797427293587,
+      "battlefieldTarget": 1.025663794183487,
+      "multiplier": 1.2297737204351602,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        1.9120243191719202,
+        1.4808708040619827,
+        1.5577762826222292
+      ],
+      "nativeFullSize": [
+        1.9120243191719202,
+        1.4808708040619827,
+        1.5577762826222292
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "forge",
+      "family": "dw_pressuresmith",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "e4a1422d24845a5c8d663b8485c9cdb8b80e9a83157889f67c43c173290e095f",
+      "metric": "body-height",
+      "target": 1.2820797427293587,
+      "battlefieldTarget": 1.025663794183487,
+      "multiplier": 1.603112666165861,
+      "referenceDraftBodyHeight": 1.2820797427293587,
+      "nativeBodySize": [
+        1.0408598184585662,
+        1.136000005882739,
+        0.6014652570138428
+      ],
+      "nativeFullSize": [
+        1.0408598184585662,
+        1.136000005882739,
+        0.6014652570138428
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_moonblade_sentinel",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "959dda1ab942076d3b0489fceddf0940ae01d814c6d499dc6a3ed257c71df4db",
+      "metric": "body-height",
+      "target": 1.3418370618564976,
+      "battlefieldTarget": 1.073469649485198,
+      "multiplier": 0.9904818249675077,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.4185989499092204,
+        1.9243347083485962,
+        0.7765149054625802
+      ],
+      "nativeFullSize": [
+        2.258158028125779,
+        2.0415202918535824,
+        0.8860464038865711
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_elven_archer",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "939d74290d126c3862ff0e36970cb9478ae4da47319439092edac64e3b01c084",
+      "metric": "body-height",
+      "target": 1.3418370618564976,
+      "battlefieldTarget": 1.073469649485198,
+      "multiplier": 0.8810169145330518,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.461733962540281,
+        2.1634301479712725,
+        0.6782959046916744
+      ],
+      "nativeFullSize": [
+        1.5460025920912162,
+        2.1634301479712725,
+        0.6782959046916744
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_elven_mage",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "d3b1498d7e3feaadbe9c4db204d05700851b6d7fc5458631d7dd87e9b6bf1661",
+      "metric": "body-height",
+      "target": 1.3418370618564976,
+      "battlefieldTarget": 1.073469649485198,
+      "multiplier": 0.6455056418803776,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.6429716944694674,
+        2.9527527415889723,
+        0.7152750556717393
+      ],
+      "nativeFullSize": [
+        1.6429716944694674,
+        2.9527527415889723,
+        0.7444843435034417
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_veil_adept",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "c07825e8c6d78bd95a1457f8033d4f5aa09a072e3eb88795cee6b88615422e08",
+      "metric": "body-height",
+      "target": 1.2578762111646893,
+      "battlefieldTarget": 1.0063009689317515,
+      "multiplier": 1.0000000000000002,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.4294143319130046,
+        1.7867559817680243,
+        0.7003219618145928
+      ],
+      "nativeFullSize": [
+        1.6499213576316971,
+        2.1299893184254226,
+        0.7711459913450796
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_drow_ember_novice",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "8ddbf15b4920fe5d5a0f1e45f2f1be703cd07efb71f50c535803d885304ed89d",
+      "metric": "maximum-body-footprint",
+      "target": 1.3418370618564976,
+      "battlefieldTarget": 1.073469649485198,
+      "multiplier": 0.9296167264710369,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        2.050327301025406,
+        1.3599999830032365,
+        1.5446132191691362
+      ],
+      "nativeFullSize": [
+        2.050327301025406,
+        1.3599999830032365,
+        1.5446132191691362
+      ],
+      "reason": "Low creature footprint is capped at the faction draft reference; smaller authored silhouettes and the Baby/Fire Dragon relationship remain intact."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_drow_blade_initiate",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "b518d6c5d54d399a07a12c578926fd4646c943a6e2e0937937a02dba5efd95d3",
+      "metric": "body-height",
+      "target": 1.0982503306734646,
+      "battlefieldTarget": 0.8786002645387717,
+      "multiplier": 1.0000000000000002,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.4534624814987291,
+        1.5600146742520802,
+        0.9026957799736741
+      ],
+      "nativeFullSize": [
+        1.4534624814987291,
+        1.5600146742520802,
+        0.9335000555016943
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_drow_gloom_initiate",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "3a3377fef48e2d7064d3b972b62abe89ef9e9b23ca4e33514528d3cb298f94c0",
+      "metric": "body-height",
+      "target": 1.3418370618564976,
+      "battlefieldTarget": 1.073469649485198,
+      "multiplier": 0.9719533186880401,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        1.9029496312141554,
+        1.9610186179992801,
+        0.7097839039445856
+      ],
+      "nativeFullSize": [
+        2.0440374612808383,
+        1.9610186179992801,
+        0.7097839039445856
+      ],
+      "reason": "Basic champion body is capped at the faction draft median; a smaller authored body keeps its existing ratio."
+    },
+    {
+      "factionId": "grove",
+      "family": "el_baby_fire_dragon",
+      "tier": 1,
+      "classification": "Basic",
+      "sourceGlbSha256": "248b838cbbb6f184763067538fb5dc8126ccaa6519539a7ba3fb9f0df007a956",
+      "metric": "maximum-body-footprint",
+      "target": 0.650315118269829,
+      "battlefieldTarget": 0.5202520946158632,
+      "multiplier": 3.8500000000000005,
+      "referenceDraftBodyHeight": 1.3418370618564976,
+      "nativeBodySize": [
+        0.14439524710178542,
+        0.20019998343169682,
+        0.23993326382446462
+      ],
+      "nativeFullSize": [
+        0.1760925427079216,
+        0.20019998343169682,
+        0.23993326382446462
+      ],
+      "reason": "Low creature footprint is capped at the faction draft reference; smaller authored silhouettes and the Baby/Fire Dragon relationship remain intact."
+    }
+  ]
+}

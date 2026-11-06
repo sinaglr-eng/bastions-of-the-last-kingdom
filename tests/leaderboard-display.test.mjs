@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {connectResultLeaderboard,renderLeaderboard,resultScoreVersionMarkup,resultLeaderboardMarkup} from '../ui/leaderboard.js';
+import {connectResultLeaderboard,renderLeaderboard,resultScoreVersionMarkup,resultLeaderboardMarkup,scoreCohortLabel} from '../ui/leaderboard.js';
 
 import {GAME_VERSION} from '../game/release.js';
 
@@ -21,10 +21,11 @@ class Element {
 }
 function fixture(){
   const container=new Element(),form=new Element('form'),input=new Element('input'),button=new Element('button');
-  const status=new Element('p'),message=new Element('p'),rows=new Element(),caption=new Element('p'),tabs=new Element('nav');
+  const status=new Element('p'),message=new Element('p'),rows=new Element(),caption=new Element('p'),tabs=new Element('nav'),cohort=new Element('p');
   form.matches.set('input',input);form.matches.set('button',button);form.matches.set('.score-status',message);
   container.matches.set('form',form);container.matches.set('.leaderboard-status',status);container.matches.set('.leaderboard-rows',rows);container.matches.set('.leaderboard-caption',caption);container.matches.set('.leaderboard-versions',tabs);
-  return {container,form,input,button,status,message,rows,caption,tabs};
+  container.matches.set('.leaderboard-cohort',cohort);
+  return {container,form,input,button,status,message,rows,caption,tabs,cohort};
 }
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject};};
 const standings=(rank=null,version=GAME_VERSION)=>({version,mode:50,versions:[version,'0.2.7'],top:Array.from({length:10},(_,i)=>({id:`other-${i}`,version,rank:i+1,name:`Player ${i}`,score:1000-i,wavesSurvived:5})),current:rank?{id:'current',version,rank,name:'Kushek',score:500,wavesSurvived:3}:null});
@@ -34,10 +35,10 @@ test('saving before the initial leaderboard completes prevents navigation and a 
   const f=fixture(),initial=deferred();let submitted=0;
   const connection=connectResultLeaderboard(f.container,{leaderboard:()=>initial.promise,saveScore:async name=>{assert.equal(name,'Kushek');submitted++;return standings(15);}});
   f.input.value=' Kushek ';const event=await f.form.submit();
-  assert.equal(event.prevented,true);assert.equal(submitted,1);assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 15.`);
+  assert.equal(event.prevented,true);assert.equal(submitted,1);assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 15. ${scoreCohortLabel()}.`);
   assert.equal(f.button.disabled,true);assert.equal(f.input.disabled,true);
   initial.resolve(standings());await connection;
-  assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 15.`);assert.match(f.message.textContent,/rank.*15/);
+  assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 15. ${scoreCohortLabel()}.`);assert.match(f.message.textContent,/rank.*15/);
   const table=f.rows.children[0],body=table.children[1];assert.equal(body.children.length,12);
   assert.equal(body.children.at(-1).className,'current-player');assert.equal(body.children.at(-1).children[0].textContent,'15');
 }));
@@ -48,7 +49,7 @@ test('a pending score submission ignores duplicate submits and initial loading f
   f.input.value='Kushek';const first=f.form.submit();const duplicate=await f.form.submit();
   assert.equal(duplicate.prevented,true);assert.equal(submitted,1);assert.equal(f.button.disabled,true);
   saving.resolve(standings(2));await first;initial.reject(new Error('Slow leaderboard failed'));await connection;
-  assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 2.`);assert.match(f.message.textContent,/rank.*2/);
+  assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 2. ${scoreCohortLabel()}.`);assert.match(f.message.textContent,/rank.*2/);
   const again=await f.form.submit();assert.equal(again.prevented,true);assert.equal(submitted,1);
 }));
 
@@ -58,14 +59,14 @@ test('invalid HTML names never submit and failed saves leave the form usable wit
   f.input.value='<script>';const invalid=await f.form.submit();assert.equal(invalid.prevented,true);assert.equal(submitted,0);
   assert.match(f.message.textContent,/Use 1–24/);assert.equal(f.button.disabled,false);
   f.input.value='Kushek';await f.form.submit();assert.equal(submitted,1);assert.equal(f.button.disabled,false);
-  assert.equal(f.status.textContent,`No saved score for this run in version ${GAME_VERSION}.`);assert.equal(f.message.textContent,'Offline; retry');
+  assert.equal(f.status.textContent,`No saved score for this run in version ${GAME_VERSION}. ${scoreCohortLabel()}.`);assert.equal(f.message.textContent,'Offline; retry');
   const unsafe=standings(20);unsafe.current.name='<img onerror=alert(1)>';renderLeaderboard(f.container,unsafe);
   assert.equal(f.rows.children[0].children[1].children.at(-1).children[1].textContent,'<img onerror=alert(1)>');
 }));
 
-test('single-version Top 10 and out-of-top player retain original edition and a five-column gap; mixed responses cannot render',async()=>withDocument(async()=>{
+test('single-version Top 10 and out-of-top player retain original edition and a six-column gap including faction; mixed responses cannot render',async()=>withDocument(async()=>{
   const f=fixture(),result=standings(15,'0.3.24');renderLeaderboard(f.container,result);const table=f.rows.children[0],head=table.children[0].children[0],body=table.children[1];
-  assert.deepEqual(head.children.map(cell=>cell.textContent),['Rank','Commander','Score','Waves','Version']);assert.ok(body.children.filter(row=>row.children.length===5).every(row=>row.children[4].textContent==='0.3.24'));assert.equal(body.children.at(-2).children[0].colSpan,5);assert.match(f.caption.textContent,/Version 0.3.24 · 50-wave campaign/);
+  assert.deepEqual(head.children.map(cell=>cell.textContent),['Rank','Commander','Score','Waves','Version','Faction']);assert.ok(body.children.filter(row=>row.children.length===6).every(row=>row.children[4].textContent==='0.3.24'));assert.equal(body.children.at(-2).children[0].colSpan,6);assert.match(f.caption.textContent,/Version 0.3.24 · 50-wave campaign/);
   const before=f.rows.children[0];result.top[0].version='0.2.7';assert.throws(()=>renderLeaderboard(f.container,result),/could not be verified/);assert.equal(f.rows.children[0],before);
   result.version='all';assert.throws(()=>renderLeaderboard(f.container,result),/could not be verified/);result.version='<svg onload=bad()>';assert.throws(()=>renderLeaderboard(f.container,result),/could not be verified/);
 }));
@@ -85,13 +86,13 @@ test('version subtabs default to this run, load exact historical ranks, and reje
   await connectResultLeaderboard(f.container,client);assert.deepEqual(calls,[GAME_VERSION]);assert.equal(f.tabs.children.find(tab=>tab.textContent===GAME_VERSION).getAttribute('aria-pressed'),'true');
   const oldTab=f.tabs.children.find(tab=>tab.textContent==='0.2.7');oldTab.focus();const waiting=oldTab.click();assert.equal(document.activeElement.dataset.scoreVersion,'0.2.7');assert.equal(f.rows.children.length,0);assert.match(f.status.textContent,/Loading version 0.2.7/);
   const currentTab=f.tabs.children.find(tab=>tab.textContent===GAME_VERSION);currentTab.focus();await currentTab.click();assert.equal(document.activeElement.dataset.scoreVersion,GAME_VERSION);assert.match(f.status.textContent,new RegExp(`Your rank in ${GAME_VERSION}: 3`));old.resolve(standings(12,'0.2.7'));await waiting;
-  assert.match(f.status.textContent,new RegExp(`Your rank in ${GAME_VERSION}: 3`));assert.ok(f.rows.children[0].children[1].children.filter(row=>row.children.length===5).every(row=>row.children[4].textContent===GAME_VERSION));
+  assert.match(f.status.textContent,new RegExp(`Your rank in ${GAME_VERSION}: 3`));assert.ok(f.rows.children[0].children[1].children.filter(row=>row.children.length===6).every(row=>row.children[4].textContent===GAME_VERSION));
 }));
 
 test('saving while browsing an older version returns the saved run to its own version, and historical tabs remain usable',async()=>withDocument(async()=>{
   const f=fixture(),calls=[];const client={tracker:{version:GAME_VERSION},leaderboard:async version=>{calls.push(version);return standings(version==='0.2.7'?14:2,version);},saveScore:async()=>standings(2)};
-  await connectResultLeaderboard(f.container,client);await f.tabs.children.find(tab=>tab.textContent==='0.2.7').click();assert.equal(f.status.textContent,'Your rank in 0.2.7: 14.');f.input.value='Kushek';await f.form.submit();assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 2.`);assert.equal(f.input.disabled,true);
-  await f.tabs.children.find(tab=>tab.textContent==='0.2.7').click();assert.equal(f.status.textContent,'Your rank in 0.2.7: 14.');assert.equal(f.button.textContent,'Saved');assert.deepEqual(calls,[GAME_VERSION,'0.2.7','0.2.7']);
+  await connectResultLeaderboard(f.container,client);await f.tabs.children.find(tab=>tab.textContent==='0.2.7').click();assert.equal(f.status.textContent,'Your rank in 0.2.7: 14. '+scoreCohortLabel({version:'0.2.7'})+'.');f.input.value='Kushek';await f.form.submit();assert.equal(f.status.textContent,`Your rank in ${GAME_VERSION}: 2. ${scoreCohortLabel()}.`);assert.equal(f.input.disabled,true);
+  await f.tabs.children.find(tab=>tab.textContent==='0.2.7').click();assert.equal(f.status.textContent,'Your rank in 0.2.7: 14. '+scoreCohortLabel({version:'0.2.7'})+'.');assert.equal(f.button.textContent,'Saved');assert.deepEqual(calls,[GAME_VERSION,'0.2.7','0.2.7']);
 }));
 
 test('version navigation sorts numeric editions and never offers an all-version or untrusted label',async()=>withDocument(async()=>{
@@ -105,3 +106,14 @@ test('the sixth result tile identifies the played version and the actual known o
   const historical=resultScoreVersionMarkup({bestScore:600,bestScores:[{score:600,version:null}]},{version:'0.3.24'});assert.match(historical,/Best score version: Version not recorded/);assert.doesNotMatch(historical,/Best score version: 0\.3\.24/);
   assert.doesNotMatch(resultScoreVersionMarkup({bestScore:0},{version:'<svg onload=bad()>'}),/<svg/);
 });
+
+for(const [factionId,name]of [['crown','Human'],['forge','Dwarves'],['grove','Elves']])test(`FR-006 ${name}: saved run context survives historical/Legacy browsing, own rank outside Top 10 and failed requests`,async()=>withDocument(async()=>{
+ const f=fixture(),client={tracker:{version:GAME_VERSION,factionId},game:{waveLimit:50},legacyStandings:false,leaderboard:async version=>({...standings(15,version),factionId:client.legacyStandings?null:factionId,legacyVersions:['0.5.2']}),saveScore:async()=>({...standings(15),factionId})};
+ await connectResultLeaderboard(f.container,client);assert.match(f.cohort.textContent,new RegExp(name));assert.match(f.status.textContent,new RegExp(name));const own=f.rows.children[0].children[1].children.at(-1);assert.equal(own.children[5].textContent,name);
+ const html=resultLeaderboardMarkup({version:GAME_VERSION,factionId,mode:50});assert.match(html,new RegExp('score-run-cohort[^]*?Faction · '+name));
+ await f.tabs.children.find(t=>t.textContent==='Legacy records · Faction not recorded').click();assert.match(f.cohort.textContent,/Faction not recorded/);assert.doesNotMatch(f.cohort.textContent,new RegExp(name));assert.equal(f.rows.children[0].children[1].children.at(-1).children[5].textContent,'Faction not recorded');
+ f.input.value='Commander';await f.form.submit();assert.equal(client.legacyStandings,false);assert.match(f.message.textContent,new RegExp(name));assert.match(f.message.textContent,/50-wave campaign/);assert.match(f.cohort.textContent,new RegExp(name));
+}));
+test('FR-006 wrong-faction or wrong-campaign responses are rejected before they can impersonate a run cohort',async()=>withDocument(async()=>{
+ for(const extra of [{factionId:'grove',mode:50},{factionId:'forge',mode:10}]){const f=fixture();await connectResultLeaderboard(f.container,{tracker:{version:GAME_VERSION,factionId:'forge'},game:{waveLimit:50},leaderboard:async()=>({...standings(1),...extra})});assert.match(f.status.textContent,/faction and campaign could not be verified/);assert.equal(f.rows.children.length,0);}
+}));

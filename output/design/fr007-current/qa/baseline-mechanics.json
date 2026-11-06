@@ -1,0 +1,3257 @@
+{
+  "revision": "fr005-r2-dwarf-air-20261102",
+  "runtimeVersion": "0.6.9",
+  "profiles": {
+    "crown/soldier/1": "d5964d1f836e71ffe75883bdd1797a92436b158bcc6cea530583f60035f6b67c",
+    "crown/soldier/2": "6ce30f24a8b02e06362e6a0072bdaea975c612d5826e4c70ad755efff1a3fe61",
+    "crown/soldier/3": "aae5dab4105173dd0acc4a6f070c3e18bdaadb2786cf40fac66d4423562f470d",
+    "crown/soldier/4": "31f108013f41cda25f20be0da2aeb9a3d59b2856970819756fb6b56db46a5654",
+    "crown/soldier/5": "602e09b4f84a373911b8d7b61a74005995659d04f88b7a76bc24a595a9f9f6dd",
+    "crown/soldier/6": "aac3cb5e81445e4a87e4dbf74d5d7a53c05680d2edf42f695368618d2d8da6c0",
+    "crown/archer/1": "754876381430c900621e6d6cb20a772f0243744fbb83fb04aa64e4d1ef744b5b",
+    "crown/archer/2": "763c3b8ffdcdca6788d2774bd2236cae5614db2beb75a2503221a2a4eb68e82f",
+    "crown/archer/3": "23cb3dffe4dae3bc99801dd3afec889f63169240788e1b5b3ca84fa66583d8f5",
+    "crown/archer/4": "85400d7e13dcc14efbf333362446cd98f8f109ef3215918da72f6c32417a85de",
+    "crown/archer/5": "9fcbe69b52314495faf531a1c6d831d0f7561e0768cf84d974f1977512b92f80",
+    "crown/archer/6": "53421a8b6c0d4ce381da3d2eac488c403d16b78c73fb32b1fe15ca1a395fb35c",
+    "crown/druid/1": "91604108a32ffa4d55d1999a29e94a39aa2da586674382733d295b5139f6259c",
+    "crown/druid/2": "8be73c575c7066d74eb711839c4453bc24afba9fae07e8610297f60c0faa677f",
+    "crown/druid/3": "88e651cee5f16cca838ff87cb42b6b7cd367d59a800a7d8e588bd3ef888161e2",
+    "crown/druid/4": "46ea16ae4d701ed6caa2534e9e84f8bf68b6f53a370b1b9aba08243d06e30643",
+    "crown/druid/5": "9324ac3963245a32d60901b67232d54df4cab2f08d3ff009089bc1f96e981ee3",
+    "crown/druid/6": "f72ba1c9229f0f9f1297887ea361abc7c60407192e4a1ad6f231165a969215e3",
+    "crown/mage/1": "ca9e9c6826f45e06e6378f7a6962acf70ee135ddda4d9e5277731f9534031298",
+    "crown/mage/2": "f453b9e8c08977ff9c6b57dccd7cf9e1e0c95772dab365355dfe09d4f44ce694",
+    "crown/mage/3": "42c2734c2b6a9e9f22f1182a213937ac5169b2077aa70f315e28d89ce1c0a6c3",
+    "crown/mage/4": "b7e8ef6165ea31f41d176c64844eec6d0ac42bbff0256f940a4977366c232bb3",
+    "crown/mage/5": "2eeba2098ab42f9cec8901fcb812934106bfc1ff5dbcb88f7b307e9c75b195c5",
+    "crown/mage/6": "7c5e8af89df8e16c07609081c9092f1bca7b7ab318be11e1f2fdef5017c72eac",
+    "crown/cleric/1": "a72570160b4cfc8ea0a40dcd58db2614a88a7ef7eff1982bc7296fe18f278e18",
+    "crown/cleric/2": "dfb712282a20278b02f7f1ccca30a2b378a21775356680e8d795c56c2d7be9df",
+    "crown/cleric/3": "7452ac3a2de3d2e3e2072db83741edfb53ae4b613f5b1e017314fb032d085a98",
+    "crown/cleric/4": "5964163476415b026f2581ecb1e7c6a1ac13efca471d59b23eae6ca5f4dce56d",
+    "crown/cleric/5": "5971ff0bcf2a4eac0f5343a907a2001d94e630a8c87da7c93fbb2e46b858ef7c",
+    "crown/cleric/6": "17ac0cba116fd4b2ced7fc642e425cd064a40a6f647c61f04cf6d41e4c72a9da",
+    "crown/runebreaker/1": "01828ab8a8dc9bb0221c536594c78079836d4622cbe22fa665263654f463b847",
+    "crown/runebreaker/2": "c9cc87a7d8321dd59f46fdbda086a7aa17f3c95e8d223e0cc7af769df2a7c65c",
+    "crown/runebreaker/3": "a2c5da3fa4a6a5db4e14cf00ebf05a37b6058d7645b4782e5828115172204fa6",
+    "crown/runebreaker/4": "c5810aa0b509e2805d27a4c5e5c4216e2f399aaa04bfefc63032abf1d9b06763",
+    "crown/runebreaker/5": "073d827e43ba60d17e2bdbaa31d13c13cccf993047315127f05604769a41d40a",
+    "crown/runebreaker/6": "6f88b73467806933f0b235988a9c02f04560e65ecfad12058d5bb64eb3e74ffe",
+    "crown/frostwarden/1": "57336cb7920725a2ed75a034e2652fd16c1ba78129bef2f9d2f7b9003d7fe8f9",
+    "crown/frostwarden/2": "c4fdb3ace409cbea4f58971af01125f5d51c0217d9f469b0eb55f175facd196e",
+    "crown/frostwarden/3": "946689f3593f7aabba18989e519cff8f81999a52684704cdf9517ce33bc5900e",
+    "crown/frostwarden/4": "8f87619fd2e1c5b9cb89760a5eacbab223316d11a35962391b11e16e4f9e1a71",
+    "crown/frostwarden/5": "4b0b4c0d9871ddd3ca7228e3abb36099136e16e15fd5ab0fba8e0ca49cd86c2f",
+    "crown/frostwarden/6": "aabcbb0712157e8dc3a5c52dd9ffa8ad946c65f96f03ce65c453e361d6bdb3d0",
+    "crown/stormcaller/1": "15219b205cc653c231f46ce956f9d9d9113bc2f056e6318d4e616bc325f35c60",
+    "crown/stormcaller/2": "fd182b8a92e7be47f84460bd983babb9917d3f3139d69607c3d4ffd70b8cbe42",
+    "crown/stormcaller/3": "28b26a772ef01ad5a8199b06f80a7db4fbc6ba188db30530a1f9f26cd2d895e4",
+    "crown/stormcaller/4": "fa01b543172e00b17c371e9c1b2f63605950e7482f14f42349875a4bb579bf8e",
+    "crown/stormcaller/5": "bd04b8714b44c3653017a148814a244dff06d266982781019d758bc614bb3dd9",
+    "crown/stormcaller/6": "37e0a46db670e9c6bb6eec91214403dad402056d9a3afe291a479f11522a8fd1",
+    "crown/rimewatch/1": "a1864b274ebd93cb29b2b29780584b2870861887dcdc9e50a75cb85a7ce76be3",
+    "crown/frostblade/1": "9ae7785b0fc7b07ffe4232f86b27689f847551a793e8d950fb131f0e02b8659c",
+    "crown/roseguard/1": "b7836fa7b07fb78513eb4fcb79d82c13e405f4e2f31c4f6145022ed8d78f1064",
+    "crown/highking/1": "7442bd62c8ffcf4485bae2f5ec4554f70fc972038d141f07610fd284e431eba9",
+    "crown/crownofages/1": "8a28879788fd5a8a628965fac72d6587662631f8e57e0514273072e9ff876a8c",
+    "crown/thornwarden/1": "2f3350a731f88b56f4b8526b639c1a18a35dff0b271f31ec2bc4f14971252661",
+    "crown/verdantguard/1": "fdaf93fbb055115857a50d6ad01b407c1a3b3517895ba3d9d45715853b42fa2c",
+    "crown/tempest/1": "c962b5e0b99e6719230890a1b07dc11b75c7fb0d3f3ec4d6624cdb594edb5134",
+    "crown/stormcitadel/1": "e228f3c0dfc23e99b0edd68e23ed5dab03c97b05f40c405bece55a479f294494",
+    "crown/embercrown/1": "f40bc3a03649b3838e541ce12880caa778f3781f06b64522518db4b2c839b612",
+    "crown/worldfire/1": "18dc5bf75d49e9031a09a14a4306afe6d8fb7dcfe401c8e16c200941945953d1",
+    "crown/starfall/1": "3218e5a2badc40216e2b4cd89233661cce457c62ac766f2ace4e0be964db1a5e",
+    "crown/thunderheart/1": "65b1df064c55fdda62f640ae3d76d0006794085ef64fba6d92dc75b88fbf5029",
+    "crown/phoenix/1": "c89f699779f02feaa53ec47e5faafa5f523540d73401b7d4a66ab923805cbe34",
+    "crown/greenheart/1": "a95fd1cd16e2f34efd7404a8c11cfc450f8bf3c2fc1ee9d6559132b761720cd5",
+    "crown/eldergrove/1": "745fb152c14b8248bab317b0049c3ca3a36256abfc2bcf3ac6616aa3234aea7a",
+    "crown/kingsreach/1": "525608a93bfac3a68b7417ee520ad23bb14f03d62de18eb426842c2ae95c8c7a",
+    "crown/sunward/1": "c037807d6bac1fd060fb4a4a2029ceecbea8aa2e6d1dd832230b37ef4cd9736c",
+    "crown/winterhold/1": "3629fa083bd532e5332757509387b291f45c2eddbc20e322bb606962fe9080e8",
+    "crown/dawnspire/1": "829e8cd16febc24bd07bb90c4c949200d97bee3aff1bf3ffd0b9999c638d9b7b",
+    "crown/royalmarshal/1": "b4495391799224cddaf405e85da6dd9f4e7325e8f21e4c2ab7ca25d08a8ac000",
+    "crown/stonewarden/1": "26878c4f023ba2ff540650fa97ca986977b6b09b6b57c41561c455fc1e91648e",
+    "crown/wyvernhunter/1": "e43cc4138cf50355fdd5e86ff268aaff153418d205a4c05d99ee6fcbfb519765",
+    "crown/royalarsenal/1": "bb0c3eca83df93b9e43372e83ad31987344d2eff4e165161a61777111ea2bd9c",
+    "crown/rangermentor/1": "c15a699fc6328e1513b4809685e080196caa662d0f187f2fb3877a9d9de56afe",
+    "crown/kingdomprotector/1": "b0cd01e4e9cd44af9b6c570dd193945061ed33d125d15cef64a68d94ba6c9029",
+    "crown/mothernature/1": "cb090cdfbfd989c415d311ceab270e44f74ea55dd275f1c1293862f96c1db641",
+    "crown/royalranger/1": "6abb21fd578c9e441180aa5b9fd4ff1e9468c2b27e5be45f7a822f1f036a993d",
+    "crown/kingsrangerguard/1": "2337924d50ed7e2cb379d079692d8ef2667c52c7c52d9e355d425ca473d8bacd",
+    "crown/elvenking/1": "c2d7a46237019978e2ae6186041bbc55fa8f8f7027712977450b24023ce1dd6c",
+    "crown/fireballista/1": "aeb1ec866c86f28a44585ee64314076c97f9d77abb45682ebad83de8dfb1c9dc",
+    "crown/emeraldgolem/1": "42e973bd7e62d874be41df4d494ca6379213919f2872b78a4cb02f36fa824db1",
+    "crown/griffinbomber/1": "e1bbc1cfe526814bc400ed0166dd022eae55411a1abcf75cc7d6a3abaf576323",
+    "crown/mechanicalgolem/1": "c7e41727def2fcfff2708f396eafa3efb5c36ec3e0a8b2119e30c498e0561de7",
+    "crown/monk/1": "721706e372b016b3e7f220c76bafeb489833554e4eb6f7073d97acd1831e219d",
+    "crown/archbishop/1": "3f9e489e7fdd795561c63fa68cf91156e44781792f5dc24cfaedc2c7edf5b92f",
+    "crown/archangel/1": "6ef76bb9d2eff69963d445c6dbb8729d08738779da2a1b6ffda5320052b17596",
+    "crown/ladyclaire/1": "44c2f962d770938b13168ab7c472689f006c1be12bdb3489a9842f890f7826e7",
+    "forge/dw_shieldguard/1": "730d41d5e4a5d40f43ba781bf06e3c83ca1786537b31120fc6f46c339ff44ec9",
+    "forge/dw_shieldguard/2": "0d5ecb59b96da6bbbb961da2bba216f2676db4f9cafeb03ea7961d130b0be8c4",
+    "forge/dw_shieldguard/3": "97ea53f4370bcdf4684df1f1d11c671a454f5920091cd20a19341db0f2158d0f",
+    "forge/dw_shieldguard/4": "71d39a3a710756c8a7b1c83ddea21d8bc08607a8e7d00b3591ea91e624eb9043",
+    "forge/dw_shieldguard/5": "662787a151a4b392219e561cc6c94ebf932e8bc7f63bc024e8018d2049fb0db6",
+    "forge/dw_shieldguard/6": "8066bca3f00b145f274fc1673c555487678e66423a59d63208937ac4425751f0",
+    "forge/dw_musketeer/1": "6b4dde8f949a7a8e28426b31088efe4a334e6f2785d1ff18a198a60ad9631896",
+    "forge/dw_musketeer/2": "13b964ad5081a540505ffc4391a18121b68329db2205ab23ce8b6bf46847829c",
+    "forge/dw_musketeer/3": "c96c5f057ae8c80ca09e6373b59882766a35bedbbe8dc01a9c54eca78f4b15f2",
+    "forge/dw_musketeer/4": "c2327abc5ce8e8894660436281b2ac2de91cf4c512281421debf726ae69b8f9a",
+    "forge/dw_musketeer/5": "ef62b2d74c9df176f655d0cbb4d2a53cd05ddacde5bd32024b307e9be5b2f011",
+    "forge/dw_musketeer/6": "a6a83456fae94858c2e7acc3666e5a8075498efa8afec225f9e315818e326114",
+    "forge/dw_runesmith/1": "6b08c0e49cbd333f2608db4baadabfb31107eceddf6515e0d3e50e3b3183f69e",
+    "forge/dw_runesmith/2": "697022e92427707734d4e7c0e3bbf708d40cf3d07b4c164efebd55638be39a13",
+    "forge/dw_runesmith/3": "8dcf4080cc0c90bff62f72baa45f54cca0c6b43d80054d7b6f046ac81f3243ea",
+    "forge/dw_runesmith/4": "8497b13480b4e9e748515f7d50117dc60a19c95c2b51774e3e4b62cabfce94ef",
+    "forge/dw_runesmith/5": "c7a0f97de1728ecf11ef8b57ef32b08523e0d39831ddab535aa337da4b69b670",
+    "forge/dw_runesmith/6": "25a81ff0a7f5432013a8805c891df8a64f802e6a47865f256e48b9a9f1d1543a",
+    "forge/dw_boarrider/1": "b2645cfa6ae0ebae7351e764a2fdb45bce1de14381ec9548205a6ab02652360c",
+    "forge/dw_boarrider/2": "35dae8939cef617b53327c3d6087ece828db5fff93ce94fba525ae30a2e0cdf3",
+    "forge/dw_boarrider/3": "ffbf5a05adb4f674fde9d58e40cd7f88928abce4bc1004969c71db6156abb71a",
+    "forge/dw_boarrider/4": "0c0a88790f4f3fb7ea9f010b32f74faeb9a88b90eb44728f51c67cbc770619cc",
+    "forge/dw_boarrider/5": "d1b672f171133d93496fb1a296c366369a84e7ddac3d23f8901a5485ca3cfc97",
+    "forge/dw_boarrider/6": "5363724838e82bda6a7abc8a191d4a779ee8cc25dfc3459016c41f468b8efce9",
+    "forge/dw_grenadier/1": "87ff155e35cea71056751679c20761a419f67fee61876c5b9791c223da5b0cae",
+    "forge/dw_grenadier/2": "5d4963ece4407450101f02cbc7ca3d786d03716879879d6be37276ca92a4360a",
+    "forge/dw_grenadier/3": "7f976ff5bf1052e1d21b9561d929f3da534e23ca0a390eb42786b9862c2b916d",
+    "forge/dw_grenadier/4": "8fbf022141299f90ec8a44ff477d9a3b3965a106a4a5f94c4ec56408d082b733",
+    "forge/dw_grenadier/5": "7a55d63cc23ceeea24250e3f81aae34935759216cd29de500b4790e7e8aaab33",
+    "forge/dw_grenadier/6": "eec97946d85bfcb10b6456106c0ef2fffe87d8a9a2d3004cacec048bce5916b8",
+    "forge/dw_engineer/1": "3efe1bfbdc4c8c48505427b867cc66cde6d854fdaccb75e01ce801d34ecea577",
+    "forge/dw_engineer/2": "4bb595fb5fc62208905b5969ebf839b3dce156dc4cacb0ee956ae2709b37a2f5",
+    "forge/dw_engineer/3": "87b0f1bd053d15124abb82e876219b4503e98b749c80fbe705bfcd7234616c33",
+    "forge/dw_engineer/4": "090346c3211969ff39ec3a02616cabd56ff3f15c1f36435fed522e9b4d1ebea0",
+    "forge/dw_engineer/5": "a6ae6683aa8f2db0b3406e1190527a0b527f8d4d95e8f0bb106d05778f522da9",
+    "forge/dw_engineer/6": "83d2cc5243ef0889a985ae6b27260893d1f41e31e0ec04d62d71fa28e400f4fd",
+    "forge/dw_griffinhandler/1": "c81fa5e59dad2a7f615f839acd66833549bf6ee048ff749bd77c1e89435077b6",
+    "forge/dw_griffinhandler/2": "b187ae8726da98d45d238fbf1296a4ff4497b5f778c00c9e6cd868047b9f53b0",
+    "forge/dw_griffinhandler/3": "8cf49481bb1a4cbfeb5a6f34eecb7cfb17a6bc3c474d27e8b6b0d57acff79f45",
+    "forge/dw_griffinhandler/4": "edebfcb4b33f72d840a48b2d028c12a2d5a706f766461eb7e034ec5dd11cddb5",
+    "forge/dw_griffinhandler/5": "9b1232f99fddb4e50b1bd0be6963ce1e3a6730186e6a1be0761a1b223e42acc0",
+    "forge/dw_griffinhandler/6": "1442841c6fb655fd5a4877dd564aa9c883a87136579764701faf94261a46eec1",
+    "forge/dw_furnacetender/1": "a9bf5430eb5d17d258c417c1c4fa26fb8859e85123127b1f86104aa34796c87f",
+    "forge/dw_furnacetender/2": "78ef4a60230074ef5107c8704b4eed37b730bf5683326220bb7cf9c00f01ad14",
+    "forge/dw_furnacetender/3": "ce72396b28713f18b929a7eb26797aa945ab990fd829136ab7c9f9ed91bc25fa",
+    "forge/dw_furnacetender/4": "f8ff490f1be464f7eed0cbb027e9de994b1f63369b772a435ea2a20b9b8def78",
+    "forge/dw_furnacetender/5": "96a0e4452f5538ce1b43365cec79eb3f6397b1947484d9a3a9bbae54fee36bea",
+    "forge/dw_furnacetender/6": "c275da488eb04c7c3586dde058ec77deb745992b106b350016d71557b5b0298e",
+    "forge/dw_ironwarden/1": "741386a3ccb3f04a5a522485b361548e5dcc344e33ed215d05af44608bdd5b30",
+    "forge/dw_ashshield/1": "30bebd46be14839e6c91ebfc0a3bc8f6c9c32bb687253a7e2732d3c406b51c74",
+    "forge/dw_bulwarkcaptain/1": "44865579d0ae109e3f79e6c92f62f263ac745d459d15f175c7ae1630e88b3bf2",
+    "forge/dw_forgeking/1": "dacf339f424abba13aff81af9b4606ff4089316224714587f86bdb4a75d21618",
+    "forge/dw_longrifle/1": "b138eae3919bce0183274eb6a8955e5e115cc8d634b0468d8fde463cc70273e1",
+    "forge/dw_thunderlock/1": "6fb54ed5a99f772cf8e90e90741bec630cd3e99a6928744b2ccfabed770f4137",
+    "forge/dw_steamrail/1": "a25e81e0946b5a1b3db7169dffad32f48d0d1afcce6ddb63133b709a729e2f13",
+    "forge/dw_grapeshotcart/1": "9f8bada7739f15962f6f0c3cf9d639efadf815b47d1c7a2fb5b2c3f483af868b",
+    "forge/dw_ironstorm/1": "3623070bfe06327617484db41239962d0d4456c9ec99d433ccacd5f2961dbf7f",
+    "forge/dw_boarlancer/1": "69dad3bd16769a8c80f9dd5f0dc989b3d545bb5214a24800cd8188c20d48c243",
+    "forge/dw_boarstandard/1": "102743e89d048dbb31610b652650fd3186a9a0511ba3d7de92c098b8cde9b3b3",
+    "forge/dw_goreback/1": "222e56f4f2d3894fde8a369c6230b9b753b23df14a6dd17c88e0f672008557cd",
+    "forge/dw_warcaller/1": "4a35eee70e633ed9d1410e0b43c5cdddfdb98d658c7d077af743ace002f6b1c9",
+    "forge/dw_boaravatar/1": "10bc0612a7a37a767fad3ba832aabb7b7903dce03fe968176007eead4eadee7e",
+    "forge/dw_fuserunner/1": "17ac39a59797401a853ff2d487a7838122a8fc4be2229c211a05b61130dda545",
+    "forge/dw_firebomber/1": "3c9f78d4804905dd77041f0358ceb6dd7ee32bab079bba65685a0cf9329ee484",
+    "forge/dw_griffinbomber/1": "e2e2104aec1659d814bb912e4fe5423888b6026f481cefb21eca94469f57ff14",
+    "forge/dw_cinderhowitzer/1": "b7b1c6142402dde4fe8c735931802f52a70703ba4aab8337ccc91eedea1a4ffc",
+    "forge/dw_dwarship/1": "2728f33ccafc2fd4c1ef893d290ef2dc88ba8be4c94d1fbe4ee9090beecbf642",
+    "forge/dw_repeatercrew/1": "8f8d2cfd1c06039c6e0cb1e206790e77152d658ae8e400e8d205c2f8964e62c6",
+    "forge/dw_ironclad/1": "89a5fd27608818da7961f5ff7beec4a0b08265b4373d600b72007426294583af",
+    "forge/dw_breachorgan/1": "f6171b2ffa91108425a5f580291cac9d6103a249b1820584eadafb4a170d98f0",
+    "forge/dw_deepdelve/1": "9378001687b75634d465e22078ec177efff0b37fb417d5a7a6d83a0c780a2586",
+    "forge/dw_salvomarshal/1": "1dfc3b5cec4adbe116b12cd220a83225c9f92f88afe4e9043b1f70605155a334",
+    "forge/dw_runemortar/1": "dba2654bb55e81ca76025e05c2931fd0b75a62d75ea5cbe23aae9ebe16b913c0",
+    "forge/dw_tunnelsapper/1": "5eef15bbbe35daf2b8f8b8e5bbd8303a5fb99427d559089777d919f216e49d38",
+    "forge/dw_nullifier/1": "cb39ac04195f4b94240dd9cb669627059069528bf6488f56874f0740480b4983",
+    "forge/dw_worldanvil/1": "46abbad4ec07ce61c3f679d0fae048a9dca6931df1ad09ba242f55948411f841",
+    "forge/dw_griffinscout/1": "05636a2f140076460743e1e0c6f11fbc231cfdcad341589853592dd19db94554",
+    "forge/dw_skyhook/1": "a00628c30dcf772a99bccecb02a6d1ae85678e03192a7719e150745c47bf759f",
+    "forge/dw_talonlord/1": "67eba876dc36a6f1f94ac31fd8611d8cf562b4a4ebaad6128b28b3217d70a965",
+    "forge/dw_highthane/1": "e70f1e802f3249e666ebcfa2a4b0379daad828631b9bbac3ebebdbe23754a05d",
+    "forge/dw_pressuresmith/1": "a44ee1883d46724a1c0ebef3b34b1090ce28d2bf3b7350ef757eb53094a0534c",
+    "forge/dw_steamharpooner/1": "423d438c7fef74d06d6c47fb1667e3a733b701a58e1855f581e0ed2a32060bbe",
+    "forge/dw_flamewarden/1": "2d71b75ecdb3821f6ef1583e24e4836ed4496d45188e95d673f64993a2d89083",
+    "forge/dw_emberanvil/1": "28e05d8a943574b3f0298b35dbefff3c1d1d89ac81b18d1f191eb874a642ccd3",
+    "forge/dw_bombardking/1": "117369cf24e32ffa376f19661f4754a635c27093d97f0f970c2f253c0463172d",
+    "forge/ladyclaire/1": "44c2f962d770938b13168ab7c472689f006c1be12bdb3489a9842f890f7826e7",
+    "grove/el_moonblade/1": "9279903f72949ec9298ba5001046f62f9d1a2ca19a8d32b93d4d823d42b52090",
+    "grove/el_moonblade/2": "1b7584625aff97af9dee1a043c13a75abb45e8c565ffd1c4d17d32edc1e18a38",
+    "grove/el_moonblade/3": "30b5a010413a6009ff37fd65992b8dbb5d39bd45b8c37d74e0ac42e93f722614",
+    "grove/el_moonblade/4": "ddb3fe0fec6e07de083dbe647eac4e8b610ef5b7c3654a17772d76b37c6cde31",
+    "grove/el_moonblade/5": "66117964dcb6c6856266c0c4a50ab290d2381fd3cf94139164fd6373b851f38b",
+    "grove/el_moonblade/6": "f19d5f40d2246ab927215431d4f8eda898825adaaf5426d0b336625fd464086d",
+    "grove/el_grove_archer/1": "0a49c45ee5427e96b7bbfc78e1bca8e5bc81c0c72a461d07a437b1e528456080",
+    "grove/el_grove_archer/2": "2b23984bdc6ab7299dd0168c27043be2e6eb221359e607b7841d0af3a8071590",
+    "grove/el_grove_archer/3": "642276441e586c8895e1c375a3e90f4917af4f0314965e57e7da0ecfb40ea57a",
+    "grove/el_grove_archer/4": "5c65981142a55d1ac838879c9fe6ceef3ebb334877fcc2a29a557a0176e11d49",
+    "grove/el_grove_archer/5": "fcddecd56ab40fad8356cac139546084896d1c9e9500753371ed4bd550e9e4f3",
+    "grove/el_grove_archer/6": "7ca0688db23215a99b1315ec1904c4436224aba1e983effe1fb76a4cffec91d2",
+    "grove/el_spark_adept/1": "4ff3ffbe8fe88535f93236d7ccbee5c2255992a649ca05911a7af8dfb7db014c",
+    "grove/el_spark_adept/2": "2a3818a1ddac703770c3649a2ce94d666b289ebd76e2be60d26decb30755316e",
+    "grove/el_spark_adept/3": "f67bcf0e801827618a4eb93f6861050d3adaaec661ba4742524ab3af5c913dcd",
+    "grove/el_spark_adept/4": "9cff3365617bd26be8a1416d050cb38c2d3828996f0034e25c3a413b44ba5a0c",
+    "grove/el_spark_adept/5": "558261a83cc9f93de2e9eeeff66f46e92070f3a5998df071d0d181e9d1d1820b",
+    "grove/el_spark_adept/6": "6fe89a708b7bed0959c92bae19acd29b7ee94da7e86eb3f22b3cbb3a81e8b961",
+    "grove/el_sealweaver/1": "237ff39a2f6130aeec29c39c6db0adc1996d28734e86895205d8590eedf77d60",
+    "grove/el_sealweaver/2": "34feb45022d638953d75494e2bf73f176c21c7de9fb01d195acbc54ad11ef809",
+    "grove/el_sealweaver/3": "f578d90eff26d9e9ff22d20d840d56d30a0f60a0af4591ffd96f70a053949c81",
+    "grove/el_sealweaver/4": "23e20e471181cdd37c080cb37005c4ac11c8900b31a56e7677bfb4f03ec36151",
+    "grove/el_sealweaver/5": "ddc894abc0c3a1932cc2c852aca5e439757b9e0de1281e157dee2c0860512571",
+    "grove/el_sealweaver/6": "332322e890855b65a8e502510b65ad94cd78609f10a8c8ca41115e5489bf1814",
+    "grove/el_drow_cinder/1": "9612fa20409ea441413a7eca1acd464ff853beaeed36f5d914cb36f1c4175120",
+    "grove/el_drow_cinder/2": "b0042285662aced2d599d2f5ff3ab2f53162dd830450403ddbd114e94f33ec45",
+    "grove/el_drow_cinder/3": "965ea08a41b47fc175ff88ed5226acf9fc1d3bbb16ebda8075fa5ff1f8f06561",
+    "grove/el_drow_cinder/4": "00d05cc9e49a62ec8828543cda75171f1e1164bc73fa99a755e2cdfafc4d3824",
+    "grove/el_drow_cinder/5": "d0d49cda0653107beb38aa0fcbbee6fb885d0fe045ccbfe98b79c6b7de10ac49",
+    "grove/el_drow_cinder/6": "13db5c80c24d5c25dc9adb05d6d8308cdb283f3348d3477c175ec725543d84f6",
+    "grove/el_drow_blade/1": "a2afa1dd2a956f88b34d561098cf26dd6ca2cc896d94424aaea10628b0b4ee54",
+    "grove/el_drow_blade/2": "b338d497272ee2b64925ddefd65f2aa63de71908c567595a4572600a699fb955",
+    "grove/el_drow_blade/3": "bfddbe2eaabcb10dcca474f7c2a4bed7197e4f73e6d18e1c49726bce00095160",
+    "grove/el_drow_blade/4": "c7177d63609e9803bce475821f0262a9a939d1c37e72c8fce0d4bfb7dcbed5a7",
+    "grove/el_drow_blade/5": "a3d59d7681514dd16eb8661b4ab407d0e792b2c270a410295aea66d335a88f0c",
+    "grove/el_drow_blade/6": "ca16813420c80ced898edcd113c81d7103317a6fe4a3a02a872be0ceaad1ace9",
+    "grove/el_drow_acolyte/1": "4fe9855e404224092a5d3a4f7e5ed21382e8493dad0750934a8bee9020ac872d",
+    "grove/el_drow_acolyte/2": "2fcd7f769b693bd2c3cd354f1920b7ed7d820c4983c7ea5612d31fe36fd3680a",
+    "grove/el_drow_acolyte/3": "7cda598039dfe07d8d5e48ec7d6bf56de8aeb2781721a9a1c62adbbfe6ddb54c",
+    "grove/el_drow_acolyte/4": "7840bd29a4b1c2f9f0add2474c4222bfa68c1ec0cf983896e318b227b826e8be",
+    "grove/el_drow_acolyte/5": "ad270f7545afb614026fff3d2d0d3d97a932fd03d9affe765c337784659fd341",
+    "grove/el_drow_acolyte/6": "4879b9921012bf13fe9199a6a53f2923f0c25841103ba84dae09c692c7df2d24",
+    "grove/el_dragon_keeper/1": "033aafd3dac36385ee4f3750bd4ea0214e0c5f627f62069374ff63e39faff76c",
+    "grove/el_dragon_keeper/2": "80fbddeb774e6b9aa2a37088cfb09d16c339355fd15be11ced77cf424cacf224",
+    "grove/el_dragon_keeper/3": "c619454be0cf59593e356f67dd961bfc6b6751896facf299c4d69058a7aa6393",
+    "grove/el_dragon_keeper/4": "d905e2c0febd47378f0090b4c52b44a6708f14308a9338a50e54fd79e3ab958a",
+    "grove/el_dragon_keeper/5": "f0661c97258d2c84443e408ab728b7c01f1d47e041fb97d09593ef238aec8507",
+    "grove/el_dragon_keeper/6": "4ea2c1cdcf200be6b22b0a6570057771e47f1278ff5b9e2048b29425bd25eb79",
+    "grove/el_moonblade_sentinel/1": "825f9397a6a372fe3aa63e7353159a53f7e46bcb535ca35fd2e9e988a0bbc234",
+    "grove/el_elite_warrior/1": "6ee213817590ca68b7d01ed662152fe57e1f70ee08bd822aefc8befea38104e2",
+    "grove/el_stormblade_warden/1": "9b84f8898b2758029df615894b29f8c12d55bfaf0e02d9cca53c1e1711419639",
+    "grove/el_elven_king/1": "557a79c14f29b040836b6bbb34a27954e2821858f957af3f16b54b9f7a5b5a4b",
+    "grove/el_stag_knight/1": "8cfb494bab8bc802603527402f5fa8c29f58d6bebd4775cbe818e863a8659723",
+    "grove/el_elven_archer/1": "e98518c054afcc884c2429e9d4e2c2e7437bc758635b18ebcc416544018d9992",
+    "grove/el_elven_bowmaster/1": "9e3c18a6708c016567f01d6abe3f5f6d3d6afb5b670311c3f396306c8d79f40d",
+    "grove/el_tempest_bowmage/1": "e8a6483917a8a8cb8578bd51fd7d458a4c793f51626dacb2a43f2761ea892bfc",
+    "grove/el_starfall_bowmaster/1": "5b392098c4464da38a1602ed1605ef5f1af0c6711abd81a88f440c88f84e0ded",
+    "grove/el_twilight_huntress/1": "2b903d8c89f77a1feae2daa56568d2c5d633590d014ed089d01370ac1ec02c13",
+    "grove/el_elven_mage/1": "b43a011f03579d4f2053cb6d2bca4d2a97250b9c62d8414d1ff4121d04a53a00",
+    "grove/el_storm_conductor/1": "43dc1868ca2980541513461f94a03738c388450c64dbfeb6f7d78f72e6e70519",
+    "grove/el_elven_archmage/1": "4e73945710545c1c02d0acc3f4a99475c55b02265f533c8985e37d1d450d5572",
+    "grove/el_storm_sovereign/1": "5865f5b2b1052eb7964244632deba06942150b1fec16e4fb85c55bc702a9a8f7",
+    "grove/el_wisp_conductor/1": "ca3b8c7159fba62cb799efeab75936e2f67ca0d76136e55f7227a5d480525623",
+    "grove/el_veil_adept/1": "b259216b892d566b8070ce85ca7051fb74e1e6abc20ac5b6d0f1261ac4445e79",
+    "grove/el_sealwarden/1": "108482a1db52a2959ae9962e71394f792cf5408600786e07cb04308eb6d0a505",
+    "grove/el_moonwell_seer/1": "4f9d76ef6bcea67f38a199d882ba5e2e84f4cf486e50e6c02708dc701794ccae",
+    "grove/el_eclipse_unbinder/1": "2dcb646c8ef2071c69dcec8857140bc90aa8b73802ae9af0a5848718caee645a",
+    "grove/el_stag_oracle/1": "b3a7175b0ef20a2142974bea8da3ca2ff2ab8938f88504f9971d7364541f2e2e",
+    "grove/el_drow_ember_novice/1": "56b4f9353151807cd49a80080eca75bfdf9bfeb64d2d4238eccbcedfab24e0a5",
+    "grove/el_drow_pyromancer/1": "d76a2521c03021dd6f1e8db056873afdeec3334b043dbe1afb4c32ebdcd0a510",
+    "grove/el_drow_ember_matron/1": "7fe6ecc8c9ca1b602195c3343da8459a49e500fe2d9122a291b3c90274152236",
+    "grove/el_drow_cinderqueen/1": "4d3c6797047e4ec03c5d8f534d7084b3d2005edcb031458e415512f0c0448ecb",
+    "grove/el_drow_furnace_seer/1": "de1e8795c8741a8f5f990dd3e2e244f9323a9cc010dc28c625b463a0c02db4a9",
+    "grove/el_drow_blade_initiate/1": "bea5aa03a3e53938ac9e453c852133c2e597d4386f53a1407643343481d2a1e2",
+    "grove/el_drow_duelist/1": "745f49bfca7eeb9d3aa84dec8528d2ddccde7ba6e6b41415063366d1feccfc3d",
+    "grove/el_drow_ashblade/1": "9f678e2f071a62781e5e675322b8274b8300de44a2a0aade7dc06145c005d5c7",
+    "grove/el_drow_eclipse_duelist/1": "50e4dade34b7054aaa44b2ae5fe779aadae1b36e21193bc5d7c9415a8882a04d",
+    "grove/el_drow_gloom_initiate/1": "800a185b3c5ac09907fee5f25957cf1bdf7629c4e9f0fddec6266a6697f3dfde",
+    "grove/el_drow_eclipse_priest/1": "91f2aab8aa49166fb72279b8b29ac13aca25e5be2bb8308d2de0ccf291793784",
+    "grove/el_veilfire_hierophant/1": "582eab81f2162637395fce340627f71faf068dc1de51b1b4dff456c2b0df2959",
+    "grove/el_drow_night_hierarch/1": "e729e7e64c2eda27654f99986628c3c919765fac08522fffc51cea3a8b3079b2",
+    "grove/el_baby_fire_dragon/1": "18dc764ca8a1e1c4601085b2d847808298f48aca90214dca1b5c9765a187c79d",
+    "grove/el_fire_dragon/1": "b2b2233e59bdf6029d6db1c22c7c78537caea9f615ef68b2ab45475945b4df81",
+    "grove/el_mother_fire_dragon/1": "37bbfaaed95c0f1bf9ca63502162c96d56b5f56536962ca240dc5372230ae55d",
+    "grove/el_ancient_patriarch/1": "00709272dd441164465819a38d7d1f5590beed6a5b719d1c1d9a583d489f1e8d",
+    "grove/ladyclaire/1": "44c2f962d770938b13168ab7c472689f006c1be12bdb3489a9842f890f7826e7"
+  },
+  "units": {
+    "crown/soldier": {
+      "name": "Soldier",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/archer": {
+      "name": "Archer",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/druid": {
+      "name": "Druid",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/mage": {
+      "name": "Mage",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/cleric": {
+      "name": "Cleric",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/runebreaker": {
+      "name": "Human Engineer",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/frostwarden": {
+      "name": "Frost Warden",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/stormcaller": {
+      "name": "Stormcaller",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "crown/rimewatch": {
+      "name": "Frostsword Watchmen",
+      "kind": "champion",
+      "classification": "Basic",
+      "branchId": "steel",
+      "championIngredients": []
+    },
+    "crown/frostblade": {
+      "name": "Frost Knight",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "steel",
+      "championIngredients": [
+        {
+          "id": "rimewatch",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/roseguard": {
+      "name": "Lionheart Champion",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "steel",
+      "championIngredients": []
+    },
+    "crown/highking": {
+      "name": "Kingslayer",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "steel",
+      "championIngredients": [
+        {
+          "id": "roseguard",
+          "rank": 1
+        },
+        {
+          "id": "frostblade",
+          "rank": 1
+        },
+        {
+          "id": "rimewatch",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/crownofages": {
+      "name": "King",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "steel",
+      "championIngredients": [
+        {
+          "id": "highking",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/thornwarden": {
+      "name": "Royal Scout",
+      "kind": "champion",
+      "classification": "Basic",
+      "branchId": "bowstorm",
+      "championIngredients": []
+    },
+    "crown/verdantguard": {
+      "name": "Royal Marksman",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "bowstorm",
+      "championIngredients": [
+        {
+          "id": "thornwarden",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/tempest": {
+      "name": "Lightning Weaver",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "bowstorm",
+      "championIngredients": []
+    },
+    "crown/stormcitadel": {
+      "name": "Stormbow Magister",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "bowstorm",
+      "championIngredients": [
+        {
+          "id": "tempest",
+          "rank": 1
+        },
+        {
+          "id": "thornwarden",
+          "rank": 1
+        },
+        {
+          "id": "verdantguard",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/embercrown": {
+      "name": "Cinder Adept",
+      "kind": "champion",
+      "classification": "Basic",
+      "branchId": "stormfire",
+      "championIngredients": []
+    },
+    "crown/worldfire": {
+      "name": "Inferno Magister",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "stormfire",
+      "championIngredients": [
+        {
+          "id": "embercrown",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/starfall": {
+      "name": "Storm Eagle",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "stormfire",
+      "championIngredients": []
+    },
+    "crown/thunderheart": {
+      "name": "Stormfire Sorcerer",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "stormfire",
+      "championIngredients": [
+        {
+          "id": "starfall",
+          "rank": 1
+        },
+        {
+          "id": "worldfire",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/phoenix": {
+      "name": "Grand Pyromancer",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "stormfire",
+      "championIngredients": [
+        {
+          "id": "thunderheart",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/greenheart": {
+      "name": "Master Druid",
+      "kind": "champion",
+      "classification": "Basic",
+      "branchId": "druids",
+      "championIngredients": []
+    },
+    "crown/eldergrove": {
+      "name": "Archdruid",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "druids",
+      "championIngredients": [
+        {
+          "id": "greenheart",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/kingsreach": {
+      "name": "Ballista",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "siege",
+      "championIngredients": []
+    },
+    "crown/sunward": {
+      "name": "Priest",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "holy",
+      "championIngredients": []
+    },
+    "crown/winterhold": {
+      "name": "Frozen Paladin",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "winter",
+      "championIngredients": []
+    },
+    "crown/dawnspire": {
+      "name": "Glacial High Paladin",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "winter",
+      "championIngredients": [
+        {
+          "id": "winterhold",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/royalmarshal": {
+      "name": "Royal Grenadier",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "siege",
+      "championIngredients": []
+    },
+    "crown/stonewarden": {
+      "name": "Catapult",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "siege",
+      "championIngredients": []
+    },
+    "crown/wyvernhunter": {
+      "name": "Ranger",
+      "kind": "champion",
+      "classification": "Basic",
+      "branchId": "rangers",
+      "championIngredients": []
+    },
+    "crown/royalarsenal": {
+      "name": "Tempest Sovereign",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "bowstorm",
+      "championIngredients": [
+        {
+          "id": "stormcitadel",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/rangermentor": {
+      "name": "Nature Spirit",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "druids",
+      "championIngredients": [
+        {
+          "id": "eldergrove",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/kingdomprotector": {
+      "name": "Paladin",
+      "kind": "champion",
+      "classification": "Intermediate",
+      "branchId": "holy",
+      "championIngredients": []
+    },
+    "crown/mothernature": {
+      "name": "Mother Nature",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "druids",
+      "championIngredients": [
+        {
+          "id": "rangermentor",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/royalranger": {
+      "name": "Master Ranger",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "rangers",
+      "championIngredients": [
+        {
+          "id": "wyvernhunter",
+          "rank": 1
+        },
+        {
+          "id": "greenheart",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/kingsrangerguard": {
+      "name": "Dark Ranger",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "rangers",
+      "championIngredients": [
+        {
+          "id": "wyvernhunter",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/elvenking": {
+      "name": "Ranger Oathbreaker",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "rangers",
+      "championIngredients": [
+        {
+          "id": "kingsrangerguard",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/fireballista": {
+      "name": "Fire Ballista",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "siege",
+      "championIngredients": [
+        {
+          "id": "kingsreach",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/emeraldgolem": {
+      "name": "Golem",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "siege",
+      "championIngredients": [
+        {
+          "id": "stonewarden",
+          "rank": 1
+        },
+        {
+          "id": "kingsreach",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/griffinbomber": {
+      "name": "Cannon",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "siege",
+      "championIngredients": [
+        {
+          "id": "stonewarden",
+          "rank": 1
+        },
+        {
+          "id": "royalmarshal",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/mechanicalgolem": {
+      "name": "Royal Battery",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "siege",
+      "championIngredients": [
+        {
+          "id": "griffinbomber",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/monk": {
+      "name": "High Priest",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "holy",
+      "championIngredients": [
+        {
+          "id": "kingdomprotector",
+          "rank": 1
+        },
+        {
+          "id": "sunward",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/archbishop": {
+      "name": "Archbishop",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "holy",
+      "championIngredients": [
+        {
+          "id": "monk",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/archangel": {
+      "name": "Paladin Oathbreaker",
+      "kind": "champion",
+      "classification": "Advanced",
+      "branchId": "winter",
+      "championIngredients": [
+        {
+          "id": "winterhold",
+          "rank": 1
+        },
+        {
+          "id": "starfall",
+          "rank": 1
+        }
+      ]
+    },
+    "crown/ladyclaire": {
+      "name": "Lady Claire",
+      "kind": "secret",
+      "classification": "Secret",
+      "championIngredients": []
+    },
+    "forge/dw_shieldguard": {
+      "name": "Shieldguard",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_musketeer": {
+      "name": "Musketeer",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_runesmith": {
+      "name": "Runesmith",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_boarrider": {
+      "name": "Boar Rider",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_grenadier": {
+      "name": "Grenadier",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_engineer": {
+      "name": "Dwarf Miner",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_griffinhandler": {
+      "name": "Griffin Handler",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_furnacetender": {
+      "name": "Blacksmith",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "championIngredients": []
+    },
+    "forge/dw_ironwarden": {
+      "name": "Dwarf Axeman",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "iron",
+      "championIngredients": []
+    },
+    "forge/dw_ashshield": {
+      "name": "Dwarf Dualist",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "iron",
+      "championIngredients": [
+        {
+          "id": "dw_ironwarden",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_bulwarkcaptain": {
+      "name": "Dwarf Berserker",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "iron",
+      "championIngredients": [
+        {
+          "id": "dw_ashshield",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_forgeking": {
+      "name": "Berserker Champion",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "iron",
+      "championIngredients": [
+        {
+          "id": "dw_bulwarkcaptain",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_longrifle": {
+      "name": "Dwarf Rifleman",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "marksmen",
+      "championIngredients": []
+    },
+    "forge/dw_thunderlock": {
+      "name": "Dwarf Sniper",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "marksmen",
+      "championIngredients": [
+        {
+          "id": "dw_longrifle",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_steamrail": {
+      "name": "Heavy Sniper",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "marksmen",
+      "championIngredients": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_grapeshotcart": {
+      "name": "Mortar Dwarf",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "marksmen",
+      "championIngredients": [
+        {
+          "id": "dw_thunderlock",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_ironstorm": {
+      "name": "Master Sniper",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "marksmen",
+      "championIngredients": [
+        {
+          "id": "dw_steamrail",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_boarlancer": {
+      "name": "Boar Lancer",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "boar",
+      "championIngredients": []
+    },
+    "forge/dw_boarstandard": {
+      "name": "Boar Drummer",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "boar",
+      "championIngredients": [
+        {
+          "id": "dw_boarlancer",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_goreback": {
+      "name": "Armored Boar Rider",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "boar",
+      "championIngredients": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_warcaller": {
+      "name": "War Drummer",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "boar",
+      "championIngredients": [
+        {
+          "id": "dw_boarstandard",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_boaravatar": {
+      "name": "Boar Warlord",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "boar",
+      "championIngredients": [
+        {
+          "id": "dw_goreback",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_fuserunner": {
+      "name": "Bomb Dwarf",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "bombs",
+      "championIngredients": []
+    },
+    "forge/dw_firebomber": {
+      "name": "Fire Bomber",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "bombs",
+      "championIngredients": [
+        {
+          "id": "dw_fuserunner",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_griffinbomber": {
+      "name": "Griffin Bomber",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "bombs",
+      "championIngredients": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_cinderhowitzer": {
+      "name": "Siege Cannon",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "bombs",
+      "championIngredients": [
+        {
+          "id": "dw_firebomber",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_dwarship": {
+      "name": "Dwarf Airship",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "bombs",
+      "championIngredients": [
+        {
+          "id": "dw_griffinbomber",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_repeatercrew": {
+      "name": "Gatling Gunner",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "machines",
+      "championIngredients": []
+    },
+    "forge/dw_ironclad": {
+      "name": "Iron Golem",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "machines",
+      "championIngredients": [
+        {
+          "id": "dw_repeatercrew",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_breachorgan": {
+      "name": "Gatling Golem",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "machines",
+      "championIngredients": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_deepdelve": {
+      "name": "Forge Sentinel",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "machines",
+      "championIngredients": [
+        {
+          "id": "dw_ironclad",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_salvomarshal": {
+      "name": "Iron Colossus",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "machines",
+      "championIngredients": [
+        {
+          "id": "dw_breachorgan",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_runemortar": {
+      "name": "Rune Dwarf",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "runes",
+      "championIngredients": []
+    },
+    "forge/dw_tunnelsapper": {
+      "name": "Rune Mage",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "runes",
+      "championIngredients": [
+        {
+          "id": "dw_runemortar",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_nullifier": {
+      "name": "Rune Guardian",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "runes",
+      "championIngredients": [
+        {
+          "id": "dw_tunnelsapper",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_worldanvil": {
+      "name": "Rune Master",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "runes",
+      "championIngredients": [
+        {
+          "id": "dw_nullifier",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_griffinscout": {
+      "name": "Griffin Scout",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "griffin",
+      "championIngredients": []
+    },
+    "forge/dw_skyhook": {
+      "name": "Griffin Gunner",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "griffin",
+      "championIngredients": [
+        {
+          "id": "dw_griffinscout",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_talonlord": {
+      "name": "Armored Griffin Rider",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "griffin",
+      "championIngredients": [
+        {
+          "id": "dw_skyhook",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_highthane": {
+      "name": "Griffin Commander",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "griffin",
+      "championIngredients": [
+        {
+          "id": "dw_talonlord",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_pressuresmith": {
+      "name": "Steam Dwarf",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "forge",
+      "championIngredients": []
+    },
+    "forge/dw_steamharpooner": {
+      "name": "Flamethrower",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "forge",
+      "championIngredients": [
+        {
+          "id": "dw_pressuresmith",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_flamewarden": {
+      "name": "Heavy Flamethrower",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "forge",
+      "championIngredients": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_emberanvil": {
+      "name": "Forge Dwarf",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "forge",
+      "championIngredients": [
+        {
+          "id": "dw_steamharpooner",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/dw_bombardking": {
+      "name": "Fire Furnace",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "forge",
+      "championIngredients": [
+        {
+          "id": "dw_flamewarden",
+          "rank": 1
+        }
+      ]
+    },
+    "forge/ladyclaire": {
+      "name": "Lady Claire",
+      "kind": "secret",
+      "classification": "Secret",
+      "championIngredients": []
+    },
+    "grove/el_moonblade": {
+      "name": "Emerald Elf",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "moonblade",
+      "championIngredients": []
+    },
+    "grove/el_grove_archer": {
+      "name": "Elven Ranger",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "grovebow",
+      "championIngredients": []
+    },
+    "grove/el_spark_adept": {
+      "name": "Stormspear",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "stormcraft",
+      "championIngredients": []
+    },
+    "grove/el_sealweaver": {
+      "name": "Lunar Spirit Shaman",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "unweave",
+      "championIngredients": []
+    },
+    "grove/el_drow_cinder": {
+      "name": "Nightweaver Spider",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "cinder",
+      "championIngredients": []
+    },
+    "grove/el_drow_blade": {
+      "name": "Moonblade Assassin",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "drowblade",
+      "championIngredients": []
+    },
+    "grove/el_drow_acolyte": {
+      "name": "Elven Priestess",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "eclipse",
+      "championIngredients": []
+    },
+    "grove/el_dragon_keeper": {
+      "name": "Dragon Keeper",
+      "kind": "basic",
+      "classification": "Basic defender",
+      "branchId": "dragon",
+      "championIngredients": []
+    },
+    "grove/el_moonblade_sentinel": {
+      "name": "Emerald Sentry",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "moonblade",
+      "championIngredients": []
+    },
+    "grove/el_elite_warrior": {
+      "name": "Emerald Blademaster",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "moonblade",
+      "championIngredients": [
+        {
+          "id": "el_moonblade_sentinel",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_stormblade_warden": {
+      "name": "Ironbark Ent",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "moonblade",
+      "championIngredients": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_elven_king": {
+      "name": "World Oak Ent",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "moonblade",
+      "championIngredients": [
+        {
+          "id": "el_stormblade_warden",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_stag_knight": {
+      "name": "Stag Bulwark",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "moonblade",
+      "championIngredients": [
+        {
+          "id": "el_elite_warrior",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_elven_archer": {
+      "name": "Moonlight Ranger Scout",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "grovebow",
+      "championIngredients": []
+    },
+    "grove/el_elven_bowmaster": {
+      "name": "Moonlight Ranger Captain",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "grovebow",
+      "championIngredients": [
+        {
+          "id": "el_elven_archer",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_tempest_bowmage": {
+      "name": "Moonlight Ranger Warden",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "grovebow",
+      "championIngredients": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_starfall_bowmaster": {
+      "name": "Moonlight Eagle Rider",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "grovebow",
+      "championIngredients": [
+        {
+          "id": "el_tempest_bowmage",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_twilight_huntress": {
+      "name": "Moonshadow Huntress",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "grovebow",
+      "championIngredients": [
+        {
+          "id": "el_elven_bowmaster",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_elven_mage": {
+      "name": "Stormspear Initiate",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "stormcraft",
+      "championIngredients": []
+    },
+    "grove/el_storm_conductor": {
+      "name": "Thunderlance Guard",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "stormcraft",
+      "championIngredients": [
+        {
+          "id": "el_elven_mage",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_elven_archmage": {
+      "name": "Thunder Phoenix",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "stormcraft",
+      "championIngredients": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_storm_sovereign": {
+      "name": "Tempest Phoenix",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "stormcraft",
+      "championIngredients": [
+        {
+          "id": "el_elven_archmage",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_wisp_conductor": {
+      "name": "Stormwing Phoenix Rider",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "stormcraft",
+      "championIngredients": [
+        {
+          "id": "el_storm_conductor",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_veil_adept": {
+      "name": "Drow Wraithcaller",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "unweave",
+      "championIngredients": []
+    },
+    "grove/el_sealwarden": {
+      "name": "Drow Moon Specter",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "unweave",
+      "championIngredients": [
+        {
+          "id": "el_veil_adept",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_moonwell_seer": {
+      "name": "Moon Banshee",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "unweave",
+      "championIngredients": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_eclipse_unbinder": {
+      "name": "Eclipse Phantom",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "unweave",
+      "championIngredients": [
+        {
+          "id": "el_moonwell_seer",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_stag_oracle": {
+      "name": "Crescent Revenant",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "unweave",
+      "championIngredients": [
+        {
+          "id": "el_sealwarden",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_ember_novice": {
+      "name": "Nightweaver Broodguard",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "cinder",
+      "championIngredients": []
+    },
+    "grove/el_drow_pyromancer": {
+      "name": "Nightweaver Spider Rider",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "cinder",
+      "championIngredients": [
+        {
+          "id": "el_drow_ember_novice",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_ember_matron": {
+      "name": "Nightweaver Spider Queen",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "cinder",
+      "championIngredients": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_cinderqueen": {
+      "name": "Eclipse Broodmother",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "cinder",
+      "championIngredients": [
+        {
+          "id": "el_drow_ember_matron",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_furnace_seer": {
+      "name": "Moonweb Hunter",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "cinder",
+      "championIngredients": [
+        {
+          "id": "el_drow_pyromancer",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_blade_initiate": {
+      "name": "Shadow Assassin Apprentice",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "drowblade",
+      "championIngredients": []
+    },
+    "grove/el_drow_duelist": {
+      "name": "Shadow Assassin Adept",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "drowblade",
+      "championIngredients": [
+        {
+          "id": "el_drow_blade_initiate",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_ashblade": {
+      "name": "Shadow Assassin Expert",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "drowblade",
+      "championIngredients": [
+        {
+          "id": "el_drow_duelist",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_eclipse_duelist": {
+      "name": "Shadow Assassin Master",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "drowblade",
+      "championIngredients": [
+        {
+          "id": "el_drow_ashblade",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_gloom_initiate": {
+      "name": "Elven Battlemage Apprentice",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "eclipse",
+      "championIngredients": []
+    },
+    "grove/el_drow_eclipse_priest": {
+      "name": "Elven Battlemage Adept",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "eclipse",
+      "championIngredients": [
+        {
+          "id": "el_drow_gloom_initiate",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_veilfire_hierophant": {
+      "name": "Elven Battlemage Expert",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "eclipse",
+      "championIngredients": [
+        {
+          "id": "el_drow_eclipse_priest",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_drow_night_hierarch": {
+      "name": "Elven Battlemage Master",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "eclipse",
+      "championIngredients": [
+        {
+          "id": "el_veilfire_hierophant",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_baby_fire_dragon": {
+      "name": "Baby Fire Dragon",
+      "kind": "champion",
+      "classification": "BASIC",
+      "branchId": "dragon",
+      "championIngredients": []
+    },
+    "grove/el_fire_dragon": {
+      "name": "Fire Dragon",
+      "kind": "champion",
+      "classification": "INTERMEDIATE",
+      "branchId": "dragon",
+      "championIngredients": [
+        {
+          "id": "el_baby_fire_dragon",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_mother_fire_dragon": {
+      "name": "Mother Fire Dragon",
+      "kind": "champion",
+      "classification": "ADVANCED",
+      "branchId": "dragon",
+      "championIngredients": [
+        {
+          "id": "el_fire_dragon",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/el_ancient_patriarch": {
+      "name": "Ancient Dragon Patriarch",
+      "kind": "champion",
+      "classification": "TOP",
+      "branchId": "dragon",
+      "championIngredients": [
+        {
+          "id": "el_mother_fire_dragon",
+          "rank": 1
+        }
+      ]
+    },
+    "grove/ladyclaire": {
+      "name": "Lady Claire",
+      "kind": "secret",
+      "classification": "Secret",
+      "championIngredients": []
+    }
+  },
+  "recipes": {
+    "crown/rimewatch": [
+      {
+        "id": "frostwarden",
+        "rank": 1
+      },
+      {
+        "id": "soldier",
+        "rank": 1
+      },
+      {
+        "id": "stormcaller",
+        "rank": 1
+      }
+    ],
+    "crown/frostblade": [
+      {
+        "id": "rimewatch",
+        "rank": 1
+      },
+      {
+        "id": "archer",
+        "rank": 2
+      },
+      {
+        "id": "mage",
+        "rank": 3
+      }
+    ],
+    "crown/roseguard": [
+      {
+        "id": "soldier",
+        "rank": 5
+      },
+      {
+        "id": "soldier",
+        "rank": 3
+      },
+      {
+        "id": "stormcaller",
+        "rank": 3
+      }
+    ],
+    "crown/highking": [
+      {
+        "id": "roseguard",
+        "rank": 1
+      },
+      {
+        "id": "frostblade",
+        "rank": 1
+      },
+      {
+        "id": "rimewatch",
+        "rank": 1
+      }
+    ],
+    "crown/crownofages": [
+      {
+        "id": "highking",
+        "rank": 1
+      },
+      {
+        "id": "runebreaker",
+        "rank": 6
+      },
+      {
+        "id": "soldier",
+        "rank": 6
+      }
+    ],
+    "crown/thornwarden": [
+      {
+        "id": "cleric",
+        "rank": 1
+      },
+      {
+        "id": "druid",
+        "rank": 1
+      },
+      {
+        "id": "archer",
+        "rank": 1
+      }
+    ],
+    "crown/verdantguard": [
+      {
+        "id": "thornwarden",
+        "rank": 1
+      },
+      {
+        "id": "soldier",
+        "rank": 2
+      },
+      {
+        "id": "stormcaller",
+        "rank": 3
+      }
+    ],
+    "crown/tempest": [
+      {
+        "id": "stormcaller",
+        "rank": 5
+      },
+      {
+        "id": "frostwarden",
+        "rank": 3
+      },
+      {
+        "id": "cleric",
+        "rank": 2
+      }
+    ],
+    "crown/stormcitadel": [
+      {
+        "id": "tempest",
+        "rank": 1
+      },
+      {
+        "id": "thornwarden",
+        "rank": 1
+      },
+      {
+        "id": "verdantguard",
+        "rank": 1
+      }
+    ],
+    "crown/embercrown": [
+      {
+        "id": "mage",
+        "rank": 2
+      },
+      {
+        "id": "mage",
+        "rank": 1
+      },
+      {
+        "id": "runebreaker",
+        "rank": 1
+      }
+    ],
+    "crown/worldfire": [
+      {
+        "id": "embercrown",
+        "rank": 1
+      },
+      {
+        "id": "mage",
+        "rank": 4
+      },
+      {
+        "id": "runebreaker",
+        "rank": 3
+      }
+    ],
+    "crown/starfall": [
+      {
+        "id": "mage",
+        "rank": 5
+      },
+      {
+        "id": "archer",
+        "rank": 4
+      },
+      {
+        "id": "runebreaker",
+        "rank": 3
+      }
+    ],
+    "crown/thunderheart": [
+      {
+        "id": "starfall",
+        "rank": 1
+      },
+      {
+        "id": "worldfire",
+        "rank": 1
+      },
+      {
+        "id": "mage",
+        "rank": 2
+      }
+    ],
+    "crown/phoenix": [
+      {
+        "id": "thunderheart",
+        "rank": 1
+      },
+      {
+        "id": "mage",
+        "rank": 6
+      },
+      {
+        "id": "druid",
+        "rank": 6
+      }
+    ],
+    "crown/greenheart": [
+      {
+        "id": "druid",
+        "rank": 3
+      },
+      {
+        "id": "cleric",
+        "rank": 3
+      },
+      {
+        "id": "frostwarden",
+        "rank": 2
+      }
+    ],
+    "crown/eldergrove": [
+      {
+        "id": "greenheart",
+        "rank": 1
+      },
+      {
+        "id": "frostwarden",
+        "rank": 4
+      },
+      {
+        "id": "archer",
+        "rank": 3
+      }
+    ],
+    "crown/kingsreach": [
+      {
+        "id": "runebreaker",
+        "rank": 5
+      },
+      {
+        "id": "runebreaker",
+        "rank": 4
+      },
+      {
+        "id": "soldier",
+        "rank": 2
+      }
+    ],
+    "crown/sunward": [
+      {
+        "id": "cleric",
+        "rank": 5
+      },
+      {
+        "id": "soldier",
+        "rank": 4
+      },
+      {
+        "id": "archer",
+        "rank": 3
+      }
+    ],
+    "crown/winterhold": [
+      {
+        "id": "frostwarden",
+        "rank": 5
+      },
+      {
+        "id": "mage",
+        "rank": 4
+      },
+      {
+        "id": "stormcaller",
+        "rank": 4
+      }
+    ],
+    "crown/dawnspire": [
+      {
+        "id": "winterhold",
+        "rank": 1
+      },
+      {
+        "id": "frostwarden",
+        "rank": 6
+      },
+      {
+        "id": "cleric",
+        "rank": 6
+      }
+    ],
+    "crown/royalmarshal": [
+      {
+        "id": "archer",
+        "rank": 5
+      },
+      {
+        "id": "cleric",
+        "rank": 4
+      },
+      {
+        "id": "druid",
+        "rank": 2
+      }
+    ],
+    "crown/stonewarden": [
+      {
+        "id": "druid",
+        "rank": 5
+      },
+      {
+        "id": "frostwarden",
+        "rank": 4
+      },
+      {
+        "id": "stormcaller",
+        "rank": 2
+      }
+    ],
+    "crown/wyvernhunter": [
+      {
+        "id": "druid",
+        "rank": 4
+      },
+      {
+        "id": "mage",
+        "rank": 3
+      },
+      {
+        "id": "runebreaker",
+        "rank": 2
+      }
+    ],
+    "crown/royalarsenal": [
+      {
+        "id": "stormcitadel",
+        "rank": 1
+      },
+      {
+        "id": "archer",
+        "rank": 6
+      },
+      {
+        "id": "stormcaller",
+        "rank": 6
+      }
+    ],
+    "crown/rangermentor": [
+      {
+        "id": "eldergrove",
+        "rank": 1
+      },
+      {
+        "id": "druid",
+        "rank": 4
+      },
+      {
+        "id": "runebreaker",
+        "rank": 2
+      }
+    ],
+    "crown/kingdomprotector": [
+      {
+        "id": "archer",
+        "rank": 4
+      },
+      {
+        "id": "soldier",
+        "rank": 4
+      },
+      {
+        "id": "cleric",
+        "rank": 2
+      }
+    ],
+    "crown/mothernature": [
+      {
+        "id": "rangermentor",
+        "rank": 1
+      },
+      {
+        "id": "soldier",
+        "rank": 6
+      },
+      {
+        "id": "frostwarden",
+        "rank": 6
+      }
+    ],
+    "crown/royalranger": [
+      {
+        "id": "wyvernhunter",
+        "rank": 1
+      },
+      {
+        "id": "greenheart",
+        "rank": 1
+      },
+      {
+        "id": "druid",
+        "rank": 3
+      }
+    ],
+    "crown/kingsrangerguard": [
+      {
+        "id": "wyvernhunter",
+        "rank": 1
+      },
+      {
+        "id": "runebreaker",
+        "rank": 4
+      },
+      {
+        "id": "stormcaller",
+        "rank": 2
+      }
+    ],
+    "crown/elvenking": [
+      {
+        "id": "kingsrangerguard",
+        "rank": 1
+      },
+      {
+        "id": "stormcaller",
+        "rank": 6
+      },
+      {
+        "id": "mage",
+        "rank": 6
+      }
+    ],
+    "crown/fireballista": [
+      {
+        "id": "kingsreach",
+        "rank": 1
+      },
+      {
+        "id": "runebreaker",
+        "rank": 5
+      },
+      {
+        "id": "archer",
+        "rank": 2
+      }
+    ],
+    "crown/emeraldgolem": [
+      {
+        "id": "stonewarden",
+        "rank": 1
+      },
+      {
+        "id": "kingsreach",
+        "rank": 1
+      },
+      {
+        "id": "soldier",
+        "rank": 3
+      }
+    ],
+    "crown/griffinbomber": [
+      {
+        "id": "stonewarden",
+        "rank": 1
+      },
+      {
+        "id": "royalmarshal",
+        "rank": 1
+      },
+      {
+        "id": "druid",
+        "rank": 2
+      }
+    ],
+    "crown/mechanicalgolem": [
+      {
+        "id": "griffinbomber",
+        "rank": 1
+      },
+      {
+        "id": "druid",
+        "rank": 6
+      },
+      {
+        "id": "runebreaker",
+        "rank": 6
+      }
+    ],
+    "crown/monk": [
+      {
+        "id": "kingdomprotector",
+        "rank": 1
+      },
+      {
+        "id": "sunward",
+        "rank": 1
+      },
+      {
+        "id": "cleric",
+        "rank": 4
+      }
+    ],
+    "crown/archbishop": [
+      {
+        "id": "monk",
+        "rank": 1
+      },
+      {
+        "id": "cleric",
+        "rank": 6
+      },
+      {
+        "id": "archer",
+        "rank": 6
+      }
+    ],
+    "crown/archangel": [
+      {
+        "id": "winterhold",
+        "rank": 1
+      },
+      {
+        "id": "starfall",
+        "rank": 1
+      },
+      {
+        "id": "frostwarden",
+        "rank": 5
+      }
+    ],
+    "crown/ladyclaire": [
+      {
+        "id": "mage",
+        "rank": 5
+      },
+      {
+        "id": "druid",
+        "rank": 5
+      },
+      {
+        "id": "frostwarden",
+        "rank": 5
+      }
+    ],
+    "forge/dw_ironwarden": [
+      {
+        "id": "dw_shieldguard",
+        "rank": 1
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 1
+      }
+    ],
+    "forge/dw_ashshield": [
+      {
+        "id": "dw_ironwarden",
+        "rank": 1
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 2
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 3
+      }
+    ],
+    "forge/dw_bulwarkcaptain": [
+      {
+        "id": "dw_ashshield",
+        "rank": 1
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 5
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 3
+      }
+    ],
+    "forge/dw_forgeking": [
+      {
+        "id": "dw_bulwarkcaptain",
+        "rank": 1
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 6
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 6
+      }
+    ],
+    "forge/dw_longrifle": [
+      {
+        "id": "dw_musketeer",
+        "rank": 1
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 2
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 2
+      }
+    ],
+    "forge/dw_thunderlock": [
+      {
+        "id": "dw_longrifle",
+        "rank": 1
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 4
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 1
+      }
+    ],
+    "forge/dw_steamrail": [
+      {
+        "id": "dw_thunderlock",
+        "rank": 1
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 5
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 3
+      }
+    ],
+    "forge/dw_grapeshotcart": [
+      {
+        "id": "dw_thunderlock",
+        "rank": 1
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 5
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 4
+      }
+    ],
+    "forge/dw_ironstorm": [
+      {
+        "id": "dw_steamrail",
+        "rank": 1
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 6
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 6
+      }
+    ],
+    "forge/dw_boarlancer": [
+      {
+        "id": "dw_boarrider",
+        "rank": 3
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 1
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 1
+      }
+    ],
+    "forge/dw_boarstandard": [
+      {
+        "id": "dw_boarlancer",
+        "rank": 1
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 3
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 2
+      }
+    ],
+    "forge/dw_goreback": [
+      {
+        "id": "dw_boarstandard",
+        "rank": 1
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 5
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 3
+      }
+    ],
+    "forge/dw_warcaller": [
+      {
+        "id": "dw_boarstandard",
+        "rank": 1
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 5
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 4
+      }
+    ],
+    "forge/dw_boaravatar": [
+      {
+        "id": "dw_goreback",
+        "rank": 1
+      },
+      {
+        "id": "dw_boarrider",
+        "rank": 6
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 6
+      }
+    ],
+    "forge/dw_fuserunner": [
+      {
+        "id": "dw_grenadier",
+        "rank": 1
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 1
+      }
+    ],
+    "forge/dw_firebomber": [
+      {
+        "id": "dw_fuserunner",
+        "rank": 1
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 4
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 2
+      }
+    ],
+    "forge/dw_griffinbomber": [
+      {
+        "id": "dw_firebomber",
+        "rank": 1
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 5
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 3
+      }
+    ],
+    "forge/dw_cinderhowitzer": [
+      {
+        "id": "dw_firebomber",
+        "rank": 1
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 5
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 4
+      }
+    ],
+    "forge/dw_dwarship": [
+      {
+        "id": "dw_griffinbomber",
+        "rank": 1
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 6
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 6
+      }
+    ],
+    "forge/dw_repeatercrew": [
+      {
+        "id": "dw_engineer",
+        "rank": 3
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 1
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 1
+      }
+    ],
+    "forge/dw_ironclad": [
+      {
+        "id": "dw_repeatercrew",
+        "rank": 1
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 4
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 2
+      }
+    ],
+    "forge/dw_breachorgan": [
+      {
+        "id": "dw_ironclad",
+        "rank": 1
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 5
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 3
+      }
+    ],
+    "forge/dw_deepdelve": [
+      {
+        "id": "dw_ironclad",
+        "rank": 1
+      },
+      {
+        "id": "dw_shieldguard",
+        "rank": 4
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 5
+      }
+    ],
+    "forge/dw_salvomarshal": [
+      {
+        "id": "dw_breachorgan",
+        "rank": 1
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 6
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 6
+      }
+    ],
+    "forge/dw_runemortar": [
+      {
+        "id": "dw_runesmith",
+        "rank": 2
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 2
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 1
+      }
+    ],
+    "forge/dw_tunnelsapper": [
+      {
+        "id": "dw_runemortar",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 3
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 3
+      }
+    ],
+    "forge/dw_nullifier": [
+      {
+        "id": "dw_tunnelsapper",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 5
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 4
+      }
+    ],
+    "forge/dw_worldanvil": [
+      {
+        "id": "dw_nullifier",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 6
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 6
+      }
+    ],
+    "forge/dw_griffinscout": [
+      {
+        "id": "dw_griffinhandler",
+        "rank": 1
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 1
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 1
+      }
+    ],
+    "forge/dw_skyhook": [
+      {
+        "id": "dw_griffinscout",
+        "rank": 1
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 2
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 3
+      }
+    ],
+    "forge/dw_talonlord": [
+      {
+        "id": "dw_skyhook",
+        "rank": 1
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 5
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 4
+      }
+    ],
+    "forge/dw_highthane": [
+      {
+        "id": "dw_talonlord",
+        "rank": 1
+      },
+      {
+        "id": "dw_griffinhandler",
+        "rank": 6
+      },
+      {
+        "id": "dw_musketeer",
+        "rank": 6
+      }
+    ],
+    "forge/dw_pressuresmith": [
+      {
+        "id": "dw_furnacetender",
+        "rank": 2
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 1
+      },
+      {
+        "id": "dw_runesmith",
+        "rank": 2
+      }
+    ],
+    "forge/dw_steamharpooner": [
+      {
+        "id": "dw_pressuresmith",
+        "rank": 1
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 4
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 1
+      }
+    ],
+    "forge/dw_flamewarden": [
+      {
+        "id": "dw_steamharpooner",
+        "rank": 1
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 5
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 3
+      }
+    ],
+    "forge/dw_emberanvil": [
+      {
+        "id": "dw_steamharpooner",
+        "rank": 1
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 5
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 4
+      }
+    ],
+    "forge/dw_bombardking": [
+      {
+        "id": "dw_flamewarden",
+        "rank": 1
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 6
+      },
+      {
+        "id": "dw_grenadier",
+        "rank": 6
+      }
+    ],
+    "forge/ladyclaire": [
+      {
+        "id": "dw_runesmith",
+        "rank": 5
+      },
+      {
+        "id": "dw_furnacetender",
+        "rank": 5
+      },
+      {
+        "id": "dw_engineer",
+        "rank": 5
+      }
+    ],
+    "grove/el_moonblade_sentinel": [
+      {
+        "id": "el_moonblade",
+        "rank": 1
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 1
+      }
+    ],
+    "grove/el_elite_warrior": [
+      {
+        "id": "el_moonblade_sentinel",
+        "rank": 1
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 2
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 3
+      }
+    ],
+    "grove/el_stormblade_warden": [
+      {
+        "id": "el_elite_warrior",
+        "rank": 1
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 3
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 5
+      }
+    ],
+    "grove/el_elven_king": [
+      {
+        "id": "el_stormblade_warden",
+        "rank": 1
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 6
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 6
+      }
+    ],
+    "grove/el_stag_knight": [
+      {
+        "id": "el_elite_warrior",
+        "rank": 1
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 4
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 5
+      }
+    ],
+    "grove/el_elven_archer": [
+      {
+        "id": "el_grove_archer",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 2
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 1
+      }
+    ],
+    "grove/el_elven_bowmaster": [
+      {
+        "id": "el_elven_archer",
+        "rank": 1
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 1
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 4
+      }
+    ],
+    "grove/el_tempest_bowmage": [
+      {
+        "id": "el_elven_bowmaster",
+        "rank": 1
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 3
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 5
+      }
+    ],
+    "grove/el_starfall_bowmaster": [
+      {
+        "id": "el_tempest_bowmage",
+        "rank": 1
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 6
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 6
+      }
+    ],
+    "grove/el_twilight_huntress": [
+      {
+        "id": "el_elven_bowmaster",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 4
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 5
+      }
+    ],
+    "grove/el_elven_mage": [
+      {
+        "id": "el_spark_adept",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 1
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 1
+      }
+    ],
+    "grove/el_storm_conductor": [
+      {
+        "id": "el_elven_mage",
+        "rank": 1
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 3
+      }
+    ],
+    "grove/el_elven_archmage": [
+      {
+        "id": "el_storm_conductor",
+        "rank": 1
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 3
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 5
+      }
+    ],
+    "grove/el_storm_sovereign": [
+      {
+        "id": "el_elven_archmage",
+        "rank": 1
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 6
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 6
+      }
+    ],
+    "grove/el_wisp_conductor": [
+      {
+        "id": "el_storm_conductor",
+        "rank": 1
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 4
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 5
+      }
+    ],
+    "grove/el_veil_adept": [
+      {
+        "id": "el_sealweaver",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 1
+      }
+    ],
+    "grove/el_sealwarden": [
+      {
+        "id": "el_veil_adept",
+        "rank": 1
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 4
+      }
+    ],
+    "grove/el_moonwell_seer": [
+      {
+        "id": "el_sealwarden",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 3
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 5
+      }
+    ],
+    "grove/el_eclipse_unbinder": [
+      {
+        "id": "el_moonwell_seer",
+        "rank": 1
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 6
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 6
+      }
+    ],
+    "grove/el_stag_oracle": [
+      {
+        "id": "el_sealwarden",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 4
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 5
+      }
+    ],
+    "grove/el_drow_ember_novice": [
+      {
+        "id": "el_drow_cinder",
+        "rank": 2
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 1
+      }
+    ],
+    "grove/el_drow_pyromancer": [
+      {
+        "id": "el_drow_ember_novice",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 2
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 3
+      }
+    ],
+    "grove/el_drow_ember_matron": [
+      {
+        "id": "el_drow_pyromancer",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 3
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 5
+      }
+    ],
+    "grove/el_drow_cinderqueen": [
+      {
+        "id": "el_drow_ember_matron",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 6
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 6
+      }
+    ],
+    "grove/el_drow_furnace_seer": [
+      {
+        "id": "el_drow_pyromancer",
+        "rank": 1
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 4
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 5
+      }
+    ],
+    "grove/el_drow_blade_initiate": [
+      {
+        "id": "el_drow_blade",
+        "rank": 2
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 1
+      }
+    ],
+    "grove/el_drow_duelist": [
+      {
+        "id": "el_drow_blade_initiate",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 3
+      }
+    ],
+    "grove/el_drow_ashblade": [
+      {
+        "id": "el_drow_duelist",
+        "rank": 1
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 4
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 5
+      }
+    ],
+    "grove/el_drow_eclipse_duelist": [
+      {
+        "id": "el_drow_ashblade",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_blade",
+        "rank": 6
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 6
+      }
+    ],
+    "grove/el_drow_gloom_initiate": [
+      {
+        "id": "el_drow_acolyte",
+        "rank": 2
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 2
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 1
+      }
+    ],
+    "grove/el_drow_eclipse_priest": [
+      {
+        "id": "el_drow_gloom_initiate",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 2
+      },
+      {
+        "id": "el_grove_archer",
+        "rank": 3
+      }
+    ],
+    "grove/el_veilfire_hierophant": [
+      {
+        "id": "el_drow_eclipse_priest",
+        "rank": 1
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 4
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 5
+      }
+    ],
+    "grove/el_drow_night_hierarch": [
+      {
+        "id": "el_veilfire_hierophant",
+        "rank": 1
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 6
+      },
+      {
+        "id": "el_moonblade",
+        "rank": 6
+      }
+    ],
+    "grove/el_baby_fire_dragon": [
+      {
+        "id": "el_dragon_keeper",
+        "rank": 2
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 2
+      },
+      {
+        "id": "el_drow_acolyte",
+        "rank": 1
+      }
+    ],
+    "grove/el_fire_dragon": [
+      {
+        "id": "el_baby_fire_dragon",
+        "rank": 1
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 3
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 2
+      }
+    ],
+    "grove/el_mother_fire_dragon": [
+      {
+        "id": "el_fire_dragon",
+        "rank": 1
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 4
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 5
+      }
+    ],
+    "grove/el_ancient_patriarch": [
+      {
+        "id": "el_mother_fire_dragon",
+        "rank": 1
+      },
+      {
+        "id": "el_dragon_keeper",
+        "rank": 6
+      },
+      {
+        "id": "el_spark_adept",
+        "rank": 6
+      }
+    ],
+    "grove/ladyclaire": [
+      {
+        "id": "el_spark_adept",
+        "rank": 5
+      },
+      {
+        "id": "el_sealweaver",
+        "rank": 5
+      },
+      {
+        "id": "el_drow_cinder",
+        "rank": 5
+      }
+    ]
+  },
+  "profileHashMethod": "SHA-256 of recursively key-sorted JSON"
+}
