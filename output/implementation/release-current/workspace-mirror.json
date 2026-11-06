@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "mainHeadAndIndexPreserved": true,
+  "runtimeFiles": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "9f255ff8e6ccad1b71d6d09d40b2878cbfcf515a460c2fd59d8a2cc2e1583231"
+    },
+    {
+      "file": "README.md",
+      "sha256": "ec4332bc29cd51cb4f520016407f2552a034cbe051ab0b54a8396e785759db45"
+    },
+    {
+      "file": "backend/SITES_DEPLOYMENT.json",
+      "sha256": "f1144df193438325d1fa2428f1062c9aaf30d85c6b7b2e7a5fad4e9585e4f895"
+    },
+    {
+      "file": "backend/validation.js",
+      "sha256": "9f658b540558131d9022a409fdfdd0f266b09ecb6f78f0cb35c50fde18720e74"
+    },
+    {
+      "file": "data/fr007-r3-approved.json",
+      "sha256": "5780881d6bfae0f2ea3ae4846d8c360b824d34b473f0bbe092089fa95fc3ecbf"
+    },
+    {
+      "file": "docs/DEFENDER_PRESENTATION.md",
+      "sha256": "8cdcbe7233bec6e70fc2b9f40e3246b83f4e8220ef67621a8e8c6cd4e2d5c3be"
+    },
+    {
+      "file": "docs/FR006_FR007_IMPLEMENTATION.md",
+      "sha256": "36e94c11567abb285269aeda3ac43bf494ba854d83ff55b6d452dbf8787438b2"
+    },
+    {
+      "file": "docs/FR007_RANK_I_RECIPE_VARIANT_20261106.md",
+      "sha256": "da07f9bee89d4d6a11a9d7479e368f81c85992a616284296fd4bd359298adb36"
+    },
+    {
+      "file": "game/core/fr006-fr007-registry.js",
+      "sha256": "9c1a06b1ee606f0973ed29b7408e7095acc3418f47fbf484bf8cb47c5315dfad"
+    },
+    {
+      "file": "game/release.js",
+      "sha256": "2298cfe1c3cb4ee1ca756b63a4c0db601c925c51a357aec7140284e1dcb164aa"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/dwarf-plan.json",
+      "sha256": "467c1ca7d36a1a9f611adcb4b68ec44e40e3cbef7575a581000b46ac274489a4"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/elf-plan.json",
+      "sha256": "185dc7b0b71131ed5278a89f56a35f25819d52ac673127f657d9494798172c5e"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/implementation-handoff.json",
+      "sha256": "a7178529da7503e901ab6ee891cea835a19a8056a839cc8a18e0b1f5a4bd325f"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/material-changes.json",
+      "sha256": "d93b06b27c3ae53655a15fc627c2740398e6f8149055386cadc38b51d40f3cdb"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/preview-config.json",
+      "sha256": "54ba9405adf62e54ee6295374e8d4aed52772d98e9bb8ad02808c398c874a883"
+    },
+    {
+      "file": "output/design/fr007-rank1-current/successor-counts.json",
+      "sha256": "8f2f4909ff1e483a6facd7d4e1de4ad9efdd0f82776a6742cad05f1ba7e1f4f7"
+    },
+    {
+      "file": "package.json",
+      "sha256": "8b40b1978f7faa13f38ddef3966b2cc144233a5b9254dc0334a842b969aa59e8"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "4c9c752da82f593aa13983f2e8b96e89b61e8d7d0bf358981ea616696148be8b"
+    },
+    {
+      "file": "tests/fr005-statistics.test.mjs",
+      "sha256": "54a057a7214be392ccf3509bcdfc54778c5af718c6cc1ef6c3edc9ba7ee95272"
+    },
+    {
+      "file": "tests/fr007-data.test.mjs",
+      "sha256": "58b23140ff4eb2ba9b44bf23f008dde0217483032d402c00e2bba6c80e9800eb"
+    },
+    {
+      "file": "tests/fr007-r3.test.mjs",
+      "sha256": "cb38b83fbb75c288de724312b385462036ca8706aa16c5b202fffc48265b8f64"
+    },
+    {
+      "file": "tools/apply-defender-presentation-gallery.mjs",
+      "sha256": "0e21a092bc280df6bd809a49bf8741669f5f84a81215ee6856ac5cba0cac865b"
+    },
+    {
+      "file": "tools/apply-fr007-r3-gallery.mjs",
+      "sha256": "7f57ae1fa031f894459edeea767b4c17de7a377eb65198c5fa2a87e995dc8796"
+    },
+    {
+      "file": "tools/current-datasets.mjs",
+      "sha256": "d02ed4859930b01ee157a425f817789f161b5e0705bb3a0b7cea7d7a67167cb3"
+    },
+    {
+      "file": "tools/verify-fr007-r3-gallery.mjs",
+      "sha256": "ddba3e37d614fbe8583b73460306fff791940b2ff94ac883be019c907957b866"
+    }
+  ],
+  "productionFiles": 1004,
+  "productionUpdated": 5,
+  "retiredProductionFiles": [
+    "assets\\game-Ye4oq5LE.js"
+  ],
+  "canonicalGalleryFiles": [
+    "sites/defender-faction-atlas-20261021/dist/atlas-current.json",
+    "sites/defender-faction-atlas-20261021/dist/ability-catalogue-current.json",
+    "sites/defender-faction-atlas-20261021/dist/preview-config.json",
+    "sites/defender-faction-atlas-20261021/dist/preview-manifest.json",
+    "sites/defender-faction-atlas-20261021/dist/gallery-current.mjs",
+    "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.json",
+    "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.csv",
+    "sites/defender-faction-atlas-20261021/dist/index.html",
+    "design/gallery/canonical-gallery.json",
+    "sites/defender-faction-atlas-20261021/dist/runtime-implementation.json",
+    "sites/defender-faction-atlas-20261021/dist/defender-presentation.json",
+    "sites/defender-faction-atlas-20261021/dist/battlefield-presentation.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
+    "sites/defender-faction-atlas-20261021/scripts/verify-current-gallery.mjs"
+  ],
+  "publicGalleryUnchanged": true,
+  "finalPublishedVersion": "0.6.11",
+  "publicCommit": "1778614003c0922bb0287ecf1c260d46e2bd3861"
+}

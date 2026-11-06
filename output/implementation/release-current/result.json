@@ -2,7 +2,7 @@
   "version": "0.6.11",
   "rulesetRevision": "fr006-fr007-r3-20261106",
   "implemented": true,
-  "published": false,
+  "published": true,
   "requirements": [
     "FR-006",
     "FR-007 revision 3",
@@ -18,5 +18,18 @@
   },
   "publicBuildPassed": true,
   "galleryDistribution": "local-only",
-  "originalArtworkAndModelsPreserved": true
+  "originalArtworkAndModelsPreserved": true,
+  "publicUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "publicCommit": "1778614003c0922bb0287ecf1c260d46e2bd3861",
+  "testedSourceCommit": "03e5b9a72d173415347c2044fd9350142efc1650",
+  "statisticsVersion": "0.6.11",
+  "statisticsDeploymentId": "appgdep_6aedfa1463ac8191b7279ee30027d63f",
+  "verification": {
+    "deployment": "deployment.json",
+    "publicFiles": "public-verification.json",
+    "publicBrowser": "public-browser.json",
+    "statistics": "statistics-public-verification.json",
+    "localGallery": "gallery-verification.json",
+    "workspace": "workspace-mirror.json"
+  }
 }

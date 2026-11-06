@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "version": "0.6.11",
+  "commit": "1778614003c0922bb0287ecf1c260d46e2bd3861",
+  "sourceCommit": "03e5b9a72d173415347c2044fd9350142efc1650",
+  "ci": {
+    "id": 42249263283,
+    "head_sha": "1778614003c0922bb0287ecf1c260d46e2bd3861",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42249263283"
+  },
+  "jobs": [
+    {
+      "id": 127999639234,
+      "name": "build",
+      "conclusion": "success"
+    },
+    {
+      "id": 128004156680,
+      "name": "deploy",
+      "conclusion": "success"
+    }
+  ],
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "galleryPublished": false,
+  "scoresSubmitted": false
+}
