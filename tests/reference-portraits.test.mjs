@@ -37,7 +37,7 @@ test('rank and fixed-champion lookup never falls back to another identity',()=>{
 
 test('image-map aliases preserve current consumers without reserving an unknown or wall identity',()=>{
   const images=referencePortraitImageMap({base:'/project',revision:'ui review 2'});
-  assert.equal(Object.keys(images).length,182);
+  assert.equal(Object.keys(images).length,183);
   assert.equal(images.archer,images['archer:1']);assert.notEqual(images['archer:1'],images['archer:2']);
   assert.equal(images.frostblade,images['frostblade:1']);assert.equal(images['frostblade:2'],undefined);
   assert.equal(images['enemy:host_50'],'/project/assets/ui/reference-enemy-fronts/host_50.png?v=ui%20review%202');

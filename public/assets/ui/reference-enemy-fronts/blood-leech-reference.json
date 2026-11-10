@@ -1,0 +1,36 @@
+{
+  "id": "host_38-wraith",
+  "name": "Blood-Leech Trolls",
+  "view": "FRONT",
+  "revision": "blood-leech-recovered-reference-fr008-20261106",
+  "sourceKind": "Recovered current model-authoring reference crop",
+  "source": "output/design/enemies-reconstruction-v6/references/view-crops/host_38-wraith/front.png",
+  "sourceSha256": "bed939409a76785f127fe5ca2bb0994590914dfe5f9e4c320f3415d753c76cc8",
+  "parentSheet": "output/design/enemies-reconstruction-v6/references/inferred-variants/host_38-wraith.png",
+  "parentSheetSha256": "930ae56f7f626c1524c278b0d10e55b6d3dc579b09b316117e1590d23c3f03f6",
+  "parentEvidenceKind": "Generated inferred variant reference recorded by the V6 modeling package; no new human appearance approval is claimed.",
+  "sourceRectangle": [
+    4,
+    4,
+    380,
+    312
+  ],
+  "trimRectangle": [
+    42,
+    11,
+    331,
+    307
+  ],
+  "output": "public/assets/ui/reference-enemy-fronts/host_38-wraith.png",
+  "sha256": "cfd00482d756e645f227dc6ef699d49ba681bfc323b924aad1f8d7695e4bdb59",
+  "dimensions": [
+    289,
+    296
+  ],
+  "preservedRgb": true,
+  "resampled": false,
+  "operation": "Existing deterministic alpha-only UI pipeline; trim caption and transparent margins only",
+  "modelRenderFallbackUsed": false,
+  "sourceModel": "public/assets/geometric/approved-enemies-v6/host_38-wraith.glb",
+  "sourceModelSha256": "900aaeb6854215cc64081486943af6424a669872f39a6f616a7675b0bfaf83b5"
+}

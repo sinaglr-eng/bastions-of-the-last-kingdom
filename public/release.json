@@ -1,5 +1,5 @@
 {
-  "version": "0.6.11",
+  "version": "0.6.12",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
   "date": "2026-11-06",
@@ -40,11 +40,11 @@
   "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
   "brandRevision": "forged-alliances-20261030-v3",
   "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
-  "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
+  "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
   "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
   "motionRevision": "approved-faction-motion-v3",
   "vfxRevision": "faction-weapon-surfaces-20261030-v3",
-  "balanceRevision": "fr006-fr007-r3-20261106",
+  "balanceRevision": "fr008-r1-20261106",
   "factions": [
     {
       "id": "crown",
@@ -65,18 +65,27 @@
   "championAuraRevision": "canonical-faction-classes-20261030-v2",
   "babyFireDragonPresentationScale": 3.85,
   "abilityRevision": "fr005-r2-combat-refinements-20261102",
-  "rulesetRevision": "fr006-fr007-r3-20261106",
+  "rulesetRevision": "fr008-r1-20261106",
   "targetingRevision": "dwarf-ground-and-air-20261102",
   "largeEnemyPresentationScale": 0.75,
   "largeEnemyPresentationModels": 12,
   "championWarmModelLimit": 2,
   "requirements": [
     "FR-006",
-    "FR-007 revision 3"
+    "FR-007 revision 3",
+    "FR-008"
   ],
   "humanPresentationRevision": "defender-size-feedback-20261106",
   "defenderPresentationRevision": "defender-size-feedback-20261106",
   "defenderBattlefieldScale": 0.8,
   "basicChampionSizeReference": "own-faction ordinary draft median",
-  "recipeRevision": 3
+  "recipeRevision": 3,
+  "rankDecorationRevision": "no-basic-rank-rings-fr008",
+  "defenderVoiceRevision": "voice-completion-20261110-v4-02d1a9224942",
+  "defenderVoicedCharacters": 136,
+  "defenderVoiceRecordings": 272,
+  "defenderVoiceNewRecordings": 190,
+  "defenderVoiceModel": "eleven_v4",
+  "defenderVoiceUpdated": "2026-11-10",
+  "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json"
 }

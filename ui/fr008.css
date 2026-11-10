@@ -1,0 +1,15 @@
+.enemy-variant-portraits{display:flex;gap:8px;align-items:start;max-width:160px;flex-shrink:0}
+.enemy-variant-portraits>span{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;flex:1}
+.enemy-variant-portraits img{width:54px!important;height:64px!important;object-fit:contain;margin:0 auto}
+.enemy-variant-portraits small{font-size:10px;line-height:1.2;text-align:center;overflow-wrap:anywhere}
+#app .warbands-atlas .has-variant-portraits .warband-illustrated-comparison{display:block}
+#app .warbands-atlas .has-variant-portraits .warband-profile-reading{width:100%;min-width:0}
+#app .warbands-atlas .has-variant-portraits .warband-variant-columns{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}
+.warband-atlas-comparison .warband-variant>header>img{display:block;width:100%;height:clamp(110px,22vh,220px);object-fit:contain;margin:0 auto 8px}
+.wave-enemy-variant>img{width:64px;height:80px;object-fit:contain;float:left;margin:0 10px 6px 0}
+@media(max-width:560px){.enemy-variant-portraits{max-width:130px}.enemy-variant-portraits img{width:42px!important;height:54px!important}.warband-atlas-comparison .warband-variant>header>img{height:130px}}
+
+@media(max-width:600px){#app .warbands-atlas .has-variant-portraits .warband-variant-columns{grid-template-columns:1fr}}
+
+@media(min-width:601px) and (max-width:850px){#app .warbands-atlas .has-variant-portraits .warband-shared-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 0}#app .warbands-atlas .has-variant-portraits .warband-shared-stats>div:nth-child(4){border-left:0}}
+#app .warbands-atlas .has-variant-portraits .warband-shared-stats dd{white-space:nowrap}

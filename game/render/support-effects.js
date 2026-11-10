@@ -140,16 +140,16 @@ export function enemyStatusState(enemy,towers,data,options={}){
   const statuses=enemy.statuses||{},effects=new Map();
   const add=(key,value)=>{if(value>0)effects.set(key,{key,...ENEMY_EFFECT_STYLES[key],value:Math.max(value,effects.get(key)?.value||0)});};
   let slow=statusEffectAllowed(enemy,'slow')?Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0):0,armor=statuses.shred?.amount||0;
+  const immunity=immunityAuraCoverage(enemy,towers,data),skyContext={data,towers,immunityCoverage:immunity};
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
-    slow=Math.max(slow,skyHuntSlow(s,tower,enemy));
+    slow=Math.max(slow,skyHuntSlow(s,tower,enemy,skyContext));
     if(tower.attackPaused)continue;
     if(slowAuraApplies(s,enemy)&&d<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);
     if(d<=offensiveAuraRange(s,'armor'))armor=Math.max(armor,s.armorShredAura||0);
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
   add('slow',slow);add('armor',armor);
-  const immunity=immunityAuraCoverage(enemy,towers,data);
   if(immunity){if(enemy.physicalImmune)add('physicalPass',immunity.physical.multiplier);if(enemy.magicImmune)add('magicalPass',immunity.magical.multiplier);}
   for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
   if(statusEffectAllowed(enemy,'healBlock')&&statuses.regenReduction?.time>0)add('regenReduction',statuses.regenReduction.amount);

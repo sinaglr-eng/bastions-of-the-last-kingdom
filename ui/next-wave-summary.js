@@ -1,3 +1,5 @@
+import {enemyPortraitImage} from './reference-portraits.js';
+import {enemyGroupPortraits} from './enemy-portraits.js';
 import {icon} from './icons.js';
 import {enemyDefenseGlyph} from './enemy-trait-symbols.js';
 import {ENEMY_DEFENSE_SYMBOLS} from '../game/render/enemy-defense-symbols.js';
@@ -45,7 +47,7 @@ function summaryParts(model,images={},options={}){
   const numberLabel=Number.isSafeInteger(next.number)&&next.number>0?next.number:'?',enemies=(Array.isArray(next.enemies)?next.enemies:[]).filter(enemy=>enemy&&typeof enemy==='object');
   const summary=`<span class="next-wave-heading"><strong>Next wave ${escape(numberLabel)}</strong><small>${quantity(next.totalCount)} ${next.totalCount===1?'invader':'invaders'}</small></span>`;
   const body=`<h2 class="next-wave-name">${escape(next.name||'Upcoming wave')}</h2>${enemies.some(enemy=>enemy.variants?.length>1)?'<p class="next-wave-variant-note">Variants may mix. Values marked Possible depend on the variant.</p>':''}${enemies.length?enemies.map(enemy=>{
-    const portrait=images['enemy:'+enemy.type],heading=`${portrait?`<img src="${escape(portrait)}" alt="" draggable="false">`:`<span class="next-wave-placeholder" aria-hidden="true">${icon(enemy.boss?'crown':'shield')}</span>`}<h3>${quantity(enemy.count)} × ${escape(enemy.name||'Unknown invader')}</h3>`;
+    const portrait=enemyGroupPortraits(enemy,images),heading=`${portrait?portrait:`<span class="next-wave-placeholder" aria-hidden="true">${icon(enemy.boss?'crown':'shield')}</span>`}<h3>${quantity(enemy.count)} × ${escape(enemy.name||'Unknown invader')}</h3>`;
     return `<article class="next-wave-group"><header>${heading}</header>${health(enemy)}${defenses(enemy)}</article>`;
   }).join(''):'<p class="next-wave-no-traits">Enemy composition unavailable.</p>'}`;
   return {summary,body,kind:'next-wave-summary',summaryLabel:`Next wave ${numberLabel}; ${quantity(next.totalCount)} invaders`,bodyLabel:'Next wave resistances and abilities',scrollSelector:'.next-wave-summary-body',open:options.open!==false};

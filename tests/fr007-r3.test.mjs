@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {loadCurrentDatasets} from '../tools/current-datasets.mjs';import {applyFr006Fr007Registry} from '../game/core/fr006-fr007-registry.js';import {Game} from '../game/core/game.js';import {expandRecipeToBasics,matchingIngredients} from '../game/core/recipes.js';
-const read=f=>JSON.parse(fs.readFileSync(new URL('../'+f,import.meta.url))),handoff=read('output/design/fr007-rank1-current/implementation-handoff.json'),plans=['dwarf','elf'].map(n=>read('output/design/fr007-rank1-current/'+n+'-plan.json')),data=loadCurrentDatasets(),before=loadCurrentDatasets({revision:'fr006r2'});
+const read=f=>JSON.parse(fs.readFileSync(new URL('../'+f,import.meta.url))),handoff=read('output/design/fr007-rank1-current/implementation-handoff.json'),plans=['dwarf','elf'].map(n=>read('output/design/fr007-rank1-current/'+n+'-plan.json')),data=loadCurrentDatasets({revision:'fr007r3'}),before=loadCurrentDatasets({revision:'fr006r2'});
 test('FR-007 revision 3 implements all 16 exact latest deltas and 51 material totals, preserving every combat profile, model and Human/Secret recipe',()=>{
  assert.equal(handoff.revision,3);assert.equal(handoff.recipeChanges.length,16);assert.equal(handoff.materialChanges.length,51);
  let changed=0,materials=0,profiles=0;

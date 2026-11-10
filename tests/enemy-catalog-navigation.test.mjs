@@ -202,7 +202,7 @@ test('illustrated atlas statistic cells use each real shared value once and keep
       assert.equal(cells.length,Object.hasOwn(model.commonStats,key)?1:0,`Wave ${index+1}: ${key}`);
       if(cells.length)assert.equal(values[key],key==='flying'?(model.commonStats[key]?'Air':'Ground'):enemyNumber(model.commonStats[key]));
     }
-    assert.equal(host.querySelectorAll('.warband-atlas-portrait').length,1);
+    assert.equal(host.querySelectorAll('.warband-atlas-portrait').length,index===37?0:1);
     assert.equal(host.querySelectorAll('.warband-lore').length,1);
     assert.equal(host.querySelector('.warband-lore').open,true);
     assert.equal(host.querySelector('.warbands-atlas-legend'),null);

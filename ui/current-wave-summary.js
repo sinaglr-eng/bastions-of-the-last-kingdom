@@ -1,3 +1,4 @@
+import {enemyPortraitImage} from './reference-portraits.js';
 import {currentWarbandInfo} from '../game/core/warband-info.js';
 import {enemyNumber} from '../game/core/enemy-rules.js';
 import {enemyTraitsMarkup} from './enemy-trait-symbols.js';
@@ -14,7 +15,7 @@ function summaryParts(game,data,images,options){
   const profiles=currentWarbandInfo(game),live=game.combat.enemies.filter(enemy=>!enemy.dead).length,queued=game.combat.spawnQueue.length,remaining=live+queued,wave=count(game.round);
   const summary=`<span class="current-wave-heading"><strong>Current wave ${wave}</strong><small>${remaining} remaining · ${live} on field · ${queued} queued</small></span>`;
   const body=`<h2 class="current-wave-name">${escape(game.wave?.name||`Wave ${wave}`)}</h2>${profiles.map(row=>{
-    const portrait=images['enemy:'+row.type];
+    const portrait=enemyPortraitImage(images,row);
     return `<article class="current-wave-summary-group"><header>${portrait?`<img src="${escape(portrait)}" alt="" draggable="false">`:''}<h3>${count(row.count)} × ${escape(row.name||'Invaders')}</h3></header><p>${count(row.liveCount)} on field · ${count(row.queuedCount)} queued</p><p>${number(row.maxHp)} maximum HP each · ${number(row.armor)} armor · ${row.flying?'Airborne':'Ground'}</p>${enemyTraitsMarkup(row.traitDetails)}</article>`;
   }).join('')||'<p class="current-wave-empty">No invaders remain.</p>'}<button type="button" class="text-button current-wave-inspect" data-action="inspect-wave" data-overlay-focus="inspect-wave">Inspect current wave</button>`;
   return {summary,body,kind:'current-wave-summary',summaryLabel:`Current wave ${wave}; ${remaining} remaining; ${live} on field; ${queued} queued`,bodyLabel:'Current wave resistances and abilities',scrollSelector:'.current-wave-summary-body',open:options.open!==false};

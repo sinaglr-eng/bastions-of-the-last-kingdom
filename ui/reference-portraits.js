@@ -8,7 +8,7 @@ export const ENEMY_FRONT_PORTRAIT_REVISION='enemy-front-cutouts-20261018-v1';
 const basicFamilies=['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker'];
 const championFamilies=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire','royalmarshal','stonewarden','wyvernhunter','royalarsenal','rangermentor','kingdomprotector','mothernature','royalranger','kingsrangerguard','elvenking','fireballista','emeraldgolem','griffinbomber','mechanicalgolem','monk','archbishop','archangel','ladyclaire'];
 const basics=new Set(basicFamilies),champions=new Set(championFamilies);
-const enemyIds=Array.from({length:50},(_,index)=>`host_${String(index+1).padStart(2,'0')}`);
+const enemyIds=[...Array.from({length:50},(_,index)=>`host_${String(index+1).padStart(2,'0')}`),'host_38-wraith'];
 const enemies=new Set(enemyIds);
 const identities=new Set([...basicFamilies.flatMap(family=>Array.from({length:6},(_,index)=>`${family}-${index+1}`)),...championFamilies,...enemyIds]);
 
@@ -28,6 +28,12 @@ export function referenceDefenderPortrait(family,tier=1,options){
 
 export function referenceEnemyPortrait(id,options){
   return enemies.has(id)?referencePortrait(id,options):null;
+}
+
+// Explicit visual identities never borrow another variant's portrait.
+export function enemyPortraitImage(images,enemy){
+ const id=typeof enemy==='string'?enemy:enemy?.visualAsset||enemy?.type;
+ return images?.['enemy:'+id]||null;
 }
 
 export function referencePortraitImageMap(options){

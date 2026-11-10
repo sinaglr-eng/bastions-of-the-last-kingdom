@@ -9,7 +9,7 @@ export function configuredWarbandInfo(definition,modifiers={},rules=ENEMY_RULES)
   const maxHp=selected.hp*(modifiers.hp||1);
   const enemy={...selected,hp:maxHp,maxHp,armor:selected.armor+(modifiers.armor||0),speed:selected.speed*(modifiers.speed||1)};
   delete enemy.resists;const traitDetails=warbandTraitDetails(enemy,rules);
-  return {name:enemy.name,maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails};
+  return {name:enemy.name,...(enemy.visualAsset?{visualAsset:enemy.visualAsset}:{}),maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails};
 }
 
 export function warbandVariantInfo(definition,modifiers={}){
@@ -21,14 +21,14 @@ export function warbandVariantInfo(definition,modifiers={}){
 export function currentWarbandInfo(game) {
   const rules=enemyRulesFor(game),rows=new Map(),types=new Set(game.wave.groups.map(group=>group.type));
   const add=(type,info,source)=>{
-    const key=JSON.stringify([type,info.name,info.maxHp,info.armor,info.speed,info.flying,info.traitDetails]);
+    const key=JSON.stringify([type,info.visualAsset,info.name,info.maxHp,info.armor,info.speed,info.flying,info.traitDetails]);
     if(!rows.has(key))rows.set(key,{type,count:0,liveCount:0,queuedCount:0,...info});
     const row=rows.get(key);row.count++;row[source+'Count']++;
   };
   for(const type of types){
     for(const enemy of game.combat.enemies)if(enemy.type===type&&!enemy.dead){
       const traitDetails=warbandTraitDetails(enemy,rules);
-      add(type,{name:enemy.name,maxHp:enemy.maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails},'live');
+      add(type,{name:enemy.name,...(enemy.visualAsset?{visualAsset:enemy.visualAsset}:{}),maxHp:enemy.maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails},'live');
     }
     for(const queued of game.combat.spawnQueue)if(queued.type===type)add(type,configuredWarbandInfo({...game.data.enemies[type],type},queued.modifiers,rules),'queued');
   }

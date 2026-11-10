@@ -18,6 +18,7 @@ import {WALL_DECK_HEIGHT} from '../game/render/walls.js';
 import {disposeGeometricResources} from '../game/render/geometric-resources.js';
 import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
 import {disposeAttack} from '../game/render/battle-animation.js';
+import {loadCurrentDatasets} from '../tools/current-datasets.mjs';
 
 const jsonHooks=registerHooks({load(url,context,nextLoad){
   if(url.startsWith('file:')&&url.endsWith('.json'))return {format:'module',source:`export default JSON.parse(${JSON.stringify(readFileSync(new URL(url),'utf8'))});`,shortCircuit:true};
@@ -44,14 +45,33 @@ function withCanvas(run){
   const original=globalThis.document;globalThis.document={createElement:()=>({width:0,height:0,getContext:()=>({createRadialGradient:()=>({addColorStop(){}}),fillRect(){}})})};
   try{return run();}finally{if(original===undefined)delete globalThis.document;else globalThis.document=original;}
 }
-function fixture(units){
-  const game=new Game(data,{seed:42});game.phase='ready';game.towers=units;
+function fixture(units,rules=data){
+  const game=new Game(rules,{seed:42});game.phase='ready';game.towers=units;
   const source=new THREE.Group();source.add(new THREE.Mesh(new THREE.BoxGeometry(.5,1,.5),new THREE.MeshBasicMaterial()));
   const field=Object.create(Battlefield.prototype);
   Object.assign(field,{game,scene:new THREE.Scene(),models:new Map(),enemies:new Map(),templates:new Map(),imported:new Map(),template:()=>source,updateCampPreview(){},rebuildPath(){},draftMarkers:{sync(){}},commandMoveEffects:{sync(){}},reservedDefenderEffects:{sync(){}},supportEffects:{sync(){}},selectionRing:new THREE.Group(),enemySelectionRing:new THREE.Group(),range:new THREE.Group(),grid:new THREE.Group(),pathGroup:new THREE.Group(),rangeGroup:new THREE.Group(),ghost:new THREE.Group(),maze:{editing:false,sync(){}},showGrid:false,showPath:false,showRanges:false});
   const close=()=>{for(const value of field.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);}disposeGeometricResources([source,...field.templates.values()]);};
   return {field,game,source,close};
 }
+
+verify('FR008 actual reserved-model sync omits rings for all 144 basic ranks and preserves all 114 champion class identities',()=>withCanvas(()=>{
+  let basics=0,champions=0;
+  for(const rules of Object.values(loadCurrentDatasets()))for(const [family,profile] of Object.entries(rules.towers))for(let tier=1;tier<=(profile.advanced?1:6);tier++){
+    const unit={id:1,family,tier,state:'reserved',x:10,z:10,kills:0,cooldown:0},f=fixture([unit],rules);
+    try{
+      f.field.sync();let model=f.field.models.get(1);assert.ok(model);
+      if(profile.advanced){champions++;const aura=createChampionAura(family);assert.ok(aura);ensureColors(aura,family==='archangel'?'#ffe5a3':expectedColors[championClassification(family)]);disposeChampionAura(aura);}
+      else{
+        basics++;assert.equal(model.aura,null);const ringGeometries=[];model.actor.traverse(o=>{if(o.geometry?.type==='RingGeometry')ringGeometries.push(o.geometry);});assert.equal(ringGeometries.length,0,`${family} ${tier}`);
+        assert.equal(!!model.actor.getObjectByName('Mythic aura'),tier===6);
+      }
+      unit.state='reserved';unit.x=11;f.field.sync();model=f.field.models.get(1);assert.ok(model.actor);assert.equal(model.aura,null);
+      unit.state='ruin';f.field.sync();assert.equal(f.field.models.get(1).aura,null);
+      f.game.towers=[];f.field.sync();assert.equal(f.field.models.size,0);
+    }finally{f.close();}
+  }
+  assert.equal(basics,144);assert.equal(champions,114);
+}));
 
 verify('all champion aura classes retain existing hues under the separate multiplicative class scale',()=>{
   assert.deepEqual(CHAMPION_AURA_COLORS,expectedColors);
@@ -85,10 +105,10 @@ verify('repeated class and battlefield transforms preserve animated aura colors 
   finally{disposeChampionAura(aura);}
 });
 
-verify('ordinary ranks I–VI keep their existing colored rank signals and unscaled Mythic orbiting radiance',()=>withCanvas(()=>{
+verify('ordinary ranks I–VI have no underfoot ring and retain separate Mythic orbiting radiance',()=>withCanvas(()=>{
   for(const family of Object.keys(data.towers).filter(id=>!data.towers[id].advanced))for(let tier=1;tier<=6;tier++){
     const actor=new THREE.Group(),adornment=rankAdornment(tier),before=buffers(adornment);actor.add(adornment);applyDefenderClassificationScale(actor,family);scaleBattlefieldUnit(actor);
-    try{near(actor.scale.x,BATTLEFIELD_UNIT_SCALE);assert.equal(createChampionAura(family),null);assert.deepEqual(buffers(adornment),before);assert.equal(adornment.children[0].material.color.getHexString(),new THREE.Color(rankColor(tier)).getHexString());
+    try{near(actor.scale.x,BATTLEFIELD_UNIT_SCALE);assert.equal(createChampionAura(family),null);assert.deepEqual(buffers(adornment),before);assert.ok(!adornment.children.some(node=>node.geometry?.type==='RingGeometry'));if(tier!==6)assert.equal(adornment.children.length,0);
       if(tier===6){assert.equal(adornment.name,'Mythic aura');const stars=adornment.getObjectByName('Orbiting radiance');assert.equal(stars.children.length,8);animateRank(actor,2);near(stars.rotation.y,1.3);near(stars.position.y,Math.sin(4)*.04);assert.ok(adornment.children.some(node=>node.isSprite&&node.material.map.isTexture));}
     }finally{disposeRankAdornment(actor);}
   }

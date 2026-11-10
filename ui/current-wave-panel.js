@@ -1,3 +1,4 @@
+import {enemyPortraitImage} from './reference-portraits.js';
 import {currentWarbandInfo} from '../game/core/warband-info.js';
 import {enemyNumber} from '../game/core/enemy-rules.js';
 import {enemyTraitsMarkup} from './enemy-trait-symbols.js';
@@ -16,7 +17,7 @@ export function currentWavePanelMarkup(game,{images={},rows}={}){
     <div class="current-wave-remaining" role="status" aria-live="off"><strong>${remaining}</strong><span>invaders remaining</span></div>
     <p class="current-wave-counts">${live} on the field · ${queued} approaching</p>
     <div class="current-wave-profiles">${profiles.map(row=>{
-      const portrait=images['enemy:'+row.type];
+      const portrait=enemyPortraitImage(images,row);
       return `<article class="current-wave-profile"><div class="current-wave-profile-heading">${portrait?`<img src="${escape(portrait)}" alt="" draggable="false">`:''}<div><span class="current-wave-profile-movement">${row.flying?'AIRBORNE':'GROUND'}</span><h3>${escape(row.name||'Invaders')}</h3><p>${count(row.count)} remaining · ${count(row.liveCount)} on field · ${count(row.queuedCount)} approaching</p></div></div>
         <dl class="current-wave-profile-stats"><div><dt>Maximum health</dt><dd>${number(row.maxHp)} HP</dd></div><div><dt>Armor</dt><dd>${number(row.armor)}</dd></div><div><dt>Base speed</dt><dd>${number(row.speed)} tiles/s</dd></div></dl>
         ${enemyTraitsMarkup(row.traitDetails)}

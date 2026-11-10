@@ -1,3 +1,4 @@
+import '../ui/fr008.css';
 import {withTowerStatSnapshot} from './core/math.js';
 import {releaseAsset} from './release.js';
 import factionRegistry from '../data/factions-v060.json';
@@ -5,6 +6,7 @@ import {applyFr002Registry} from './core/fr002-registry.js';
 import {applyFr003Registry} from './core/fr003-registry.js';
 import {applyFr004Registry} from './core/fr004-registry.js';
 import {applyFr006Fr007Registry} from './core/fr006-fr007-registry.js';
+import {applyFr008Registry} from './core/fr008-registry.js';
 import {applyFr005Registry} from './core/fr005-registry.js';
 import {createFactionData} from './core/factions.js';
 import {decodedModelBytes} from './render/packed-model.js';
@@ -63,8 +65,8 @@ import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import '../ui/mvp-details.css';
 import {Battlefield,makeThumbnails} from './render/world.js';
 import {AudioManager} from './audio/audio.js';
-import {ALLIED_VOICE_CATALOGUE} from './audio/voice-assets.js';
-import {AUDIO_BANK_CATALOGUE,recordedAudioBankReview} from './audio/audio-assets.js';
+import {CURRENT_DEFENDER_VOICE_CATALOGUE,CURRENT_VOICE_REVIEW} from './audio/current-voice-assets.js';
+import {AUDIO_BANK_CATALOGUE,recordedAudioBankReview,RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT} from './audio/audio-assets.js';
 import {recordedVoiceReview} from './audio/voice-review.js';
 import {rankColor} from './render/ranks.js';
 import {icon} from '../ui/icons.js';
@@ -120,9 +122,10 @@ import {updateCurrentWaveSummaryPanel} from '../ui/current-wave-summary.js';
 import {CommandPointerInput} from '../ui/command-pointer-input.js';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
 
+const audioReviewClipCount=CURRENT_VOICE_REVIEW.expected+RECORDED_ATTACK_TYPE_COUNT+RECORDED_MUSIC_TRACK_COUNT;
 let towers=campaignTowers(historicalTowers),recipes=campaignRecipes(historicalRecipes),enemies=campaignEnemies(historicalEnemies),waves=campaignWaves(historicalWaves);
 let data={balance,towers,enemies,waves,recipes};const currentCampaign=data,profile=loadProfile(),audio=new AudioManager(profile.muted,{categoryVolumes:profile.audioVolumes}),roman=ROMAN;
-void audio.loadSelectionCatalogue(new URL(siteUrl(ALLIED_VOICE_CATALOGUE),document.baseURI).href);
+void audio.loadSelectionCatalogue(new URL(siteUrl(CURRENT_DEFENDER_VOICE_CATALOGUE),document.baseURI).href);
 void audio.loadRecordedCatalogue(new URL(siteUrl(AUDIO_BANK_CATALOGUE),document.baseURI).href);
 const params=new URLSearchParams(location.search);const debug=import.meta.env.DEV&&params.has('debug');
 let game,world,statistics,images,dpsTracker,dpsMeasurement,dpsWave=null,toastTimer,uiClock=0,previous=performance.now(),modalPaused=false,recipeFocus=null;
@@ -345,7 +348,7 @@ async function openDeveloperConsole(){
   });
   await developerSession.activate();
   openDialog(`${dialogHeader('Run-local test tools','Developer Console')}<div class="dialog-body">${developerConsoleMarkup(developerSession)}</div>`);
-  $('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend','<section class="developer-audio-review"><h3>Graphics recovery check</h3><button type="button" class="text-button" data-action="frame-recovery-review">Test paused recovery</button><p>Triggers one drawing error in this excluded test run. Combat must pause and require recovery before you resume.</p><h3>Recorded audio check</h3><button type="button" class="text-button" data-action="audio-bank-review">Check all 113 approved audio clips</button><p id="audio-review-status" role="status">Silent browser decoding: 92 voices, 15 attack sounds and 6 music tracks.</p><details><summary>Decode report</summary><pre id="audio-review-report" style="max-height:250px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>');
+  $('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend',`<section class="developer-audio-review"><h3>Graphics recovery check</h3><button type="button" class="text-button" data-action="frame-recovery-review">Test paused recovery</button><p>Triggers one drawing error in this excluded test run. Combat must pause and require recovery before you resume.</p><h3>Recorded audio check</h3><button type="button" class="text-button" data-action="audio-bank-review">Check all ${audioReviewClipCount} recorded audio clips</button><p id="audio-review-status" role="status">Silent browser decoding: ${CURRENT_VOICE_REVIEW.expected} voices, ${RECORDED_ATTACK_TYPE_COUNT} attack sounds and ${RECORDED_MUSIC_TRACK_COUNT} music tracks.</p><details><summary>Decode report</summary><pre id="audio-review-report" style="max-height:250px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>`);
   developerConnection=connectDeveloperConsole($('dialog-content'),developerSession,{onMutation:action=>{if(action==='simulation')modalPaused=game.paused;threatAnalyzer=new WaveThreatAnalyzer(game.data);armyReadiness=new ArmyReadiness(game.data);intelligenceKey=null;world.sync();render();},onRun:()=>{modalPaused=game.paused;closeDialog();}});
   render();
 }
@@ -353,9 +356,9 @@ async function reviewRecordedVoices(button){
   if(!debug)return;
   const status=$('audio-review-status'),report=$('audio-review-report');
   if(!status||!report)return;
-  button.disabled=true;status.textContent='Decoding all 92 recorded voices…';report.textContent='';
+  button.disabled=true;status.textContent=`Decoding all ${CURRENT_VOICE_REVIEW.expected} recorded voices…`;report.textContent='';
   try{
-    const result=await recordedVoiceReview(audio);
+    const result=await recordedVoiceReview(audio,CURRENT_VOICE_REVIEW);
     if(!status.isConnected)return;
     status.textContent=result.status==='unavailable'?result.reason:result.status.toUpperCase()+': '+result.decoded+' / '+result.expected+' clips decoded · '+result.totalDurationSeconds.toFixed(2)+' seconds · '+result.sampleRates.map(rate=>rate.toLocaleString('en-US')+' Hz').join(', ');
     status.dataset.decodeStatus=result.status;report.textContent=JSON.stringify(result,null,2);
@@ -365,16 +368,16 @@ async function reviewRecordedVoices(button){
 async function reviewAllRecordedAudio(button){
   if(!game.developerMode)return;
   const status=$('audio-review-status'),report=$('audio-review-report');if(!status||!report)return;
-  button.disabled=true;status.textContent='Decoding 113 approved clips with this browser…';
+  button.disabled=true;status.textContent=`Decoding ${audioReviewClipCount} recorded clips with this browser…`;
   try{
-    const voices=await recordedVoiceReview(audio),bank=await recordedAudioBankReview(audio),passed=voices.status==='passed'&&bank.status==='passed';
+    const voices=await recordedVoiceReview(audio,CURRENT_VOICE_REVIEW),bank=await recordedAudioBankReview(audio),passed=voices.status==='passed'&&bank.status==='passed';
     if(!status.isConnected)return;
-    status.textContent=`${passed?'PASSED':'FAILED'}: ${(voices.decoded||0)+(bank.decoded||0)} / 113 approved clips decoded · music cache ${bank.musicCacheBuffers} buffers`;
+    status.textContent=`${passed?'PASSED':'FAILED'}: ${(voices.decoded||0)+(bank.decoded||0)} / ${audioReviewClipCount} recorded clips decoded · music cache ${bank.musicCacheBuffers} buffers`;
     status.dataset.decodeStatus=passed?'passed':'failed';report.textContent=JSON.stringify({voices,bank},null,2);
   }catch(error){if(status.isConnected)status.textContent=String(error.message);}
   finally{if(button.isConnected)button.disabled=false;}
 }
-function debugPanel(){if(!debug)return;openDialog(`${dialogHeader('Development build only','Commander’s tools')}<div class="dialog-body"><div class="debug-row"><button class="text-button" data-action="debug-gold">Add 1,000 gold</button><button class="text-button" data-action="debug-mastery">Next mastery</button><button class="text-button" data-action="debug-kill">Kill all enemies</button><button class="text-button" data-action="debug-skip">Complete wave</button><button class="text-button" data-action="debug-unlock">Discover all recipes</button></div><div class="debug-row"><label>Force family <select id="force-family">${Object.entries(towers).filter(([,s])=>!s.advanced).map(([id,s])=>`<option value="${id}">${s.name}</option>`).join('')}</select></label><label>Quality <select id="force-tier">${roman.map((r,i)=>`<option value="${i+1}">${r}</option>`).join('')}</select></label><button class="text-button" data-action="debug-force">Force next draft</button></div><div class="debug-row"><select id="spawn-type">${Object.entries(enemies).map(([id,e])=>`<option value="${id}">${e.name}</option>`).join('')}</select><button class="text-button" data-action="debug-spawn">Spawn enemy</button><button class="text-button" data-action="debug-spell-review">Review spells and concealment</button><button class="text-button" data-action="debug-support-review">Review support effects</button><button class="text-button" data-action="debug-defense-review">Review active defenses</button><button class="text-button" data-action="debug-critical-review">Review critical hits</button><button class="text-button" data-action="debug-inspection-review">Review enemy inspection</button><button class="text-button" data-action="debug-command-review">Review Command Points</button><button class="text-button" data-action="debug-audio-review">Check recorded voices</button><button class="text-button" data-action="debug-wave-preview" data-round="1">Review preview wave 1</button><button class="text-button" data-action="debug-wave-preview" data-round="7">Review preview wave 7</button><button class="text-button" data-action="debug-wave-preview" data-round="14">Review preview wave 14</button><button class="text-button" data-action="debug-wave-preview" data-round="20">Review preview wave 20</button><button class="text-button" data-action="debug-wave-preview" data-round="31">Review preview wave 31</button><button class="text-button" data-action="debug-wave-preview" data-round="42">Review preview wave 42</button><button class="text-button" data-action="debug-wave-preview" data-round="50">Review preview wave 50</button><button class="text-button" data-action="debug-timing-review">Review wave 25 mastery</button><button class="text-button" data-action="debug-concealment-review">Review concealment and disarm</button></div></div>`);$('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend','<section aria-label="Recorded voice check"><p id="audio-review-status" role="status" aria-live="polite">Check the 92 existing MP3 files with the browser decoder.</p><details><summary>Full decode report</summary><pre id="audio-review-report" style="max-height:260px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>');}
+function debugPanel(){if(!debug)return;openDialog(`${dialogHeader('Development build only','Commander’s tools')}<div class="dialog-body"><div class="debug-row"><button class="text-button" data-action="debug-gold">Add 1,000 gold</button><button class="text-button" data-action="debug-mastery">Next mastery</button><button class="text-button" data-action="debug-kill">Kill all enemies</button><button class="text-button" data-action="debug-skip">Complete wave</button><button class="text-button" data-action="debug-unlock">Discover all recipes</button></div><div class="debug-row"><label>Force family <select id="force-family">${Object.entries(towers).filter(([,s])=>!s.advanced).map(([id,s])=>`<option value="${id}">${s.name}</option>`).join('')}</select></label><label>Quality <select id="force-tier">${roman.map((r,i)=>`<option value="${i+1}">${r}</option>`).join('')}</select></label><button class="text-button" data-action="debug-force">Force next draft</button></div><div class="debug-row"><select id="spawn-type">${Object.entries(enemies).map(([id,e])=>`<option value="${id}">${e.name}</option>`).join('')}</select><button class="text-button" data-action="debug-spawn">Spawn enemy</button><button class="text-button" data-action="debug-spell-review">Review spells and concealment</button><button class="text-button" data-action="debug-support-review">Review support effects</button><button class="text-button" data-action="debug-defense-review">Review active defenses</button><button class="text-button" data-action="debug-critical-review">Review critical hits</button><button class="text-button" data-action="debug-inspection-review">Review enemy inspection</button><button class="text-button" data-action="debug-command-review">Review Command Points</button><button class="text-button" data-action="debug-audio-review">Check recorded voices</button><button class="text-button" data-action="debug-wave-preview" data-round="1">Review preview wave 1</button><button class="text-button" data-action="debug-wave-preview" data-round="7">Review preview wave 7</button><button class="text-button" data-action="debug-wave-preview" data-round="14">Review preview wave 14</button><button class="text-button" data-action="debug-wave-preview" data-round="20">Review preview wave 20</button><button class="text-button" data-action="debug-wave-preview" data-round="31">Review preview wave 31</button><button class="text-button" data-action="debug-wave-preview" data-round="42">Review preview wave 42</button><button class="text-button" data-action="debug-wave-preview" data-round="50">Review preview wave 50</button><button class="text-button" data-action="debug-timing-review">Review wave 25 mastery</button><button class="text-button" data-action="debug-concealment-review">Review concealment and disarm</button></div></div>`);$('dialog-content').querySelector('.dialog-body').insertAdjacentHTML('beforeend',`<section aria-label="Recorded voice check"><p id="audio-review-status" role="status" aria-live="polite">Check the ${CURRENT_VOICE_REVIEW.expected} current MP3 files with the browser decoder.</p><details><summary>Full decode report</summary><pre id="audio-review-report" style="max-height:260px;overflow:auto;white-space:pre-wrap;font-size:10px"></pre></details></section>`);}
 function activateDraw(index,event=null){
   const draw=game.draft.draws[index];if(!draw||world.maze.editing){draftCardActivation.clear();return;}
   audio.unlock();
@@ -450,7 +453,7 @@ async function requestFactionRun(){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
  try{const committed=await chooseFaction({registry:factionRegistry,replace:!!previousGame,confirm:async(id,{signal})=>{
-  const selected=createFactionData(currentCampaign,applyFr006Fr007Registry(applyFr005Registry(applyFr004Registry(applyFr003Registry(applyFr002Registry(factionRegistry))))),id);
+  const selected=createFactionData(currentCampaign,applyFr008Registry(applyFr006Fr007Registry(applyFr005Registry(applyFr004Registry(applyFr003Registry(applyFr002Registry(factionRegistry)))))),id);
   // Validate the actual opening skins before replacing an existing battlefield.
   for(const asset of selected.defenderAssets.filter(a=>a.tier===1&&!selected.towers[a.family].advanced)){
    const response=await fetch(releaseAsset(asset.packedFile||asset.file),{signal});if(!response.ok)throw Error('A required defender model is unavailable.');

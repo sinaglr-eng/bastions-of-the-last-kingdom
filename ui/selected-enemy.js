@@ -1,8 +1,11 @@
+import {enemyPortraitImage} from './reference-portraits.js';
 import {enemyNumber,enemyRulesFor} from '../game/core/enemy-rules.js';
 import {damageDefenseBreakdown} from '../game/core/math.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 import {enemyTraitsMarkup} from './enemy-trait-symbols.js';
 import {immunityAuraCoverage} from '../game/core/immunity-auras.js';
+import {skyHuntSlow} from '../game/core/sky-hunt.js';
+import {towerStats} from '../game/core/math.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
@@ -26,19 +29,24 @@ export function selectedEnemyView(enemy,{data,combat}={}){
     return {name:statusNames[kind]||kind,time:status.time,detail};
   });
   const abilities={...enemy,hp:maxHp,maxHp};delete abilities.resists;delete abilities.ward;delete abilities.magicShred;
+  if(data?.fr008&&enemy.physicalImmune&&enemy.flying){
+    const towers=combat.game?.towers||[],immunityCoverage=immunityAuraCoverage(enemy,towers,data),context={data,towers,immunityCoverage};
+    const slow=Math.max(0,...towers.filter(t=>t.state==='active').map(t=>skyHuntSlow(towerStats(t,data),t,enemy,context)))*(enemy.boss?data.balance.bossSlowMultiplier??.5:1);
+    if(slow>0)effects.push({name:'Sky Hunt Slow',detail:percent(slow)+' movement slow',continuous:true});
+  }
   for(const key of ['regen','evasion','refraction','krakenShell','reactiveArmor','recharge','rush','hasteAura','untouchable','thief'])abilities[key]=finite(enemy[key]);
-  return {id:enemy.id,type:enemy.type,name:enemy.name||'Invader',ended:['won','lost'].includes(combat.game?.phase),flying:!!enemy.flying,boss:!!enemy.boss,hp,maxHp,healthPercent:maxHp>0?hp/maxHp*100:0,
+  return {id:enemy.id,type:enemy.type,visualAsset:enemy.visualAsset,name:enemy.name||'Invader',ended:['won','lost'].includes(combat.game?.phase),flying:!!enemy.flying,boss:!!enemy.boss,hp,maxHp,healthPercent:maxHp>0?hp/maxHp*100:0,
     baseArmor,reactive,shred,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,...(data?.fr003?{immunityAuras:immunityAuraCoverage(enemy,combat.game?.towers||[],data)}:{}),
     baseSpeed:Math.max(0,finite(enemy.speed)),currentSpeed:Number.isFinite(enemy.currentSpeed)?Math.max(0,enemy.currentSpeed):null,
-    effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)).map(trait=>data?.fr003&&['physicalImmune','magicImmune'].includes(trait.kind)?{...trait,text:trait.text.replace('; only Holy damage bypasses this immunity','; Holy bypasses damage immunity, and a matching aura permits its listed fraction of normal damage. Companion effect immunity remains active.')}:trait),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
+    effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)).map(trait=>data?.fr003&&['physicalImmune','magicImmune'].includes(trait.kind)?{...trait,text:trait.text.replace('; only Holy damage bypasses this immunity','; Holy bypasses damage immunity, and a matching aura permits its listed fraction of normal damage. '+(data?.fr008?'Dwarf Sky Hunt Slow uses the covering Physical aura transmission; other control immunities remain active.':'Companion effect immunity remains active.'))}:trait),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
     shieldRechargeRemaining:enemy.shields===0&&Number.isFinite(enemy.shieldReadyAt)?Math.max(0,enemy.shieldReadyAt-combat.elapsed):null,
     rechargeRemaining:enemy.recharge>0&&Number.isFinite(enemy.rechargeClock)?Math.max(0,enemy.rechargeClock):null};
 }
 
 export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
   const view=selectedEnemyView(enemy,{data,combat});if(!view)return '';
-  const hpText=Math.ceil(view.hp),maxHpText=Math.ceil(view.maxHp),portrait=images['enemy:'+view.type];
-  const effects=view.effects.map(effect=>`<li><span>${escape(effect.name)}${effect.detail?' · '+escape(effect.detail):''}</span><strong>${number(effect.time)}s</strong></li>`).join('');
+  const hpText=Math.ceil(view.hp),maxHpText=Math.ceil(view.maxHp),portrait=enemyPortraitImage(images,view);
+  const effects=view.effects.map(effect=>`<li><span>${escape(effect.name)}${effect.detail?' · '+escape(effect.detail):''}</span><strong>${effect.continuous?'While in range':number(effect.time)+'s'}</strong></li>`).join('');
   return `<section class="enemy-inspection" aria-label="Selected enemy inspection" data-inspected-enemy="${view.id}">
     <div class="enemy-inspection-heading"><span class="section-label">${view.boss?'WARLORD':'ENEMY'} INSPECTION</span><button type="button" class="text-button" data-action="enemy-inspect-close">Close inspection</button></div>
     ${portrait?`<div class="enemy-inspection-portrait"><img src="${escape(portrait)}" alt="${escape(view.name)} portrait"></div>`:''}

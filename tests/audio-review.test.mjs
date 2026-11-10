@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {recordedVoiceReview} from '../game/audio/voice-review.js';
 import {ALLIED_VOICE_CLIP_COUNT,ALLIED_VOICE_REVISION} from '../game/audio/voice-assets.js';
+import {CURRENT_DEFENDER_VOICE_CLIP_COUNT,CURRENT_VOICE_REVIEW} from '../game/audio/current-voice-assets.js';
 
 function fixture({count=92,buffers}={}){
   let loads=0,plays=0;
@@ -24,6 +25,18 @@ test('native review cannot report success for a partial catalogue or failed brow
   const buffers=Array.from({length:92},()=>({duration:1,sampleRate:44100,numberOfChannels:2,length:44100}));buffers[17]=null;buffers[21]={duration:0,sampleRate:44100,numberOfChannels:2};
   const result=await recordedVoiceReview(fixture({buffers}).audio);assert.equal(result.status,'failed');assert.equal(result.decoded,90);
   assert.equal(result.clips[17].decoded,false);assert.equal(result.clips[21].decoded,false);
+});
+
+test('complete faction voice review uses its declared identity without weakening the approved legacy check',async()=>{
+  const current=fixture({count:CURRENT_DEFENDER_VOICE_CLIP_COUNT}),result=await recordedVoiceReview(current.audio,CURRENT_VOICE_REVIEW);
+  assert.equal(result.status,'passed');assert.equal(result.expected,272);assert.equal(result.decoded,272);assert.equal(result.revision,CURRENT_VOICE_REVIEW.revision);assert.equal(current.plays(),0);
+  const onlyLegacy=await recordedVoiceReview(fixture().audio,CURRENT_VOICE_REVIEW);
+  assert.equal(onlyLegacy.status,'failed');assert.equal(onlyLegacy.expected,272);assert.equal(onlyLegacy.decoded,92,'an unchanged Human-only catalogue cannot pass as complete faction coverage');
+  const missing=fixture({count:270});assert.equal((await recordedVoiceReview(missing.audio,CURRENT_VOICE_REVIEW)).status,'failed');
+});
+
+test('voice review rejects an invalid declared revision or A/B clip count',async()=>{
+  for(const options of [{revision:'',expected:272},{revision:'current',expected:271},{revision:'current',expected:0},{revision:'current',expected:NaN}])await assert.rejects(recordedVoiceReview(fixture().audio,options),TypeError);
 });
 
 test('muted, disposed and unavailable browser audio contexts fail visibly without starting loads',async()=>{

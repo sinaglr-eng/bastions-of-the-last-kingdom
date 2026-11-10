@@ -327,7 +327,7 @@ export class Battlefield {
         }
         object.add(actor);object.position.copy(v3(t.x,0,t.z));this.scene.add(object);
         actor.rotation.y=t.state==='ruin'?0:Math.PI;
-        if(ready&&(!this.game.data.towers[t.family]?.advanced||t.tier>1))actor.add(rankAdornment(Math.min(6,t.tier)));
+        if(ready&&t.tier===6)actor.add(rankAdornment(6));
         const aura=ready&&t.state==='active'?attachChampionAura(actor,t.family,{phase:t.id*1.7}):null;
         value={object,actor,aura,signature,tower:t,modelKey,modelStatus:t.state==='ruin'?'wall':ready?'ready':actor.userData.defenderModelStatus,siege:!ready||t.state==='reserved'?null:siegeRig(actor),attack:!ready||['ruin','reserved'].includes(t.state)?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:ready&&this.game.data.towers[t.family]?.unitKind!=='siege'&&!['ruin','reserved'].includes(t.state),phase:t.id*1.7};this.models.set(t.id,value);
       }

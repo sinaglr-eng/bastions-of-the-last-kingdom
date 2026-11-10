@@ -33,7 +33,8 @@ function radialGlow(){
 }
 export function rankAdornment(tier){
   const root=new THREE.Group();root.name='Rank signal';
-  const ring=new THREE.Mesh(new THREE.RingGeometry(.40,.46,32),new THREE.MeshBasicMaterial({color:rankColor(tier),side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=.172;root.add(ring);
+  // Rank remains visible on badges and the authored model. Basic defenders
+  // have no decorative underfoot ring; VI keeps its separate glow and stars.
   if(tier!==6)return rememberRankAdornment(root);
   root.name='Mythic aura';
   const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:radialGlow(),transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.8}));halo.position.y=.75;halo.scale.set(1.65,2.05,1);root.add(halo);

@@ -275,7 +275,8 @@ export class CombatManager {
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       this.prepareArmor(enemy);
       for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(slowAuraApplies(s,enemy)&&distance(t,enemy)<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);}
-      for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy));
+      const skyContext={data:this.game.data,towers:this.game.towers,immunityCoverage:this.game.data.fr008&&enemy.flying&&enemy.physicalImmune?immunityAuraCoverage(enemy,this.game.towers,this.game.data):null};
+      for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy,skyContext));
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
       const move=amount=>{
         let travel=amount;

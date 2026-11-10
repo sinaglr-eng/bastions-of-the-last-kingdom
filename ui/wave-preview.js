@@ -1,3 +1,5 @@
+import {enemyPortraitImage} from './reference-portraits.js';
+import {enemyGroupPortraits} from './enemy-portraits.js';
 import {icon} from './icons.js';
 import {enemyDefenseGlyph} from './enemy-trait-symbols.js';
 import {ENEMY_DEFENSE_SYMBOLS} from '../game/render/enemy-defense-symbols.js';
@@ -26,24 +28,25 @@ function threatTags(threats,{fallback=true}={}){
 }
 
 function portrait(enemy,images){
-  const source=images?.['enemy:'+enemy.type];
+  const source=enemyPortraitImage(images,enemy);
+  if(Array.isArray(enemy.variants)&&enemy.variants.some(v=>v?.visualAsset==='host_38-wraith'))return enemyGroupPortraits(enemy,images);
   return source?`<img src="${escape(source)}" alt="" draggable="false">`:`<span class="wave-enemy-placeholder" aria-hidden="true">${icon(enemy.boss?'crown':'shield')}</span>`;
 }
 
-function variantDetails(variants){
+function variantDetails(variants,images,type){
   const profiles=(Array.isArray(variants)?variants:[]).filter(variant=>variant&&typeof variant==='object');
   if(!profiles.length)return '<p class="wave-preview-note">Detailed enemy information is unavailable.</p>';
   return profiles.map((variant,index)=>{
     const stats=[finite(variant.maxHp)?`${number(variant.maxHp)} HP`:null,finite(variant.armor)?`${number(variant.armor)} armor`:null,finite(variant.speed)?`${number(variant.speed)} tiles/s`:null,variant.flying?'Air':'Ground'].filter(Boolean);
     const traits=Array.isArray(variant.traitDetails)?variant.traitDetails:[];
-    return `<section class="wave-enemy-variant"><strong>${profiles.length>1?`Variant ${index+1} · `:''}${escape(variant.name||'Enemy')}</strong><p>${escape(stats.join(' · '))}</p>${traits.length?`<ul>${traits.filter(trait=>trait&&trait.text).map(trait=>`<li>${Object.hasOwn(ENEMY_DEFENSE_SYMBOLS,trait.kind)?enemyDefenseGlyph(trait.kind):''}<span>${escape(trait.text)}</span></li>`).join('')}</ul>`:'<p class="wave-preview-note">No special resistances or abilities</p>'}</section>`;
+    return `<section class="wave-enemy-variant">${enemyGroupPortraits({...variant,type},images)}<strong>${profiles.length>1?`Variant ${index+1} · `:''}${escape(variant.name||'Enemy')}</strong><p>${escape(stats.join(' · '))}</p>${traits.length?`<ul>${traits.filter(trait=>trait&&trait.text).map(trait=>`<li>${Object.hasOwn(ENEMY_DEFENSE_SYMBOLS,trait.kind)?enemyDefenseGlyph(trait.kind):''}<span>${escape(trait.text)}</span></li>`).join('')}</ul>`:'<p class="wave-preview-note">No special resistances or abilities</p>'}</section>`;
   }).join('');
 }
 
 function enemyRow(enemy,images){
   const quantity=finite(enemy.count)?`${number(enemy.count)} × `:'',name=enemy.name||'Unknown enemy';
   const heading=`${portrait(enemy,images)}<span class="wave-enemy-name"><strong>${escape(quantity+name)}</strong><small>${enemy.unknown?'Enemy information unavailable':enemy.flying?'Airborne':enemy.boss?'Warlord':'Ground'}</small></span>`;
-  return `<details class="wave-enemy-details"><summary>${heading}<span class="wave-enemy-open">Details</span></summary><div class="wave-enemy-detail-body">${Array.isArray(enemy.variants)&&enemy.variants.length>1?'<p class="wave-preview-note">Each enemy independently chooses a variant; the wave may contain a mix.</p>':''}${variantDetails(enemy.variants)}</div></details>`;
+  return `<details class="wave-enemy-details"><summary>${heading}<span class="wave-enemy-open">Details</span></summary><div class="wave-enemy-detail-body">${Array.isArray(enemy.variants)&&enemy.variants.length>1?'<p class="wave-preview-note">Each enemy independently chooses a variant; the wave may contain a mix.</p>':''}${variantDetails(enemy.variants,images,enemy.type)}</div></details>`;
 }
 
 function composition(next,images){
