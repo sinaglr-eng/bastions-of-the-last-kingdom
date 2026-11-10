@@ -1,19 +1,20 @@
 {
   "status": "passed",
+  "version": "0.6.12",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "version": "0.6.11",
   "faction": "forge",
-  "factionSelectionSucceeded": true,
-  "tutorialOfferVisible": true,
-  "battlefieldLoaded": true,
-  "recipe": "dw_boarlancer",
-  "visibleIngredients": [
-    "Boar Rider I",
-    "Shieldguard II",
-    "Dwarf Miner II"
-  ],
-  "consoleErrors": [],
-  "scoreSubmitted": false,
-  "screenshot": "public-r3-recipe.png",
-  "physicalIpadTest": false
+  "realMapPlacements": 5,
+  "trustedKeepPlayback": true,
+  "playedCharacter": {
+    "family": "dw_boarrider",
+    "id": "ally_dw_boarrider_select_b",
+    "sha256": "907c9963083024d2bed3bed94f5e8cff1d0aa744e1979809334905883103432d"
+  },
+  "noDevGlobals": true,
+  "noContextOrMp3BeforeGesture": true,
+  "pageErrors": [],
+  "httpErrors": [],
+  "unexpectedConsoleErrors": 0,
+  "publicWrites": 0,
+  "detailedLocalReportSha256": "47156569e89ce1cb1d977576900e4d2696022bf3dcc30af0819a026e40ebb97b"
 }

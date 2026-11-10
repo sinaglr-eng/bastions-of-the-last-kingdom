@@ -1,29 +1,39 @@
 {
   "status": "passed",
-  "version": "0.6.11",
-  "commit": "1778614003c0922bb0287ecf1c260d46e2bd3861",
-  "sourceCommit": "03e5b9a72d173415347c2044fd9350142efc1650",
+  "version": "0.6.12",
+  "rulesetRevision": "fr008-r1-20261106",
+  "commit": "8b0becb7339da3151b442296464562d0dfcdb072",
+  "sourceCommit": "8b0becb7339da3151b442296464562d0dfcdb072",
   "ci": {
-    "id": 42249263283,
-    "head_sha": "1778614003c0922bb0287ecf1c260d46e2bd3861",
+    "id": 42892602116,
+    "head_sha": "8b0becb7339da3151b442296464562d0dfcdb072",
     "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42249263283"
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42892602116",
+    "testsPassed": 2194,
+    "testsFailed": 0
   },
   "jobs": [
     {
-      "id": 127999639234,
+      "id": 130097318850,
       "name": "build",
       "conclusion": "success"
     },
     {
-      "id": 128004156680,
+      "id": 130100872276,
       "name": "deploy",
       "conclusion": "success"
     }
   ],
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
   "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "statisticsVersion": "0.6.12",
+  "statisticsDeploymentId": "appgdep_6af376e0a5548191ba91a970ceefc9fc",
+  "defenderVoiceRevision": "voice-completion-20261110-v4-02d1a9224942",
+  "voicedCharacters": 136,
+  "voiceRecordings": 272,
+  "newVoiceRecordings": 190,
   "galleryPublished": false,
-  "scoresSubmitted": false
+  "scoresSubmitted": false,
+  "verifiedAt": "2026-11-10T20:18:32.737Z"
 }

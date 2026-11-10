@@ -1,8 +1,12 @@
-# Forged Alliances TD — 0.6.11
+# Forged Alliances TD — 0.6.12
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Current release 0.6.11 implements FR-006 and FR-007 revision 3.** It includes final-boss defeat, 15% wave-49 recharge, faction score context, all defender size adjustments and the latest 16 recipe changes. Dwarf and Elf rank-I defenders have one immediate recipe choice where possible, two maximum. All 258 combat profiles, approved artwork and models remain exact. [Implementation and verification](docs/FR006_FR007_IMPLEMENTATION.md).
+**Release 0.6.12 adds FR-008 and complete defender voices.** Dwarf Sky Hunt applies its normal Slow multiplied by the strongest covering Physical Rune transmission against Physically immune flyers. Basic ranks have no decorative underfoot ring; champion classification auras and rank-VI glow/stars remain. Wave 38 uses the recovered Blood-Leech Troll reference alongside the Knifeman reference. The 628 scheduled-weapon regressions preserve existing ground-wave damage and regeneration. [Implementation and verification](docs/FR008_IMPLEMENTATION.md).
+
+Every one of the 136 character families has two recorded lines. The complete voice bank contains 272 active clips, including 190 new ElevenLabs v4 recordings with the requested Scottish/British directions and gender-aware, distinct casting. [Defender voices](docs/DEFENDER_VOICES.md). Public deployment identity is recorded in [the current publication receipt](output/implementation/release-current/deployment.json).
+
+**FR-006 and FR-007 revision 3 remain implemented.** It includes final-boss defeat, 15% wave-49 recharge, faction score context, all defender size adjustments and the latest 16 recipe changes. Dwarf and Elf rank-I defenders have one immediate recipe choice where possible, two maximum. All 258 combat profiles, approved artwork and models remain exact. [Implementation and verification](docs/FR006_FR007_IMPLEMENTATION.md).
 
 All battlefield defenders are now at least 20% smaller. Basic champions match ordinary draft size references, while the approved models keep their exact body and equipment proportions. [Current sizing policy and verification](docs/DEFENDER_PRESENTATION.md).
 
@@ -51,9 +55,9 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only current release 0.6.11 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches have been removed. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current release 0.6.12 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches are not maintained. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
-FR-006 and FR-007 revision 2 supply the current recipe and final-boss rules, retaining FR-005 abilities and the FR-004 primary values and immunity auras. [Current changes and verification](docs/FR006_FR007_IMPLEMENTATION.md). The single English design gallery remains local only.
+FR-006 and FR-007 revision 3 supply the recipe and final-boss rules, retaining FR-005 abilities and the FR-004 primary values and immunity auras alongside FR-008. [Current changes and verification](docs/FR006_FR007_IMPLEMENTATION.md). The single English design gallery remains local only.
 
 Current models, artwork, animations, audio and exact original prompts/review records remain intact. Required regression data and image provenance are source dependencies, not playable older releases. Statistics and saved player results are preserved. [Backend setup](docs/STATISTICS_BACKEND.md).
 

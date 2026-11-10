@@ -1,11 +1,11 @@
 # Current game release only
 
-The sole maintained local game release is **0.6.10**, implementing user-authorized FR-006 and FR-007 revision 2 on 6 November 2026. Previous release directories, source/production backup packages, old release tags and backup branches are not maintained. Ordinary Git change history is retained.
+The sole maintained game release is **0.6.12**, including FR-008 and the complete 136-character, 272-recording voice bank. Actual public game and statistics deployment identities are recorded in [the current publication receipt](../output/implementation/release-current/deployment.json) and [the service record](../backend/SITES_DEPLOYMENT.json).
 
-Exact original artwork, models, recorded prompts/reviews, current runtime dependencies and player score records remain intact. The exact FR-003 terminal-comparison input required by the FR-002/FR-003 army verifiers is retained as `tests/fixtures/fr003-approved-terminal-results.json`; its source hash is unchanged and it contains no older runnable game. The exact approval verification is retained under `design/reviews/`.
+Previous playable releases, source/production backup packages, release tags and backup branches are not maintained. Publication advances the existing remote history without rewriting the shared checkout's branch or index. Ordinary Git history remains intact.
 
-The current implementation receipt and verification evidence are under `output/implementation/fr006-fr007-current/`. The files under `output/releases/v0.6.8/` are historical publication and retention evidence, not an older runnable release or backup package. The single English design gallery stays local only. No new release tag or backup package is created.
+Current runtime dependencies, approved original artwork and models, exact recorded prompts/reviews, required regression fixtures and player score records are preserved. The original 92 approved character recordings remain source evidence; the active bank uses 82 of them alongside 190 new recordings. Historical implementation and verification records are evidence, not older runnable releases.
 
-The earlier automatic-review exception for `artifacts/bastions-statistics-site.tar.gz` remains recorded in the retention receipt. That obsolete service packaging file is not a game release, and this publication did not retry its previously blocked deletion.
+The statistics update retains the existing Site identity, D1 binding, schema and migration files. Earlier version scopes remain available in Legacy records. Publication checks use read-only public score queries and prevent browser test runs from writing player records.
 
-The public game and existing statistics service still run 0.6.9; deployment of 0.6.10 is pending. Their deployed state is not a retained local backup. Historical implementation authorities used by regression tests remain preserved as data, with no older runnable release package.
+The single English design gallery remains local only. Game publication does not publish its source or updates, upload local gallery models, create a second gallery or change its review records.
