@@ -106,7 +106,7 @@ for(const id of [...Array.from({length:6},(_,i)=>`stormcaller-${i+1}`),'tempest'
       const anchor=controller.anchors.get('hand'),labels=[anchor.mesh.name,...function*(node){for(let parent=node.parent;parent;parent=parent.parent)yield parent.userData.semanticPart||parent.userData.name||parent.name;}(anchor.mesh)].join(' ');
       assert.match(labels,id.startsWith('stormcaller')?/right.*(?:palm|hand)|hand.*right/i:/LEFT.casting.arm.hand/i,'the source casting palm is selected rather than the staff, held lightning tip or another limb');
       handPositions.push(hand.clone());fx.syncProjectiles([shot],phase);
-      const visual=fx.projectiles.get(1);assert.equal(visual.object.isLine,true);assert.equal(visual.object.children.length,0,'electrical primary attacks contain no travelling sphere/orbit');assert.equal(fx.effects.length,0,'electrical release does not add an arcane orb/wave');
+      const visual=fx.projectiles.get(1);assert.equal(visual.object.userData.electric,true);assert.equal(visual.object.children.length,2,'electrical primary attacks have a volumetric core and corona, with no travelling sphere/orbit');assert.ok(visual.object.children.every(layer=>layer.isInstancedMesh));assert.equal(fx.effects.length,0,'electrical release does not add an arcane orb/wave');
       assert.ok(new THREE.Vector3().fromBufferAttribute(visual.object.geometry.attributes.position,0).distanceTo(hand)<1e-6,'the first electrical vertex stays attached to the current palm');
       const positions=Array.from(visual.object.geometry.attributes.position.array);fx.syncProjectiles([shot],phase);assert.deepEqual(Array.from(visual.object.geometry.attributes.position.array),positions,'pause preserves the exact visible discharge');
     }

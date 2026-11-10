@@ -1,0 +1,4762 @@
+{
+  "schemaVersion": 1,
+  "revision": "combat-effects-20261110-33171e30c092",
+  "music": [
+    {
+      "id": "iron_build",
+      "title": "Quiet Battlements",
+      "phase": "build",
+      "url": "../music/review-20261011/iron_build.mp3",
+      "durationSeconds": 96,
+      "sha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a"
+    },
+    {
+      "id": "iron_battle",
+      "title": "March of the Siege",
+      "phase": "battle",
+      "url": "../music/review-20261011/iron_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309"
+    },
+    {
+      "id": "wilds_build",
+      "title": "Whispers of the Grove",
+      "phase": "build",
+      "url": "../music/review-20261011/wilds_build.mp3",
+      "durationSeconds": 96,
+      "sha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f"
+    },
+    {
+      "id": "wilds_battle",
+      "title": "Drums Beneath the Roots",
+      "phase": "battle",
+      "url": "../music/review-20261011/wilds_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20"
+    },
+    {
+      "id": "fallen_battle",
+      "title": "Under the Black Banner",
+      "phase": "battle",
+      "url": "../music/review-20261011/fallen_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f"
+    },
+    {
+      "id": "fallen_victory_celebration",
+      "title": "The Kingdom Rejoices",
+      "phase": "victory",
+      "url": "../music/review-20261011/fallen_victory_celebration.mp3",
+      "durationSeconds": 8,
+      "sha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f"
+    }
+  ],
+  "effects": [
+    {
+      "id": "arrow",
+      "url": "../attacks/shared-20261011/attack_arrow.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6"
+    },
+    {
+      "id": "sword",
+      "url": "../attacks/shared-20261011/attack_sword.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f"
+    },
+    {
+      "id": "spear",
+      "url": "../attacks/shared-20261011/attack_spear.mp3",
+      "durationSeconds": 0.6802494331065759,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49"
+    },
+    {
+      "id": "hammer",
+      "url": "../attacks/shared-20261011/attack_hammer.mp3",
+      "durationSeconds": 0.88,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b"
+    },
+    {
+      "id": "runic_bolt",
+      "url": "../attacks/shared-20261011/attack_runic_bolt.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1"
+    },
+    {
+      "id": "heavy_bolt",
+      "url": "../attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "durationSeconds": 1,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11"
+    },
+    {
+      "id": "stone",
+      "url": "../attacks/shared-20261011/attack_stone.mp3",
+      "durationSeconds": 1.08,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2"
+    },
+    {
+      "id": "charge",
+      "url": "../attacks/shared-20261011/attack_charge.mp3",
+      "durationSeconds": 1,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb"
+    },
+    {
+      "id": "toxic_canister",
+      "url": "../attacks/shared-20261011/attack_toxic_canister.mp3",
+      "durationSeconds": 1,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee"
+    },
+    {
+      "id": "nature",
+      "url": "../attacks/shared-20261011/attack_nature.mp3",
+      "durationSeconds": 1,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072"
+    },
+    {
+      "id": "arcane",
+      "url": "../attacks/shared-20261011/attack_arcane.mp3",
+      "durationSeconds": 0.88,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7"
+    },
+    {
+      "id": "holy",
+      "url": "../attacks/shared-20261011/attack_holy.mp3",
+      "durationSeconds": 1,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7"
+    },
+    {
+      "id": "frost",
+      "url": "../attacks/shared-20261011/attack_frost.mp3",
+      "durationSeconds": 1,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974"
+    },
+    {
+      "id": "lightning",
+      "url": "../attacks/shared-20261011/attack_lightning.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4"
+    },
+    {
+      "id": "fire",
+      "url": "../attacks/shared-20261011/attack_fire.mp3",
+      "durationSeconds": 1.08,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483"
+    },
+    {
+      "id": "axe",
+      "sha256": "ca895ab74b6d144e0c52896afd5700992710beaaee0e021e8753dc366a921e3f",
+      "bytes": 25946,
+      "prompt": "One heavy axe cleave, weighty fast cutting whoosh ending in a short metal impact, dry close game effect.",
+      "durationSeconds": 0.48,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "aWsv7XTpxV33hkUCCjzR",
+      "nodeId": "vwWT2tH6YS2DrhPdPSSn",
+      "sessionId": "2izWAI9l6my5a6zfATUX",
+      "take": 1,
+      "measuredRms": 0.2035362575851403,
+      "peak": 0.975563108921051,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.48,
+      "clippedPercent": 0,
+      "gain": 0.786100726712395,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/axe-1.mp3",
+      "url": "attack_axe.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "cannon",
+      "sha256": "50e7abb490b88a37bcda71547e37c2a6455ea78cd1c5657cfc69d373c4f7f946",
+      "bytes": 32215,
+      "prompt": "One heavy iron cannon shot, punchy low cannon boom with a compact decay, dry close game effect.",
+      "durationSeconds": 0.88,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "Qmf5Q4bmYlMs2IGvNwTl",
+      "nodeId": "E5vi0c7QS9utCG61Zig1",
+      "sessionId": "zwrDQxFTHRjgTybPCyNo",
+      "take": 4,
+      "measuredRms": 0.17032922109906082,
+      "peak": 0.947549045085907,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.88,
+      "clippedPercent": 0,
+      "gain": 0.9393573161879635,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/cannon-4.mp3",
+      "url": "attack_cannon.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "claw",
+      "sha256": "360d03beff108d669cd39f989c6af87aaa6fe25a315bfcc228b521f0e79ef98d",
+      "bytes": 25946,
+      "prompt": "One creature claw slash, fast rough slicing scrape with a short clean impact, dry isolated game effect.",
+      "durationSeconds": 0.48,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "gAhrklXAgnZPCyCR6UIe",
+      "nodeId": "4NCXl6HUqIYhV5HyRW7A",
+      "sessionId": "sapM5aLb8myh8vv8d4i6",
+      "take": 1,
+      "measuredRms": 0.1573886182553373,
+      "peak": 0.9776845574378967,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.48,
+      "clippedPercent": 0,
+      "gain": 0.9614553005351212,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/claw-1.mp3",
+      "url": "attack_claw.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "electric_arc",
+      "sha256": "2cd40d32dd75bfd43abe2431dc85b724d2081e6ad24a98671969b81b8cb1fd46",
+      "bytes": 28453,
+      "prompt": "A single close electrical discharge, sharp snapping crack with a brief bright crackling tail, dry isolated game effect.",
+      "durationSeconds": 0.64,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "cR7UDJDUGCCIGh2AkK1U",
+      "nodeId": "6ziRuNL1n1SdG1kImPJC",
+      "sessionId": "p7X9ZLeZGHyxMrCpj8AE",
+      "take": 3,
+      "measuredRms": 0.033746125304714075,
+      "peak": 1.031778335571289,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.64,
+      "clippedPercent": 0.0032552083333333335,
+      "gain": 0.9110483982778413,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/electric_arc-3.mp3",
+      "url": "attack_electric_arc.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "ent_slam",
+      "sha256": "ecf3bad0b7f2e2bea8221939b14fe2872f4d478bfbe8b9f327930998356dc537",
+      "bytes": 29289,
+      "prompt": "One huge wooden fist slam, dense woody crack and earthy thud with a short decay, dry close game effect.",
+      "durationSeconds": 0.6802494331065759,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "ljAcBQPmvO8zx5aMclwP",
+      "nodeId": "y85gVmk8GVyXg79sB2ZM",
+      "sessionId": "8571qIBbg4xlv5FYopxa",
+      "take": 1,
+      "measuredRms": 0.20445301940106556,
+      "peak": 1.0266411304473877,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.6802291666666667,
+      "clippedPercent": 0.015313466662583075,
+      "gain": 0.7825758722894465,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/ent_slam-1.mp3",
+      "url": "attack_ent_slam.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "explosive_impact",
+      "sha256": "6fa1ccf4a0758fef80518de3bf4172513483d8f3d39045f3d04efa70ed98ec18",
+      "bytes": 31797,
+      "prompt": "One small explosive impact, sharp crack and compact low debris thump, dry isolated game effect.",
+      "durationSeconds": 0.84,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "vUFvQH9kBSI7sbdZL7nq",
+      "nodeId": "uaY9jKVGrWZ0AMUSwtGk",
+      "sessionId": "BseEbJmPqP0ZlroxqjVa",
+      "take": 3,
+      "measuredRms": 0.10772350828585922,
+      "peak": 0.9681774377822876,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.84,
+      "clippedPercent": 0,
+      "gain": 0.9708964114606605,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/explosive_impact-3.mp3",
+      "url": "attack_explosive_impact.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "fire_breath",
+      "sha256": "2f14876dd106eb39ebc33b38f11f3cba1307c329b13e294c596d7d1782d4bc14",
+      "bytes": 34305,
+      "prompt": "One short close flamethrower burst, forceful ignition whoosh into a compact roaring flame tail, isolated game effect.",
+      "durationSeconds": 1,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "YXP0Kj3NMIRWXf2qFlhi",
+      "nodeId": "BAEkDxSU9UeEitwbnR3M",
+      "sessionId": "QFgXw4Tej39RtETQSD51",
+      "take": 1,
+      "measuredRms": 0.2697974121519049,
+      "peak": 0.9940373301506042,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 1,
+      "clippedPercent": 0,
+      "gain": 0.7,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/fire_breath-1.mp3",
+      "url": "attack_fire_breath.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "gatling",
+      "sha256": "c84a4fa1ef8fa6987ad44e7fa73a0ed21097a76e8b4f36c612efa0556651e567",
+      "bytes": 25946,
+      "prompt": "One rotary gun round, sharp compact report and a tight mechanical barrel click, dry isolated game effect.",
+      "durationSeconds": 0.48,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "OgpipGp0EnR87xooVt2s",
+      "nodeId": "qQO97AkCf80YM6IqzDPz",
+      "sessionId": "Se4zvUrQTunMadg6YdOd",
+      "take": 4,
+      "measuredRms": 0.07255883451630755,
+      "peak": 1.0186265707015991,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.48,
+      "clippedPercent": 0.002170138888888889,
+      "gain": 0.9228111920863761,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/gatling-4.mp3",
+      "url": "attack_gatling.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "grenade_throw",
+      "sha256": "629a3b728a91aab9dc71c17ffa006474a0fb17954028deb9fd90a3e22d63056d",
+      "bytes": 25946,
+      "prompt": "One metal grenade being thrown, quick weighty airy swish with a tiny metal rattle, dry close game effect.",
+      "durationSeconds": 0.48,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "8lkEW3YkyMMHiE9UMBAW",
+      "nodeId": "NRN00SHtoeXz4Xv7qkiT",
+      "sessionId": "qPM5KR05NJDbB2VFg6XY",
+      "take": 3,
+      "measuredRms": 0.1375316926580296,
+      "peak": 1.0331627130508423,
+      "onsetSeconds": 0.004,
+      "measuredDurationSeconds": 0.48,
+      "clippedPercent": 0.004340277777777778,
+      "gain": 0.9098276468226958,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/grenade_throw-3.mp3",
+      "url": "attack_grenade_throw.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "mortar",
+      "sha256": "f4ce2a15e55f66c2c323703c7d0f119ed18e5487e6262a9c2c76204bd918b0d6",
+      "bytes": 29707,
+      "prompt": "One mortar launch, deep hollow pneumatic thump and short muzzle resonance, dry close game effect.",
+      "durationSeconds": 0.72,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "SrjWIwlIvifu2RAP0O3i",
+      "nodeId": "48keYh3soJytUiDaQ1dJ",
+      "sessionId": "SLvj7wzTyKvVd7XTEyMV",
+      "take": 4,
+      "measuredRms": 0.0955417905081451,
+      "peak": 0.7347354888916016,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.72,
+      "clippedPercent": 0,
+      "gain": 1.2793719838115536,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/mortar-4.mp3",
+      "url": "attack_mortar.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "musket",
+      "sha256": "38458afc120a29f9c5de9ef3ff9cf20f584b1f442b0cbb90403f9cf2ec02db79",
+      "bytes": 28453,
+      "prompt": "One close musket gunshot, crisp gunpowder crack with a short mechanical tail, dry isolated game effect.",
+      "durationSeconds": 0.64,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "11cSMHH9Y9A4Jfbv3T4b",
+      "nodeId": "npp2VerKNFlQGtM6LQTb",
+      "sessionId": "95wwwGky1idc9cFB04cP",
+      "take": 2,
+      "measuredRms": 0.06449811307349229,
+      "peak": 0.2628779411315918,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.64,
+      "clippedPercent": 0,
+      "gain": 1.8,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/musket-2.mp3",
+      "url": "attack_musket.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "pickaxe",
+      "sha256": "4ebe7131db574aa7f6bb4c9959a788714614d68126fb596cc8fad262477cef8c",
+      "bytes": 25946,
+      "prompt": "One pickaxe strike against armor, hard pointed metallic clink and a short mineral crunch, dry isolated game effect.",
+      "durationSeconds": 0.48,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "FCUBGffwZTNVB4pt9AFN",
+      "nodeId": "JpgLikOtsGHHvMJypja5",
+      "sessionId": "g0hUSzynSZUqtgal356L",
+      "take": 3,
+      "measuredRms": 0.15090093807010038,
+      "peak": 1.0474536418914795,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.48,
+      "clippedPercent": 0.028211805555555556,
+      "gain": 0.8974144175990061,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/pickaxe-3.mp3",
+      "url": "attack_pickaxe.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "storm_spear",
+      "sha256": "6b8031131990d413fb8ff9a959ddecb64c084955916c510d65e263b4bae70a09",
+      "bytes": 28453,
+      "prompt": "One electrified spear strike, sharp metallic thrust with a short sizzling electrical snap, dry close game effect.",
+      "durationSeconds": 0.64,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "YgAsk02tKHa9FBxB0V9k",
+      "nodeId": "M3faxYDs7m37eCxFVeoJ",
+      "sessionId": "Mik0g1WzWkwfzwxjTyY9",
+      "take": 3,
+      "measuredRms": 0.0610651172639655,
+      "peak": 0.9433354139328003,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.64,
+      "clippedPercent": 0,
+      "gain": 0.9964642333113576,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/storm_spear-3.mp3",
+      "url": "attack_storm_spear.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "war_drum",
+      "sha256": "555a90bac0c5171831885debc80b5ca7f30d5791e9f256daa0a06db1c2299529",
+      "bytes": 28453,
+      "prompt": "One deep taut war drum hit from a wooden mallet, punchy skin thump with a short natural decay, isolated close sound.",
+      "durationSeconds": 0.64,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "RXtb31okmk0guGBPkNsm",
+      "nodeId": "btCblCp8Z2Ml4prA4ovA",
+      "sessionId": "OSRXF54zS2tsQePmXJUG",
+      "take": 3,
+      "measuredRms": 0.007095812629645902,
+      "peak": 0.0403062105178833,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.64,
+      "clippedPercent": 0,
+      "gain": 16,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/war_drum-3.mp3",
+      "url": "attack_war_drum.mp3",
+      "approved": false,
+      "status": "generated"
+    },
+    {
+      "id": "web_spit",
+      "sha256": "e43b544d620d3b03071a620f8316b5abbb0ff0abb918a4e3651b648972794317",
+      "bytes": 26364,
+      "prompt": "One spider venom web spit, sharp wet snap and a brief sticky silk hiss, isolated close game effect.",
+      "durationSeconds": 0.52,
+      "modelId": "eleven_text_to_sound_v2",
+      "generationId": "KO8WEFwipXAqKAnXzyBR",
+      "nodeId": "VvYgyl3EFJlJiqrg1KBA",
+      "sessionId": "cPlyQcjOIdMS1tTUTIQj",
+      "take": 1,
+      "measuredRms": 0.10817942000115709,
+      "peak": 0.913132905960083,
+      "onsetSeconds": 0,
+      "measuredDurationSeconds": 0.52,
+      "clippedPercent": 0,
+      "gain": 1.0294229830778778,
+      "selectionReason": "Lowest technical onset/clipping/quietness score among the four original takes. Intended weapon timbre follows recorded prompt; no human listening certification.",
+      "sourceFile": "output/implementation/combat-effects-current/audio/variants/web_spit-1.mp3",
+      "url": "attack_web_spit.mp3",
+      "approved": false,
+      "status": "generated"
+    }
+  ],
+  "defenders": [
+    {
+      "character_id": "soldier",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "archer",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "druid",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "nature"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "mage",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "cleric",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "holy"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "runebreaker",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "frostwarden",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "frost"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "frost",
+          "kind": "frost",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "frost"
+        }
+      ]
+    },
+    {
+      "character_id": "stormcaller",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "rimewatch",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword",
+          "motion": "sword-slash",
+          "element": "frost"
+        }
+      ]
+    },
+    {
+      "character_id": "frostblade",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "lance",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "roseguard",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "lance",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "highking",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "crownofages",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "thornwarden",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "verdantguard",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "tempest",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "stormcitadel",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "embercrown",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "held-brazier",
+          "motion": "aura-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 4.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "worldfire",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "staff-and-ground-braziers",
+          "motion": "aura-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 5.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "starfall",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "beak-and-wings",
+          "motion": "beak-strike",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "thunderheart",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "electric_arc",
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          },
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 5.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "phoenix",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arcane",
+        "fire_breath",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "fire",
+          "chain": {
+            "lightning": "electric_arc"
+          },
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 6.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": false
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "greenheart",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "nature"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "eldergrove",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "nature"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "kingsreach",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "heavy_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "heavy_bolt",
+          "kind": "siege",
+          "weapon": "ballista",
+          "motion": "ballista-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "sunward",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "holy"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "winterhold",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "frost"
+        }
+      ]
+    },
+    {
+      "character_id": "dawnspire",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "royalmarshal",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "stonewarden",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "stone"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "stone",
+          "kind": "siege",
+          "weapon": "catapult",
+          "motion": "catapult-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "wyvernhunter",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "royalarsenal",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "rangermentor",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "nature"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "leaf-energy-core",
+          "motion": "hand-cast",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "kingdomprotector",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "hammer",
+          "motion": "hammer-slam",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "mothernature",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "nature"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "nature",
+          "kind": "roots",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "royalranger",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "venomArrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "poison"
+        }
+      ]
+    },
+    {
+      "character_id": "kingsrangerguard",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "elvenking",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "arrow",
+        "fire"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical",
+          "burnProc": "fire"
+        }
+      ]
+    },
+    {
+      "character_id": "fireballista",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "heavy_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "heavy_bolt",
+          "kind": "siege",
+          "weapon": "ballista",
+          "motion": "ballista-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "emeraldgolem",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "heavy_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "heavy_bolt",
+          "kind": "siege",
+          "weapon": "arm-mounted-ballista",
+          "motion": "ballista-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "griffinbomber",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "cannon",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "cannon",
+          "kind": "cannon",
+          "weapon": "cannon",
+          "motion": "cannon-shot",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "mechanicalgolem",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "cannon",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "cannon",
+          "kind": "cannon",
+          "weapon": "cannon",
+          "motion": "cannon-shot",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "monk",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "holy"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "archbishop",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "holy"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "holy",
+          "kind": "holy",
+          "weapon": "staff",
+          "motion": "staff-cast",
+          "element": "holy"
+        }
+      ]
+    },
+    {
+      "character_id": "archangel",
+      "factions": [
+        "crown"
+      ],
+      "effects": [
+        "sword",
+        "frost"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword",
+          "motion": "sword-slash",
+          "element": "frost",
+          "chain": {
+            "frost": "frost"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "ladyclaire",
+      "factions": [
+        "crown",
+        "forge",
+        "grove"
+      ],
+      "effects": [
+        "arcane",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "crozier",
+          "motion": "staff-cast",
+          "element": "holy",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "dw_shieldguard",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_musketeer",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_runesmith",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_boarrider",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_grenadier",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_engineer",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "pickaxe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "pickaxe",
+          "kind": "pick",
+          "weapon": "pickaxe",
+          "motion": "pick-strike",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_griffinhandler",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "claw"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "griffin-beak-and-claws",
+          "motion": "beak-strike",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_furnacetender",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "smith-hammer",
+          "motion": "hammer-slam",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_ironwarden",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_ashshield",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_bulwarkcaptain",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_forgeking",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_longrifle",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_thunderlock",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_steamrail",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_grapeshotcart",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "mortar",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "mortar",
+          "kind": "shell",
+          "weapon": "hand-held-mortar",
+          "motion": "mortar-shot",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_ironstorm",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_boarlancer",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_boarstandard",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "war_drum"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "war_drum",
+          "kind": "drum",
+          "weapon": "paired-drum-mallets",
+          "motion": "drum-strike",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_goreback",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "spear"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "spear",
+          "kind": "thrust",
+          "weapon": "spear",
+          "motion": "spear-thrust",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_warcaller",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "war_drum"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "war_drum",
+          "kind": "drum",
+          "weapon": "paired-drum-mallets",
+          "motion": "drum-strike",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_boaravatar",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "axe"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "axe",
+          "kind": "axe",
+          "weapon": "axe",
+          "motion": "axe-cleave",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_fuserunner",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_firebomber",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_griffinbomber",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_cinderhowitzer",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "cannon",
+        "explosive_impact",
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "cannon",
+          "kind": "cannon",
+          "weapon": "wheeled-cannon",
+          "motion": "cannon-shot",
+          "element": "physical",
+          "impact": "explosive_impact",
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 2.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "dw_dwarship",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "grenade_throw",
+        "explosive_impact"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "grenade_throw",
+          "kind": "grenade",
+          "weapon": "bomb-and-airship",
+          "motion": "grenade-throw",
+          "element": "physical",
+          "impact": "explosive_impact"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_repeatercrew",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "gatling"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "gatling",
+          "kind": "bulletRapid",
+          "weapon": "hand-held-gatling",
+          "motion": "gatling-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_ironclad",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "gatling"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "gatling",
+          "kind": "bulletRapid",
+          "weapon": "arm-mounted-gatling",
+          "motion": "gatling-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_breachorgan",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "gatling"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "gatling",
+          "kind": "bulletRapid",
+          "weapon": "arm-mounted-gatling",
+          "motion": "gatling-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_deepdelve",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "hammer",
+          "weapon": "armored-fist",
+          "motion": "mech-punch",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_salvomarshal",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "gatling"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "gatling",
+          "kind": "bulletRapid",
+          "weapon": "arm-mounted-gatling",
+          "motion": "gatling-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_runemortar",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-staff-and-book",
+          "motion": "staff-cast",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_tunnelsapper",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-staff-and-book",
+          "motion": "staff-cast",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_nullifier",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_worldanvil",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "runic_bolt"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "runic_bolt",
+          "kind": "runic",
+          "weapon": "rune-hammer",
+          "motion": "hammer-slam",
+          "element": "rune"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_griffinscout",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_skyhook",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_talonlord",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_highthane",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "musket"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "musket",
+          "kind": "bullet",
+          "weapon": "rifle",
+          "motion": "rifle-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_pressuresmith",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "hammer"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "hammer",
+          "kind": "forge",
+          "weapon": "forge-tongs-and-hearth",
+          "motion": "forge-channel",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_steamharpooner",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "flame-nozzle",
+          "motion": "flamethrower-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_flamewarden",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "paired-flame-nozzles",
+          "motion": "flamethrower-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_emberanvil",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "forge-tongs-and-hearth",
+          "motion": "forge-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath"
+        }
+      ]
+    },
+    {
+      "character_id": "dw_bombardking",
+      "factions": [
+        "forge"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "furnace-and-ground-receivers",
+          "motion": "forge-channel",
+          "element": "fire",
+          "auraAttack": "fire_breath"
+        }
+      ]
+    },
+    {
+      "character_id": "el_moonblade",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "katana",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_grove_archer",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_spark_adept",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "storm_spear",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_sealweaver",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_cinder",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "web_spit"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_blade",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_acolyte",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_dragon_keeper",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            2
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            3
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            4
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            5
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        },
+        {
+          "ranks": [
+            6
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "hooked-crook",
+          "motion": "staff-cast",
+          "element": "arcane",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_moonblade_sentinel",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword-and-shield",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_elite_warrior",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword-and-shield",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_stormblade_warden",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "ent_slam"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "ent_slam",
+          "kind": "treeSlam",
+          "weapon": "branch-fists",
+          "motion": "ent-slam",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_elven_king",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "ent_slam"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "ent_slam",
+          "kind": "treeSlam",
+          "weapon": "branch-fists",
+          "motion": "ent-slam",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_stag_knight",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "sword-and-shield",
+          "motion": "sword-slash",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_elven_archer",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_elven_bowmaster",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_tempest_bowmage",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_starfall_bowmaster",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_twilight_huntress",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arrow"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arrow",
+          "kind": "arrow",
+          "weapon": "bow",
+          "motion": "bow-shot",
+          "element": "physical"
+        }
+      ]
+    },
+    {
+      "character_id": "el_elven_mage",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "storm_spear",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_storm_conductor",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "storm_spear",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_elven_archmage",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "beak-and-wings",
+          "motion": "beak-strike",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_storm_sovereign",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "beak-and-wings",
+          "motion": "beak-strike",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_wisp_conductor",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "electric_arc",
+          "kind": "lightning",
+          "weapon": "storm-staff",
+          "motion": "staff-cast",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_veil_adept",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "lunar-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_sealwarden",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_moonwell_seer",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_eclipse_unbinder",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "empty-hands",
+          "motion": "hand-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_stag_oracle",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_ember_novice",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "web_spit"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "web_spit",
+          "kind": "web",
+          "weapon": "fangs-and-forelegs",
+          "motion": "spider-strike",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_pyromancer",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_ember_matron",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "claw"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "humanoid-claws",
+          "motion": "spider-strike",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_cinderqueen",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "claw"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "claw",
+          "kind": "claw",
+          "weapon": "humanoid-claws",
+          "motion": "spider-strike",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_furnace_seer",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "moon",
+          "weapon": "crescent-staff",
+          "motion": "staff-cast",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_blade_initiate",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_duelist",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_ashblade",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "crescent-blade",
+          "motion": "sword-slash",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_eclipse_duelist",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "paired-crescent-blades",
+          "motion": "dual-blade",
+          "element": "lunar"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_gloom_initiate",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "crystal-wand",
+          "motion": "staff-cast",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_eclipse_priest",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "arcane"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "arcane",
+          "kind": "arcane",
+          "weapon": "crystal-staff",
+          "motion": "staff-cast",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "el_veilfire_hierophant",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "sword"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "sword",
+          "kind": "melee",
+          "weapon": "jade-sword",
+          "motion": "sword-slash",
+          "element": "arcane"
+        }
+      ]
+    },
+    {
+      "character_id": "el_drow_night_hierarch",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "storm_spear",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "storm_spear",
+          "kind": "stormSpear",
+          "weapon": "storm-spear",
+          "motion": "spear-thrust",
+          "element": "lightning",
+          "chain": {
+            "lightning": "electric_arc"
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_baby_fire_dragon",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "mouth-and-lower-jaw",
+          "motion": "dragon-breath",
+          "element": "fire",
+          "auraAttack": "fire_breath"
+        }
+      ]
+    },
+    {
+      "character_id": "el_fire_dragon",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "mouth-and-lower-jaw",
+          "motion": "dragon-breath",
+          "element": "fire",
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 2,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_mother_fire_dragon",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "fire_breath"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "mouth-and-lower-jaw",
+          "motion": "dragon-breath",
+          "element": "fire",
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 2.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "character_id": "el_ancient_patriarch",
+      "factions": [
+        "grove"
+      ],
+      "effects": [
+        "fire_breath",
+        "electric_arc"
+      ],
+      "cues": [
+        {
+          "ranks": [
+            1
+          ],
+          "shot": "fire_breath",
+          "kind": "flame",
+          "weapon": "mouth-and-lower-jaw",
+          "motion": "dragon-breath",
+          "element": "fire",
+          "chain": {
+            "lightning": "electric_arc"
+          },
+          "auraAttack": "fire_breath",
+          "fireAura": {
+            "radius": 5.5,
+            "damageType": "magical",
+            "effect": "fire_breath",
+            "requiresAttackEnabled": true
+          }
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "crossfadeSeconds": 1.5,
+    "musicRate": 1,
+    "musicDecodedCacheLimit": 2,
+    "duckGain": 0.32,
+    "onlyVictoryTrack": "fallen_victory_celebration",
+    "attackVariantsPerType": 1,
+    "passiveAurasSilent": true,
+    "dotTicksSilent": true
+  }
+}

@@ -43,7 +43,7 @@
   "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
   "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
   "motionRevision": "approved-faction-motion-v3",
-  "vfxRevision": "faction-weapon-surfaces-20261030-v3",
+  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
   "balanceRevision": "fr008-r1-20261106",
   "factions": [
     {
@@ -87,5 +87,11 @@
   "defenderVoiceNewRecordings": 190,
   "defenderVoiceModel": "eleven_v4",
   "defenderVoiceUpdated": "2026-11-10",
-  "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json"
+  "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json",
+  "statusVfxRevision": "persistent-body-status-20261110",
+  "attackAudioRevision": "combat-effects-20261110-33171e30c092",
+  "attackAudioRecordings": 30,
+  "attackAudioNewRecordings": 15,
+  "attackAudioCoveredProfiles": 258,
+  "attackAudioUpdated": "2026-11-10"
 }

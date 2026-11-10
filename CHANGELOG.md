@@ -1,5 +1,12 @@
 # Current release
 
+## 0.6.12 — Current combat presentation — 10 November 2026
+
+- Aligns all 258 native defender/rank attack effects with the active weapon and damage element, including typed overflow and bright forked electricity.
+- Shows fourteen authoritative enemy conditions around native body bounds, with readable fire, poison and Slow throughout their real duration.
+- Adds fifteen recorded weapon sounds and current bindings for all factions; retains the original music and 272 character voice clips.
+- Preserves combat, score rules, approved models and artwork. [Implementation and verification](docs/COMBAT_PRESENTATION.md).
+
 ## 0.6.9 — Dwarf ground-and-air primary attacks — 2 November 2026
 
 - All Dwarf defenders can attack flying enemies, including 35 formerly ground-only profiles and four continuous Flame Cone weapons.

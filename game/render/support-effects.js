@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import {distance,readTowerStats as towerStats,offensiveAuraRange} from '../core/math.js';
+import {distance,readTowerStats as towerStats,offensiveAuraRange,damageDefenseBreakdown} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
-import {statusEffectAllowed,slowAuraApplies} from '../core/combat-rules.js';
+import {statusEffectAllowed,slowAuraApplies,effectDamageType} from '../core/combat-rules.js';
 import {immunityAuraCoverage} from '../core/immunity-auras.js';
 import {skyHuntAura,skyHuntSlow} from '../core/sky-hunt.js';
 
@@ -21,16 +21,19 @@ export const SUPPORT_EFFECT_STYLES=Object.freeze({
 });
 export const ENEMY_EFFECT_STYLES=Object.freeze({
   slow:Object.freeze({label:'Slowed',color:'#71d1e6',glyph:'clock'}),
-  freeze:Object.freeze({label:'Frozen / stunned',color:'#cef6ff',glyph:'snowflake'}),
+  freeze:Object.freeze({label:'Frozen',color:'#cef6ff',glyph:'snowflake'}),
+  stun:Object.freeze({label:'Stunned',color:'#ffe08a',glyph:'brokenStar'}),
+  root:Object.freeze({label:'Rooted',color:'#a9b775',glyph:'crack'}),
   petrify:Object.freeze({label:'Petrified',color:'#c5c0a1',glyph:'diamond'}),
   poison:Object.freeze({label:'Poison',color:'#a9e363',glyph:'drop'}),
   burn:Object.freeze({label:'Burning',color:'#ff9a51',glyph:'flame'}),
+  heat:Object.freeze({label:'Fire aura',color:'#ffbb54',glyph:'flame'}),
   bleed:Object.freeze({label:'Bleeding',color:'#ff747c',glyph:'drop'}),
   armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'brokenShield'}),
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
   regenReduction:Object.freeze({label:'Healing reduced',color:'#ffc0d0',glyph:'cross'}),
-  physicalPass:Object.freeze({label:'Physical immunity aura coverage',color:'#ffc86d',glyph:'brokenShield'}),
-  magicalPass:Object.freeze({label:'Magical immunity aura coverage',color:'#bfa5ff',glyph:'diamond'}),
+  physicalPass:Object.freeze({label:'Physical immunity weakened',color:'#ffc86d',glyph:'brokenShield'}),
+  magicalPass:Object.freeze({label:'Magical immunity weakened',color:'#bfa5ff',glyph:'diamond'}),
 });
 const positiveKeys=['haste','damage','range','controlResistance','trueStrike'];
 const negativeKeys=['dread','disarm','weakened','melancholy'];
@@ -138,8 +141,9 @@ export function supportSourceAreas(tower,data,{towers=[]}={}){
 export function enemyStatusState(enemy,towers,data,options={}){
   if(enemy.dead)return [];
   const statuses=enemy.statuses||{},effects=new Map();
+  const live=key=>statuses[key]?.time>0?statuses[key]:null;
   const add=(key,value)=>{if(value>0)effects.set(key,{key,...ENEMY_EFFECT_STYLES[key],value:Math.max(value,effects.get(key)?.value||0)});};
-  let slow=statusEffectAllowed(enemy,'slow')?Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0):0,armor=statuses.shred?.amount||0;
+  let slow=statusEffectAllowed(enemy,'slow')?Math.max(live('slow')?.amount||0,live('gazeSlow')?.amount||0):0,armor=live('shred')?.amount||0;
   const immunity=immunityAuraCoverage(enemy,towers,data),skyContext={data,towers,immunityCoverage:immunity};
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
@@ -147,13 +151,22 @@ export function enemyStatusState(enemy,towers,data,options={}){
     if(tower.attackPaused)continue;
     if(slowAuraApplies(s,enemy)&&d<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);
     if(d<=offensiveAuraRange(s,'armor'))armor=Math.max(armor,s.armorShredAura||0);
+    // Fire auras are continuous damage, not an invented timed Burn status.
+    // Use the same damage defenses and source visibility as the live combat.
+    const fire=s.factionProfile?(s.abilities||[]).find(a=>a.familyId==='fire-aura'):null;
+    const fireDps=fire?.dps||(!s.factionProfile?s.burnAura:0),fireRadius=fire?.radius??offensiveAuraRange(s,'burn');
+    if(fireDps>0&&d<=fireRadius&&(!s.factionProfile||!tower.disarmed)&&(!options.combat?.canSee||options.combat.canSee(enemy,tower))){
+      const type=fire?(fire.damageType==='profile'?s.type:fire.damageType==='magical-or-holy'?(s.type==='holy'?'holy':'magical'):fire.damageType):effectDamageType(s,'fire');
+      if(damageDefenseBreakdown(fireDps,type,enemy,s,data.balance,immunity).afterArmor>0)add('heat',fireDps);
+    }
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
   add('slow',slow);add('armor',armor);
   if(immunity){if(enemy.physicalImmune)add('physicalPass',immunity.physical.multiplier);if(enemy.magicImmune)add('magicalPass',immunity.magical.multiplier);}
-  for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
+  if(enemy.physicalImmune&&live('breachPhysical'))add('physicalPass',statuses.breachPhysical.multiplier);
+  if(enemy.magicImmune&&live('breachMagic'))add('magicalPass',statuses.breachMagic.multiplier);
+  for(const key of ['freeze','stun','root','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&live(key))add(key,statuses[key].dps||statuses[key].time);
   if(statusEffectAllowed(enemy,'healBlock')&&statuses.regenReduction?.time>0)add('regenReduction',statuses.regenReduction.amount);
-  if(statusEffectAllowed(enemy,'freeze')&&(statuses.stun?.time>0||statuses.root?.time>0))add('freeze',Math.max(statuses.stun?.time||0,statuses.root?.time||0));
   return [...effects.values()];
 }
 
@@ -260,9 +273,9 @@ export class SupportEffects{
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};
-      const auraTowers=towers.filter(t=>{if(t.state!=='active')return false;const s=statsFor(t);return !!skyHuntAura(s)||!t.attackPaused&&['slowAura','armorShredAura'].some(k=>s[k])||data.fr003&&(s.abilities||[]).some(a=>['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId));});
+      const auraTowers=towers.filter(t=>{if(t.state!=='active')return false;const s=statsFor(t);return !!skyHuntAura(s)||!t.attackPaused&&(['slowAura','armorShredAura','burnAura'].some(k=>s[k])||(s.abilities||[]).some(a=>a.familyId==='fire-aura'))||data.fr003&&(s.abilities||[]).some(a=>['cancel-physical-immunity-aura','cancel-magic-immunity-aura'].includes(a.familyId));});
       for(const enemy of combat.enemies||[]){
-        if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
+        if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor,combat});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);
         for(const e of effects)this.entries.get(`enemy:${e.key}`).push({x:enemy.x,z:enemy.z,y:.10+(enemy.flying?.8:0),angle:ordered.indexOf(e.key)*Math.PI*2/ordered.length,id:enemy.id});
       }

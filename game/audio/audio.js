@@ -135,7 +135,7 @@ export class AudioManager{
     const worker=async()=>{while(next<clips.length){const index=next++,clip=clips[index];if(this.disposed||this.muted)break;out[index]=await this.loadSelectionClip(clip);}};
     await Promise.all(Array.from({length:Math.min(3,clips.length)},worker));return out;
   }
-  async playRecordedEffect(effect){
+  async playRecordedEffect(effect,{channel='Attacks'}={}){
     const clip=this.recordedEffects.get(effect),context=this.context;
     if(!clip||this.muted||this.disposed||context?.state!=='running'||this.gameState?.paused)return false;
     if(this.now()-(this.effectFailures.get(clip.url)??-Infinity)<5000)return false;
@@ -145,7 +145,8 @@ export class AudioManager{
     // A late download must not play an attack from a previous wave/pause/run.
     if(generation!==this.attackGeneration||this.now()-time>250||this.muted||this.disposed||this.gameState?.paused||context!==this.context||context.state!=='running'||this.voices.size>=this.maxVoices)return false;
     const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;source.playbackRate.setValueAtTime(1,context.currentTime);
-    gain.gain.setValueAtTime(this.channels.Attacks,context.currentTime);source.connect(gain);gain.connect(this.effectOutput('sounds'));this.register(source,gain);source.start(context.currentTime);return true;
+    const clipGain=Number.isFinite(clip.gain)?Math.max(0,Math.min(16,clip.gain)):1;
+    gain.gain.setValueAtTime(this.channels[channel==='Impacts'?'Impacts':'Attacks']*clipGain,context.currentTime);source.connect(gain);gain.connect(this.effectOutput('sounds'));this.register(source,gain);source.start(context.currentTime);return true;
   }
   cancelSelectionVoice(){
     this.selectionRequest++;this.selectionKey=null;
@@ -239,7 +240,15 @@ export class AudioManager{
     source.connect(filter);filter.connect(envelope);envelope.connect(this.effectOutput(category));this.register(source,envelope,[filter]);source.start(start);source.stop(start+duration+.012);
   }
   attack(kind){
-    if(kind==='roots'){this.noise(.16,'Attacks',480,{category:'sounds',gain:.9,type:'lowpass'});this.tone(170,.13,'Magic','triangle',78,{category:'sounds',gain:.55});}
+    if(['bullet','bulletRapid','cannon','shell'].includes(kind)){const heavy=kind==='cannon'||kind==='shell';this.noise(heavy?.16:.045,'Attacks',heavy?380:2400,{category:'sounds',gain:heavy?1.1:.8,type:heavy?'lowpass':'highpass'});this.tone(heavy?95:230,heavy?.18:.055,'Attacks','triangle',heavy?42:75,{category:'sounds',gain:heavy?.65:.4});}
+    else if(['axe','pick','hammer','forge','thrust','claw'].includes(kind)){this.noise(kind==='hammer'?.13:.075,'Attacks',kind==='pick'?2600:kind==='claw'?1500:900,{category:'sounds',gain:.75});this.tone(kind==='pick'?470:kind==='thrust'?250:120,.10,'Attacks','triangle',65,{category:'sounds',gain:.48});}
+    else if(kind==='drum'||kind==='treeSlam'){this.noise(.13,'Attacks',kind==='drum'?180:320,{category:'sounds',gain:.8,type:'lowpass'});this.tone(kind==='drum'?110:75,.2,'Attacks','sine',38,{category:'sounds',gain:.8});}
+    else if(kind==='grenade'){this.noise(.08,'Attacks',700,{category:'sounds',gain:.65});this.tone(240,.08,'Attacks','triangle',120,{category:'sounds',gain:.3});}
+    else if(kind==='web'){this.noise(.11,'Attacks',1300,{category:'sounds',gain:.65});this.tone(420,.12,'Magic','triangle',160,{category:'sounds',gain:.3});}
+    else if(kind==='stormSpear'){this.noise(.055,'Magic',3700,{category:'sounds',gain:.7,type:'highpass'});this.tone(1600,.13,'Magic','sawtooth',190,{category:'sounds',gain:.35});}
+    else if(kind==='runic'||kind==='moon'){this.tone(kind==='runic'?260:520,.15,'Magic','triangle',kind==='runic'?650:1040,{category:'sounds',gain:.6});this.tone(780,.10,'Magic','sine',390,{category:'sounds',gain:.25});}
+    else if(kind==='stone'){this.noise(.16,'Attacks',260,{category:'sounds',gain:1,type:'lowpass'});this.tone(85,.14,'Attacks','triangle',38,{category:'sounds',gain:.55});}
+    else if(kind==='roots'){this.noise(.16,'Attacks',480,{category:'sounds',gain:.9,type:'lowpass'});this.tone(170,.13,'Magic','triangle',78,{category:'sounds',gain:.55});}
     else if(kind==='flame'){this.noise(.31,'Attacks',750,{category:'sounds',gain:1.15,type:'lowpass'});this.tone(78,.30,'Attacks','sawtooth',43,{category:'sounds',gain:.26});}
     else if(kind==='lightning'){this.noise(.045,'Magic',3600,{category:'sounds',gain:.75,type:'highpass'});this.tone(1450,.11,'Magic','sawtooth',160,{category:'sounds',gain:.3});}
     else if(kind==='melee'){this.noise(.095,'Attacks',1900,{category:'sounds',gain:.7});this.tone(190,.09,'Attacks','triangle',82,{category:'sounds',gain:.4});}
@@ -250,7 +259,10 @@ export class AudioManager{
     else{this.noise(.035,'Attacks',1200,{category:'sounds',gain:.65});this.tone(210,.055,'Attacks','triangle',90,{category:'sounds',gain:.5});}
   }
   impact(kind){
-    if(kind==='roots'){this.noise(.19,'Impacts',260,{category:'sounds',gain:1,type:'lowpass'});this.tone(95,.12,'Impacts','triangle',42,{category:'sounds',gain:.4});}
+    if(['cannon','shell','grenade'].includes(kind)){this.noise(.23,'Impacts',380,{category:'sounds',gain:1.25,type:'lowpass'});this.tone(70,.23,'Impacts','sine',32,{category:'sounds',gain:.7});}
+    else if(kind==='stormSpear'){this.noise(.08,'Impacts',3400,{category:'sounds',gain:.8,type:'highpass'});this.tone(360,.09,'Magic','sawtooth',90,{category:'sounds',gain:.25});}
+    else if(kind==='treeSlam'){this.noise(.19,'Impacts',220,{category:'sounds',gain:1,type:'lowpass'});this.tone(70,.16,'Impacts','triangle',35,{category:'sounds',gain:.5});}
+    else if(kind==='roots'){this.noise(.19,'Impacts',260,{category:'sounds',gain:1,type:'lowpass'});this.tone(95,.12,'Impacts','triangle',42,{category:'sounds',gain:.4});}
     else if(kind==='flame'||kind==='siege'){this.noise(.21,'Impacts',kind==='flame'?850:420,{category:'sounds',gain:1.25,type:'lowpass'});this.tone(75,.21,'Impacts','sine',35,{category:'sounds',gain:.65});}
     else if(kind==='frost'){this.noise(.12,'Impacts',4000,{category:'sounds',gain:.7,type:'highpass'});this.tone(1600,.13,'Magic','sine',760,{category:'sounds',gain:.23});}
     else if(kind==='holy'){this.tone(1046,.16,'Magic','sine',null,{category:'sounds',gain:.42});this.tone(1568,.17,'Magic','sine',null,{category:'sounds',gain:.18});}
@@ -264,14 +276,16 @@ export class AudioManager{
     if(this.disposed)return;
     if(event==='wave-complete'){this.attackGeneration++;this.music.onWaveComplete(payload);return;}
     if(event==='defender-committed')return this.playSelectionVoice(payload);
-    if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
+    if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','damage-trace','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
+    if(event==='damage-trace'&&this.gameState?.phase!=='combat')return;
     if(event==='defender-select')return;
     if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
     if(['wave','reward','won','lost'].includes(event))this.attackGeneration++;
     const cue=recordedAttackCue(event,payload,this.recordedDefenders);
     if(cue&&this.recordedEffects.has(cue)){
-      const interval=event==='aura-attack'?.28:event==='chain'||event==='burn-proc'?.12:INTERVALS.attack;
-      if(this.allow('recorded-attack:'+cue,interval))return this.playRecordedEffect(cue);return;
+      const current=this.recordedDefenders.get((payload.source||payload.tower)?.family)?.cues;
+      const interval=(event==='damage-trace'||event==='aura-attack'&&current)?.35:event==='aura-attack'?.28:event==='impact'?INTERVALS.impact:event==='chain'||event==='burn-proc'?.12:INTERVALS.attack;
+      if(this.allow('recorded-attack:'+cue,interval))return this.playRecordedEffect(cue,{channel:event==='impact'?'Impacts':'Attacks'});return;
     }
     if(event==='shot'||event==='aura-attack'){
       const kind=soundKind(payload);if(this.allow('attack:'+kind,INTERVALS.attack))this.attack(kind);return;

@@ -6,6 +6,8 @@ A browser tower-defense game: place five mystery recruits, keep one or combine e
 
 Every one of the 136 character families has two recorded lines. The complete voice bank contains 272 active clips, including 190 new ElevenLabs v4 recordings with the requested Scottish/British directions and gender-aware, distinct casting. [Defender voices](docs/DEFENDER_VOICES.md). Public deployment identity is recorded in [the current publication receipt](output/implementation/release-current/deployment.json).
 
+Attack effects follow every current native weapon and damage element, with bright forked lightning and typed busy-wave effects. Fourteen persistent enemy conditions remain visible around actual body bounds for their real duration. All factions have explicit weapon sounds in the current 30-effect bank, including 15 new recordings. This is a presentation revision of 0.6.12; combat and score rules are unchanged. [Effects, sounds and verification](docs/COMBAT_PRESENTATION.md).
+
 **FR-006 and FR-007 revision 3 remain implemented.** It includes final-boss defeat, 15% wave-49 recharge, faction score context, all defender size adjustments and the latest 16 recipe changes. Dwarf and Elf rank-I defenders have one immediate recipe choice where possible, two maximum. All 258 combat profiles, approved artwork and models remain exact. [Implementation and verification](docs/FR006_FR007_IMPLEMENTATION.md).
 
 All battlefield defenders are now at least 20% smaller. Basic champions match ordinary draft size references, while the approved models keep their exact body and equipment proportions. [Current sizing policy and verification](docs/DEFENDER_PRESENTATION.md).

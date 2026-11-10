@@ -66,7 +66,8 @@ import '../ui/mvp-details.css';
 import {Battlefield,makeThumbnails} from './render/world.js';
 import {AudioManager} from './audio/audio.js';
 import {CURRENT_DEFENDER_VOICE_CATALOGUE,CURRENT_VOICE_REVIEW} from './audio/current-voice-assets.js';
-import {AUDIO_BANK_CATALOGUE,recordedAudioBankReview,RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT} from './audio/audio-assets.js';
+import {recordedAudioBankReview,RECORDED_MUSIC_TRACK_COUNT} from './audio/audio-assets.js';
+import {CURRENT_ATTACK_CATALOGUE as AUDIO_BANK_CATALOGUE,CURRENT_ATTACK_TYPE_COUNT as RECORDED_ATTACK_TYPE_COUNT,CURRENT_ATTACK_REVIEW} from './audio/current-attack-assets.js';
 import {recordedVoiceReview} from './audio/voice-review.js';
 import {rankColor} from './render/ranks.js';
 import {icon} from '../ui/icons.js';
@@ -370,7 +371,7 @@ async function reviewAllRecordedAudio(button){
   const status=$('audio-review-status'),report=$('audio-review-report');if(!status||!report)return;
   button.disabled=true;status.textContent=`Decoding ${audioReviewClipCount} recorded clips with this browser…`;
   try{
-    const voices=await recordedVoiceReview(audio,CURRENT_VOICE_REVIEW),bank=await recordedAudioBankReview(audio),passed=voices.status==='passed'&&bank.status==='passed';
+    const voices=await recordedVoiceReview(audio,CURRENT_VOICE_REVIEW),bank=await recordedAudioBankReview(audio,CURRENT_ATTACK_REVIEW),passed=voices.status==='passed'&&bank.status==='passed';
     if(!status.isConnected)return;
     status.textContent=`${passed?'PASSED':'FAILED'}: ${(voices.decoded||0)+(bank.decoded||0)} / ${audioReviewClipCount} recorded clips decoded · music cache ${bank.musicCacheBuffers} buffers`;
     status.dataset.decodeStatus=passed?'passed':'failed';report.textContent=JSON.stringify({voices,bank},null,2);

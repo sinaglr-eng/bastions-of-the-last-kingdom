@@ -33,7 +33,7 @@ test('Thunderheart actual stats launch arcane lightning while its separate burni
   const stats=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url),'utf8')).thunderheart;
   assert.equal(stats.type,'arcane');assert.ok(stats.burnAura>0);assert.equal(attackVisualKind('thunderheart',stats),'lightning');
   const scene=new THREE.Scene(),origins=[],fx=new CombatEffects(scene,{getMuzzle:(_source,out,options)=>{origins.push(!!options?.breath);return out.set(options?.breath?2:1,1.5,2);}}),s=shot('thunderheart',1,stats),before=structuredClone(s);
-  fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Primary electric shot');assert.ok(fx.projectiles.get(1).object.isLine);
+  fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Primary electric shot');assert.equal(fx.projectiles.get(1).object.userData.electric,true);assert.ok(fx.projectiles.get(1).object.getObjectByName('Bright white electric core and forks').isInstancedMesh);
   fx.event('aura-attack',{source:s.source,target:s.target,stats});assert.equal(fx.effects.at(-1).object.name,'Dragon fire breath');assert.ok(origins.includes(true),'aura fire explicitly requests its distinct dragon-mouth origin');
   assert.equal(fx.projectiles.get(1).kind,'lightning','an aura pulse preserves the existing weapon shot');assert.deepEqual(s,before,'visual abilities do not change the actual damage, burnAura, target or timing');
   finiteScene(scene);fx.dispose();assert.equal(scene.children.length,0);

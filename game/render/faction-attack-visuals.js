@@ -7,7 +7,24 @@ const kinds={
  'spider-strike':'web','dragon-breath':'flame','flamethrower-channel':'flame',
 };
 export function factionAttackVisualKind(family,stats={}){
- const p=visuals[family];if(!p||p.factionId==='crown'||family==='ladyclaire')return null;
+ const p=visuals[family];if(!p||family==='ladyclaire')return null;
+ // The current native model contract owns the weapon shape. Historical
+ // geometric previews without faction stats keep their original presentation.
+ if(p.factionId==='crown'){
+  if(stats.factionId!=='crown')return null;
+  if(p.motion==='bow-shot')return family==='royalranger'?'venomArrow':'arrow';
+  if(p.motion==='spear-thrust')return 'thrust';
+  if(p.motion==='sword-slash')return 'melee';
+  if(p.motion==='hammer-slam')return family==='runebreaker'?'runic':'hammer';
+  if(p.motion==='ballista-shot')return 'siege';
+  if(p.motion==='catapult-shot')return 'siege';
+  if(p.motion==='cannon-shot')return 'cannon';
+  if(p.motion==='grenade-throw')return 'grenade';
+  if(p.motion==='aura-channel')return 'flame';
+  if(p.motion==='beak-strike'||family==='stormcaller'||family==='tempest'||family==='thunderheart')return 'lightning';
+  if(p.motion==='hand-cast')return 'roots';
+  if(p.motion==='staff-cast')return stats.projectileEffect==='poison'?'roots':stats.projectileEffect==='frost'?'frost':stats.type==='holy'?'holy':'arcane';
+ }
  if(p.motion==='spider-strike'&&p.weapon==='humanoid-claws')return 'claw';
  if(p.motion==='spear-thrust')return p.weapon==='storm-spear'?'stormSpear':'thrust';
  if(p.motion==='hammer-slam')return p.weapon.includes('rune')?'runic':'hammer';
@@ -17,6 +34,15 @@ export function factionAttackVisualKind(family,stats={}){
  if(p.motion==='staff-cast')return p.weapon.includes('rune')?'runic':p.weapon.includes('storm')?'lightning':/lunar|crescent/.test(p.weapon)?'moon':stats.type==='holy'?'holy':'arcane';
  if(p.motion==='hand-cast')return 'moon';
  return kinds[p.motion]||null;
+}
+
+/** Weapon shape and damage presentation are independent cosmetic facts. */
+export function factionAttackVisualStyle(family,stats={}){
+ const p=visuals[family],kind=factionAttackVisualKind(family,stats);
+ const damageType=stats.type==='holy'?'holy':['magical','arcane','poison','fire','frost'].includes(stats.type)?'magical':'physical';
+ const lightning=['lightning','stormSpear'].includes(kind)||['stormcitadel','royalarsenal'].includes(family);
+ const element=lightning?'lightning':stats.projectileEffect==='frost'?'frost':stats.projectileEffect==='poison'?'poison':stats.projectileEffect==='fire'||kind==='flame'?'fire':damageType==='holy'?'holy':['moon','web'].includes(kind)||p?.weapon?.includes('crescent')?'lunar':kind==='runic'?'rune':damageType==='magical'?'arcane':'physical';
+ return {kind,weapon:p?.weapon??null,motion:p?.motion??null,damageType,element,authored:!!p};
 }
 
 // Map authoritative ammunition timing to the original, immutable V3 clip.
