@@ -2,25 +2,25 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
-  "commit": "8b0becb7339da3151b442296464562d0dfcdb072",
-  "sourceCommit": "8b0becb7339da3151b442296464562d0dfcdb072",
+  "commit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "sourceCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
   "ci": {
-    "id": 42892602116,
-    "head_sha": "8b0becb7339da3151b442296464562d0dfcdb072",
+    "id": 42905601850,
+    "head_sha": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
     "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42892602116",
-    "testsPassed": 2194,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42905601850",
+    "testsPassed": 2216,
     "testsFailed": 0
   },
   "jobs": [
     {
-      "id": 130097318850,
+      "id": 130142670577,
       "name": "build",
       "conclusion": "success"
     },
     {
-      "id": 130100872276,
+      "id": 130145796446,
       "name": "deploy",
       "conclusion": "success"
     }
@@ -35,5 +35,12 @@
   "newVoiceRecordings": 190,
   "galleryPublished": false,
   "scoresSubmitted": false,
-  "verifiedAt": "2026-11-10T20:18:32.737Z"
+  "verifiedAt": "2026-11-10T21:38:04.364Z",
+  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
+  "attackAudioRevision": "combat-effects-20261110-33171e30c092",
+  "attackAudioRecordings": 30,
+  "newAttackRecordings": 15,
+  "persistentConditionChannels": 14,
+  "attackProfiles": 258,
+  "cosmeticOnly": true
 }

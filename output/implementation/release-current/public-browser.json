@@ -4,17 +4,19 @@
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
   "faction": "forge",
   "realMapPlacements": 5,
-  "trustedKeepPlayback": true,
-  "playedCharacter": {
-    "family": "dw_boarrider",
-    "id": "ally_dw_boarrider_select_b",
-    "sha256": "907c9963083024d2bed3bed94f5e8cff1d0aa744e1979809334905883103432d"
+  "keptDefender": {
+    "family": "dw_shieldguard",
+    "voiceId": "ally_dw_shieldguard_select_b",
+    "voiceSha256": "66c3763151d61d675c87f29eef68321ee877d658fbc51187aec43f5b30a2b85c"
   },
-  "noDevGlobals": true,
-  "noContextOrMp3BeforeGesture": true,
-  "pageErrors": [],
-  "httpErrors": [],
+  "trustedStartWavePlayback": true,
+  "actualOrdinaryCombatCue": "axe",
+  "actualNativeBufferSha256": "ca895ab74b6d144e0c52896afd5700992710beaaee0e021e8753dc366a921e3f",
+  "noDevGlobalsOrProductionStateInjection": true,
+  "noContextOrMp3BeforeAudioGesture": true,
+  "pageErrors": 0,
+  "httpErrors": 0,
   "unexpectedConsoleErrors": 0,
   "publicWrites": 0,
-  "detailedLocalReportSha256": "47156569e89ce1cb1d977576900e4d2696022bf3dcc30af0819a026e40ebb97b"
+  "detailedLocalReportSha256": "c4a65cac534d6564ad4985b0e1e4623be9b94df277f01772446b56753836f3d7"
 }

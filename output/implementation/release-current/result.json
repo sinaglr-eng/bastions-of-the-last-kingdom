@@ -8,10 +8,11 @@
     "FR-006",
     "FR-007 revision 3",
     "FR-008",
-    "Complete v4 defender voices"
+    "Complete v4 defender voices",
+    "Weapon-aware attacks, persistent conditions and recorded SFX"
   ],
   "tests": {
-    "passed": 2194,
+    "passed": 2216,
     "failed": 0
   },
   "publicBuildPassed": true,
@@ -19,7 +20,7 @@
   "voiceRecordings": 272,
   "newVoiceRecordings": 190,
   "publicUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "publicCommit": "8b0becb7339da3151b442296464562d0dfcdb072",
+  "publicCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
   "statisticsVersion": "0.6.12",
   "statisticsDeploymentId": "appgdep_6af376e0a5548191ba91a970ceefc9fc",
   "galleryDistribution": "local-only",
@@ -30,5 +31,19 @@
     "publicFiles": "public-verification.json",
     "publicBrowser": "public-browser.json",
     "statistics": "statistics-public-verification.json"
-  }
+  },
+  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
+  "attackAudioRevision": "combat-effects-20261110-33171e30c092",
+  "attackAudioRecordings": 30,
+  "newAttackRecordings": 15,
+  "persistentConditionChannels": 14,
+  "attackProfiles": 258,
+  "commit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "sourceCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "cosmeticOnly": true,
+  "galleryPublished": false,
+  "scoresSubmitted": false,
+  "actualCombatProfilesPreserved": 258,
+  "approvedAssetsAndRulesPreserved": true,
+  "publicAudioFilesVerified": 308
 }
