@@ -4,6 +4,8 @@ import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {RunStatistics} from '../game/core/run-statistics.js';
 import {DeveloperConsoleSession} from '../game/core/developer-console.js';
+import {CURRENT_VOICE_REVIEW} from '../game/audio/current-voice-assets.js';
+import {RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT} from '../game/audio/audio-assets.js';
 import {loadProfile,saveProfile,recordRunResult,excludeRunResult} from '../game/core/save.js';
 import {PhaseUiState,phaseStripMarkup,endedPhase} from '../ui/phase-ui.js';
 import {RunResultFacts,runResultModel,runResultMarkup,endedRunReviewMarkup} from '../ui/run-results.js';
@@ -22,6 +24,7 @@ import {actualAvailableRecipeActionsMarkup} from '../ui/preparation-folio.js';
 const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const noop=()=>{};
+const audioReviewClipCount=CURRENT_VOICE_REVIEW.expected+RECORDED_ATTACK_TYPE_COUNT+RECORDED_MUSIC_TRACK_COUNT;
 function declaration(name){
   const match=new RegExp(`(?:async )?function ${name}\\(`).exec(source);assert.ok(match,`Actual main ${name} is available`);
   const rest=source.slice(match.index),next=/\n(?:async )?function /.exec(rest);return rest.slice(0,next?.index??rest.length);
@@ -65,7 +68,7 @@ test('actual advanced-menu warning and Cancel preserve run eligibility; confirma
   const previous=globalThis.localStorage;globalThis.localStorage=memory();const game=new Game(data,{seed:531,waveLimit:10}),phaseUi=new PhaseUiState(),app=node(),world={maze:{editing:false},doubleTap:{clear:noop}},profile=loadProfile(),baseline=structuredClone(profile);let disabled=0,dialog='',closed=0;
   const tracker=new RunStatistics(game,{id:'warning-current',clock:()=>100});game.score=345;recordRunResult(profile,game,{id:tracker.id});saveProfile(profile);const before=JSON.stringify(profile),menu={open:true},content={querySelector:()=>({insertAdjacentHTML:noop})};
   try{
-    const bindings=commandBindings(game,phaseUi,app,world,{DeveloperConsoleSession,profile,gameProfileBaseline:baseline,statistics:{tracker,disableForDeveloper(){disabled++;game.developerMode=true;}},excludeRunResult,document:{querySelector:()=>menu},$:()=>content,dialogHeader:(label,title)=>`<h2>${title}</h2>`,openDialog:html=>dialog=html,closeDialog:()=>closed++,developerConsoleMarkup:()=>'<p>Console boundary</p>',connectDeveloperConsole:()=>({dispose:noop}),startGame:()=>{throw new Error('Activation must not reset the run');}});
+    const bindings=commandBindings(game,phaseUi,app,world,{DeveloperConsoleSession,CURRENT_VOICE_REVIEW,audioReviewClipCount,RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT,profile,gameProfileBaseline:baseline,statistics:{tracker,disableForDeveloper(){disabled++;game.developerMode=true;}},excludeRunResult,document:{querySelector:()=>menu},$:()=>content,dialogHeader:(label,title)=>`<h2>${title}</h2>`,openDialog:html=>dialog=html,closeDialog:()=>closed++,developerConsoleMarkup:()=>'<p>Console boundary</p>',connectDeveloperConsole:()=>({dispose:noop}),startGame:()=>{throw new Error('Activation must not reset the run');}});
     const functions=compile(['requestDeveloperConsole','openDeveloperConsole','handleCommand'],bindings,'let developerSession=null,developerConnection=null;',',get session(){return developerSession;}');
     const resources=inventory(game);press(functions.handleCommand,'developer');assert.equal(menu.open,false);assert.match(dialog,/permanently excludes this entire current run|earlier checkpoints/);assert.equal(game.developerMode,undefined);assert.equal(disabled,0);assert.equal(JSON.stringify(profile),before);assert.equal(inventory(game),resources);
     press(functions.handleCommand,'close');assert.equal(closed,1);assert.equal(disabled,0);assert.equal(JSON.stringify(loadProfile()),before);assert.equal(inventory(game),resources);

@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {AudioManager} from '../game/audio/audio.js';
+import {CURRENT_VOICE_REVIEW} from '../game/audio/current-voice-assets.js';
+import {RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT} from '../game/audio/audio-assets.js';
 import {recordedCatalogue} from '../game/audio/recorded-attacks.js';
 import {Game} from '../game/core/game.js';
 import {DeveloperConsoleSession} from '../game/core/developer-console.js';
@@ -13,6 +15,7 @@ import {championCatalogDefaults} from '../ui/catalog-recipes.js';
 const main=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const bank=recordedCatalogue(JSON.parse(readFileSync(new URL('../public/assets/audio/approved-20261011/catalogue.json',import.meta.url))),'https://test.example/catalogue.json');
 const flush=()=>new Promise(resolve=>setImmediate(resolve)),noop=()=>{};
+const audioReviewClipCount=CURRENT_VOICE_REVIEW.expected+RECORDED_ATTACK_TYPE_COUNT+RECORDED_MUSIC_TRACK_COUNT;
 class Param{constructor(){this.value=1;this.calls=[];}setValueAtTime(value,time){this.value=value;this.calls.push(['set',value,time]);}linearRampToValueAtTime(value,time){this.value=value;this.calls.push(['linear',value,time]);}cancelScheduledValues(time){this.calls.push(['cancel',time]);}}
 class AudioNode{constructor(){this.gain=new Param();this.playbackRate=new Param();this.stops=[];this.disconnects=0;}connect(target){this.connected=target;}disconnect(){this.disconnects++;}start(time,offset=0){this.started=[time,offset];}stop(time){this.stops.push(time);}finish(){this.onended?.();}}
 class Context{constructor(){this.currentTime=0;this.state='running';this.destination={};this.nodes=[];}createGain(){const node=new AudioNode();this.nodes.push(node);return node;}createBufferSource(){const node=new AudioNode();this.nodes.push(node);return node;}decodeAudioData(bytes){return Promise.resolve({duration:new Uint8Array(bytes)[0]});}close(){return Promise.resolve();}}
@@ -29,7 +32,7 @@ async function fixture({paused=false,fetchAudio=reply}={}){
   const syncLine=declaration('hud').split('\n').find(line=>line.includes('audio.syncGameState('));assert.ok(syncLine,'Exercise the actual saved production HUD audio call');
   const stampLine=main.split('\n').find(line=>line.startsWith('function stampCraftButtons('));assert.ok(stampLine);
   const background=main.split('\n').find(line=>line.includes("window.addEventListener('blur'")&&line.includes('draftPointerInput.clear()'));assert.ok(background);
-  Object.assign(bindings,{phaseUi:{apply:noop},updateHeaderCombatControls:noop,tour:{refresh:noop}});
+  Object.assign(bindings,{phaseUi:{apply:noop},updateHeaderCombatControls:noop,tour:{refresh:noop},CURRENT_VOICE_REVIEW,audioReviewClipCount,RECORDED_ATTACK_TYPE_COUNT,RECORDED_MUSIC_TRACK_COUNT});
   const names=['combatTransport','openDialog','closeDialog','dialogHeader','codex','warbands','fieldGuide','help','requestDeveloperConsole','openDeveloperConsole','handleCommand'];
   const functions=Function(...Object.keys(bindings),`let modalPaused=false,developerConnection=null,developerSession=null,recipeFilterConnection=null,threatAnalyzer=null,armyReadiness=null,intelligenceKey=null;${stampLine}\nfunction syncAudio(){${syncLine}}\nfunction render(){syncAudio();}\n${names.map(declaration).join('\n')}\n${background}\nreturn {${names.join(',')},syncAudio,get session(){return developerSession;},get modalPaused(){return modalPaused;}};`)(...Object.values(bindings));
   functions.syncAudio();await flush();
