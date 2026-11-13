@@ -2,27 +2,39 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
+  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
   "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-  "statusVfxRevision": "fr009-layered-body-status-20261113",
-  "commit": "9b02f797676abad19795dd3e769d30c99f90327f",
-  "sourceCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
+  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
+  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T15:22:44.235Z",
-  "cosmeticOnly": true,
+  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "cosmeticOnly": false,
+  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "hiddenStatusVisuals": [
+    "slow"
+  ],
+  "slowMovementAndInspectionPreserved": true,
+  "changedProfileKeys": [
+    "grove/el_baby_fire_dragon/1"
+  ],
+  "numericAndBurnProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 257,
+  "testsPassed": 2244,
+  "testsFailed": 0,
+  "independentBehaviorChecks": 35,
+  "unexpectedProfileChanges": 0,
+  "logicalConditionChannels": 14,
+  "visibleSupportedForms": 13,
+  "currentAssignedVisibleForms": 11,
+  "reservedVisibleForms": 2,
+  "attackProfiles": 258,
+  "primaryKinds": 27,
   "galleryPublished": false,
   "designPackagePublished": false,
   "scoresSubmitted": false,
   "publicWrites": 0,
-  "attackProfiles": 258,
-  "primaryKinds": 27,
-  "persistentConditionChannels": 14,
-  "assignedPersistentChannels": 12,
-  "reservedPersistentChannels": 2,
-  "testsPassed": 2227,
-  "testsFailed": 0,
-  "scheduledRendererCases": 1032,
-  "combatMismatches": 0,
-  "approvedAssetsAndRulesPreserved": true,
+  "unrelatedRulesAndApprovedAssetsPreserved": true,
   "audioChanged": false,
   "newModelOrAudioGitBlobs": 0,
   "method": "Ordinary compiled production UI in isolated private browser contexts; three factions and a 390px mobile viewport. Five legal map clicks, first recruit kept, actual Wave 1 damage observed in the player-visible peak DPS panel, native model loading, Pause/Resume and screenshot. No runtime globals, state injection, developer controls or bulk media fetch. Every non-GET/HEAD request and all cross-origin requests are blocked before network dispatch.",
@@ -36,13 +48,14 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Druid I",
-      "peakDps": 1.3,
+      "keeper": "Keep Frost Warden I",
+      "peakDps": 1.2,
+      "nativeResources": 17,
       "paused": {
         "label": "Resume game",
         "score": "0",
         "lives": "30 / 30",
-        "dps": "1.3"
+        "dps": "1.2"
       },
       "resumed": {
         "label": "Pause game",
@@ -50,7 +63,6 @@
         "lives": "30 / 30",
         "dps": "1.8"
       },
-      "nativeResources": 17,
       "pageErrors": 0,
       "httpErrors": 0,
       "shaderErrors": 0,
@@ -66,8 +78,9 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Boar Rider I",
+      "keeper": "Keep Griffin Handler I",
       "peakDps": 1.8,
+      "nativeResources": 13,
       "paused": {
         "label": "Resume game",
         "score": "10",
@@ -80,7 +93,6 @@
         "lives": "30 / 30",
         "dps": "1.8"
       },
-      "nativeResources": 13,
       "pageErrors": 0,
       "httpErrors": 0,
       "shaderErrors": 0,
@@ -98,6 +110,7 @@
       "legalPlacements": 5,
       "keeper": "Keep Elven Priestess I",
       "peakDps": 1.8,
+      "nativeResources": 13,
       "paused": {
         "label": "Resume game",
         "score": "10",
@@ -110,7 +123,6 @@
         "lives": "30 / 30",
         "dps": "1.8"
       },
-      "nativeResources": 13,
       "pageErrors": 0,
       "httpErrors": 0,
       "shaderErrors": 0,
@@ -126,8 +138,9 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Grenadier I",
+      "keeper": "Keep Boar Rider I",
       "peakDps": 1.8,
+      "nativeResources": 12,
       "paused": {
         "label": "Resume game",
         "score": "10",
@@ -140,7 +153,6 @@
         "lives": "30 / 30",
         "dps": "1.8"
       },
-      "nativeResources": 12,
       "pageErrors": 0,
       "httpErrors": 0,
       "shaderErrors": 0,
@@ -148,16 +160,13 @@
       "blockedTelemetryWrites": 1
     }
   ],
+  "bundle": {
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DejML-kL.js",
+    "sha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3",
+    "bytes": 2677786,
+    "projectBaseCorrect": true
+  },
   "runtimeStateInjection": false,
   "developerControlsUsed": false,
-  "bundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-CBP74xGc.js",
-    "sha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f",
-    "bytes": 2677637,
-    "projectBaseCorrect": true,
-    "matchesCurrentLocalProductionBundle": true,
-    "localProductionFile": "dist/assets/game-CBP74xGc.js"
-  },
-  "details": "output/implementation/fr009-current/qa/public-production-browser-report.json",
-  "detailsSha256": "8afea2a43effd20024f72f226190cd43c17ae42bd1ae12909e7f6b32935209cf"
+  "details": "output/implementation/dragon-air-and-slow-current/qa/public-production-browser-report.json"
 }

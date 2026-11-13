@@ -1,70 +1,80 @@
 {
-  "status": "passed",
-  "version": "0.6.12",
-  "rulesetRevision": "fr008-r1-20261106",
-  "commit": "9b02f797676abad19795dd3e769d30c99f90327f",
-  "sourceCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
-  "ci": {
-    "id": 43449394884,
-    "head_sha": "9b02f797676abad19795dd3e769d30c99f90327f",
-    "status": "completed",
-    "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43449394884",
-    "testsPassed": 2227,
-    "testsFailed": 0
-  },
-  "jobs": [
-    {
-      "id": 131967272394,
-      "name": "build",
-      "conclusion": "success"
-    },
-    {
-      "id": 131972352597,
-      "name": "deploy",
-      "conclusion": "success"
-    }
-  ],
-  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
   "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
   "statisticsVersion": "0.6.12",
   "statisticsDeploymentId": "appgdep_6af376e0a5548191ba91a970ceefc9fc",
   "defenderVoiceRevision": "voice-completion-20261110-v4-02d1a9224942",
   "voicedCharacters": 136,
   "voiceRecordings": 272,
-  "newVoiceRecordings": 190,
-  "galleryPublished": false,
-  "scoresSubmitted": false,
-  "verifiedAt": "2026-11-13T15:22:44.235Z",
-  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "attackAudioRevision": "combat-effects-20261110-33171e30c092",
   "attackAudioRecordings": 30,
-  "newAttackRecordings": 15,
-  "persistentConditionChannels": 14,
-  "attackProfiles": 258,
-  "cosmeticOnly": true,
-  "statusVfxRevision": "fr009-layered-body-status-20261113",
-  "designPackagePublished": false,
-  "publicWrites": 0,
-  "primaryKinds": 27,
-  "assignedPersistentChannels": 12,
-  "reservedPersistentChannels": 2,
-  "testsPassed": 2227,
+  "status": "passed",
+  "version": "0.6.12",
+  "rulesetRevision": "fr008-r1-20261106",
+  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
+  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
+  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
+  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "cosmeticOnly": false,
+  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "hiddenStatusVisuals": [
+    "slow"
+  ],
+  "slowMovementAndInspectionPreserved": true,
+  "changedProfileKeys": [
+    "grove/el_baby_fire_dragon/1"
+  ],
+  "numericAndBurnProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 257,
+  "testsPassed": 2244,
   "testsFailed": 0,
-  "scheduledRendererCases": 1032,
-  "combatMismatches": 0,
-  "approvedAssetsAndRulesPreserved": true,
+  "independentBehaviorChecks": 35,
+  "unexpectedProfileChanges": 0,
+  "logicalConditionChannels": 14,
+  "visibleSupportedForms": 13,
+  "currentAssignedVisibleForms": 11,
+  "reservedVisibleForms": 2,
+  "attackProfiles": 258,
+  "primaryKinds": 27,
+  "galleryPublished": false,
+  "designPackagePublished": false,
+  "scoresSubmitted": false,
+  "publicWrites": 0,
+  "unrelatedRulesAndApprovedAssetsPreserved": true,
   "audioChanged": false,
   "newModelOrAudioGitBlobs": 0,
+  "ci": {
+    "id": 43489429336,
+    "head_sha": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43489429336",
+    "testsPassed": 2244,
+    "testsFailed": 0
+  },
+  "jobs": [
+    {
+      "id": 132106351352,
+      "name": "build",
+      "conclusion": "success"
+    },
+    {
+      "id": 132109460636,
+      "name": "deploy",
+      "conclusion": "success"
+    }
+  ],
   "publicBundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-CBP74xGc.js",
-    "bytes": 2677637,
-    "sha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f",
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DejML-kL.js",
+    "bytes": 2677786,
+    "sha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3",
     "matchesFinalLocalBuild": true,
-    "expectedSha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f"
+    "expectedSha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3"
   },
   "publicBrowserCases": 4,
   "statisticsServerRedeployed": false,
   "statisticsClientUnchanged": true,
-  "verification": "output/implementation/fr009-current/"
+  "verification": "output/implementation/dragon-air-and-slow-current/"
 }
