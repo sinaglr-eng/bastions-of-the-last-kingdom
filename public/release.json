@@ -66,7 +66,7 @@
   "babyFireDragonPresentationScale": 3.85,
   "abilityRevision": "fr005-r2-combat-refinements-20261102",
   "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarf-ground-and-air-20261102",
+  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
   "largeEnemyPresentationScale": 0.75,
   "largeEnemyPresentationModels": 12,
   "championWarmModelLimit": 2,
@@ -74,7 +74,8 @@
     "FR-006",
     "FR-007 revision 3",
     "FR-008",
-    "FR-009 visual presentation"
+    "FR-009 visual presentation",
+    "Baby Fire Dragon air targeting and hidden Slow visuals"
   ],
   "humanPresentationRevision": "defender-size-feedback-20261106",
   "defenderPresentationRevision": "defender-size-feedback-20261106",
@@ -89,12 +90,15 @@
   "defenderVoiceModel": "eleven_v4",
   "defenderVoiceUpdated": "2026-11-10",
   "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json",
-  "statusVfxRevision": "fr009-layered-body-status-20261113",
+  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
   "attackAudioRevision": "combat-effects-20261110-33171e30c092",
   "attackAudioRecordings": 30,
   "attackAudioNewRecordings": 15,
   "attackAudioCoveredProfiles": 258,
   "attackAudioUpdated": "2026-11-10",
   "presentationUpdated": "2026-11-13",
-  "vfxRequirement": "FR-009"
+  "vfxRequirement": "FR-009",
+  "suppressedStatusVisuals": [
+    "slow"
+  ]
 }

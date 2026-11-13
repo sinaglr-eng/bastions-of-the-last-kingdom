@@ -7,7 +7,6 @@ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const STYLES={
   poison:{color:'#8bfd49',opacity:.76,shape:'cloud',particles:3},
   burn:{color:'#ffffff',opacity:.89,shape:'flame',particles:3},
-  slow:{color:'#45dfff',opacity:.92,shape:'wind',particles:1},
   freeze:{color:'#a1eaff',opacity:.67,shape:'ice',particles:1},
   stun:{color:'#ffe076',opacity:.95,shape:'star',particles:3},
   root:{color:'#dfbd6b',opacity:.96,shape:'roots',particles:1},
@@ -84,7 +83,6 @@ export class CombatStatusVfx{
     const wave=still?.5:(Math.sin(clock*2+enemy.id+index*2.1)+1)/2;
     if(kind==='petrify')size.set(r*1.15,h*.60,r*1.15);
     else if(kind==='freeze')size.set(r*1.12,h*.55,r*1.12);
-    else if(kind==='slow'){at.y=body.footY+h*.10;size.set(r*1.25,h*.65,r*1.25);}
     else if(kind==='root'){at.y=body.footY+h*.28;size.set(r/.27,h*1.7,r/.27);}
     else if(kind==='healBlock'||kind==='regenReduction'){
       at.y=body.top+Math.max(.23,feature,h*.14);size.setScalar(Math.max(h*.15,feature*1.3)/.16);
@@ -106,7 +104,7 @@ export class CombatStatusVfx{
       else if(kind==='bleed'){at.y=body.footY+h*(.7-wave*.45);size.setScalar(Math.max(h*.075,feature)/.052);}
       else if(kind==='armor'){at.y=body.footY+h*(.7-wave*.25);size.setScalar(Math.max(h*.18,feature*1.4)/.13);}
     }
-    this.put(kind,at,size,kind==='slow'?clock*.3+enemy.id:a);
+    this.put(kind,at,size,a);
   }
   sync(enemies,{states=new Map(),figures=new Map(),time=this.time,heatTargets=new Set()}={}){
     if(this.disposed)return;this.time=finite(time,this.time);this.count=0;this.targets.clear();
@@ -116,8 +114,10 @@ export class CombatStatusVfx{
     for(const enemy of visible){
       const effects=new Set((states.get(enemy.id)||[]).map(e=>e.key)),body=this.envelope(enemy,figures),kinds=[];
       body.effects=effects;
+      // Slow remains in authoritative state and inspection, without allocating
+      // any automatic battlefield body geometry or consuming the VFX budget.
       // Reconciled AFTER the simulation step: an impact never establishes infection.
-      for(const kind of persistentKinds)if(effects.has(kind)&&!(kind==='slow'&&['freeze','stun','root','petrify'].some(key=>effects.has(key))))kinds.push(kind);
+      for(const kind of persistentKinds)if(effects.has(kind))kinds.push(kind);
       if(heatTargets.has(enemy.id)&&!kinds.includes('heat'))kinds.push('heat');
       if(kinds.length)this.targets.set(enemy.id,kinds);
       for(let layer=0;layer<kinds.length;layer++)rows.push({kind:kinds[layer],enemy,body,layer});

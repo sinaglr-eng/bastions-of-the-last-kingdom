@@ -236,7 +236,9 @@ export class SupportEffects{
     this.scene=scene;this.position=position;this.baseHeight=baseHeight;this.pedestalHeight=pedestalHeight;this.reducedMotion=reducedMotion;this.isVisible=isVisible;this.maxTowers=maxTowers;this.maxEnemies=maxEnemies;this.disposed=false;
     this.group=new THREE.Group();this.group.name='Actual support and status overlays';scene.add(this.group);this.batches=new Map();this.entries=new Map();this.states=new Map();this.enemyStates=new Map();this.time=0;this.matrix=new THREE.Matrix4();this.rotation=new THREE.Quaternion();this.scale=new THREE.Vector3(1,1,1);this.up=new THREE.Vector3(0,1,0);
     for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES))this.batch(key,style,maxTowers,negativeKeys.includes(key)?{inner:1.08,outer:1.14,glyphRadius:1.28}:{inner:.84,outer:.91,glyphRadius:1.05});
-    for(const [key,style]of Object.entries(ENEMY_EFFECT_STYLES))this.batch(`enemy:${key}`,style,maxEnemies,{inner:.34,outer:.39,glyphRadius:.54,angle:.57});
+    // Keep Slow data and inspected source reach, but allocate no automatic
+    // enemy Slow clock/halo. Other support and condition glyphs are unchanged.
+    for(const [key,style]of Object.entries(ENEMY_EFFECT_STYLES))if(key!=='slow')this.batch(`enemy:${key}`,style,maxEnemies,{inner:.34,outer:.39,glyphRadius:.54,angle:.57});
     this.batch('disarm:orbit',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,brokenSwordGeometry());
     const halo=new THREE.RingGeometry(.67,.73,48);halo.rotateX(-Math.PI/2);
     this.batch('disarm:aura',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,halo);
@@ -277,7 +279,7 @@ export class SupportEffects{
       for(const enemy of combat.enemies||[]){
         if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor,combat});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);
-        for(const e of effects)this.entries.get(`enemy:${e.key}`).push({x:enemy.x,z:enemy.z,y:.10+(enemy.flying?.8:0),angle:ordered.indexOf(e.key)*Math.PI*2/ordered.length,id:enemy.id});
+        for(const e of effects)if(e.key!=='slow')this.entries.get(`enemy:${e.key}`).push({x:enemy.x,z:enemy.z,y:.10+(enemy.flying?.8:0),angle:ordered.indexOf(e.key)*Math.PI*2/ordered.length,id:enemy.id});
       }
     }
     const areas=selected?supportSourceAreas(selected,data,{towers}):[];this.selectedAreas=areas;

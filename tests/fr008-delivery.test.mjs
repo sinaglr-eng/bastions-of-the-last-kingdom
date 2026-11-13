@@ -16,11 +16,15 @@ import {currentWaveSummaryMarkup} from '../ui/current-wave-summary.js';
 import {selectedEnemyMarkup} from '../ui/selected-enemy.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url)),json=p=>JSON.parse(read(p)),sha=b=>createHash('sha256').update(b).digest('hex');
 const all=loadCurrentDatasets(),prior=loadCurrentDatasets({revision:'fr007r3'}),images=referencePortraitImageMap({base:'/fixture/'});
-test('FR008 preserves every numeric profile, recipe and enemy definition from FR007 revision 3',()=>{
+test('current FR008 preserves every numeric profile, recipe and enemy definition; only Baby Dragon targeting is amended',()=>{
  const withoutNarrative=value=>JSON.parse(JSON.stringify(value,(key,v)=>['text','description'].includes(key)?undefined:v));
  for(const id of Object.keys(all)){
   assert.equal(all[id].fr008,true);assert.equal(all[id].rulesetRevision,'fr008-r1-20261106');
-  for(const key of ['towers','recipes','enemies','waves'])assert.deepEqual(withoutNarrative(all[id][key]),withoutNarrative(prior[id][key]),`${id} ${key}`);
+  for(const key of ['towers','recipes','enemies','waves']){
+   const expected=structuredClone(prior[id][key]);
+   if(id==='grove'&&key==='towers'){const baby=expected.el_baby_fire_dragon;baby.groundOnly=false;baby.continuousAttack.targeting='ground-and-air';baby.abilities.find(a=>a.familyId==='flame-cone').targeting='ground-and-air';}
+   assert.deepEqual(withoutNarrative(all[id][key]),withoutNarrative(expected),`${id} ${key}`);
+  }
  }
 });
 test('FR008 wave 38 preserves explicit portrait identity through configured, live, preview, current and selected views',()=>{
@@ -52,7 +56,11 @@ test('FR008 actual scheduled wave-38 weapons apply HP damage in all 628 cases wi
  const r=json('output/implementation/fr008-current/wave38/results.json');assert.equal(r.summary.actualDamageChecks,628);assert.equal(r.summary.regenerationPerSecond,7842.25);
  for(const row of [...r.allProfiles,...r.knifemanSamples,...r.dwarfWithRuneMage])assert.ok(row.effectiveDamage>0);
  const baseline=json('output/design/fr008-current/wave38/results.json');
- for(const key of ['allProfiles','knifemanSamples','dwarfWithRuneMage','auraSamples','healingSamples'])assert.deepEqual(r[key],baseline[key],`${key}: FR008 must not change ground-wave damage or healing`);
+ for(const key of ['allProfiles','knifemanSamples','dwarfWithRuneMage','auraSamples','healingSamples']){
+  const actual=structuredClone(r[key]);
+  for(const row of actual)if(row.faction==='grove'&&row.family==='el_baby_fire_dragon'&&row.stats){assert.equal(row.stats.groundOnly,false);row.stats.groundOnly=true;}
+  assert.deepEqual(actual,baseline[key],`${key}: the authorized Baby targeting metadata cannot change ground-wave damage or healing`);
+ }
 });
 
 function decodePng(buffer){

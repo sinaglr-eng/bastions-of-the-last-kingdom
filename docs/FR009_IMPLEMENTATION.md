@@ -2,6 +2,8 @@
 
 Implementation and public deployment were authorized on 13 November 2026 after the effect art-direction requirement was prepared. The complete brief and per-profile prompts remain in the local design package. This is a cosmetic update to the maintained **0.6.12** release; the FR-008 combat rules and score version stay unchanged.
 
+**Current follow-up:** [Baby Fire Dragon air targeting and hidden Slow visuals](DRAGON_AIR_AND_SLOW_VISIBILITY.md) supersede the original ground-only Baby and visible Slow directions below. Earlier FR009 comparison counts describe the original revision; current follow-up checks and deployment are recorded separately.
+
 ## Implemented effects
 
 All 27 current primary kinds retain their actual native weapon and emission point. Arrows, heavy bolts, bullets, cannonballs, mortar shells, bombs and unfused Catapult stones have distinct material silhouettes. Sword, axe, pick, spear, hammer, fist, claw, branch and drum contacts follow their existing gesture and actual attack phase. Rune, nature, frost, lunar, Holy and Arcane casts remain distinct; Lady Claire retains her shared Secret gold identity.

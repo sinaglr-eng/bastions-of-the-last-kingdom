@@ -37,8 +37,8 @@ test('Sky Hunt statistics attribute strongest aura control without counting atta
 test('batched enemy markers retain passive Sky Hunt from a paused defender and follow coverage immediately',()=>{
  const h=scene(),e=h.enemy(12,10,{flying:true}),fx=new SupportEffects(new Scene());h.t.attackPaused=true;
  const sync=()=>fx.sync(h.g.towers,h.g.data,{phase:'combat',combat:h.c});
- try{sync();assert.equal(fx.enemyStates.get(e.id)?.find(s=>s.key==='slow').value,.25);assert.equal(fx.batches.get('enemy:slow').count,1);
-  e.x=14;sync();assert.equal(fx.enemyStates.has(e.id),false);assert.equal(fx.batches.get('enemy:slow').count,0);
+ try{sync();assert.equal(fx.enemyStates.get(e.id)?.find(s=>s.key==='slow').value,.25);assert.equal(fx.batches.has('enemy:slow'),false,'Sky Hunt Slow remains data-only without allocating an automatic glyph');
+  e.x=14;sync();assert.equal(fx.enemyStates.has(e.id),false);assert.equal(fx.batches.has('enemy:slow'),false);
   e.x=12;e.flying=false;sync();assert.equal(fx.enemyStates.has(e.id),false);
   e.flying=true;e.cloaked=true;sync();assert.equal(fx.enemyStates.has(e.id),false,'Markers never expose hidden enemies');
  }finally{fx.dispose();}

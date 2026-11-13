@@ -2,6 +2,8 @@
 
 ## 0.6.12 — FR009 combat effect art direction — 13 November 2026
 
+- Allows Baby Fire Dragon's existing flame cone to hit ground and flying targets, preserving its DPS, cone, reach and Burn. Other dragon primary attacks remain ground-only.
+- Hides automatic Slow body and enemy clock/halo effects across all factions while preserving actual movement slowing, inspection and selected coverage. [Current follow-up](docs/DRAGON_AIR_AND_SLOW_VISIBILITY.md).
 - Refines all 258 native defender/rank attack effects with weapon-shaped ammunition and contacts, material detail, layered continuous fire and bright local electrical discharge.
 - Gives Ricochet its originating weapon's appearance and actual Fire Splash procs a dedicated fire eruption.
 - Uses procedural body flames and Poison volumes, open Slow wind, partial ice, woody bindings and distinct concurrent condition markers for all fourteen supported channels.

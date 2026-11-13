@@ -21,6 +21,39 @@ function arena(faction,family,options={}){
 }
 const matrixSnapshot=fx=>[...fx.batches].map(([key,b])=>[key,b.count,Array.from(b.instanceMatrix.array.slice(0,b.count*16))]);
 
+test('timed Slow still reduces real movement for every faction without allocating a body effect or clock glyph',()=>{
+  for(const [faction,family]of [['crown','frostwarden'],['forge','dw_boarrider'],['grove','el_drow_pyromancer']]){
+    const h=arena(faction,family);try{
+      h.enemy.speed=1;h.enemy.route=[{x:11,z:10},{x:30,z:10}];h.enemy.pathIndex=1;h.enemy.pathLength=19;
+      h.impact();const applied=h.enemy.statuses.slow;assert.ok(applied?.amount>0,faction+' applies real timed Slow');
+      const before=h.enemy.traveled;h.game.combat.update(.1);h.sync();const expected=1-applied.amount;
+      assert.ok(Math.abs(h.enemy.currentSpeed-expected)<1e-8);assert.ok(Math.abs((h.enemy.traveled-before)-expected*.1)<1e-8,'Actual movement retains the Slow reduction');
+      assert.ok(h.support.enemyStates.get(h.enemy.id).some(e=>e.key==='slow'&&e.value===applied.amount),'Inspection retains the live Slow amount');
+      assert.equal(h.fx.batches.has('slow'),false);assert.equal(h.support.batches.has('enemy:slow'),false);assert.equal(h.support.entries.has('enemy:slow'),false);
+      h.enemy.statuses.burn={time:2,dps:5};h.enemy.statuses.poison={time:2,dps:5};h.enemy.statuses.freeze={time:1};const original=JSON.stringify(h.enemy.statuses);h.sync();
+      for(const key of ['burn','poison','freeze'])assert.ok(count(h.fx,key)>0,key+' remains visible alongside data-only Slow');
+      assert.equal(h.fx.batches.has('slow'),false);assert.equal(JSON.stringify(h.enemy.statuses),original,'Visual suppression cannot alter combat state or timers');
+    }finally{h.dispose();}
+  }
+});
+
+test('Slow Aura and both factions Sky Hunt retain movement, inspection and selected coverage without automatic Slow graphics',()=>{
+  for(const [faction,family,flying]of [['crown','winterhold',false],['forge','dw_griffinhandler',true],['grove','el_grove_archer',true]]){
+    const h=arena(faction,family);try{
+      h.enemy.speed=1;h.enemy.flying=flying;h.enemy.route=[{x:11,z:10},{x:30,z:10}];h.enemy.pathIndex=1;h.enemy.pathLength=19;
+      const stats=towerStats(h.source,h.data),sky=stats.abilities?.find(a=>a.familyId==='sky-hunt'),amount=sky?sky.slowPercent/100:stats.slowAura;
+      assert.ok(amount>0);const before=h.enemy.traveled;h.game.combat.update(.1);h.sync();
+      assert.ok(Math.abs(h.enemy.currentSpeed-(1-amount))<1e-8);assert.ok(Math.abs((h.enemy.traveled-before)-(1-amount)*.1)<1e-8);
+      assert.equal(h.enemy.statuses.slow,undefined,'Live coverage does not invent a timed Slow');assert.equal(h.support.enemyStates.get(h.enemy.id).find(e=>e.key==='slow').value,amount);
+      h.support.sync(h.game.towers,h.data,{selected:h.source,combat:h.game.combat,phase:h.game.phase,time:h.game.combat.elapsed});
+      const area=h.support.selectedAreas.find(a=>a.key==='slow');assert.ok(area?.radius>0);assert.ok(h.support.radius.visible,'Selected source retains its actual inspected range');
+      assert.equal(h.fx.batches.has('slow'),false);assert.equal(h.support.batches.has('enemy:slow'),false);assert.equal(h.support.entries.has('enemy:slow'),false);
+      h.enemy.x=h.source.x+area.radius+.1;h.game.combat.update(.01);h.sync();assert.equal(h.enemy.currentSpeed,1);assert.equal(h.support.enemyStates.get(h.enemy.id)?.some(e=>e.key==='slow')||false,false);
+      assert.equal(h.fx.batches.has('slow'),false);assert.equal(h.support.batches.has('enemy:slow'),false);
+    }finally{h.dispose();}
+  }
+});
+
 test('real current Human, Dwarf and Elf Burn contacts keep body flames for the entire actual duration',()=>{
   for(const [faction,family]of [['crown','fireballista'],['forge','dw_grenadier'],['grove','el_dragon_keeper']]){
     const h=arena(faction,family);try{

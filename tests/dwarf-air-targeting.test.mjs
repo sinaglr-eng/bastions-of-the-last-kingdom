@@ -50,8 +50,8 @@ test('Dwarf air permission grants no detection or immunity bypass and leaves gro
 test('unamended Elf cones retain ground-only delivery even if a caller supplies broader primary target flags',()=>{
  let count=0;
  for(const [family,u]of Object.entries(data.grove.towers))for(let tier=1;tier<=(u.advanced?1:6);tier++){
-  const h=scene('grove',family,tier);if(!h.s.continuousAttack)continue;
+  const h=scene('grove',family,tier);if(!h.s.continuousAttack||family==='el_baby_fire_dragon')continue;
   count++;const air=h.enemy(12,10);updateFr002Tower(h.c,h.t,{...h.s,groundOnly:false,abilities:h.s.abilities.filter(a=>a.familyId==='flame-cone')},.1,1);assert.equal(air.hp,air.maxHp,family+'/'+tier);
  }
- assert.ok(count>0);
+ assert.equal(count,3,'only the explicitly amended Baby Fire Dragon gains air-capable primary breath');
 });

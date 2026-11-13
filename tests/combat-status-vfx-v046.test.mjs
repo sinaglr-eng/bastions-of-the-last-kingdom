@@ -55,13 +55,13 @@ test('actual burning status stays distinct from a continuously applied fire aura
   }finally{aura.dispose();}
 });
 
-test('actual slow, stun and Golem petrification have distinct priority while flying cues follow the model body',()=>{
+test('actual Slow remains data-only while flying Freeze and Golem Petrify keep their body effects',()=>{
   const h=arena(),frost=unit('frostwarden'),golem=unit('emeraldgolem',101);h.game.towers=[frost,golem];const enemy=h.foe({flying:true});
   const figure=new THREE.Group();figure.position.set(enemy.x,1.8,enemy.z);figure.scale.setScalar(.8);figure.userData.body=new THREE.Group();figure.userData.barHeight=1.6;h.scene.add(figure);const figures=new Map([[enemy.id,figure]]);
   try{
-    hit(h.game,frost,enemy);h.sync({figures});assert.ok(enemy.statuses.slow.amount>0);assert.ok(count(h.fx,'slow')>0);assert.ok(positions(h.fx,'slow').every(([,y])=>y>1.8),'Flying status bands stay at body altitude');assert.equal(count(h.fx,'freeze'),0);assert.equal(count(h.fx,'petrify'),0);
-    const seeded=h.game.rng;h.game.rng=()=>0;h.game.combat.applyEffects(enemy,{...towerStats(golem,data),freeze:1,freezeDuration:.2},golem);h.game.rng=seeded;h.sync({figures});assert.ok(count(h.fx,'freeze')>0);assert.equal(count(h.fx,'slow'),0);
-    h.game.combat.update(.21);h.sync({figures});assert.equal(count(h.fx,'freeze'),0);assert.ok(count(h.fx,'slow')>0);
+    hit(h.game,frost,enemy);h.sync({figures});assert.ok(enemy.statuses.slow.amount>0);assert.ok(h.support.enemyStates.get(enemy.id).some(row=>row.key==='slow'&&row.value>0));assert.equal(h.fx.batches.has('slow'),false);assert.equal(h.support.batches.has('enemy:slow'),false);assert.equal(count(h.fx,'freeze'),0);assert.equal(count(h.fx,'petrify'),0);
+    const seeded=h.game.rng;h.game.rng=()=>0;h.game.combat.applyEffects(enemy,{...towerStats(golem,data),freeze:1,freezeDuration:.2},golem);h.game.rng=seeded;h.sync({figures});assert.ok(count(h.fx,'freeze')>0);assert.ok(positions(h.fx,'freeze').every(([,y])=>y>1.8),'Visible flying conditions stay at body altitude');assert.equal(count(h.fx,'slow'),0);
+    h.game.combat.update(.21);h.sync({figures});assert.equal(count(h.fx,'freeze'),0);assert.ok(enemy.statuses.slow.amount>0);assert.equal(h.fx.batches.has('slow'),false);
     h.game.rng=()=>0;h.game.combat.landedProcs({...towerStats(golem,data),stoneGazeChance:1},golem);h.game.rng=seeded;enemy.route=[{x:11,z:10},{x:10,z:10}];enemy.pathIndex=1;h.game.combat.updateStoneGazes(2.01);h.sync({figures});assert.ok(enemy.statuses.petrify.time>0);assert.ok(enemyStatusState(enemy,h.game.towers,data).some(row=>row.key==='petrify'));assert.equal(count(h.fx,'petrify'),1);assert.equal(count(h.fx,'slow'),0);
   }finally{figure.removeFromParent();h.dispose();}
 });
