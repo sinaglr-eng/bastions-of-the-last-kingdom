@@ -2,27 +2,29 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
+  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
   "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
-  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
+  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "verifiedAt": "2026-11-13T20:21:16.236Z",
   "cosmeticOnly": false,
-  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
   "hiddenStatusVisuals": [
     "slow"
   ],
   "slowMovementAndInspectionPreserved": true,
   "changedProfileKeys": [
-    "grove/el_baby_fire_dragon/1"
+    "grove/el_fire_dragon/1",
+    "grove/el_mother_fire_dragon/1",
+    "grove/el_ancient_patriarch/1"
   ],
-  "numericAndBurnProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 257,
-  "testsPassed": 2244,
+  "numericAndNonConeAbilityProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 255,
+  "testsPassed": 2285,
   "testsFailed": 0,
-  "independentBehaviorChecks": 35,
+  "independentBehaviorChecks": 69,
   "unexpectedProfileChanges": 0,
   "logicalConditionChannels": 14,
   "visibleSupportedForms": 13,
@@ -48,9 +50,9 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Frost Warden I",
+      "keeper": "Keep Human Engineer I",
       "peakDps": 1.2,
-      "nativeResources": 17,
+      "nativeResources": 16,
       "paused": {
         "label": "Resume game",
         "score": "0",
@@ -78,7 +80,7 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Griffin Handler I",
+      "keeper": "Keep Shieldguard I",
       "peakDps": 1.8,
       "nativeResources": 13,
       "paused": {
@@ -108,9 +110,9 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Elven Priestess I",
+      "keeper": "Keep Dragon Keeper I",
       "peakDps": 1.8,
-      "nativeResources": 13,
+      "nativeResources": 14,
       "paused": {
         "label": "Resume game",
         "score": "10",
@@ -138,7 +140,7 @@
       },
       "status": "passed",
       "legalPlacements": 5,
-      "keeper": "Keep Boar Rider I",
+      "keeper": "Keep Dwarf Miner I",
       "peakDps": 1.8,
       "nativeResources": 12,
       "paused": {
@@ -161,12 +163,14 @@
     }
   ],
   "bundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DejML-kL.js",
-    "sha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3",
-    "bytes": 2677786,
-    "projectBaseCorrect": true
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
+    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
+    "bytes": 2677883,
+    "projectBaseCorrect": true,
+    "matchesCurrentLocalProductionBundle": true,
+    "localProductionFile": "dist/assets/game-C69mXajE.js"
   },
   "runtimeStateInjection": false,
   "developerControlsUsed": false,
-  "details": "output/implementation/dragon-air-and-slow-current/qa/public-production-browser-report.json"
+  "details": "output/implementation/all-dragons-air-current/qa/public-production-browser-report.json"
 }

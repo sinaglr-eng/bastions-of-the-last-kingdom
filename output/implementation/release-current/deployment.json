@@ -10,27 +10,29 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
+  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
   "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
-  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
+  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "verifiedAt": "2026-11-13T20:21:16.236Z",
   "cosmeticOnly": false,
-  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
   "hiddenStatusVisuals": [
     "slow"
   ],
   "slowMovementAndInspectionPreserved": true,
   "changedProfileKeys": [
-    "grove/el_baby_fire_dragon/1"
+    "grove/el_fire_dragon/1",
+    "grove/el_mother_fire_dragon/1",
+    "grove/el_ancient_patriarch/1"
   ],
-  "numericAndBurnProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 257,
-  "testsPassed": 2244,
+  "numericAndNonConeAbilityProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 255,
+  "testsPassed": 2285,
   "testsFailed": 0,
-  "independentBehaviorChecks": 35,
+  "independentBehaviorChecks": 69,
   "unexpectedProfileChanges": 0,
   "logicalConditionChannels": 14,
   "visibleSupportedForms": 13,
@@ -46,35 +48,35 @@
   "audioChanged": false,
   "newModelOrAudioGitBlobs": 0,
   "ci": {
-    "id": 43489429336,
-    "head_sha": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+    "id": 43498846258,
+    "head_sha": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
     "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43489429336",
-    "testsPassed": 2244,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43498846258",
+    "testsPassed": 2285,
     "testsFailed": 0
   },
   "jobs": [
     {
-      "id": 132106351352,
+      "id": 132138989936,
       "name": "build",
       "conclusion": "success"
     },
     {
-      "id": 132109460636,
+      "id": 132142802021,
       "name": "deploy",
       "conclusion": "success"
     }
   ],
   "publicBundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DejML-kL.js",
-    "bytes": 2677786,
-    "sha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3",
-    "matchesFinalLocalBuild": true,
-    "expectedSha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3"
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
+    "bytes": 2677883,
+    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
+    "expectedSha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
+    "matchesFinalLocalBuild": true
   },
   "publicBrowserCases": 4,
   "statisticsServerRedeployed": false,
   "statisticsClientUnchanged": true,
-  "verification": "output/implementation/dragon-air-and-slow-current/"
+  "verification": "output/implementation/all-dragons-air-current/"
 }

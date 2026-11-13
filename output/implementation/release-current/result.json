@@ -10,27 +10,29 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
+  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
   "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
-  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
+  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "verifiedAt": "2026-11-13T20:21:16.236Z",
   "cosmeticOnly": false,
-  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
   "hiddenStatusVisuals": [
     "slow"
   ],
   "slowMovementAndInspectionPreserved": true,
   "changedProfileKeys": [
-    "grove/el_baby_fire_dragon/1"
+    "grove/el_fire_dragon/1",
+    "grove/el_mother_fire_dragon/1",
+    "grove/el_ancient_patriarch/1"
   ],
-  "numericAndBurnProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 257,
-  "testsPassed": 2244,
+  "numericAndNonConeAbilityProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 255,
+  "testsPassed": 2285,
   "testsFailed": 0,
-  "independentBehaviorChecks": 35,
+  "independentBehaviorChecks": 69,
   "unexpectedProfileChanges": 0,
   "logicalConditionChannels": 14,
   "visibleSupportedForms": 13,
@@ -50,19 +52,19 @@
     "FR-007 revision 3",
     "FR-008",
     "FR-009 visual presentation",
-    "Baby Fire Dragon air targeting and hidden Slow visuals"
+    "All Elf dragons air targeting and hidden Slow visuals"
   ],
   "tests": {
-    "passed": 2244,
+    "passed": 2285,
     "failed": 0
   },
   "publicBuildPassed": true,
-  "publicCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "publicCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
   "publicBrowserCases": 4,
   "publicationEvidence": {
-    "ci": "output/implementation/dragon-air-and-slow-current/ci.json",
-    "publicFiles": "output/implementation/dragon-air-and-slow-current/public-files.json",
-    "publicBrowser": "output/implementation/dragon-air-and-slow-current/qa/public-production-browser-report.json",
-    "independent": "output/implementation/dragon-air-and-slow-current/verification/independent-final.json"
+    "ci": "output/implementation/all-dragons-air-current/ci.json",
+    "publicFiles": "output/implementation/all-dragons-air-current/public-files.json",
+    "publicBrowser": "output/implementation/all-dragons-air-current/qa/public-production-browser-report.json",
+    "independent": "output/implementation/all-dragons-air-current/verification/independent-final.json"
   }
 }

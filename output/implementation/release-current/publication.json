@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "at": "2026-11-13T19:08:40.291Z",
+  "at": "2026-11-13T20:08:42.640Z",
   "version": "0.6.12",
-  "base": "660cb77e57385833988870dc5a8e1dd63603865a",
-  "commit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
-  "tree": "803459e2d72624643fac3b187d556ab123a2202f",
+  "base": "5ce706d5016a34368ec7501a01a2d24c8d05f797",
+  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
+  "tree": "acab26556b12b328a6b8b7066024cfb3ec6e314a",
   "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-baby-dragon-ground-and-air-20261113",
+  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
   "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
   "sharedHead": "3961243b18da183bfac336ba0afa65d155749757",
   "sharedIndexSha256": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5",
@@ -14,104 +14,74 @@
   "forwardOnly": true,
   "galleryPublished": false,
   "newModelOrAudioGitBlobs": 0,
-  "testsPassed": 2244,
-  "independentBehaviorChecks": 35,
+  "testsPassed": 2285,
+  "independentBehaviorChecks": 69,
   "files": [
     {
       "file": "CHANGELOG.md",
-      "blob": "291d36d0b4b5f79dc7b71b90b82603a3117ed852",
-      "sha256": "9a33497377eb9303ac0c4a7204b992fa243ea1c76d28557a9c92716fdfe9e78d",
-      "bytes": 3273
+      "blob": "055fad7b45124ae59b4ad481d4249221e6c7e97d",
+      "sha256": "4b92863a44c69e2fc2ff2d2321455f4060cebf5ebf769ee4229e0218385694c9",
+      "bytes": 3249
     },
     {
       "file": "README.md",
-      "blob": "6b1c04cad4a448a792366c107c6f634984128bd9",
-      "sha256": "fed3f67cb123e742b1e91ab577ac86694c6c7296327277f701c37b433ed09e45",
-      "bytes": 7896
+      "blob": "77dc7ee72c90540675f279112ab6f0eb3e70221a",
+      "sha256": "83552a6d73fd6843b080d5a7ce03e3250ae4f7fc95e53ecd445afaf6dd1aad54",
+      "bytes": 7910
     },
     {
       "file": "docs/COMBAT_PRESENTATION.md",
-      "blob": "de125242e3351129cb9c4e17c78bd297655c6c0a",
-      "sha256": "fdb0f38039613139c88c200ca452e6611ad0fab8f3b04b3bf504c3175fb7bcdc",
-      "bytes": 5874
+      "blob": "3179c5956919e4ada8ff85aa5bd6934fcdf98654",
+      "sha256": "4adbed0e1f0ffd2f66ea32c2c2407d5000c48d4d1d2c7507f78d902927caa8ea",
+      "bytes": 5863
     },
     {
       "file": "docs/DRAGON_AIR_AND_SLOW_VISIBILITY.md",
-      "blob": "6170cecade27079cb55094fd202b1151c903daa3",
-      "sha256": "38c14d5cf713a020bc5344116320afa3eef91eca5090cb30274b78d564f7f7b0",
-      "bytes": 2832
+      "blob": "8977b52392ab66487a32d3327815aca466444104",
+      "sha256": "6a05173e6262cff43f314b1062a3de3340393d29906bfa2bb4b10ec82ca485f9",
+      "bytes": 3637
     },
     {
       "file": "docs/FR009_IMPLEMENTATION.md",
-      "blob": "db29a331969653a0d58dc9bc365fd08d8f0e7876",
-      "sha256": "c91c77381a65dac1865198c9fa3e78bea3b047377d941c19a5422a7848ccf838",
-      "bytes": 6046
+      "blob": "3126d545e713eeeaa517e9ee2232b51599f65932",
+      "sha256": "282acdfdc417ec0e92eaf6e4938def0f3584bda75fff4ac1f22754cddbf4d2a6",
+      "bytes": 6049
     },
     {
       "file": "game/core/fr008-registry.js",
-      "blob": "063d967778c8b29260223258200a54445e9bc8eb",
-      "sha256": "2b5db41fb2ecc3bc36bb3cc050e5c8d6a71047003e7798f5a4301c941260ba4e",
-      "bytes": 1442
-    },
-    {
-      "file": "game/render/combat-status-vfx.js",
-      "blob": "6f11ae30fc2f432ce7d3d696eb4d57fb4d7e57ac",
-      "sha256": "977da746eb33a76d2bb004377acedeb6f89d62125c4cc18cd8a6d425652ab2da",
-      "bytes": 12268
-    },
-    {
-      "file": "game/render/support-effects.js",
-      "blob": "9ad0236ac506af226aa57bcf55b653237006e2ad",
-      "sha256": "9515186796b227cdb29ee1047253e02d9a8b590c1664aeeea10f86ec09c92330",
-      "bytes": 29187
+      "blob": "3127cbbb43a0a12066e6ff4ebb6447531b5367e2",
+      "sha256": "d3694a2cc6bc85bfc84e1a4b498226fdd88a27d13909ab8a97d2cd8a3620bb19",
+      "bytes": 1551
     },
     {
       "file": "public/release.json",
-      "blob": "9ebae7763607966ceb9d71d5ce58fe25a4bfd2b1",
-      "sha256": "05202ab7c127051d43d83a6c2434520876507e8c16dc494f9d282552c1890769",
-      "bytes": 3455
+      "blob": "17bbb8d8b521a92acdf5fff614ab725fd02d1b7e",
+      "sha256": "1765d1c53ad8d453b6000ec97d3ed38fced5b8d8f453de976e97a82a9b9d6bf6",
+      "bytes": 3454
     },
     {
       "file": "tests/baby-dragon-air-targeting.test.mjs",
-      "blob": "75fdd5f4870f6194b78bb003ee176f98deb9224b",
-      "sha256": "33b3a18e92c7a4ded1e050756eaaf6b5f2de3cb767278c1497858432ef8fcb4c",
-      "bytes": 7908
-    },
-    {
-      "file": "tests/combat-status-vfx-v046.test.mjs",
-      "blob": "543ef31dfb5972387e89d5d94c44254b28fc6957",
-      "sha256": "7943aa09ad98ee0256c6741fc3473ae02209fc96cabc844fd3d4356533831560",
-      "bytes": 14854
+      "blob": "26047375fcbe9eed29c8a6629c03d65d5fb426b6",
+      "sha256": "212d4d235cfda8ed33df42620fbac7878e4f3e0f1dce18f2fce1efdb31ea5737",
+      "bytes": 10305
     },
     {
       "file": "tests/dwarf-air-targeting.test.mjs",
-      "blob": "8bd4600171213e7fb075d1f3f0cf18b6bd941740",
-      "sha256": "b55f96e5ebd204a2730e52d1c02a532dd0aff46ed93f0ea26def940ddfca80d3",
-      "bytes": 3975
-    },
-    {
-      "file": "tests/fr005-combat.test.mjs",
-      "blob": "b344e5bd83eb0ed65797412898ddbf016f77b16c",
-      "sha256": "81a1ef40631a91e5ad601327a1545778def2592c23aba4117afdfc97c7666cf1",
-      "bytes": 10616
+      "blob": "9e12078d018b4f6016c1ee8b528c5d27f7092190",
+      "sha256": "a0835d9372e32bd597336e25947e3b2a870d596b84453edb7bb0045ff06ad01d",
+      "bytes": 4018
     },
     {
       "file": "tests/fr008-delivery.test.mjs",
-      "blob": "ad3f485f936204e0c6dc4a99ab598ae1ed36d4a1",
-      "sha256": "9cb1d0eb090b1afcf3304142fd3fa046ea7aa5475018d98b99bd80a256719489",
-      "bytes": 7292
+      "blob": "4e2664459a9c8cb4587be99230e0aaf9988fbb40",
+      "sha256": "42989a59acb93ef8cba314590d2174413187fb363753fe9a5f3d80def485fa40",
+      "bytes": 7490
     },
     {
       "file": "tests/persistent-status-vfx.test.mjs",
-      "blob": "16be8299465164fc3e126a5444cba22f1d7b2353",
-      "sha256": "75b2476e39e6f71f0c3075973301fba50a570019edecc96ffdcf3076d3681b8d",
-      "bytes": 23046
-    },
-    {
-      "file": "tests/support-effects.test.mjs",
-      "blob": "5912286e5df210fa71d17c4b1250cdb2ebe812a6",
-      "sha256": "0d7f8cadb5f47ac64c5cc17108c0ad90c61d8540a0fefa86cbcf3ebb40a76f49",
-      "bytes": 24467
+      "blob": "b806fa9fecbb8f9da21d00e6f8744f061804de86",
+      "sha256": "34a89d6063deded00df47ee39b7cb7192b24c33a3cc93d2491ee7f922532b3a4",
+      "bytes": 23901
     }
   ],
   "changes": [
@@ -121,32 +91,29 @@
     "docs/DRAGON_AIR_AND_SLOW_VISIBILITY.md",
     "docs/FR009_IMPLEMENTATION.md",
     "game/core/fr008-registry.js",
-    "game/render/combat-status-vfx.js",
-    "game/render/support-effects.js",
     "public/release.json",
     "tests/baby-dragon-air-targeting.test.mjs",
-    "tests/combat-status-vfx-v046.test.mjs",
     "tests/dwarf-air-targeting.test.mjs",
-    "tests/fr005-combat.test.mjs",
     "tests/fr008-delivery.test.mjs",
-    "tests/persistent-status-vfx.test.mjs",
-    "tests/support-effects.test.mjs"
+    "tests/persistent-status-vfx.test.mjs"
   ],
   "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-  "sourceCommit": "8c4f666fd6e9ee173c41bf2fd733e317916a735c",
+  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T19:18:31.190Z",
+  "verifiedAt": "2026-11-13T20:21:16.236Z",
   "cosmeticOnly": false,
-  "gameplayChange": "Baby Fire Dragon primary cone can target ground and flying enemies.",
+  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
   "hiddenStatusVisuals": [
     "slow"
   ],
   "slowMovementAndInspectionPreserved": true,
   "changedProfileKeys": [
-    "grove/el_baby_fire_dragon/1"
+    "grove/el_fire_dragon/1",
+    "grove/el_mother_fire_dragon/1",
+    "grove/el_ancient_patriarch/1"
   ],
-  "numericAndBurnProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 257,
+  "numericAndNonConeAbilityProfilesPreserved": 258,
+  "unchangedResolvedProfiles": 255,
   "testsFailed": 0,
   "unexpectedProfileChanges": 0,
   "logicalConditionChannels": 14,
@@ -160,13 +127,13 @@
   "publicWrites": 0,
   "unrelatedRulesAndApprovedAssetsPreserved": true,
   "audioChanged": false,
-  "ciRun": 43489429336,
+  "ciRun": 43498846258,
   "publicBundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DejML-kL.js",
-    "bytes": 2677786,
-    "sha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3",
-    "matchesFinalLocalBuild": true,
-    "expectedSha256": "dccef607b7858d3eef6ee048d5a04ed93c1fd38adf047b246dd0e7d3c876e4c3"
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
+    "bytes": 2677883,
+    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
+    "expectedSha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
+    "matchesFinalLocalBuild": true
   },
   "publicBrowserCases": 4
 }
