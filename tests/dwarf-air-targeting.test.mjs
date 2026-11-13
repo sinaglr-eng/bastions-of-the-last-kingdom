@@ -47,11 +47,11 @@ test('Dwarf air permission grants no detection or immunity bypass and leaves gro
  assert.match(h.s.abilities.find(a=>a.familyId==='heat').text,/ground enemies/);
 });
 
-test('unamended Elf cones retain ground-only delivery even if a caller supplies broader primary target flags',()=>{
+test('all four current Elf cones explicitly permit ground and air without relying on their independent aura or Spark',()=>{
  let count=0;
  for(const [family,u]of Object.entries(data.grove.towers))for(let tier=1;tier<=(u.advanced?1:6);tier++){
-  const h=scene('grove',family,tier);if(!h.s.continuousAttack||family==='el_baby_fire_dragon')continue;
-  count++;const air=h.enemy(12,10);updateFr002Tower(h.c,h.t,{...h.s,groundOnly:false,abilities:h.s.abilities.filter(a=>a.familyId==='flame-cone')},.1,1);assert.equal(air.hp,air.maxHp,family+'/'+tier);
+  const h=scene('grove',family,tier);if(!h.s.continuousAttack)continue;
+  count++;assert.equal(h.s.groundOnly,false);assert.equal(h.s.continuousAttack.targeting,'ground-and-air');const air=h.enemy(12,10);updateFr002Tower(h.c,h.t,{...h.s,abilities:h.s.abilities.filter(a=>a.familyId==='flame-cone')},.1,1);assert.ok(air.hp<air.maxHp,family+'/'+tier);
  }
- assert.equal(count,3,'only the explicitly amended Baby Fire Dragon gains air-capable primary breath');
+ assert.equal(count,4,'exactly the four Elf dragon families have continuous primary breath');
 });

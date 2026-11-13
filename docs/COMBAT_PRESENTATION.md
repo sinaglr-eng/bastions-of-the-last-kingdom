@@ -1,6 +1,6 @@
 # Weapon effects, persistent conditions and attack sounds
 
-The FR009 presentation revision of **0.6.12** covers all **258 current native V3 faction/rank profiles**. The [current follow-up](DRAGON_AIR_AND_SLOW_VISIBILITY.md) allows Baby Fire Dragon's existing cone to attack flyers and hides automatic Slow visuals. Other combat values, targeting, projectile travel, attack schedules, recipes and approved model files remain unchanged. The original art-direction prompts are maintained in the local design package; [implementation evidence](FR009_IMPLEMENTATION.md) records the original revision and its current follow-up.
+The FR009 presentation revision of **0.6.12** covers all **258 current native V3 faction/rank profiles**. The [current follow-up](DRAGON_AIR_AND_SLOW_VISIBILITY.md) allows all four Elf dragons' existing cones to attack flyers and keeps automatic Slow visuals hidden. Other combat values, targeting, projectile travel, attack schedules, recipes and approved model files remain unchanged. The original art-direction prompts are maintained in the local design package; [implementation evidence](FR009_IMPLEMENTATION.md) records the original revision and its current follow-up.
 
 ## Attacks
 
@@ -8,7 +8,7 @@ The active native weapon and authored motion choose the projectile or contact sh
 
 Lightning has a bright volumetric white core, a wider cyan corona, local forks and one short release pulse. A bounded screen-size floor keeps it readable at overview zoom. Arrows and rifle tracers also retain visible thickness without changing their length or motion. Colored spell cores retain their element rather than clipping to white. Busy-wave instancing preserves each weapon's shape instead of converting it to a generic line. Material silhouettes distinguish arrows and heavy bolts, solid cannonballs, unfused Catapult stones, mortar shells, bombs and hot metal fragments. Native blade, spear, hammer, fist, claw, wood and percussion contacts retain their authored gestures.
 
-Ricochet uses the originating weapon's visual grammar at its real secondary endpoints. Fire Splash has a dedicated fire eruption only when the actual proc succeeds; it does not create timed Burn. Dwarf fire machines retain Physical ground-and-air cones, including both existing Heavy Flamethrower nozzles. Baby Fire Dragon has a Magical ground-and-air cone; the other three dragons retain ground-only breath and their independent Fire Aura. Cinder Adept and Inferno Magister remain aura-only, without invented targeted projectiles.
+Ricochet uses the originating weapon's visual grammar at its real secondary endpoints. Fire Splash has a dedicated fire eruption only when the actual proc succeeds; it does not create timed Burn. Dwarf fire machines retain Physical ground-and-air cones, including both existing Heavy Flamethrower nozzles. All four Elf dragons have Magical ground-and-air cones and retain their independent Fire Aura/Spark assignments. Cinder Adept and Inferno Magister remain aura-only, without invented targeted projectiles.
 
 ## Persistent enemy conditions
 

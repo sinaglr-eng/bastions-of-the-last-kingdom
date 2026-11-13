@@ -8,8 +8,8 @@ export function applyFr008Registry(baseline){
  }
  // Current user-authorized targeting amendment (2026-11-13). Preserve the
  // approved baseline records and every numeric flame/Burn parameter.
- const baby=registry.factions.find(f=>f.id==='grove').units.find(u=>u.id==='el_baby_fire_dragon');
- for(const p of baby.profiles){
+ const dragons=new Set(['el_baby_fire_dragon','el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch']);
+ for(const unit of registry.factions.find(f=>f.id==='grove').units.filter(u=>dragons.has(u.id)))for(const p of unit.profiles){
   p.groundOnly=false;p.continuousAttack.targeting='ground-and-air';
   const cone=p.abilities.find(a=>a.familyId==='flame-cone');cone.targeting='ground-and-air';
   cone.text=cone.text.replace('to ground enemies','to ground and flying enemies');

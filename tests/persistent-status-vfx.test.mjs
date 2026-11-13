@@ -67,11 +67,19 @@ test('real current Human, Dwarf and Elf Burn contacts keep body flames for the e
 test('all three current faction Fire Auras show flames only for actual continuous damage and immediately follow coverage',()=>{
   for(const [faction,family]of [['crown','embercrown'],['forge','dw_cinderhowitzer'],['grove','el_fire_dragon']]){
     const h=arena(faction,family);try{
-      h.enemy.flying=true; // Isolate Fire Aura from the Elf dragon's ground-only cone and its Burn contact.
-      const apply=()=>updateFr002Tower(h.game.combat,h.source,towerStats(h.source,h.data),.01,1),fire=towerStats(h.source,h.data).abilities.find(a=>a.familyId==='fire-aura');
+      h.enemy.flying=true;
+      const stats=towerStats(h.source,h.data),apply=()=>updateFr002Tower(h.game.combat,h.source,towerStats(h.source,h.data),.01,1),fire=stats.abilities.find(a=>a.familyId==='fire-aura');
+      let anchor;const insideX=stats.continuousAttack?h.source.x-.5:11,coneTargets=[];h.enemy.x=insideX;
+      if(stats.continuousAttack){
+        // Keep the real air-capable cone active toward a preferred ground
+        // target outside Fire Aura. The aura-only flyer remains behind it.
+        anchor=Object.assign(h.game.combat.spawn('host_01'),{x:h.source.x+(fire.radius+stats.range)/2,z:h.source.z,hp:1e9,maxHp:1e9,speed:0,boss:false,armor:0,shields:0,refraction:0,evasion:0,krakenShell:0,magicImmune:false,physicalImmune:false,cloaked:false,statuses:{},traveled:1000,pathLength:1000});
+        h.game.on((type,payload)=>{if(type==='aura-attack'&&payload.source===h.source)coneTargets.push(payload.target.id);});
+      }
       const hp=h.enemy.hp;apply();h.sync();assert.ok(h.enemy.hp<hp);assert.equal(h.enemy.statuses.burn,undefined);assert.ok(count(h.fx,'heat')>0,faction+' fire aura does not require a timed Burn');
+      if(anchor){assert.ok(anchor.hp<anchor.maxHp&&anchor.statuses.burn?.time>0,'The real primary cone still damages and burns its ground target');assert.equal(coneTargets.at(-1),anchor.id);}
       h.enemy.x=h.source.x+fire.radius+.001;h.sync();assert.equal(count(h.fx,'heat'),0);
-      h.enemy.x=11;h.source.attackPaused=true;h.sync();assert.equal(count(h.fx,'heat'),0);h.source.attackPaused=false;
+      h.enemy.x=insideX;h.source.attackPaused=true;h.sync();assert.equal(count(h.fx,'heat'),0);h.source.attackPaused=false;
       h.enemy.magicImmune=true;const immuneHp=h.enemy.hp;apply();h.sync();assert.equal(h.enemy.hp,immuneHp);assert.equal(count(h.fx,'heat'),0,'Damage immunity is not painted as a burning victim');
       h.enemy.magicImmune=false;h.source.disarmed=true;h.sync();assert.equal(count(h.fx,'heat')>0,!towerStats(h.source,h.data).factionProfile,'Legacy Human fire aura continues under Disarm; faction ability updates do not');h.source.disarmed=false;
       h.sync();assert.ok(count(h.fx,'heat')>0);h.source.state='ruin';h.sync();assert.equal(count(h.fx,'heat'),0);
