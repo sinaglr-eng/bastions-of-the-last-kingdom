@@ -2,25 +2,25 @@
   "status": "passed",
   "version": "0.6.12",
   "rulesetRevision": "fr008-r1-20261106",
-  "commit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
-  "sourceCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "commit": "9b02f797676abad19795dd3e769d30c99f90327f",
+  "sourceCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
   "ci": {
-    "id": 42905601850,
-    "head_sha": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+    "id": 43449394884,
+    "head_sha": "9b02f797676abad19795dd3e769d30c99f90327f",
     "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/42905601850",
-    "testsPassed": 2216,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43449394884",
+    "testsPassed": 2227,
     "testsFailed": 0
   },
   "jobs": [
     {
-      "id": 130142670577,
+      "id": 131967272394,
       "name": "build",
       "conclusion": "success"
     },
     {
-      "id": 130145796446,
+      "id": 131972352597,
       "name": "deploy",
       "conclusion": "success"
     }
@@ -35,12 +35,36 @@
   "newVoiceRecordings": 190,
   "galleryPublished": false,
   "scoresSubmitted": false,
-  "verifiedAt": "2026-11-10T21:38:04.364Z",
-  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
+  "verifiedAt": "2026-11-13T15:22:44.235Z",
+  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "attackAudioRevision": "combat-effects-20261110-33171e30c092",
   "attackAudioRecordings": 30,
   "newAttackRecordings": 15,
   "persistentConditionChannels": 14,
   "attackProfiles": 258,
-  "cosmeticOnly": true
+  "cosmeticOnly": true,
+  "statusVfxRevision": "fr009-layered-body-status-20261113",
+  "designPackagePublished": false,
+  "publicWrites": 0,
+  "primaryKinds": 27,
+  "assignedPersistentChannels": 12,
+  "reservedPersistentChannels": 2,
+  "testsPassed": 2227,
+  "testsFailed": 0,
+  "scheduledRendererCases": 1032,
+  "combatMismatches": 0,
+  "approvedAssetsAndRulesPreserved": true,
+  "audioChanged": false,
+  "newModelOrAudioGitBlobs": 0,
+  "publicBundle": {
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-CBP74xGc.js",
+    "bytes": 2677637,
+    "sha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f",
+    "matchesFinalLocalBuild": true,
+    "expectedSha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f"
+  },
+  "publicBrowserCases": 4,
+  "statisticsServerRedeployed": false,
+  "statisticsClientUnchanged": true,
+  "verification": "output/implementation/fr009-current/"
 }

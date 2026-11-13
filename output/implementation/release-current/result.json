@@ -9,10 +9,11 @@
     "FR-007 revision 3",
     "FR-008",
     "Complete v4 defender voices",
-    "Weapon-aware attacks, persistent conditions and recorded SFX"
+    "Weapon-aware attacks, persistent conditions and recorded SFX",
+    "FR-009 effect art direction"
   ],
   "tests": {
-    "passed": 2216,
+    "passed": 2227,
     "failed": 0
   },
   "publicBuildPassed": true,
@@ -20,7 +21,7 @@
   "voiceRecordings": 272,
   "newVoiceRecordings": 190,
   "publicUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "publicCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "publicCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
   "statisticsVersion": "0.6.12",
   "statisticsDeploymentId": "appgdep_6af376e0a5548191ba91a970ceefc9fc",
   "galleryDistribution": "local-only",
@@ -32,18 +33,39 @@
     "publicBrowser": "public-browser.json",
     "statistics": "statistics-public-verification.json"
   },
-  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
+  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "attackAudioRevision": "combat-effects-20261110-33171e30c092",
   "attackAudioRecordings": 30,
   "newAttackRecordings": 15,
   "persistentConditionChannels": 14,
   "attackProfiles": 258,
-  "commit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
-  "sourceCommit": "81692d752e64b6291805efc7e6ac6e8dd1d33bc9",
+  "commit": "9b02f797676abad19795dd3e769d30c99f90327f",
+  "sourceCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
   "cosmeticOnly": true,
   "galleryPublished": false,
   "scoresSubmitted": false,
   "actualCombatProfilesPreserved": 258,
   "approvedAssetsAndRulesPreserved": true,
-  "publicAudioFilesVerified": 308
+  "statusVfxRevision": "fr009-layered-body-status-20261113",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "verifiedAt": "2026-11-13T15:22:44.235Z",
+  "designPackagePublished": false,
+  "publicWrites": 0,
+  "primaryKinds": 27,
+  "assignedPersistentChannels": 12,
+  "reservedPersistentChannels": 2,
+  "testsPassed": 2227,
+  "testsFailed": 0,
+  "scheduledRendererCases": 1032,
+  "combatMismatches": 0,
+  "audioChanged": false,
+  "newModelOrAudioGitBlobs": 0,
+  "publicBrowserCases": 4,
+  "audioFilesPreserved": 308,
+  "publicationEvidence": {
+    "ci": "../fr009-current/ci.json",
+    "publicFiles": "../fr009-current/public-files.json",
+    "publicBrowser": "../fr009-current/qa/public-production-browser-report.json",
+    "independent": "../fr009-current/verification/independent-final.json"
+  }
 }

@@ -1,39 +1,176 @@
 {
-  "source": "03e5b9a72d173415347c2044fd9350142efc1650",
-  "parent": "52b92a2f8b41bf906cc5347e48530df45c586611",
-  "commit": "1778614003c0922bb0287ecf1c260d46e2bd3861",
-  "tree": "379b2c3ed21ad0cc2e280b5e932b604db2dfda12",
-  "excludedLocalOnlyFiles": [
-    "output/implementation/defender-size-current/concurrent-gallery-preservation.json",
-    "output/implementation/defender-size-current/gallery-current-sizing.png",
-    "output/implementation/defender-size-current/gallery-reference-inspection.json",
-    "output/implementation/defender-size-current/gallery-verification.json",
-    "output/implementation/defender-size-current/gallery-write-record.json",
-    "output/implementation/fr005-current/gallery-browser-qa.json",
-    "output/implementation/fr005-current/gallery-build.log",
-    "output/implementation/fr005-current/gallery-current.jpg",
-    "output/implementation/fr005-current/gallery-handoff.json",
-    "output/implementation/fr005-current/handoff.json",
-    "output/implementation/fr005-current/local-gallery-files.json",
-    "output/implementation/fr006-fr007-current/gallery-routing-record.json",
-    "output/implementation/fr006-fr007-current/gallery-verification.json",
-    "output/implementation/fr006-fr007-current/gallery-write-record.json",
-    "output/implementation/late-wave-current/handoff.json",
-    "output/implementation/release-current/gallery-write-record.json",
-    "output/implementation/release-current/presentation-gallery-record.json",
-    "output/implementation/wave24-current/handoff.json",
-    "output/releases/v0.6.8/handoff.json",
-    "sites/defender-faction-atlas-20261021/scripts/apply-fr005-implementation.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/templates/gallery-fr005-current.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/verify-current-gallery.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/verify-fr005-implementation.mjs",
-    "tools/apply-defender-presentation-gallery.mjs",
-    "tools/apply-fr006-fr007-gallery.mjs",
-    "tools/apply-fr007-r3-gallery.mjs",
-    "tools/verify-fr006-fr007-gallery.mjs"
-  ],
-  "localHistoryPreserved": true,
+  "status": "passed",
+  "date": "2026-11-13T15:07:07.642Z",
+  "version": "0.6.12",
+  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
+  "statusVfxRevision": "fr009-layered-body-status-20261113",
+  "base": "da2db2ac83105363971ed7c0ae4735c412dc0a12",
+  "commit": "9b02f797676abad19795dd3e769d30c99f90327f",
+  "tree": "93fb6eb83a4eee75646e91e4b3c88aa6dae0c4a7",
+  "sharedHead": "3961243b18da183bfac336ba0afa65d155749757",
+  "sharedIndexSha256": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5",
+  "sharedHeadAndIndexPreserved": true,
   "forwardOnly": true,
-  "runtimeInputsExact": true
+  "galleryPublished": false,
+  "modelOrAudioUploads": 0,
+  "testsPassed": 2227,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "blob": "0817fd8887d7206152b6b1c302ef1571885d8ee9",
+      "sha256": "171d888ef16fd0cbffcb22f0e031c64bc8f1bb29965e6cc81fa1c0ea251c1b1f",
+      "bytes": 2884
+    },
+    {
+      "file": "README.md",
+      "blob": "ad30f83d84f3bd72a7716ab155b4286e21c743ec",
+      "sha256": "5ab25d54d2c5372f24f6ed8a13d6c03f413c34a1d5c87135431c527e5d16533b",
+      "bytes": 7635
+    },
+    {
+      "file": "docs/COMBAT_PRESENTATION.md",
+      "blob": "993c1095113bb5265ccd6a1290fa3133e50120cc",
+      "sha256": "c1cce67d52bceab9ced3ca9b1ed3f80dd58c39e428e60496825fa42a978ad79f",
+      "bytes": 5650
+    },
+    {
+      "file": "docs/FR009_IMPLEMENTATION.md",
+      "blob": "91cb0f9e19bb1e181725e0f31c3e300181669e93",
+      "sha256": "85e8deeea455f9de2cdfe29c9d4acdd149a5f3a1a765844c99ff2c89e100fb34",
+      "bytes": 5726
+    },
+    {
+      "file": "game/render/attack-vfx-primitives.js",
+      "blob": "b2a8f0e8fa76257d2aca4d294d2b4d5f93b97cb4",
+      "sha256": "37bf31f4032b21779768df4261ecd6ef94c07dc1b2b5856c7ed9d5194db82069",
+      "bytes": 16810
+    },
+    {
+      "file": "game/render/combat-effects.js",
+      "blob": "8bc2ad7864f19abe57cb19993b0971396811dcc3",
+      "sha256": "3ebf8f3846c6189156462395730bbffb54d58fa4d191ca456db85e6c56675bbc",
+      "bytes": 35862
+    },
+    {
+      "file": "game/render/combat-path-batch.js",
+      "blob": "c543588a307e4994f963e7490fac8bab0a05afdb",
+      "sha256": "41d09c290af2f50f9e98ec201a4b828a2d8cfcd30f621f023f173dc6aec71142",
+      "bytes": 12083
+    },
+    {
+      "file": "game/render/combat-status-vfx.js",
+      "blob": "91f3baf2127e7a913ecc31081704b0ab5330486a",
+      "sha256": "90bda90e1e3d351d974e0a4688785fa5ad4a0fddad78f98e868210c94c40ba6e",
+      "bytes": 12368
+    },
+    {
+      "file": "game/render/status-vfx-geometry.js",
+      "blob": "98b0169c4f8c8becb3cadfb0a13bae04f1b7305e",
+      "sha256": "9fa28ddbb0b54f56a205d84277885b206ed97df56534f44893a025cd3689279b",
+      "bytes": 7492
+    },
+    {
+      "file": "game/render/status-vfx-materials.js",
+      "blob": "fe1eb7b5b104d2f6aad01e73c7ad6260be4efe09",
+      "sha256": "0a6ad7fdd98e8ddb510673582ff5e12e90d6bb5a8adaa469ee32e102999555a9",
+      "bytes": 4062
+    },
+    {
+      "file": "public/release.json",
+      "blob": "3cceb1281b810a1a6b144ce9191fb7cc143c1b91",
+      "sha256": "9ae128fdfd8e33fe702c354d4d93a30688d1641a80c4e8681627f7293fde1932",
+      "bytes": 3328
+    },
+    {
+      "file": "tests/combat-effects.test.mjs",
+      "blob": "39dee1350733c8f774439d66c2e6260efd1f424a",
+      "sha256": "23dc32c31469b064ce9005974e2ea63d67de55cf8bdcddcdf197b9cc57c0ad62",
+      "bytes": 9951
+    },
+    {
+      "file": "tests/combat-game-time-v13.test.mjs",
+      "blob": "c26b78c41d42aba3247d60f43a4648885bf2c006",
+      "sha256": "ad894da8c9b65d68eff02b749b227e78b0ad60931d1a005086ed1a7092c8534b",
+      "bytes": 9495
+    },
+    {
+      "file": "tests/current-attack-vfx.test.mjs",
+      "blob": "4085db6c31da70bf83b3152cb0f5daf6e13675e1",
+      "sha256": "694c7e5c3de780edbc287dd8d64e5ad01405e69312a931de4a958507ea1b8f6f",
+      "bytes": 22086
+    },
+    {
+      "file": "tests/faction-vfx-v063.test.mjs",
+      "blob": "03cabb2eeb41e78dfcef14a26eb1a89ac6849c8c",
+      "sha256": "f056483beb9eae5935fae3fc4177d041cd8d8ed1d29b6136b0c2fd9c221edabb",
+      "bytes": 8408
+    },
+    {
+      "file": "tests/persistent-status-vfx.test.mjs",
+      "blob": "0bc2443131d2b5a99c25ed2ac6c9c7a3baac4c77",
+      "sha256": "ce4f403f16806ed79d9c2ec5c109fd6ef78dc5359b4fb59f6795e9fee22eb57e",
+      "bytes": 19644
+    },
+    {
+      "file": "tools/audit-geometric-attacks.mjs",
+      "blob": "08965a4115f6f877b1b8634ada6565fa4cbfd94b",
+      "sha256": "956a9f8b09278c73bf549133070e50f4579b0ec5898af7b0b40a82c0e69c0bc1",
+      "bytes": 23450
+    },
+    {
+      "file": "tools/audit-reconstructed-roster.mjs",
+      "blob": "f6cd49aef2e8f6b7b4cd7d34b63b2fcb5867dcbd",
+      "sha256": "0cb5ec1ae431a304559e5a2fc3d1b73b9162af2a041e83ca6a9d55dce73c29ad",
+      "bytes": 32035
+    }
+  ],
+  "changes": [
+    "CHANGELOG.md",
+    "README.md",
+    "docs/COMBAT_PRESENTATION.md",
+    "docs/FR009_IMPLEMENTATION.md",
+    "game/render/attack-vfx-primitives.js",
+    "game/render/combat-effects.js",
+    "game/render/combat-path-batch.js",
+    "game/render/combat-status-vfx.js",
+    "game/render/status-vfx-geometry.js",
+    "game/render/status-vfx-materials.js",
+    "public/release.json",
+    "tests/combat-effects.test.mjs",
+    "tests/combat-game-time-v13.test.mjs",
+    "tests/current-attack-vfx.test.mjs",
+    "tests/faction-vfx-v063.test.mjs",
+    "tests/persistent-status-vfx.test.mjs",
+    "tools/audit-geometric-attacks.mjs",
+    "tools/audit-reconstructed-roster.mjs"
+  ],
+  "pushedAt": "2026-11-13T15:07:39.373Z",
+  "rulesetRevision": "fr008-r1-20261106",
+  "sourceCommit": "9b02f797676abad19795dd3e769d30c99f90327f",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "verifiedAt": "2026-11-13T15:22:44.235Z",
+  "cosmeticOnly": true,
+  "designPackagePublished": false,
+  "scoresSubmitted": false,
+  "publicWrites": 0,
+  "attackProfiles": 258,
+  "primaryKinds": 27,
+  "persistentConditionChannels": 14,
+  "assignedPersistentChannels": 12,
+  "reservedPersistentChannels": 2,
+  "testsFailed": 0,
+  "scheduledRendererCases": 1032,
+  "combatMismatches": 0,
+  "approvedAssetsAndRulesPreserved": true,
+  "audioChanged": false,
+  "newModelOrAudioGitBlobs": 0,
+  "ciRun": 43449394884,
+  "publicBundle": {
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-CBP74xGc.js",
+    "bytes": 2677637,
+    "sha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f",
+    "matchesFinalLocalBuild": true,
+    "expectedSha256": "cf24cfd21ce7a115330086ea721d89e79a1186ff4adb48ffd970b2cfacd4019f"
+  },
+  "publicBrowserCases": 4
 }
