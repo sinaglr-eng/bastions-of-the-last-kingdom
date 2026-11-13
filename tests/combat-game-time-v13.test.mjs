@@ -114,15 +114,15 @@ test('actual combat impact lifetimes follow scaled simulation progress and freez
     const game=arena(speed),enemy=longRoute(game.combat.spawn('host_01'));enemy.speed=0;
     const scene=new Scene(),effects=new CombatEffects(scene),source={id:1,family:'archer',x:0,z:0};
     effects.impact({source,target:enemy,stats:{type:'physical'},x:enemy.x,z:enemy.z});
-    const record=effects.effects[0];assert.equal(record.duration,.28);let wallTime=0;
+    const record=effects.effects[0];assert.ok(record,'The actual impact creates a transient effect');const initialLife=record.duration;assert.ok(Number.isFinite(initialLife)&&initialLife>0&&initialLife<1,'An ordinary impact has a positive bounded cosmetic lifetime');let wallTime=0;
     const step=wallDt=>{const before=game.combat.elapsed;game.tick(wallDt);wallTime+=wallDt;effects.update(game.combat.elapsed-before,wallTime);};
     try{
-      step(.1/speed);close(record.elapsed,.1,'Effect age equals actual scaled simulation progress');
+      const firstSlice=initialLife*.35;step(firstSlice/speed);close(record.elapsed,firstSlice,'Effect age equals actual scaled simulation progress');
       game.paused=true;const opacity=record.object.children[0].material.opacity;
       for(let n=0;n<20;n++)step(.05);
-      close(record.elapsed,.1,'A cosmetic clock cannot age a paused combat impact');assert.equal(record.object.children[0].material.opacity,opacity);
-      game.paused=false;step(.17/speed);assert.equal(effects.effects.length,1);close(record.elapsed,.27,'The effect remains just before its actual deadline');
-      step(.011/speed);assert.equal(effects.effects.length,0);assert.equal(scene.children.length,0,'Actual expired resources leave the scene');
+      close(record.elapsed,firstSlice,'A cosmetic clock cannot age a paused combat impact');assert.equal(record.object.children[0].material.opacity,opacity);
+      game.paused=false;step(initialLife*.64/speed);assert.equal(effects.effects.length,1);close(record.elapsed,initialLife*.99,'The effect remains just before its actual deadline');
+      step(initialLife*.02/speed);assert.equal(effects.effects.length,0);assert.equal(scene.children.length,0,'Actual expired resources leave the scene');
     }finally{effects.dispose();}
   }
 });

@@ -1,11 +1,11 @@
 # Current release
 
-## 0.6.12 — Current combat presentation — 10 November 2026
+## 0.6.12 — FR009 combat effect art direction — 13 November 2026
 
-- Aligns all 258 native defender/rank attack effects with the active weapon and damage element, including typed overflow and bright forked electricity.
-- Shows fourteen authoritative enemy conditions around native body bounds, with readable fire, poison and Slow throughout their real duration.
-- Adds fifteen recorded weapon sounds and current bindings for all factions; retains the original music and 272 character voice clips.
-- Preserves combat, score rules, approved models and artwork. [Implementation and verification](docs/COMBAT_PRESENTATION.md).
+- Refines all 258 native defender/rank attack effects with weapon-shaped ammunition and contacts, material detail, layered continuous fire and bright local electrical discharge.
+- Gives Ricochet its originating weapon's appearance and actual Fire Splash procs a dedicated fire eruption.
+- Uses procedural body flames and Poison volumes, open Slow wind, partial ice, woody bindings and distinct concurrent condition markers for all fourteen supported channels.
+- Retains the current 30 weapon recordings, six music tracks and 272 character voice clips. Combat, score rules, approved models and artwork stay unchanged. [Implementation and verification](docs/FR009_IMPLEMENTATION.md).
 
 ## 0.6.9 — Dwarf ground-and-air primary attacks — 2 November 2026
 

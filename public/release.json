@@ -43,7 +43,7 @@
   "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
   "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
   "motionRevision": "approved-faction-motion-v3",
-  "vfxRevision": "weapon-aware-attacks-and-persistent-status-20261110",
+  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
   "balanceRevision": "fr008-r1-20261106",
   "factions": [
     {
@@ -73,7 +73,8 @@
   "requirements": [
     "FR-006",
     "FR-007 revision 3",
-    "FR-008"
+    "FR-008",
+    "FR-009 visual presentation"
   ],
   "humanPresentationRevision": "defender-size-feedback-20261106",
   "defenderPresentationRevision": "defender-size-feedback-20261106",
@@ -88,10 +89,12 @@
   "defenderVoiceModel": "eleven_v4",
   "defenderVoiceUpdated": "2026-11-10",
   "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json",
-  "statusVfxRevision": "persistent-body-status-20261110",
+  "statusVfxRevision": "fr009-layered-body-status-20261113",
   "attackAudioRevision": "combat-effects-20261110-33171e30c092",
   "attackAudioRecordings": 30,
   "attackAudioNewRecordings": 15,
   "attackAudioCoveredProfiles": 258,
-  "attackAudioUpdated": "2026-11-10"
+  "attackAudioUpdated": "2026-11-10",
+  "presentationUpdated": "2026-11-13",
+  "vfxRequirement": "FR-009"
 }

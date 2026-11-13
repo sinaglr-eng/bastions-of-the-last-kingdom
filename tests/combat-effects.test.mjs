@@ -29,12 +29,12 @@ test('canonical damage classes preserve sword-released frost and spell presentat
   fx.dispose();assert.equal(scene.children.length,0);
 });
 
-test('Thunderheart actual stats launch arcane lightning while its separate burning aura breathes fire',()=>{
+test('Thunderheart lightning retains its shot while aura exposure creates no fictional directed breath',()=>{
   const stats=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url),'utf8')).thunderheart;
   assert.equal(stats.type,'arcane');assert.ok(stats.burnAura>0);assert.equal(attackVisualKind('thunderheart',stats),'lightning');
   const scene=new THREE.Scene(),origins=[],fx=new CombatEffects(scene,{getMuzzle:(_source,out,options)=>{origins.push(!!options?.breath);return out.set(options?.breath?2:1,1.5,2);}}),s=shot('thunderheart',1,stats),before=structuredClone(s);
   fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Primary electric shot');assert.equal(fx.projectiles.get(1).object.userData.electric,true);assert.ok(fx.projectiles.get(1).object.getObjectByName('Bright white electric core and forks').isInstancedMesh);
-  fx.event('aura-attack',{source:s.source,target:s.target,stats});assert.equal(fx.effects.at(-1).object.name,'Dragon fire breath');assert.ok(origins.includes(true),'aura fire explicitly requests its distinct dragon-mouth origin');
+  fx.event('aura-attack',{source:s.source,target:s.target,stats});assert.equal(fx.channels.size,0);assert.equal(fx.effects.filter(e=>e.breath).length,0);assert.ok(!origins.includes(true),'aura exposure does not invent a mouth/nozzle channel');
   assert.equal(fx.projectiles.get(1).kind,'lightning','an aura pulse preserves the existing weapon shot');assert.deepEqual(s,before,'visual abilities do not change the actual damage, burnAura, target or timing');
   finiteScene(scene);fx.dispose();assert.equal(scene.children.length,0);
 });
@@ -52,8 +52,8 @@ test('lobbed bombs arc above their path while ballista bolts remain direct and f
   const scene=new THREE.Scene(),fx=new CombatEffects(scene),catapult=shot('stonewarden',1),ballista=shot('kingsreach',2),dragon=shot('worldfire',3);
   fx.syncProjectiles([catapult,ballista,dragon],1);
   assert.ok(fx.projectiles.get(1).object.position.y>fx.projectiles.get(2).object.position.y+1);
-  assert.equal(fx.projectiles.get(1).object.name,'Sling-released catapult stone');assert.equal(fx.projectiles.get(2).object.name,'Crafted arrow');
-  assert.equal(fx.projectiles.get(3).object.name,'Dragon fire breath');assert.ok(fx.projectiles.get(3).object.scale.y>8);
+  assert.equal(fx.projectiles.get(1).object.name,'Sling-released catapult stone');assert.equal(fx.projectiles.get(2).object.name,'Heavy ballista bolt');
+  assert.equal(fx.projectiles.get(3).object.name,'Layered turbulent flame stream');assert.ok(fx.projectiles.get(3).object.scale.y>8);
   finiteScene(scene);fx.dispose();
 });
 

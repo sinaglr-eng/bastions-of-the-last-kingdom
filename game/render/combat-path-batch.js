@@ -29,9 +29,9 @@ export class CombatPathBatch{
   }
   batch(key,count){
     let row=this.batches.get(key);if(row&&row.capacity>=count)return row;
-    const capacity=Math.min(this.capacity*15,Math.max(32,2**Math.ceil(Math.log2(Math.max(1,count)))));
+    const capacity=Math.min(this.capacity*32,Math.max(32,2**Math.ceil(Math.log2(Math.max(1,count)))));
     const geometry=this.geometries.get(key)|| (key==='heads'?new THREE.ConeGeometry(1,1,4):key==='bodies'?new THREE.IcosahedronGeometry(1,0):new THREE.CylinderGeometry(1,1,1,4));this.geometries.set(key,geometry);
-    const material=row?.object.material||new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:key==='corona'?.34:key==='core'?.98:.86,depthWrite:false,blending:key==='core'?THREE.AdditiveBlending:THREE.NormalBlending,toneMapped:false});
+    const material=row?.object.material||new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:key==='corona'?.36:key==='core'?.98:.86,depthWrite:false,blending:THREE.NormalBlending,toneMapped:false});
     if(row){row.object.dispose();row.object.removeFromParent();}
     const object=new THREE.InstancedMesh(geometry,material,capacity);object.name=`Overflow weapon ${key}`;object.raycast=()=>{};object.frustumCulled=false;object.instanceMatrix.setUsage(THREE.DynamicDrawUsage);this.object.add(object);
     row={object,capacity};this.batches.set(key,row);return row;
@@ -42,33 +42,55 @@ export class CombatPathBatch{
     if(!this.object){this.object=new THREE.Group();this.object.name='Actual typed overflow projectile and proc paths';this.scene.add(this.object);}
     const draw={shafts:[],heads:[],bodies:[],core:[],corona:[]},camera=typeof this.camera==='function'?this.camera():this.camera,height=this.getViewport?.()?.height;
     const segment=(key,a,b,r,color)=>draw[key].push({a,b,r,color});
-    const body=(at,r,color)=>draw.bodies.push({at,r,color});
+    const body=(at,r,color,scale=null)=>draw.bodies.push({at,r,color,scale});
+    const arc=(at,radius,width,color,angle=Math.PI*1.5,tilt=0)=>{for(let i=0;i<9;i++){const p=i/9*angle+tilt,q=(i+1)/9*angle+tilt;segment('shafts',at.clone().add(new THREE.Vector3(Math.cos(p)*radius,Math.sin(p)*radius,0)),at.clone().add(new THREE.Vector3(Math.cos(q)*radius,Math.sin(q)*radius,0)),width,color);}};
     for(const packet of this.records){
       const {from,to,color='#e6dfc8',kind='arrow',motion=true,clock=0,seed=0,progress=0}=packet,delta=to.clone().sub(from),direction=delta.clone().normalize();
       const lightning=['lightning','stormSpear'].includes(kind),r=electricRadius(from,to,camera,height);
+      if(kind==='fire-splash'){
+        const reach=Math.max(.01,packet.radius||0)*(motion?.24+.76*Math.sin(Math.min(1,progress*1.8)*Math.PI*.5):.75),fade=Math.max(0,1-progress),tint=new THREE.Color('#ff8d27').multiplyScalar(.6+.4*fade);
+        if(packet.eruption!==false)for(let i=0;i<6;i++){const a=i*Math.PI/3,end=to.clone().add(new THREE.Vector3(Math.cos(a)*reach,.12,Math.sin(a)*reach));segment('corona',to,end,Math.max(.025,reach*.10),tint);segment('core',to,to.clone().lerp(end,.56),Math.max(.012,reach*.035),new THREE.Color('#ffd68a').multiplyScalar(.65+.35*fade));}
+        for(const at of packet.victims||[])body(at,.075*fade,'#ffab4f',new THREE.Vector3(.7,1.6,.7));continue;
+      }
       if(lightning){const pulse=electricPulse(progress,motion),electric=electricPathSegments(from,to,{seed,clock,motion}),coronaColor=new THREE.Color(color);if(coronaColor.b>coronaColor.r*.9)coronaColor.lerp(new THREE.Color('#268fe8'),.55);for(const[a,b]of electric.segments){segment('corona',a,b,r*3.0,coronaColor);segment('core',a,b,r*.68,new THREE.Color('#f4fdff').multiplyScalar(pulse));}continue;}
-      if(kind==='flame'){segment('corona',from,to,Math.max(.08,r*3),'#ff791f');segment('core',from,to,Math.max(.035,r),'#ffd787');body(to,.12,'#ff9c3d');continue;}
+      if(kind==='flame'){
+        // Sparse broken tongues preserve a cone instead of falling back to an opaque laser.
+        const side=new THREE.Vector3(delta.z,0,-delta.x).normalize();
+        for(let lane=0;lane<3;lane++)for(let i=0;i<6;i++){const a=i/6,b=Math.min(1,a+.14),phase=motion?clock*5:0,shift=(lane-1)*.12*a+Math.sin(i*2.7+phase+lane)*.035*a,start=from.clone().addScaledVector(delta,a).addScaledVector(side,shift),end=from.clone().addScaledVector(delta,b).addScaledVector(side,shift*1.1);segment('corona',start,end,.025+a*.12,lane%2?'#e45c17':'#ff8e27');if(lane===1&&i<4)segment('core',start,end,.018+a*.04,'#ffe2a1');}
+        continue;
+      }
+      if(kind==='siege'&&packet.subtype==='catapult-stone'){body(to,.17,'#929286',new THREE.Vector3(1,.83,1.13));continue;}
       if(['arrow','venomArrow','siege','dart','bullet','bulletRapid','shell'].includes(kind)){
-        const length=['bullet','bulletRapid'].includes(kind)?.30:kind==='shell'?.24:.48,start=to.clone().addScaledVector(direction,-Math.min(length,delta.length()));
+        const length=['bullet','bulletRapid'].includes(kind)?.30:kind==='shell'?.24:kind==='siege'?.95:.48,start=to.clone().addScaledVector(direction,-Math.min(length,delta.length()));
         segment('shafts',start,to,['bullet','bulletRapid'].includes(kind)?.018:.023,kind==='arrow'||kind==='siege'?'#d4bd8f':color);
-        if(!['bullet','bulletRapid'].includes(kind))draw.heads.push({a:to.clone().addScaledVector(direction,-.06),b:to.clone().addScaledVector(direction,.05),r:kind==='shell'?.07:.055,color});
+        if(!['bullet','bulletRapid'].includes(kind))draw.heads.push({a:to.clone().addScaledVector(direction,-.06),b:to.clone().addScaledVector(direction,.05),r:kind==='shell'?.07:kind==='siege'?.08:.045,color:kind==='venomArrow'?color:'#c7ced0'});
+        if(['arrow','venomArrow','siege'].includes(kind)){const side=new THREE.Vector3(direction.z,0,-direction.x).normalize().multiplyScalar(kind==='siege'?.075:.045),tail=start.clone().lerp(to,.16);segment('shafts',tail.clone().sub(side),tail.clone().add(side),.010,'#dedecf');}
         if(['bullet','bulletRapid'].includes(kind))segment('core',start,to,.014,color);
         if(packet.style?.element==='lightning'){const electric=electricPathSegments(start,to,{seed,clock,motion});for(const[a,b]of electric.segments){segment('corona',a,b,.045,color);segment('core',a,b,.012,'#f4fdff');}}
         continue;
       }
-      if(['grenade','cannon','stone','forge'].includes(kind)){body(to,kind==='cannon'?.13:.10,kind==='cannon'?'#6e7479':color);continue;}
+      if(['grenade','cannon','stone','forge'].includes(kind)){body(to,kind==='cannon'?.145:kind==='stone'?.17:.10,kind==='cannon'?'#59636b':kind==='stone'?'#929286':kind==='grenade'?'#394247':'#6a7478');if(kind==='grenade')segment('shafts',to.clone().add(new THREE.Vector3(0,.11,0)),to.clone().add(new THREE.Vector3(.015,.21,0)),.012,'#d1b77b');if(kind==='forge')segment('core',to.clone().add(new THREE.Vector3(0,-.07,-.07)),to.clone().add(new THREE.Vector3(0,.07,.07)),.012,'#ffad52');continue;}
       if(['melee','axe','pick','claw','treeSlam','hammer','thrust'].includes(kind)){
-        const end=packet.target||to,a=end.clone().add(new THREE.Vector3(-.18,0,-.12)),b=end.clone().add(new THREE.Vector3(.18,.12,.12));segment('shafts',a,b,.035,color);if(['hammer','treeSlam'].includes(kind))body(end,.10,color);else segment('shafts',a.clone().add(new THREE.Vector3(0,.08,.19)),b.clone().add(new THREE.Vector3(0,-.08,-.19)),.021,color);continue;
+        if(progress<.72&&!packet.ricochet)continue;const end=packet.target||to;
+        if(kind==='thrust'){segment('shafts',end.clone().addScaledVector(direction,-.24),end.clone().addScaledVector(direction,.14),.020,color);draw.heads.push({a:end,b:end.clone().addScaledVector(direction,.12),r:.04,color});}
+        else if(kind==='melee'||kind==='axe')arc(end,.25,kind==='axe'?.045:.018,color,Math.PI*.9,-.7);
+        else if(kind==='claw')for(let i=0;i<3;i++)arc(end.clone().add(new THREE.Vector3((i-1)*.07,0,0)),.13,.012,color,Math.PI*.75,-.8);
+        else if(kind==='hammer'){arc(end,.15,.020,color,Math.PI*1.65);body(end,.06,'#b9bdb8');}
+        else if(kind==='treeSlam')for(let i=0;i<3;i++)body(end.clone().add(new THREE.Vector3(Math.sin(i*2)*.13,Math.cos(i*2)*.10,0)),.045,i%2?'#8d794f':'#5f723e');
+        else segment('shafts',end.clone().add(new THREE.Vector3(-.09,.14,0)),end.clone().add(new THREE.Vector3(.06,-.07,0)),.022,color);continue;
       }
-      if(kind==='web'){segment('shafts',from,to,.012,color);continue;}
-      // Spell beads and rune crescents remain local to the real projectile;
-      // the overflow path never turns them into an unrelated physical arrow.
-      body(to,kind==='moon'?.10:.08,color);if(kind==='drum')body(to,.15,color);
+      if(kind==='web'){for(let i=0;i<8;i++){const p=i/8,q=(i+1)/8,a=from.clone().lerp(to,p),b=from.clone().lerp(to,q);a.y-=Math.sin(p*Math.PI)*.07;b.y-=Math.sin(q*Math.PI)*.07;segment('shafts',a,b,.008,color);}continue;}
+      if(kind==='moon'){arc(to,.13,.020,color,Math.PI*1.4);continue;}
+      if(kind==='drum'){for(let i=0;i<3;i++)arc(to.clone().addScaledVector(direction,-i*.09),.15+i*.05,.010,color,Math.PI*1.65,i*.3);continue;}
+      if(kind==='runic'){for(let i=0;i<4;i++){const a=i*Math.PI/2+Math.PI/4,b=(i+1)*Math.PI/2+Math.PI/4;segment('shafts',to.clone().add(new THREE.Vector3(Math.cos(a)*.13,Math.sin(a)*.13,0)),to.clone().add(new THREE.Vector3(Math.cos(b)*.13,Math.sin(b)*.13,0)),.014,color);}body(to,.055,color);continue;}
+      if(kind==='frost'){for(let i=0;i<3;i++){const at=to.clone().add(new THREE.Vector3(Math.sin(i*2)*.06,Math.cos(i*2)*.06,-.04));draw.heads.push({a:at,b:at.clone().addScaledVector(direction,.19),r:.04,color});}continue;}
+      if(kind==='roots'){body(to,.075,color,new THREE.Vector3(.7,1.15,1));for(const s of [-1,1])body(to.clone().add(new THREE.Vector3(s*.07,0,0)),.06,'#719848',new THREE.Vector3(.4,1.2,.6));continue;}
+      body(to,.075,color);arc(to,.14,.009,color,Math.PI*1.4);if(kind==='holy')for(let i=0;i<4;i++){const a=i*Math.PI/2;segment('shafts',to.clone().add(new THREE.Vector3(Math.cos(a)*.16,Math.sin(a)*.16,0)),to.clone().add(new THREE.Vector3(Math.cos(a)*.22,Math.sin(a)*.22,0)),.008,color);}
     }
     for(const[key,instances]of Object.entries(draw)){
       const prior=this.batches.get(key);if(!instances.length){if(prior){prior.object.count=0;prior.object.visible=false;}continue;}
       const {object}=this.batch(key,instances.length);object.count=instances.length;object.visible=true;
-      instances.forEach((item,index)=>{if(item.at){pose.position.copy(item.at);pose.quaternion.identity();pose.scale.setScalar(item.r);}else{const delta=item.b.clone().sub(item.a),length=delta.length();pose.position.copy(item.a).add(item.b).multiplyScalar(.5);pose.quaternion.setFromUnitVectors(up,length>1e-8?delta.multiplyScalar(1/length):up);pose.scale.set(item.r,Math.max(.001,length),item.r);}pose.updateMatrix();object.setMatrixAt(index,pose.matrix);object.setColorAt(index,new THREE.Color(item.color));});
+      instances.forEach((item,index)=>{if(item.at){pose.position.copy(item.at);pose.quaternion.identity();pose.scale.copy(item.scale||up.clone().set(1,1,1)).multiplyScalar(item.r);}else{const delta=item.b.clone().sub(item.a),length=delta.length();pose.position.copy(item.a).add(item.b).multiplyScalar(.5);pose.quaternion.setFromUnitVectors(up,length>1e-8?delta.multiplyScalar(1/length):up);pose.scale.set(item.r,Math.max(.001,length),item.r);}pose.updateMatrix();object.setMatrixAt(index,pose.matrix);object.setColorAt(index,new THREE.Color(item.color));});
       object.instanceMatrix.needsUpdate=true;if(object.instanceColor)object.instanceColor.needsUpdate=true;
     }
     this.object.visible=this.records.length>0;

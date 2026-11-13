@@ -112,3 +112,69 @@ test('native body bounds keep fire, poison, coils and overhead markers outside t
     fx.sync([enemy],{figures,states,time:1});assert.equal(body.geometry,geometry);assert.equal(body.material,material);assert.deepEqual(body.geometry.attributes.position.array,vertices);assert.ok(fx.count<=fx.maxInstances);
   }finally{fx.dispose();body.geometry.dispose();body.material.dispose();figure.removeFromParent();}
 });
+
+test('procedural body materials follow the simulation clock through pause and reduced motion',()=>{
+  const fx=new CombatStatusVfx(new THREE.Scene()),enemy={id:1,x:0,z:0},states=new Map([[1,['burn','heat','poison','freeze','root'].map(key=>({key}))]]);
+  try{
+    fx.sync([enemy],{states,time:4});const shaders=[];
+    for(const batch of fx.batches.values()){
+      const shader={uniforms:{},vertexShader:THREE.ShaderLib.basic.vertexShader,fragmentShader:THREE.ShaderLib.basic.fragmentShader};batch.material.onBeforeCompile(shader);shaders.push(shader);
+      assert.equal(shader.uniforms.uStatusTime.value,4);assert.equal(shader.uniforms.uStatusStill.value,0);
+      assert.equal(batch.material.depthWrite,false,'Transparent body layers cannot obscure later actors through the depth buffer');
+    }
+    fx.sync([enemy],{states,time:4});assert.ok(shaders.every(s=>s.uniforms.uStatusTime.value===4),'A paused simulation cannot advance shader-only fire or poison motion');
+    fx.sync([enemy],{states,time:4.1});assert.ok(shaders.every(s=>s.uniforms.uStatusTime.value===4.1));
+    fx.reducedMotion=true;fx.sync([enemy],{states,time:5});assert.ok(shaders.every(s=>s.uniforms.uStatusTime.value===0&&s.uniforms.uStatusStill.value===1));
+    const fixed=matrixSnapshot(fx);fx.sync([enemy],{states,time:8});assert.deepEqual(matrixSnapshot(fx),fixed);assert.ok(shaders.every(s=>s.uniforms.uStatusTime.value===0));
+  }finally{fx.dispose();}
+});
+
+test('timed Burn and Fire Aura keep independent identity without duplicating full-height flames',()=>{
+  const fx=new CombatStatusVfx(new THREE.Scene()),enemy={id:3,x:0,z:0},states=new Map([[3,[{key:'burn'},{key:'heat'}]]]),matrix=new THREE.Matrix4();
+  const height=kind=>{const batch=fx.batches.get(kind);batch.getMatrixAt(0,matrix);return new THREE.Box3().setFromBufferAttribute(batch.geometry.attributes.position).applyMatrix4(matrix).getSize(new THREE.Vector3()).y;};
+  try{
+    fx.sync([enemy],{states,time:2});assert.equal(count(fx,'burn'),3);assert.equal(count(fx,'heat'),1);assert.ok(height('burn')>height('heat')*2,'Aura exposure is a low contact accent beside timed body flames');
+    states.set(3,[{key:'heat'}]);fx.sync([enemy],{states,time:2.1});assert.equal(count(fx,'burn'),0);assert.equal(count(fx,'heat'),3,'The remaining live aura still has a complete readable presentation');
+    states.set(3,[{key:'burn'}]);fx.sync([enemy],{states,time:2.2});assert.equal(count(fx,'heat'),0);assert.equal(count(fx,'burn'),3,'Leaving the aura does not remove an independently timed Burn');
+    states.clear();fx.event('impact',{enemy,effect:'fire',abilityId:'heat'});fx.sync([enemy],{states,time:2.3});assert.equal(fx.count,0,'Periodic Heat impact color never establishes a body infection');
+  }finally{fx.dispose();}
+});
+
+test('simultaneous healing denial channels occupy separate camera-facing slots below Stun',()=>{
+  const camera=new THREE.PerspectiveCamera(38,1,.1,100);camera.position.set(5,7,10);camera.lookAt(0,1,0);camera.updateMatrixWorld();
+  const fx=new CombatStatusVfx(new THREE.Scene(),{camera}),enemy={id:2,x:0,z:0},states=new Map([[2,['healBlock','regenReduction','stun'].map(key=>({key}))]]),matrix=new THREE.Matrix4();
+  const at=kind=>{fx.batches.get(kind).getMatrixAt(0,matrix);return new THREE.Vector3().setFromMatrixPosition(matrix);};
+  try{
+    fx.sync([enemy],{states,time:1});const blocked=at('healBlock'),reduced=at('regenReduction'),stunned=at('stun'),right=new THREE.Vector3(1,0,0).applyQuaternion(camera.quaternion);
+    assert.ok(Math.abs(reduced.clone().sub(blocked).dot(right))>.4,'Pink and barred purple markers do not occupy the same projected slot');
+    assert.ok(stunned.y>blocked.y&&stunned.y>reduced.y,'Stun stars clear the healing-denial lane');
+    assert.notDeepEqual(fx.batches.get('healBlock').geometry.attributes.position.array,fx.batches.get('regenReduction').geometry.attributes.position.array,'The diagonal bar is geometric, not just a color change');
+  }finally{fx.dispose();}
+});
+
+test('zero-damage contact can retain independently eligible healing denial without inventing Burn',()=>{
+  const h=arena('crown','mechanicalgolem');try{
+    h.enemy.physicalImmune=true;
+    h.game.combat.applyEffects(h.enemy,{damage:50,burnDps:10,healingBlockDuration:5},h.source,{landedDamage:false});h.sync();
+    assert.ok(h.enemy.statuses.healBlock?.time>0);assert.ok(count(h.fx,'healBlock')>0,'Actual non-damaging eligible condition remains visible');
+    assert.equal(h.enemy.statuses.burn,undefined);assert.equal(count(h.fx,'burn'),0,'A failed damaging Burn application has no persistent flames');
+  }finally{h.dispose();}
+});
+
+test('healing and electrical pulses require actual positive visible events and obey exact lifetimes',()=>{
+  let time=2;const enemy={id:1,x:0,z:0,visible:true},fx=new CombatStatusVfx(new THREE.Scene(),{getTime:()=>time,isVisible:e=>e.visible});
+  const sync=()=>fx.sync([enemy],{time});
+  try{
+    for(const amount of [0,-1])fx.event('enemy-heal',{enemy,amount});
+    fx.event('damage-trace',{enemy,effectiveDamage:0,effect:'lightning'});sync();assert.equal(fx.count,0);
+    fx.event('enemy-heal',{enemy,amount:20,visible:false});fx.event('damage-trace',{enemy,effectiveDamage:20,effect:'lightning',visible:false});sync();assert.equal(fx.count,0);
+    enemy.visible=false;fx.event('enemy-heal',{enemy,amount:20});fx.event('damage-trace',{enemy,effectiveDamage:20,effect:'lightning'});sync();assert.equal(fx.count,0);
+    enemy.visible=true;fx.event('enemy-heal',{enemy,amount:20});fx.event('damage-trace',{enemy,effectiveDamage:20,effect:'lightning'});sync();assert.equal(count(fx,'heal'),3);assert.equal(count(fx,'flash'),1);
+    const first=fx.pulses.get('heal:1');time=2.03;fx.event('enemy-heal',{enemy,amount:20});assert.equal(fx.pulses.get('heal:1'),first,'A volley coalesces instead of restarting a pulse on every packet');
+    time=2.199;sync();assert.equal(count(fx,'flash'),1);time=2.201;sync();assert.equal(count(fx,'flash'),0);assert.equal(count(fx,'heal'),3);
+    time=2.419;sync();assert.equal(count(fx,'heal'),3);time=2.421;sync();assert.equal(count(fx,'heal'),0);
+    time=3;fx.event('damage-trace',{enemy,effectiveDamage:20,effect:'lightning'});sync();assert.equal(count(fx,'flash'),1);fx.reducedMotion=true;sync();assert.equal(count(fx,'flash'),0,'Enabling reduced motion also removes an already running flash');
+    fx.event('enemy-heal',{enemy,amount:20});sync();const still=matrixSnapshot(fx);time=3.1;sync();assert.deepEqual(matrixSnapshot(fx),still,'Reduced motion preserves a fixed restoration glyph grouping');
+    enemy.visible=false;sync();assert.equal(fx.pulses.size,0);assert.equal(fx.count,0);
+  }finally{fx.dispose();}
+});

@@ -178,14 +178,17 @@ export async function auditReconstructedEntry(entry,{designRoot=existsSync(desig
     resetAttack(rig);check('Attack reset restores exact authored runtime rest and physical visibility/PBR state',physicalTransforms(actor,rig.owned)===rest&&physicalRenderState(actor,rig.owned)===restRender);
     previewGeometricAttack(rig,{duration:1});updateGeometricPreview(rig,.42,{reducedMotion:true});check('Reduced motion preserves authored physical rest',physicalTransforms(actor,rig.owned)===rest);resetAttack(rig);
     triggerAttack(rig,{combatTime:1,stats});const releasedPose=physicalTransforms(actor,rig.owned),elapsed=rig.elapsed;triggerAttack(rig,{combatTime:1,stats});check('Duplicate combat event does not restart/repose the same release',rig.elapsed===elapsed&&physicalTransforms(actor,rig.owned)===releasedPose);animateAttack(rig,.03,0,{stamp:2});resetAttack(rig);
-    const rootQuaternion=actor.quaternion.clone();
+    const rootQuaternion=actor.quaternion.clone(),auraOnly=!(stats.damage>0)&&!stats.continuousAttack&&((stats.burnAura||0)>0||(stats.abilities||[]).some(a=>a.familyId==='fire-aura'&&a.dps>0));
     for(const aim of [0,.6,1.7,3.1]){
       actor.position.set(3,.6,8);actor.rotation.y=aim;triggerAttack(rig,{combatTime:aim+10,stats});
       const scene=new THREE.Scene(),fx=new CombatEffects(scene,{getMuzzle:(_source,out,options)=>attackMuzzle(rig,out,options)}),shot={id:1,source:{id:9,family:entry.family,tier:entry.tier,x:3,z:8},target:{id:2,x:3-Math.sin(aim)*3,z:8-Math.cos(aim)*3},stats,progress:0,duration:.35,start:{x:3,z:8}},packet=JSON.stringify(shot);
       try{
         fx.event('shot',shot);const record=fx.projectiles.get(1),muzzle=attackMuzzle(rig);
-        check('World aim '+aim+' binds the real projectile release to the moving physical endpoint',!!record&&!!muzzle&&record.origin.distanceTo(muzzle)<1e-8);
-        for(const progress of [0,.25,.6,1]){shot.progress=progress;fx.syncProjectiles([shot],progress);fx.update(0,progress);check('World aim '+aim+' projectile phase '+progress+' has finite actual scene transforms',finiteTransforms(scene));}
+        if(auraOnly){
+          check('World aim '+aim+' aura-only defender retains a finite authored physical endpoint',!!muzzle&&finite(muzzle.toArray()));
+          check('World aim '+aim+' aura-only defender rejects a synthetic projectile or channel',!record&&fx.projectiles.size===0&&fx.channels.size===0&&fx.effects.length===0&&fx.paths.records.length===0);
+        }else check('World aim '+aim+' binds the real projectile release to the moving physical endpoint',!!record&&!!muzzle&&record.origin.distanceTo(muzzle)<1e-8);
+        for(const progress of [0,.25,.6,1]){shot.progress=progress;fx.syncProjectiles([shot],progress);fx.update(0,progress);check('World aim '+aim+' projectile phase '+progress+' has finite actual scene transforms',finiteTransforms(scene));if(auraOnly)check('World aim '+aim+' aura-only phase '+progress+' creates no synthetic projectile or channel',fx.projectiles.size===0&&fx.channels.size===0&&fx.effects.length===0&&fx.paths.records.length===0);}
         shot.progress=0;check('World aim '+aim+' preserves gameplay packet and actor aim/scale',JSON.stringify(shot)===packet&&actor.rotation.y===aim&&within(actor.position.toArray(),[3,.6,8])&&within(actor.scale.toArray(),rootScale.toArray()));
         fx.syncProjectiles([],2);fx.update(2,2);check('World aim '+aim+' expires all owned projectile/effect objects',fx.projectiles.size===0&&fx.effects.length===0&&scene.children.length===0);
       }finally{fx.dispose();fx.dispose();resetAttack(rig);}
