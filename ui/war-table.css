@@ -97,3 +97,11 @@
 #main-menu .war-skill-select{min-height:88px}.war-skill-select>img{width:88px;height:88px}.war-skill{padding:8px}.war-equip{margin-left:100px;min-height:22px}.war-rank-pips{margin:6px 0}.war-rank-pips i{height:28px;min-width:28px}
 @media(max-width:600px){.war-laurel .faction-mark img{width:36px;height:36px}.faction-mark img{width:24px;height:24px}.war-equip{margin-left:88px}.war-skill-select>img{width:76px;height:76px}#main-menu .menu-account .medal-icon{width:25px;height:34px}}
 @media(prefers-reduced-motion:reduce){#main-menu *,#main-menu *::before,#main-menu *::after{transition:none!important;animation:none!important}}
+@media(max-width:600px){
+ .war-hall-controls .war-faction-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;min-width:0;gap:8px}
+ .war-hall-controls .war-faction-tabs button{min-width:0}
+ .war-podium{height:225px;display:flex;align-items:flex-end;justify-content:center;gap:6px;padding:60px 6px 10px;overflow:hidden;background-position:center 35%}
+ .war-plinth,.war-plinth.place-1,.war-plinth.place-3{position:relative;left:auto;top:auto;flex:1;width:31%;min-width:0;min-height:100px;padding:8px 3px;background:#f5e5c3;border:2px ridge #d9bb7d;box-shadow:0 2px 4px #0004}
+ .war-plinth.place-1{min-height:125px}.war-plinth h2{font-size:11px!important}.war-plinth>strong{font-size:14px;overflow-wrap:anywhere}.war-plinth>span{font-size:12px}
+ .war-laurel{width:48px;height:44px;top:-57px;border-width:3px}.war-laurel .faction-mark img{width:30px;height:30px;margin:0}.war-laurel .faction-mark{line-height:38px}.war-laurel b{left:10px;bottom:-12px;min-width:24px;font-size:15px}
+}
