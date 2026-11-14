@@ -5,7 +5,7 @@ export class AchievementNotices{
  constructor({player,onView=()=>{}}){
   this.player=player;this.onView=onView;this.queue=[];this.seen=new Set();this.current=null;this.timer=null;this.remaining=8000;
   this.root=document.createElement('aside');this.root.className='achievement-notices';this.root.setAttribute('aria-label','Achievement notifications');document.body.append(this.root);
-  this.root.addEventListener('pointerenter',()=>this.pause());this.root.addEventListener('pointerleave',()=>{if(!this.root.contains(document.activeElement))this.resume();});
+  this.root.addEventListener('pointerenter',()=>{this.hovered=true;this.pause();});this.root.addEventListener('pointerleave',()=>{this.hovered=false;if(!this.root.contains(document.activeElement))this.resume();});
   this.root.addEventListener('focusin',()=>this.pause());this.root.addEventListener('focusout',()=>queueMicrotask(()=>{if(!this.root.contains(document.activeElement))this.resume();}));
   this.root.addEventListener('click',e=>void this.click(e));
  }
@@ -34,7 +34,7 @@ export class AchievementNotices{
   this.remaining=claimed?3500:8000;this.resume();
  }
  pause(){if(this.timer){clearTimeout(this.timer);this.remaining=Math.max(0,this.remaining-(performance.now()-this.started));this.timer=null;}}
- resume(){if(!this.current||this.timer)return;this.started=performance.now();this.timer=setTimeout(()=>this.dismiss(),Math.max(500,this.remaining));}
+ resume(){if(!this.current||this.timer||this.hovered||this.root.contains(document.activeElement))return;this.started=performance.now();this.timer=setTimeout(()=>this.dismiss(),Math.max(500,this.remaining));}
  dismiss(){clearTimeout(this.timer);this.timer=null;this.current=null;this.root.innerHTML='';this.showNext();}
  async click(e){const b=e.target.closest('button');if(!b||b.disabled)return;if(b.classList.contains('achievement-notice-close'))return this.dismiss();if(b.hasAttribute('data-notice-view')){const id=this.current?.id;this.dismiss();await this.onView(id);return;}if(b.hasAttribute('data-notice-claim')){this.pause();b.disabled=true;const notice=this.current;try{await this.player.claimAchievement(notice.id);this.dismiss();}catch(error){if(this.current===notice){this.root.querySelector('.achievement-notice-error').textContent=error.message;b.disabled=false;}}}}
 }

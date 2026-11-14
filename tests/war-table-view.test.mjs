@@ -29,7 +29,7 @@ test('General shows one selected detail, all seven skills and distinct CP versus
 test('Hall empty state never invents winners, exact big scores stay legible and ties are explicit',()=>{
  assert.match(hallView({top:[],podium:[],factionId:'all'}),/Set the first record/);
  const own={id:'own',name:'<img>',factionId:'crown',score:'9007199254740993',highestWave:70,rank:2,loadout:{}};
- const html=hallView({top:[own],podium:[own],own,next:{rank:1},gap:'0',total:1,offset:0,factionId:'all'});assert.match(html,/9,007,199,254,740,993/);assert.match(html,/&lt;img&gt;/);assert.match(html,/Score tied/);assert.match(html,/YOU/);
+ const html=hallView({top:[own],podium:[own],own,next:{rank:1},gap:'0',total:1,offset:0,factionId:'all'});assert.match(html,/9,007,199,254,740,993/);assert.match(html,/&lt;img&gt;/);assert.match(html,/Score tied/);assert.match(html,/YOU/);assert.match(html,/war-mobile-loadout/);
 });
 test('Client Claim waits for server payment; older replay profiles cannot replace newer wallet state',async()=>{
  const events=[],client=new PlayerClient({onAchievement:e=>events.push(e),fetcher:async()=>Response.json({revision:2,balance:2,eligible:[{id:'boss:crown:host_10',reward:2}],grants:[{id:'boss:crown:host_10',reward:2}],skills:{},equipped:[]})});
