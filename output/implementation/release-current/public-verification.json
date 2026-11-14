@@ -6,35 +6,47 @@
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
   "previousEntryUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
   "previousEntryRedirectVerified": true,
-  "sourceCommit": "217a5245a541845cbb29e7b44db585e6425eb7b7",
-  "verifiedAt": "2026-11-14T11:57:04Z",
+  "sourceCommit": "d6aef5276df95c71be7f1c5e8c02427740ebe100",
+  "verifiedAt": "2026-11-14T16:37:07.120Z",
   "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
   "statisticsVersion": "0.7.0",
-  "statisticsDeploymentId": "appgdep_6af849bd84c88191bc26ed50a2777313",
-  "statisticsVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_ed492d5965948191a5e842c6dc1ea174",
-  "statisticsSourceCommit": "12027e6d289dee47e7c2eb17b2e5d29e16896416",
-  "testsPassed": 2339,
+  "statisticsDeploymentId": "appgdep_6af88969735c819192fb4abd74b172a0",
+  "statisticsVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_45091fcb1b0081918eafbd56e700d43b",
+  "statisticsSourceCommit": "3c27d37b22ee108b836b568de6f0ab126d8a489e",
+  "testsPassed": 2348,
   "testsFailed": 0,
   "testsSkipped": 0,
   "edgeProxyRegressionTests": 8,
   "ci": {
-    "id": 43590914786,
-    "head_sha": "217a5245a541845cbb29e7b44db585e6425eb7b7",
+    "id": 43615477488,
+    "head_sha": "d6aef5276df95c71be7f1c5e8c02427740ebe100",
     "status": "completed",
     "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43590914786",
-    "testsPassed": 2339,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43615477488",
+    "testsPassed": 2348,
     "testsFailed": 0,
-    "testsSkipped": 0
+    "testsSkipped": 0,
+    "jobs": [
+      {
+        "id": 132509466038,
+        "name": "build",
+        "conclusion": "success"
+      },
+      {
+        "id": 132511693311,
+        "name": "deploy",
+        "conclusion": "success"
+      }
+    ]
   },
   "jobs": [
     {
-      "id": 132435227994,
+      "id": 132509466038,
       "name": "build",
       "conclusion": "success"
     },
     {
-      "id": 132436781904,
+      "id": 132511693311,
       "name": "deploy",
       "conclusion": "success"
     }
@@ -42,41 +54,57 @@
   "accounts": {
     "serverDeployed": true,
     "googleAppleFlowImplemented": true,
+    "facebookFlowImplemented": true,
     "passwordlessProfileAndCloudContinuationTestedWithIsolatedGoogleIdentity": true,
-    "configuredProviders": [],
-    "publicSignInActive": false,
-    "publicCloudProgressAvailableToPlayers": false,
-    "activationBlocker": "Operator Google/Apple OAuth credentials and provider-side settings are not configured. The user has not created them.",
-    "manualEmailPasswordEnabled": false
+    "configuredProviders": [
+      "google"
+    ],
+    "publicSignInActive": true,
+    "publicCloudProgressAvailableToPlayers": true,
+    "realGoogleRoundTripConfirmedByOperator": true,
+    "realGoogleSignedInProfileObserved": true,
+    "persistedAccountRunObservedInProduction": true,
+    "appleDeferred": true,
+    "facebookConfigured": false,
+    "manualEmailPasswordEnabled": false,
+    "remainingConfiguration": "Apple deferred; Facebook and email/password require their operator credentials and an email sender."
   },
   "browser": {
     "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
     "versionVisible": "0.7.0",
     "cases": [
-      "GitHub entry redirects to the hosted origin",
-      "Register clearly shows unavailable Google/Apple options pending operator configuration",
-      "Guest starts a Human game",
-      "Approved battlefield and defender models load",
-      "Five recruits use A–H labels",
-      "Two Soldier I defenders merge to Soldier II",
-      "Combat spawns eight enemies",
-      "Save & Main Menu stores local continuation",
-      "Reload restores the same paused combat, Soldier II, eight enemies, 30 health, 90 gold and 3 CP"
+      "War table layout and bundled Cinzel font load publicly",
+      "Version shows 0.7.0 without an Endless suffix",
+      "Faction picker replaces the static hero and updates the new-game choice",
+      "Guest Achievements and General are visibly locked (local browser verification)",
+      "Signed-in public account retains its session after reload and unlocks both destinations",
+      "Top bar contains Sign In/Register for Guests and account management for players",
+      "Settings menu entry and footer slogan are removed",
+      "Styled replacement dialog names the existing defense and selected next faction",
+      "Cancel/Escape preserve the saved run and restore focus",
+      "Direct Dwarves selection starts the correct faction without a second chooser (isolated local Guest run)",
+      "Account management remains reachable through the nickname",
+      "Google button is enabled; Apple/Facebook/email remain explicitly unavailable",
+      "Canceled-OAuth recovery dialog closes without losing the signed-in session",
+      "390px mobile menu has no horizontal overflow",
+      "Production database contains a persisted account-run snapshot"
     ],
     "consoleErrors": [],
     "screenshots": [
       "artifacts/fr010-public/public-menu.png",
       "artifacts/fr010-public/public-sign-in.png",
-      "artifacts/fr010-public/public-restored-battle.png"
+      "artifacts/fr010-public/public-confirm-replace.png",
+      "artifacts/fr010-public/public-menu-mobile.png"
     ]
   },
   "publicBundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Dvn1b03K.js",
-    "upstream": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-Dvn1b03K.js",
-    "bytes": 2758341,
-    "sha256": "5b24d6afc7acde5ba66c87ed23cbf74cfe5590f18830dcd50d5488ae52aab499",
-    "proxyMatches": true,
-    "version": "0.7.0"
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-z8UnMrS_.js",
+    "upstream": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-z8UnMrS_.js",
+    "bytes": 2766093,
+    "sha256": "7d6cabe48a14dc0d6decc8122a7041076afb031c608fccee271ca9b26e95a9ce",
+    "matchesLocalBuild": true,
+    "matchesUpstream": true,
+    "css": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DPZBzzOW.css"
   },
   "runtime": {
     "files": 1209,

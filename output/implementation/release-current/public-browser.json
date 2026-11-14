@@ -2,20 +2,27 @@
   "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
   "versionVisible": "0.7.0",
   "cases": [
-    "GitHub entry redirects to the hosted origin",
-    "Register clearly shows unavailable Google/Apple options pending operator configuration",
-    "Guest starts a Human game",
-    "Approved battlefield and defender models load",
-    "Five recruits use A–H labels",
-    "Two Soldier I defenders merge to Soldier II",
-    "Combat spawns eight enemies",
-    "Save & Main Menu stores local continuation",
-    "Reload restores the same paused combat, Soldier II, eight enemies, 30 health, 90 gold and 3 CP"
+    "War table layout and bundled Cinzel font load publicly",
+    "Version shows 0.7.0 without an Endless suffix",
+    "Faction picker replaces the static hero and updates the new-game choice",
+    "Guest Achievements and General are visibly locked (local browser verification)",
+    "Signed-in public account retains its session after reload and unlocks both destinations",
+    "Top bar contains Sign In/Register for Guests and account management for players",
+    "Settings menu entry and footer slogan are removed",
+    "Styled replacement dialog names the existing defense and selected next faction",
+    "Cancel/Escape preserve the saved run and restore focus",
+    "Direct Dwarves selection starts the correct faction without a second chooser (isolated local Guest run)",
+    "Account management remains reachable through the nickname",
+    "Google button is enabled; Apple/Facebook/email remain explicitly unavailable",
+    "Canceled-OAuth recovery dialog closes without losing the signed-in session",
+    "390px mobile menu has no horizontal overflow",
+    "Production database contains a persisted account-run snapshot"
   ],
   "consoleErrors": [],
   "screenshots": [
     "artifacts/fr010-public/public-menu.png",
     "artifacts/fr010-public/public-sign-in.png",
-    "artifacts/fr010-public/public-restored-battle.png"
+    "artifacts/fr010-public/public-confirm-replace.png",
+    "artifacts/fr010-public/public-menu-mobile.png"
   ]
 }
