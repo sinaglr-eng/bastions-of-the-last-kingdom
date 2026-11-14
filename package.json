@@ -1,6 +1,6 @@
 {
   "name": "bastions-of-the-last-kingdom",
-  "version": "0.6.12",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,9 +11,14 @@
     "balance": "node tools/balance.mjs"
   },
   "dependencies": {
+    "better-auth": "1.7.22",
+    "decimal.js": "10.6.0",
+    "jose": "6.2.17",
+    "kysely-d1": "0.4.0",
     "three": "0.180.0"
   },
   "devDependencies": {
+    "fake-indexeddb": "^6.2.8",
     "vite": "7.1.7"
   }
 }

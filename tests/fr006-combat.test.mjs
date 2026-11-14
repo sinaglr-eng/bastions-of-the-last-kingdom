@@ -39,7 +39,8 @@ test('FR-006 recharge uses 15% of missing HP every four simulation seconds, with
  const old=loadCurrentDatasets({revision:'fr005'}).crown;assert.equal(old.enemies.host_49.recharge,.1);
  for(const [id,e]of Object.entries(datasets.crown.enemies))if(id!=='host_49')assert.deepEqual(e,old.enemies[id],id+' other enemy remains exact');
 });
-function history({version=GAME_VERSION,rulesetRevision=datasets.crown.rulesetRevision,leak=true,health=30}={}){
+// This fixture describes the retained pre-account FR-008 statistics contract.
+function history({version='0.6.12',rulesetRevision=datasets.crown.rulesetRevision,leak=true,health=30}={}){
  const g=new Game(datasets.crown),s=new RunStatistics(g,{version}).snapshot();Object.assign(s,{rulesetRevision,outcome:leak?'lost':'won',health:leak?0:health,gold:0,wavesSurvived:leak?49:50,score:0});
  s.waves=datasets.crown.waves.map((w,i)=>{const count=w.groups.reduce((n,g)=>n+g.count,0),last=i===49,leaks=last&&leak?1:0,kills=count-leaks,bossKills=w.boss?kills:0,completed=!last||!leak;const row={index:i+1,boss:!!w.boss,completed,startHealth:i?health:30,endHealth:last&&leak?0:health,healthLost:last&&leak?health:i?0:30-health,kills,bossKills,leaks,spawned:count,durationMs:1,routeLength:10,kingdomLevel:1,mastery:0,towers:[],effects:{},enemyTypes:Object.fromEntries(w.groups.map(g=>[g.type,{spawned:g.count,kills:g.count-(last&&leak?1:0),leaks:last&&leak?1:0}]))};s.score+=(i+1)*((kills-bossKills)*10+bossKills*500+(completed?100+(w.boss?200:0):0));return row;});return s;
 }

@@ -1,8 +1,8 @@
 {
-  "version": "0.6.12",
+  "version": "0.7.0",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
-  "date": "2026-11-06",
+  "date": "2026-11-14",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -65,7 +65,7 @@
   "championAuraRevision": "canonical-faction-classes-20261030-v2",
   "babyFireDragonPresentationScale": 3.85,
   "abilityRevision": "fr005-r2-combat-refinements-20261102",
-  "rulesetRevision": "fr008-r1-20261106",
+  "rulesetRevision": "fr010-v1",
   "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
   "largeEnemyPresentationScale": 0.75,
   "largeEnemyPresentationModels": 12,
@@ -75,7 +75,8 @@
     "FR-007 revision 3",
     "FR-008",
     "FR-009 visual presentation",
-    "All Elf dragons air targeting and hidden Slow visuals"
+    "All Elf dragons air targeting and hidden Slow visuals",
+    "FR-010: menu, optional accounts, achievements, general and Endless"
   ],
   "humanPresentationRevision": "defender-size-feedback-20261106",
   "defenderPresentationRevision": "defender-size-feedback-20261106",
@@ -100,5 +101,8 @@
   "vfxRequirement": "FR-009",
   "suppressedStatusVisuals": [
     "slow"
-  ]
+  ],
+  "progressionRevision": "fr010-medals-general-endless-v1",
+  "endless": true,
+  "accountOptional": true
 }

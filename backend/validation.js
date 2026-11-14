@@ -7,6 +7,7 @@ export function playerName(value){
 export const validId=value=>typeof value==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(value);
 const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
 export function validateFactionIdentity(row){
+ const [legacyMajor,legacyMinor]=String(row.version).split('.').map(Number);if(legacyMajor>0||legacyMinor>=7)throw Error('Version 0.7 and later requires authenticated command replay.');
  const newer=typeof row.version==='string'&&(Number(row.version.split('.')[0])>0||Number(row.version.split('.')[1])>=6);
  const [major,minor,patch]=String(row.version).split('.').map(Number),fr008=major>0||minor>6||minor===6&&patch>=12,fr007r3=major>0||minor>6||minor===6&&patch>=11,fr006=major>0||minor>6||minor===6&&patch>=10,dwarfAir=major>0||minor>6||minor===6&&patch>=9,fr005=major>0||minor>6||minor===6&&patch>=8,fr004=major>0||minor>6||minor===6&&patch>=7,fr003=major>0||minor>6||minor===6&&patch>=6,fr002=major>0||minor>6||minor===6&&patch>=5;
  if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(fr008?'fr008-r1-20261106':fr007r3?'fr006-fr007-r3-20261106':fr006?'fr006-fr007-r2-20261106':dwarfAir?'fr005-r2-dwarf-air-20261102':fr005?'fr005-r2-20261102':fr004?'fr004-r1-20261101':fr003?'fr003-r2-20261101':fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');

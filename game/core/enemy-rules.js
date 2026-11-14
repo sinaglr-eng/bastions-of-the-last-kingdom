@@ -44,3 +44,9 @@ export function enemyRegenerationPerSecond(enemy){
 }
 
 export const enemyNumber=value=>Number(value.toFixed(3)).toLocaleString('en-US',{maximumFractionDigits:3});
+// Extreme Endless health uses a common logarithmic scale in the simulation.
+export function enemyHealthNumber(value,scaleLog=0){
+ if(!(value>0)||!scaleLog)return enemyNumber(value);
+ const power=Math.log10(value)+scaleLog/Math.LN10,exponent=Math.floor(power);
+ return `${Number((10**(power-exponent)).toPrecision(4))}e+${exponent}`;
+}

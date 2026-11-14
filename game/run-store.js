@@ -1,0 +1,15 @@
+export class RunStore{
+ constructor({indexedDB=globalThis.indexedDB}={}){this.indexedDB=indexedDB;this.connection=null;}
+ async open(){if(this.connection)return this.connection;if(!this.indexedDB)throw Error('Browser save storage is unavailable.');this.connection=await new Promise((resolve,reject)=>{const r=this.indexedDB.open('forged-alliances-0.7',1);r.onupgradeneeded=()=>{r.result.createObjectStore('saves');r.result.createObjectStore('outbox');};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});return this.connection;}
+ async read(store,key){const db=await this.open();return new Promise((resolve,reject)=>{const r=db.transaction(store).objectStore(store).get(key);r.onsuccess=()=>resolve(r.result||null);r.onerror=()=>reject(r.error);});}
+ get(owner){return this.read('saves',owner);}
+ batch(runId,sequence){return this.read('outbox',`${runId}:${sequence}`);}
+ async put(owner,envelope,batches=[],{discardRun=null}={}){
+  const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction(['saves','outbox'],'readwrite'),s=tx.objectStore('saves'),r=s.get(owner);let saved,error;r.onsuccess=()=>{const prior=r.result;if((prior?.revision||0)!==(envelope.revision||0)){error=Error('Save changed in another tab. Return to the menu and choose which save to continue.');tx.abort();return;}saved={...envelope,revision:(prior?.revision||0)+1,savedAt:Date.now()};s.put(saved,owner);const outbox=tx.objectStore('outbox');if(discardRun){const cursor=outbox.openCursor();cursor.onsuccess=()=>{const c=cursor.result;if(c){if(c.value.runId===discardRun)c.delete();c.continue();}};}for(const b of batches)outbox.put(b,`${b.runId}:${b.sequence+1}`);};tx.oncomplete=()=>resolve(saved);tx.onabort=()=>reject(error||tx.error||Error('Could not save this run.'));tx.onerror=()=>{};});
+ }
+ async acknowledge(owner,revision,runId,sequence){
+  const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction(['saves','outbox'],'readwrite'),s=tx.objectStore('saves'),r=s.get(owner);let saved,error;r.onsuccess=()=>{const prior=r.result;if(!prior||prior.revision!==revision||prior.meta.runId!==runId){error=Error('Save changed in another tab.');tx.abort();return;}saved={...prior,revision:revision+1,sync:{...prior.sync,sequence:Math.max(sequence,prior.sync.sequence)}};s.put(saved,owner);tx.objectStore('outbox').delete(`${runId}:${sequence}`);};tx.oncomplete=()=>resolve(saved);tx.onabort=()=>reject(error||tx.error);tx.onerror=()=>{};});
+ }
+ close(){this.connection?.close();this.connection=null;}
+ async deleteOwner(owner){const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction(['saves','outbox'],'readwrite'),s=tx.objectStore('saves'),r=s.get(owner);r.onsuccess=()=>{const runId=r.result?.meta?.runId;s.delete(owner);const q=tx.objectStore('outbox').openCursor();q.onsuccess=()=>{const c=q.result;if(c){if(c.value.accountId===owner||c.value.runId===runId)c.delete();c.continue();}};};tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});}
+}

@@ -30,6 +30,7 @@ export class CombatManager {
       }
     }
     this.total=this.spawnQueue.length;
+    if(wave.interleave){const queues=wave.groups.map(group=>this.spawnQueue.filter(s=>s.type===group.type&&s.modifiers.sourceWave===group.sourceWave)),ordered=[];while(queues.some(q=>q.length))for(const q of queues)if(q.length)ordered.push(q.shift());let at=.25;for(const item of ordered){item.time=at;at+=item.modifiers.interval;}this.spawnQueue=ordered;}
     for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;delete t.dread;delete t.weaponCycleState;delete t.factionClocks;delete t.executionReadyAt;t.factionReleases=0;}
   }
   spawn(type,modifiers={}) {
@@ -37,6 +38,7 @@ export class CombatManager {
     const route=(base.flying?this.game.grid.checkpoints:this.game.grid.route).map(p=>({...p}));
     let pathLength=0;for(let i=1;i<route.length;i++)pathLength+=distance(route[i-1],route[i]);
     const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldReadyAt:null,shieldClock:null,rechargeClock:this.rules.recharge.period,blinkClock:this.rules.blink.period,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
+    if(modifiers.healthScaleLog)enemy.healthScaleLog=modifiers.healthScaleLog;
     delete enemy.resists;
     this.enemies.push(enemy);this.spawned++;this.game.emit('spawn',{enemy});return enemy;
   }
@@ -85,11 +87,12 @@ export class CombatManager {
     let bonus=1;if(stats.beastBonus&&enemy.beast)bonus*=stats.beastBonus;
     if(stats.bossBonus&&(enemy.boss||enemy.type==='shaman'))bonus*=stats.bossBonus;
     const petrified=enemy.statuses.petrify&&type==='physical'?1+(enemy.statuses.petrify.physicalBonus||0):1;
-    result.beforeDefense=amount*frozen*bonus*petrified;
+    result.beforeDefense=amount*frozen*bonus*petrified*(source?this.game.general?.multiplier('blood-wrath')||1:1);
     this.prepareArmor(enemy);
     Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance,immunityAuraCoverage(enemy,this.game.towers,this.game.data)));
     result.shellBlock=stats.directHit?Math.min(result.afterArmor,Math.max(0,enemy.krakenShell||0)):0;
     result.afterShell=Math.max(0,result.afterArmor-result.shellBlock);
+    if(enemy.healthScaleLog){result.afterShell*=Math.exp(-enemy.healthScaleLog);if(stats._scaledExecution&&!result.blockReason)result.afterShell=Math.max(result.afterShell,enemy.hp);}
     if(!result.blockReason&&result.afterShell<=0)result.blockReason='shell';
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(this.rules.reactive.maxStacks,enemy.reactiveStacks+1);
     if(result.afterShell<=0)return finish();
@@ -106,7 +109,7 @@ export class CombatManager {
     finish();
     if(enemy.hp<=0){
       enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;this.game.rewardBossCommandPoints(enemy);
-      this.game.awardScore(this.game.round*(enemy.boss?500:10));if(source)source.kills++;
+      this.game.awardWaveScore(enemy.boss?500:10);if(source)source.kills++;
       this.game.emit('death',{enemy,type,visible:result.visible});
     }
     if(stats.fr002||stats._fr002Stats||this.game.data.fr002)fr002DamageResolved(this,result,stats,source);
@@ -278,6 +281,7 @@ export class CombatManager {
       const skyContext={data:this.game.data,towers:this.game.towers,immunityCoverage:this.game.data.fr008&&enemy.flying&&enemy.physicalImmune?immunityAuraCoverage(enemy,this.game.towers,this.game.data):null};
       for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy,skyContext));
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
+      slow=Math.max(slow,this.game.general?.slow||0);
       const move=amount=>{
         let travel=amount;
         while(travel>0 && enemy.pathIndex<enemy.route.length) {
@@ -296,11 +300,11 @@ export class CombatManager {
       enemy.currentSpeed=stopped?0:enemy.speed*haste*frenzy*(1-slow);
       move(stopped?0:enemy.speed*dt*haste*frenzy*(1-slow));
       if(enemy.pathIndex>=enemy.route.length){
-        const terminal=this.game.data.fr006&&this.game.waveLimit===50&&this.game.round===50&&enemy.type==='host_50';
+        const terminal=this.game.data.fr006&&enemy.type==='host_50'&&(this.game.mode==='endless'||this.game.waveLimit===50&&this.game.round===50);
         const healthLost=terminal?this.game.lives:Math.min(this.game.lives,enemy.leak||1);
         enemy.dead=true;enemy.escaped=true;this.game.lives=Math.max(0,this.game.lives-healthLost);this.game.leaks++;
         if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);
-        this.game.emit('leak',{enemy,...(terminal?{healthLost,terminal:true}:{})});
+        this.game.emit('leak',{enemy,...(this.game.data.fr010||terminal?{healthLost}:{}),...(terminal?{terminal:true}:{})});
         if(terminal){
           // No healing proc, queued hit, MVP award or wave reward may follow
           // the final boss crossing the exit, even within this same update.

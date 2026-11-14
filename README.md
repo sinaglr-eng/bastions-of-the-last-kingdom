@@ -1,8 +1,10 @@
-# Forged Alliances TD — 0.6.12
+# Forged Alliances TD — 0.7.0
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Release 0.6.12 adds FR-008 and complete defender voices.** Dwarf Sky Hunt applies its normal Slow multiplied by the strongest covering Physical Rune transmission against Physically immune flyers. Basic ranks have no decorative underfoot ring; champion classification auras and rank-VI glow/stars remain. Wave 38 uses the recovered Blood-Leech Troll reference alongside the Knifeman reference. The 628 scheduled-weapon regressions preserve existing ground-wave damage and regeneration. [Implementation and verification](docs/FR008_IMPLEMENTATION.md).
+**Release 0.7.0 adds FR-010:** a main menu, optional verified accounts, exact saved continuation, medal achievements, a three-slot general and seeded Endless waves beyond 50. Guest runs remain fully playable without account statistics. Start locally with `START_GAME.cmd`; account verification links use a private local mailbox during local development. [Implementation, configuration and verification](docs/FR010_IMPLEMENTATION.md).
+
+The release retains FR-008 and the complete defender voices. Dwarf Sky Hunt applies its normal Slow multiplied by the strongest covering Physical Rune transmission against Physically immune flyers. Basic ranks have no decorative underfoot ring; champion classification auras and rank-VI glow/stars remain. Wave 38 uses the recovered Blood-Leech Troll reference alongside the Knifeman reference. The 628 scheduled-weapon regressions preserve existing ground-wave damage and regeneration. [Implementation and verification](docs/FR008_IMPLEMENTATION.md).
 
 Every one of the 136 character families has two recorded lines. The complete voice bank contains 272 active clips, including 190 new ElevenLabs v4 recordings with the requested Scottish/British directions and gender-aware, distinct casting. [Defender voices](docs/DEFENDER_VOICES.md). Public deployment identity is recorded in [the current publication receipt](output/implementation/release-current/deployment.json).
 
@@ -59,7 +61,7 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only current release 0.6.12 is maintained. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches are not maintained. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current local release 0.7.0 is maintained. The previously published 0.6.12 remains public until a new publication is explicitly requested. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches are not maintained. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
 
 FR-006 and FR-007 revision 3 supply the recipe and final-boss rules, retaining FR-005 abilities and the FR-004 primary values and immunity auras alongside FR-008. [Current changes and verification](docs/FR006_FR007_IMPLEMENTATION.md). The single English design gallery remains local only.
 

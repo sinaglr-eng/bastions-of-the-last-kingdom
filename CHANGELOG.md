@@ -1,5 +1,14 @@
 # Current release
 
+## 0.7.0 — FR-010 progression and Endless — 14 November 2026
+
+- Added the main menu, Guest play, optional verified accounts, password recovery and exact local/cloud continuation.
+- Added once-only achievement medals, consecutive flawless-wave milestones and the seven General skills with three equipment slots, 5/10/20-medal upgrades and refunds.
+- Unified basic defender codes A–H and ranks I–VI across all factions; preserved approved combat profiles and artwork.
+- Continued the campaign beyond wave 50 with deterministic mixed waves, +8% compounded HP and +0.5 armor per wave, periodic bosses and exact integer scores.
+- Added validated command replay, atomic wallet transactions and offline synchronization. Guest and Developer test runs do not write account scores.
+- Kept the existing public version unchanged; this release is prepared and tested locally.
+
 ## 0.6.12 — FR009 combat effect art direction — 13 November 2026
 
 - Allows all four Elf dragons' existing flame cones to hit ground and flying targets, preserving DPS, cone angles, reach, Burn, Fire Aura and Spark.

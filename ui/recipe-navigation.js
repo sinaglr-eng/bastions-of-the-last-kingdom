@@ -31,7 +31,7 @@ export function recipeCatalogNavigation(recipes,recipeId){
 // identifier remain untouched; all other basic codes use defenderCode.
 export function displayDefenderCode(stats,tier=1,{family}={}){
   if(stats.advanced)return null;
-  return family==='runebreaker'||stats.unitCode==='R'?`E ${rankLabel(tier)}`:defenderCode(stats,tier);
+  return stats.unitCode==='R'?`E ${rankLabel(tier)}`:defenderCode(stats,tier);
 }
 export function recipeIngredientPresentation(piece,data){
   const stats=data.towers[piece.family],recipe=data.recipes.find(entry=>recipeFamily(entry)===piece.family&&recipeTier(entry)===piece.tier);

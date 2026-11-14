@@ -29,7 +29,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -37,7 +37,9 @@ jobs:
         run: pnpm test
       - name: Build for the repository URL
         env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_BASE_PATH: /play/
+          VITE_PLAYER_API: /api
+          VITE_PUBLIC_GAME_URL: https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/
         run: pnpm build
       - name: Upload website
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5

@@ -1,13 +1,16 @@
 import {factionPrimaryBonuses} from './faction-combat.js';
 export function seededRandom(seed = 1) {
   let a = seed >>> 0;
-  return () => {
-    a += 0x6D2B79F5;
+  const random = () => {
+    a = (a + 0x6D2B79F5) >>> 0;
     let t = a;
     t = Math.imul(t ^ t >>> 15, t | 1);
     t ^= t + Math.imul(t ^ t >>> 7, t | 61);
     return ((t ^ t >>> 14) >>> 0) / 4294967296;
   };
+  random.getState=()=>a;
+  random.setState=value=>{if(!Number.isInteger(value)||value<0||value>0xffffffff)throw Error('Invalid random state.');a=value;};
+  return random;
 }
 export function weightedIndex(weights, rng = Math.random) {
   const total = weights.reduce((sum, n) => sum + n, 0);
@@ -76,6 +79,7 @@ export function supportBonuses(tower,towers,data) {
 }
 export function combatTowerStats(tower,towers,data){
   const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower))*bonuses.damage;
+  bonuses.haste*=towers.general?.multiplier('morale-boost')||1;
   const stats=factionPrimaryBonuses(scaleDamageStats(readTowerStats(tower,data),multiplier),tower,towers);
   if(stats.damage>0||stats.continuousAttack)stats.range+=bonuses.range;
   if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier};

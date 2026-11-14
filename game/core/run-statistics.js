@@ -57,7 +57,7 @@ export class RunStatistics {
       if(seconds)w.effects.melancholy=(w.effects.melancholy||0)+seconds;
     }
   }
-  finishWave(completed){if(!this.current)return;this.current.completed=completed;this.current.endHealth=this.game.lives;this.current.durationMs=Math.round(this.game.combat.elapsed*1000);this.waves.push(this.current);this.current=null;this.lastSources.clear();this.sampleClock=0;}
+  finishWave(completed){if(!this.current)return;this.current.completed=completed;this.current.endHealth=this.game.lives;this.current.durationMs=Math.round(this.game.combat.elapsed*1000);this.waves.push(this.current);if(this.game.data.fr010&&this.waves.length>50)this.waves.shift();if(this.game.data.fr010){this.draws=this.draws.slice(-1000);this.decisions=this.decisions.slice(-1000);}this.current=null;this.lastSources.clear();this.sampleClock=0;}
   snapshot({abandoned=false}={}){
     const g=this.game;let waves=this.waves.map(w=>structuredClone(w));
     if(this.current)waves.push({...structuredClone(this.current),endHealth:g.lives,durationMs:Math.round(g.combat.elapsed*1000)});

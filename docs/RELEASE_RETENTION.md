@@ -1,6 +1,6 @@
 # Current game release only
 
-The sole maintained game release is **0.6.12**, including FR-008 and the complete 136-character, 272-recording voice bank. Actual public game and statistics deployment identities are recorded in [the current publication receipt](../output/implementation/release-current/deployment.json) and [the service record](../backend/SITES_DEPLOYMENT.json).
+The sole maintained local game release is **0.7.0**, including FR-010, FR-008 and the complete 136-character, 272-recording voice bank. The last published 0.6.12 stays public until a new publication is explicitly authorized; no additional local old-release package is retained. Actual public game and statistics deployment identities are recorded in [the current publication receipt](../output/implementation/release-current/deployment.json) and [the service record](../backend/SITES_DEPLOYMENT.json).
 
 Previous playable releases, source/production backup packages, release tags and backup branches are not maintained. Publication advances the existing remote history without rewriting the shared checkout's branch or index. Ordinary Git history remains intact.
 

@@ -1,5 +1,5 @@
 import {enemyPortraitImage} from './reference-portraits.js';
-import {enemyNumber,enemyRulesFor} from '../game/core/enemy-rules.js';
+import {enemyNumber,enemyRulesFor,enemyHealthNumber} from '../game/core/enemy-rules.js';
 import {damageDefenseBreakdown} from '../game/core/math.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 import {enemyTraitsMarkup} from './enemy-trait-symbols.js';
@@ -29,6 +29,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
     return {name:statusNames[kind]||kind,time:status.time,detail};
   });
   const abilities={...enemy,hp:maxHp,maxHp};delete abilities.resists;delete abilities.ward;delete abilities.magicShred;
+  const horn=combat.game?.general;if(horn?.slow>0)effects.push({name:'War Horn',time:horn.remaining('war-horn'),detail:percent(horn.slow)+' movement slow · bypasses immunity'});
   if(data?.fr008&&enemy.physicalImmune&&enemy.flying){
     const towers=combat.game?.towers||[],immunityCoverage=immunityAuraCoverage(enemy,towers,data),context={data,towers,immunityCoverage};
     const slow=Math.max(0,...towers.filter(t=>t.state==='active').map(t=>skyHuntSlow(towerStats(t,data),t,enemy,context)))*(enemy.boss?data.balance.bossSlowMultiplier??.5:1);
@@ -45,14 +46,14 @@ export function selectedEnemyView(enemy,{data,combat}={}){
 
 export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
   const view=selectedEnemyView(enemy,{data,combat});if(!view)return '';
-  const hpText=Math.ceil(view.hp),maxHpText=Math.ceil(view.maxHp),portrait=enemyPortraitImage(images,view);
+  const hpText=Math.ceil(view.hp),maxHpText=Math.ceil(view.maxHp),portrait=enemyPortraitImage(images,view),hpLabel=enemyHealthNumber(hpText,enemy.healthScaleLog),maxHpLabel=enemyHealthNumber(maxHpText,enemy.healthScaleLog);
   const effects=view.effects.map(effect=>`<li><span>${escape(effect.name)}${effect.detail?' · '+escape(effect.detail):''}</span><strong>${effect.continuous?'While in range':number(effect.time)+'s'}</strong></li>`).join('');
   return `<section class="enemy-inspection" aria-label="Selected enemy inspection" data-inspected-enemy="${view.id}">
     <div class="enemy-inspection-heading"><span class="section-label">${view.boss?'WARLORD':'ENEMY'} INSPECTION</span><button type="button" class="text-button" data-action="enemy-inspect-close">Close inspection</button></div>
     ${portrait?`<div class="enemy-inspection-portrait"><img src="${escape(portrait)}" alt="${escape(view.name)} portrait"></div>`:''}
     <p class="enemy-inspection-identity">${view.flying?'AIRBORNE':'GROUND'} · INDIVIDUAL #${view.id}</p><h2>${escape(view.name)}</h2>
     ${view.ended?'<p class="enemy-inspection-live-note">Run ended · Read-only invader snapshot. The simulation is stopped; these values describe the final recorded state.</p>':''}
-    <div class="enemy-inspection-health"><div><span>Health</span><strong>${number(hpText)} / ${number(maxHpText)} HP</strong></div><div class="enemy-inspection-health-bar" role="progressbar" aria-label="Remaining enemy health" aria-valuemin="0" aria-valuemax="${view.maxHp||1}" aria-valuenow="${view.hp}" aria-valuetext="${number(hpText)} of ${number(maxHpText)} HP"><span style="width:${view.healthPercent}%"></span></div></div>
+    <div class="enemy-inspection-health"><div><span>Health</span><strong>${hpLabel} / ${maxHpLabel} HP</strong></div><div class="enemy-inspection-health-bar" role="progressbar" aria-label="Remaining enemy health" aria-valuemin="0" aria-valuemax="${view.maxHp||1}" aria-valuenow="${view.hp}" aria-valuetext="${hpLabel} of ${maxHpLabel} HP"><span style="width:${view.healthPercent}%"></span></div></div>
     <dl class="enemy-inspection-stats"><div><dt>${view.ended?'Final armor':'Current armor'}</dt><dd>${number(view.armor)}</dd></div><div><dt>Base speed</dt><dd>${number(view.baseSpeed)} tiles/s</dd></div>${view.currentSpeed!==null?`<div><dt>${view.ended?'Recorded speed':'Current speed'}</dt><dd>${number(view.currentSpeed)} tiles/s</dd></div>`:''}</dl>
     <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}</p>
     <p class="enemy-inspection-live-note">${view.ended?'Effects and timers are frozen at run end.':'Speeds and effect durations use game time.'}</p>

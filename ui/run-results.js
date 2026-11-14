@@ -7,7 +7,7 @@ import {runEndingStory} from './run-result-stories.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const count=value=>Number.isFinite(value)?Math.max(0,Math.floor(value)):0;
-const number=value=>count(value).toLocaleString('en-US');
+const number=value=>(typeof value==='string'&&/^\d+$/.test(value)?BigInt(value):count(value)).toLocaleString('en-US');
 const enemyFact=(enemy,game)=>enemy?{id:enemy.id,type:enemy.type,name:enemy.name||game.data?.enemies?.[enemy.type]?.name||'Invader',flying:!!enemy.flying,boss:!!enemy.boss,wave:game.round}:null;
 
 // A run-local UI observer uses existing events only. It neither adds telemetry
@@ -45,11 +45,11 @@ export function runResultModel(game,{tracker=null,facts=null}={}){
   // cannot establish which earlier waves were actually completed.
   const recorded=facts?.completedWaves instanceof Set||Array.isArray(tracker?.waves);
   const completedIds=new Set([...(facts?.completedWaves instanceof Set?facts.completedWaves:[]),...rows.filter(row=>row.completed===true).map(row=>row.index)].filter(index=>Number.isSafeInteger(index)&&index>0&&index<=limit));
-  const completedWaves=ended?recorded?completedIds.size:Math.min(limit,won?wave:Math.max(0,wave-1)):null;
+  const completedWaves=ended?game.data?.fr010?game.completedWaves:recorded?completedIds.size:Math.min(limit,won?wave:Math.max(0,wave-1)):null;
   const leaks=observed?.leaks??(Number.isFinite(lastWave?.leaks)?count(lastWave.leaks):null);
   const healthLost=observed?(observed.healthKnown?observed.healthLost:null):Number.isFinite(lastWave?.startHealth)&&Number.isFinite(lastWave?.endHealth)?Math.max(0,lastWave.startHealth-lastWave.endHealth):null;
   const lastLeak=facts?.lastLeak?.wave===wave?{...facts.lastLeak}:null,lastThreat=lastLeak|| (facts?.lastSpawn?.wave===wave?{...facts.lastSpawn}:null);
-  return {ended,won,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave}),art:selectOutcomeArt(game)};
+  return {ended,won,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:game.data?.fr010?game.scoreExact:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave}),art:selectOutcomeArt(game)};
 }
 
 function storyMarkup(model){
