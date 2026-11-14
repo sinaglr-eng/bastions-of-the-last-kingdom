@@ -4,11 +4,16 @@
   "source_repository": "https://git.chatgpt-team.site/2faa05f6-40b5-44d2-a156-d05fe5225c5d/appgprj_6abe518c2c1c8191a9bc044f418faed8.git",
   "source_commit": "3c27d37b22ee108b836b568de6f0ab126d8a489e",
   "version_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_45091fcb1b0081918eafbd56e700d43b",
-  "deployment_id": "appgdep_6af885f46ed48191a21048078dd8429e",
+  "deployment_id": "appgdep_6af88969735c819192fb4abd74b172a0",
   "game_version": "0.7.0",
   "audience": "public",
   "game_url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "account_sign_in": "waiting-for-operator-oauth-configuration",
-  "configured_social_providers": [],
-  "email_password_enabled": false
+  "account_sign_in": "google-active",
+  "configured_social_providers": [
+    "google"
+  ],
+  "email_password_enabled": false,
+  "environment_revision": 3,
+  "production_google_round_trip_verified": true,
+  "production_google_round_trip_evidence": "Operator confirmed successful player sign-in and visible account in the public game."
 }

@@ -1,6 +1,6 @@
 # FR-010 — version 0.7.0
 
-Implemented and published as 0.7.0 on 14 November 2026. The game and account backend share one public origin; the existing GitHub Pages entry redirects there. Public Google/Apple sign-in is implemented but remains inactive until the operator configures the providers. See [public account setup](PUBLIC_ACCOUNTS_SETUP.md). The gallery remains local only.
+Implemented and published as 0.7.0 on 14 November 2026. The game and account backend share one public origin; the existing GitHub Pages entry redirects there. Public Google sign-in is configured with real server-side credentials; the operator confirmed the first successful real browser sign-in. Apple is deferred. The main menu now provides a faction picker, clearly locked Guest account features, top-bar account actions and a styled replacement confirmation. See [public account setup](PUBLIC_ACCOUNTS_SETUP.md). The gallery remains local only.
 
 ## Player experience
 

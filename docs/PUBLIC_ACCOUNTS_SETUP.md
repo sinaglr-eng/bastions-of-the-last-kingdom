@@ -1,8 +1,8 @@
 # Public player sign-in — operator setup
 
-Players use an existing Google, Apple or Facebook account. Provider sign-in does not require a separate game password. Email/password registration is also supported when a real email sender is configured. First successful sign-in creates the player profile automatically; subsequent sign-ins restore the same account and cloud save. Nicknames can be changed in Settings.
+Players use an existing Google, Apple or Facebook account. Provider sign-in does not require a separate game password. Email/password registration is also supported when a real email sender is configured. First successful sign-in creates the player profile automatically; subsequent sign-ins restore the same account and cloud save. Nicknames can be changed in Account.
 
-Google, Apple and Meta require the game operator to configure an OAuth connection once. This is separate from player registration. No provider credentials currently exist in this project's production environment. The deployed backend and sign-in flow are prepared; the buttons remain explicitly unavailable until real provider credentials are supplied. No dummy credentials are enabled publicly.
+Google, Apple and Meta require the game operator to configure an OAuth connection once. This is separate from player registration. Google web-client credentials are installed as server secrets in production (environment revision 3). The OAuth start endpoint advertises Google and returns the correct signed state/PKCE redirect; the operator confirmed successful real production sign-in and a visible player account. Apple is deferred, and Facebook has no production credentials. Unconfigured methods remain explicitly unavailable. No dummy credentials are enabled publicly.
 
 ## Stable public addresses
 
@@ -17,9 +17,20 @@ Google, Apple and Meta require the game operator to configure an OAuth connectio
 
 In the operator's Google Cloud project, configure Google Auth Platform for an external web application. Use the game name “Forged Alliances TD”, the game and privacy addresses above, and a real operator support contact. Create an OAuth client of type **Web application**. Register the exact Google callback above; the authorized JavaScript origin is `https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site`.
 
-The server needs `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`. The game requests only `openid`, `email` and `profile`; it does not request Gmail, Drive or contact access. Make the provider application available to the intended audience: Google testing mode limits access to configured test users. Follow any domain/branding verification requested by Google; never bypass its review requirements.
+The server needs `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`. The game requests only `openid`, `email` and `profile`; it does not request Gmail, Drive or contact access. Select an External audience for ordinary players. Initially keep Testing while checking the integration. Google exempts basic identity-only sign-in from the usual test-user list and seven-day authorization restrictions; if other scopes are added, that exemption no longer applies. Publish the provider configuration for the final public rollout. Follow any domain/branding verification requested by Google; never bypass its review requirements.
 
-See [Google OAuth web applications](https://developers.google.com/identity/protocols/oauth2/web-server) and [the provider integration](https://better-auth.com/docs/authentication/google).
+See [Google audience rules](https://support.google.com/cloud/answer/15549945), [Google OAuth web applications](https://developers.google.com/identity/protocols/oauth2/web-server) and [the provider integration](https://better-auth.com/docs/authentication/google).
+
+### Google operator walkthrough
+
+1. Open [Google Cloud Console](https://console.cloud.google.com/), create a project named **Forged Alliances TD**, and select it.
+2. Open **Google Auth Platform**, choose **Get started**, enter the game name and the operator's monitored support/contact email, and select **External**. Review and accept Google's policy yourself if you agree.
+3. For the first integration check, leave the audience at **Testing**. In **Data Access**, use only `openid`, `userinfo.email` and `userinfo.profile` (the OAuth request uses their OpenID Connect equivalents). Do not add Gmail, Drive or contacts permissions. Logo/brand review can be completed after the first working sign-in.
+4. In **Clients**, create a **Web application** named **Forged Alliances TD - Web**. Its JavaScript origin is the exact origin above, without a path or trailing slash. Its redirect URI is the exact Google callback above, without an added trailing slash.
+5. At creation, download the client JSON immediately and keep it private. Google now shows the client secret only at creation; it cannot be retrieved again later. If lost, create/rotate the secret using Google's client management.
+6. For assistance on this PC, save the JSON as `artifacts/fr010-public/google-oauth-client.json`. That directory is ignored by Git and excluded by the publication allowlist. Report only that the file is ready, never its contents. The operator/assistant can then import its `web.client_id` and `web.client_secret` into the existing Site's server environment, redeploy and test the real browser sign-in.
+
+Google's provider configuration and the game's deployment are separate. Do not claim real sign-in is active until actual credentials are installed and a real Google account has completed the callback. A complete public branding review requires ownership verification for the relevant domains; the generated shared hosting domain is not an operator-owned DNS domain. If Google requests this verification, use an operator-controlled domain rather than claiming ownership of the hosting provider's parent domain. See [Google branding requirements](https://support.google.com/cloud/answer/15549049).
 
 ## Apple
 
@@ -31,7 +42,7 @@ See [Apple web configuration](https://developer.apple.com/help/account/capabilit
 
 ## Facebook
 
-Create a Meta developer app with Facebook Login for a website. Configure its App ID and App Secret, the exact Facebook callback above, the public game/privacy URLs, and an account-deletion instructions URL (the privacy page documents deletion in Settings). Complete the provider's public/live access requirements and any review requested for the chosen app setup. The server needs `FACEBOOK_CLIENT_ID` and `FACEBOOK_CLIENT_SECRET`. The default identity scopes are only `email` and `public_profile`; no friends, posts or messages are requested.
+Create a Meta developer app with Facebook Login for a website. Configure its App ID and App Secret, the exact Facebook callback above, the public game/privacy URLs, and an account-deletion instructions URL (the privacy page documents deletion in Account). Complete the provider's public/live access requirements and any review requested for the chosen app setup. The server needs `FACEBOOK_CLIENT_ID` and `FACEBOOK_CLIENT_SECRET`. The default identity scopes are only `email` and `public_profile`; no friends, posts or messages are requested.
 
 Facebook does not reliably assert email ownership. This game preserves its verified-email requirement, so Facebook is advertised only when email verification delivery is configured too. A new unverified identity receives an email link before gaining player progress access; subsequent unverified attempts resend it. If Meta does not return an email address, the player must use another sign-in method. Never invent an email address or silently mark an unverified email as verified. See [Facebook provider setup](https://better-auth.com/docs/authentication/facebook).
 

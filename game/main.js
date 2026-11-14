@@ -479,10 +479,10 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape'&&(!game||typeof factio
 window.addEventListener('pagehide',()=>{void statistics?.flushExclusions({keepalive:true});if(game?.data.fr010)void player?.save().catch(()=>{});});
 window.addEventListener('keyup',e=>world?.keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>{draftPointerInput.clear();world?.keys.clear();if(world)world.edgePointer=null;if(game?.phase==='combat'){if($('dialog').open)modalPaused=true;game.paused=true;render();}});document.addEventListener('visibilitychange',()=>{if(document.hidden){draftPointerInput.clear();if(game?.phase==='combat'){if($('dialog').open)modalPaused=true;game.paused=true;render();}}});
 let factionChoicePending=false;
-async function requestFactionRun(){
+async function requestFactionRun(selectedFactionId=null){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
- try{const committed=await chooseFaction({registry:factionRegistry,replace:!!previousGame,allowCancel:true,confirm:async(id,{signal})=>{
+ const prepare=async(id,{signal})=>{
   const selected=currentFactionData(id);
   // Validate the actual opening skins before replacing an existing battlefield.
   for(const asset of selected.defenderAssets.filter(a=>a.tier===1&&!selected.towers[a.family].advanced)){
@@ -491,8 +491,9 @@ async function requestFactionRun(){
    const json=JSON.parse(new TextDecoder().decode(new Uint8Array(bytes,20,view.getUint32(12,true))));if(!json.skins?.length||!['Idle','Attack'].every(name=>json.animations?.some(a=>a.name===name)))throw Error('Required animations are missing.');
   }
   if(signal.aborted)throw Error('Selection cancelled.');const context=await player.newRun(id,{replace:true});startGame({factionData:selected,replacement:context.game,restoring:false});await player.attach(game,context);mainMenu.hide();
- }});if(!committed&&previousGame===game&&game){game.paused=wasPaused;render();}
- }finally{factionChoicePending=false;}
+ };
+ try{const committed=selectedFactionId?(await prepare(selectedFactionId,{signal:new AbortController().signal}),true):await chooseFaction({registry:factionRegistry,replace:!!previousGame,allowCancel:true,confirm:prepare});if(!committed&&previousGame===game&&game){game.paused=wasPaused;render();}
+ }catch(error){if(previousGame===game&&game){game.paused=wasPaused;render();}throw error;}finally{factionChoicePending=false;}
 }
 function stageFactionRun(factionData,replacement){
  const candidate=replacement||new Game(factionData,{seed:debug?Number(params.get('seed')||42):Date.now(),waveLimit:waves.length,discoveries:profile.factionDiscoveries?.[factionData.factionId]||[]});
@@ -512,7 +513,7 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
 }
 function initializePlayerMenu(){
 player=new PlayerClient({base:playerApi,onChange:()=>{if(game)renderGeneralControls();},onNotice:text=>notice(text)});
-mainMenu=new MainMenu({player,app,audio,onNew:()=>requestFactionRun(),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
+mainMenu=new MainMenu({player,app,audio,onNew:({factionId})=>requestFactionRun(factionId),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
 }
 
 try{initializePlayerMenu();images={...referencePortraitImageMap()};void player.initialize().then(async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');});

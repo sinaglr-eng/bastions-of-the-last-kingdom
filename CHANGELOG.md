@@ -7,7 +7,8 @@
 - Unified basic defender codes A–H and ranks I–VI across all factions; preserved approved combat profiles and artwork.
 - Continued the campaign beyond wave 50 with deterministic mixed waves, +8% compounded HP and +0.5 armor per wave, periodic bosses and exact integer scores.
 - Added validated command replay, atomic wallet transactions and offline synchronization. Guest and Developer test runs do not write account scores.
-- Published 0.7.0 with a same-origin account backend. Added a responsive login dialog matching the supplied reference, Google/Apple/Facebook connection support and email registration/recovery. Public authentication awaits operator credentials and a verified email sender; unavailable methods are explicitly disabled.
+- Published 0.7.0 with a same-origin account backend. Added a responsive login dialog matching the supplied reference, Google/Apple/Facebook connection support and email registration/recovery. Configured real Google credentials on the hosted server; the operator confirmed its first successful real browser sign-in. Apple is deferred, and Facebook/email await configuration. Unavailable methods are explicitly disabled.
+- Replaced the basic menu with a responsive war table, bundled Cinzel display font, an integrated faction picker, Guest-locked progression, top-bar account actions and a styled replacement dialog. Removed the main Settings entry, version suffix and footer slogan; player account controls remain accessible through the signed-in nickname.
 
 ## 0.6.12 — FR009 combat effect art direction — 13 November 2026
 
