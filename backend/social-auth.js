@@ -7,6 +7,9 @@ export function authCapabilities(env){
  if(present(env.GOOGLE_CLIENT_ID)&&present(env.GOOGLE_CLIENT_SECRET))providers.push('google');
  if(https&&['APPLE_CLIENT_ID','APPLE_TEAM_ID','APPLE_KEY_ID','APPLE_PRIVATE_KEY'].every(key=>present(env[key])))providers.push('apple');
  const emailPassword=env.AUTH_MAIL_MODE==='local'||env.AUTH_ENABLE_EMAIL==='true'&&present(env.RESEND_API_KEY)&&present(env.AUTH_EMAIL_FROM);
+ // Facebook does not reliably attest email ownership. Keep verification enabled
+ // and require a working sender before advertising this provider.
+ if(emailPassword&&present(env.FACEBOOK_CLIENT_ID)&&present(env.FACEBOOK_CLIENT_SECRET))providers.push('facebook');
  return {providers,emailPassword:!!emailPassword};
 }
 // The public nickname is editable; no inbox, Drive or contacts access is requested.
@@ -23,5 +26,6 @@ export function socialProviders(env){
  const mapProfileToUser=profile=>({name:socialNickname(profile),image:null});
  if(capabilities.providers.includes('google'))providers.google={clientId:env.GOOGLE_CLIENT_ID,clientSecret:env.GOOGLE_CLIENT_SECRET,prompt:'select_account',includeGrantedScopes:false,mapProfileToUser};
  if(capabilities.providers.includes('apple'))providers.apple=async()=>({clientId:env.APPLE_CLIENT_ID,clientSecret:await appleClientSecret(env),mapProfileToUser});
+ if(capabilities.providers.includes('facebook'))providers.facebook={clientId:env.FACEBOOK_CLIENT_ID,clientSecret:env.FACEBOOK_CLIENT_SECRET,requireEmailVerification:true,mapProfileToUser};
  return providers;
 }

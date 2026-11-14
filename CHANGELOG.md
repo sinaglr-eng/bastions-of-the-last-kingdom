@@ -7,7 +7,7 @@
 - Unified basic defender codes A–H and ranks I–VI across all factions; preserved approved combat profiles and artwork.
 - Continued the campaign beyond wave 50 with deterministic mixed waves, +8% compounded HP and +0.5 armor per wave, periodic bosses and exact integer scores.
 - Added validated command replay, atomic wallet transactions and offline synchronization. Guest and Developer test runs do not write account scores.
-- Kept the existing public version unchanged; this release is prepared and tested locally.
+- Published 0.7.0 with a same-origin account backend. Added a responsive login dialog matching the supplied reference, Google/Apple/Facebook connection support and email registration/recovery. Public authentication awaits operator credentials and a verified email sender; unavailable methods are explicitly disabled.
 
 ## 0.6.12 — FR009 combat effect art direction — 13 November 2026
 

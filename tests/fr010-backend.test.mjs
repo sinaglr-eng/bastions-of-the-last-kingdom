@@ -84,6 +84,22 @@ test('FR010 Google starts a real state-protected flow with basic identity scopes
  }finally{f.db.sqlite.close();}
 });
 
+test('FR010 Facebook starts a state-protected flow requesting only basic identity',async()=>{
+ const f=fixture();try{Object.assign(f.env,{FACEBOOK_CLIENT_ID:'isolated-facebook-client',FACEBOOK_CLIENT_SECRET:'isolated-facebook-secret'});const result=await f.call('/api/auth/sign-in/social',{provider:'facebook',callbackURL:base+'/play/',disableRedirect:true});assert.equal(result.r.status,200,JSON.stringify(result.value));const url=new URL(result.value.url);assert.equal(url.hostname,'www.facebook.com');assert.equal(url.searchParams.get('redirect_uri'),base+'/api/auth/callback/facebook');assert.ok(url.searchParams.get('state'));assert.deepEqual(url.searchParams.get('scope').split(' ').sort(),['email','public_profile']);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM user').get().n,0);}finally{f.db.sqlite.close();}
+});
+
+test('FR010 Facebook identity cannot access progress until email ownership is verified',async()=>{
+ const f=fixture(),originalFetch=globalThis.fetch;try{
+  Object.assign(f.env,{FACEBOOK_CLIENT_ID:'isolated-facebook-client',FACEBOOK_CLIENT_SECRET:'isolated-facebook-secret'});
+  globalThis.fetch=async input=>{const url=new URL(String(input?.url||input));if(url.hostname==='graph.facebook.com'&&url.pathname==='/debug_token')return Response.json({data:{is_valid:true,app_id:f.env.FACEBOOK_CLIENT_ID,user_id:'isolated-facebook-subject'}});if(url.hostname==='graph.facebook.com'&&url.pathname==='/me')return Response.json({id:'isolated-facebook-subject',name:'Lina Example',email:'facebook@example.test',picture:{data:{url:'https://example.test/avatar'}}});throw Error('Unexpected provider request: '+url.origin+url.pathname);};
+  const login=await f.call('/api/auth/sign-in/social',{provider:'facebook',callbackURL:base+'/play/',idToken:{token:'isolated-facebook-token',accessToken:'isolated-facebook-token'}});
+  assert.equal(f.mail.at(-1)?.kind,'verify',JSON.stringify(login.value));
+  const row=f.db.sqlite.prepare('SELECT emailVerified FROM user WHERE email=?').get('facebook@example.test');assert.equal(row.emailVerified,0);
+  const cookie=login.r.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');assert.equal((await f.call('/api/player/profile',null,cookie)).r.status,401);
+  const verified=await worker.fetch(new Request(f.mail.at(-1).url,{headers:{Origin:base}}),f.env);const verifiedCookie=verified.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');assert.equal((await f.call('/api/player/session',null,verifiedCookie)).value.user.name,'Lina');assert.equal((await f.call('/api/player/profile',null,verifiedCookie)).r.status,200);
+ }finally{globalThis.fetch=originalFetch;f.db.sqlite.close();}
+});
+
 test('FR010 player nickname updates preserve progress and account deletion removes only that owner',async()=>{
  const f=fixture();try{const a=await f.account(),b=await f.account('other-delete@example.test','Other');for(const account of [a,b])await f.call('/api/player/runs',{factionId:'crown'},account.cookie);const renamed=await f.call('/api/player/nickname',{name:'New Nick'},a.cookie);assert.equal(renamed.r.status,200);assert.equal((await f.call('/api/player/session',null,a.cookie)).value.user.name,'New Nick');assert.ok((await f.call('/api/player/active',null,a.cookie)).value.run);
  assert.equal((await f.call('/api/player/delete-account',{confirmation:'wrong'},a.cookie)).r.status,400);assert.equal((await f.call('/api/player/delete-account',{confirmation:'DELETE'},a.cookie)).r.status,200);assert.equal((await f.call('/api/player/profile',null,a.cookie)).r.status,401);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM fr010_runs WHERE user_id=?').get(a.user.id).n,0);assert.ok((await f.call('/api/player/active',null,b.cookie)).value.run);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM user WHERE id=?').get(b.user.id).n,1);

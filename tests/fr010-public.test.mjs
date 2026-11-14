@@ -5,6 +5,7 @@ import {authCapabilities,appleClientSecret,socialNickname,socialProviders} from 
 import {hostedGame} from '../backend/hosted-game.js';
 import {PlayerClient} from '../game/player-client.js';
 import {MainMenu} from '../ui/main-menu.js';
+import {authDialogMarkup} from '../ui/auth-dialog.js';
 
 test('public auth advertises only configured identity providers, never a non-deliverable email signup',()=>{
  assert.deepEqual(authCapabilities({AUTH_BASE_URL:'https://game.example'}),{providers:[],emailPassword:false});
@@ -36,4 +37,24 @@ test('social login client only follows HTTPS redirects to the selected provider'
 });
 test('public sign-in and registration expose the same existing-account flow without an email form',()=>{
  const menu=Object.create(MainMenu.prototype);menu.player={authOptions:{providers:['google'],emailPassword:false}};const html=menu.socialMarkup('register');assert.match(html,/Continue with Google/);assert.match(html,/profile automatically/);assert.doesNotMatch(html,/<input/);assert.match(html,/data-provider="apple" disabled/);assert.equal(menu.socialMarkup('reset-password'),'');
+});
+
+test('Facebook stays unavailable without email verification delivery; configured login uses its own HTTPS host',async()=>{
+ const env={AUTH_BASE_URL:'https://game.example',FACEBOOK_CLIENT_ID:'test-facebook',FACEBOOK_CLIENT_SECRET:'test-secret'};
+ assert.deepEqual(authCapabilities(env),{providers:[],emailPassword:false});
+ const ready={...env,AUTH_ENABLE_EMAIL:'true',RESEND_API_KEY:'test-only',AUTH_EMAIL_FROM:'test@example.test'};
+ assert.deepEqual(authCapabilities(ready),{providers:['facebook'],emailPassword:true});
+ assert.equal(socialProviders(ready).facebook.clientId,'test-facebook');
+ const client=new PlayerClient({fetcher:async()=>Response.json({url:'https://www.facebook.com/v24.0/dialog/oauth?state=test'})});client.authOptions={providers:['facebook']};
+ assert.match(await client.beginSocial('facebook','https://game.example/play/'),/^https:\/\/www.facebook.com\//);
+ for(const url of ['https://www.facebook.com.evil.example/','https://accounts.google.com/','http://www.facebook.com/','https://user:secret@www.facebook.com/']){client.fetcher=async()=>Response.json({url});await assert.rejects(client.beginSocial('facebook','https://game.example/play/'),/Invalid sign-in/);}
+});
+
+test('auth dialog exposes registration and recovery while unavailable email fields cannot submit',()=>{
+ const unavailable=authDialogMarkup('sign-in',{providers:[],emailPassword:false});
+ assert.match(unavailable,/<fieldset disabled>/);assert.match(unavailable,/Email sign-in is coming soon/);assert.match(unavailable,/Continue as Guest/);assert.match(unavailable,/data-auth-close aria-label="Close sign-in"/);
+ const register=authDialogMarkup('register',{providers:['google'],emailPassword:true});
+ assert.match(register,/autocomplete="nickname"/);assert.match(register,/autocomplete="new-password"/);assert.doesNotMatch(register,/<fieldset disabled>/);
+ const recovery=authDialogMarkup('reset-request',{emailPassword:true});assert.match(recovery,/type="email"/);assert.doesNotMatch(recovery,/name="password"|data-provider=/);
+ const password=authDialogMarkup('reset-password',{emailPassword:false});assert.match(password,/name="password"/);assert.doesNotMatch(password,/name="email"|<fieldset disabled>/);
 });
