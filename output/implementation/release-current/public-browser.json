@@ -1,176 +1,21 @@
 {
-  "status": "passed",
-  "version": "0.6.12",
-  "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
-  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T20:21:16.236Z",
-  "cosmeticOnly": false,
-  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
-  "hiddenStatusVisuals": [
-    "slow"
-  ],
-  "slowMovementAndInspectionPreserved": true,
-  "changedProfileKeys": [
-    "grove/el_fire_dragon/1",
-    "grove/el_mother_fire_dragon/1",
-    "grove/el_ancient_patriarch/1"
-  ],
-  "numericAndNonConeAbilityProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 255,
-  "testsPassed": 2285,
-  "testsFailed": 0,
-  "independentBehaviorChecks": 69,
-  "unexpectedProfileChanges": 0,
-  "logicalConditionChannels": 14,
-  "visibleSupportedForms": 13,
-  "currentAssignedVisibleForms": 11,
-  "reservedVisibleForms": 2,
-  "attackProfiles": 258,
-  "primaryKinds": 27,
-  "galleryPublished": false,
-  "designPackagePublished": false,
-  "scoresSubmitted": false,
-  "publicWrites": 0,
-  "unrelatedRulesAndApprovedAssetsPreserved": true,
-  "audioChanged": false,
-  "newModelOrAudioGitBlobs": 0,
-  "method": "Ordinary compiled production UI in isolated private browser contexts; three factions and a 390px mobile viewport. Five legal map clicks, first recruit kept, actual Wave 1 damage observed in the player-visible peak DPS panel, native model loading, Pause/Resume and screenshot. No runtime globals, state injection, developer controls or bulk media fetch. Every non-GET/HEAD request and all cross-origin requests are blocked before network dispatch.",
+  "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+  "versionVisible": "0.7.0",
   "cases": [
-    {
-      "name": "crown",
-      "faction": "crown",
-      "viewport": {
-        "width": 1600,
-        "height": 1050
-      },
-      "status": "passed",
-      "legalPlacements": 5,
-      "keeper": "Keep Human Engineer I",
-      "peakDps": 1.2,
-      "nativeResources": 16,
-      "paused": {
-        "label": "Resume game",
-        "score": "0",
-        "lives": "30 / 30",
-        "dps": "1.2"
-      },
-      "resumed": {
-        "label": "Pause game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "pageErrors": 0,
-      "httpErrors": 0,
-      "shaderErrors": 0,
-      "unexpectedConsoleErrors": 0,
-      "blockedTelemetryWrites": 1
-    },
-    {
-      "name": "forge",
-      "faction": "forge",
-      "viewport": {
-        "width": 1600,
-        "height": 1050
-      },
-      "status": "passed",
-      "legalPlacements": 5,
-      "keeper": "Keep Shieldguard I",
-      "peakDps": 1.8,
-      "nativeResources": 13,
-      "paused": {
-        "label": "Resume game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "resumed": {
-        "label": "Pause game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "pageErrors": 0,
-      "httpErrors": 0,
-      "shaderErrors": 0,
-      "unexpectedConsoleErrors": 0,
-      "blockedTelemetryWrites": 1
-    },
-    {
-      "name": "grove",
-      "faction": "grove",
-      "viewport": {
-        "width": 1600,
-        "height": 1050
-      },
-      "status": "passed",
-      "legalPlacements": 5,
-      "keeper": "Keep Dragon Keeper I",
-      "peakDps": 1.8,
-      "nativeResources": 14,
-      "paused": {
-        "label": "Resume game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "resumed": {
-        "label": "Pause game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "pageErrors": 0,
-      "httpErrors": 0,
-      "shaderErrors": 0,
-      "unexpectedConsoleErrors": 0,
-      "blockedTelemetryWrites": 1
-    },
-    {
-      "name": "forge-mobile",
-      "faction": "forge",
-      "viewport": {
-        "width": 390,
-        "height": 844
-      },
-      "status": "passed",
-      "legalPlacements": 5,
-      "keeper": "Keep Dwarf Miner I",
-      "peakDps": 1.8,
-      "nativeResources": 12,
-      "paused": {
-        "label": "Resume game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "resumed": {
-        "label": "Pause game",
-        "score": "10",
-        "lives": "30 / 30",
-        "dps": "1.8"
-      },
-      "pageErrors": 0,
-      "httpErrors": 0,
-      "shaderErrors": 0,
-      "unexpectedConsoleErrors": 0,
-      "blockedTelemetryWrites": 1
-    }
+    "GitHub entry redirects to the hosted origin",
+    "Register clearly shows unavailable Google/Apple options pending operator configuration",
+    "Guest starts a Human game",
+    "Approved battlefield and defender models load",
+    "Five recruits use A–H labels",
+    "Two Soldier I defenders merge to Soldier II",
+    "Combat spawns eight enemies",
+    "Save & Main Menu stores local continuation",
+    "Reload restores the same paused combat, Soldier II, eight enemies, 30 health, 90 gold and 3 CP"
   ],
-  "bundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
-    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
-    "bytes": 2677883,
-    "projectBaseCorrect": true,
-    "matchesCurrentLocalProductionBundle": true,
-    "localProductionFile": "dist/assets/game-C69mXajE.js"
-  },
-  "runtimeStateInjection": false,
-  "developerControlsUsed": false,
-  "details": "output/implementation/all-dragons-air-current/qa/public-production-browser-report.json"
+  "consoleErrors": [],
+  "screenshots": [
+    "artifacts/fr010-public/public-menu.png",
+    "artifacts/fr010-public/public-sign-in.png",
+    "artifacts/fr010-public/public-restored-battle.png"
+  ]
 }

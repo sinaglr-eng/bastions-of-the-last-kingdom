@@ -28,6 +28,9 @@ test('hosted proxy rejects file/host traversal and non-read methods before fetch
  for(const path of ['.env','backend/auth.js','https://evil.example/file','%2F%2Fevil.example','assets/%2e%2e/%2e%2e/.env']){assert.ok(((await hostedGame(new Request('https://game.example/play/'+path),options))?.status??404)>=400,path);}
  assert.equal((await hostedGame(new Request('https://game.example/play/assets/a.png',{method:'POST'}),options)).status,405);assert.equal(calls,0);
 });
+test('hosted proxy uses the edge-supported manual redirect mode without following a new host',async()=>{
+ let options;const r=await hostedGame(new Request('https://game.example/play/release.json'),{fetcher:async(_url,o)=>{options=o;return new Response(null,{status:302,headers:{Location:'https://evil.example'}});}});assert.equal(options.redirect,'manual');assert.equal(r.status,502);assert.equal(r.headers.has('location'),false);
+});
 test('social login client only follows HTTPS redirects to the selected provider',async()=>{
  const client=new PlayerClient({fetcher:async()=>Response.json({url:'https://accounts.google.com/o/oauth2/v2/auth?state=test'})});client.authOptions={providers:['google']};assert.match(await client.beginSocial('google','https://game.example/play/'),/^https:\/\/accounts.google.com\//);await assert.rejects(client.beginSocial('apple','https://game.example/play/'),/not available/);client.fetcher=async()=>Response.json({url:'https://evil.example'});await assert.rejects(client.beginSocial('google','https://game.example/play/'),/Invalid sign-in/);
 });

@@ -61,7 +61,7 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Current release and development
 
-Only current local release 0.7.0 is maintained. The previously published 0.6.12 remains public until a new publication is explicitly requested. Previous game packages, offline backups, obsolete temporary copies, old release tags and backup branches are not maintained. Manual publication uses current source. [Retention policy](docs/RELEASE_RETENTION.md).
+Only current release 0.7.0 is maintained locally and publicly. The GitHub Pages entry redirects to the hosted game. Google/Apple sign-in awaits operator provider configuration; see [public account setup](docs/PUBLIC_ACCOUNTS_SETUP.md). Previous game packages, offline backups, release tags and backup branches are not maintained. [Retention policy](docs/RELEASE_RETENTION.md).
 
 FR-006 and FR-007 revision 3 supply the recipe and final-boss rules, retaining FR-005 abilities and the FR-004 primary values and immunity auras alongside FR-008. [Current changes and verification](docs/FR006_FR007_IMPLEMENTATION.md). The single English design gallery remains local only.
 

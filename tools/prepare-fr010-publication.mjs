@@ -10,7 +10,7 @@ const candidates=[],extensions=new Set(['.js','.mjs','.css','.ts','.json','.py',
 function walk(dir){for(const e of fs.readdirSync(path.join(root,dir),{withFileTypes:true})){const rel=(dir+'/'+e.name).replaceAll('\\','/');if(e.isDirectory()){if(!['node_modules','dist','__pycache__','.git','.sites-runtime'].includes(e.name))walk(rel);}else if(extensions.has(path.extname(e.name)))candidates.push(rel);}}
 for(const dir of ['game','ui','backend','data','tests'])walk(dir);
 candidates.push(...['fr010-auth-migration.mjs','package-runtime-assets.mjs','prepare-fr010-publication.mjs','prepare-statistics-site.mjs','serve.mjs','verify-fr010-template.mjs'].map(name=>'tools/'+name));
-candidates.push('package.json','pnpm-lock.yaml','pnpm-workspace.yaml','vite.config.js','README.md','CHANGELOG.md','AGENTS.md','.gitattributes','.gitignore','.github/workflows/pages.yml','public/release.json','public/privacy.html','docs/FR010_IMPLEMENTATION.md','docs/PUBLIC_ACCOUNTS_SETUP.md','docs/RELEASE_RETENTION.md');
+candidates.push('package.json','pnpm-lock.yaml','pnpm-workspace.yaml','vite.config.js','README.md','CHANGELOG.md','AGENTS.md','.gitattributes','.gitignore','.github/workflows/pages.yml','public/release.json','public/privacy.html','docs/FR010_IMPLEMENTATION.md','docs/PUBLIC_ACCOUNTS_SETUP.md','docs/RELEASE_RETENTION.md',...['deployment.json','result.json','public-verification.json','publication.json','public-browser.json'].map(name=>'output/implementation/release-current/'+name));
 const changes=[];
 for(const file of [...new Set(candidates)].sort()){
  if(!fs.existsSync(file))continue;if(file.startsWith('sites/')||/\.(glb|gltf|blend|fbx|obj|wav|mp3|zip|tar)$/i.test(file))throw Error('Forbidden publication file: '+file);

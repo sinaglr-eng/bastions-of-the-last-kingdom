@@ -11,7 +11,8 @@ export async function hostedGame(request,{fetcher=fetch}={}){
  if(file.includes('\\')||file.split('/').some(p=>p==='..'||p==='.')||file.startsWith('/')||!(/^(assets\/[A-Za-z0-9_./ -]+)$/.test(file)||['index.html','release.json','runtime-assets.json','favicon.svg','privacy.html','archer.html'].includes(file)))return new Response('Not found',{status:404});
  const upstream=new URL(file,ASSET_BASE);upstream.search=url.search;
  const headers=new Headers();for(const key of ['accept','range','if-none-match'])if(request.headers.has(key))headers.set(key,request.headers.get(key));
- const result=await fetcher(upstream.href,{method:request.method,headers,redirect:'error',cf:{cacheEverything:true,cacheTtl:file==='index.html'||file.endsWith('.json')?0:3600}});
+ const result=await fetcher(upstream.href,{method:request.method,headers,redirect:'manual',cf:{cacheEverything:true,cacheTtl:file==='index.html'||file.endsWith('.json')?0:3600}});
+ if(result.status>=300&&result.status<400&&result.status!==304)return new Response('Asset redirect refused',{status:502});
  const responseHeaders=new Headers(result.headers);for(const key of ['set-cookie','access-control-allow-origin','access-control-allow-credentials'])responseHeaders.delete(key);
  responseHeaders.set('X-Content-Type-Options','nosniff');
  if(['index.html','release.json','privacy.html'].includes(file))responseHeaders.set('Cache-Control','no-store');

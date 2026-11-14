@@ -1,139 +1,98 @@
 {
-  "status": "passed",
-  "at": "2026-11-13T20:08:42.640Z",
-  "version": "0.6.12",
-  "base": "5ce706d5016a34368ec7501a01a2d24c8d05f797",
-  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "tree": "acab26556b12b328a6b8b7066024cfb3ec6e314a",
-  "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
-  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "sharedHead": "3961243b18da183bfac336ba0afa65d155749757",
-  "sharedIndexSha256": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5",
-  "sharedHeadAndIndexPreserved": true,
-  "forwardOnly": true,
-  "galleryPublished": false,
-  "newModelOrAudioGitBlobs": 0,
-  "testsPassed": 2285,
-  "independentBehaviorChecks": 69,
-  "files": [
+  "status": "published",
+  "version": "0.7.0",
+  "rulesetRevision": "fr010-v1",
+  "baseCombatRulesetRevision": "fr008-r1-20261106",
+  "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+  "previousEntryUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "previousEntryRedirectVerified": true,
+  "sourceCommit": "217a5245a541845cbb29e7b44db585e6425eb7b7",
+  "verifiedAt": "2026-11-14T11:57:04Z",
+  "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "statisticsVersion": "0.7.0",
+  "statisticsDeploymentId": "appgdep_6af849bd84c88191bc26ed50a2777313",
+  "statisticsVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_ed492d5965948191a5e842c6dc1ea174",
+  "statisticsSourceCommit": "12027e6d289dee47e7c2eb17b2e5d29e16896416",
+  "testsPassed": 2339,
+  "testsFailed": 0,
+  "testsSkipped": 0,
+  "edgeProxyRegressionTests": 8,
+  "ci": {
+    "id": 43590914786,
+    "head_sha": "217a5245a541845cbb29e7b44db585e6425eb7b7",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43590914786",
+    "testsPassed": 2339,
+    "testsFailed": 0,
+    "testsSkipped": 0
+  },
+  "jobs": [
     {
-      "file": "CHANGELOG.md",
-      "blob": "055fad7b45124ae59b4ad481d4249221e6c7e97d",
-      "sha256": "4b92863a44c69e2fc2ff2d2321455f4060cebf5ebf769ee4229e0218385694c9",
-      "bytes": 3249
+      "id": 132435227994,
+      "name": "build",
+      "conclusion": "success"
     },
     {
-      "file": "README.md",
-      "blob": "77dc7ee72c90540675f279112ab6f0eb3e70221a",
-      "sha256": "83552a6d73fd6843b080d5a7ce03e3250ae4f7fc95e53ecd445afaf6dd1aad54",
-      "bytes": 7910
-    },
-    {
-      "file": "docs/COMBAT_PRESENTATION.md",
-      "blob": "3179c5956919e4ada8ff85aa5bd6934fcdf98654",
-      "sha256": "4adbed0e1f0ffd2f66ea32c2c2407d5000c48d4d1d2c7507f78d902927caa8ea",
-      "bytes": 5863
-    },
-    {
-      "file": "docs/DRAGON_AIR_AND_SLOW_VISIBILITY.md",
-      "blob": "8977b52392ab66487a32d3327815aca466444104",
-      "sha256": "6a05173e6262cff43f314b1062a3de3340393d29906bfa2bb4b10ec82ca485f9",
-      "bytes": 3637
-    },
-    {
-      "file": "docs/FR009_IMPLEMENTATION.md",
-      "blob": "3126d545e713eeeaa517e9ee2232b51599f65932",
-      "sha256": "282acdfdc417ec0e92eaf6e4938def0f3584bda75fff4ac1f22754cddbf4d2a6",
-      "bytes": 6049
-    },
-    {
-      "file": "game/core/fr008-registry.js",
-      "blob": "3127cbbb43a0a12066e6ff4ebb6447531b5367e2",
-      "sha256": "d3694a2cc6bc85bfc84e1a4b498226fdd88a27d13909ab8a97d2cd8a3620bb19",
-      "bytes": 1551
-    },
-    {
-      "file": "public/release.json",
-      "blob": "17bbb8d8b521a92acdf5fff614ab725fd02d1b7e",
-      "sha256": "1765d1c53ad8d453b6000ec97d3ed38fced5b8d8f453de976e97a82a9b9d6bf6",
-      "bytes": 3454
-    },
-    {
-      "file": "tests/baby-dragon-air-targeting.test.mjs",
-      "blob": "26047375fcbe9eed29c8a6629c03d65d5fb426b6",
-      "sha256": "212d4d235cfda8ed33df42620fbac7878e4f3e0f1dce18f2fce1efdb31ea5737",
-      "bytes": 10305
-    },
-    {
-      "file": "tests/dwarf-air-targeting.test.mjs",
-      "blob": "9e12078d018b4f6016c1ee8b528c5d27f7092190",
-      "sha256": "a0835d9372e32bd597336e25947e3b2a870d596b84453edb7bb0045ff06ad01d",
-      "bytes": 4018
-    },
-    {
-      "file": "tests/fr008-delivery.test.mjs",
-      "blob": "4e2664459a9c8cb4587be99230e0aaf9988fbb40",
-      "sha256": "42989a59acb93ef8cba314590d2174413187fb363753fe9a5f3d80def485fa40",
-      "bytes": 7490
-    },
-    {
-      "file": "tests/persistent-status-vfx.test.mjs",
-      "blob": "b806fa9fecbb8f9da21d00e6f8744f061804de86",
-      "sha256": "34a89d6063deded00df47ee39b7cb7192b24c33a3cc93d2491ee7f922532b3a4",
-      "bytes": 23901
+      "id": 132436781904,
+      "name": "deploy",
+      "conclusion": "success"
     }
   ],
-  "changes": [
-    "CHANGELOG.md",
-    "README.md",
-    "docs/COMBAT_PRESENTATION.md",
-    "docs/DRAGON_AIR_AND_SLOW_VISIBILITY.md",
-    "docs/FR009_IMPLEMENTATION.md",
-    "game/core/fr008-registry.js",
-    "public/release.json",
-    "tests/baby-dragon-air-targeting.test.mjs",
-    "tests/dwarf-air-targeting.test.mjs",
-    "tests/fr008-delivery.test.mjs",
-    "tests/persistent-status-vfx.test.mjs"
-  ],
-  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T20:21:16.236Z",
-  "cosmeticOnly": false,
-  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
-  "hiddenStatusVisuals": [
-    "slow"
-  ],
-  "slowMovementAndInspectionPreserved": true,
-  "changedProfileKeys": [
-    "grove/el_fire_dragon/1",
-    "grove/el_mother_fire_dragon/1",
-    "grove/el_ancient_patriarch/1"
-  ],
-  "numericAndNonConeAbilityProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 255,
-  "testsFailed": 0,
-  "unexpectedProfileChanges": 0,
-  "logicalConditionChannels": 14,
-  "visibleSupportedForms": 13,
-  "currentAssignedVisibleForms": 11,
-  "reservedVisibleForms": 2,
-  "attackProfiles": 258,
-  "primaryKinds": 27,
-  "designPackagePublished": false,
-  "scoresSubmitted": false,
-  "publicWrites": 0,
-  "unrelatedRulesAndApprovedAssetsPreserved": true,
-  "audioChanged": false,
-  "ciRun": 43498846258,
-  "publicBundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
-    "bytes": 2677883,
-    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
-    "expectedSha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
-    "matchesFinalLocalBuild": true
+  "accounts": {
+    "serverDeployed": true,
+    "googleAppleFlowImplemented": true,
+    "passwordlessProfileAndCloudContinuationTestedWithIsolatedGoogleIdentity": true,
+    "configuredProviders": [],
+    "publicSignInActive": false,
+    "publicCloudProgressAvailableToPlayers": false,
+    "activationBlocker": "Operator Google/Apple OAuth credentials and provider-side settings are not configured. The user has not created them.",
+    "manualEmailPasswordEnabled": false
   },
-  "publicBrowserCases": 4
+  "browser": {
+    "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+    "versionVisible": "0.7.0",
+    "cases": [
+      "GitHub entry redirects to the hosted origin",
+      "Register clearly shows unavailable Google/Apple options pending operator configuration",
+      "Guest starts a Human game",
+      "Approved battlefield and defender models load",
+      "Five recruits use A–H labels",
+      "Two Soldier I defenders merge to Soldier II",
+      "Combat spawns eight enemies",
+      "Save & Main Menu stores local continuation",
+      "Reload restores the same paused combat, Soldier II, eight enemies, 30 health, 90 gold and 3 CP"
+    ],
+    "consoleErrors": [],
+    "screenshots": [
+      "artifacts/fr010-public/public-menu.png",
+      "artifacts/fr010-public/public-sign-in.png",
+      "artifacts/fr010-public/public-restored-battle.png"
+    ]
+  },
+  "publicBundle": {
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Dvn1b03K.js",
+    "upstream": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-Dvn1b03K.js",
+    "bytes": 2758341,
+    "sha256": "5b24d6afc7acde5ba66c87ed23cbf74cfe5590f18830dcd50d5488ae52aab499",
+    "proxyMatches": true,
+    "version": "0.7.0"
+  },
+  "runtime": {
+    "files": 1209,
+    "bytes": 925135973,
+    "approvedModelsUnchanged": 312,
+    "exactPackedModelHashChecks": 258,
+    "decodedEnemyModelHashChecks": 54,
+    "metadataJsonContentPreserved": true
+  },
+  "galleryPublished": false,
+  "gallerySourceFilesUploaded": 0,
+  "designPackagePublished": false,
+  "modelOrAudioGitBlobsAdded": 0,
+  "scoresSubmitted": false,
+  "accountTestRecordsWrittenToProduction": false,
+  "legacyTablesPreserved": true,
+  "sameOriginCookies": true,
+  "providerSetup": "docs/PUBLIC_ACCOUNTS_SETUP.md"
 }

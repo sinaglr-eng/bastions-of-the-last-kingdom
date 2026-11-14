@@ -1,6 +1,6 @@
 # FR-010 — version 0.7.0
 
-Implemented locally on 14 November 2026. This change does not publish the game or gallery, create release backups, or replace public deployment receipts. The maintained local build is 0.7.0; the previous publication remains unchanged.
+Implemented and published as 0.7.0 on 14 November 2026. The game and account backend share one public origin; the existing GitHub Pages entry redirects there. Public Google/Apple sign-in is implemented but remains inactive until the operator configures the providers. See [public account setup](PUBLIC_ACCOUNTS_SETUP.md). The gallery remains local only.
 
 ## Player experience
 
@@ -85,11 +85,11 @@ The local backend applies additive migrations and keeps existing records. SQLite
 
 Real hosted accounts require a same-origin `/api` route, HTTPS, persistent D1/SQLite and configured server secrets. A plain static GitHub Pages upload alone cannot provide account authentication or cloud saves. Configure `AUTH_SECRET` (at least 32 characters), `AUTH_BASE_URL`, exact `GAME_ORIGINS`, `AUTH_MAIL_MODE=email`, `RESEND_API_KEY`, and a verified `AUTH_EMAIL_FROM`. These are backend settings, never public Vite variables. Local mailbox mode is restricted to loopback.
 
-`tools/prepare-statistics-site.mjs` prepares the current backend source, shared engine, pinned dependencies and generated additive Drizzle/D1 migrations. `node tools/verify-fr010-template.mjs` tests its built bundle against those actual migrations using an isolated in-memory database. No migration or deployment was applied to the public service during this task.
+`tools/prepare-statistics-site.mjs` prepares the current backend source, shared engine, pinned dependencies and generated additive Drizzle/D1 migrations. `node tools/verify-fr010-template.mjs` tests its built bundle against those actual migrations using an isolated in-memory database. The authorized publication applied the additive migration to the existing public service and preserved the Legacy tables.
 
 ## Verification
 
-The final complete run passed **2,327 / 2,327 tests**, with zero failures and zero skipped tests, including 42 FR-010 tests. The production build and built-backend verification passed.
+The initial implementation passed 2,327 tests. The expanded publication suite passed **2,339 / 2,339 tests** locally and in GitHub Actions, with zero failures and zero skipped tests. The edge redirect compatibility fix also passed eight targeted proxy/auth tests and direct checks against the deployed Cloudflare runtime. The production build and built-backend verification passed.
 
 Evidence is in `artifacts/fr010/`: full regression log, focused FR-010 tests, production build, generated backend bundle verification, local gallery verification and browser screenshots. Browser testing covers Guest continuation, registration/verification/sign-out, General purchase/equipment, starting resource bonuses, activation cost, paused buff timers and exact battle restoration. Account browser fixtures use a separate test SQLite directory; seeded test medals are not player records.
 

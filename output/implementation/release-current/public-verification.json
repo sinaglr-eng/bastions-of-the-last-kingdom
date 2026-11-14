@@ -1,59 +1,98 @@
 {
-  "status": "passed",
-  "version": "0.6.12",
-  "rulesetRevision": "fr008-r1-20261106",
-  "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
-  "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-  "statusVfxRevision": "fr009-hidden-slow-visuals-20261113",
-  "commit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "sourceCommit": "4c36412af6f82ecfc8e6cc79a187a247e00e918f",
-  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "verifiedAt": "2026-11-13T20:21:16.236Z",
-  "cosmeticOnly": false,
-  "gameplayChange": "All four Elf dragons can target ground and flying enemies; Ancient Spark shares the expanded eligible target list.",
-  "hiddenStatusVisuals": [
-    "slow"
-  ],
-  "slowMovementAndInspectionPreserved": true,
-  "changedProfileKeys": [
-    "grove/el_fire_dragon/1",
-    "grove/el_mother_fire_dragon/1",
-    "grove/el_ancient_patriarch/1"
-  ],
-  "numericAndNonConeAbilityProfilesPreserved": 258,
-  "unchangedResolvedProfiles": 255,
-  "testsPassed": 2285,
+  "status": "published",
+  "version": "0.7.0",
+  "rulesetRevision": "fr010-v1",
+  "baseCombatRulesetRevision": "fr008-r1-20261106",
+  "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+  "previousEntryUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "previousEntryRedirectVerified": true,
+  "sourceCommit": "217a5245a541845cbb29e7b44db585e6425eb7b7",
+  "verifiedAt": "2026-11-14T11:57:04Z",
+  "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "statisticsVersion": "0.7.0",
+  "statisticsDeploymentId": "appgdep_6af849bd84c88191bc26ed50a2777313",
+  "statisticsVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_ed492d5965948191a5e842c6dc1ea174",
+  "statisticsSourceCommit": "12027e6d289dee47e7c2eb17b2e5d29e16896416",
+  "testsPassed": 2339,
   "testsFailed": 0,
-  "independentBehaviorChecks": 69,
-  "unexpectedProfileChanges": 0,
-  "logicalConditionChannels": 14,
-  "visibleSupportedForms": 13,
-  "currentAssignedVisibleForms": 11,
-  "reservedVisibleForms": 2,
-  "attackProfiles": 258,
-  "primaryKinds": 27,
-  "galleryPublished": false,
-  "designPackagePublished": false,
-  "scoresSubmitted": false,
-  "publicWrites": 0,
-  "unrelatedRulesAndApprovedAssetsPreserved": true,
-  "audioChanged": false,
-  "newModelOrAudioGitBlobs": 0,
-  "publicBundle": {
-    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-C69mXajE.js",
-    "bytes": 2677883,
-    "sha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
-    "expectedSha256": "4c758392b6f960c2e5b470584cad228116406725dbd0c792eed9b26261c5fb31",
-    "matchesFinalLocalBuild": true
+  "testsSkipped": 0,
+  "edgeProxyRegressionTests": 8,
+  "ci": {
+    "id": 43590914786,
+    "head_sha": "217a5245a541845cbb29e7b44db585e6425eb7b7",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43590914786",
+    "testsPassed": 2339,
+    "testsFailed": 0,
+    "testsSkipped": 0
   },
-  "publicBrowserCases": 4,
-  "publicBrowserErrors": 0,
-  "exactCurrentBuildBytes": true,
-  "publicFilesReport": "output/implementation/all-dragons-air-current/public-files.json",
-  "nativeDragonAirProof": "output/implementation/all-dragons-air-current/qa/all-dragons-air-browser-report.json",
-  "retainedHiddenSlowProof": "output/implementation/dragon-air-and-slow-current/qa/slow-hidden-browser-report.json",
-  "statisticsClientUnchanged": true,
-  "preservedAudioFiles": 308,
-  "audioPreservationMethod": "Approved public asset bytes and existing binary Git tree entries remain unchanged.",
-  "independentProof": "output/implementation/all-dragons-air-current/verification/independent-final.json"
+  "jobs": [
+    {
+      "id": 132435227994,
+      "name": "build",
+      "conclusion": "success"
+    },
+    {
+      "id": 132436781904,
+      "name": "deploy",
+      "conclusion": "success"
+    }
+  ],
+  "accounts": {
+    "serverDeployed": true,
+    "googleAppleFlowImplemented": true,
+    "passwordlessProfileAndCloudContinuationTestedWithIsolatedGoogleIdentity": true,
+    "configuredProviders": [],
+    "publicSignInActive": false,
+    "publicCloudProgressAvailableToPlayers": false,
+    "activationBlocker": "Operator Google/Apple OAuth credentials and provider-side settings are not configured. The user has not created them.",
+    "manualEmailPasswordEnabled": false
+  },
+  "browser": {
+    "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+    "versionVisible": "0.7.0",
+    "cases": [
+      "GitHub entry redirects to the hosted origin",
+      "Register clearly shows unavailable Google/Apple options pending operator configuration",
+      "Guest starts a Human game",
+      "Approved battlefield and defender models load",
+      "Five recruits use A–H labels",
+      "Two Soldier I defenders merge to Soldier II",
+      "Combat spawns eight enemies",
+      "Save & Main Menu stores local continuation",
+      "Reload restores the same paused combat, Soldier II, eight enemies, 30 health, 90 gold and 3 CP"
+    ],
+    "consoleErrors": [],
+    "screenshots": [
+      "artifacts/fr010-public/public-menu.png",
+      "artifacts/fr010-public/public-sign-in.png",
+      "artifacts/fr010-public/public-restored-battle.png"
+    ]
+  },
+  "publicBundle": {
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Dvn1b03K.js",
+    "upstream": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-Dvn1b03K.js",
+    "bytes": 2758341,
+    "sha256": "5b24d6afc7acde5ba66c87ed23cbf74cfe5590f18830dcd50d5488ae52aab499",
+    "proxyMatches": true,
+    "version": "0.7.0"
+  },
+  "runtime": {
+    "files": 1209,
+    "bytes": 925135973,
+    "approvedModelsUnchanged": 312,
+    "exactPackedModelHashChecks": 258,
+    "decodedEnemyModelHashChecks": 54,
+    "metadataJsonContentPreserved": true
+  },
+  "galleryPublished": false,
+  "gallerySourceFilesUploaded": 0,
+  "designPackagePublished": false,
+  "modelOrAudioGitBlobsAdded": 0,
+  "scoresSubmitted": false,
+  "accountTestRecordsWrittenToProduction": false,
+  "legacyTablesPreserved": true,
+  "sameOriginCookies": true,
+  "providerSetup": "docs/PUBLIC_ACCOUNTS_SETUP.md"
 }
