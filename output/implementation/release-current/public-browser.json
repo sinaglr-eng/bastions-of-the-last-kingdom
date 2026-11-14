@@ -2,27 +2,24 @@
   "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
   "versionVisible": "0.7.0",
   "cases": [
-    "War table layout and bundled Cinzel font load publicly",
-    "Version shows 0.7.0 without an Endless suffix",
-    "Faction picker replaces the static hero and updates the new-game choice",
-    "Guest Achievements and General are visibly locked (local browser verification)",
-    "Signed-in public account retains its session after reload and unlocks both destinations",
-    "Top bar contains Sign In/Register for Guests and account management for players",
-    "Settings menu entry and footer slogan are removed",
-    "Styled replacement dialog names the existing defense and selected next faction",
-    "Cancel/Escape preserve the saved run and restore focus",
-    "Direct Dwarves selection starts the correct faction without a second chooser (isolated local Guest run)",
-    "Account management remains reachable through the nickname",
-    "Google button is enabled; Apple/Facebook/email remain explicitly unavailable",
-    "Canceled-OAuth recovery dialog closes without losing the signed-in session",
-    "390px mobile menu has no horizontal overflow",
-    "Production database contains a persisted account-run snapshot"
+    "Home navigation arrows and numbered labels are removed; themed return buttons work",
+    "Medal symbols accompany the account balance and all achievement rewards",
+    "Approved champion portraits and all five boss portraits load publicly",
+    "Every milestone has artwork; unearned secret identities remain hidden",
+    "Achievement filters, progress states and pagination remain available",
+    "All seven General skills show ranks I-III and their next purchase cost",
+    "Isolated local browser verifies three equipment slots and a rank purchase",
+    "General disclosure is mounted before Recipes in the public header",
+    "Isolated local game activates Morale Boost and War Horn for three CP each",
+    "Countdown updates retain mounted controls and the Game tick test verifies pause timing",
+    "390px General page has no overflow; page navigation returns to the top",
+    "Existing Google player session and account remain available"
   ],
   "consoleErrors": [],
   "screenshots": [
-    "artifacts/fr010-public/public-menu.png",
-    "artifacts/fr010-public/public-sign-in.png",
-    "artifacts/fr010-public/public-confirm-replace.png",
-    "artifacts/fr010-public/public-menu-mobile.png"
+    "artifacts/fr010-public/public-achievements.png",
+    "artifacts/fr010-public/public-boss-achievements.png",
+    "artifacts/fr010-public/public-general.png",
+    "artifacts/fr010-public/public-general-mobile.png"
   ]
 }
