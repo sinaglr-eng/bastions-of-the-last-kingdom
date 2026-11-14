@@ -5,6 +5,9 @@ import {PlayerClient} from './player-client.js';
 import {MainMenu,escapeMenu} from '../ui/main-menu.js';
 import {updateGeneralControls} from '../ui/general-controls.js';
 import '../ui/progression.css';
+import '../ui/war-table.css';
+import '../ui/achievement-notices.css';
+import {AchievementNotices} from '../ui/achievement-notices.js';
 import {currentFactionData} from './core/current-data.js';
 import {WaveThreatAnalyzer as EndlessAnalyzer} from './core/wave-threats.js';
 
@@ -154,7 +157,7 @@ let folioRecipeId=null,folioRecipeSelection=null,previewPrevious=null;
 const recipeFilterState={damage:'',ability:'',counter:''};let recipeFilterConnection=null;
 app.innerHTML=`
 <header class="topbar">
- <div class="brand forged-brand"><h1 aria-label="Forged Alliances TD"><img class="brand-wide" src="${siteUrl('assets/branding/forged-alliances-v3/wordmark.svg')}" width="650" height="160" alt="Forged Alliances TD" /><img class="brand-compact" src="${siteUrl('assets/branding/forged-alliances-v3/mark.svg')}" width="96" height="96" alt="" aria-hidden="true" /></h1></div>
+ <div class="brand forged-brand"><h1 aria-label="Forged Alliances TD"><img class="brand-wide" src="${siteUrl('assets/branding/forged-alliances-war-table/wordmark.svg')}" width="650" height="160" alt="Forged Alliances TD" /><img class="brand-compact" src="${siteUrl('assets/branding/forged-alliances-v3/mark.svg')}" width="96" height="96" alt="" aria-hidden="true" /></h1></div>
  <div class="top-stats">
   <div class="hud-stat wave">${icon('wave')}<div><small>WAVE</small><strong id="hud-wave"></strong></div></div>
   <div class="hud-stat keep">${icon('shield')}<div><small>KEEP HEALTH</small><strong id="hud-lives"></strong></div></div>
@@ -482,7 +485,7 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape'&&(!game||typeof factio
 window.addEventListener('pagehide',()=>{void statistics?.flushExclusions({keepalive:true});if(game?.data.fr010)void player?.save().catch(()=>{});});
 window.addEventListener('keyup',e=>world?.keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>{draftPointerInput.clear();world?.keys.clear();if(world)world.edgePointer=null;if(game?.phase==='combat'){if($('dialog').open)modalPaused=true;game.paused=true;render();}});document.addEventListener('visibilitychange',()=>{if(document.hidden){draftPointerInput.clear();if(game?.phase==='combat'){if($('dialog').open)modalPaused=true;game.paused=true;render();}}});
 let factionChoicePending=false;
-async function requestFactionRun(selectedFactionId=null){
+async function requestFactionRun(selectedFactionId=null,{replace=false}={}){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
  const prepare=async(id,{signal})=>{
@@ -493,7 +496,7 @@ async function requestFactionRun(selectedFactionId=null){
    const decoded=await decodedModelBytes(response,{sha256:asset.sha256,signal}),bytes=decoded.buffer.slice(decoded.byteOffset,decoded.byteOffset+decoded.byteLength),view=new DataView(bytes);if(view.byteLength<20||view.getUint32(0,true)!==0x46546c67||view.getUint32(4,true)!==2||view.getUint32(8,true)!==view.byteLength)throw Error('Invalid defender content.');
    const json=JSON.parse(new TextDecoder().decode(new Uint8Array(bytes,20,view.getUint32(12,true))));if(!json.skins?.length||!['Idle','Attack'].every(name=>json.animations?.some(a=>a.name===name)))throw Error('Required animations are missing.');
   }
-  if(signal.aborted)throw Error('Selection cancelled.');const context=await player.newRun(id,{replace:true});startGame({factionData:selected,replacement:context.game,restoring:false});await player.attach(game,context);mainMenu.hide();
+  if(signal.aborted)throw Error('Selection cancelled.');const context=await player.newRun(id,{replace});startGame({factionData:selected,replacement:context.game,restoring:false});await player.attach(game,context);mainMenu.hide();
  };
  try{const committed=selectedFactionId?(await prepare(selectedFactionId,{signal:new AbortController().signal}),true):await chooseFaction({registry:factionRegistry,replace:!!previousGame,allowCancel:true,confirm:prepare});if(!committed&&previousGame===game&&game){game.paused=wasPaused;render();}
  }catch(error){if(previousGame===game&&game){game.paused=wasPaused;render();}throw error;}finally{factionChoicePending=false;}
@@ -515,11 +518,13 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
   if(game.data.fr010&&game.phase==='combat')statistics.tracker.event('wave',{});world.loadAssets();render();offerTutorial({replacement:restoring});
 }
 function initializePlayerMenu(){
-player=new PlayerClient({base:playerApi,onChange:()=>{if(game)renderGeneralControls();},onNotice:text=>notice(text)});
-mainMenu=new MainMenu({player,app,audio,onNew:({factionId})=>requestFactionRun(factionId),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
+let achievementNotices;
+player=new PlayerClient({base:playerApi,onChange:()=>{if(game)renderGeneralControls();mainMenu?.refreshAccount();},onNotice:text=>notice(text),onAchievement:event=>achievementNotices?.push(event)});
+achievementNotices=new AchievementNotices({player,onView:async id=>{if(game){game.paused=true;await player.save();}if(id){const f=id.split(':')[1];if(['crown','forge','grove'].includes(f))mainMenu.faction=f;}mainMenu.focusAchievement=id;mainMenu.achievementKind='all';mainMenu.achievementState=id?'all':'ready';mainMenu.offset=0;await mainMenu.show('achievements');}});
+mainMenu=new MainMenu({player,app,audio,onNew:({factionId,replace})=>requestFactionRun(factionId,{replace}),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
 }
 
-try{initializePlayerMenu();images={...referencePortraitImageMap()};void player.initialize().then(async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');});
+try{initializePlayerMenu();images={...referencePortraitImageMap()};void player.initialize().then(async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(player.readyAchievements.length)player.onAchievement({type:'summary',count:player.readyAchievements.length});if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');});
 
   let frameStage='idle';
   startFrameLoop({step(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world&&!mainMenu.visible)withTowerStatSnapshot(game.data,()=>{const graphicsReady=world.contextRecovery?.update()!==false;frameStage='statistics';statistics.sample(dt,elapsedDt);frameStage='simulation';game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady){frameStage='battlefield';world.update(dt);}frameStage='interface';player.update();uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}if(graphicsReady)world.contextRecovery?.frameSucceeded();});},onError(error){if(game)game.paused=true;if(world?.contextRecovery)world.contextRecovery.fail(error,{stage:frameStage});else console.error(error);}});

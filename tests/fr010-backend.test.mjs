@@ -54,13 +54,13 @@ test('FR010 Better Auth also uses the D1-compatible adapter without a native SQL
  const f=fixture();try{f.env.DB={prepare:f.db.prepare,batch:f.db.batch};const a=await f.account('d1@example.test','D1 Commander');assert.equal((await f.call('/api/player/profile',null,a.cookie)).r.status,200);}finally{f.db.sqlite.close();}
 });
 
-test('FR010 replayed boss kill and tenth flawless wave grant medals exactly once',async()=>{
+test('FR010 replayed boss kill and tenth flawless wave require individual manual claims',async()=>{
  const f=fixture();try{const a=await f.account(),run=(await f.call('/api/player/runs',{factionId:'crown'},a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),run.snapshot);
  for(const [x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])g.place(x,z);g.keep();g.round=10;g.startCombat();g.progress.streak=9;g.progress.streakBest=9;g.combat.spawnQueue=[];const e=g.combat.spawn('host_10');Object.assign(e,{x:18,z:18,hp:1,maxHp:1,armor:0,evasion:0,shields:0,krakenShell:0,speed:0});g.journal=[];
  // A canonical checkpoint is the server-side fixture; submitted commands cannot set it.
  f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),run.id);
- let sequence=0,earned;for(let i=0;i<10;i++){g.advanceTicks(60,{record:true});const b={batchId:crypto.randomUUID(),sequence,commands:g.journal.splice(0)};const r=await f.call(`/api/player/runs/${run.id}/commands`,b,a.cookie);assert.equal(r.r.status,200,JSON.stringify(r.value));sequence=r.value.sequence;if(r.value.profile.balance){earned={b,r};break;}}
- assert.ok(earned,'Boss must be defeated by ordinary combat');assert.equal(earned.r.value.profile.balance,3);assert.deepEqual(earned.r.value.profile.grants.map(g=>g.reward).sort(),[1,2]);const repeat=await f.call(`/api/player/runs/${run.id}/commands`,earned.b,a.cookie);assert.equal(repeat.value.profile.balance,3);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE kind='achievement'").get().n,2);
+ let sequence=0,earned;for(let i=0;i<10;i++){g.advanceTicks(60,{record:true});const b={batchId:crypto.randomUUID(),sequence,commands:g.journal.splice(0)};const r=await f.call(`/api/player/runs/${run.id}/commands`,b,a.cookie);assert.equal(r.r.status,200,JSON.stringify(r.value));sequence=r.value.sequence;if(r.value.profile.eligible.length===2){earned={b,r};break;}}
+ assert.ok(earned,'Boss must be defeated by ordinary combat');assert.equal(earned.r.value.profile.balance,0);assert.deepEqual(earned.r.value.profile.eligible.map(g=>g.reward).sort(),[1,2]);assert.equal(earned.r.value.profile.grants.length,0);let p=earned.r.value.profile;for(const g of p.eligible){p=(await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:g.id},a.cookie)).value;}assert.equal(p.balance,3);const repeat=await f.call(`/api/player/runs/${run.id}/commands`,earned.b,a.cookie);assert.equal(repeat.value.profile.balance,3);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE kind='achievement'").get().n,2);
  }finally{f.db.sqlite.close();}
 });
 

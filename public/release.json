@@ -36,9 +36,9 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "faction-widescreen-ornament-20261030-v3",
+  "uiRevision": "war-table-approved-20261114",
   "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
-  "brandRevision": "forged-alliances-20261030-v3",
+  "brandRevision": "three-bastions-20261114",
   "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
   "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
   "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
@@ -102,7 +102,9 @@
   "suppressedStatusVisuals": [
     "slow"
   ],
-  "progressionRevision": "fr010-medals-general-endless-v1",
+  "progressionRevision": "manual-achievement-claims-20261114",
   "endless": true,
-  "accountOptional": true
+  "accountOptional": true,
+  "achievementClaims": "manual",
+  "achievementNotifications": true
 }

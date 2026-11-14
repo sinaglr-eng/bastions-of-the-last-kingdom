@@ -32,7 +32,7 @@ test('Secret champion achievements preserve their hidden identity until earned',
 });
 test('Achievement cards distinguish earned, pending and undiscovered states with accessible progress and medal rewards',()=>{
  const rows=achievementCatalog(data).slice(0,3),owned=new Map([[rows[0].id,{createdAt:1}]]),pending=new Set([rows[1].id]);
- const html=achievementCardsMarkup({data,rows,owned,pending,progress:a=>a===rows[2]?0:1});assert.equal((html.match(/<img /g)||[]).length,3);assert.equal((html.match(/class="medal-icon /g)||[]).length,3);for(const state of ['earned','pending','undiscovered'])assert.match(html,new RegExp('is-'+state));assert.equal((html.match(/role="progressbar"/g)||[]).length,3);assert.match(html,/Awaiting verification/);
+ const html=achievementCardsMarkup({data,rows,owned,pending,progress:a=>a===rows[2]?0:1});assert.equal((html.match(/<img /g)||[]).length,6);assert.equal((html.match(/class="medal-icon /g)||[]).length,3);for(const state of ['earned','pending','undiscovered'])assert.match(html,new RegExp('is-'+state));assert.equal((html.match(/role="progressbar"/g)||[]).length,3);assert.match(html,/Awaiting verification/);
  const exact=medalAmount('9007199254740993');assert.match(exact,/9,007,199,254,740,993/);
 });
 test('General upgrades expose all ranks, current rank, equipment and exact next purchase cost',()=>{

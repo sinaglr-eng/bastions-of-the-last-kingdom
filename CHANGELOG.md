@@ -2,6 +2,11 @@
 
 ## 0.7.0 — FR-010 progression and Endless — 14 November 2026
 
+- Recreated the approved War Table concepts across Play, Hall of Fame, Achievements and General, with a three-bastion logo, illustrated podium, actual faction champion portraits and shared skill artwork.
+- Achievement conditions now create verified eligibility; each reward requires an individual manual Claim. Existing paid grants and medal balances are preserved by an additive migration.
+- Added queued in-game congratulations, offline verification states, manual-claim reminders and exact all-faction standings with the player's next score target.
+- Verified 2,370 tests and the built D1-compatible backend, including simultaneous claims, purchases and repeated migration.
+
 - Added illustrated achievement cards for every champion, boss and milestone, shared medal icons, explicit three-rank General upgrades and a live loadout preview.
 - Moved in-run General commands into the header before Recipes, with authoritative CP eligibility, contextual Refit, Focus preparation and stable countdown controls.
 - Removed home-menu arrows/numbered labels, refined return buttons and fixed page/pagination scroll position on mobile.

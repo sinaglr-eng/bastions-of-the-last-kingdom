@@ -7,7 +7,7 @@ const gameVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8
 const destination=path.resolve(process.argv[2]||path.join(root,'artifacts/statistics-template'));
 await mkdir(destination,{recursive:true});
 for(const dir of ['backend','data','game','db','.openai'])await mkdir(path.join(destination,dir),{recursive:true});
-for(const file of ['worker.js','validation.js','service-page.js','player-service.js','auth.js','social-auth.js','hosted-game.js'])await copyFile(path.join(root,'backend',file),path.join(destination,'backend',file));
+for(const file of ['worker.js','validation.js','service-page.js','player-service.js','hall.js','auth.js','social-auth.js','hosted-game.js'])await copyFile(path.join(root,'backend',file),path.join(destination,'backend',file));
 for(const file of ['balance.json','recipes.json','factions-v060.json','towers.json','waves.json','enemies.json','faction-memberships.json','fr002-approved.json','fr003-approved.json','fr004.json','fr005-approved.json','fr006-fr007-approved.json','fr007-r3-approved.json'])await copyFile(path.join(root,'data',file),path.join(destination,'data',file));
 await cp(path.join(root,'game/core'),path.join(destination,'game/core'),{recursive:true});
 await cp(path.join(root,'backend/migrations'),path.join(destination,'backend/migrations'),{recursive:true});

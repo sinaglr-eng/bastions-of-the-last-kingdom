@@ -1,3 +1,4 @@
+import {hallRecords} from './hall.js';
 import {authenticatedPlayer,playerAuth} from './auth.js';
 import {currentFactionData,FR010_RULESET} from '../game/core/current-data.js';
 import {Game} from '../game/core/game.js';
@@ -16,9 +17,16 @@ async function readBody(request){
  const reader=request.body?.getReader();if(!reader)fail('Missing request body.');let size=0,text='';const decoder=new TextDecoder();for(;;){const{done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>500000){await reader.cancel();fail('Request too large.',413);}text+=decoder.decode(value,{stream:true});}try{return JSON.parse(text+decoder.decode());}catch{fail('Invalid JSON.');}
 }
 async function ensureProfile(db,id){await db.prepare('INSERT OR IGNORE INTO fr010_profiles (user_id) VALUES (?)').bind(id).run();}
-async function profile(db,id){await ensureProfile(db,id);const row=await db.prepare('SELECT * FROM fr010_profiles WHERE user_id = ?').bind(id).first(),grants=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results,progress=(await db.prepare("SELECT faction_id AS factionId,MAX(highest_wave) AS highestWave,MAX(COALESCE(json_extract(progress_json,'$.streakBest'),0)) AS streakBest FROM fr010_runs WHERE user_id=? AND outcome!='developer' GROUP BY faction_id").bind(id).all()).results;return {revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};}
+async function profile(db,id){
+ await ensureProfile(db,id);
+ const row=await db.prepare('SELECT * FROM fr010_profiles WHERE user_id = ?').bind(id).first();
+ const grants=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results;
+ const eligible=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, verified_at AS verifiedAt, run_id AS runId FROM fr010_eligible WHERE user_id = ? ORDER BY verified_at, achievement_id').bind(id).all()).results;
+ const progress=(await db.prepare("SELECT faction_id AS factionId,MAX(highest_wave) AS highestWave,MAX(COALESCE(json_extract(progress_json,'$.streakBest'),0)) AS streakBest FROM fr010_runs WHERE user_id=? AND outcome!='developer' GROUP BY faction_id").bind(id).all()).results;
+ return {revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
+}
 async function ownRun(db,id,user){if(!validId(id))fail('Invalid run.');const run=await db.prepare('SELECT * FROM fr010_runs WHERE id = ? AND user_id = ?').bind(id,user).first();if(!run)fail('Run not found.',404);return run;}
-const publicRun=row=>({id:row.id,sequence:row.sequence,lastBatch:row.last_batch,factionId:row.faction_id,ruleset:row.ruleset,outcome:row.outcome,snapshot:JSON.parse(row.snapshot_json),updatedAt:row.updated_at});
+const publicRun=row=>({id:row.id,sequence:row.sequence,lastBatch:row.last_batch,factionId:row.faction_id,ruleset:row.ruleset,outcome:row.outcome,snapshot:JSON.parse(row.snapshot_json),updatedAt:row.updated_at,round:row.highest_wave+1});
 
 async function walletMutation(db,user,b,kind){
  if(!validId(b.requestId)||!Number.isSafeInteger(b.revision))fail('Invalid wallet request.');
@@ -45,6 +53,26 @@ function earnedGrants(game,existing){
  for(const [target,reward]of [[5,2],[15,4],[30,8]])if(champions>=target)rows.push({id:`collection:${f}:${target}`,factionId:f,reward});
  if(bosses>=5)rows.push({id:`boss-collection:${f}`,factionId:f,reward:5});const owned=new Set(existing.map(x=>x.id));return rows.filter(x=>!owned.has(x.id));
 }
+async function claimAchievement(db,user,b){
+ if(!validId(b.requestId)||!Number.isSafeInteger(b.revision)||typeof b.achievementId!=='string'||b.achievementId.length>200)fail('Invalid claim request.');
+ const key='request:'+b.requestId,detail=b.achievementId;
+ const prior=await db.prepare('SELECT kind,detail FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,key).first();
+ if(prior){if(prior.kind!=='claim'||prior.detail!==detail)fail('Request identity cannot change.',409);return profile(db,user);}
+ const p=await profile(db,user);
+ if(p.grants.some(g=>g.id===detail))return p;
+ const earned=p.eligible.find(g=>g.id===detail);if(!earned)fail('This achievement has not been verified.',409);
+ if(p.revision!==b.revision)fail('Profile changed. Refresh before trying again.',409);
+ const now=Date.now(),guard='EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id=? AND revision=?)',requestGuard='EXISTS (SELECT 1 FROM fr010_ledger WHERE user_id=? AND entry_id=? AND kind=\'claim\')';
+ await db.batch([
+  db.prepare(`INSERT INTO fr010_ledger(user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,0,'claim',?,? WHERE ${guard} AND NOT EXISTS(SELECT 1 FROM fr010_grants WHERE user_id=? AND achievement_id=?)`).bind(user,key,detail,now,user,p.revision,user,detail),
+  db.prepare(`INSERT INTO fr010_grants(user_id,achievement_id,faction_id,reward,created_at) SELECT ?,?,?,?,? WHERE ${guard} AND ${requestGuard}`).bind(user,detail,earned.factionId,earned.reward,now,user,p.revision,user,key),
+  db.prepare(`INSERT INTO fr010_ledger(user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,?,'achievement',?,? WHERE ${guard} AND ${requestGuard}`).bind(user,'achievement:'+detail,earned.reward,detail,now,user,p.revision,user,key),
+  db.prepare(`UPDATE fr010_profiles SET balance=balance+?,revision=revision+1 WHERE user_id=? AND revision=? AND ${requestGuard}`).bind(earned.reward,user,p.revision,user,key),
+ ]);
+ const committed=await db.prepare('SELECT entry_id FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,key).first();
+ if(!committed)fail('Profile changed. Refresh before trying again.',409);
+ return profile(db,user);
+}
 const progressSummary=g=>({kills:g.progress.kills,bossKills:g.progress.bossKills,highestWave:g.progress.highestWave,streak:g.progress.streak,streakBest:g.progress.streakBest,campaign:g.progress.campaign,champions:[...g.progress.champions]});
 
 async function verifyBatch(db,user,id,b){
@@ -61,11 +89,11 @@ async function verifyBatch(db,user,id,b){
  if(Number.isFinite(b.elapsedSeconds)&&b.elapsedSeconds>=0)game.elapsedSeconds=Math.max(game.elapsedSeconds,Math.min(b.elapsedSeconds,(Date.now()-run.started_at)/1000+60));
  const next=run.sequence+1,snapshot=JSON.stringify(serializeRun(game)),score=game.scoreExact,outcome=game.phase==='lost'?'lost':'playing',summary=JSON.stringify(progressSummary(game)),now=Date.now();
  for(let attempt=0;attempt<5;attempt++){
-  const p=await profile(db,user),grants=earnedGrants(game,p.grants),reward=grants.reduce((s,g)=>s+g.reward,0),guard='EXISTS (SELECT 1 FROM fr010_runs WHERE id = ? AND sequence = ? AND last_batch = ?)';
+  const p=await profile(db,user),grants=earnedGrants(game,[...p.grants,...p.eligible]),guard='EXISTS (SELECT 1 FROM fr010_runs WHERE id = ? AND sequence = ? AND last_batch = ?)';
   const statements=[db.prepare('UPDATE fr010_runs SET sequence = ?, last_batch = ?, snapshot_json = ?, score_text = ?, score_digits = ?, highest_wave = ?, progress_json = ?, outcome = ?, updated_at = ?, finished_at = ? WHERE id = ? AND user_id = ? AND sequence = ? AND outcome = ? AND EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(next,b.batchId,snapshot,score,score.length,game.progress.highestWave,summary,outcome,now,outcome==='lost'?now:null,id,user,b.sequence,'playing',user,p.revision)];
   statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_batches (run_id,sequence,batch_id,digest,commands_json,created_at) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(id,next,b.batchId,hash,JSON.stringify(b.commands),now,id,next,b.batchId));
-  for(const grant of grants){statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_grants (user_id,achievement_id,faction_id,reward,created_at) SELECT ?,?,?,?,? WHERE ${guard}`).bind(user,grant.id,grant.factionId,grant.reward,now,id,next,b.batchId));statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_ledger (user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,?,'achievement',?,? WHERE ${guard}`).bind(user,'achievement:'+grant.id,grant.reward,grant.id,now,id,next,b.batchId));}
-  statements.push(db.prepare(`UPDATE fr010_profiles SET balance = balance + ?, revision = revision + 1 WHERE user_id = ? AND revision = ? AND ${guard}`).bind(reward,user,p.revision,id,next,b.batchId));
+  for(const grant of grants)statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_eligible (user_id,achievement_id,faction_id,reward,verified_at,run_id) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(user,grant.id,grant.factionId,grant.reward,now,id,id,next,b.batchId));
+  statements.push(db.prepare(`UPDATE fr010_profiles SET revision = revision + 1 WHERE user_id = ? AND revision = ? AND ${guard}`).bind(user,p.revision,id,next,b.batchId));
   await db.batch(statements);
   const saved=await ownRun(db,id,user);if(saved.sequence===next&&saved.last_batch===b.batchId)return {sequence:next,batchId:b.batchId,profile:await profile(db,user),outcome,score,highestWave:game.progress.highestWave};
   if(saved.sequence!==b.sequence)fail('Run changed on another device. Reload the cloud save.',409);
@@ -81,10 +109,10 @@ export async function handlePlayer(request,env){
   if(!env.AUTH_SECRET)return json({user:null,configured:false,auth:{providers:[],emailPassword:false}});const user=await authenticatedPlayer(request,env);return json({user:user?{id:user.id,name:user.name,email:user.email}:null,configured:true,auth:authCapabilities(env),mailMode:env.AUTH_MAIL_MODE==='local'?'local':'email',profile:user?await profile(db,user.id):null});
  }
  if(path==='/api/player/hall'&&request.method==='GET'){
-  const faction=url.searchParams.get('faction')||'crown',offset=Number(url.searchParams.get('offset')||0);if(!['crown','forge','grove'].includes(faction)||!Number.isSafeInteger(offset)||offset<0)fail('Invalid standings page.');
-  const rows=await db.prepare("SELECT r.id,u.name,r.faction_id AS factionId,r.ruleset,r.score_text AS score,r.highest_wave AS highestWave,r.loadout_json AS loadout,r.finished_at AS finishedAt FROM fr010_runs r JOIN user u ON u.id=r.user_id WHERE r.outcome='lost' AND r.ruleset=? AND r.faction_id=? ORDER BY r.score_digits DESC,r.score_text DESC,r.highest_wave DESC,r.finished_at,r.id LIMIT 25 OFFSET ?").bind(FR010_RULESET,faction,offset).all();
-  const user=env.AUTH_SECRET?await authenticatedPlayer(request,env):null;let own=null;if(user){const best=await db.prepare("SELECT * FROM fr010_runs WHERE user_id=? AND outcome='lost' AND ruleset=? AND faction_id=? ORDER BY score_digits DESC,score_text DESC,highest_wave DESC,finished_at,id LIMIT 1").bind(user.id,FR010_RULESET,faction).first();if(best){const n=await db.prepare("SELECT COUNT(*) AS above FROM fr010_runs WHERE outcome='lost' AND ruleset=? AND faction_id=? AND (score_digits>? OR (score_digits=? AND (score_text>? OR (score_text=? AND (highest_wave>? OR (highest_wave=? AND (finished_at<? OR (finished_at=? AND id<?))))))))").bind(FR010_RULESET,faction,best.score_digits,best.score_digits,best.score_text,best.score_text,best.highest_wave,best.highest_wave,best.finished_at,best.finished_at,best.id).first();own={id:best.id,name:user.name,score:best.score_text,highestWave:best.highest_wave,rank:n.above+1,loadout:JSON.parse(best.loadout_json)};}}
-  return json({ruleset:FR010_RULESET,factionId:faction,offset,top:rows.results.map((r,i)=>({...r,rank:offset+i+1,loadout:JSON.parse(r.loadout)})),own});
+  const faction=url.searchParams.get('faction')||'all',offset=Number(url.searchParams.get('offset')||0),view=url.searchParams.get('view')||'top';
+  if(!['all','crown','forge','grove'].includes(faction)||!Number.isSafeInteger(offset)||offset<0||!['top','own'].includes(view))fail('Invalid standings page.');
+  const user=env.AUTH_SECRET?await authenticatedPlayer(request,env):null;
+  return json(await hallRecords(db,{faction,offset,view,user:user?.id}));
  }
  const user=await authenticatedPlayer(request,env);if(!user)fail('Sign in to your verified account.',401);
  if(path==='/api/player/profile'&&request.method==='GET')return json(await profile(db,user.id));
@@ -104,14 +132,15 @@ export async function handlePlayer(request,env){
   await db.batch([
    db.prepare('DELETE FROM fr010_active WHERE user_id=?').bind(user.id),
    db.prepare('DELETE FROM fr010_batches WHERE run_id IN (SELECT id FROM fr010_runs WHERE user_id=?)').bind(user.id),
-   ...['fr010_runs','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
+   ...['fr010_runs','fr010_eligible','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
    db.prepare('DELETE FROM account WHERE userId=?').bind(user.id),db.prepare('DELETE FROM session WHERE userId=?').bind(user.id),db.prepare('DELETE FROM user WHERE id=?').bind(user.id),
   ]);return json({deleted:true});
  }
  if(['/api/player/purchase','/api/player/reset','/api/player/equip'].includes(path))return json(await walletMutation(db,user.id,b,path.split('/').at(-1)));
+ if(path==='/api/player/achievements/claim')return json(await claimAchievement(db,user.id,b));
  if(path==='/api/player/runs'){
   if(!['crown','forge','grove'].includes(b.factionId))fail('Choose a faction.');const p=await profile(db,user.id),prior=await db.prepare('SELECT r.id,r.outcome FROM fr010_active a JOIN fr010_runs r ON r.id=a.run_id WHERE a.user_id=?').bind(user.id).first();if(prior?.outcome==='playing'&&!b.replace)fail('Confirm replacing your active run.',409);
-  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=p.grants.filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,discoveries,runId:id,accountId:user.id}),now=Date.now();
+  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=[...p.grants,...p.eligible].filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,discoveries:[...new Set(discoveries)],runId:id,accountId:user.id}),now=Date.now();
   const statements=[];if(prior?.outcome==='playing')statements.push(db.prepare("UPDATE fr010_runs SET outcome='abandoned',finished_at=?,updated_at=? WHERE id=? AND user_id=? AND outcome='playing'").bind(now,now,prior.id,user.id));statements.push(db.prepare('INSERT INTO fr010_runs (id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)').bind(id,user.id,b.factionId,FR010_RULESET,seed,JSON.stringify(serializeRun(game)),JSON.stringify(loadout),now,now));statements.push(db.prepare('INSERT INTO fr010_active (user_id,run_id) VALUES (?,?) ON CONFLICT(user_id) DO UPDATE SET run_id=excluded.run_id').bind(user.id,id));await db.batch(statements);return json({run:publicRun(await ownRun(db,id,user.id))},201);
  }
  const match=path.match(/^\/api\/player\/runs\/([a-f\d-]{36})\/(commands|developer)$/i);
