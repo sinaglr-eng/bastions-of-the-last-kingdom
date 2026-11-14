@@ -2,6 +2,10 @@
 
 ## 0.7.0 — FR-010 progression and Endless — 14 November 2026
 
+- Added illustrated achievement cards for every champion, boss and milestone, shared medal icons, explicit three-rank General upgrades and a live loadout preview.
+- Moved in-run General commands into the header before Recipes, with authoritative CP eligibility, contextual Refit, Focus preparation and stable countdown controls.
+- Removed home-menu arrows/numbered labels, refined return buttons and fixed page/pagination scroll position on mobile.
+
 - Added the main menu, Guest play, optional verified accounts, password recovery and exact local/cloud continuation.
 - Added once-only achievement medals, consecutive flawless-wave milestones and the seven General skills with three equipment slots, 5/10/20-medal upgrades and refunds.
 - Unified basic defender codes A–H and ranks I–VI across all factions; preserved approved combat profiles and artwork.
