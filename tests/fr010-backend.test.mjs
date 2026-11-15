@@ -9,6 +9,7 @@ import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
 
 const base='http://127.0.0.1:4174';
+import {eligibleChampion} from '../game/core/account-progression.js';
 let fixtureNumber=0;
 function fixture(){
  const db=sqliteDatabase();db.sqlite.exec(fs.readFileSync(new URL('../backend/migrations/0000_statistics.sql',import.meta.url),'utf8'));migrateFr010(db);const mail=[];
@@ -98,6 +99,41 @@ test('FR010 Facebook identity cannot access progress until email ownership is ve
   const cookie=login.r.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');assert.equal((await f.call('/api/player/profile',null,cookie)).r.status,401);
   const verified=await worker.fetch(new Request(f.mail.at(-1).url,{headers:{Origin:base}}),f.env);const verifiedCookie=verified.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');assert.equal((await f.call('/api/player/session',null,verifiedCookie)).value.user.name,'Lina');assert.equal((await f.call('/api/player/profile',null,verifiedCookie)).r.status,200);
  }finally{globalThis.fetch=originalFetch;f.db.sqlite.close();}
+});
+
+test('XP API: intermediate Claim grants medals and XP once; retired Basic cannot be claimed',async()=>{
+ const f=fixture();try{const a=await f.account(),d=currentFactionData('crown'),normal=Object.keys(d.towers).find(id=>d.towers[id].classification?.toLowerCase()==='intermediate'),basic=Object.keys(d.towers).find(id=>d.towers[id].advanced&&!eligibleChampion(d.towers[id]));
+ for(const id of [normal,basic])f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,\'crown\',1,1,NULL)').run(a.user.id,'champion:crown:'+id);
+ let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.length,1);assert.equal(p.xpTotal,0);
+ const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:'champion:crown:'+normal},first=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(first.r.status,200);assert.equal(first.value.balance,1);assert.equal(first.value.xpTotal,2);
+ assert.equal((await f.call('/api/player/achievements/claim',request,a.cookie)).value.xpTotal,2);
+ const retired=await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:first.value.revision,achievementId:'champion:crown:'+basic},a.cookie);assert.equal(retired.r.status,400);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM fr010_grants').get().n,1);
+ }finally{f.db.sqlite.close();}
+});
+test('XP API: account level gates are authoritative even with enough medals; Claim can open a gate',async()=>{
+ const f=fixture();try{const a=await f.account();f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=100 WHERE user_id=?').run(a.user.id);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=108 WHERE user_id=?').run(a.user.id);
+ let p=(await f.call('/api/player/profile',null,a.cookie)).value;const denied=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill:'morale-boost'},a.cookie);assert.equal(denied.r.status,400);assert.match(denied.value.error,/Level 5/);
+ const d=currentFactionData('crown'),id='champion:crown:'+Object.keys(d.towers).find(id=>d.towers[id].classification?.toLowerCase()==='intermediate');f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,\'crown\',1,1,NULL)').run(a.user.id,id);
+ p=(await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:id},a.cookie)).value;assert.equal(p.xpTotal,110);assert.deepEqual(p.equipped,[]);assert.equal(p.skills['morale-boost'],undefined);
+ const bought=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill:'morale-boost'},a.cookie);assert.equal(bought.r.status,200);assert.equal(bought.value.skills['morale-boost'],1);assert.equal(bought.value.balance,96);assert.deepEqual(bought.value.equipped,[]);
+ }finally{f.db.sqlite.close();}
+});
+test('XP API: legacy owned skill survives reset and remains purchasable below new level',async()=>{
+ const f=fixture();try{const a=await f.account();f.db.sqlite.prepare('DELETE FROM account_xp_ledger WHERE user_id=?').run(a.user.id);f.db.sqlite.prepare('DELETE FROM account_progression WHERE user_id=?').run(a.user.id);f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=10,skills_json=? WHERE user_id=?').run('{"war-horn":1}',a.user.id);
+ let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.permanentUnlocks['war-horn'],1);p=(await f.call('/api/player/reset',{requestId:crypto.randomUUID(),revision:p.revision},a.cookie)).value;assert.equal(p.xpTotal,0);assert.equal(p.permanentUnlocks['war-horn'],1);
+ p=(await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill:'war-horn'},a.cookie)).value;assert.equal(p.skills['war-horn'],1);assert.equal(p.balance,5);const denied=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill:'war-horn'},a.cookie);assert.equal(denied.r.status,400);
+ }finally{f.db.sqlite.close();}
+});
+test('XP API: result receipts are server-derived, owned, idempotent and durable across result acknowledgement',async()=>{
+ const f=fixture();try{const a=await f.account(),b=await f.account('xp-other@example.test','Other'),run=(await f.call('/api/player/runs',{factionId:'forge'},a.cookie)).value.run;
+ const forged=await f.call(`/api/player/runs/${run.id}/results`,{kind:'end',xpTotal:999999},a.cookie);assert.equal(forged.r.status,409);
+ f.db.sqlite.prepare("UPDATE fr010_runs SET outcome='lost',highest_wave=37,progress_json=? WHERE id=?").run(JSON.stringify({bosses:['host_10','host_20','host_30']}),run.id);
+ const result=await f.call(`/api/player/runs/${run.id}/results`,{kind:'end',xpTotal:999999,bosses:['host_50']},a.cookie);assert.equal(result.r.status,200);assert.equal(result.value.receipt.amount,12);assert.equal(result.value.profile.xpTotal,12);assert.equal(result.value.profile.balance,0);
+ assert.equal((await f.call(`/api/player/runs/${run.id}/results`,{kind:'end'},a.cookie)).value.profile.xpTotal,12);assert.equal((await f.call(`/api/player/runs/${run.id}/results`,null,b.cookie)).r.status,404);
+ assert.equal((await f.call(`/api/player/runs/${run.id}/results`,null,a.cookie)).value.receipts.length,1);
+ await f.call('/api/player/delete-account',{confirmation:'DELETE'},a.cookie);for(const table of ['account_xp_receipts','account_xp_ledger','account_run_progression','account_progression'])assert.equal(f.db.sqlite.prepare(`SELECT COUNT(*) n FROM ${table} WHERE user_id=?`).get(a.user.id).n,0);
+ assert.ok((await f.call('/api/player/profile',null,b.cookie)).r.ok);
+ }finally{f.db.sqlite.close();}
 });
 
 test('FR010 player nickname updates preserve progress and account deletion removes only that owner',async()=>{

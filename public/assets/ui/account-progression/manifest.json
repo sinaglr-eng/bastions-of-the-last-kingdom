@@ -1,0 +1,140 @@
+{
+  "revision": "account-progression-art-20261115",
+  "status": "Approved design implemented as production SVG artwork",
+  "logo": {
+    "original": "alliance-logo-original.png",
+    "recommendedHorizontal": "alliance-logo-original.webp",
+    "vector": "alliance-logo.svg",
+    "dark": "alliance-logo-light.svg",
+    "crest": "alliance-crest.svg",
+    "compact": "alliance-crest-compact.svg",
+    "monochrome": "alliance-logo-monochrome.svg",
+    "monochromeCrest": "alliance-crest-monochrome.svg",
+    "favicon": "favicon.svg",
+    "meaning": {
+      "human": "Lion",
+      "dwarves": "Anvil",
+      "elves": "Leaves"
+    },
+    "source": "artifacts/alliance-progression-brief/alliance-logo-proposal.png",
+    "originalPrompt": "artifacts/alliance-progression-brief/art-prompts.json"
+  },
+  "ranks": [
+    {
+      "level": 1,
+      "id": "peasant",
+      "name": "Peasant",
+      "path": "rank-peasant.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 2,
+      "id": "militia",
+      "name": "Militia",
+      "path": "rank-militia.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 3,
+      "id": "recruit",
+      "name": "Recruit",
+      "path": "rank-recruit.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 4,
+      "id": "footman",
+      "name": "Footman",
+      "path": "rank-footman.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 5,
+      "id": "soldier",
+      "name": "Soldier",
+      "path": "rank-soldier.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 6,
+      "id": "veteran",
+      "name": "Veteran",
+      "path": "rank-veteran.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 7,
+      "id": "sergeant",
+      "name": "Sergeant",
+      "path": "rank-sergeant.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 8,
+      "id": "lieutenant",
+      "name": "Lieutenant",
+      "path": "rank-lieutenant.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 9,
+      "id": "captain",
+      "name": "Captain",
+      "path": "rank-captain.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 10,
+      "id": "major",
+      "name": "Major",
+      "path": "rank-major.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 11,
+      "id": "colonel",
+      "name": "Colonel",
+      "path": "rank-colonel.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 12,
+      "id": "commander",
+      "name": "Commander",
+      "path": "rank-commander.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 13,
+      "id": "general",
+      "name": "General",
+      "path": "rank-general.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 14,
+      "id": "marshal",
+      "name": "Marshal",
+      "path": "rank-marshal.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    },
+    {
+      "level": 15,
+      "id": "king",
+      "name": "King",
+      "path": "rank-king.svg",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+    }
+  ],
+  "outcomes": {
+    "reuse": "data/faction-outcome-scenes-v064.json",
+    "reason": "Preserve approved faction characters and existing outcome artwork. Apply quiet/dim presentation in results UI; no replacement characters generated."
+  },
+  "notes": [
+    "All SVG files contain actual vector geometry; no embedded raster image.",
+    "Rank motifs match the approved sequence. Text and Level values belong in live HTML.",
+    "Approved original logo PNG is copied verbatim; WebP is a format-only runtime conversion.",
+    "SVG crest is an optically simplified vector counterpart for smaller sizes; the original horizontal artwork remains the visual reference."
+  ]
+}
+

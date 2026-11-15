@@ -4,7 +4,7 @@ Implemented against the four approved concepts in `artifacts/ux-concepts-2026111
 
 ## Presentation
 
-The shared parchment interface includes a three-bastion logo, blue-ribbon medal, Play/Hall/Achievements/General navigation, responsive faction scenes, continuation card, collection album and master/detail General planning. Champion cards use the faction's exact approved portrait mapping. Secret identities stay concealed until verified discovery, independently of payment. The seven skill illustrations are shared by the planning page, battle commands and leaderboard loadouts. Exact generation prompts, source references and font licenses live with the new artwork in `public/assets/ui/war-table/`.
+The shared parchment interface includes the alliance crest, blue-ribbon medal, Play/Hall/Achievements/General navigation, responsive faction scenes, continuation card, collection album and master/detail General planning. Champion cards use the faction's exact approved portrait mapping. Secret identities stay concealed until verified discovery, independently of payment. The seven skill illustrations are shared by the planning page, battle commands and leaderboard loadouts. Exact generation prompts, source references and font licenses live with the new artwork in `public/assets/ui/war-table/`.
 
 ## Eligibility and payment
 

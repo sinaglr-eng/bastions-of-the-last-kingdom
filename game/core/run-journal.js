@@ -3,7 +3,7 @@ export const RECORDED_COMMANDS=Object.freeze(['select','setTowerAttackPaused','s
 export function installJournal(game){
  Object.defineProperty(game,'journal',{value:[],writable:true,enumerable:false});
  Object.defineProperty(game,'journalDepth',{value:0,writable:true,enumerable:false});
- for(const name of RECORDED_COMMANDS){const original=game[name];Object.defineProperty(game,name,{enumerable:false,configurable:true,value:function(...args){const root=this.journalDepth++===0;try{return original.apply(this,args);}finally{this.journalDepth--;if(root&&this.recordCommands!==false&&!this.developerMode)this.journal.push({action:name,args:structuredClone(args)});}}});}
+ for(const name of RECORDED_COMMANDS){const original=game[name];Object.defineProperty(game,name,{enumerable:false,configurable:true,value:function(...args){const root=this.journalDepth++===0,endedBefore=['lost','won'].includes(this.phase);try{return original.apply(this,args);}finally{this.journalDepth--;if(root&&!endedBefore&&this.recordCommands!==false&&!this.developerMode)this.journal.push({action:name,args:structuredClone(args)});}}});}
 }
 export function recordAdvance(game,ticks){if(!ticks||game.recordCommands===false||game.developerMode)return;const last=game.journal.at(-1);if(last?.action==='advance')last.ticks+=ticks;else game.journal.push({action:'advance',ticks});}
 export function replayCommands(game,commands,{maxTicks=600,maxCommands=400}={}){

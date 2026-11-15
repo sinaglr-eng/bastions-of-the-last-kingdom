@@ -2,7 +2,7 @@
   "version": "0.7.0",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -36,7 +36,7 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "war-table-approved-20261114",
+  "uiRevision": "account-progression-20261115",
   "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
   "brandRevision": "three-bastions-20261114",
   "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
@@ -106,5 +106,13 @@
   "endless": true,
   "accountOptional": true,
   "achievementClaims": "manual",
-  "achievementNotifications": true
+  "achievementNotifications": true,
+  "accountProgression": {
+    "revision": "account-xp-v1",
+    "levels": 15,
+    "maxRank": "King",
+    "kingXP": 1000,
+    "manualAchievementXP": true,
+    "runBossXP": true
+  }
 }

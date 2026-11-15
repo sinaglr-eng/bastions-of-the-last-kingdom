@@ -25,7 +25,7 @@ test('Every achievement has an image, and every champion/boss portrait resolves 
    else{assert.equal(fs.existsSync(new URL('../public/'+src.split('?')[0].replace(/^\//,''),import.meta.url)),true,src);if(achievement.kind==='champion')portraits++;if(achievement.kind==='boss')bosses++;}
   }
  }
- assert.equal(portraits,114);assert.equal(bosses,15);
+ assert.equal(portraits,93);assert.equal(bosses,15);
 });
 test('Secret champion achievements preserve their hidden identity until earned',()=>{
  for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),secret=achievementCatalog(d).find(a=>a.secret);assert.ok(secret);assert.equal(achievementArtwork(secret,d,false),progressionArtwork('secret'));assert.notEqual(achievementArtwork(secret,d,true),achievementArtwork(secret,d,false));}

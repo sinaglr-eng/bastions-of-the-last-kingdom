@@ -4,6 +4,8 @@ import {icon} from './icons.js';
 import {siteUrl} from '../game/site-url.js';
 import {OUTCOME_ART_SCENES,selectOutcomeArt} from './outcome-art.js';
 import {runEndingStory} from './run-result-stories.js';
+import {accountResultMarkup} from './account-results.js';
+import {FACTION_OUTCOME_ART_SCENES} from './outcome-art.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const count=value=>Number.isFinite(value)?Math.max(0,Math.floor(value)):0;
@@ -38,8 +40,8 @@ export class RunResultFacts{
   }
 }
 
-export function runResultModel(game,{tracker=null,facts=null}={}){
-  const ended=['won','lost'].includes(game.phase),won=game.phase==='won',wave=count(game.round),limit=count(game.waveLimit);
+export function runResultModel(game,{tracker=null,facts=null,campaignCheckpoint=false}={}){
+  const ended=campaignCheckpoint||['won','lost'].includes(game.phase),won=campaignCheckpoint||game.phase==='won',wave=count(game.round),limit=count(game.waveLimit);
   const rows=[...(tracker?.waves||[]),...(tracker?.current?[tracker.current]:[])],lastWave=rows.findLast(row=>row.index===wave),observed=facts?.waves.get(wave);
   // Recorded IDs also describe Sandbox jumps/replays, where the current round
   // cannot establish which earlier waves were actually completed.
@@ -49,7 +51,7 @@ export function runResultModel(game,{tracker=null,facts=null}={}){
   const leaks=observed?.leaks??(Number.isFinite(lastWave?.leaks)?count(lastWave.leaks):null);
   const healthLost=observed?(observed.healthKnown?observed.healthLost:null):Number.isFinite(lastWave?.startHealth)&&Number.isFinite(lastWave?.endHealth)?Math.max(0,lastWave.startHealth-lastWave.endHealth):null;
   const lastLeak=facts?.lastLeak?.wave===wave?{...facts.lastLeak}:null,lastThreat=lastLeak|| (facts?.lastSpawn?.wave===wave?{...facts.lastSpawn}:null);
-  return {ended,won,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:game.data?.fr010?game.scoreExact:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave}),art:selectOutcomeArt(game)};
+  return {ended,won,accountProgression:!!game.data?.fr010,accountId:game.accountId,campaignCheckpoint,bossesDefeated:game.progress?.bossKills||0,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:game.data?.fr010?game.scoreExact:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave:campaignCheckpoint?50:wave}),art:campaignCheckpoint?(FACTION_OUTCOME_ART_SCENES[game.factionId]?.won?.[0]||OUTCOME_ART_SCENES.won[0]):selectOutcomeArt(game)};
 }
 
 function storyMarkup(model){
@@ -65,8 +67,9 @@ function outcomeArtMarkup(model){
   return `<p class="run-result-outcome-copy">${copy}</p><img class="run-result-art ${won?'run-result-victory-art':'run-result-defeat-art'}" data-outcome-art="${art.id}" src="${siteUrl(art.path)}" alt="${escape(art.alt)}">`;
 }
 
-export function runResultMarkup(model,{scoreVersionMarkup='',leaderboardMarkup=''}={}){
+export function runResultMarkup(model,{scoreVersionMarkup='',leaderboardMarkup='',...experience}={}){
   if(!model.ended)return '';
+  if(model.accountProgression)return accountResultMarkup(model,experience);
   return `<section class="result run-result ${model.won?'is-victory':'is-defeat'}" aria-label="Local run result"><div class="run-result-symbol">${icon(model.won?'crown':'shield')}</div><div class="eyebrow">Run ended · ${model.won?'Victory':'Defeat'}</div><h2>${model.won?'The kingdom endures.':'The last banners fall.'}</h2><p class="run-result-faction">Faction · <strong>${escape(model.factionName||'Faction not recorded')}</strong></p>${outcomeArtMarkup(model)}<div class="run-result-progress"><strong>${number(model.completedWaves)} <span>waves completed</span></strong><p>${model.won?model.completedWaves===model.waveLimit?`Campaign completed · ${number(model.waveLimit)} waves`:`Final wave completed · Wave ${number(model.wave)}`:`Defeated on wave ${number(model.defeatWave)}`}</p></div><div class="result-stats run-result-stats"><div><strong>${number(model.score)}</strong><small>Score</small><span class="result-score-faction">Faction · <b>${escape(model.factionName||'Faction not recorded')}</b></span></div><div><strong>${number(model.kills)}</strong><small>Invaders defeated</small></div><div><strong>${model.elapsedSeconds===null?'Not recorded':formatRunDuration(model.elapsedSeconds)}</strong><small>Elapsed time</small></div>${scoreVersionMarkup}</div>${storyMarkup(model)}<div class="run-result-actions"><button type="button" class="primary-button" data-action="restart">${icon('reset')} Play again</button><button type="button" class="text-button" data-action="result-review">${icon('target')} Inspect battlefield</button></div>${model.developerMode?'<p class="developer-mode-indicator">Developer Mode — this run is excluded from scores and statistics.</p>':leaderboardMarkup?`<details class="run-result-online" open><summary>Online scores <span>Optional</span></summary><p class="run-result-online-note">Your local result and Play again remain available if online scores cannot load.</p>${leaderboardMarkup}</details>`:''}</section>`;
 }
 

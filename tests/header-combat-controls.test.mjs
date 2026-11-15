@@ -1,3 +1,4 @@
+import {allianceLogoArtwork} from '../ui/account-progression-art.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -35,7 +36,7 @@ function actionBoundary(game,header){
 test('production battlefield dock owns the single combat-control host beside Ready actions while TIME remains in the resource register',()=>{
  const start=source.indexOf('app.innerHTML=`'),end=source.indexOf('\nconst $=',start);assert.ok(start>=0&&end>start);
  const app={innerHTML:''},audio=new AudioManager(false);
- try{new Function('app','icon','profile','balance','audioControlsMarkup','audio','siteUrl',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio,siteUrl);}finally{audio.dispose();}
+ try{new Function('app','icon','profile','balance','audioControlsMarkup','audio','siteUrl','allianceLogoArtwork',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio,siteUrl,allianceLogoArtwork);}finally{audio.dispose();}
  const header=app.innerHTML.slice(0,app.innerHTML.indexOf('</header>')),actions=header.slice(header.indexOf('class="header-actions"'));
  const dock=app.innerHTML.slice(app.innerHTML.indexOf('class="command-dock"'),app.innerHTML.indexOf('class="battlefield-overlays"'));
  assert.doesNotMatch(header,/id="header-combat-controls"/);assert.equal((app.innerHTML.match(/id="header-combat-controls"/g)||[]).length,1);assert.match(dock,/id="header-combat-controls" role="group" aria-label="Combat controls" hidden/);assert.doesNotMatch(dock,/data-action="maze"/,'Maze plans no longer occupy the combat-control dock');assert.match(app.innerHTML,/<details class="map-tools">[\s\S]*data-action="maze"/,'The existing maze action remains accessible within Map tools');assert.match(dock,/data-action="start" id="start-wave"/);
@@ -84,7 +85,7 @@ test('actual Space shortcut toggles once from the battlefield and does not leak 
 test('actual modal open and close restore the previous pause state while keeping header buttons and game resources intact',()=>{
  for(const initiallyPaused of [false,true]){
   const game=new Game(data,{seed:880}),control=new Game(data,{seed:880}),header=headerFixture();game.phase=control.phase='combat';game.paused=initiallyPaused;game.speed=3;updateHeaderCombatControls(header.host,game);header.speed.focus();const pause=header.pause,speed=header.speed,callbacks=new Map();
-  const dialog={open:false,shows:0,showModal(){this.open=true;this.shows++;},close(){this.open=false;callbacks.get('close')();},addEventListener:(type,fn)=>callbacks.set(type,fn)},content={innerHTML:'',querySelectorAll(selector){assert.equal(selector,'[data-action="craft"]');return [];}},world={keys:new Set(['w'])},noop=()=>{},before=state(game);let renders=0;
+  const dialog={classList:{toggle(){}},open:false,shows:0,showModal(){this.open=true;this.shows++;},close(){this.open=false;callbacks.get('close')();},addEventListener:(type,fn)=>callbacks.set(type,fn)},content={innerHTML:'',querySelectorAll(selector){assert.equal(selector,'[data-action="craft"]');return [];}},world={keys:new Set(['w'])},noop=()=>{},before=state(game);let renders=0;
   // This pause-state fixture contains no craft buttons. Run the real stamping
   // boundary without booting unrelated battlefield or tutorial initialization.
   const stampSource=source.split('\n').find(line=>line.startsWith('function stampCraftButtons('));assert.ok(stampSource);
