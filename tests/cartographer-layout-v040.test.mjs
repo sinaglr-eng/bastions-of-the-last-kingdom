@@ -1,3 +1,4 @@
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -74,7 +75,7 @@ function documentFixture(){
 
 function mainFixture(game,{subscriber=false}={}){
   const dom=documentFixture(),rankPreview=new DefenderRankPreview(),phaseUi=new PhaseUiState();phaseUi.sync(game);
-  const context={...dom,game,data,images:{},rankPreview,preparationNavigation:new PreparationRecipeNavigation(),phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
+  const context={...dom,game,data,images:{},rankPreview,preparationNavigation:new PreparationRecipeNavigation(),phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,publicRecipe,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
   const source=[singleLine('syncFolio'),singleLine('cancelRecipePreview'),singleLine('towerPanel'),declaration('renderSidebar'),declaration('renderRecipeBrowser'),singleLine('openRecipePreview')].join('\n');
   const methods=runInNewContext(source+'\n({syncFolio,cancelRecipePreview,renderSidebar,renderRecipeBrowser,openRecipePreview})',context);
   context.render=()=>{methods.renderSidebar();methods.renderRecipeBrowser();methods.syncFolio();};

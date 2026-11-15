@@ -70,3 +70,12 @@ test('variant guide describes independent enemy choices and Zaruun has no inacti
   assert.match(sections[0],/Reactive armor[^]*\+8 armor per direct hit/);assert.ok(!sections[0].includes('Cloaked continuously'));
   assert.match(sections[1],/Cloaked continuously/);assert.ok(!sections[1].includes('Reactive armor'));
 });
+
+test('illustrated boss comparison names the shared enemy once and shows every equally likely real form',()=>{
+ const wave=waves[49],definition=enemies[wave.groups[0].type],html=warbandCardsMarkup([wave],enemies,images,{atlas:true,startWave:50});
+ assert.equal((html.match(/class="warband-form-label"/g)||[]).length,3);
+ assert.equal((html.match(/Equal chance · 1 in 3/g)||[]).length,3);
+ assert.equal((html.match(/<h3>Lord Bernhard/g)||[]).length,0,'the full shared name stays in the wave title');
+ for(const actual of ['210','273','Magical immunity'])assert.ok(html.includes(actual));
+ assert.equal(definition.variants.length,3);
+});

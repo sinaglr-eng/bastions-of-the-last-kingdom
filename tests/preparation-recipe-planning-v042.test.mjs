@@ -1,3 +1,4 @@
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -18,7 +19,7 @@ test('every chosen basic rank filters suggestions by that displayed rank while a
     const game=recruit([{family,tier:1}]),control=recruit([{family,tier:1}]),tower=game.selection,before=snapshot(game);
     for(let tier=1;tier<=6;tier++){
       const displayedTower={...tower,tier},model=preparationRecipeModel(game,tower,{displayedTower});
-      assert.deepEqual(model.options.map(option=>option.recipe.id),recipesUsing(displayedTower,game.recipes).map(recipe=>recipe.id),`${family} ${tier}`);
+      assert.deepEqual(model.options.map(option=>option.recipe.id),recipesUsing(displayedTower,game.recipes.filter(publicRecipe)).map(recipe=>recipe.id),`${family} ${tier}`);
       if(tier!==tower.tier){assert.ok(model.options.every(option=>!option.canPreview));assert.equal(actualAvailableRecipeActionsMarkup(game,{displayedTower}),'');}
       assert.equal(snapshot(game),before);
     }
@@ -53,7 +54,7 @@ test('following a suggested champion lists recipes using that champion and Back 
   planningNavigation.enter(parent.recipe.id,target.id);
   const followed=preparationRecipeModel(game,tower,options);
   assert.equal(followed.subject.family,recipeFamily(parent.recipe));assert.equal(followed.subject.tier,recipeTier(parent.recipe));
-  assert.deepEqual(followed.options.map(option=>option.recipe.id),recipesUsing({...followed.subject,state:'draft'},game.recipes).map(recipe=>recipe.id));
+  assert.deepEqual(followed.options.map(option=>option.recipe.id),recipesUsing({...followed.subject,state:'draft'},game.recipes.filter(publicRecipe)).map(recipe=>recipe.id));
   assert.equal(followed.selected.recipe.id,target.id);assert.ok(followed.options.every(option=>!option.canPreview));
   assert.match(preparationRecipesMarkup(game,tower,{},options),/data-action="folio-plan-back"/);
   assert.equal(planningNavigation.back(),true);assert.equal(preparationRecipeModel(game,tower,options).selected.recipe.id,parent.recipe.id);

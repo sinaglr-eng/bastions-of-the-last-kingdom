@@ -1,3 +1,4 @@
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -66,7 +67,7 @@ test('Build/Select share five selection cards and detail without hidden identity
 });
 
 test('multiple actual combinations remain visible while exactly one selected ingredient detail changes without pin/preview/selection mutation',()=>{
-  for(const [family,tier,count]of [['archer',2,2],['frostwarden',5,3]]){
+  for(const [family,tier,count]of [['archer',2,2],['frostwarden',5,2]]){
     const game=candidates(family,tier),control=candidates(family,tier),tower=game.selection,before=snapshot(game),model=preparationRecipeModel(game,tower);assert.equal(model.options.length,count);
     for(const selected of [...model.options,...model.options].reverse()){
       const html=preparationRecipesMarkup(game,tower,{}, {selectedRecipeId:selected.recipe.id});assert.deepEqual(optionIds(html),model.options.map(option=>option.recipe.id));assert.equal((html.match(/class="folio-recipe-detail"/g)||[]).length,1);assert.equal((html.match(/aria-expanded="true"/g)||[]).length,1);assert.match(html,new RegExp(`data-recipe-id="${selected.recipe.id}"`));assert.doesNotMatch(html,/Preview combination|data-action="craft-preview"/);
@@ -77,7 +78,7 @@ test('multiple actual combinations remain visible while exactly one selected ing
 
 test('all 38 current recipes expose actual ingredient allocations and preserve existing stale/final confirmation guards',()=>{
   assert.equal(gameRecipes().length,38);let secret=0;
-  for(const recipe of gameRecipes()){
+  for(const recipe of gameRecipes().filter(publicRecipe)){
     const game=new Game(data,{seed:840}),pieces=[...recipe.ingredients,{family:'soldier',tier:6},{family:'mage',tier:6}];game.economy.xp=100000;place(game,pieces);const tower=game.selection,before=snapshot(game);
     const model=preparationRecipeModel(game,tower,{selectedRecipeId:recipe.id}),selected=model.selected;assert.equal(selected.recipe.id,recipe.id,recipe.id);assert.equal(selected.canPreview,true,recipe.id);assert.deepEqual(selected.rows.map(({family,tier})=>({family,tier})),recipe.ingredients);assert.ok(selected.rows.every(row=>row.state==='draft'));assert.equal(new Set(selected.rows.map(row=>row.towerId)).size,3);
     const html=preparationRecipesMarkup(game,tower,{}, {selectedRecipeId:recipe.id}),actions=actualAvailableRecipeActionsMarkup(game);assert.doesNotMatch(html,/Preview combination|data-action="craft-preview"/);assert.match(actions,new RegExp(`data-id="${recipe.id}"`));assert.match(actions,/Create /);assert.equal(snapshot(game),before);
@@ -85,7 +86,7 @@ test('all 38 current recipes expose actual ingredient allocations and preserve e
     const key=craftRecipeKey(game,recipe.id,tower.id);assert.ok(key);game.select(game.roundCandidates.at(-1).tower.id);assert.equal(craftRecipeFromDock(game,recipe.id,tower.id,key),false);game.select(tower.id);
     const fresh=craftRecipeKey(game,recipe.id,tower.id);assert.equal(craftRecipeFromDock(game,recipe.id,tower.id,fresh),true,recipe.id);assert.equal(tower.family,recipe.resultFamily||recipe.id);assert.equal(tower.state,'active');assert.equal(craftRecipeFromDock(game,recipe.id,tower.id,fresh),false);
   }
-  assert.ok(secret>0);
+  assert.equal(secret,0,'the one secret recipe is excluded from visible preparation plans');
 });
 function gameRecipes(){return new Game(data,{seed:1}).recipes;}
 

@@ -7,7 +7,8 @@ const saved={meta:{phase:'combat',factionId:'crown',round:7,elapsedSeconds:93},s
 test('Guest can choose a new faction and keep an independent saved continuation; account actions are locked',()=>{
  const html=homeMenuMarkup({player:{user:null},saved,selectedFaction:'grove'});
  assert.match(html,/data-new-faction="grove" aria-pressed="true"/);assert.match(html,/New Game · Elves/);assert.match(html,/Human<\/h3><strong>Wave 7/);
- for(const page of ['achievements','general'])assert.match(html,new RegExp(`data-nav="${page}"[^>]*disabled`));
+ assert.doesNotMatch(html,/war-destinations|Your next medal/);assert.match(html,/data-nav="maze"/);assert.equal((html.match(/Sign in to equip skills, slot/g)||[]).length,3);
+ const shell=MainMenu.prototype.shell.call({page:'home',player:{user:null}},'',html);for(const page of ['achievements','general'])assert.match(shell,new RegExp(`data-nav="${page}"[^>]*disabled`));
  assert.doesNotMatch(html,/data-nav="settings"/);
  const account=homeMenuMarkup({player:{user:{id:'player'}},saved,selectedFaction:'forge'});assert.doesNotMatch(account,/data-nav="(?:achievements|general)" disabled/);
 });

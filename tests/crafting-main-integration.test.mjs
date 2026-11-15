@@ -1,3 +1,4 @@
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
 import assert from 'node:assert/strict';
@@ -97,7 +98,7 @@ function panelFixture(){
   return new Element('aside');
 }
 function productionBrowser(game){
-  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},previewPrevious:null,rankPreview:{identity:null,tier:null},syncFolio:noop,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,recipeNavigationStep,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
+  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},previewPrevious:null,rankPreview:{identity:null,tier:null},syncFolio:noop,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,publicRecipe,recipeNavigationStep,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
   const methods=runInNewContext(`${browserSource}\n({renderRecipeBrowser,openRecipePreview,getFocus:()=>recipeFocus})`,context);
   // Production Game's change listener calls render(), including this renderer.
   game.on(type=>{if(type==='change')methods.renderRecipeBrowser();});

@@ -1,3 +1,4 @@
+import {publicRecipe} from './recipe-visibility.js';
 import {recipeFamily,recipeTier,rankLabel,recipeTreeProgress} from '../game/core/recipes.js';
 import {defenderCode} from '../game/core/unit-label.js';
 
@@ -34,12 +35,12 @@ export function displayDefenderCode(stats,tier=1,{family}={}){
   return stats.unitCode==='R'?`E ${rankLabel(tier)}`:defenderCode(stats,tier);
 }
 export function recipeIngredientPresentation(piece,data){
-  const stats=data.towers[piece.family],recipe=data.recipes.find(entry=>recipeFamily(entry)===piece.family&&recipeTier(entry)===piece.tier);
+  const stats=data.towers[piece.family],recipe=data.recipes.filter(publicRecipe).find(entry=>recipeFamily(entry)===piece.family&&recipeTier(entry)===piece.tier);
   return {name:stats.name,rank:rankLabel(piece.tier),code:displayDefenderCode(stats,piece.tier,{family:piece.family}),recipeId:stats.advanced?recipe?.id||null:null};
 }
 export function downstreamRecipes(recipe,data){
   if(!recipe)return [];
-  return data.recipes.filter(entry=>entry.ingredients.some(piece=>piece.family===recipeFamily(recipe)&&piece.tier===recipeTier(recipe)));
+  return data.recipes.filter(publicRecipe).filter(entry=>entry.ingredients.some(piece=>piece.family===recipeFamily(recipe)&&piece.tier===recipeTier(recipe)));
 }
 
 // Retained ownership remains visible in combat/end inspection. Provisional

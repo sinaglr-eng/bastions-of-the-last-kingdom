@@ -45,6 +45,7 @@ test('each of 38 current champion cards uses approved classification, descriptio
   assert.equal(cards.length,38);assert.equal(archived.recipes.length,39);assert.ok(archived.towers.lordbernhard);assert.equal(data.towers.lordbernhard,undefined);
   cards.forEach((html,index)=>{
     const family=data.recipes[index].resultFamily||data.recipes[index].id;
+    if(family==='ladyclaire'){assert.equal(html,'','the secret recipe never appears in the public grimoire');return;}
     assert.ok(html.includes(championClassification(family).toUpperCase()));
     assert.ok(html.includes(data.towers[family].description));
     const stats=towerStats({family,tier:1},data);

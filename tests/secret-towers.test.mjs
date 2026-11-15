@@ -109,6 +109,7 @@ test('secret cards explain current-round restrictions and show recruitment only 
   for(const r of secrets){
     const g=candidates(r);
     const html=championRecipeCard(r,data,{}, {towerList:g.towers,pinned:true,craftable:g.availableRecipes().some(p=>p.id===r.id)});
+    if((r.resultFamily||r.id)==='ladyclaire'){assert.equal(html,'','Lady Claire remains hidden even when its real combination is legal');continue;}
     assert.match(html,/SECRET/);assert.match(html,/same current round/);assert.match(html,/Previously kept units cannot be used/);
     assert.match(html,/data-action="craft"/);assert.match(html,/other two candidates become walls/);
     g.select(g.towers[3].id);

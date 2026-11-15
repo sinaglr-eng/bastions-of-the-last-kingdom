@@ -1,3 +1,4 @@
+import {publicRecipe} from './recipe-visibility.js';
 import {towerStats,offensiveAuraRange} from '../game/core/math.js';
 import {rankColor} from '../game/render/ranks.js';
 import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRecipeProgress,recipeTreeProgress} from '../game/core/recipes.js';
@@ -98,9 +99,11 @@ export function recipeIngredientTree(recipe,data,towerList,{interactive=false}={
   return `<div class="recipe-tree-heading">Combine these ${recipe.ingredients.length} ingredients</div>${recipe.currentRoundOnly?'<p class="recipe-round-rule">All three must be among this round’s five newly placed defenders. Select one of those ingredients; the other two candidates become walls.</p>':''}<ul class="recipe-tree">${recipeTreeProgress(recipe,towerList,data).map(p=>node(p,true)).join('')}</ul>`;
 }
 export function championRecipeActions(recipe,{pinned=false,craftable=false,showPin=true}={}){
+  if(!publicRecipe(recipe))return "";
   return `<div class="catalog-recipe-actions">${showPin?`<button type="button" class="text-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Unpin recipe':'Pin recipe'}</button>`:''}${craftable?`<button type="button" class="primary-button" data-action="craft" data-id="${recipe.id}">Recruit champion</button>`:''}</div>`;
 }
 export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false,discovered=false,level=1,craftable=false,compact=false,combinationAvailable=null,builtCount=null,showActions=true,showTitle=true,showDpsNote=true}={}){
+  if(!publicRecipe(recipe))return "";
   const family=recipeFamily(recipe),stats=towerStats({family,tier:recipeTier(recipe)},data);
   const progress=recipeProgress(recipe,towerList),ready=progress.every(p=>p.available)&&level>=recipe.level&&(combinationAvailable===null?(!recipe.currentRoundOnly||craftable):combinationAvailable),ownedResults=builtCount??builtTowerCount(towerList,family);
   const abilities=abilityLines(stats);

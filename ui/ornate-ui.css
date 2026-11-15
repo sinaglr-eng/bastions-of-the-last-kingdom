@@ -1,0 +1,117 @@
+/* Shared materials: warm vellum, brushed brass, emerald enamel. */
+:root{--ornate-ink:#173d3c;--ornate-gold:#ac813d;--ornate-highlight:#f4d99c;--ornate-serif:Cinzel,Georgia,serif;--ornate-sans:'Source Sans 3','Segoe UI',sans-serif}
+.illustrated-icon{object-fit:contain;flex:none;vertical-align:middle;filter:drop-shadow(0 1px 1px #54360d30);pointer-events:none}
+#app :is(.text-button,.primary-button,.secondary-button,.icon-button),#main-menu button{font-family:var(--ornate-sans);touch-action:manipulation}
+#app :is(.primary-button,.secondary-button),#main-menu .war-primary{border-radius:5px;border:1px solid #987036;box-shadow:inset 0 0 0 1px #f5dfab,inset 0 0 0 3px #d7b56c55,0 3px 5px #482f1430;letter-spacing:.02em}
+#app .primary-button,#main-menu .war-primary{background:linear-gradient(115deg,#366859,#173d3c);color:#fff2ce}
+#app .primary-button:hover:not(:disabled),#main-menu .war-primary:hover:not(:disabled){background:linear-gradient(115deg,#477f68,#214c45)}
+#app button:focus-visible,#main-menu button:focus-visible{outline:3px solid #367b90;outline-offset:3px}
+#app :is(.text-button,.icon-button):hover:not(:disabled){border-color:#9d7438;box-shadow:inset 0 0 0 1px #ffefc9,0 2px 5px #50341422}
+#main-menu .menu-header{position:relative;padding-bottom:18px;border-bottom:3px double #b99a61}
+#main-menu .menu-header::after{content:'◆';position:absolute;bottom:-11px;left:50%;padding:0 16px;background:#faf2df;color:#a17b3d;font-size:13px;pointer-events:none}
+#main-menu .menu-account{max-width:335px;gap:14px;align-items:center}
+#main-menu .menu-account .menu-rank-link{min-height:74px;padding:7px 9px;border:1px solid transparent;border-radius:7px;box-shadow:none;background:transparent}
+#main-menu .menu-account .menu-rank-link:hover{border-color:#c5a56c;background:#e7d9b25c;box-shadow:inset 0 0 0 2px #fff6e3}
+#main-menu .menu-player-wallet{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:90px;max-width:140px}
+#main-menu .menu-player-wallet .menu-account-name{min-height:30px;padding:2px 6px;font:600 16px/1.2 var(--ornate-sans);text-align:center;width:100%;margin:0}
+#main-menu .menu-player-wallet [data-wallet]{display:block}
+#main-menu .menu-player-wallet .medal-icon{width:43px;height:43px}
+#main-menu .menu-player-wallet .medal-amount{font-size:23px;gap:7px}
+#main-menu .menu-account .account-rank{pointer-events:none}
+#main-menu .faction-mark{width:31px;height:31px;display:inline-flex;align-items:center;justify-content:center}
+#main-menu .faction-mark img{width:29px;height:29px;object-fit:contain;filter:drop-shadow(0 1px 1px #39270e35)}
+#main-menu .war-main-nav button{font-size:clamp(13px,1.1vw,20px);padding-inline:12px}
+#main-menu .war-home{gap:24px;margin-top:24px}
+#main-menu .war-command-deck{gap:18px;align-content:start}
+#main-menu .war-saved-card.is-empty{min-height:175px;display:flex;align-items:center;padding-block:20px}
+#main-menu .war-saved-card.is-empty .war-saved-copy{max-width:72%}
+#main-menu .war-saved-card.is-empty h3{font-size:clamp(21px,2vw,30px)}
+#main-menu .home-commander-loadout{padding:16px;border:1px solid #bd995b;border-radius:8px;background:linear-gradient(110deg,#fff8e4,#ecddb8);box-shadow:inset 0 0 0 3px #fff6df,0 3px 7px #5a3c1420}
+.home-commander-loadout>header{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:13px}
+#main-menu .home-commander-loadout h2{font:600 18px/1.25 var(--ornate-serif);margin:0}
+.home-commander-loadout>header>span{white-space:nowrap;color:#74603c;font-size:13px}
+.home-loadout-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#main-menu .home-skill-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:10px 6px;min-height:130px;background:linear-gradient(#fff9e9,#e8d7ae)}
+.home-skill-slot img{width:58px;height:58px;object-fit:contain;border-radius:8px}
+.home-skill-slot strong{font:600 13px/1.25 var(--ornate-sans)}
+.home-skill-slot>span:last-child{font:12px/1.3 var(--ornate-sans);color:#6c674e}
+.home-slot-seal{width:52px;height:52px;display:grid;place-items:center;opacity:.5}
+.home-slot-seal .icon{width:40px;height:40px;filter:grayscale(.65)}
+#main-menu .home-skill-slot.is-empty{border-style:dashed;box-shadow:inset 0 0 0 2px #fff6df}
+#main-menu .home-maze-entry{display:flex;align-items:center;gap:20px;width:100%;padding:18px;text-align:left;background:radial-gradient(ellipse at 100% 100%,#59795a20,transparent 70%),linear-gradient(115deg,#fff9e5,#e7d8b1);border:1px solid #b58b49;border-radius:8px;box-shadow:inset 0 0 0 3px #fff3d5,0 3px 7px #5a3c1420}
+.home-maze-entry>.maze-plan-thumbnail{width:105px;height:105px;flex:none;border-radius:5px}
+.home-maze-entry>span:last-child{display:flex;flex-direction:column;gap:7px;min-width:0}
+.home-maze-entry strong{font:600 23px/1.15 var(--ornate-serif)}
+.home-maze-entry small{font:15px/1.35 var(--ornate-sans)}
+.home-maze-entry em{font:600 13px/1.3 var(--ornate-sans);color:#7c5c29}
+.home-maze-emblem{width:90px;height:90px;display:grid;place-items:center;border:3px double #b39051;border-radius:50%;background:#284e45;color:#ebd39a;box-shadow:inset 0 0 20px #142e29}
+.home-maze-emblem .icon{width:52px;height:52px;stroke-width:1}
+#main-menu .home-maze-workshop{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,.8fr);gap:28px;align-items:start;margin-top:22px}
+.maze-workspace{padding:12px;background:#284e43;border:4px double #c8a365;border-radius:9px;box-shadow:0 5px 14px #122d2430}
+[data-maze-board]{display:block;aspect-ratio:1;width:100%;background:#67876a;border:1px solid #ae925b;touch-action:none;cursor:crosshair;user-select:none}
+[data-maze-board]:focus-visible{outline:3px solid #f0d58d;outline-offset:4px}
+.workshop-field{fill:#789277}.workshop-grid{fill:none;stroke:#e3dfb6;stroke-opacity:.23;stroke-width:.035}
+.workshop-wall{fill:#233f37;stroke:#e4cd8b;stroke-width:.06}.workshop-route{fill:none;stroke:#f5dfa1;stroke-width:.13;stroke-linejoin:round;opacity:.7;pointer-events:none}
+.workshop-checkpoint{fill:#e3c47d;stroke:#3c4e37;stroke-width:.07}
+[data-maze-board] text{font:700 .7px var(--ornate-sans);text-anchor:middle;fill:#253f36;pointer-events:none}
+.workshop-cursor{fill:none;stroke:#fffbea;stroke-width:.1;pointer-events:none}
+.maze-board-legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;color:#ead6a2;font:13px/1.3 var(--ornate-sans);padding-top:12px}
+.maze-workshop-tools{padding:20px;border:3px double #b69a60;border-radius:7px;background:#fff8e9;display:grid;gap:15px}
+#main-menu .maze-workshop-tools h2{display:flex;align-items:center;gap:12px;font-family:var(--ornate-serif)}
+.maze-workshop-tools h2 .icon{width:30px;height:30px}
+#main-menu .maze-workshop-tools p{margin:0;font:15px/1.45 var(--ornate-sans)}
+.maze-editor-brushes,.maze-editor-history{display:flex;gap:7px;flex-wrap:wrap}
+#main-menu .maze-editor-history button{padding:8px 12px;font-size:14px}
+.maze-editor-feedback{min-height:44px;color:#345f46}.maze-editor-feedback.is-error{color:#9a342d}
+[data-maze-library]{display:grid;gap:10px;max-height:280px;overflow:auto;padding:3px}
+#main-menu [data-maze-library] button{display:grid;text-align:left;gap:4px;padding:10px}
+[data-maze-library] small{font-size:12px;color:#6d644b}
+/* Forged panel rails are part of the UI, so every action remains real text. */
+#app .topbar{border-bottom:5px double #b18a49;background:radial-gradient(ellipse at 25% 0,#fff9e9,transparent 70%),linear-gradient(90deg,#dfcda8,#faf2df 16%,#f6ecd6 84%,#d8bf8e);box-shadow:inset 0 2px #fff5d8,inset 0 5px #d6b97e66,0 3px 8px #2b311d50}
+#app .topbar::after{content:'';position:absolute;inset:auto 8px -5px;pointer-events:none;height:7px;background:linear-gradient(135deg,transparent 45%,#f5d58a 46% 55%,transparent 56%) left center/12px 7px no-repeat,linear-gradient(225deg,transparent 45%,#f5d58a 46% 55%,transparent 56%) right center/12px 7px no-repeat}
+#app .topbar .hud-stat>.illustrated-icon{width:31px;height:31px;display:block}
+#app .hud-stat small{font:600 10px/1.2 var(--ornate-serif);letter-spacing:.04em;color:#645432}
+#app .hud-stat strong{font-family:var(--ornate-serif);color:#263d35;font-weight:650}
+#app .header-actions :is(.text-button,.icon-button,.player-menu>summary){border:1px solid #a9874d;box-shadow:inset 0 0 0 2px #fff4d6,0 2px 3px #4c331e25;background:linear-gradient(#fffae8,#e7d3a7);border-radius:5px;color:#354a3a}
+#app .header-actions .text-button{font:600 13px/1.2 var(--ornate-serif);gap:6px}
+#app .header-actions .illustrated-icon{width:27px;height:27px}
+#app #general-command>summary{background:linear-gradient(115deg,#365f4f,#193e38);color:#ffedc6;box-shadow:inset 0 0 0 2px #d9b668,0 2px 4px #36291840}
+#app .general-command-empty>img{width:110px;height:110px;object-fit:contain}
+#app .draft-panel{border:4px double #ad8b4f;border-radius:9px 9px 0 0;background:radial-gradient(ellipse at 40% 20%,#fff9e9aa,transparent 70%),linear-gradient(90deg,#ead8b3,#fbf2df 12%,#f6ecd5 88%,#d9bd85);box-shadow:inset 0 0 0 2px #fff5d9,0 -3px 12px #26352030}
+#app .draft-panel::before,#app .draft-panel::after{content:'';position:absolute;top:4px;width:24px;height:24px;border:3px double #ae8746;border-width:3px 0 0 3px;pointer-events:none}
+#app .draft-panel::before{left:5px}#app .draft-panel::after{right:5px;transform:rotate(90deg)}
+#app .draft-heading h3,#app .folio-section-title{font-family:var(--ornate-serif);color:#315044}
+#app :is(.draw-merge,.draw-keep,.folio-choice-button){border-color:#9e7d40;box-shadow:inset 0 0 0 1px #f4dbaa,0 2px 3px #50341420}
+#app .atlas-book .book-corners{display:none!important}
+#app .atlas-book .catalog-view-tabs button{border:3px double #a58145;border-radius:6px 0 0 6px;background:linear-gradient(120deg,#f3e4c3,#ddc99f);box-shadow:inset 0 0 0 2px #fff4d6,0 3px 5px #39280e30;color:#354b3d;font:600 15px/1.3 var(--ornate-serif)}
+#app .atlas-book .catalog-view-tabs button[aria-pressed=true]{background:linear-gradient(120deg,#406b59,#20443d);color:#ffefc4;border-color:#d0ac65}
+#app .atlas-book .catalog-view-tabs .illustrated-icon{width:39px;height:39px;display:block;margin-inline:auto}
+#app .warbands-atlas .warband-atlas-portrait{align-items:center;justify-content:center;margin:0;min-height:230px;align-self:stretch}
+#app .warbands-atlas .warband-atlas-portrait>img{display:block;object-fit:contain;object-position:center;max-width:100%;max-height:360px;width:auto;height:auto;margin:auto}
+#app .warbands-atlas .warband-illustrated-comparison{align-items:start;grid-template-columns:minmax(200px,.8fr) minmax(0,2fr)}
+#app .warbands-atlas .warband-variant-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));align-items:start;gap:12px;flex:none}
+#app .warbands-atlas .warband-variant-columns>.warband-variant{min-height:0;height:auto;padding:16px 14px;margin:0;border:3px double #bfa272;border-radius:6px;background:linear-gradient(120deg,#fff7e7,#eee1c5);box-shadow:inset 0 0 0 2px #fff9ec}
+#app .warbands-atlas .warband-variant h3{font:600 clamp(16px,1.35vw,21px)/1.3 var(--ornate-serif);overflow-wrap:anywhere;margin:9px 0}
+#app .warbands-atlas .warband-variant .enemy-trait-list li{font:16px/1.45 var(--ornate-sans)}
+.warband-form-label{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:700 12px/1.3 var(--ornate-sans);color:#906829;text-transform:uppercase;letter-spacing:.04em;padding-bottom:8px;border-bottom:1px solid #cfb889}
+.warband-form-label span{font-weight:400;text-transform:none;letter-spacing:0;color:#615d46}
+#app .warbands-atlas .warband-variant-trait-label{margin-bottom:9px}
+@media(max-width:1300px){#main-menu .menu-header{flex-wrap:wrap}#main-menu .war-brand{flex-basis:230px}#main-menu .menu-account{margin-left:auto}#main-menu .war-main-nav{order:3;flex-basis:100%;justify-content:center;gap:22px}#main-menu .war-main-nav button{font-size:17px;min-height:48px}#app .topbar .hud-stat>.illustrated-icon{width:25px;height:25px}#app .header-actions .illustrated-icon{width:23px;height:23px}}
+@media(max-width:850px){#main-menu .menu-account{max-width:none;width:auto}#main-menu .home-maze-workshop{grid-template-columns:1fr}#main-menu .war-main-nav{gap:5px}#main-menu .war-main-nav button{font-size:14px;padding:10px}#app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:1fr}#app .warbands-atlas .warband-atlas-portrait{width:100%;max-width:100%;min-height:200px}#app .warbands-atlas .warband-atlas-portrait>img{height:260px}}
+@media(max-width:580px){#main-menu .menu-header{gap:8px}#main-menu .war-brand{flex:1 1 160px;min-width:145px;max-width:210px}#main-menu .war-brand img{height:70px}#main-menu .menu-account{margin:0;justify-content:space-between;flex:1 1 100%;gap:8px}#main-menu .menu-player-wallet{flex-direction:column;align-items:center}#main-menu .menu-account .menu-rank-link{min-height:65px;padding:6px}#main-menu .war-main-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:3px}#main-menu .war-main-nav button{font-size:11px;white-space:normal;padding:8px 3px;min-height:48px}#main-menu .war-home{margin-top:18px}#main-menu .home-commander-loadout{padding:12px}.home-loadout-slots{gap:6px}#main-menu .home-skill-slot{min-height:125px}.home-skill-slot strong{font-size:12px}.home-skill-slot img{width:47px;height:47px}.home-maze-emblem{width:65px;height:65px;flex:none}.home-maze-entry strong{font-size:19px}.home-maze-entry small{font-size:13px}.home-maze-entry>.maze-plan-thumbnail{width:75px;height:75px}.maze-workshop-tools{padding:14px}.maze-workspace{padding:6px}.maze-board-legend{font-size:11px;gap:10px}#app .topbar .hud-stat>.illustrated-icon{display:none}#app .header-actions .illustrated-icon{width:23px;height:23px}#app .warbands-atlas .warband-variant-columns{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#app button,#main-menu button{transition:none}}
+
+.medal-icon{object-fit:contain;width:32px;height:32px}
+#main-menu .war-saved-card.is-empty{align-items:flex-start;background-image:linear-gradient(90deg,#fff5dff5 0%,#fff5dfed 52%,#fff5df22 100%),url('../public/assets/ui/war-table/saved-defense.webp');text-align:left}
+#main-menu .war-saved-card.is-empty .war-saved-copy{max-width:83%}
+@media(max-width:900px){#main-menu .war-home .war-saved-card.is-empty{order:1;min-height:165px;padding:18px}#main-menu .war-home .war-faction-panel{order:0}#main-menu .war-home .home-commander-loadout{order:2}#main-menu .war-home .home-maze-entry{order:3}#main-menu .war-home>.war-helper{order:4}#main-menu .war-saved-card.is-empty h2{font-size:16px!important}#main-menu .war-saved-card.is-empty h3{font-size:22px}#main-menu .war-saved-card.is-empty p{font-size:14px}}
+
+#main-menu .menu-header .menu-account{flex-wrap:nowrap;max-width:345px;gap:8px}
+#main-menu .menu-account .menu-rank-link{flex:0 1 222px;min-width:198px}
+#main-menu .menu-player-wallet{flex:0 0 90px;width:90px;min-width:90px}
+@media(max-width:600px){#main-menu .menu-header .menu-account{max-width:none;width:100%;flex-basis:100%;justify-content:space-between}#main-menu .menu-account .menu-rank-link{flex:1 1 auto;min-width:0}#main-menu .menu-account .account-rank{min-width:0}#main-menu .menu-account .account-xp-caption span{display:block;margin-left:0}}
+
+#app .atlas-book .recipe-catalog-row[aria-pressed=true],#app .atlas-book .recipe-catalog-row.active{background:linear-gradient(100deg,#dce9d7,#e7eddb);border-color:#688d70;box-shadow:inset 0 0 0 1px #f8f5da;color:#21483d}
+#app .atlas-book .catalog-status-filters button[aria-pressed=true]{color:#22483d;background:#dce7d1;border-bottom-color:#5d8065}
+#app .draw-card.active{border-color:#4b806c;box-shadow:inset 0 0 0 2px #e7d698,0 0 0 1px #315e51}
+#app .warbands-atlas .warband-variant-columns{align-items:stretch}

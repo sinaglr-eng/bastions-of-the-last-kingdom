@@ -2,6 +2,7 @@ import {enemyHealthNumber} from './core/enemy-rules.js';
 import '../ui/fr008.css';
 import '../ui/main-menu.css';
 import {PlayerClient} from './player-client.js';
+import {loadBlueprintLibrary} from './core/blueprints.js';
 import {MainMenu,escapeMenu} from '../ui/main-menu.js';
 import {updateGeneralControls} from '../ui/general-controls.js';
 import '../ui/progression.css';
@@ -86,7 +87,7 @@ import {recordedAudioBankReview,RECORDED_MUSIC_TRACK_COUNT} from './audio/audio-
 import {CURRENT_ATTACK_CATALOGUE as AUDIO_BANK_CATALOGUE,CURRENT_ATTACK_TYPE_COUNT as RECORDED_ATTACK_TYPE_COUNT,CURRENT_ATTACK_REVIEW} from './audio/current-attack-assets.js';
 import {recordedVoiceReview} from './audio/voice-review.js';
 import {rankColor} from './render/ranks.js';
-import {icon} from '../ui/icons.js';
+import {ornateIcon as icon} from '../ui/icons.js';
 import {ROMAN,abilityLines,defenderGuide,baseAttackDps,formatTowerNumber,damageTypeName,championRecipeCard,recipeIngredientTree,recipeProgressLegend} from '../ui/grimoire.js';
 import {championClassification} from './render/champion-classification.js';
 import {siteUrl} from './site-url.js';
@@ -135,6 +136,8 @@ import '../ui/field-command-v044.css';
 import '../ui/outcome-art-v044.css';
 import '../ui/folio-refinements-v045.css';
 import '../ui/reference-portraits-v061.css';
+import '../ui/ornate-ui.css';
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import {updateCurrentWaveSummaryPanel} from '../ui/current-wave-summary.js';
 import {CommandPointerInput} from '../ui/command-pointer-input.js';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
@@ -170,7 +173,7 @@ app.innerHTML=`
   <div class="hud-stat command-points" title="Run-local tactical resource · +${balance.commandPoints.bossReward} for each defeated boss" aria-label="Command Points">${icon('command')}<div><small>Command Points</small><strong id="hud-cp">${balance.commandPoints.starting}</strong></div></div>
   <div class="hud-stat run-time" title="Real elapsed time, including pauses; independent of game speed" aria-label="Elapsed run time">${icon('clock')}<div><small>TIME</small><strong id="hud-time">00:00</strong></div></div>
  </div>
- <div class="header-actions"><details class="general-header" id="general-command"><summary class="text-button" aria-label="General" aria-controls="general-controls" title="General abilities">${icon('command')}<span>General</span><small id="general-equipped-count">0</small></summary><aside id="general-controls" aria-label="General abilities"></aside></details><button class="text-button gold" data-action="codex" title="Defender recipes (C)" aria-label="Recipes">${icon('book')}<span>Recipes</span></button><button class="text-button" data-action="warbands" title="Remaining waves and enemy details (V)" aria-label="Enemy Waves">${icon('warband')}<span>Enemy Waves</span></button><span class="developer-mode-indicator" id="developer-mode-indicator" hidden>Developer Mode — statistics disabled</span><div class="audio-settings audio-control-anchor"><button class="icon-button" data-action="audio-settings" id="mute" title="Sound settings" aria-label="Sound settings" aria-expanded="false" aria-controls="audio-controls">${icon(profile.muted?'mute':'sound')}</button>${audioControlsMarkup(audio)}</div><details class="player-menu"><summary aria-label="Game menu">${icon('settings')}</summary><div><button class="text-button" data-action="help">How to play</button><button class="text-button" data-action="new-run">New run</button><button class="text-button" data-action="main-menu">Save & Main Menu</button><div class="menu-stats" id="menu-stats"></div><details class="menu-advanced"><summary>Advanced</summary><button class="text-button" data-action="developer" aria-label="Developer Console">Developer Console</button></details></div></details></div>
+ <div class="header-actions"><details class="general-header" id="general-command"><summary class="text-button" aria-label="Commander" aria-controls="general-controls" title="Commander abilities">${icon('commander')}<span>Commander</span><small id="general-equipped-count">0</small></summary><aside id="general-controls" aria-label="Commander abilities"></aside></details><button class="text-button gold" data-action="codex" title="Defender recipes (C)" aria-label="Recipes">${icon('book')}<span>Recipes</span></button><button class="text-button" data-action="warbands" title="Remaining waves and enemy details (V)" aria-label="Enemy Waves">${icon('warband')}<span>Enemy Waves</span></button><span class="developer-mode-indicator" id="developer-mode-indicator" hidden>Developer Mode — statistics disabled</span><div class="audio-settings audio-control-anchor"><button class="icon-button" data-action="audio-settings" id="mute" title="Sound settings" aria-label="Sound settings" aria-expanded="false" aria-controls="audio-controls">${icon(profile.muted?'mute':'sound')}</button>${audioControlsMarkup(audio)}</div><details class="player-menu"><summary aria-label="Game menu">${icon('settings')}</summary><div><button class="text-button" data-action="help">How to play</button><button class="text-button" data-action="new-run">New run</button><button class="text-button" data-action="main-menu">Save & Main Menu</button><div class="menu-stats" id="menu-stats"></div></div></details></div>
 </header>
 <section id="battlefield" aria-label="Battlefield"></section><div class="fr010-sync" id="fr010-sync" role="status"></div>
 <div class="command-dock" id="command-dock"><div class="map-start" id="map-start" hidden><button class="primary-button" data-action="start" id="start-wave"></button></div><div class="header-combat-controls" id="header-combat-controls" role="group" aria-label="Combat controls" hidden></div></div>
@@ -260,13 +263,13 @@ function renderSidebar(){
  syncFolio();
  if(focused&&previous===key){const target=focused.id?document.getElementById(focused.id):[...body.querySelectorAll('[data-action]')].find(button=>button.dataset.action===focused.action&&button.dataset.tier===focused.tier&&!button.disabled);target?.focus({preventScroll:true});}
 }
-function previewRecipe(){return game.recipes.find(r=>r.id===(recipeFocus||game.pinned))||null;}
+function previewRecipe(){return game.recipes.filter(publicRecipe).find(r=>r.id===(recipeFocus||game.pinned))||null;}
 function recipeBrowserMarkup(){
   const recipe=previewRecipe();
   if(!recipe)return `<button class="text-button recipe-browse" data-action="recipe-first">${icon('book')} Browse champion recipes</button>`;
-  const order=game.recipes,index=order.findIndex(r=>r.id===recipe.id),family=recipeFamily(recipe),stats=towers[family];
-  const pinned=recipe.id===game.pinned;
-  return `<section class="recipe-browser-panel ${pinned?'is-pinned':''}" aria-label="Champion recipe preview" data-recipe-id="${recipe.id}"><div class="recipe-browser-nav"><button class="icon-button" data-action="recipe-prev" aria-label="Previous champion recipe" ${index===0?'disabled':''}>‹</button><span>${index+1} / ${order.length}</span><button class="icon-button" data-action="recipe-next" aria-label="Next champion recipe" ${index===order.length-1?'disabled':''}>›</button>${game.pinned?`<button class="text-button return-pinned" data-action="recipe-return" ${pinned?'disabled':''} title="Return to pinned ${recipeLabel(order.find(r=>r.id===game.pinned),data)}">${icon('reset')} Return to pinned</button>`:''}</div><div class="recipe-browser-header"><img src="${images[family]}" alt=""><div class="eyebrow">${championClassification(family)}${pinned?' · PINNED':''}</div><h3>${stats.name}</h3><p>${stats.description}</p></div><button class="text-button recipe-pin-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Unpin recipe':'Pin this recipe'}</button>${recipeProgressLegend()}${recipeIngredientTree(recipe,data,game.towers)}</section>`;
+  const order=game.recipes.filter(publicRecipe),index=order.findIndex(r=>r.id===recipe.id),family=recipeFamily(recipe),stats=towers[family];
+  const pinned=recipe.id===game.pinned,pinnedRecipe=order.find(r=>r.id===game.pinned);
+  return `<section class="recipe-browser-panel ${pinned?'is-pinned':''}" aria-label="Champion recipe preview" data-recipe-id="${recipe.id}"><div class="recipe-browser-nav"><button class="icon-button" data-action="recipe-prev" aria-label="Previous champion recipe" ${index===0?'disabled':''}>‹</button><span>${index+1} / ${order.length}</span><button class="icon-button" data-action="recipe-next" aria-label="Next champion recipe" ${index===order.length-1?'disabled':''}>›</button>${pinnedRecipe?`<button class="text-button return-pinned" data-action="recipe-return" ${pinned?'disabled':''} title="Return to pinned ${recipeLabel(pinnedRecipe,data)}">${icon('reset')} Return to pinned</button>`:''}</div><div class="recipe-browser-header"><img src="${images[family]}" alt=""><div class="eyebrow">${championClassification(family)}${pinned?' · PINNED':''}</div><h3>${stats.name}</h3><p>${stats.description}</p></div><button class="text-button recipe-pin-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Unpin recipe':'Pin this recipe'}</button>${recipeProgressLegend()}${recipeIngredientTree(recipe,data,game.towers)}</section>`;
 }
 function renderRecipeBrowser(){
   const browser=$('recipe-browser'),options={recipeId:recipeFocus||game.previewRecipeId||game.pinned,anchorId:game.selected,navigation:recipeNavigation},model=craftingDockModel(game,options);
@@ -280,8 +283,8 @@ function renderRecipeBrowser(){
   if(!model.visible){browser.innerHTML='';browser.hidden=true;}
   syncFolio();
 }
-function openRecipePreview(id,{record=true}={}){if(!game.recipes.some(recipe=>recipe.id===id))return;if(record)recipeNavigationVisit(recipeNavigation,id);game.previewRecipeId=null;recipeFocus=id;app.dataset.folioPage='recipes';phaseUi.open('recipe');phaseUi.apply(app,game);renderRecipeBrowser();$('recipe-browser').scrollTop=0;world.resize();}
-function browseRecipe(direction){const order=game.recipes,current=previewRecipe(),index=order.findIndex(r=>r.id===current?.id);openRecipePreview(order[Math.max(0,Math.min(order.length-1,index+direction))].id);}
+function openRecipePreview(id,{record=true}={}){if(!game.recipes.some(recipe=>publicRecipe(recipe)&&recipe.id===id))return;if(record)recipeNavigationVisit(recipeNavigation,id);game.previewRecipeId=null;recipeFocus=id;app.dataset.folioPage='recipes';phaseUi.open('recipe');phaseUi.apply(app,game);renderRecipeBrowser();$('recipe-browser').scrollTop=0;world.resize();}
+function browseRecipe(direction){const order=game.recipes.filter(publicRecipe),current=previewRecipe(),index=order.findIndex(r=>r.id===current?.id);openRecipePreview(order[Math.max(0,Math.min(order.length-1,index+direction))].id);}
 function renderEconomy(){
   $('economy').hidden=game.phase!=='build'||!!game.previewRecipeId;
   const markup='<section class="draft-odds-panel" aria-label="Future draw odds">'+masteryPanelMarkup(game.economy,balance)+'</section>';if($('economy').innerHTML!==markup)$('economy').innerHTML=markup;
@@ -536,7 +539,7 @@ function initializePlayerMenu(){
 let achievementNotices;
 player=new PlayerClient({base:playerApi,onChange:()=>{if(game)renderGeneralControls();mainMenu?.refreshAccount();if(resultContext&&$('dialog').open&&$('dialog-content').querySelector('.account-result-panel'))paintResult();},onNotice:text=>notice(text),onAchievement:event=>achievementNotices?.push(event),onReset:()=>{if(game){game.paused=true;if($('dialog').open)closeDialog();void mainMenu?.show('home');}},onPromotion:receipt=>{const inResult=$('dialog').open&&$('dialog-content').querySelector('.account-result-panel'),current=player.resultReceipt(resultContext?.campaign?'campaign':'end');if(!inResult||!current||current.levelAfter<=current.levelBefore)showPromotionNotice(receipt,player.owner);}});
 achievementNotices=new AchievementNotices({player,onView:async id=>{if(game){game.paused=true;await player.save();}if(id){const f=id.split(':')[1];if(['crown','forge','grove'].includes(f))mainMenu.faction=f;}mainMenu.focusAchievement=id;mainMenu.achievementKind='all';mainMenu.achievementState=id?'all':'ready';mainMenu.offset=0;await mainMenu.show('achievements');}});
-mainMenu=new MainMenu({player,app,audio,onNew:({factionId,replace})=>requestFactionRun(factionId,{replace}),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
+mainMenu=new MainMenu({player,app,audio,onBlueprintSaved:plan=>{if(world?.maze){const library=loadBlueprintLibrary(localStorage);world.maze.saved=library.plans;world.maze.choose(plan.id);}},onNew:({factionId,replace})=>requestFactionRun(factionId,{replace}),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
 }
 
 try{initializePlayerMenu();images={...referencePortraitImageMap()};void player.initialize().then(async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(player.readyAchievements.length)player.onAchievement({type:'summary',count:player.readyAchievements.length});if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');});

@@ -1,3 +1,4 @@
+import {publicRecipe} from './recipe-visibility.js';
 import {offensiveAuraRange} from '../game/core/math.js';
 import {recipesUsing,recipeFamily,recipeTier,recipeLabel,recipeTreeProgress,rankLabel} from '../game/core/recipes.js';
 import {abilityLines,damageTypeName,formatTowerNumber} from './grimoire.js';
@@ -20,13 +21,13 @@ export function preparationEffects(stats){
 // The viewed profile chooses suggestions. Only the original physical defender
 // and the existing allocator can authorize a real combination.
 export function preparationRecipeModel(game,tower,{selectedRecipeId=null,displayedTower=tower,contextRecipeId=null,planningNavigation=null}={}){
-  const navigation=planningNavigation?.sync(tower,displayedTower),inspectedRecipe=game.recipes.find(recipe=>recipe.id===navigation?.inspectedRecipeId)||null;
+  const navigation=planningNavigation?.sync(tower,displayedTower),inspectedRecipe=game.recipes.filter(publicRecipe).find(recipe=>recipe.id===navigation?.inspectedRecipeId)||null;
   if(navigation){selectedRecipeId=navigation.selectedRecipeId;contextRecipeId=navigation.contextRecipeId;}
-  const contextRecipe=game.recipes.find(recipe=>recipe.id===contextRecipeId)||null;
+  const contextRecipe=game.recipes.filter(publicRecipe).find(recipe=>recipe.id===contextRecipeId)||null;
   const subject=contextRecipe||inspectedRecipe?{family:recipeFamily(contextRecipe||inspectedRecipe),tier:recipeTier(contextRecipe||inspectedRecipe),state:'draft'}:{...displayedTower,state:tower.state};
   const hypothetical=subject.family!==tower.family||subject.tier!==tower.tier;
   const available=new Set(!hypothetical&&game.selected===tower.id?game.availableRecipes(tower).map(recipe=>recipe.id):[]);
-  const options=(inspectedRecipe?[inspectedRecipe]:recipesUsing(subject,game.recipes)).map(recipe=>{
+  const options=(inspectedRecipe?[inspectedRecipe]:recipesUsing(subject,game.recipes.filter(publicRecipe))).map(recipe=>{
     const tree=recipeTreeProgress(recipe,recipeDisplayInventory(game,recipe),game.data);
     const rows=tree.map(node=>({...node,name:game.data.towers[node.family].name,state:node.ownedCount?'built':node.draftCount?'draft':'missing'}));
     const counts={built:rows.filter(row=>row.state==='built').length,draft:rows.filter(row=>row.state==='draft').length,missing:rows.filter(row=>row.state==='missing').length};

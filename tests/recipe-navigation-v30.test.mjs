@@ -1,3 +1,4 @@
+import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -20,7 +21,7 @@ function placed(game,pieces){for(const piece of pieces){const index=game.activeD
 const missingMap=result=>Object.fromEntries(result.items.map(item=>[`${item.family}:${item.tier}`,item.count]));
 
 test('ingredient presentation uses runtime names, exact Roman ranks and basic defender codes for all 38 recipes',()=>{
-  for(const target of data.recipes){
+  for(const target of data.recipes.filter(publicRecipe)){
     const html=championRecipeCard(target,data,images,{compact:true});
     assert.equal((html.match(/class="recipe-ingredient-portrait"/g)||[]).length,3);
     for(const piece of target.ingredients){
@@ -152,7 +153,7 @@ test('actual crafting replaces consumed basic resources with exactly one compone
 test('all recipe summaries agree with core recursive coverage and repeated inspection preserves gameplay and RNG',()=>{
   const game=fresh(),control=fresh();for(const piece of [{family:'frostblade',tier:1},{family:'soldier',tier:1},{family:'mage',tier:3}]){retained(game,piece);retained(control,piece);}
   placed(game,[{family:'druid',tier:1},{family:'soldier',tier:2}]);placed(control,[{family:'druid',tier:1},{family:'soldier',tier:2}]);const before=snapshot(game);
-  for(const target of data.recipes){
+  for(const target of data.recipes.filter(publicRecipe)){
     const allowed=game.towers.filter(t=>t.state==='draft'||t.state==='active'&&!target.currentRoundOnly),expected=expandedRecipeProgress(target,allowed,data).filter(row=>row.count>row.ownedCount+row.draftCount);
     const summary=pinnedMissingBasicSummary(game,target);
     assert.deepEqual(missingMap(summary),Object.fromEntries(expected.map(row=>[`${row.family}:${row.tier}`,row.count-row.ownedCount-row.draftCount])));
@@ -222,7 +223,7 @@ test('production catalog ordered navigation intersects direct runtime filters an
 test('ordered catalog endpoints and empty/single-result direct filters disable navigation without wrapping',()=>{
   const game=fresh(),state={recipeId:data.recipes[0].id},host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
   assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="previous"]'));assert.equal(state.recipeId,data.recipes[0].id);
-  state.recipeId=data.recipes.at(-1).id;connection.refresh();assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,data.recipes.at(-1).id);
+  state.recipeId=data.recipes.filter(publicRecipe).at(-1).id;connection.refresh();assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,data.recipes.filter(publicRecipe).at(-1).id);
   const ranger=recipe('thornwarden');for(const piece of ranger.ingredients)retained(game,piece);state.recipeId=ranger.id;state.status='available';connection.refresh();assert.equal(championCatalogModel(game,data,state).matches.length,1);assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);
   const before=snapshot(game);state.damage='magical';state.ability='critical';state.status='all';connection.refresh();assert.equal(championCatalogModel(game,data,state).matches.length,0);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);assert.equal(snapshot(game),before);connection.dispose();
 });

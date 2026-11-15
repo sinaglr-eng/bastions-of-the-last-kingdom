@@ -20,7 +20,7 @@ function placed(game,pieces){for(const piece of pieces){const index=game.activeD
 
 test('name search is English, case-insensitive and intersects every existing runtime filter',()=>{
   const game=fresh(),state={query:'  baby fire DRAGON ',damage:'magical',ability:'burn',counter:'evasion'},model=championCatalogModel(game,data,state);
-  assert.equal(model.rows.length,38);assert.equal(model.matches.length,1);assert.equal(model.matches[0].name,'Baby Fire Dragon');
+  assert.equal(model.rows.length,37);assert.equal(model.matches.length,1);assert.equal(model.matches[0].name,'Baby Fire Dragon');
   for(const {family,stats}of model.matches)assert.equal(recipeMatches(stats,state,{family}),true);
   assert.equal(championCatalogModel(game,data,{...state,counter:'magic-immunity'}).matches.length,0);
   assert.equal(championCatalogModel(game,data,{query:'<unknown>'}).matches.length,0);
@@ -29,7 +29,7 @@ test('name search is English, case-insensitive and intersects every existing run
 
 test('catalog keeps the three direct filters and basic guide while removed search and help blocks stay absent',()=>{
   const html=championCatalogMarkup(fresh(),data,{});
-  assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,38);assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);
+  assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,37);assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);
   assert.equal((html.match(/data-recipe-filter="/g)||[]).length,3);assert.doesNotMatch(html,/data-catalog-search|catalog-filter-tools|Filter options|How filters work|data-recipe-filter-reset|How recipes work/);
   assert.match(html,/<div class="catalog-basics-view" hidden>/);assert.equal((html.match(/compact-recipe-detail/g)||[]).length,0);
   for(const state of [{},{view:'basics'},{recipeId:'frostblade'}]){
@@ -39,7 +39,7 @@ test('catalog keeps the three direct filters and basic guide while removed searc
 
 test('recipe rows and selected profile expose the canonical classification as a visible badge',()=>{
   const game=fresh(),html=championCatalogMarkup(game,data,{}, {state:{recipeId:'highking'}});
-  for(const [family,classification]of [['rimewatch','Basic'],['frostblade','Intermediate'],['highking','Advanced'],['crownofages','TOP'],['ladyclaire','Secret']]){
+  for(const [family,classification]of [['rimewatch','Basic'],['frostblade','Intermediate'],['highking','Advanced'],['crownofages','TOP']]){
     const row=html.split(`data-catalog-recipe="${family}"`)[1].split('</button>')[0];assert.ok(row.includes(`data-classification="${classification}">${classification}</span>`));
   }
   const detail=html.split('class="recipe-card compact-recipe-detail')[1];assert.match(detail,/class="champion-classification" data-classification="Advanced">Advanced<\/span>/);assert.doesNotMatch(detail,/About Base direct DPS|data-catalog-disclosure="dps:/);
@@ -63,7 +63,7 @@ test('Available status follows Game legality and In progress follows allocated o
 test('reserved and stale candidates cannot count for ordinary or secret recipe progress',()=>{
   const recipe=data.recipes.find(r=>r.currentRoundOnly),game=fresh();placed(game,[...recipe.ingredients,{family:'soldier',tier:2},{family:'soldier',tier:2}]);game.select(game.towers[0].id);assert.equal(game.reserve(),true);
   retained(game,recipe.ingredients[0]);game.towers[1].round--;
-  const row=championCatalogModel(game,data).rows.find(row=>row.recipe.id===recipe.id);assert.deepEqual(row.counts,{built:0,draft:1,missing:2});assert.equal(row.available,false);
+  const row=championCatalogModel(game,data).rows.find(row=>row.recipe.id===recipe.id);assert.equal(row,undefined,'Secret recipe remains absent even when ingredients are present');assert.equal(game.availableRecipes().some(r=>r.id===recipe.id),false);
   assert.ok(catalogRecipeInventory(game,recipe).every(t=>t.state==='draft'&&t.round===game.round));
 });
 
@@ -164,7 +164,7 @@ test('the pinned bookmark opens its champion page from Basic defenders without c
   const bookmark=catalog.querySelector('.catalog-bookmark').querySelector('[data-catalog-ingredient]');catalog.dispatch('click',bookmark);
   assert.equal(state.view,'champions');assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('.catalog-champions-view').hidden,false);assert.equal(catalog.querySelector('.catalog-basics-view').hidden,true);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
   assert.equal(state.query,'');assert.equal(state.damage,'holy');assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
-  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,championCatalogModel(game,data,state).matches.length+' of 38 champions match');
+  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,championCatalogModel(game,data,state).matches.length+' of 37 champions match');
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 

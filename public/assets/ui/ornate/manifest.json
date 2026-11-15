@@ -1,0 +1,384 @@
+{
+  "title": "Forged Alliances ornamental UI artwork",
+  "version": "ornate-ui-20261115",
+  "generationMode": "built-in image_gen",
+  "reference": "assets/ui/account-progression/alliance-logo-original.webp",
+  "prompts": "artifacts/ornate-ui/prompts.json",
+  "assets": [
+    {
+      "key": "medal",
+      "path": "assets/ui/ornate/medal.webp",
+      "size": [
+        320,
+        320
+      ],
+      "bytes": 33794,
+      "sha256": "1d2900224b3c715272854c02f251585327ff975a7cd83a5309d6d3dc0ada6a4c",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/medal-original.png",
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ]
+    },
+    {
+      "key": "commander-portrait",
+      "path": "assets/ui/ornate/commander-portrait.webp",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 81428,
+      "sha256": "443c19a73ec1356aced4e9a57b531b380646c115eff475277a77edc2dbc26637",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/commander-portrait-original.png",
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ]
+    },
+    {
+      "key": "wave",
+      "path": "assets/ui/ornate/wave.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 17602,
+      "sha256": "1e1d5ee9bcc5d4bdf67a9d51ed4d1276d9a14b99e3e6ec362c0af447ed518470",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        0,
+        0,
+        362,
+        362
+      ]
+    },
+    {
+      "key": "keep-health",
+      "path": "assets/ui/ornate/keep-health.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 20260,
+      "sha256": "4bac4b87e94553473946248a1c195197949de3799e4cef8f586710cc2a5dfaf0",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        362,
+        0,
+        724,
+        362
+      ]
+    },
+    {
+      "key": "gold",
+      "path": "assets/ui/ornate/gold.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 19050,
+      "sha256": "11c5f0e8aaace88e6655a95f9979fd6ff07a7a260498ff2e3ef71ef6b74ff0e0",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        724,
+        0,
+        1086,
+        362
+      ]
+    },
+    {
+      "key": "command-points",
+      "path": "assets/ui/ornate/command-points.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 19318,
+      "sha256": "e96d8f5a0f60dc5282e1d5ebbb51c0455de49066ecd60eebfc3199720a38f208",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        1086,
+        0,
+        1448,
+        362
+      ]
+    },
+    {
+      "key": "time",
+      "path": "assets/ui/ornate/time.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 17602,
+      "sha256": "c1963e133c6a03bec03e094f8112ca5605de9d3ae0fd1c382a1041702a916eb6",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        0,
+        362,
+        362,
+        724
+      ]
+    },
+    {
+      "key": "commander",
+      "path": "assets/ui/ornate/commander.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 17622,
+      "sha256": "d313f9066c8bab5e7a345ebe4cc2172051fecee2f3db89dcb5c0ed99ca240061",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        362,
+        362,
+        724,
+        724
+      ]
+    },
+    {
+      "key": "recipes",
+      "path": "assets/ui/ornate/recipes.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 14526,
+      "sha256": "f61745e4afcdbd27dde20134eda18719f30199e7679f15569792245e33b78989",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        724,
+        362,
+        1086,
+        724
+      ]
+    },
+    {
+      "key": "enemy-waves",
+      "path": "assets/ui/ornate/enemy-waves.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 19702,
+      "sha256": "92fbcce90e8ea6223f615989052c2139e15bc6ad127a3f5c03fbe849aaaa55f8",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        1086,
+        362,
+        1448,
+        724
+      ]
+    },
+    {
+      "key": "sound",
+      "path": "assets/ui/ornate/sound.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 15754,
+      "sha256": "070c8509adee4e1a978555649b63dde47d8b9146b02f184e2c11651ae44079f2",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        0,
+        724,
+        362,
+        1086
+      ]
+    },
+    {
+      "key": "settings",
+      "path": "assets/ui/ornate/settings.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 19130,
+      "sha256": "7d89528fa3a2431f06a36299534c3b9e1202f5afaa8f185c725076793c6e5541",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        362,
+        724,
+        724,
+        1086
+      ]
+    },
+    {
+      "key": "champions",
+      "path": "assets/ui/ornate/champions.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 16738,
+      "sha256": "302115485ec414ca7ff80b118f8ecd4d6e250537c63f05b43cdc8d0cfe2f6109",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        724,
+        724,
+        1086,
+        1086
+      ]
+    },
+    {
+      "key": "basic-defenders",
+      "path": "assets/ui/ornate/basic-defenders.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 14892,
+      "sha256": "33420abd21abc282b57a587e0520815d9386912aad7bd1111a8aa981913f45f1",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/hud-atlas-original.png",
+      "crop": [
+        1086,
+        724,
+        1448,
+        1086
+      ]
+    },
+    {
+      "key": "faction-human",
+      "path": "assets/ui/ornate/faction-human.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 20044,
+      "sha256": "3a79ae1dc13514f7c880367fe2da64605c672acd9241c69634dc92681989866a",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/faction-strip-original.png",
+      "crop": [
+        0,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "key": "faction-dwarves",
+      "path": "assets/ui/ornate/faction-dwarves.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 8206,
+      "sha256": "02573c7b9cf14fd0bed4958d40256ac409d3231eac8cdf38abce9499eae4accd",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/faction-strip-original.png",
+      "crop": [
+        724,
+        0,
+        1448,
+        724
+      ]
+    },
+    {
+      "key": "faction-elves",
+      "path": "assets/ui/ornate/faction-elves.webp",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 12708,
+      "sha256": "1f8ac46fd413e08935f6647839b191be4c2f3b1458d2c99c0c873f416b4253ee",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/faction-strip-original.png",
+      "crop": [
+        1448,
+        0,
+        2172,
+        724
+      ]
+    }
+  ],
+  "originals": [
+    {
+      "path": "artifacts/ornate-ui/medal-original.png",
+      "sha256": "5417352af8a4e0805f2a7f5663a7349cbd7a1e9c1fbde8a6f817bded983b7736"
+    },
+    {
+      "path": "artifacts/ornate-ui/hud-atlas-original.png",
+      "sha256": "468d9323480dcd062189d2744560576d29932ce0f1f83d0f516aa25964efaf5e"
+    },
+    {
+      "path": "artifacts/ornate-ui/commander-portrait-original.png",
+      "sha256": "e2671303a60eb88deb96f3e7ee990a22a4de2ebdf42f26c9e78179cc00bbf3bf"
+    },
+    {
+      "path": "artifacts/ornate-ui/faction-strip-original.png",
+      "sha256": "b937f0eff88b51f8fc2d8ccd96f703f7227029df35b53b8a797f09e254728105"
+    }
+  ]
+}

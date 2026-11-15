@@ -6,8 +6,9 @@
     <linearGradient id="fold" x2="1" y2="0"><stop stop-color="#8a6a3a" stop-opacity="0"/><stop offset=".43" stop-color="#947747" stop-opacity=".23"/><stop offset=".5" stop-color="#6f502b" stop-opacity=".47"/><stop offset=".59" stop-color="#fffaf0" stop-opacity=".5"/><stop offset="1" stop-color="#fffaf0" stop-opacity="0"/></linearGradient>
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".64" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".035"/></feComponentTransfer></filter>
     <clipPath id="pages"><path d="M24 27Q360 9 700 35Q1040 9 1376 27L1381 680Q1035 664 700 691Q365 664 19 680Z"/></clipPath>
-    <g id="corner" fill="none" stroke="#b59051" stroke-width="2">
-      <path d="M20 62V29Q20 20 31 20H65M26 57V32H58M30 28C45 42 49 19 38 21C31 23 39 33 47 29M23 42L29 47L35 41M35 24L40 30L46 24"/>
+    <g id="corner" fill="none" stroke="#a77f41" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M38 72V42Q38 36 45 36H82M44 68V43H76"/>
+      <path d="M48 44Q58 58 68 44M44 56Q53 47 62 56M50 38l5 5-5 5-5-5Z" fill="#dbc18a"/>
     </g>
   </defs>
   <path d="M16 16Q360 1 700 26Q1040 1 1384 16L1394 695Q1040 682 700 707Q360 682 6 695Z" fill="url(#cover)" stroke="#51391e" stroke-width="3"/>

@@ -1,3 +1,4 @@
+import {siteUrl} from '../game/site-url.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {progressionArtwork,escapeProgression as esc} from './progression-art.js';
@@ -18,8 +19,8 @@ export function generalCommandState(game,slot='A'){
 }
 export function generalControlsMarkup(game,slot='A'){
  const rows=generalCommandState(game,slot);
- if(!rows.length)return `<div class="general-command-empty"><img src="${progressionArtwork('field-logistics')}" alt="General command crest" width="80" height="80"><h2>${game?.developerMode?'Developer Mode':'No skills equipped'}</h2><p>${game?.developerMode?'General account abilities are unavailable in Developer Mode.':'Unlock and equip skills in Main Menu → General before starting a new game.'}</p><small>Your saved run keeps its original loadout.</small></div>`;
- return `<header class="general-panel-heading"><div><span>Field command</span><h2>Your general</h2></div><strong><span data-general-cp>${game.commandPoints.value}</span> CP</strong></header><div class="general-command-skills">${rows.map(row=>{
+ if(!rows.length)return `<div class="general-command-empty"><img src="${siteUrl('assets/ui/ornate/commander-portrait.webp')}" alt="Commander crest" width="80" height="80"><h2>${game?.developerMode?'Developer Mode':'No skills equipped'}</h2><p>${game?.developerMode?'Commander account abilities are unavailable in Developer Mode.':'Unlock and equip skills in Home → Commander before starting a new game.'}</p><small>Your saved run keeps its original loadout.</small></div>`;
+ return `<header class="general-panel-heading"><div><span>Field command</span><h2>Your commander</h2></div><strong><span data-general-cp>${game.commandPoints.value}</span> CP</strong></header><div class="general-command-skills">${rows.map(row=>{
   const skill=GENERAL_SKILLS[row.id];
   return `<article class="general-command-skill" data-command-skill="${row.id}"><div class="general-command-skill-heading"><img src="${progressionArtwork(row.id)}" width="54" height="54" alt=""><div><h3>${skill.name} <span>${rankLabel(row.level)}</span></h3><p data-command-detail>${esc(row.detail)}</p></div></div>${skill.kind==='focus'?`<label class="general-focus-label">Recruitment class<select id="general-focus" aria-label="Recruitment Focus class">${'ABCDEFGH'.split('').map(code=>`<option ${code===slot?'selected':''}>${code}</option>`).join('')}</select></label>`:''}${row.action?`<button type="button" data-action="${row.action}" ${row.action==='general-skill'?`data-skill="${row.id}"`:''} ${row.action==='deep-refit'?`data-tower-id="${row.towerId}"`:''} ${row.disabled?'disabled':''}><span data-command-label>${esc(row.label)}</span></button>`:`<p class="general-passive-label" data-command-label>${row.label}</p>`}<div class="general-active-timer" ${row.remaining>0?'':'hidden'}><i style="width:${Math.min(100,(row.progress||0)*100)}%"></i></div></article>`;
  }).join('')}</div><p class="general-panel-note">Active effects use combat time. Pausing freezes their remaining duration.</p>`;
