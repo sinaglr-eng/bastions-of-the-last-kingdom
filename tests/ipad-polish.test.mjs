@@ -32,5 +32,5 @@ test('unlocked notice is a single discreet acknowledgement, never a claim action
  const n=Object.create(AchievementNotices.prototype);Object.assign(n,{player:{user:{id:'fixture'},profile:{}},owner:'fixture:initial',seen:new Set(),queue:[],current:null,root:{innerHTML:''},resume(){},timer:null});
  n.push({type:'pending',rows:[{id:'boss:crown:host_10',reward:2}]});assert.match(n.root.innerHTML,/ACHIEVEMENT UNLOCKED/);assert.doesNotMatch(n.root.innerHTML,/Claim reward|data-notice-claim|data-notice-view/);
  n.push({type:'ready',rows:[{id:'boss:crown:host_10',reward:2}]});assert.equal(n.queue.length,0,'Verification must not duplicate the pending notification');
- n.push({type:'claimed',id:'boss:crown:host_10',reward:2});assert.equal(n.queue.length,0);assert.equal(n.remaining,4500);
+ n.push({type:'claimed',id:'boss:crown:host_10',reward:2});assert.equal(n.queue.length,0);assert.equal(n.remaining,4500);n.current=null;n.push({type:'summary',count:1});assert.match(n.root.innerHTML,/>1 achievement<\/h2>/);assert.doesNotMatch(n.root.innerHTML,/1 achievements/);
 });
