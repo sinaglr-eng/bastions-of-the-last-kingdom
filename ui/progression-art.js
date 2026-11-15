@@ -36,4 +36,4 @@ export function achievementArtwork(achievement,data,reveal=false){
  return progressionArtwork(achievement.kind,achievement.kind==='mastery'?'':achievement.kind==='campaign'?'50':achievement.target);
 }
 export const medalIcon=(className='')=>`<img class="medal-icon ${className}" src="${siteUrl('assets/ui/ornate/medal.webp')}" alt="" aria-hidden="true" width="64" height="64">`;
-export const medalAmount=(amount,label='medals')=>`<span class="medal-amount">${medalIcon()}<span><b>${BigInt(amount||0).toLocaleString('en-US')}</b> ${label}</span></span>`;
+export const medalAmount=(amount,label='medals')=>`<span class="medal-amount" aria-label="${BigInt(amount||0).toLocaleString('en-US')} ${BigInt(amount||0)===1n?'medal':'medals'}">${medalIcon()}<span><b>${BigInt(amount||0).toLocaleString('en-US')}</b> ${label}</span></span>`;
