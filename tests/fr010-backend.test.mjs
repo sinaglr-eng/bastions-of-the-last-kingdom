@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {IDBFactory} from 'fake-indexeddb';
+import {RunStore} from '../game/run-store.js';
+import {PlayerClient} from '../game/player-client.js';
 import {generateKeyPair,exportJWK,SignJWT} from 'jose';
 import worker from '../backend/worker.js';
 import {sqliteDatabase} from '../backend/sqlite-adapter.js';
@@ -9,6 +12,17 @@ import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
 
 const base='http://127.0.0.1:4174';
+test('XP recovery replays an offline final tick through the real Worker after closing the client, then settles exactly once',async()=>{
+ const f=fixture(),storage=new RunStore({indexedDB:new IDBFactory()});try{
+  const a=await f.account(),created=(await f.call('/api/player/runs',{factionId:'crown'},a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),created.snapshot);
+  g.round=38;g.completedWaves=37;g.progress.highestWave=37;g.progress.bosses=new Set(['host_10','host_20','host_30']);g.progress.bossKills=3;g.phase='ready';g.lives=1;g.startCombat();g.combat.spawnQueue=[];const enemy=g.combat.spawn('host_01');enemy.pathIndex=enemy.route.length;g.journal=[];
+  f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=?,highest_wave=37,progress_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),JSON.stringify({bosses:[...g.progress.bosses]}),g.runId);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=190 WHERE user_id=?').run(a.user.id);
+  g.advanceTicks(1,{record:true});assert.equal(g.phase,'lost');const offline=new PlayerClient({store:storage,fetcher:async()=>{throw Error('Offline');}});offline.user=a.user;offline.profile={revision:0,xpTotal:190};await offline.attach(g);assert.ok(await storage.batch(g.runId,1));
+  const fetcher=async(url,options={})=>(await f.call(String(url).replace('./api','/api'),options.body?JSON.parse(options.body):null,a.cookie)).r;
+  const returned=new PlayerClient({store:storage,fetcher});await returned.initialize();assert.equal(returned.profile.xpTotal,202);assert.equal(returned.profile.balance,0);assert.equal(returned.profile.grants.length,0);assert.equal(await storage.batch(g.runId,1),null);assert.equal(f.db.sqlite.prepare('SELECT outcome FROM fr010_runs WHERE id=?').get(g.runId).outcome,'lost');
+  const reopened=new PlayerClient({store:storage,fetcher});await reopened.initialize();assert.equal(reopened.profile.xpTotal,202);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM account_xp_receipts').get().n,1);
+ }finally{storage.close();f.db.sqlite.close();}
+});
 import {eligibleChampion} from '../game/core/account-progression.js';
 let fixtureNumber=0;
 function fixture(){

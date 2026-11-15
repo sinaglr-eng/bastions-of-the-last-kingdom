@@ -34,5 +34,5 @@ export function animatePromotion(root,{receipt,owner='guest',storage=globalThis.
 export function showPromotionNotice(receipt,owner){
  if(receipt.levelAfter<=receipt.levelBefore)return;
  const key=seenKey(owner,receipt.receiptId);try{if(localStorage.getItem(key))return;}catch{}
- const root=document.createElement('aside');root.className='account-promotion-notice result-rank-card';root.setAttribute('role','status');root.innerHTML=`<button aria-label="Dismiss promotion">×</button><small>CONGRATULATIONS, COMMANDER!</small><h2>Promoted to ${esc(accountRank(receipt.xpAfter).name)}</h2>${accountBadgeMarkup({xpTotal:receipt.xpAfter},true)}`;document.body.append(root);animatePromotion(root,{receipt,owner});root.querySelector('button').onclick=()=>root.remove();setTimeout(()=>root.remove(),9000);
+ const root=document.createElement('aside');root.className='account-promotion-notice result-rank-card';root.setAttribute('role','status');root.innerHTML=`<button aria-label="Dismiss promotion">×</button><small>CONGRATULATIONS, COMMANDER!</small><h2>Promoted to ${esc(accountRank(receipt.xpAfter).name)}</h2>${accountBadgeMarkup({xpTotal:receipt.xpAfter},true)}`;(document.querySelector('#dialog[open]')||document.body).append(root);animatePromotion(root,{receipt,owner});root.querySelector('button').onclick=()=>root.remove();setTimeout(()=>root.remove(),9000);
 }

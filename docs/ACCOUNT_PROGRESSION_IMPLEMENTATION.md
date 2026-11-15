@@ -8,7 +8,7 @@ Approved brief: `artifacts/alliance-progression-brief/implementation-prompt.txt`
 
 The additive local and generated D1 migrations create account progression, per-run paid prefixes, an immutable XP ledger and durable result receipts. XP/carry and wallet revision use a joined snapshot, revision guards and transactional writes. Campaign settlement is capped at wave 50 using boss first-kill wave evidence; later results pay the unpaid delta. Claims keep exact receipts independently of newer concurrent account updates.
 
-Migration backfills trustworthy server history once, preserves medals/discoveries and permanently records already purchased skill ranks. Missing boss type evidence is diagnosed, never inferred from aggregate kills. Account deletion clears only the owner's records. Offline clients retain their saved command queue and show verification pending until confirmation.
+Migration backfills trustworthy server history once, preserves medals/discoveries and permanently records already purchased skill ranks. Missing boss type evidence is diagnosed, never inferred from aggregate kills. Account deletion clears only the owner's records. Offline clients retain their saved command queue and show verification pending until confirmation. Closed offline results replay their outbox on the next session or connection recovery; a new defense cannot overwrite an unverified ended save.
 
 ## Achievements and skills
 
