@@ -117,3 +117,7 @@
 #app .warbands-atlas .warband-variant-columns{align-items:stretch}
 
 #main-menu .menu-player-wallet{flex-basis:112px;width:112px;min-width:112px}
+
+/* The illustrated Maze Builder emblem is shared with battlefield map tools. */
+.home-maze-emblem{border:0;background:none;box-shadow:none;border-radius:0;flex:none}
+.home-maze-emblem .illustrated-icon{width:100%;height:100%;filter:drop-shadow(0 3px 3px #61452033)}

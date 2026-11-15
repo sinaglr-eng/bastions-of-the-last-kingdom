@@ -1,8 +1,8 @@
 # Ornamental command interface
 
-Current game version: **0.7.0**. Presentation revision: `ornate-command-interface-20261115`.
+Current game version: **0.7.0**. Presentation revision: `maze-builder-icon-20261115`.
 
-The approved parchment, emerald enamel and antique brass style remains the visual foundation. Buttons use real accessible text and native interactions; generated transparent WebP art supplies the illustrations. All 17 assets, original prompt records, source hashes and alpha checks are listed in `public/assets/ui/ornate/manifest.json`. Exact generated originals and prompts are retained locally under `artifacts/ornate-ui/`; the design gallery is neither edited nor published.
+The approved parchment, emerald enamel and antique brass style remains the visual foundation. Buttons use real accessible text and native interactions; generated transparent WebP art supplies the illustrations. All 18 assets, original prompt records, source hashes and alpha checks are listed in `public/assets/ui/ornate/manifest.json`. Exact generated originals and prompts are retained locally under `artifacts/ornate-ui/`; the design gallery is neither edited nor published.
 
 ## Menu and account
 
@@ -10,10 +10,10 @@ The approved parchment, emerald enamel and antique brass style remains the visua
 - The account nickname is above the medal balance. The rank summary is a keyboard-accessible button opening the complete 15-rank roadmap.
 - Human, Dwarves and Elves use the lion, anvil and leaves from the approved alliance crest as matched generated derivatives.
 - Home shows exactly three selected Commander skill slots, actual owned ranks and empty-slot affordances. Editing a slot opens Commander. Guest slots lead to sign-in.
-- The duplicate destination cards are removed. Maze workshop occupies that location.
+- The duplicate destination cards are removed. Maze Builder occupies that location.
 - An empty continuation explicitly says “No saved game”; it does not offer an invented continuation. A valid local or cloud save retains Continue Defense and replacement protection.
 
-## Maze workshop
+## Maze Builder
 
 The menu editor reuses the existing `BlueprintEditor`, 37×37 grid, ordered checkpoint validation and `bastions.blueprints.v1` library. Pointer and touch strokes, draw/erase, keyboard arrows and Space/Delete, Undo/Redo, clear, route preview and a named Save & use action are available. Invalid or over-250-cell plans cannot be saved. Storage errors retain the drawing and do not report a false success. Up to 20 custom plans are stored in this browser; updating an existing plan preserves its ID. Reopening loads the selected custom plan. Selecting another menu tab retains the in-memory drawing.
 

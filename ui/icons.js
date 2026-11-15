@@ -1,5 +1,5 @@
 import {siteUrl} from '../game/site-url.js';
-const illustrated={wave:'wave',shield:'keep-health',coin:'gold',command:'command-points',clock:'time',commander:'commander',book:'recipes',warband:'enemy-waves',sound:'sound',settings:'settings',crown:'champions',basic:'basic-defenders'};
+const illustrated={maze:'maze-builder',wave:'wave',shield:'keep-health',coin:'gold',command:'command-points',clock:'time',commander:'commander',book:'recipes',warband:'enemy-waves',sound:'sound',settings:'settings',crown:'champions',basic:'basic-defenders'};
 const paths={
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
   wave:'<path d="M5 21V3m0 1c5-4 9 4 15 0v10c-6 4-10-4-15 0M2 21h6"/>',

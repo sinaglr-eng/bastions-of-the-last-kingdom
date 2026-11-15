@@ -361,6 +361,22 @@
         2172,
         724
       ]
+    },
+    {
+      "key": "maze-builder",
+      "path": "assets/ui/ornate/maze-builder.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 23178,
+      "sha256": "b338a281d4194363524c03bea660230dc9ee9426f520bf02a1dbcc1c846503b1",
+      "alpha": [
+        0,
+        255
+      ],
+      "sourceOriginal": "artifacts/ornate-ui/maze-builder-original.png",
+      "prompt": "artifacts/ornate-ui/maze-builder-prompt.json"
     }
   ],
   "originals": [
@@ -379,6 +395,10 @@
     {
       "path": "artifacts/ornate-ui/faction-strip-original.png",
       "sha256": "b937f0eff88b51f8fc2d8ccd96f703f7227029df35b53b8a797f09e254728105"
+    },
+    {
+      "path": "artifacts/ornate-ui/maze-builder-original.png",
+      "sha256": "7a3687b473b7bbc5b74a6beae7b38873e55151b430099f12e271d30ddaa94de3"
     }
   ]
 }

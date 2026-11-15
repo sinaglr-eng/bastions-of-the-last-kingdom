@@ -58,7 +58,7 @@ export class MainMenu{
   }else if(page==='general'){
    title='Commander';content=generalView(this.player.profile,!!this.player.user&&this.player.online,{selected:this.selectedSkill,equipped:this.equipmentDraft||this.player.profile?.equipped||[]});
   }else if(page==='maze'){
-   title='Maze workshop';content=mazeEditorMarkup();
+   title='Maze Builder';content=mazeEditorMarkup();
   }else if(page==='achievements'){
    title='Achievements';content=achievementsView(this.player,{faction:this.faction,kind:this.achievementKind,status:this.achievementState,offset:this.offset,focusId:this.focusAchievement});
   }else if(page==='hall'||page==='legacy'){
