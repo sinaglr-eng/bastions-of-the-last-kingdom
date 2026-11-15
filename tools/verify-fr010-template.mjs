@@ -13,6 +13,7 @@ try{
  const registered=await call('/api/auth/sign-up/email',{name:'Template verifier',email:'template@example.test',password:'template-only-test-password',callbackURL:base+'/'});assert.equal(registered.status,200,await registered.text());assert.equal(mail.length,1);
  const verified=await worker.fetch(new Request(mail[0].url,{headers:{Origin:base,'CF-Connecting-IP':'192.0.2.230'}}),env);assert.equal(verified.status,302);const cookie=verified.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');
  const identity=await (await call('/api/player/session',null,cookie)).json();assert.equal(identity.user.name,'Template verifier');
+ assert.equal(db.sqlite.prepare('SELECT COUNT(*) n FROM progression_resets WHERE completed_at>0').get().n,1);assert.ok(identity.profile.progressionEpoch);assert.equal(JSON.parse(db.sqlite.prepare('SELECT scope_json FROM progression_resets').get().scope_json).activeDefenses,'closed');
  const created=await call('/api/player/runs',{factionId:'forge'},cookie);assert.equal(created.status,201);const {run}=await created.json();
  const submitted=await call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[{action:'place',args:[18,18]}]},cookie);assert.equal(submitted.status,200,await submitted.clone().text());assert.equal((await submitted.json()).sequence,1);
  assert.equal((await call('/api/player/active',null,cookie)).status,200);assert.equal((await call('/api/player/hall?faction=forge')).status,200);

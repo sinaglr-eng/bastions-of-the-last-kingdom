@@ -11,7 +11,7 @@ export class AchievementNotices{
  }
  push(event){
   if(!this.player.user)return;
-  if(this.owner!==this.player.user.id){clearTimeout(this.timer);this.timer=null;this.owner=this.player.user.id;this.queue=[];this.current=null;this.root.innerHTML='';this.seen=new Set();try{this.seen=new Set(JSON.parse(localStorage.getItem('war-achievement-notices:'+this.owner)||'[]'));}catch{}}
+  if(this.owner!==this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial')){clearTimeout(this.timer);this.timer=null;this.owner=this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial');this.queue=[];this.current=null;this.root.innerHTML='';this.seen=new Set();try{this.seen=new Set(JSON.parse(localStorage.getItem('war-achievement-notices:'+this.owner)||'[]'));}catch{}}
   if(event.type==='summary'){if(event.count)this.enqueue({type:'summary',count:event.count,key:'summary:'+Date.now()});return;}
   if(event.type==='claimed'){this.enqueue({...event,key:'claimed:'+event.id});return;}
   const rows=event.rows||[],fresh=rows.filter(g=>!this.seen.has(event.type+':'+g.id));

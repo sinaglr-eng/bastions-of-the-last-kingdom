@@ -1,4 +1,5 @@
 import {sql} from 'drizzle-orm';
+export const progressionResets=sqliteTable('progression_resets',{id:text('id').primaryKey().notNull(),completedAt:integer('completed_at').notNull().default(0),scopeJson:text('scope_json').notNull()});
 import {sqliteTable,text,integer,index,primaryKey,uniqueIndex,check} from 'drizzle-orm/sqlite-core';
 export const runs=sqliteTable('runs',{
   id:text('id').primaryKey().notNull(),tokenHash:text('token_hash').notNull(),version:text('version').notNull(),mode:integer('mode').notNull(),seed:text('seed').notNull(),startedAt:integer('started_at').notNull(),updatedAt:integer('updated_at').notNull(),finishedAt:integer('finished_at'),sequence:integer('sequence').notNull().default(0),outcome:text('outcome').notNull().default('playing'),score:integer('score').notNull().default(0),wavesSurvived:integer('waves_survived').notNull().default(0),durationMs:integer('duration_ms').notNull().default(0),health:integer('health').notNull().default(30),kingdomLevel:integer('kingdom_level').notNull().default(1),gold:integer('gold').notNull().default(0),name:text('name'),summaryJson:text('summary_json').notNull().default('{"draws":[],"decisions":[]}')

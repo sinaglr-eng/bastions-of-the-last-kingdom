@@ -1,9 +1,9 @@
 import {siteUrl} from '../game/site-url.js';
 
-export const ACCOUNT_PROGRESSION_ART_REVISION='account-progression-art-20261115';
+export const ACCOUNT_PROGRESSION_ART_REVISION='account-progression-art-20261115-reference-raster';
 const BASE='assets/ui/account-progression/';
 const names=Object.freeze(['Peasant','Militia','Recruit','Footman','Soldier','Veteran','Sergeant','Lieutenant','Captain','Major','Colonel','Commander','General','Marshal','King']);
-export const ACCOUNT_RANK_ART=Object.freeze(names.map((name,index)=>Object.freeze({level:index+1,id:name.toLowerCase(),name,path:BASE+'rank-'+name.toLowerCase()+'.svg',alt:name+' rank badge'})));
+export const ACCOUNT_RANK_ART=Object.freeze(names.map((name,index)=>Object.freeze({level:index+1,id:name.toLowerCase(),name,path:BASE+'rank-'+name.toLowerCase()+'.webp',vectorPath:BASE+'rank-'+name.toLowerCase()+'.svg',width:512,height:512,alt:name+' rank badge'})));
 export const ALLIANCE_LOGO_ART=Object.freeze({
  wide:BASE+'alliance-logo-original.webp',
  original:BASE+'alliance-logo-original.png',

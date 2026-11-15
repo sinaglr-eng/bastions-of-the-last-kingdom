@@ -1,6 +1,6 @@
 {
-  "revision": "account-progression-art-20261115",
-  "status": "Approved design implemented as production SVG artwork",
+  "revision": "account-progression-art-20261115-reference-raster",
+  "status": "Approved rank motifs implemented as reference-faithful generated painterly transparent artwork; all fifteen visually verified",
   "logo": {
     "original": "alliance-logo-original.png",
     "recommendedHorizontal": "alliance-logo-original.webp",
@@ -24,106 +24,181 @@
       "level": 1,
       "id": "peasant",
       "name": "Peasant",
-      "path": "rank-peasant.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-peasant.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-peasant.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-peasant.png",
+      "originalSha256": "81f69299c59259e7107a713c81380b75bfc899380b61503d54193899bbfd01ea",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 2,
       "id": "militia",
       "name": "Militia",
-      "path": "rank-militia.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-militia.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-militia.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-militia.png",
+      "originalSha256": "9e6c7f43294e149f1503ae4f3ce12199a97bd812cea4df140b601e3f08b6e650",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 3,
       "id": "recruit",
       "name": "Recruit",
-      "path": "rank-recruit.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-recruit.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-recruit.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-recruit.png",
+      "originalSha256": "8f6fedbfb7ca1a011101669b5ddf2642e4e621ab678135f7c89c71de3c780185",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 4,
       "id": "footman",
       "name": "Footman",
-      "path": "rank-footman.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-footman.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-footman.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-footman.png",
+      "originalSha256": "5404889a12a776e2cac00075fc63059380cda3731695f93abfd6dc1eeb124706",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 5,
       "id": "soldier",
       "name": "Soldier",
-      "path": "rank-soldier.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-soldier.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-soldier.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-soldier.png",
+      "originalSha256": "e97378bf50515cab1f52ccd9960566c3900737231795571b1ad75f7663d60d89",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 6,
       "id": "veteran",
       "name": "Veteran",
-      "path": "rank-veteran.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-veteran.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-veteran.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-veteran.png",
+      "originalSha256": "c8095ad11c8d964d0e57fb8f2c5f2fdf171203aa8ece8ea40aed9dcec2f10774",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 7,
       "id": "sergeant",
       "name": "Sergeant",
-      "path": "rank-sergeant.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-sergeant.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-sergeant.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-sergeant.png",
+      "originalSha256": "22de65573dc3ce8a7bc8b009123ecd170df91da8e7503eaae114b9df5d224920",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 8,
       "id": "lieutenant",
       "name": "Lieutenant",
-      "path": "rank-lieutenant.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-lieutenant.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-lieutenant.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-lieutenant.png",
+      "originalSha256": "fd7c33f68bd6e823f96b1f439f2492ba6566185346997a20ec21baa18a49d9cb",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 9,
       "id": "captain",
       "name": "Captain",
-      "path": "rank-captain.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-captain.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-captain.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-captain.png",
+      "originalSha256": "452b0e95954a6872f19cd2bf9d12785bcd6f34952913f46036a4af87edc515d6",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 10,
       "id": "major",
       "name": "Major",
-      "path": "rank-major.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-major.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-major.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-major.png",
+      "originalSha256": "d414befe83ac8169020d87e6fa918cb79f54f4aa1db9f33056ec52f537d6c70d",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 11,
       "id": "colonel",
       "name": "Colonel",
-      "path": "rank-colonel.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-colonel.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-colonel.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-colonel.png",
+      "originalSha256": "5c15b68b4fd43dfd36f1464516580d252d8036f02c2f9855b8b650e709be49c7",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 12,
       "id": "commander",
       "name": "Commander",
-      "path": "rank-commander.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-commander.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-commander.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-commander.png",
+      "originalSha256": "161a77bdfaae53ae6c230dbd0dd1040e7dfa7905fdccfd502d218d940eeeabe5",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 13,
       "id": "general",
       "name": "General",
-      "path": "rank-general.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-general.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-general.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-general.png",
+      "originalSha256": "b6cf43004c181ee814b43f40e62557ee5ae40eabbc878cfb1e7327aa76dacc95",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 14,
       "id": "marshal",
       "name": "Marshal",
-      "path": "rank-marshal.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-marshal.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-marshal.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-marshal.png",
+      "originalSha256": "c0e3e4eec61fe5f75da8692850253de10c5809a1b64aaae722add9a3a71be832",
+      "width": 512,
+      "height": 512
     },
     {
       "level": 15,
       "id": "king",
       "name": "King",
-      "path": "rank-king.svg",
-      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png"
+      "path": "rank-king.webp",
+      "source": "artifacts/commander-ranks-concept/rank-progression-updated.png",
+      "vectorFallback": "rank-king.svg",
+      "original": "artifacts/alliance-progression-brief/rank-originals/rank-king.png",
+      "originalSha256": "569b3c9293619a8780dcd3862955fb4b8b0b3515684206863ce59dc8d46f3ebc",
+      "width": 512,
+      "height": 512
     }
   ],
   "outcomes": {
@@ -134,7 +209,10 @@
     "All SVG files contain actual vector geometry; no embedded raster image.",
     "Rank motifs match the approved sequence. Text and Level values belong in live HTML.",
     "Approved original logo PNG is copied verbatim; WebP is a format-only runtime conversion.",
-    "SVG crest is an optically simplified vector counterpart for smaller sizes; the original horizontal artwork remains the visual reference."
-  ]
+    "SVG crest is an optically simplified vector counterpart for smaller sizes; the original horizontal artwork remains the visual reference.",
+    "Default rank runtime artwork is the generated painterly WebP. SVG geometry remains as optional compact fallback. Exact generated PNG rank originals remain local outside public and are not part of the hosted runtime/source publication."
+  ],
+  "rankPrompts": "generated-rank-prompts.json",
+  "rankVerification": "artifacts/alliance-progression-brief/rank-originals/verification.json",
+  "rankComparison": "artifacts/alliance-progression-brief/rank-originals/rank-comparison.png"
 }
-

@@ -24,6 +24,18 @@ Menu and General show rank, level, interval progress and the next skill mileston
 
 Confirmed receipts drive bounded animations and one promotion celebration, with event deduplication, skip and reduced-motion support. Effects never consume combat RNG. Mobile layouts preserve readable type, usable actions and no horizontal page overflow.
 
+## Approved fresh start on 2026-11-15
+
+The operator subsequently approved a full reset for every player: achievements, eligibility, medals, account XP, skills and permanent legacy unlocks are cleared; all active defenses are closed. Identities, Google sign-in, historical score strings and completed leaderboard records remain. This explicit reset supersedes the earlier migration preservation for progression rewards and skills.
+
+`backend/progression-reset.js` applies the authorized identity `20261115-approved-fresh-start` once in one transaction. A schema-only migration adds its completion/audit record. Repeated requests cannot reset newly earned rewards. Historical paid-prefix tombstones and a database guard prevent a previous in-flight Worker from re-crediting pre-reset XP. Old run command/result requests are rejected, and old history cannot refill achievement eligibility, discoveries or XP through backfill.
+
+Session/profile responses expose the reset epoch. Clients clear obsolete account and guest continuations plus their command outboxes before recovery, and preserve valid new-epoch saves offline using the cached epoch. Achievement notice identities include the epoch so newly earned rewards can be announced again. Do not change the one-time reset identity without a new explicit operator instruction.
+
+## Reference-faithful badges
+
+All fifteen rank motifs were compared against the approved reference. The original vectors matched the symbols but lacked the reference's painterly embossed material. Each badge now has a separately generated, transparent 512px WebP runtime export; all fifteen total approximately 1.06 MB. Exact PNG originals, hashes, prompts and the 112px/48px comparison sheet remain local. Vector fallbacks remain actual SVG paths. The approved alliance logo is unchanged.
+
 ## Publication boundary
 
 Only current game source, approved runtime UI assets and the account Worker are published. The gallery and source/model binaries remain local. Tests use isolated loopback/in-memory accounts; no synthetic accounts, scores or reward fixtures are written to production.

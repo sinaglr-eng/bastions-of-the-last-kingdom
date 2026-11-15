@@ -1,3 +1,6 @@
+import {verifiedRunProgress} from './verified-run-progress.js';
+export {verifiedRunProgress} from './verified-run-progress.js';
+import {currentRunEpoch} from './progression-reset.js';
 import {accountRank,achievementXP,BOSS_XP,newlyAvailableSkills} from '../game/core/account-progression.js';
 import {achievementCatalog,streakAchievement} from '../game/core/achievements.js';
 import {currentFactionData} from '../game/core/current-data.js';
@@ -10,15 +13,6 @@ export function activeAchievement(id){
  let row=achievementCatalog(data).find(a=>a.id===id);
  if(!row&&/^streak:(crown|forge|grove):[1-9]\d*$/.test(id)){const n=Number(id.split(':')[2]);if(Number.isSafeInteger(n)&&n%10===0)row=streakAchievement(f,n/10);}
  return row?{...row,xp:achievementXP(data,id)}:null;
-}
-// Read only verified scalar progress from saved graphs; never infer boss type
-// from an aggregate kill count or the largest wave number.
-export function verifiedRunProgress(run){
- const summary=parse(run.progress_json,{}),snapshot=parse(run.snapshot_json,{}),graph=snapshot.graph;
- const root=graph?.nodes?.[graph?.root?.r]?.value||{},node=ref=>graph?.nodes?.[ref?.r]?.value;
- const game=node(root.game)||{},progress=node(root.progress)||{};
- const bosses=Array.isArray(summary.bosses)?summary.bosses:node(progress.bosses)||[];
- return {waves:Math.max(0,Number.isSafeInteger(run.highest_wave)?run.highest_wave:0),bosses:[...new Set(bosses.filter(id=>Object.hasOwn(BOSS_XP,id)))],bossWaves:summary.bossWaves||node(progress.bossWaves)||{},excluded:run.outcome==='developer'||game.developerMode===true,missingBossEvidence:!Array.isArray(summary.bosses)&&!Array.isArray(node(progress.bosses))&&(summary.bossKills||0)>0};
 }
 export async function ensureAccountProgression(db,user){
  await db.prepare('INSERT OR IGNORE INTO account_progression(user_id) VALUES (?)').bind(user).run();
@@ -45,7 +39,7 @@ export async function settleRunExperience(db,user,runId,kind){
  for(let attempt=0;attempt<6;attempt++){
   const prior=await db.prepare('SELECT receipt_json,acknowledged FROM account_xp_receipts WHERE user_id=? AND receipt_id=?').bind(user,receiptId).first();if(prior)return {...parse(prior.receipt_json,{}),acknowledged:!!prior.acknowledged};
   const run=await db.prepare('SELECT * FROM fr010_runs WHERE user_id=? AND id=?').bind(user,runId).first();if(!run)throw Object.assign(Error('Run not found.'),{status:404});
-  const v=verifiedRunProgress(run);if(v.excluded)throw Object.assign(Error('Progression unavailable in this mode.'),{status:400});
+  const v=verifiedRunProgress(run);if(!await currentRunEpoch(db,run))throw Object.assign(Error('Account progress reset. Start a new defense.'),{status:409});if(v.excluded)throw Object.assign(Error('Progression unavailable in this mode.'),{status:400});
   if(kind==='campaign'?v.waves<50:!['lost','won','abandoned'].includes(run.outcome))throw Object.assign(Error('The result has not been verified yet.'),{status:409});
   await ensureAccountProgression(db,user);
   const state=await db.prepare('SELECT a.*,p.revision FROM account_progression a JOIN fr010_profiles p ON p.user_id=a.user_id WHERE a.user_id=?').bind(user).first(),p={revision:state.revision};
