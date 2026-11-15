@@ -10,6 +10,15 @@ export function skillEffect(id,level){
  if(id==='quartermaster')return `+${n.toLocaleString('en-US')} gold`;
  return `${id==='war-horn'?'−':'+'}${Math.round(n*100)}%`;
 }
+export function skillSummary(id,level=1){
+ const value=GENERAL_SKILLS[id]?.values[Math.max(1,level)-1];
+ return ({'deep-refit':`Lower a new recruit by 2 ranks and keep it · ${value} gold.`,
+ 'recruitment-focus':`Favour one class by ${Math.round(value*100)} percentage points in the next draft · 1 CP.`,
+ 'field-logistics':`Start your next defense with ${value} extra CP.`,quartermaster:`Start your next defense with ${Number(value).toLocaleString('en-US')} extra gold.`,
+ 'morale-boost':`All defenders gain ${Math.round(value*100)}% attack speed for 20s · 3 CP.`,
+ 'war-horn':`Slow all enemies by ${Math.round(value*100)}% for 20s · 3 CP.`,
+ 'blood-wrath':`All defenders gain ${Math.round(value*100)}% damage for 20s · 3 CP.`})[id]||'';
+}
 export function generalLoadoutMarkup(skills,equipped){
  return Array.from({length:3},(_,index)=>{const id=equipped[index],s=GENERAL_SKILLS[id];return s?`<div class="general-loadout-slot is-filled"><img src="${progressionArtwork(id)}" alt="" width="60" height="60"><span><strong>${s.name}</strong><small>Rank ${rankLabel(skills[id])} · ${skillEffect(id,skills[id])}</small></span></div>`:`<div class="general-loadout-slot"><span class="loadout-slot-number">0${index+1}</span><span><strong>Open slot</strong><small>Equip an unlocked skill</small></span></div>`;}).join('');
 }

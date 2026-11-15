@@ -23,9 +23,9 @@ test('CP appears only at the first legal relevant action and dismissal/restorati
   }finally{h.dispose();}
 });
 
-test('actual first wave MVP event offers a short tip without changing the award, and later awards do not repeat acknowledged guidance',()=>{
+test('MVP awards remain unchanged without an automatic first-MVP popup',()=>{
   const h=harness({seen:['placement','cp']});try{
-    h.place();h.game.select(h.game.roundCandidates[0].tower.id);h.game.keep();const tower=h.game.selection;h.game.startCombat();const enemy=h.game.combat.spawn('host_01',{variant:{hp:10000,armor:0}});h.game.combat.damage(enemy,10,'physical',{directHit:true},tower);assert.equal(h.guidance.model(h.game),null);h.game.completeWave();assert.equal(tower.mvpLevel,1);assert.equal(h.game.phase,'build');const model=h.guidance.model(h.game);assert.equal(model.id,'mvp');assert.match(model.summary,/earned an MVP level for actual damage/);assert.ok(model.summary.includes(data.towers[tower.family].name));assert.equal(h.guidance.dismiss('mvp'),true);assert.equal(tower.mvpLevel,1);
+    h.place();h.game.select(h.game.roundCandidates[0].tower.id);h.game.keep();const tower=h.game.selection;h.game.startCombat();const enemy=h.game.combat.spawn('host_01',{variant:{hp:10000,armor:0}});h.game.combat.damage(enemy,10,'physical',{directHit:true},tower);assert.equal(h.guidance.model(h.game),null);h.game.completeWave();assert.equal(tower.mvpLevel,1);assert.equal(h.game.phase,'build');assert.equal(h.guidance.model(h.game),null);assert.equal(tower.mvpLevel,1);
     h.game.emit('mvp-awarded',{tower,level:2,damage:10,round:2});assert.equal(h.guidance.model(h.game),null);h.game.end(false);assert.equal(h.guidance.model(h.game),null);
   }finally{h.dispose();}
 });

@@ -1,7 +1,8 @@
 import {eligibleChampion,achievementXP} from './account-progression.js';
+export const championMedalReward=unit=>unit?.classification?.toLowerCase()==='top'?3:1;
 export const BOSS_TYPES=Object.freeze(['host_10','host_20','host_30','host_40','host_50']);
 export function achievementCatalog(data,progress=null){
- const f=data.factionId,rows=Object.entries(data.towers).filter(([,u])=>eligibleChampion(u)).map(([id,u])=>({id:`champion:${f}:${id}`,factionId:f,kind:'champion',name:u.classification?.toLowerCase()==='secret'?'Secret champion':u.name,secret:u.classification?.toLowerCase()==='secret',description:'Forge this champion in a legal run.',reward:1,target:1}));
+ const f=data.factionId,rows=Object.entries(data.towers).filter(([,u])=>eligibleChampion(u)).map(([id,u])=>({id:`champion:${f}:${id}`,factionId:f,kind:'champion',name:u.classification?.toLowerCase()==='secret'?'Secret champion':u.name,secret:u.classification?.toLowerCase()==='secret',description:'Forge this champion in a legal run.',reward:championMedalReward(u),target:1}));
  for(const id of BOSS_TYPES)rows.push({id:`boss:${f}:${id}`,factionId:f,kind:'boss',name:data.enemies[id]?.name||id,description:'Defeat this boss.',reward:2,target:1});
  for(const [target,reward]of [[5,2],[15,4],[30,8]])rows.push({id:`collection:${f}:${target}`,factionId:f,kind:'collection',name:`Forge ${target} different champions`,reward,target});
  rows.push({id:`mythic:${f}`,factionId:f,kind:'mastery',name:'First rank VI',description:'Merge two fresh rank-V recruits.',reward:2,target:1},{id:`campaign:${f}`,factionId:f,kind:'campaign',name:'Hold the kingdom',description:'Defeat wave 50.',reward:5,target:1},{id:`boss-collection:${f}`,factionId:f,kind:'boss',name:'All five warlords',description:'Defeat all five original bosses.',reward:5,target:5});
@@ -24,7 +25,7 @@ export class RunProgress{
  }
  grants(){
   const f=this.game.factionId,rows=[];
-  for(const id of this.champions)if(eligibleChampion(this.game.data.towers[id]))rows.push({id:`champion:${f}:${id}`,reward:1,factionId:f});
+  for(const id of this.champions)if(eligibleChampion(this.game.data.towers[id]))rows.push({id:`champion:${f}:${id}`,reward:championMedalReward(this.game.data.towers[id]),factionId:f});
   for(const id of this.bosses)rows.push({id:`boss:${f}:${id}`,reward:2,factionId:f});
   if(this.mythic)rows.push({id:`mythic:${f}`,reward:2,factionId:f});
   if(this.campaign)rows.push({id:`campaign:${f}`,reward:5,factionId:f});

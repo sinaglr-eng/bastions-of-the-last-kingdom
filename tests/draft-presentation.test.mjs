@@ -63,9 +63,9 @@ test('rendering the odds and five mystery cards never reveals latent defender id
     assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,5);
     assert.equal((html.match(/class="draw-slot/g)||[]).length,5);
     assert.doesNotMatch(html,/class="index"/);
-    assert.equal((html.match(/class="mystery-outline"/g)||[]).length,5);
+    assert.equal((html.match(/class="mystery-placement mystery-recruit-art"/g)||[]).length,5);
     for(let index=0;index<5;index++)assert.match(html,new RegExp(`data-index="${index}" aria-label="${index+1}: Place a defender`));
-    assert.doesNotMatch(html,/<img|data-action="keep-draw"|data-action="merge-tower"|Construction mastery|mastery-heading/);
+    assert.doesNotMatch(html,/data-action="keep-draw"|data-action="merge-tower"|Construction mastery|mastery-heading/);
   }
   assert.equal(state(game),before);
 });
@@ -134,7 +134,7 @@ test('production draft refresh renders all five choices without programmatic scr
   const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
   assert.equal(compact.hidden,true);assert.equal(compact.innerHTML,'');assert.equal(compact.clears,1);assert.equal(commands.innerHTML,'','Building has no unavailable draft commitment controls');
   assert.equal(modePicker.change,undefined,'Construction cannot switch the campaign length');assert.doesNotMatch(host.innerHTML,/id="mode"|Campaign length|10 waves/);
-  for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0,'Five visible slots do not request horizontal or page scrolling');assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.doesNotMatch(host.innerHTML,/<img/);assert.equal(decisionCount.at(-1),1);}
+  for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0,'Five visible slots do not request horizontal or page scrolling');assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.ok([...host.innerHTML.matchAll(/src="([^"]+)"/g)].every(m=>m[1]==='/assets/ui/ipad-polish/unknown-recruit.webp'));assert.equal(decisionCount.at(-1),1);}
   assert.equal(state(game),before);assert.equal(game.rng(),control.rng());
   game.activeDraw=4;render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0);assert.equal(host.dataset.focusedDraw,'1:4','The last selected choice is still tracked without scrolling');
   game.activeDraw=0;render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0);assert.equal(host.dataset.focusedDraw,'1:0');

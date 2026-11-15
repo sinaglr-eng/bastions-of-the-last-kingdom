@@ -21,6 +21,7 @@ const STYLES={
   heal:{color:'#a3ecc0',opacity:.55,shape:'mote'},
   flash:{color:'#e9faff',opacity:.78,shape:'flash'},
 };
+export const STATUS_EFFECT_DIMENSIONS=Object.freeze({height:1.4,radius:.45,feature:.09});
 const persistentKinds=Object.keys(STYLES).filter(kind=>!['heal','flash'].includes(kind));
 
 /** One bounded, separately owned composite per visible target. No combat writes. */
@@ -74,7 +75,7 @@ export class CombatStatusVfx{
     batch.setColorAt(index,new THREE.Color(color||(batch.geometry.attributes.color?'#ffffff':STYLES[kind].color)));this.count++;return true;
   }
   status(kind,enemy,body,clock,index){
-    const {centre,height:h,radius:r,feature}=body,total=STYLES[kind].particles||1,at=centre.clone(),size=new THREE.Vector3(1,1,1),still=this.still();
+    const {centre}=body,{height:h,radius:r,feature}=STATUS_EFFECT_DIMENSIONS,total=STYLES[kind].particles||1,at=centre.clone(),size=new THREE.Vector3(1,1,1),still=this.still();
     let a=enemy.id*.73+index*Math.PI*2/total+clock*(kind==='poison'?.13:.42);
     if(kind==='poison'){
       const camera=typeof this.camera==='function'?this.camera():this.camera;
@@ -134,10 +135,10 @@ export class CombatStatusVfx{
       if(age>=row.duration||age<0||!live.has(row.enemy)||(row.kind==='flash'&&this.still())){this.pulses.delete(key);continue;}
       const body=this.envelope(row.enemy,figures),centre=body.centre,p=age/row.duration;
       if(row.kind==='flash'){
-        const size=Math.max(body.radius*.7,body.feature*3)*(.55+(1-p)*.45),color=new THREE.Color(row.color||STYLES.flash.color).multiplyScalar((1-p)**.65);
+        const size=Math.max(STATUS_EFFECT_DIMENSIONS.radius*.7,STATUS_EFFECT_DIMENSIONS.feature*3)*(.55+(1-p)*.45),color=new THREE.Color(row.color||STYLES.flash.color).multiplyScalar((1-p)**.65);
         this.put('flash',centre,new THREE.Vector3(size,size,size),0,color);
       }else for(let i=0;i<3;i++){
-        const a=i*Math.PI*2/3+row.enemy.id,r=Math.max(.23,body.radius*.65),at=centre.clone().add(new THREE.Vector3(Math.cos(a)*r,(this.still()?0:p*body.height*.25),Math.sin(a)*r)),scale=Math.max(body.height*.055,body.feature)/.045;
+        const a=i*Math.PI*2/3+row.enemy.id,r=Math.max(.23,STATUS_EFFECT_DIMENSIONS.radius*.65),at=centre.clone().add(new THREE.Vector3(Math.cos(a)*r,(this.still()?0:p*STATUS_EFFECT_DIMENSIONS.height*.25),Math.sin(a)*r)),scale=Math.max(STATUS_EFFECT_DIMENSIONS.height*.055,STATUS_EFFECT_DIMENSIONS.feature)/.045;
         this.put('heal',at,new THREE.Vector3(scale,scale,scale),0,row.color);
       }
     }

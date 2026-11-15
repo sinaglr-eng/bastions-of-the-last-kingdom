@@ -185,3 +185,14 @@ test('FR010 verified Google identity provisions once and restores the same cloud
   assert.equal((await f.call('/api/auth/sign-in/social',{provider:'google',idToken:{token,nonce:'wrong-nonce'}})).r.status,401);
  }finally{globalThis.fetch=originalFetch;f.db.sqlite.close();}
 });
+
+
+test('TOP claims canonically pay 3 medals even for old eligible rows; retry and historical payouts remain exact',async()=>{
+ const f=fixture();try{const a=await f.account(),data=currentFactionData('crown'),tops=Object.keys(data.towers).filter(id=>data.towers[id].classification?.toLowerCase()==='top'),ids=tops.slice(0,2).map(id=>'champion:crown:'+id);
+ f.db.sqlite.prepare('INSERT INTO fr010_grants(user_id,achievement_id,reward,created_at) VALUES(?,?,1,1)').run(a.user.id,ids[0]);
+ f.db.sqlite.prepare("INSERT INTO fr010_eligible VALUES(?,?,'crown',1,1,NULL)").run(a.user.id,ids[1]);
+ const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.grants.find(g=>g.id===ids[0]).reward,1);assert.equal(p.eligible.find(g=>g.id===ids[1]).reward,3);
+ const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:ids[1]},paid=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(paid.r.status,200,JSON.stringify(paid.value));assert.equal(paid.value.balance,3);assert.equal(paid.value.grants.find(g=>g.id===ids[1]).reward,3);assert.equal(paid.value.grants.find(g=>g.id===ids[0]).reward,1);
+ const retry=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(retry.value.balance,3);assert.equal(retry.value.xpTotal,paid.value.xpTotal);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE kind='achievement'").get().n,1);
+ }finally{f.db.sqlite.close();}
+});

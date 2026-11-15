@@ -21,9 +21,9 @@ test('unknown recruit question mark and visible map instruction do not consult h
   const before={selected:game.selected,phase:game.phase,activeDraw:game.activeDraw,towers:game.towers.length,cp:game.commandPoints.value};
   for(let pass=0;pass<3;pass++){
     const html=draftCardsMarkup(game,data,{});
-    assert.equal((html.match(/class="draw-name">Place a defender on the map</g)||[]).length,5);assert.equal((html.match(/class="mystery-placement"/g)||[]).length,5);assert.equal((html.match(/class="mystery-question"/g)||[]).length,5);assert.doesNotMatch(html,/mystery-figure|placement-tile|placement-arrow/);
+    assert.equal((html.match(/class="draw-name">Place a defender on the map</g)||[]).length,5);assert.equal((html.match(/class="mystery-placement mystery-recruit-art"/g)||[]).length,5);assert.ok([...html.matchAll(/src="([^"]+)"/g)].every(m=>m[1]==='/assets/ui/ipad-polish/unknown-recruit.webp'));assert.doesNotMatch(html,/mystery-figure|placement-tile|placement-arrow/);
     assert.equal((html.match(/aria-label="\d: Place a defender on the map\. Build on an empty tile to reveal\."/g)||[]).length,5);assert.doesNotMatch(html,/Unrevealed defender/);
-    assert.equal((html.match(/data-action="draw"/g)||[]).length,5);assert.doesNotMatch(html,/<img|<image|href=|data-action="(?:keep-draw|merge-tower)"/);
+    assert.equal((html.match(/data-action="draw"/g)||[]).length,5);assert.doesNotMatch(html,/<image|href=|data-action="(?:keep-draw|merge-tower)"/);
   }
   assert.deepEqual({selected:game.selected,phase:game.phase,activeDraw:game.activeDraw,towers:game.towers.length,cp:game.commandPoints.value},before);assert.equal(game.rng(),control.rng());
 });

@@ -1,3 +1,4 @@
+import {siteUrl} from '../game/site-url.js';
 import {enemyPortraitImage} from './reference-portraits.js';
 import {enemyGroupPortraits} from './enemy-portraits.js';
 import {enemyNumber,enemyRulesFor} from '../game/core/enemy-rules.js';
@@ -12,15 +13,8 @@ const randomVariants=(wave,group,definition)=>definition.variants?.length>1&&!Ob
 
 // Decorative field-guide symbols accompany real configured values. They never
 // supply a second stats model or imply an unconfigured enemy ability.
-const fieldSymbols={
-  count:'<circle cx="12" cy="5" r="3"/><circle cx="4" cy="8" r="2"/><circle cx="20" cy="8" r="2"/><path d="M7 21v-6a5 5 0 0 1 10 0v6ZM1 18v-4a3 3 0 0 1 5-2m17 6v-4a3 3 0 0 0-5-2"/>',
-  maxHp:'<path d="M12 21 3.5 12.5C-2 6.5 5 0 12 6c7-6 14 0.5 8.5 6.5Z"/>',
-  armor:'<path d="m12 2 9 4v7c0 5-9 9-9 9s-9-4-9-9V6ZM12 3v17"/>',
-  speed:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l5 2"/>',
-  flying:'<path d="M3 3v12l-2 4v3h20v-6l-9-2-1-11ZM4 8h7M4 11h7"/>',
-  air:'<path d="M12 18C4 16 2 10 2 3l8 5 2 10 2-10 8-5c0 7-2 13-10 15ZM4 9l6 3m10-3-6 3"/>'
-};
-const fieldSymbol=(key,air)=>`<svg class="warband-field-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${fieldSymbols[key==='flying'&&air?'air':key]}</svg>`;
+const fieldIcons={count:'invaders',maxHp:'enemy-health',armor:'enemy-armor',speed:'enemy-speed',flying:'ground-movement',air:'air-movement'};
+const fieldSymbol=(key,air)=>`<img class="warband-field-symbol illustrated-icon" src="${siteUrl('assets/ui/ipad-polish/'+fieldIcons[key==='flying'&&air?'air':key]+'.webp')}" alt="" aria-hidden="true" width="36" height="36">`;
 function atlasSharedStatsMarkup(wave,group,common){
   const rows=[{key:'count',label:wave.boss?'Warlord':'Invaders',value:enemyNumber(group.count)},...['flying','maxHp','armor','speed'].filter(key=>Object.hasOwn(common,key)).map(key=>({key,label:{flying:'Movement',maxHp:'HP each',armor:'Armor',speed:'Tiles / second'}[key],value:key==='flying'?(common[key]?'Air':'Ground'):enemyNumber(common[key])}))];
   return `<dl class="warband-shared-stats" aria-label="Shared wave statistics">${rows.map(({key,label,value})=>`<div data-stat="${key}">${fieldSymbol(key,common.flying)}<dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>`;

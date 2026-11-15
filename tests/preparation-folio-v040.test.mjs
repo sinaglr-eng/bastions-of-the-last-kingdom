@@ -60,7 +60,7 @@ test('Build/Select share five selection cards and detail without hidden identity
   const game=new Game(data,{seed:402}),control=new Game(data,{seed:402});for(const current of [game,control]){place(current,Array.from({length:3},()=>({family:'archer',tier:2})));}
   for(const draw of game.draft.draws.filter(draw=>!draw.placed))for(const key of ['family','tier'])Object.defineProperty(draw,key,{get(){throw Error('Hidden identity read');},configurable:true});
   const hidden=draftCardsMarkup(game,data,{'archer:2':'/archer-II.png'},{actions:false}),detail=defenderPanelMarkup(game,game.selection);
-  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Place a defender on the map\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img/g)||[]).length,3);
+  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Place a defender on the map\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img/g)||[]).length,5);
   assert.doesNotMatch(hidden+detail,/data-action="(?:keep-draw|reroll|reserve|merge-tower)"|src="(?:undefined|null|)"/);assert.equal(game.phase,'build');assert.equal(game.rng(),control.rng());
   const complete=candidates(),plain=draftCardsMarkup(complete,data,{}, {actions:false}),legacy=draftCardsMarkup(complete,data,{}),panel=defenderPanelMarkup(complete,complete.selection);
   assert.equal((plain.match(/data-action="draw"/g)||[]).length,5);assert.equal((plain.match(/<button/g)||[]).length,5);assert.equal((legacy.match(/data-action="keep-draw"/g)||[]).length,1);assert.equal((panel.match(/data-action="keep-draw"/g)||[]).length,1);assert.doesNotMatch(plain,/keep-draw|merge-tower|has-keep|mergeable/);

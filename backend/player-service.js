@@ -28,7 +28,7 @@ async function profile(db,id,attempt=0){
  const grants=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results;
  const rawEligible=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, verified_at AS verifiedAt, run_id AS runId FROM fr010_eligible WHERE user_id = ? ORDER BY verified_at, achievement_id').bind(id).all()).results;
  const progress=(await db.prepare("SELECT faction_id AS factionId,MAX(highest_wave) AS highestWave,MAX(COALESCE(json_extract(progress_json,'$.streakBest'),0)) AS streakBest FROM fr010_runs WHERE user_id=? AND outcome!='developer' AND started_at>=? GROUP BY faction_id").bind(id,reset.resetAt).all()).results;
- const eligible=rawEligible.filter(g=>activeAchievement(g.id)).map(g=>({...g,xp:activeAchievement(g.id).xp}));
+ const eligible=rawEligible.filter(g=>activeAchievement(g.id)).map(g=>({...g,reward:activeAchievement(g.id).reward,xp:activeAchievement(g.id).xp}));
  const discovered=(await db.prepare("SELECT faction_id,progress_json FROM fr010_runs WHERE user_id=? AND outcome!='developer' AND started_at>=?").bind(id,reset.resetAt).all()).results,discoveries={};for(const r of discovered){const x=JSON.parse(r.progress_json);discoveries[r.faction_id]=[...new Set([...(discoveries[r.faction_id]||[]),...(x.champions||[])])];}
  const current=await db.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').bind(id).first();if(current.revision!==progression.revision||row.revision!==progression.revision){if(attempt>=7)fail('Profile is busy. Please retry.',409);return profile(db,id,attempt+1);}
  return {...progression,progressionEpoch:reset.epoch,progressionResetAt:reset.resetAt,discoveries,revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
@@ -69,7 +69,7 @@ async function claimAchievement(db,user,b){
  if(prior){if(prior.kind!=='claim'||prior.detail!==detail)fail('Request identity cannot change.',409);return result();}
  const p=await profile(db,user);
  if(p.grants.some(g=>g.id===detail))return result();
- const definition=activeAchievement(detail);if(!definition)fail('This achievement is no longer available.');const earned=p.eligible.find(g=>g.id===detail);if(!earned)fail('This achievement has not been verified.',409);
+ const definition=activeAchievement(detail);if(!definition)fail('This achievement is no longer available.');const candidate=p.eligible.find(g=>g.id===detail),earned=candidate?{...candidate,reward:definition.reward}:null;if(!earned)fail('This achievement has not been verified.',409);
  if(p.revision!==b.revision)fail('Profile changed. Refresh before trying again.',409);
  const xp=definition.xp,now=Date.now(),claimReceipt={receiptId:'achievement:'+detail,status:'confirmed',xpBefore:p.xpTotal,xpAfter:p.xpTotal+definition.xp,amount:definition.xp,levelBefore:accountRank(p.xpTotal).level,levelAfter:accountRank(p.xpTotal+definition.xp).level,newSkills:newlyAvailableSkills(p.xpTotal,p.xpTotal+definition.xp)},guard='EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id=? AND revision=?)',requestGuard='EXISTS (SELECT 1 FROM fr010_ledger WHERE user_id=? AND entry_id=? AND kind=\'claim\')';
  await db.batch([

@@ -5,7 +5,7 @@ import {Game} from '../game/core/game.js';
 import {loadCurrentDatasets} from '../tools/current-datasets.mjs';
 import {towerStats} from '../game/core/math.js';
 import {fr002Impact,updateFr002Tower} from '../game/core/fr002-combat.js';
-import {CombatStatusVfx} from '../game/render/combat-status-vfx.js';
+import {CombatStatusVfx,STATUS_EFFECT_DIMENSIONS} from '../game/render/combat-status-vfx.js';
 import {SupportEffects,enemyStatusState} from '../game/render/support-effects.js';
 
 const datasets=loadCurrentDatasets(),count=(fx,key)=>fx.batches.get(key)?.count||0;
@@ -141,14 +141,14 @@ test('timed immunity breaches display their actual multiplier and disappear when
   enemy.statuses.breachPhysical.time=0;assert.deepEqual(enemyStatusState(enemy,[],data).map(e=>e.key),['magicalPass']);delete enemy.statuses.breachMagic;assert.deepEqual(enemyStatusState(enemy,[],data),[]);
 });
 
-test('native body bounds keep fire, poison, coils and overhead markers outside the model with an overview pixel floor',()=>{
+test('body bounds anchor fixed-size status effects while preserving source geometry',()=>{
   const scene=new THREE.Scene(),figure=new THREE.Group(),body=new THREE.Mesh(new THREE.BoxGeometry(1.6,2,1.3),new THREE.MeshBasicMaterial()),enemy={id:1,x:3,z:4};body.position.y=1;figure.add(body);figure.userData.body=body;figure.userData.barHeight=2.15;figure.position.set(3,1.8,4);scene.add(figure);
   const camera=new THREE.PerspectiveCamera(38,1,.1,250);camera.position.set(4,20,15);camera.lookAt(3,2,4);camera.updateMatrixWorld();const fx=new CombatStatusVfx(scene,{camera:()=>camera,getViewport:()=>({height:720})}),figures=new Map([[1,figure]]),states=new Map([[1,['burn','poison','slow','stun','healBlock'].map(key=>({key}))]]);
   try{
     const geometry=body.geometry,material=body.material,vertices=body.geometry.attributes.position.array.slice(),envelope=fx.envelope(enemy,figures);assert.ok(Math.abs(envelope.height-2)<1e-6);assert.ok(Math.abs(envelope.radius-.8)<1e-6);assert.ok(Math.abs(envelope.top-3.8)<1e-6);
     fx.sync([enemy],{figures,states,time:1});const matrix=new THREE.Matrix4(),position=new THREE.Vector3();for(const kind of ['stun','healBlock']){fx.batches.get(kind).getMatrixAt(0,matrix);position.setFromMatrixPosition(matrix);assert.ok(position.y>envelope.top,kind+' stays above the head rather than inside the torso');}
     const fire=fx.batches.get('burn');fire.getMatrixAt(0,matrix);const fireBounds=new THREE.Box3().setFromBufferAttribute(fire.geometry.attributes.position).applyMatrix4(matrix);assert.ok(fireBounds.getSize(new THREE.Vector3()).y>envelope.height*.65,'Layered flames cover legs and torso rather than a tiny impact fleck');assert.ok(fire.geometry.attributes.color,'Fire has its own orange/yellow/core colors');
-    const poison=fx.batches.get('poison');poison.getMatrixAt(0,matrix);position.setFromMatrixPosition(matrix);assert.ok(Math.hypot(position.x-envelope.centre.x,position.z-envelope.centre.z)>=envelope.radius*.9,'Clouds sit at the outer silhouette');
+    const poison=fx.batches.get('poison');poison.getMatrixAt(0,matrix);position.setFromMatrixPosition(matrix);assert.ok(Math.hypot(position.x-envelope.centre.x,position.z-envelope.centre.z)>=STATUS_EFFECT_DIMENSIONS.radius*.9,'Clouds use the shared fixed orbit');
     const nearFeature=fx.envelope(enemy,figures).feature;camera.position.set(80,80,80);camera.lookAt(3,2,4);camera.updateMatrixWorld();assert.ok(fx.envelope(enemy,figures).feature>nearFeature,'Normal overview raises the feature-size floor');
     fx.sync([enemy],{figures,states,time:1});assert.equal(body.geometry,geometry);assert.equal(body.material,material);assert.deepEqual(body.geometry.attributes.position.array,vertices);assert.ok(fx.count<=fx.maxInstances);
   }finally{fx.dispose();body.geometry.dispose();body.material.dispose();figure.removeFromParent();}
@@ -218,4 +218,14 @@ test('healing and electrical pulses require actual positive visible events and o
     fx.event('enemy-heal',{enemy,amount:20});sync();const still=matrixSnapshot(fx);time=3.1;sync();assert.deepEqual(matrixSnapshot(fx),still,'Reduced motion preserves a fixed restoration glyph grouping');
     enemy.visible=false;sync();assert.equal(fx.pulses.size,0);assert.equal(fx.count,0);
   }finally{fx.dispose();}
+});
+
+
+test('every status and transient pulse keeps its dimensions across target scale and camera distance',()=>{
+ const scene=new THREE.Scene(),figure=new THREE.Group(),body=new THREE.Mesh(new THREE.BoxGeometry(1,1.4,1),new THREE.MeshBasicMaterial()),enemy={id:11,x:0,z:0};body.position.y=.7;figure.add(body);figure.userData.body=body;scene.add(figure);
+ const keys=['burn','heat','poison','freeze','stun','root','petrify','armor','bleed','healBlock','regenReduction','physicalPass','magicalPass'],states=new Map([[11,keys.map(key=>({key}))]]),figures=new Map([[11,figure]]),camera=new THREE.PerspectiveCamera(38,1,.1,500),fx=new CombatStatusVfx(scene,{camera:()=>camera,getViewport:()=>({height:1024})});
+ const sizes=()=>Object.fromEntries([...fx.batches].filter(([,b])=>b.count).map(([key,b])=>[key,Array.from({length:b.count},(_,i)=>{const m=new THREE.Matrix4();b.getMatrixAt(i,m);return new THREE.Vector3().setFromMatrixScale(m).toArray().map(v=>Number(v.toFixed(5)));})]));
+ try{camera.position.set(5,7,10);camera.lookAt(0,1,0);camera.updateMatrixWorld();fx.pulse('heal',enemy);fx.pulse('flash',enemy);fx.sync([enemy],{figures,states,time:2});const first=sizes();assert.ok(Object.keys(first).length>=keys.length);
+ figure.scale.setScalar(5);camera.position.set(80,80,80);camera.lookAt(0,1,0);camera.updateMatrixWorld();fx.sync([enemy],{figures,states,time:2});assert.deepEqual(sizes(),first);const m=new THREE.Matrix4(),p=new THREE.Vector3();fx.batches.get('stun').getMatrixAt(0,m);p.setFromMatrixPosition(m);assert.ok(p.y>=fx.envelope(enemy,figures).top,'Attachment still follows the larger enemy');
+ }finally{fx.dispose();body.geometry.dispose();body.material.dispose();}
 });

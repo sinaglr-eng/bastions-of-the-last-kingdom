@@ -27,7 +27,7 @@ export class ContextGuidance{
     if(game.phase!=='build'||game.round!==1)this.pending.delete('placement');
     if(game.phase==='build'&&game.round===1&&!game.draft.draws.some(draw=>draw.placed))this.offer('placement');
     if(['build','select','ready'].includes(game.phase)&&['reroll','reserve','move'].some(action=>game.commandActions?.[action]?.available))this.offer('cp');
-    if(type==='mvp-awarded'&&payload.tower&&Number.isFinite(payload.level)&&payload.level>0){this.mvpName=game.data?.towers?.[payload.tower.family]?.name||'A defender';this.offer('mvp');}
+    // MVP rewards remain part of combat; no first-MVP popup interrupts play.
   }
   dismiss(id){
     if(!ids.includes(id)||this.seen.has(id))return false;
@@ -36,7 +36,7 @@ export class ContextGuidance{
   model(game){
     if(this.ended||!['build','select','ready','reward'].includes(game.phase))return null;
     const placement=game.phase==='build'&&game.round===1&&!game.draft.draws.some(draw=>draw.placed);
-    const id=['mvp','cp','placement'].find(id=>!this.seen.has(id)&&(id==='placement'?placement:this.pending.has(id)));if(!id)return null;
+    const id=['cp','placement'].find(id=>!this.seen.has(id)&&(id==='placement'?placement:this.pending.has(id)));if(!id)return null;
     const copy={placement:['Place five, then choose','Each placement reveals a recruit. After all five, choose a legal keeper, merge or champion.'],cp:['Command Points','CP pays for Reroll, Reserve and Move. Boss kills earn more; each control shows its cost.'],mvp:['Your first wave MVP',`${this.mvpName||'A defender'} earned an MVP level for actual damage. Inspect the defender for its new bonus.`]};
     return {id,title:copy[id][0],summary:copy[id][1],detail:guidanceTopicMarkup(id,game)};
   }
