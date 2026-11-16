@@ -2,7 +2,7 @@
   "version": "0.7.0",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -232,14 +232,32 @@
     "mazeBuilderLabel": "Maze Builder"
   },
   "artifacts": {
-    "revision": "fr011-v1",
-    "artifacts": 48,
-    "sets": 6,
+    "revision": "fr011-v2",
+    "artifacts": 84,
+    "sets": 11,
     "equipmentSlots": 10,
-    "presets": 3,
+    "presets": 0,
     "chestTiers": 5,
     "source": "verified-boss-death",
     "opening": "Commander after battle",
-    "gallery": "local-only"
+    "gallery": "local-only",
+    "catalogRevision": 3,
+    "storedPresetsPreserved": true,
+    "setRarities": {
+      "rare": 3,
+      "epic": 6,
+      "legendary": 2
+    },
+    "rangeUnit": "tiles",
+    "equippedPortraits": 11,
+    "standaloneTradeoffs": 6,
+    "tier2Guarantee": {
+      "rarity": "rare",
+      "draws": 3
+    },
+    "tier3Guarantee": {
+      "rarity": "epic",
+      "draws": 7
+    }
   }
 }
