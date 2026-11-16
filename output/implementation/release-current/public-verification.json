@@ -1,16 +1,39 @@
 {
   "status": "passed",
-  "verifiedAt": "2026-11-16T12:12:20.444Z",
-  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
+  "verifiedAt": "2026-11-16T14:23:16.557Z",
+  "sourceCommit": "f5728430aa156db9844c31b5d2784e0c0026a542",
+  "codeCommit": "83344bbbeda404d8ddc20a0d549a0a5e3c0c6e8d",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "entry": "/play/assets/game-DWsaPxG4.js",
+  "entry": "/play/assets/game-4_L7T9yH.js",
   "frontendHashMatchesLocal": true,
   "cssHashMatchesLocal": true,
+  "code": [
+    {
+      "path": "/play/assets/game-4_L7T9yH.js",
+      "status": 200,
+      "match": true,
+      "sha256": "8c62c4f7333f7fa7193ca1b377662b6e6b7fb366d9267967111a6e5456780f6c"
+    },
+    {
+      "path": "/play/assets/three-BBClaj7g.js",
+      "status": 200,
+      "match": true,
+      "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
+    },
+    {
+      "path": "/play/assets/game-DXqbLSN5.css",
+      "status": 200,
+      "match": true,
+      "sha256": "ab8958cf9cc88885c522ae9962c19f99b6c3c6e75414e3a8abcabbf9058c1ea7"
+    }
+  ],
   "version": "0.7.0",
-  "artifactCount": 48,
-  "setCount": 6,
+  "artifactRevision": "fr011-v2",
+  "artifactCount": 84,
+  "setCount": 11,
   "googleAvailable": true,
   "environmentUnchanged": true,
-  "mediaAssets": 66,
+  "mediaAssets": 118,
+  "newAndUpdatedMediaHashesVerified": 53,
   "galleryPublic": false
 }

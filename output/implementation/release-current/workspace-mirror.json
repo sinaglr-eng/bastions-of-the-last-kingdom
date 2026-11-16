@@ -1,130 +1,408 @@
 {
   "status": "passed",
-  "mainHeadAndIndexPreserved": true,
-  "runtimeFiles": [
+  "sourceCommit": "f5728430aa156db9844c31b5d2784e0c0026a542",
+  "mainHeadAndIndexNotChangedByPublication": true,
+  "publicationMethod": "Selective GitHub blobs/tree/commit; no root git staging or push",
+  "files": [
     {
-      "file": "AGENTS.md",
-      "sha256": "9f255ff8e6ccad1b71d6d09d40b2878cbfcf515a460c2fd59d8a2cc2e1583231"
+      "path": "data/commander-artifacts.json",
+      "bytes": 44806,
+      "sha256": "07ca3310a22673c44b945773e399d35a090675bb159764338fb683886b6b480c"
     },
     {
-      "file": "README.md",
-      "sha256": "ec4332bc29cd51cb4f520016407f2552a034cbe051ab0b54a8396e785759db45"
+      "path": "game/core/artifacts.js",
+      "bytes": 9358,
+      "sha256": "a47de9fbca2f177992c92cd4b1618fa26fc427975b7de0cc58556e2e79456fda"
     },
     {
-      "file": "backend/SITES_DEPLOYMENT.json",
-      "sha256": "f1144df193438325d1fa2428f1062c9aaf30d85c6b7b2e7a5fad4e9585e4f895"
+      "path": "game/core/artifact-combat.js",
+      "bytes": 6899,
+      "sha256": "2bcde2bae76de06a92c9601aa8e645ef9da4fb96f83ce4b9dc49d58a18e20b47"
     },
     {
-      "file": "backend/validation.js",
-      "sha256": "9f658b540558131d9022a409fdfdd0f266b09ecb6f78f0cb35c50fde18720e74"
+      "path": "game/core/game.js",
+      "bytes": 28426,
+      "sha256": "25c1edb14296afa4413d1800d406b6a975f85ccc795133d0a5a5c5e27aec7794"
     },
     {
-      "file": "data/fr007-r3-approved.json",
-      "sha256": "5780881d6bfae0f2ea3ae4846d8c360b824d34b473f0bbe092089fa95fc3ecbf"
+      "path": "game/core/run-state.js",
+      "bytes": 4143,
+      "sha256": "ad7fdf6c283b9f1401eb96d7807d1b875b6ef44a366f5ec548bcad76e80dc71a"
     },
     {
-      "file": "docs/DEFENDER_PRESENTATION.md",
-      "sha256": "8cdcbe7233bec6e70fc2b9f40e3246b83f4e8220ef67621a8e8c6cd4e2d5c3be"
+      "path": "game/core/math.js",
+      "bytes": 8165,
+      "sha256": "257c36600d7fab71bea61f35aa6c3a00a34582804b4a85adfa6e11e18eaf1738"
     },
     {
-      "file": "docs/FR006_FR007_IMPLEMENTATION.md",
-      "sha256": "36e94c11567abb285269aeda3ac43bf494ba854d83ff55b6d452dbf8787438b2"
+      "path": "game/core/combat.js",
+      "bytes": 34941,
+      "sha256": "3ce2783d62d6522078605eb0ef66be373212c068f8bc4f62d60d87294e14348f"
     },
     {
-      "file": "docs/FR007_RANK_I_RECIPE_VARIANT_20261106.md",
-      "sha256": "da07f9bee89d4d6a11a9d7479e368f81c85992a616284296fd4bd359298adb36"
+      "path": "backend/artifact-store.js",
+      "bytes": 8915,
+      "sha256": "ce2df6f58681aab7b020f505bf4518f8270c0150902a2247add70a6d2288253c"
     },
     {
-      "file": "game/core/fr006-fr007-registry.js",
-      "sha256": "9c1a06b1ee606f0973ed29b7408e7095acc3418f47fbf484bf8cb47c5315dfad"
+      "path": "backend/verified-run-state.js",
+      "bytes": 1757,
+      "sha256": "e7120aaf7caa6f34b04f75cf725d841da9027d206bdabd77c749ead9d5458178"
     },
     {
-      "file": "game/release.js",
-      "sha256": "2298cfe1c3cb4ee1ca756b63a4c0db601c925c51a357aec7140284e1dcb164aa"
+      "path": "backend/hall.js",
+      "bytes": 1994,
+      "sha256": "f8058fbe1e0664e68eaef763a11b310d55c2d749444fd4372bf764f363ea702a"
     },
     {
-      "file": "output/design/fr007-rank1-current/dwarf-plan.json",
-      "sha256": "467c1ca7d36a1a9f611adcb4b68ec44e40e3cbef7575a581000b46ac274489a4"
+      "path": "ui/equipment-slots.js",
+      "bytes": 1828,
+      "sha256": "08c680912b7b620214b2784da1791b59ee169b34ebaff450f2b043449119f79b"
     },
     {
-      "file": "output/design/fr007-rank1-current/elf-plan.json",
-      "sha256": "185dc7b0b71131ed5278a89f56a35f25819d52ac673127f657d9494798172c5e"
+      "path": "ui/war-table-view.js",
+      "bytes": 20548,
+      "sha256": "63ea364e6c52d7e3fc709ece94ccce2c45225721e3eef1f67b240b1c173ca1c0"
     },
     {
-      "file": "output/design/fr007-rank1-current/implementation-handoff.json",
-      "sha256": "a7178529da7503e901ab6ee891cea835a19a8056a839cc8a18e0b1f5a4bd325f"
+      "path": "ui/general-page.js",
+      "bytes": 10224,
+      "sha256": "c0e46724fb02d604e36e3a6a3b3274f38494dfa7a3151f3d802bf25a1433d090"
     },
     {
-      "file": "output/design/fr007-rank1-current/material-changes.json",
-      "sha256": "d93b06b27c3ae53655a15fc627c2740398e6f8149055386cadc38b51d40f3cdb"
+      "path": "ui/main-menu.js",
+      "bytes": 26287,
+      "sha256": "f346a9b8fe1103993fd6e215e12d9bc9225b312505cfc29597053b556c75a93e"
     },
     {
-      "file": "output/design/fr007-rank1-current/preview-config.json",
-      "sha256": "54ba9405adf62e54ee6295374e8d4aed52772d98e9bb8ad02808c398c874a883"
+      "path": "ui/commander-vault.js",
+      "bytes": 22816,
+      "sha256": "caaf59d199cfb3fbcdc3478c9e06670a391e98fc7972675d8b0e696f459caf5d"
     },
     {
-      "file": "output/design/fr007-rank1-current/successor-counts.json",
-      "sha256": "8f2f4909ff1e483a6facd7d4e1de4ad9efdd0f82776a6742cad05f1ba7e1f4f7"
+      "path": "ui/war-table.css",
+      "bytes": 37652,
+      "sha256": "d1486874fb87e906c37814c38a76d811896c972f8d2a4fe773da278b727f229d"
     },
     {
-      "file": "package.json",
-      "sha256": "8b40b1978f7faa13f38ddef3966b2cc144233a5b9254dc0334a842b969aa59e8"
+      "path": "ui/commander-vault.css",
+      "bytes": 22904,
+      "sha256": "6cf19ea47131716eaa58d94de0d1d23c720d31d6eb5dd056f225121531d7d235"
     },
     {
-      "file": "public/release.json",
-      "sha256": "4c9c752da82f593aa13983f2e8b96e89b61e8d7d0bf358981ea616696148be8b"
+      "path": "tests/commander-expansion.test.mjs",
+      "bytes": 7522,
+      "sha256": "a1b92639ef042389d73f6b2afc9a1738fb028af58eac98d299166e36c51b20b3"
     },
     {
-      "file": "tests/fr005-statistics.test.mjs",
-      "sha256": "54a057a7214be392ccf3509bcdfc54778c5af718c6cc1ef6c3edc9ba7ee95272"
+      "path": "tests/fr011-artifacts.test.mjs",
+      "bytes": 10104,
+      "sha256": "e3a1940e7b8e6161b8b2fdb9d8f3935a63025bd7c4a35366c86debdbe4da9e20"
     },
     {
-      "file": "tests/fr007-data.test.mjs",
-      "sha256": "58b23140ff4eb2ba9b44bf23f008dde0217483032d402c00e2bba6c80e9800eb"
+      "path": "tests/war-table-view.test.mjs",
+      "bytes": 4412,
+      "sha256": "089fd9e02fae27653218b7f506c9979564ad8f223044fabc0fe8001359ae4314"
     },
     {
-      "file": "tests/fr007-r3.test.mjs",
-      "sha256": "cb38b83fbb75c288de724312b385462036ca8706aa16c5b202fffc48265b8f64"
+      "path": "tests/commander-ui-gates.test.mjs",
+      "bytes": 16032,
+      "sha256": "8eaa8250aa426749358c5e5b092bd3150b256b7adea7b78037db11e0ff434055"
     },
     {
-      "file": "tools/apply-defender-presentation-gallery.mjs",
-      "sha256": "0e21a092bc280df6bd809a49bf8741669f5f84a81215ee6856ac5cba0cac865b"
+      "path": "docs/FR011_IMPLEMENTATION.md",
+      "bytes": 6751,
+      "sha256": "2673855bf4d68e4b11a1e59d2d998092f29b83a9d53cf91eb60c6d0b1f40eac6"
     },
     {
-      "file": "tools/apply-fr007-r3-gallery.mjs",
-      "sha256": "7f57ae1fa031f894459edeea767b4c17de7a377eb65198c5fa2a87e995dc8796"
+      "path": "public/assets/ui/artifacts/manifest.json",
+      "bytes": 27100,
+      "sha256": "0cd6cd2ea428ac76125b4317d658b91ba95985a6b29609c40e746316a4778815"
     },
     {
-      "file": "tools/current-datasets.mjs",
-      "sha256": "d02ed4859930b01ee157a425f817789f161b5e0705bb3a0b7cea7d7a67167cb3"
+      "path": "public/assets/ui/artifacts/ce-01.webp",
+      "bytes": 48740,
+      "sha256": "fa799a520f93c7cbe2ff2dc4798b7cc57afe0116b828868ba86377c34a5eec42"
     },
     {
-      "file": "tools/verify-fr007-r3-gallery.mjs",
-      "sha256": "ddba3e37d614fbe8583b73460306fff791940b2ff94ac883be019c907957b866"
+      "path": "public/assets/ui/artifacts/ce-02.webp",
+      "bytes": 47372,
+      "sha256": "136903069d920df5c808b3c6056642a4c4e3851fb6ca8b08255d6903daead9ea"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-03.webp",
+      "bytes": 71272,
+      "sha256": "ad59722f23c07b0e6d2bf290e1a7e3b0d34430a6d6079d00b53516bb02958af8"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-04.webp",
+      "bytes": 31288,
+      "sha256": "460256ff85946c39d5a1399920cf9a9b77e5e6d90cc9d8d7b0eb82963c17928b"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-05.webp",
+      "bytes": 48492,
+      "sha256": "ebe03aae1d66f654c737b3e70b47a73e8848c5b56b01151a9b1205d09999e7e2"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-06.webp",
+      "bytes": 61392,
+      "sha256": "3900c762a1d9a61fd30b83b193aba13f0cb903182c8716f64831ec3b619fec19"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-07.webp",
+      "bytes": 49762,
+      "sha256": "af0d0ed1189a7d94199cb2d862d4923f6cc43d1f632a3105d5730e3d19f57370"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-08.webp",
+      "bytes": 60948,
+      "sha256": "46afc019a004b67af03397851433c650dfa14af8013886fce7b8a3d423387957"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-09.webp",
+      "bytes": 48112,
+      "sha256": "bb01708874777ce6cf55ef5b58cc64a386aa9300aa7bf0b652a667605f5e8951"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ce-10.webp",
+      "bytes": 79572,
+      "sha256": "e343ce9b5ce2187d63b766f29fb3ed8fb38e5f74ac78205d1535cc4cb18e1c33"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-ashen-dragon.webp",
+      "bytes": 196134,
+      "sha256": "8608ce0d54cb085ed2449f428d7606287b91281db329de2224b0e3287951adbc"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-celestial.webp",
+      "bytes": 226984,
+      "sha256": "a7c45b52969d0b2497a65d9f4ce7861b93864288d49c15eed1b6747b15fc9259"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-iron-legion.webp",
+      "bytes": 196688,
+      "sha256": "847bfe56b7230596f584aa44e66a5d0247784d48e6b4075965e61effb8b5ebe7"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-militia-oath.webp",
+      "bytes": 164878,
+      "sha256": "2200c15350e39e7eeedc06ada310d0b53e4cb1ed8f706e9b27614b7f76ea8347"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-necromancer.webp",
+      "bytes": 279262,
+      "sha256": "4eec7f6ba9fcd33655789e4a03e6193a65f129b5ec23bf7e9302dbe4ef1f84f7"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-royal-architect.webp",
+      "bytes": 208094,
+      "sha256": "74f58555b06bf51f1aaa239fb42d3de204dbb92affa1318fd18fb1a128045a68"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-scouts-trail.webp",
+      "bytes": 106108,
+      "sha256": "da3c89b4ac96d18333fff4d9cb667ce854a775b6f5722588b9a3879349fbca78"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-stewards-kit.webp",
+      "bytes": 145966,
+      "sha256": "0e9fc8dd60b6484be5bb1c90e00c7fc2bfa5593f1855e8719d879e378bf8f91a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-stormwing-vanguard.webp",
+      "bytes": 181782,
+      "sha256": "e7d6bf549ef730b058d8c129b778305f83f0a5d4c6588d5bdbaba607e5e0d471"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-venom-covenant.webp",
+      "bytes": 152874,
+      "sha256": "c82234a2209382cd7cd5115965bd2b8cc14d54e1fd9533ee995f51abd253cba5"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-winter-court.webp",
+      "bytes": 193136,
+      "sha256": "e801f8168dbc3a76c2d21a4ffee9c08b6427c5661a727a16a97155f85cd686c7"
+    },
+    {
+      "path": "public/assets/ui/artifacts/mo-01.webp",
+      "bytes": 23684,
+      "sha256": "e5bfbb450d1a0d6707dd39af4953018d757af2faf49c96347467dfc44df77f1e"
+    },
+    {
+      "path": "public/assets/ui/artifacts/mo-02.webp",
+      "bytes": 63820,
+      "sha256": "91c70c0463bfad0c528d67748971d28a0f5e395df3ec3342e308ecad675a2bfa"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-13.webp",
+      "bytes": 34322,
+      "sha256": "8cee893afc1a2940cd502755e4777fd7cbd705babd34fa9c208c90cbe20ab1a6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-14.webp",
+      "bytes": 74682,
+      "sha256": "4931690b7ac1adf814df0ea54d1cba571a65e5cb19e8173750da13303d2a2cfd"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-15.webp",
+      "bytes": 43616,
+      "sha256": "63ea3d5f12e2ec704f87d13a6eabdce6e3b91cc6f1077a16ab806d6b2cbff89f"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-16.webp",
+      "bytes": 64590,
+      "sha256": "f37006c23a9e8a774d073e41eba9ef13bb5d45fd86b13b84fdf2a968d82e732d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-17.webp",
+      "bytes": 53804,
+      "sha256": "95df2837912a40910c56b419eb627783d0a37ef2afa4708e216e4cbdc9d54876"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-18.webp",
+      "bytes": 54966,
+      "sha256": "c0c60821d031024b7f958b528751f3a755cbc485846dcd3d4be25ddcf3aa0bf6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-01.webp",
+      "bytes": 67558,
+      "sha256": "7cca1be22b895c54f4ae331ea00cf4f29c5e8faeb7076a0db0a9d7275b0eb9a4"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-02.webp",
+      "bytes": 52824,
+      "sha256": "faf062f29d1dbca66b63e7e453c8a7a1bc6faaadc208642808910957ec05a8df"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-03.webp",
+      "bytes": 68954,
+      "sha256": "9f782818385571b1c3562c0ce06029171cd6eb0ed00941cdf5776f0009ba2167"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-04.webp",
+      "bytes": 25536,
+      "sha256": "02c69d026084bd7bba30bfd0e9feb599866b944cf82763c4581b4acf2fbef0d2"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-05.webp",
+      "bytes": 60410,
+      "sha256": "81f68f98e8f5eb0e4f76b2b5152e755d4b0d221aaf77251d0dc7d98634356e95"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-06.webp",
+      "bytes": 82286,
+      "sha256": "c947c2e1a0e675f0dcf773561aa7f912d84637b7d6e52743861a7fe3050f8eed"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-07.webp",
+      "bytes": 47184,
+      "sha256": "eab0d7f1e4596fd0ded0bc99439ea357dc9225aee4b923df65a4236391614ee3"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-08.webp",
+      "bytes": 68590,
+      "sha256": "b3768c0d498249aa63b83a8673c34d2f8030b1c6f0c5ca91d45af113911cf83a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-09.webp",
+      "bytes": 54710,
+      "sha256": "2ec9b4e3ffdab3c0805c86541ee6eb5560e1683590f24b724598ea53ab4cd2ff"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ne-10.webp",
+      "bytes": 60512,
+      "sha256": "c590b34735825e9fc3afcd535398c46d5a46c6146c5427218910e2dbb789669f"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sc-01.webp",
+      "bytes": 34286,
+      "sha256": "608bca7e165c96c003acad761af4064407d253cf77c400423730f347fcdaabef"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sc-02.webp",
+      "bytes": 57234,
+      "sha256": "6216183be5a89ed8a31d9decdf4df35beae7ebda65a7093f18e6a3bfbd93d022"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sc-03.webp",
+      "bytes": 51866,
+      "sha256": "12339cd4d16217d6abf4781219c9438dce8627332467c12e00b639d4f19dd748"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sc-04.webp",
+      "bytes": 59274,
+      "sha256": "1ce655e08e66def464b9449cbfeeb902e7d8249d90ca7ff8058926d9ff4bf992"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-celestial.webp",
+      "bytes": 127960,
+      "sha256": "a4e323bcd979d0a75e81de1f8cba4dce1042764f639f666d03ea6ca7dbfca95a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-militia-oath.webp",
+      "bytes": 143394,
+      "sha256": "5acffca87540b7819404ce4489e224d516798af5286c286091966bb6b2f353c6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-necromancer.webp",
+      "bytes": 171198,
+      "sha256": "997a073ddd9f9c452e74bce45ab7d6c319d96d0481ebc5f0b5c0572b88b42806"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-scouts-trail.webp",
+      "bytes": 111278,
+      "sha256": "e5494570ae424a99c80acff533fbe8561e400f9ac0cc229dfaad5c7441aeb374"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-stewards-kit.webp",
+      "bytes": 159168,
+      "sha256": "dfee578140e39b94cb2599e24f473ca09fe53a35d4cd7f2f16ba8fb94f2ce0e3"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sk-01.webp",
+      "bytes": 30434,
+      "sha256": "039469c1e2def61f37ec2e3772d71b4215f0439bb5808e90563bb31acfd83d95"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sk-02.webp",
+      "bytes": 67436,
+      "sha256": "c1403c5e1c13523d5acdc2531979100373e65c1f58631a8bbc308569ab063b09"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sk-03.webp",
+      "bytes": 44870,
+      "sha256": "ec9d82924e9eb4f9f1c5651aa5fcbdf1232d166f58f4bcd4be0ee4b59da5b37b"
+    },
+    {
+      "path": "public/assets/ui/artifacts/sk-04.webp",
+      "bytes": 66654,
+      "sha256": "fa552d41a25e47057b0200a96f4cff34f51216412b4bbc20af804f7109514831"
+    },
+    {
+      "path": "game/player-client.js",
+      "bytes": 21197,
+      "sha256": "0d992923eaead7b0611a7d93d0c6cb1c4d4359b95231f3b2be7742a10409cc4c"
+    },
+    {
+      "path": "backend/player-service.js",
+      "bytes": 25816,
+      "sha256": "98dce7e792fad2e3099b5ece5ea55203d26ea2063d6818f57a90946da6532fce"
+    },
+    {
+      "path": "tests/fr010-client.test.mjs",
+      "bytes": 18680,
+      "sha256": "347baed153141eba47570259df3e9ca9ebaead32c9eb3da2ac086f349fc99f06"
+    },
+    {
+      "path": "tests/fr011-api.test.mjs",
+      "bytes": 4383,
+      "sha256": "a71397159d75ef33c08b8fac7fbd8bd6e8b34819cb5da2312d5fed1c791b50a7"
+    },
+    {
+      "path": "public/release.json",
+      "bytes": 7186,
+      "sha256": "9b06625bac8f26bcf6c0ab81e732aa1db32e4545cfdeb072097165b08c02ec05"
     }
-  ],
-  "productionFiles": 1004,
-  "productionUpdated": 5,
-  "retiredProductionFiles": [
-    "assets\\game-Ye4oq5LE.js"
-  ],
-  "canonicalGalleryFiles": [
-    "sites/defender-faction-atlas-20261021/dist/atlas-current.json",
-    "sites/defender-faction-atlas-20261021/dist/ability-catalogue-current.json",
-    "sites/defender-faction-atlas-20261021/dist/preview-config.json",
-    "sites/defender-faction-atlas-20261021/dist/preview-manifest.json",
-    "sites/defender-faction-atlas-20261021/dist/gallery-current.mjs",
-    "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.json",
-    "sites/defender-faction-atlas-20261021/dist/ability-coverage-current.csv",
-    "sites/defender-faction-atlas-20261021/dist/index.html",
-    "design/gallery/canonical-gallery.json",
-    "sites/defender-faction-atlas-20261021/dist/runtime-implementation.json",
-    "sites/defender-faction-atlas-20261021/dist/defender-presentation.json",
-    "sites/defender-faction-atlas-20261021/dist/battlefield-presentation.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/rebuild-current-gallery.mjs",
-    "sites/defender-faction-atlas-20261021/scripts/verify-current-gallery.mjs"
-  ],
-  "publicGalleryUnchanged": true,
-  "finalPublishedVersion": "0.6.11",
-  "publicCommit": "1778614003c0922bb0287ecf1c260d46e2bd3861"
+  ]
 }

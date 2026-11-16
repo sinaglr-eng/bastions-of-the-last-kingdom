@@ -1,38 +1,31 @@
 {
   "status": "passed",
-  "viewportEmulation": [
+  "viewports": [
     {
-      "width": 1376,
-      "height": 1032
+      "width": 1366,
+      "height": 1024
     },
     {
-      "width": 1032,
-      "height": 1376
+      "width": 1024,
+      "height": 1366
     }
   ],
-  "verified": [
-    "Equip set confirmation",
-    "Five-chest opening",
-    "Duplicate Dust conversion",
-    "Crafting price and confirmation",
-    "Equipment equip",
-    "Save and load preset",
-    "Defeat to View Chests",
-    "Gallery filter and set detail",
-    "Gallery JSON export",
-    "Signed-in public Commander page"
-  ],
-  "brokenImages": 0,
+  "readOnlyProductionAccount": true,
+  "productionAccountXP": 68,
+  "productionAccountMedals": 22,
+  "savedDefense": "Dwarves wave 11 retained",
+  "artifactCount": 84,
+  "setFilters": {
+    "rare": 3,
+    "legendary": 2
+  },
+  "rareGuaranteeDraws": 3,
+  "epicGuaranteeDraws": 7,
+  "headUncovered": true,
+  "titleCentered": true,
   "horizontalOverflow": false,
-  "realAccountReadOnly": true,
-  "realAccountXPUnchanged": 68,
-  "realAccountMedalsUnchanged": 22,
-  "ringSlotsMatchChosenUI": true,
-  "bossNoticeSurvivesWaveMessage": true,
-  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
-  "screenshots": [
-    "artifacts/fr011/public-commander-sets.jpg",
-    "artifacts/fr011/commander-equipment-ipad.jpg",
-    "artifacts/fr011/artifact-gallery-sets.jpg"
-  ]
+  "visibleBrokenImages": 0,
+  "allEquippedPortraitsVerifiedLocally": 11,
+  "productionWrites": 0,
+  "screenshot": "artifacts/commander-expansion/public-commander.jpg"
 }

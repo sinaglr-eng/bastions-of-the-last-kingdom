@@ -2,89 +2,96 @@
   "status": "published",
   "feature": "FR-011",
   "version": "0.7.0",
-  "artifactRevision": "fr011-v1",
-  "achievementRevision": "faction-mastery-20261116",
+  "artifactRevision": "fr011-v2",
+  "catalogRevision": 3,
   "rulesetRevision": "fr010-v1",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
+  "sourceCommit": "f5728430aa156db9844c31b5d2784e0c0026a542",
+  "codeCommit": "83344bbbeda404d8ddc20a0d549a0a5e3c0c6e8d",
   "backend": {
-    "sourceCommit": "9917174aa5ebc30364b4e254de3c97779340f141",
-    "version": 35,
-    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_fe3c8530e0108191b423a3cfe6d13d6c",
-    "deploymentId": "appgdep_6afaee3247cc8191a8d930c6a2614d75",
+    "sourceCommit": "9a4cd5032d457fc753b586683d987b4f06778712",
+    "version": 36,
+    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_95430963a1e08191be4285a0dce89a36",
+    "deploymentId": "appgdep_6afb0dfa9b0c819180e615aa7f9ac197",
     "status": "succeeded",
     "environmentRevision": 3
   },
   "tests": {
-    "passed": 2529,
+    "passed": 2537,
     "failed": 0,
-    "skipped": 0,
-    "dedicatedArtifactTests": 10,
-    "combatScenarios": 18
+    "skipped": 0
   },
   "ci": {
-    "id": 43862867736,
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43862867736",
-    "conclusion": "success"
+    "id": 43883418230,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43883418230"
   },
   "content": {
-    "artifacts": 48,
-    "sets": 6,
+    "artifacts": 84,
+    "sets": 11,
     "slots": 10,
     "chestTiers": 5,
-    "presets": 3,
-    "runtimeImages": 66
+    "presetsUI": 0,
+    "storedPresetsPreserved": true,
+    "runtimeImages": 118,
+    "equippedPortraits": 11,
+    "starterSets": 3,
+    "advancedSets": 6,
+    "legendarySets": 2,
+    "standaloneTradeoffs": 6
   },
   "gallery": {
     "localOnly": true,
     "published": false,
-    "url": "http://127.0.0.1:59544/#view=artifacts",
-    "exactOriginalHashesVerified": 48,
-    "feedback": "Local drafts keyed by artifact ID and exact original SHA-256"
+    "url": "http://127.0.0.1:59544/#view=artifacts&artifactMode=sets",
+    "language": "en",
+    "exactOriginalHashesVerified": 84
   },
   "browser": {
-    "viewportEmulation": [
+    "status": "passed",
+    "viewports": [
       {
-        "width": 1376,
-        "height": 1032
+        "width": 1366,
+        "height": 1024
       },
       {
-        "width": 1032,
-        "height": 1376
+        "width": 1024,
+        "height": 1366
       }
     ],
-    "verified": [
-      "Equip set confirmation",
-      "Five-chest opening",
-      "Duplicate Dust conversion",
-      "Crafting price and confirmation",
-      "Equipment equip",
-      "Save and load preset",
-      "Defeat to View Chests",
-      "Gallery filter and set detail",
-      "Gallery JSON export",
-      "Signed-in public Commander page"
-    ],
-    "brokenImages": 0,
+    "readOnlyProductionAccount": true,
+    "productionAccountXP": 68,
+    "productionAccountMedals": 22,
+    "savedDefense": "Dwarves wave 11 retained",
+    "artifactCount": 84,
+    "setFilters": {
+      "rare": 3,
+      "legendary": 2
+    },
+    "rareGuaranteeDraws": 3,
+    "epicGuaranteeDraws": 7,
+    "headUncovered": true,
+    "titleCentered": true,
     "horizontalOverflow": false,
-    "realAccountReadOnly": true,
-    "realAccountXPUnchanged": 68,
-    "realAccountMedalsUnchanged": 22,
-    "ringSlotsMatchChosenUI": true,
-    "bossNoticeSurvivesWaveMessage": true
+    "visibleBrokenImages": 0,
+    "allEquippedPortraitsVerifiedLocally": 11,
+    "productionWrites": 0,
+    "screenshot": "artifacts/commander-expansion/public-commander.jpg"
   },
   "assets": {
     "mode": "built-in image_gen",
-    "sourceManifest": "artifacts/fr011/art-manifest.json",
+    "sourceManifest": "artifacts/commander-expansion/art-manifest.json",
     "runtimeManifest": "public/assets/ui/artifacts/manifest.json",
     "humanAppearanceApprovalRecorded": false
   },
   "progressReset": false,
-  "galleryModelsUploaded": false,
-  "temporaryCheckoutsRemoved": true,
-  "temporaryDatabaseRemoved": true,
-  "verifiedAt": "2026-11-16T12:11:42.451Z",
+  "legacySavedRulesPreserved": true,
+  "modelsUploaded": false,
+  "temporaryCheckoutsRemoved": false,
+  "cleanup": "Automatic review rejected deletion of the task-only checkout and deployment package without a specific reason. Current task files remain local.",
+  "verifiedAt": "2026-11-16T14:23:16.557Z",
   "publicFrontendHashMatchesLocal": true,
   "publicCSSHashMatchesLocal": true,
-  "publicMediaHashesVerified": 66
+  "publicMediaHashesVerified": 53
 }
