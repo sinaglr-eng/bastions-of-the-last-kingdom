@@ -1,11 +1,11 @@
 import {equipmentLayout,chestLayout,setsLayout} from './commander-vault-layout.js';
-import {commanderUtilityArt} from './commander-art.js';
+import {commanderUtilityArt,commanderImageUrl} from './commander-art.js';
 import {ARTIFACT_CATALOG as C,ARTIFACTS,ARTIFACT_SETS,ARTIFACT_SLOTS,RARITIES,CHESTS,artifactBonuses,artifactModifierText,craftUnlockTier,validateArtifactEquipment,chestTier,equipArtifactSet,setPieces,setThresholds,completeArtifactSet} from '../game/core/artifacts.js';
 import {siteUrl} from '../game/site-url.js';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const num=n=>Number(n||0).toLocaleString('en-US');
 export const artifactArt=id=>siteUrl(ARTIFACTS[id]?.art||'assets/ui/commander-v080/silhouette.webp');
-const image=(src,alt='',cls='')=>`<img class="${cls}" src="${siteUrl(src)}" alt="${esc(alt)}" loading="lazy" width="256" height="256">`;
+const image=(src,alt='',cls='')=>`<img class="${cls}" src="${commanderImageUrl(src)}" alt="${esc(alt)}" loading="lazy" width="256" height="256">`;
 const slotLabel=s=>({head:'Head',neck:'Neck',chest:'Chest',weapon:'Weapon',offhand:'Offhand',gloves:'Gloves',cloak:'Cloak',feet:'Feet',ring:'Ring',ring1:'Left ring',ring2:'Right ring'})[s]||s;
 const rarityLabel=id=>RARITIES[id]?.name||id;
 const empty=()=>({owned:[],equipment:{},presets:[],pity:{},dust:0,highestTier:0,chests:[],counts:[]});

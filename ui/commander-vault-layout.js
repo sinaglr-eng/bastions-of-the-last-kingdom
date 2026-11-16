@@ -1,10 +1,10 @@
 import {ARTIFACT_CATALOG as C,ARTIFACTS,ARTIFACT_SETS,ARTIFACT_SLOTS,RARITIES,CHESTS,artifactBonuses,artifactModifierText,equipArtifactSet,setPieces,setThresholds} from '../game/core/artifacts.js';
 import {siteUrl} from '../game/site-url.js';
-import {commanderArt,commanderUtilityArt,emptySlotArtifact} from './commander-art.js';
+import {commanderArt,commanderUtilityArt,commanderImageUrl,emptySlotArtifact} from './commander-art.js';
 
 export const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const slotLabel=s=>({head:'Head',neck:'Neck',chest:'Chest',weapon:'Weapon',offhand:'Offhand',gloves:'Gloves',cloak:'Cloak',feet:'Feet',ring:'Ring',ring1:'Left ring',ring2:'Right ring'})[s]||s;
-export const picture=(src,alt='',cls='')=>`<img class="${cls}" src="${siteUrl(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" width="256" height="256">`;
+export const picture=(src,alt='',cls='')=>`<img class="${cls}" src="${commanderImageUrl(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" width="256" height="256">`;
 const select=(name,label,options,value)=>`<label><span>${label}</span><span class="vault-select"><select aria-label="${esc(label)}" data-vault-filter="${name}">${options.map(([id,n])=>`<option value="${id}" ${id===value?'selected':''}>${esc(n)}</option>`).join('')}</select></span></label>`;
 const count=(a,tier,status)=>a.counts.filter(r=>r.tier===tier&&r.status===status).reduce((n,r)=>n+r.count,0);
 const dust=a=>`<span class="vault-dust">${picture(commanderUtilityArt('dust'))}<span><b>${Number(a.dust||0).toLocaleString('en-US')}</b><small>Relic Dust</small></span></span>`;

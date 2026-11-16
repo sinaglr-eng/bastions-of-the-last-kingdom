@@ -1,6 +1,8 @@
 import {siteUrl} from '../game/site-url.js';
 
 export const commanderArt=name=>siteUrl(`assets/ui/commander-v080/${name}.webp`);
+// Utility helpers already return deployment-rooted URLs; catalog art is relative.
+export const commanderImageUrl=(src,base=import.meta.env?.BASE_URL||'/')=>src.startsWith('/')?src:siteUrl(src,base);
 export const commanderSkillArt=id=>commanderArt(`skills/${id}`);
 const utilities={equipment:'commander',skills:'basic-defenders',sets:'champions',damage:'champions',speed:'time',range:'recipes',dust:'command-points'};
 export const commanderUtilityArt=id=>id==='chests'?commanderArt('chest-3'):siteUrl(`assets/ui/ornate/${utilities[id]||id}.webp`);

@@ -4,6 +4,10 @@ import {CommanderVault} from '../ui/commander-vault.js';
 import {filteredArtifacts} from '../ui/commander-vault-layout.js';
 import {ARTIFACT_CATALOG as C,equipArtifactSet,artifactBonuses} from '../game/core/artifacts.js';
 import {generalView} from '../ui/war-table-view.js';
+import {commanderImageUrl} from '../ui/commander-art.js';
+test('FR012 catalog and resolved utility images retain exactly one public game prefix',()=>{
+ for(const base of ['/','/play/','/bastions-of-the-last-kingdom/']){const raw='assets/ui/commander-v080/silhouette.webp',url=commanderImageUrl(raw,base);assert.equal(url,base+raw);assert.equal(commanderImageUrl(url,base),url);assert.equal(commanderImageUrl('/assets/ui/ornate/commander.webp',base),'/assets/ui/ornate/commander.webp');}
+});
 const fixture=()=>new CommanderVault({player:{online:true,profile:{artifacts:{owned:C.artifacts.map(i=>i.id),equipment:{},counts:[],chests:[],pity:{},dust:1000,highestTier:5}}},render:async()=>{},status:()=>{}});
 test('FR012 backpack pages are bounded, searchable and preserve real rarity',()=>{
  const v=fixture();assert.equal(filteredArtifacts(v).length,84);assert.equal([...v.equipment().matchAll(/data-vault-item=/g)].length,12);v.page=6;assert.equal([...v.equipment().matchAll(/data-vault-item=/g)].length,12);v.search='crown';assert.ok(filteredArtifacts(v).every(i=>/crown/i.test(i.name)));v.search='';v.ownership='missing';assert.equal(filteredArtifacts(v).length,0);v.player.profile.artifacts.owned=[];assert.equal(filteredArtifacts(v).length,84);v.set='celestial';assert.equal(filteredArtifacts(v).length,10);v.rarity='legendary';assert.equal(filteredArtifacts(v).length,3);
