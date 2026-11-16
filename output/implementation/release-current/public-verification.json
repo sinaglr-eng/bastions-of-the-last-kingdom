@@ -1,12 +1,12 @@
 {
   "passed": true,
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "checkedAt": "2026-11-16T10:20:32.830Z",
+  "checkedAt": "2026-11-16T11:21:25.527Z",
   "files": [
     {
-      "path": "assets/game-Gdm9CBl9.js",
-      "bytes": 2857516,
-      "sha256": "5ab09f4311b4910d3b16b2d773ab08422abb27239bf6fe89aa560c597cb3c701"
+      "path": "assets/game-DkiXB2pp.js",
+      "bytes": 2861136,
+      "sha256": "5a7f225ad735d1741843004c18b7c938b6bb4f05ea520ac34235f6a2e44685c4"
     },
     {
       "path": "assets/three-BBClaj7g.js",
@@ -14,85 +14,37 @@
       "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
     },
     {
-      "path": "assets/game-miWKUl4b.css",
-      "bytes": 504240,
-      "sha256": "a3680b6c17bda0b0e1c2fe21fc88b50e5b5ee56211d830ae1537c3ddbf83432a"
+      "path": "assets/game-Bpq27Sab.css",
+      "bytes": 506019,
+      "sha256": "01a175b875cb4fa0eb2a1eba995bfc32dd03adefd09d4631615e1d3584b42025"
     },
     {
       "path": "assets/ui/war-table/extended-range.webp",
-      "bytes": 168406,
-      "sha256": "30393792b246a1b4aadc81d51a3952de0fc23ca3c742297d326434dd8ddee76c"
+      "bytes": 161034,
+      "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0"
     }
   ],
-  "commanderAbilities": {
-    "revision": "commander-selected-promotion-and-range-20261116",
-    "skills": 11,
-    "equippedSlots": 3,
-    "fieldPromotion": {
-      "target": "one-selected-current-draft-recruit",
-      "costCP": 3,
-      "uses": [
-        1,
-        2,
-        2
-      ],
-      "caps": [
-        5,
-        5,
-        6
-      ],
-      "accountLevels": [
-        7,
-        10,
-        14
-      ]
+  "factionAchievements": {
+    "revision": "faction-mastery-20261116",
+    "factions": 3,
+    "wave50": {
+      "medals": 5,
+      "xp": 8,
+      "identity": "existing-campaign-per-faction"
     },
-    "extendedRange": {
-      "costGold": 200,
-      "rangeTiles": [
-        1,
-        1.5,
-        2
-      ],
-      "scope": "all-defenders-current-combat-wave",
-      "usesPerWave": 1,
-      "accountLevels": [
-        6,
-        10,
-        13
-      ]
+    "allChampions": {
+      "required": 38,
+      "includesBasic": true,
+      "includesSecret": true,
+      "medals": 12,
+      "xp": 20
     },
-    "decisiveStrike": {
-      "costCP": 0,
-      "usesPerRun": 1,
-      "normalMaxHP": [
-        0.3,
-        0.4,
-        0.5
-      ],
-      "bossMaxHP": [
-        0.05,
-        0.07,
-        0.1
-      ],
-      "accountLevels": [
-        9,
-        13,
-        15
-      ]
+    "thematicCollections": {
+      "required": 3,
+      "medals": 4,
+      "xp": 6
     },
-    "fortifiedKeep": {
-      "bonusHealth": [
-        5,
-        10,
-        15
-      ],
-      "accountLevels": [
-        2,
-        6,
-        11
-      ]
-    }
+    "verifiedHistoryBackfill": true
   },
   "accountHealth": {
     "ok": true,
@@ -101,5 +53,6 @@
     "releaseName": "Preserved commander scores · Developer runs excluded"
   },
   "galleryPublished": false,
+  "unrelatedArtifactFeatureIncluded": false,
   "publicWrites": 0
 }

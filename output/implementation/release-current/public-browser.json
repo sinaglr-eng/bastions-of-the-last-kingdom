@@ -16,7 +16,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.2\n· W1\nSum peak DPS\n1\nFrost Warden\n#1 · Rank I · MVP 0\n1.2"
+      "dps": "Σ Peak DPS\n0.6\n· W1\nSum peak DPS\n1\nCleric\n#1 · Rank I · MVP 0\n0.6"
     },
     {
       "faction": "forge",
@@ -32,7 +32,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nShieldguard\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nDwarf Miner\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "grove",
@@ -48,7 +48,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nNightweaver Spider\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nMoonblade Assassin\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "forge",
@@ -57,6 +57,7 @@
       "errors": [],
       "httpErrors": [],
       "blockedWrites": 1,
+      "tutorial": "Skipped through the ordinary UI",
       "canvasRect": {
         "x": 0,
         "y": 106,
@@ -178,7 +179,7 @@
     "accountOptional": true,
     "achievementClaims": "manual",
     "achievementNotifications": true,
-    "achievementRevision": "shared-achievements-20261116",
+    "achievementRevision": "faction-mastery-20261116",
     "achievementScopes": {
       "champions": "faction",
       "basicChampionAchievements": true,
@@ -186,7 +187,10 @@
       "basicChampionXP": 1,
       "bosses": "account",
       "bossCollection": "account",
-      "flawlessStreaks": "account-single-run-best"
+      "flawlessStreaks": "account-single-run-best",
+      "campaignVictory": "faction",
+      "completeRoster": "faction-all-38-including-secret",
+      "thematicCollections": "faction-verified-champion-sets"
     },
     "accountProgression": {
       "revision": "account-xp-v1",
@@ -195,6 +199,28 @@
       "kingXP": 1000,
       "manualAchievementXP": true,
       "runBossXP": true
+    },
+    "factionAchievements": {
+      "revision": "faction-mastery-20261116",
+      "factions": 3,
+      "wave50": {
+        "medals": 5,
+        "xp": 8,
+        "identity": "existing-campaign-per-faction"
+      },
+      "allChampions": {
+        "required": 38,
+        "includesBasic": true,
+        "includesSecret": true,
+        "medals": 12,
+        "xp": 20
+      },
+      "thematicCollections": {
+        "required": 3,
+        "medals": 4,
+        "xp": 6
+      },
+      "verifiedHistoryBackfill": true
     },
     "commanderAbilities": {
       "revision": "commander-selected-promotion-and-range-20261116",
@@ -269,6 +295,7 @@
     "presentation": {
       "commanderNaming": true,
       "commanderArtwork": "painted-war-table-20261116",
+      "extendedRangeArtwork": "coaxial-spyglass-20261116",
       "commanderResetControl": false,
       "hallDropdownTheme": "achievements",
       "homeMazeEditor": true,
@@ -278,8 +305,28 @@
     }
   },
   "bundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Gdm9CBl9.js",
-    "bytes": 2857516,
-    "sha256": "5ab09f4311b4910d3b16b2d773ab08422abb27239bf6fe89aa560c597cb3c701"
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DkiXB2pp.js",
+    "bytes": 2861136,
+    "sha256": "5a7f225ad735d1741843004c18b7c938b6bb4f05ea520ac34235f6a2e44685c4"
+  },
+  "factionAchievements": {
+    "passed": true,
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
+    "cases": [
+      {
+        "mobile": false,
+        "passed": true,
+        "name": "Guest achievement and Commander entry points remain sign-in gated, with no reward actions exposed"
+      },
+      {
+        "mobile": true,
+        "passed": true,
+        "name": "Guest achievement and Commander entry points remain sign-in gated, with no reward actions exposed"
+      }
+    ],
+    "errors": [],
+    "publicWrites": 0,
+    "publicAccountCardsInspected": false,
+    "scope": "Ordinary public guest UI preserves sign-in gates. Authenticated achievement cards are separately verified by12 isolated native UI cases and5 actual compiled Worker cases; no live-account state injection or writes."
   }
 }

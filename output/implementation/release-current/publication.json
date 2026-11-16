@@ -1,45 +1,122 @@
 {
   "status": "published",
   "version": "0.7.0",
-  "revision": "commander-selected-promotion-and-range-20261116",
-  "parent": "b27bf4eb7ee1eda82f91d82687853706ccd1c890",
-  "tree": "d90b204b5de6814d69bc792d941f3b52e6f7b079",
-  "commit": "c8bf0ab1a9b95d2218d80cf99a235dbdcba9579d",
+  "revision": "faction-mastery-20261116",
+  "sourceWorkspace": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\artifacts\\faction-release-current",
+  "parent": "0c8ffa23f68ac6d7ed5b8ff356728a1f5d00d28c",
+  "tree": "ba8a1c58f3af77fc82f9ba3d2163acd023632f6d",
+  "commit": "6c4b9df7a731105f4c47b132d09fe3e816f3090e",
   "files": [
     {
-      "path": "game/player-client.js",
-      "bytes": 19034,
-      "sha256": "fe84beca817fffcecbe9a6689d90b2913ba9ea08a7f6d03d007562238175a59e"
+      "path": "game/core/faction-achievements.js",
+      "bytes": 1799,
+      "sha256": "406c7deff3634c4c6bc4af34f765bdb4e82cb1d0f4672c3cf1cfc7c21effd040"
+    },
+    {
+      "path": "game/core/achievements.js",
+      "bytes": 4393,
+      "sha256": "9b7d1fd2e16de84767b84c96ba25e20fcedbffee1d48e34480642624cc651c2c"
+    },
+    {
+      "path": "game/core/account-progression.js",
+      "bytes": 3561,
+      "sha256": "66df230dc004e84098b706b9a95fadeed5404951f6f2b25eed8c3e22a0304284"
+    },
+    {
+      "path": "backend/achievement-entitlements.js",
+      "bytes": 6839,
+      "sha256": "ae4ae704535c25e4cbc38d12691007b8e53742f92d88aad3535f11dab8e43970"
     },
     {
       "path": "backend/player-service.js",
-      "bytes": 23978,
-      "sha256": "f5cd61e242a1d2f94541d137f2cd541f2b7e1746ba1248a464d253946de2a3a0"
+      "bytes": 24264,
+      "sha256": "f0d3093928e7a570278958708278a77a6165e267d84b1343f7acc7348269b397"
     },
     {
-      "path": "tests/fr010-client.test.mjs",
-      "bytes": 18567,
-      "sha256": "de611df1b4db87d8a789599e4e96c6c987f0b7a494d5b1a050a1d2822f025adb"
+      "path": "backend/verified-run-progress.js",
+      "bytes": 1365,
+      "sha256": "b98335c86d5dac9ba91c93b3522604c25f4f2a2aa5dbc39bbb76000a42c97c05"
+    },
+    {
+      "path": "ui/war-table-view.js",
+      "bytes": 19269,
+      "sha256": "9b5a428e3531c362e252971c48ec4c3d9f47139d9680d9ad440876dd911c611a"
+    },
+    {
+      "path": "ui/war-table.css",
+      "bytes": 34337,
+      "sha256": "d3910d33ccfe429d1ff3c0428eb1748a03cefe8bb700080af6538303647db96f"
+    },
+    {
+      "path": "ui/achievement-notices.js",
+      "bytes": 4546,
+      "sha256": "2f1e3faa66f5a4b904126e92120418fb027bc36ad63002775371a0b6b43f30c7"
+    },
+    {
+      "path": "ui/main-menu.js",
+      "bytes": 25466,
+      "sha256": "4d2414f9573f26cd5cfaa7c78429385e785470396469da19a3f3352c5f89afe7"
+    },
+    {
+      "path": "tests/faction-achievements-core.test.mjs",
+      "bytes": 7418,
+      "sha256": "4e9be8673b759a6d1f7cdbe1d0b6cb45292cf72dc976e05d4f6ff2ca88137dff"
+    },
+    {
+      "path": "tests/faction-achievements-ui.test.mjs",
+      "bytes": 9506,
+      "sha256": "286d9fdc4055488c8fce6db33cfb248894c9ee15549d4a6c646ec4131a843a17"
+    },
+    {
+      "path": "tests/shared-achievements-core.test.mjs",
+      "bytes": 8115,
+      "sha256": "17597d84a1a9cfd6b273933905a3f32de482153a515bcca503d0f1a3f6158e2e"
     },
     {
       "path": "tests/fr010-backend.test.mjs",
-      "bytes": 71714,
-      "sha256": "a83a57d8b3bba66a157e8e262605d41bcae98083d0565fa893fb965942fec764"
+      "bytes": 83809,
+      "sha256": "6d1e81ce39f3a7afcc01dc6a6e022030af51d533d968b591abe6364d4ed49484"
+    },
+    {
+      "path": "public/release.json",
+      "bytes": 5775,
+      "sha256": "fcff633f09ad1dd9e5c2b2c52d67b3edad4a4f62ccb6cee91aca1fb88765e2cd"
     },
     {
       "path": "docs/FR010_IMPLEMENTATION.md",
-      "bytes": 17007,
-      "sha256": "62e1339e16d1ca9310cde46705905bcd90397fe435c15b5aef5481db2a77b763"
+      "bytes": 17251,
+      "sha256": "86c609fdf178caad78a8f4e4aca95443b7e61787c8c2da9a18b10d97c9148239"
+    },
+    {
+      "path": "docs/ACCOUNT_PROGRESSION_IMPLEMENTATION.md",
+      "bytes": 7000,
+      "sha256": "cba8b50d903211040fec686ab22318db2f9bb0199d8e61a44dc2357a4694304d"
+    },
+    {
+      "path": "public/assets/ui/war-table/extended-range.webp",
+      "bytes": 161034,
+      "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0"
+    },
+    {
+      "path": "public/assets/ui/war-table/generated-assets.json",
+      "bytes": 30969,
+      "sha256": "e1022cab3fc68c53003cddbf922f9b12bbafcc6a2d8bff33606c17b483771335"
+    },
+    {
+      "path": "public/assets/ui/war-table/README.md",
+      "bytes": 3175,
+      "sha256": "4e0edb4e4e77449b329673d9a6f086f3ef5376c8897e350e2d63ac0838d9340a"
     }
   ],
   "sharedIndexUnchanged": true,
   "galleryFiles": 0,
   "newModelFiles": 0,
-  "newRasterImages": 1,
+  "replacedRasterImages": 1,
+  "unrelatedArtifactFeatureIncluded": false,
   "backend": {
-    "sourceCommit": "250d77316278dc5eda0a4525835b79826079ef31",
-    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_e2c27696014481918f3ee77f635c0f8d",
-    "deploymentId": "appgdep_6afad7702aac81918ce4993d320b8ee7",
+    "sourceCommit": "5bbb1fc24786b681df61e38c1df6a6cb408206af",
+    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_874c50ca5a40819181181ba50cd7e88c",
+    "deploymentId": "appgdep_6afae53c19dc8191bbb170c1216ff189",
     "environmentRevision": 3
   }
 }

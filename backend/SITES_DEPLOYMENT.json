@@ -2,9 +2,9 @@
   "project_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
   "source_repository": "https://git.chatgpt-team.site/2faa05f6-40b5-44d2-a156-d05fe5225c5d/appgprj_6abe518c2c1c8191a9bc044f418faed8.git",
-  "source_commit": "250d77316278dc5eda0a4525835b79826079ef31",
-  "version_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_e2c27696014481918f3ee77f635c0f8d",
-  "deployment_id": "appgdep_6afad7702aac81918ce4993d320b8ee7",
+  "source_commit": "5bbb1fc24786b681df61e38c1df6a6cb408206af",
+  "version_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_874c50ca5a40819181181ba50cd7e88c",
+  "deployment_id": "appgdep_6afae53c19dc8191bbb170c1216ff189",
   "game_version": "0.7.0",
   "audience": "public",
   "game_url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
@@ -16,7 +16,7 @@
   "environment_revision": 3,
   "production_google_round_trip_verified": true,
   "production_google_round_trip_evidence": "Operator confirmed successful player sign-in and visible account in the public game.",
-  "ui_revision": "commander-selected-promotion-and-range-20261116",
+  "ui_revision": "faction-mastery-20261116",
   "achievement_claims": "manual-in-collection-only",
   "top_champion_medals": 3,
   "commander_skills": 11,
@@ -27,5 +27,9 @@
   "field_promotion_target": "one-selected-current-draft-recruit",
   "extended_range_gold": 200,
   "extended_range_scope": "all-defenders-current-wave",
-  "commander_rules_version": 2
+  "commander_rules_version": 2,
+  "achievement_revision": "faction-mastery-20261116",
+  "faction_achievements": true,
+  "complete_faction_roster": 38,
+  "extended_range_artwork_revision": "coaxial-spyglass-20261116"
 }
