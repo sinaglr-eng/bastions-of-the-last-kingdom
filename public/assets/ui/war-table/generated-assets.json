@@ -244,15 +244,28 @@
     },
     {
       "name": "extended-range",
-      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a133e8-d3a8-7891-87f8-bbba16726c77\\exec-a402662f-a8bb-4c96-8c5f-f1ed729f32c8.png",
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a133e8-d3a8-7891-87f8-bbba16726c77\\exec-ce96b51d-e96d-4cd4-9ca2-7618db42a0c5.png",
       "output": "extended-range.webp",
-      "prompt": "Use case: stylized-concept. Asset type: production fantasy tower-defense Commander skill icon, named Extended Range. Generate ONE full-bleed square painterly raster illustration, no text. Match the approved reference illustration's rich blue-and-gold miniature fantasy game style, sunny warm ivory limestone citadel, friendly sculpted forms, polished steel and antique gold, clear silhouette and fine brush texture. Reference image is STYLE ONLY, not an edit target. Subject: a large ornate brass-and-gold spyglass with deep blue leather grip on an ivory stone battlement, aimed toward a far distant archery target across a sunny valley. Beside it a simple gold compass with two outward-pointing arrowheads suggests extended reach; a single graceful gold trajectory sweeps from the battlement toward the distant target. Main spyglass occupies most of the center and remains readable as a 64px skill thumbnail. Blue heraldic banner at edge, blue sky, distant cream castle and green hills as secondary detail. Strong clear warm sunlight. Fully painted three-dimensional materials, no flat SVG styling. Safe 12% margin around main subject. No words, letters, numerals, labels, UI, frame, watermark, multiple panels, people or firearms.",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied square Extended Range fantasy game icon. Correct ONLY the telescope's impossible perspective and optical construction. Preserve the existing sunny blue-and-gold painted miniature fantasy style, cream stone battlement, distant castle, blue heraldic banner, outward-arrow compass and distant target. Reconstruct the telescope as ONE rigid straight refracting telescope on its brass fork: all cylindrical sections, eyepiece, barrel, gold collars and objective share exactly ONE straight optical axis. The camera is a single coherent three-quarter FRONT view from the large objective's right-hand end. Show ONLY the large objective glass face on the right; the small eyepiece at the far left is seen from its side/back, with NO visible glass face. It is physically impossible to see both outward-facing lens surfaces in this opaque telescope, so remove the visible left lens. Do not bend or twist any tube segment. Both lens end planes are perpendicular to the optical axis; the rim ellipse orientation and tube side edges must match the same camera. The large right objective is a shallow normal lens seated flush inside a concentric brass rim, NOT a deep bowl, funnel, glowing portal or magnifying glass on a skewed tube. Do not show a distant scene through the lens; use subtle blue optical glass with modest sky reflection. Use a calm almost side-elevation to make construction unmistakable and silhouette readable at64px. Keep gold mount securely attached beneath the central barrel. No new text, letters, numerals, logos, frames or watermarks. Full bleed square raster, preserve opaque background.",
       "references": [
-        "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\public\\assets\\ui\\war-table\\field-promotion.webp"
+        "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\public\\assets\\ui\\war-table\\extended-range.webp"
       ],
       "width": 640,
       "height": 640,
-      "bytes": 168406
+      "bytes": 161034,
+      "perspectiveRevision": "coaxial-spyglass-20261116",
+      "replacedGeneration": {
+        "name": "extended-range",
+        "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a133e8-d3a8-7891-87f8-bbba16726c77\\exec-a402662f-a8bb-4c96-8c5f-f1ed729f32c8.png",
+        "output": "extended-range.webp",
+        "prompt": "Use case: stylized-concept. Asset type: production fantasy tower-defense Commander skill icon, named Extended Range. Generate ONE full-bleed square painterly raster illustration, no text. Match the approved reference illustration's rich blue-and-gold miniature fantasy game style, sunny warm ivory limestone citadel, friendly sculpted forms, polished steel and antique gold, clear silhouette and fine brush texture. Reference image is STYLE ONLY, not an edit target. Subject: a large ornate brass-and-gold spyglass with deep blue leather grip on an ivory stone battlement, aimed toward a far distant archery target across a sunny valley. Beside it a simple gold compass with two outward-pointing arrowheads suggests extended reach; a single graceful gold trajectory sweeps from the battlement toward the distant target. Main spyglass occupies most of the center and remains readable as a 64px skill thumbnail. Blue heraldic banner at edge, blue sky, distant cream castle and green hills as secondary detail. Strong clear warm sunlight. Fully painted three-dimensional materials, no flat SVG styling. Safe 12% margin around main subject. No words, letters, numerals, labels, UI, frame, watermark, multiple panels, people or firearms.",
+        "references": [
+          "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\public\\assets\\ui\\war-table\\field-promotion.webp"
+        ],
+        "width": 640,
+        "height": 640,
+        "bytes": 168406
+      }
     }
   ]
 }

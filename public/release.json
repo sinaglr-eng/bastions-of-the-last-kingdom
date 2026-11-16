@@ -107,7 +107,7 @@
   "accountOptional": true,
   "achievementClaims": "manual",
   "achievementNotifications": true,
-  "achievementRevision": "shared-achievements-20261116",
+  "achievementRevision": "faction-mastery-20261116",
   "achievementScopes": {
     "champions": "faction",
     "basicChampionAchievements": true,
@@ -115,7 +115,10 @@
     "basicChampionXP": 1,
     "bosses": "account",
     "bossCollection": "account",
-    "flawlessStreaks": "account-single-run-best"
+    "flawlessStreaks": "account-single-run-best",
+    "campaignVictory": "faction",
+    "completeRoster": "faction-all-38-including-secret",
+    "thematicCollections": "faction-verified-champion-sets"
   },
   "accountProgression": {
     "revision": "account-xp-v1",
@@ -124,6 +127,14 @@
     "kingXP": 1000,
     "manualAchievementXP": true,
     "runBossXP": true
+  },
+  "factionAchievements": {
+    "revision": "faction-mastery-20261116",
+    "factions": 3,
+    "wave50": { "medals": 5, "xp": 8, "identity": "existing-campaign-per-faction" },
+    "allChampions": { "required": 38, "includesBasic": true, "includesSecret": true, "medals": 12, "xp": 20 },
+    "thematicCollections": { "required": 3, "medals": 4, "xp": 6 },
+    "verifiedHistoryBackfill": true
   },
   "commanderAbilities": {
     "revision": "commander-selected-promotion-and-range-20261116",
@@ -137,6 +148,7 @@
   "presentation": {
     "commanderNaming": true,
     "commanderArtwork": "painted-war-table-20261116",
+    "extendedRangeArtwork": "coaxial-spyglass-20261116",
     "commanderResetControl": false,
     "hallDropdownTheme": "achievements",
     "homeMazeEditor": true,

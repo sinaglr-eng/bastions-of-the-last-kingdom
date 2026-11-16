@@ -2,6 +2,7 @@ import {achievementById} from './war-table-view.js';
 import {achievementArtwork,escapeProgression as esc} from './progression-art.js';
 import {canonicalAchievementId,isSharedAchievement} from '../game/core/achievements.js';
 import {canonicalAchievementRows,achievementIdSet} from '../game/achievement-client-state.js';
+import {FACTIONS} from '../game/core/factions.js';
 
 const noticeKey=key=>key.startsWith('unlocked:')?'unlocked:'+canonicalAchievementId(key.slice(9)):key;
 
@@ -29,8 +30,8 @@ export class AchievementNotices{
   if(this.current||!this.queue.length)return;
   this.current=this.queue.shift();const n=this.current;this.seen.add(n.key);try{localStorage.setItem('war-achievement-notices:'+this.owner,JSON.stringify([...this.seen].filter(k=>!k.startsWith('summary:')).slice(-2000)));}catch{}
   const {data,row}=n.id?achievementById(n.id):{},name=row?.secret&&n.type!=='pending'?data.towers[n.id.split(':').at(-1)]?.name||row.name:row?.name||'Achievement';
-  const summary=n.type==='summary',pending=n.type==='pending';
-  this.root.innerHTML=`<section class="achievement-notice" data-notice><button class="achievement-notice-close" aria-label="Dismiss achievement notification">×</button>${row?`<img class="achievement-notice-art" src="${esc(achievementArtwork(row,data,!pending))}" alt="">`:''}<div class="achievement-notice-copy"><div class="achievement-notice-live" role="status" aria-live="polite" aria-atomic="true"><small>ACHIEVEMENT UNLOCKED</small><h2>${summary?`${n.count} achievement${n.count===1?'':'s'}`:esc(name)}</h2>${isSharedAchievement(n.id)?'<small>Shared across factions</small>':''}<p>${pending?'Well done! Verification pending.':'Well done, Commander!'}</p></div></div></section>`;
+  const summary=n.type==='summary',pending=n.type==='pending',factionName=FACTIONS.find(faction=>faction.id===row?.factionId)?.name;
+  this.root.innerHTML=`<section class="achievement-notice" data-notice><button class="achievement-notice-close" aria-label="Dismiss achievement notification">×</button>${row?`<img class="achievement-notice-art" src="${esc(achievementArtwork(row,data,!pending))}" alt="">`:''}<div class="achievement-notice-copy"><div class="achievement-notice-live" role="status" aria-live="polite" aria-atomic="true"><small>ACHIEVEMENT UNLOCKED</small><h2>${summary?`${n.count} achievement${n.count===1?'':'s'}`:esc(name)}</h2>${factionName?`<small>${esc(factionName)} · Faction achievement</small>`:isSharedAchievement(n.id)?'<small>Shared across factions</small>':''}<p>${pending?'Well done! Verification pending.':'Well done, Commander!'}</p></div></div></section>`;
   this.remaining=4500;this.resume();
  }
  pause(){if(this.timer){clearTimeout(this.timer);this.remaining=Math.max(0,this.remaining-(performance.now()-this.started));this.timer=null;}}

@@ -2,6 +2,7 @@ import {canonicalAchievementId,eligibleChampion,isSharedAchievement} from '../ga
 import {achievementCatalog,streakAchievement,BOSS_TYPES} from '../game/core/achievements.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {verifiedRunProgress} from './verified-run-progress.js';
+import {factionCollectionAchievements} from '../game/core/faction-achievements.js';
 
 const factions=['crown','forge','grove'];
 const shared=isSharedAchievement;
@@ -52,11 +53,15 @@ export async function reconcileAchievementEntitlements(db,user,reset){
   for(const run of runs){const f=run.faction_id;if(!factions.includes(f)||run.ruleset!==currentFactionData(f).rulesetRevision)continue;
    const saved=await db.prepare('SELECT snapshot_json FROM fr010_runs WHERE user_id=? AND id=?').bind(user,run.id).first();
    const progress=verifiedRunProgress({...run,snapshot_json:saved?.snapshot_json});if(progress.excluded||progress.epoch!==reset.epoch)continue;
+   if(progress.waves>=50||progress.campaign)remember(`campaign:${f}`,{runId:run.id});
    for(const id of progress.champions){if(!eligibleChampion(currentFactionData(f).towers[id]))continue;champions[f].add(id);remember(`champion:${f}:${id}`,{runId:run.id});}
    for(const type of progress.bosses){bosses.add(type);remember(`boss:global:${type}`,{runId:run.id});}
    best=Math.max(best,progress.streakBest);
   }
-  for(const f of factions)for(const target of [5,15,30])if(champions[f].size>=target)remember(`collection:${f}:${target}`);
+  for(const f of factions){
+   for(const target of [5,15,30])if(champions[f].size>=target)remember(`collection:${f}:${target}`);
+   for(const row of factionCollectionAchievements(currentFactionData(f)))if(row.requiredChampions.every(id=>champions[f].has(id)))remember(row.id);
+  }
   if(BOSS_TYPES.every(id=>bosses.has(id)))remember('boss-collection:global');
   for(let n=10;n<=best;n+=10)remember(`streak:global:${n}`);
   if(!pendingGrants.length&&!pendingEligible.size)return false;

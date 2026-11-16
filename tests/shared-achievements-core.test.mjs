@@ -23,7 +23,7 @@ test('every champion classification earns faction-specific first-craft rewards, 
    assert.equal(row.reward,unit.classification.toLowerCase()==='top'?3:1);
    assert.equal(row.xp,classXP[unit.classification.toLowerCase()]);
   }
-  assert.deepEqual(catalog.filter(row=>row.kind==='collection').map(({target,reward,xp})=>({target,reward,xp})),[{target:5,reward:2,xp:3},{target:15,reward:4,xp:8},{target:30,reward:8,xp:15}]);
+  assert.deepEqual(catalog.filter(row=>row.kind==='collection'&&!row.requiredChampions).map(({target,reward,xp})=>({target,reward,xp})),[{target:5,reward:2,xp:3},{target:15,reward:4,xp:8},{target:30,reward:8,xp:15}]);
  }
  assert.equal(eligibleChampion({advanced:true,classification:' Basic '}),true);
  assert.equal(achievementXP({towers:{unit:{advanced:true,classification:' BASIC '}}},'champion:crown:unit'),1);

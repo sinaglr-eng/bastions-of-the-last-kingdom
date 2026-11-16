@@ -14,6 +14,7 @@ import {activeAchievement,accountProgression,settleRunExperience} from './accoun
 import {eligibleChampion,skillGate,accountRank,newlyAvailableSkills,canonicalAchievementId} from '../game/core/account-progression.js';
 import {BOSS_TYPES} from '../game/core/achievements.js';
 import {mergeAchievementRows,reconcileAchievementEntitlements} from './achievement-entitlements.js';
+import {factionCollectionAchievements} from '../game/core/faction-achievements.js';
 
 const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -61,8 +62,9 @@ async function walletMutation(db,user,b,kind){
 
 function earnedGrants(game,existing){
  const rows=game.progress.grants(),ids=new Set([...existing.map(x=>x.id),...rows.map(x=>x.id)]),f=game.factionId;
- const champions=[...ids].filter(x=>x.startsWith(`champion:${f}:`)&&eligibleChampion(game.data.towers[x.split(':').at(-1)])).length,bosses=new Set([...ids].map(canonicalAchievementId).filter(x=>x.startsWith('boss:global:')).map(x=>x.split(':').at(-1)));
- for(const [target,reward]of [[5,2],[15,4],[30,8]])if(champions>=target)rows.push({id:`collection:${f}:${target}`,factionId:f,reward});
+ const champions=new Set([...ids].filter(x=>x.startsWith(`champion:${f}:`)&&eligibleChampion(game.data.towers[x.split(':').at(-1)])).map(x=>x.split(':').at(-1))),bosses=new Set([...ids].map(canonicalAchievementId).filter(x=>x.startsWith('boss:global:')).map(x=>x.split(':').at(-1)));
+ for(const [target,reward]of [[5,2],[15,4],[30,8]])if(champions.size>=target)rows.push({id:`collection:${f}:${target}`,factionId:f,reward});
+ for(const row of factionCollectionAchievements(game.data))if(row.requiredChampions.every(id=>champions.has(id)))rows.push({id:row.id,factionId:f,reward:row.reward});
  if(BOSS_TYPES.every(id=>bosses.has(id)))rows.push({id:'boss-collection:global',factionId:null,reward:5});const owned=new Set(existing.map(x=>canonicalAchievementId(x.id)));return rows.map(row=>({...row,id:canonicalAchievementId(row.id)})).filter(x=>!owned.has(x.id));
 }
 async function claimAchievement(db,user,b){

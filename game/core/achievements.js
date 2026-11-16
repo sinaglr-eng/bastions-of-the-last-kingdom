@@ -1,4 +1,5 @@
 import {eligibleChampion,achievementXP} from './account-progression.js';
+import {FACTION_ACHIEVEMENT_DEFINITIONS,factionCollectionAchievements} from './faction-achievements.js';
 export {canonicalAchievementId,isSharedAchievement} from './account-progression.js';
 export const championMedalReward=unit=>unit?.classification?.toLowerCase()==='top'?3:1;
 export const BOSS_TYPES=Object.freeze(['host_10','host_20','host_30','host_40','host_50']);
@@ -6,7 +7,9 @@ export function achievementCatalog(data,progress=null){
  const f=data.factionId,rows=Object.entries(data.towers).filter(([,u])=>eligibleChampion(u)).map(([id,u])=>({id:`champion:${f}:${id}`,factionId:f,kind:'champion',name:u.classification?.toLowerCase()==='secret'?'Secret champion':u.name,secret:u.classification?.toLowerCase()==='secret',description:'Forge this champion in a legal run.',reward:championMedalReward(u),target:1}));
  for(const id of BOSS_TYPES)rows.push({id:`boss:global:${id}`,factionId:null,kind:'boss',name:data.enemies[id]?.name||id,description:'Defeat this boss with any faction.',reward:2,target:1});
  for(const [target,reward]of [[5,2],[15,4],[30,8]])rows.push({id:`collection:${f}:${target}`,factionId:f,kind:'collection',name:`Forge ${target} different champions`,reward,target});
- rows.push({id:`mythic:${f}`,factionId:f,kind:'mastery',name:'First rank VI',description:'Merge two fresh rank-V recruits.',reward:2,target:1},{id:`campaign:${f}`,factionId:f,kind:'campaign',name:'Hold the kingdom',description:'Defeat wave 50.',reward:5,target:1},{id:'boss-collection:global',factionId:null,kind:'boss',name:'All five warlords',description:'Defeat all five original bosses across any factions.',reward:5,target:5});
+ rows.push(...factionCollectionAchievements(data));
+ const faction=FACTION_ACHIEVEMENT_DEFINITIONS[f];
+ rows.push({id:`mythic:${f}`,factionId:f,kind:'mastery',name:'First rank VI',description:'Merge two fresh rank-V recruits.',reward:2,target:1},{id:`campaign:${f}`,factionId:f,kind:'campaign',name:faction?.campaignName||'Wave 50 Victory',description:`Complete all of wave 50 in a legal ${faction?.factionName||'faction'} run. Defeating the boss alone is not enough.`,reward:5,target:1},{id:'boss-collection:global',factionId:null,kind:'boss',name:'All five warlords',description:'Defeat all five original bosses across any factions.',reward:5,target:5});
  const highest=Math.max(3,Math.ceil((progress?.streakBest||0)/10)+1);
  for(let n=1;n<=highest;n++)rows.push(streakAchievement(f,n));
  for(const [target,reward]of [[60,3],[75,5],[100,8]])rows.push({id:`endless:${target}`,kind:'endless',name:`Complete wave ${target}`,reward,target});

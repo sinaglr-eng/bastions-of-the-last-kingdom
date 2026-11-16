@@ -25,7 +25,7 @@ Family IDs, rather than the display names in this explanatory table, are the sta
 
 ## Medals and achievements
 
-Champion, boss, rank-VI, campaign, collection and flawless-wave rewards are granted once per account and faction. Shared secret champion appearances count separately in each faction and remain masked until discovered. Endless 60/75/100 rewards are once per account across factions.
+Champion, rank-VI, campaign, roster collection and thematic collection rewards are granted once per account and faction. Bosses, the five-boss collection and flawless-wave rewards are shared across factions. Shared secret champion appearances count separately in each faction and remain masked until discovered. Endless 60/75/100 rewards are once per account across factions.
 
 | Achievement | Medals |
 |---|---:|
@@ -34,6 +34,8 @@ Champion, boss, rank-VI, campaign, collection and flawless-wave rewards are gran
 | First basic rank-VI defender | 2 |
 | Discover 5 / 15 / 30 different champions | 2 / 4 / 8 |
 | First campaign clear, wave 50 | 5 |
+| All 38 champions in one faction, including Basic and Secret | 12 |
+| Human Combined Arms / Dwarf Forge Engineering / Elf Grove Guardians | 4 each |
 | Defeat all five original bosses | 5 |
 | Complete Endless wave 60 / 75 / 100 | 3 / 5 / 8 |
 | Complete 10 × n consecutive flawless waves | n |

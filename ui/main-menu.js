@@ -48,6 +48,7 @@ export class MainMenu{
    this.page=page;this.authDialog.innerHTML=authDialogMarkup(page,this.player.authOptions,this.player.mailMode);if(!this.authDialog.open)this.authDialog.showModal();this.authDialog.querySelector('#auth-title').focus({preventScroll:true});return;
   }
   this.closeAuth(false);this.closeReplace(false);
+  if(page==='legacy'&&this.faction==='all')this.faction='crown';
   if(page!=='legacy'&&this.faction==='legacy')this.faction='crown';this.page=page;this.app.inert=true;this.root.hidden=false;if(this.player.game)this.player.game.paused=true;
   let title='Choose your allegiance.',content='';
   if(page==='home'){

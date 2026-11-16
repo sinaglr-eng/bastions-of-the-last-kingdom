@@ -12,6 +12,8 @@ import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {Game} from '../game/core/game.js';
 import {combatTowerStats,towerStats} from '../game/core/math.js';
+import {factionCollectionAchievements} from '../game/core/faction-achievements.js';
+import {recipeFamily} from '../game/core/recipes.js';
 
 const base='http://127.0.0.1:4174';
 test('new Commander skill purchases enforce each account gate, sequential costs and idempotency',async()=>{
@@ -172,11 +174,11 @@ function fixture(){
  async function account(email='commander@example.test',name='Commander'){const signup=await call('/api/auth/sign-up/email',{name,email,password:'test-password-for-fr010',callbackURL:base+'/'});assert.ok(signup.r.ok,signup.value?.error||JSON.stringify(signup.value));assert.equal(mail.at(-1).kind,'verify');const verified=await worker.fetch(new Request(mail.at(-1).url,{headers:{Origin:base,'CF-Connecting-IP':ip}}),env);assert.ok([200,302].includes(verified.status));const cookie=verified.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.ok(cookie);const session=await call('/api/player/session',null,cookie);assert.ok(session.value.user);return {cookie,user:session.value.user};}
  return {db,env,mail,call,account};
 }
-function storedEvidence(f,user,{faction='crown',champions=[],bosses=[],streak=0,outcome='abandoned',developer=false,epoch,startedAt,summary=true}={}){
+function storedEvidence(f,user,{faction='crown',champions=[],bosses=[],streak=0,highestWave=streak,campaign=false,outcome='abandoned',developer=false,epoch,startedAt,summary=true}={}){
  const marker=f.db.sqlite.prepare('SELECT id,completed_at FROM progression_resets').get(),g=new Game(currentFactionData(faction),{seed:42,runId:crypto.randomUUID(),accountId:user});
- g.progressionEpoch=epoch??marker.id;g.progress.champions=new Set(champions);g.progress.bosses=new Set(bosses);g.progress.bossKills=bosses.length;g.progress.streakBest=streak;g.progress.highestWave=streak;g.developerMode=developer;
- const progress=summary?{champions,bosses,bossKills:bosses.length,streakBest:streak}:{};
- f.db.sqlite.prepare('INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at,outcome,highest_wave,progress_json) VALUES(?,?,?,?,42,?,\'{}\',?,?,?,?,?)').run(g.runId,user,faction,g.data.rulesetRevision,JSON.stringify(serializeRun(g)),startedAt??Math.max(Date.now(),marker.completed_at),Date.now(),outcome,streak,JSON.stringify(progress));return g;
+ g.progressionEpoch=epoch??marker.id;g.progress.champions=new Set(champions);g.progress.bosses=new Set(bosses);g.progress.bossKills=bosses.length;g.progress.streakBest=streak;g.progress.highestWave=highestWave;g.progress.campaign=campaign;g.developerMode=developer;
+ const progress=summary?{champions,bosses,bossKills:bosses.length,streakBest:streak,campaign}:{};
+ f.db.sqlite.prepare('INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at,outcome,highest_wave,progress_json) VALUES(?,?,?,?,42,?,\'{}\',?,?,?,?,?)').run(g.runId,user,faction,g.data.rulesetRevision,JSON.stringify(serializeRun(g)),startedAt??Math.max(Date.now(),marker.completed_at),Date.now(),outcome,highestWave,JSON.stringify(progress));return g;
 }
 
 test('global entitlement reconciliation preserves historical payments, receipts, purchases and exact scores',async()=>{
@@ -390,5 +392,60 @@ test('TOP claims canonically pay 3 medals even for old eligible rows; retry and 
  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.grants.find(g=>g.id===ids[0]).reward,1);assert.equal(p.eligible.find(g=>g.id===ids[1]).reward,3);
  const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:ids[1]},paid=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(paid.r.status,200,JSON.stringify(paid.value));assert.equal(paid.value.balance,3);assert.equal(paid.value.grants.find(g=>g.id===ids[1]).reward,3);assert.equal(paid.value.grants.find(g=>g.id===ids[0]).reward,1);
  const retry=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(retry.value.balance,3);assert.equal(retry.value.xpTotal,paid.value.xpTotal);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE kind='achievement'").get().n,1);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Faction achievements: every current champion including Basic and Secret is required for each full collection, paid manually once',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;let balance=0,xp=0;
+  for(const faction of ['crown','forge','grove']){const data=currentFactionData(faction),rows=factionCollectionAchievements(data),all=rows.find(r=>r.id===`collection:${faction}:all`),theme=rows.find(r=>r.kind==='faction-collection');assert.equal(all.requiredChampions.length,38);assert.ok(all.requiredChampions.some(id=>data.towers[id].classification.toLowerCase()==='basic'));const secret=all.requiredChampions.find(id=>data.towers[id].classification.toLowerCase()==='secret'),ordinary=all.requiredChampions.filter(id=>id!==secret);
+   storedEvidence(f,user,{faction,champions:ordinary.slice(0,19)});storedEvidence(f,user,{faction,champions:ordinary.slice(19),summary:false});let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.ok(!p.eligible.some(r=>r.id===all.id));assert.equal(p.balance,balance);assert.equal(p.xpTotal,xp);
+   storedEvidence(f,user,{faction,champions:[secret],summary:false});p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.deepEqual(p.eligible.filter(r=>r.id===all.id).map(r=>[r.factionId,r.reward,r.xp]),[[faction,12,20]]);assert.ok(p.eligible.some(r=>r.id===theme.id));
+   for(const [row,medals,experience]of [[all,12,20],[theme,4,6]]){const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:row.id},paid=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(paid.r.status,200,JSON.stringify(paid.value));balance+=medals;xp+=experience;assert.equal(paid.value.balance,balance);assert.equal(paid.value.xpTotal,xp);const retry=await f.call('/api/player/achievements/claim',request,a.cookie);assert.deepEqual(retry.value.claimReceipt,paid.value.claimReceipt);assert.equal(retry.value.balance,balance);assert.equal(retry.value.xpTotal,xp);p=paid.value;}
+   assert.equal((await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:all.id},a.cookie)).value.balance,balance);
+  }
+  assert.equal(balance,48);assert.equal(xp,78);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE user_id=? AND kind='achievement'").get(user).n,6);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Faction achievements: foreign, duplicate, excluded and client-invented craft evidence cannot complete a faction collection',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id,data=currentFactionData('forge'),all=factionCollectionAchievements(data).find(r=>r.kind==='collection'),secret=all.requiredChampions.find(id=>data.towers[id].classification.toLowerCase()==='secret');
+  storedEvidence(f,user,{faction:'forge',champions:all.requiredChampions.filter(id=>id!==secret)});storedEvidence(f,user,{faction:'crown',champions:[secret]});
+  for(const options of [{developer:true},{epoch:'initial'},{startedAt:1},{outcome:'reset'}])storedEvidence(f,user,{faction:'forge',champions:[secret],highestWave:50,...options});const wrongRules=storedEvidence(f,user,{faction:'forge',champions:[secret],highestWave:50});f.db.sqlite.prepare("UPDATE fr010_runs SET ruleset='unverified-ruleset' WHERE id=?").run(wrongRules.runId);
+  const created=(await f.call('/api/player/runs',{factionId:'forge',commanderRulesVersion:2},a.cookie)).value.run,forged=await f.call(`/api/player/runs/${created.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[],champions:all.requiredChampions,progress:{champions:all.requiredChampions,campaign:true},highestWave:50,grants:[{id:all.id,reward:999}]},a.cookie);assert.equal(forged.r.status,200,JSON.stringify(forged.value));
+  let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.ok(!p.eligible.some(r=>r.id===all.id||r.id==='campaign:forge'));assert.equal(p.balance,0);assert.equal(p.xpTotal,0);assert.equal((await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:all.id,champions:all.requiredChampions},a.cookie)).r.status,409);
+  storedEvidence(f,user,{faction:'forge',champions:[secret,secret]});p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.filter(r=>r.id===all.id).length,1);assert.equal(p.balance,0);assert.equal(p.xpTotal,0);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Faction achievements: each thematic trio combines only matching-faction verified crafts and concurrent claims pay once',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;let balance=0,xp=0;
+  for(const faction of ['crown','forge','grove']){const row=factionCollectionAchievements(currentFactionData(faction)).find(r=>r.kind==='faction-collection'),foreign=faction==='crown'?'grove':'crown';assert.equal(row.requiredChampions.length,3);storedEvidence(f,user,{faction,champions:row.requiredChampions.slice(0,2)});storedEvidence(f,user,{faction:foreign,champions:[row.requiredChampions[2]]});let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.ok(!p.eligible.some(r=>r.id===row.id));
+   storedEvidence(f,user,{faction,champions:[row.requiredChampions[2]],summary:false});p=(await f.call('/api/player/profile',null,a.cookie)).value;const candidate=p.eligible.find(r=>r.id===row.id);assert.equal(candidate.factionId,faction);assert.equal(candidate.reward,4);assert.equal(candidate.xp,6);
+   const requests=[0,1].map(()=>({requestId:crypto.randomUUID(),revision:p.revision,achievementId:row.id})),responses=await Promise.all(requests.map(b=>f.call('/api/player/achievements/claim',b,a.cookie)));assert.ok(responses.some(r=>r.r.status===200));balance+=4;xp+=6;p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,balance);assert.equal(p.xpTotal,xp);assert.equal(p.grants.filter(r=>r.id===row.id).length,1);for(let i=0;i<responses.length;i++)if(responses[i].r.status===200)assert.equal((await f.call('/api/player/achievements/claim',requests[i],a.cookie)).value.xpTotal,xp);
+  }
+  assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE user_id=? AND kind='achievement'").get(user).n,3);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Faction achievements: historical verified wave 50 and campaign flags backfill the existing campaign IDs without paying old victories twice',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;storedEvidence(f,user,{highestWave:49,bosses:['host_50']});storedEvidence(f,user,{faction:'forge',highestWave:50,developer:true});storedEvidence(f,user,{faction:'grove',highestWave:50,epoch:'initial'});storedEvidence(f,user,{highestWave:50,outcome:'reset'});let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.ok(!p.eligible.some(r=>r.id.startsWith('campaign:')));assert.equal((await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:'campaign:crown',highestWave:50,campaign:true},a.cookie)).r.status,409);
+  const requestId=crypto.randomUUID(),oldReceipt={receiptId:'achievement:campaign:crown',status:'confirmed',xpBefore:83,xpAfter:91,amount:8,levelBefore:4,levelAfter:4,newSkills:[]};f.db.sqlite.prepare("INSERT INTO fr010_grants VALUES(?,'campaign:crown','crown',5,123)").run(user);f.db.sqlite.prepare("INSERT INTO fr010_ledger VALUES(?,?,0,'claim','campaign:crown',123)").run(user,'request:'+requestId);f.db.sqlite.prepare("INSERT INTO fr010_ledger VALUES(?,'xp-claim:campaign:crown',0,'xp-claim',?,123)").run(user,JSON.stringify(oldReceipt));f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=31 WHERE user_id=?').run(user);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=91 WHERE user_id=?').run(user);
+  storedEvidence(f,user,{highestWave:50});storedEvidence(f,user,{faction:'forge',highestWave:49,campaign:true});storedEvidence(f,user,{faction:'grove',highestWave:49,campaign:true,summary:false});p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.deepEqual(p.eligible.filter(r=>r.id.startsWith('campaign:')).map(r=>[r.id,r.factionId,r.reward,r.xp]).sort(),[['campaign:forge','forge',5,8],['campaign:grove','grove',5,8]]);assert.equal(p.balance,31);assert.equal(p.xpTotal,91);
+  const retry=await f.call('/api/player/achievements/claim',{requestId,revision:0,achievementId:'campaign:crown'},a.cookie);assert.deepEqual(retry.value.claimReceipt,oldReceipt);assert.equal(retry.value.balance,31);assert.equal(retry.value.xpTotal,91);assert.equal((await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:'campaign:crown'},a.cookie)).value.balance,31);
+  for(const faction of ['forge','grove']){const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:'campaign:'+faction},paid=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(paid.r.status,200,JSON.stringify(paid.value));assert.equal((await f.call('/api/player/achievements/claim',request,a.cookie)).value.xpTotal,paid.value.xpTotal);p=paid.value;}assert.equal(p.balance,41);assert.equal(p.xpTotal,107);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_grants WHERE user_id=? AND achievement_id LIKE 'campaign:%'").get(user).n,3);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Faction achievements: an actual authoritative craft immediately completes both collection thresholds using earlier verified runs',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;
+  for(const faction of ['crown','forge','grove']){const data=currentFactionData(faction),rows=factionCollectionAchievements(data),all=rows.find(r=>r.kind==='collection'),theme=rows.find(r=>r.kind==='faction-collection'),family=theme.requiredChampions[0],recipe=data.recipes.find(r=>recipeFamily(r)===family);assert.ok(recipe&&!recipe.currentRoundOnly);
+   storedEvidence(f,user,{faction,champions:all.requiredChampions.filter(id=>id!==family)});const before=(await f.call('/api/player/profile',null,a.cookie)).value;assert.ok(!before.eligible.some(r=>r.id===all.id||r.id===theme.id));
+   const created=await f.call('/api/player/runs',{factionId:faction,replace:true,commanderRulesVersion:2},a.cookie);assert.equal(created.r.status,201,JSON.stringify(created.value));const run=created.value.run,g=restoreRun(data,run.snapshot);g.phase='ready';g.economy.xp=data.balance.xpPerLevel*100;const pieces=recipe.ingredients.map((piece,i)=>({id:g.nextId++,family:piece.family,tier:piece.tier,state:'active',x:10+i,z:10,kills:0,mvpLevel:0}));g.towers.push(...pieces);for(const tower of pieces)assert.equal(g.grid.occupy(tower.x,tower.z,tower.id).ok,true);g.journal=[];
+   // Trusted saved-state fixture supplies legal ingredients. Only select/craft
+   // primitives go through the Worker; this is not a full acquisition campaign.
+   f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),run.id);const result=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[{action:'select',args:[pieces[0].id]},{action:'craft',args:[recipe.id]}]},a.cookie);assert.equal(result.r.status,200,JSON.stringify(result.value));
+   for(const row of [all,theme]){const earned=result.value.profile.eligible.find(r=>r.id===row.id);assert.ok(earned,row.id);assert.equal(earned.runId,run.id);assert.equal(earned.factionId,faction);}assert.ok(result.value.profile.eligible.some(r=>r.id===`champion:${faction}:${family}`));assert.equal(result.value.profile.balance,0);assert.equal(result.value.profile.xpTotal,0);
+   const saved=(await f.call('/api/player/active',null,a.cookie)).value.run,restored=restoreRun(data,saved.snapshot);assert.equal(restored.towers.find(t=>t.id===pieces[0].id).family,family);assert.ok(restored.progress.champions.has(family));
+  }
  }finally{f.db.sqlite.close();}
 });
