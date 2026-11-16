@@ -36,7 +36,7 @@ export class PlayerClient{
  async newRun(factionId,{replace=false}={}){
   await this.resetPromise;await this.clearStaleProgressionSave();await this.recoverFinishedRun({strict:true});
   if(this.game){await this.save();if(this.game.accountId){while(this.busy)await new Promise(r=>setTimeout(r,50));await this.flush();if(this.sync.sequence<this.sync.nextSequence)throw Error('Sync the current account run before replacing it.');}}
-  if(this.user){if(!this.online)throw Error('Connect and sign in to start an account run. You can continue the saved run offline.');const {run,profile}=await this.request('/player/runs',{factionId,replace});if(profile)this.applyProfile(profile);return {game:restoreRun(currentFactionData(factionId),run.snapshot),sequence:run.sequence,nextSequence:run.sequence};}
+  if(this.user){if(!this.online)throw Error('Connect and sign in to start an account run. You can continue the saved run offline.');const {run,profile}=await this.request('/player/runs',{factionId,replace,commanderRulesVersion:2});if(profile)this.applyProfile(profile);return {game:restoreRun(currentFactionData(factionId),run.snapshot),sequence:run.sequence,nextSequence:run.sequence};}
   return {game:new Game(currentFactionData(factionId),{seed:Date.now(),mode:'endless',runId:crypto.randomUUID()}),sequence:0,nextSequence:0};
  }
  async attach(game,{sequence=0,nextSequence=sequence,revision=null,discardRun=null}={}){
