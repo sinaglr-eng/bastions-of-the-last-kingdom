@@ -12,7 +12,7 @@ import {AchievementNotices} from '../ui/achievement-notices.js';
 import {CommanderVault} from '../ui/commander-vault.js';
 import {ARTIFACT_CATALOG as C} from '../game/core/artifacts.js';
 import {rankOverviewMarkup} from '../ui/account-progression.js';
-import {commanderSkillArt,commanderUtilityArt} from '../ui/commander-art.js';
+import {commanderArt,commanderSkillArt,commanderUtilityArt} from '../ui/commander-art.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 
 test('Deep Refit follows only the inspected actual recruit and is rendered once with its other actions',()=>{
@@ -48,6 +48,7 @@ test('Chest rewards equip directly, preserve the reveal, and let the player choo
 });
 
 test('Rank overview exposes every rank and the current level; new icon URLs resolve to geometric assets',()=>{
+ assert.match(commanderArt('silhouette'),/silhouette-armed\.webp$/);assert.ok(fs.existsSync('public'+commanderArt('silhouette')));
  const html=rankOverviewMarkup({xpTotal:83},{expanded:true});assert.match(html,/commander-rank-roadmap" open/);assert.equal((html.match(/<li class=/g)||[]).length,15);assert.match(html,/Footman/);assert.match(html,/1,000 XP/);
  for(const id of Object.keys(GENERAL_SKILLS)){const url=commanderSkillArt(id);assert.match(url,/\/geometric\/skill-/);assert.ok(fs.existsSync('public'+url));}
  for(const id of ['equipment','skills','chests','sets','dust'])assert.ok(fs.existsSync('public'+commanderUtilityArt(id)));
