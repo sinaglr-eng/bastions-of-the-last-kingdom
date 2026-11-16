@@ -3,5 +3,14 @@
 #app .brand.forged-brand h1{margin:0;width:100%;font-size:0;line-height:1}
 #app .forged-brand img{display:block;width:100%;height:auto}
 #app .forged-brand .brand-compact{display:none}
-@media(max-width:1250px) and (min-width:751px){#app .brand.forged-brand{flex-basis:42px;width:42px}#app .forged-brand .brand-wide{display:none}#app .forged-brand .brand-compact{display:block;width:42px;height:42px}}
-@media(max-width:750px){#app .brand.forged-brand{display:none}}
+/* Keep the approved full logo, including its wordmark, at every HUD size. */
+#app .topbar>.brand.forged-brand{display:flex;flex:0 0 185px;width:185px;min-width:0}
+#app .topbar .forged-brand .brand-wide{display:block;width:100%;height:auto}
+#app .topbar .forged-brand .brand-compact{display:none}
+@media(max-width:1250px){#app .topbar>.brand.forged-brand{flex-basis:160px;width:160px}}
+@media(max-width:750px){#app .topbar>.brand.forged-brand{flex-basis:140px;width:140px}}
+@media(min-width:751px) and (max-width:1450px){
+ #app .topbar .hud-stat>div{min-width:0}
+ #app .topbar .hud-stat small{white-space:normal;font-size:10px;line-height:1.1}
+ #app .topbar .hud-stat strong{font-size:22px;line-height:1.1;white-space:nowrap}
+}

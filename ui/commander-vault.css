@@ -58,6 +58,17 @@
 /* Rarity is a soft light behind the item; the corners retain the vellum. */
 .rarity-common{--rarity-glow:#aaa08b65}.rarity-uncommon{--rarity-glow:#80ad6f70}.rarity-rare{--rarity-glow:#669dcb70}.rarity-epic{--rarity-glow:#a17bc670}.rarity-legendary{--rarity-glow:#d8ad5275}
 .commander-vault :is(.vault-item img,.vault-slot img,.vault-item-detail>header>img,.vault-reward-grid img,.vault-set-pieces img,.vault-set-selector img){background:radial-gradient(ellipse at 50% 42%,var(--rarity-glow,#d8c9a45c),transparent 72%),#f6ecd3}
+/* Opening rewards stay compact even when a chest contains only Dust. */
+.vault-reveal{padding:14px}
+.vault-reveal .reveal-chest{width:120px;height:82px;margin:0 auto 8px}
+.vault-reward-grid{grid-template-columns:repeat(auto-fit,minmax(160px,210px));justify-content:center;align-items:start;max-height:330px;gap:10px}
+.vault-reward-grid article{padding:10px;gap:5px;min-width:0}
+.vault-reward-grid img{width:76px;height:76px;padding:4px}
+.vault-reward-grid article strong{font-size:13px;line-height:1.25}
+.vault-reward-grid article small{font-size:11px;line-height:1.4}
+.vault-reward-grid .vault-reward-actions{width:100%;display:grid;gap:5px}
+.vault-reward-grid .vault-reward-actions button{min-height:40px!important;font-size:12px!important;padding:6px 8px!important}
+.vault-reward-grid .vault-dust-reward{border-color:#b49b63;background:linear-gradient(135deg,#fff8e6,#f2e7cd)}
 #main-menu .vault-item,.vault-reward-grid article,#main-menu .vault-set-pieces button{background:linear-gradient(135deg,#fcf6e7,#f3e7ce)!important}
 .vault-reward-actions{display:grid;gap:7px;width:100%;max-width:270px;margin-top:auto}
 .vault-reward-actions label{text-align:left;font-size:12px!important}

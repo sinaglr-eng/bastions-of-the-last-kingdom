@@ -81,7 +81,7 @@ export class PlayerClient{
    this.status=this.sync.sequence<this.sync.nextSequence?'Pending verification':'Progress verified';this.onChange();
   }catch(error){if(error.status===409&&/Account progress reset/.test(error.message)){await this.initialize();this.onReset();return;}this.online=false;this.status=error.status===409?'Save conflict · return to the menu to choose a continuation':error.status===401?'Sign in again to sync this account run':'Offline · progress saved locally; rewards pending';this.nextRetry=Date.now()+10000;this.onChange();}finally{this.busy=false;}
  }
- update(){if(!this.game||this.recovering)return;const now=performance.now();if(now-this.lastSave>5000){this.lastSave=now;this.announceLocalAchievements();void this.save().then(()=>this.flush()).catch(()=>{});}}
+ update(){if(!this.game||this.recovering)return;const now=performance.now();if(now-this.lastSave>5000){this.lastSave=now;this.announceLocalAchievements();if(['lost','won'].includes(this.game.phase)&&this.game.accountId&&!this.resultReceipt('end')&&Date.now()>=this.nextRetry){void this.settleResult('end').catch(()=>{});}else void this.save().then(()=>this.flush()).catch(()=>{});}}
  resultReceipt(kind){return this.resultReceipts.get(this.game?.runId+':'+kind)||null;}
  async clearStaleProgressionSave(){
   const owner=this.owner,epoch=this.progressionEpoch;
@@ -113,15 +113,20 @@ export class PlayerClient{
   let ack=false;try{ack=localStorage.getItem('account-campaign-ack:'+game.accountId+':'+game.runId)==='1';}catch{}
   if(ack&&receipts?.some(r=>r.kind==='campaign'&&!r.acknowledged)){const r=await this.request('/player/runs/'+game.runId+'/results',{kind:'campaign',acknowledge:true});this.resultReceipts.set(game.runId+':campaign',r.receipt);this.applyProfile(r.profile);}
  }
- async settleResult(kind){
+ settleResult(kind){
+  const key=this.game?.runId+':'+kind,receipt=this.resultReceipt(kind);if(receipt?.status==='confirmed'&&(this.profile?.xpTotal||0)>=receipt.xpAfter&&(this.profile?.revision||0)>=(receipt.revision||0))return Promise.resolve(receipt);
+  this.pendingSettlements??=new Map();if(this.pendingSettlements.has(key))return this.pendingSettlements.get(key);
+  const pending=this.settleResultNow(kind).finally(()=>this.pendingSettlements.delete(key));this.pendingSettlements.set(key,pending);return pending;
+ }
+ async settleResultNow(kind){
   const game=this.game;if(!game?.accountId||game.developerMode)return null;
   await this.save();
-  for(let attempt=0;attempt<100;attempt++){
+  for(let attempt=0;attempt<2000;attempt++){
    while(this.busy)await new Promise(resolve=>setTimeout(resolve,30));
    this.nextRetry=0;await this.flush();
    if(!this.online)throw Error('Verification pending. Progress is saved locally; reconnect to receive your XP.');
    if(this.sync.sequence>=this.sync.nextSequence)break;
-   if(attempt===99)throw Error('Verification pending. Your saved command queue is still syncing.');
+   if(attempt===1999)throw Error('Verification pending. Your saved command queue is still syncing.');
   }
   const result=await this.request('/player/runs/'+game.runId+'/results',{kind});
   this.resultReceipts.set(game.runId+':'+kind,result.receipt);this.applyProfile(result.profile);this.onChange();return result.receipt;
@@ -137,7 +142,10 @@ export class PlayerClient{
   await this.resetPromise;await this.clearStaleProgressionSave();
   const local=await this.store.get(this.owner);let remote=null;
   if(this.user)try{remote=(await this.request('/player/active')).run;this.online=true;}catch{this.online=false;}
-  const usable=local&&(!['lost','won'].includes(local.meta.phase)||!!local.meta.accountId&&local.sync.sequence<local.sync.nextSequence);
+  // A finished save is a durable verification queue, never a playable defense.
+  const terminal=local&&['lost','won','abandoned','reset'].includes(local.meta.phase);
+  if(terminal&&remote?.id===local.meta.runId)remote=null;
+  const usable=local&&!terminal;
   if(!this.user)return usable?{local}:null;
   if(!remote)return usable?{local}:null;
   if(!usable)return {remote};

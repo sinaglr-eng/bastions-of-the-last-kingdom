@@ -28,10 +28,16 @@ async function standings(db,mode,version,id=null,factionId=null){
   const legacyVersions=await db.prepare("SELECT DISTINCT version FROM runs WHERE mode = ? AND outcome != 'developer' AND name IS NOT NULL AND json_extract(summary_json, '$.factionId') IS NULL ORDER BY version").bind(mode).all();
   return {top:top.results.map((x,i)=>({...x,rank:i+1})),current,mode,version,factionId,legacyVersions:legacyVersions.results.map(r=>r.version),versions:versions.results.map(row=>row.version)};
 }
-export async function handle(request,env){
+export async function handle(request,env,ctx){
   const url=new URL(request.url),db=env.DB,path=url.pathname;
   if(path==='/play'||path.startsWith('/play/'))return (await import('./hosted-game.js')).hostedGame(request);
-  if(path.startsWith('/api/player/')||path.startsWith('/api/auth/'))return (await import('./player-service.js')).playerResponse(request,env);
+  if(path.startsWith('/api/player/')||path.startsWith('/api/auth/')){
+    const pending=(await import('./player-service.js')).playerResponse(request,env);
+    // A menu navigation or closed iPad tab must not cancel an accepted durable
+    // command/claim half way through verification and database writes.
+    if(request.method==='POST'&&path.startsWith('/api/player/'))ctx?.waitUntil?.(pending.then(()=>{}));
+    return pending;
+  }
   if(request.method==='GET'&&(path==='/'||path==='/owner'))return new Response(servicePage(path==='/owner'),{headers:{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'}});
   if(!db)return response({error:'Statistics storage is unavailable.'},503);
   if(path==='/api/health'){await db.prepare('SELECT COUNT(*) AS tables FROM sqlite_schema WHERE name = ?').bind('runs').first();return response({ok:true,storage:'SQLite',edition:STATISTICS_EDITION,releaseName:STATISTICS_RELEASE_NAME});}
@@ -104,12 +110,12 @@ export async function handle(request,env){
   }
   return response({error:'Not found.'},404);
 }
-export default {async fetch(request,env){
+export default {async fetch(request,env,ctx){
   const origin=request.headers.get('Origin'),allowed=(env.GAME_ORIGINS||'https://sinaglr-eng.github.io').split(',').map(s=>s.trim());
   const appleCallback=origin==='https://appleid.apple.com'&&request.method==='POST'&&new URL(request.url).pathname==='/api/auth/callback/apple';
   if(origin&&!allowed.includes(origin)&&origin!==new URL(request.url).origin&&!appleCallback)return response({error:'Origin not allowed.'},403);
   let result;
   if(request.method==='OPTIONS')result=new Response(null,{status:204});
-  else try{result=await handle(request,env);}catch(error){const invalid=error instanceof SyntaxError||/^(Invalid|Result|Incomplete|Use |Enter |Request too large)/.test(error.message);console.error('Statistics request failed:',error.message);result=response({error:invalid?error.message:'Unable to save statistics. Please try again.'},invalid?400:503);}
+  else try{result=await handle(request,env,ctx);}catch(error){const invalid=error instanceof SyntaxError||/^(Invalid|Result|Incomplete|Use |Enter |Request too large)/.test(error.message);console.error('Statistics request failed:',error.message);result=response({error:invalid?error.message:'Unable to save statistics. Please try again.'},invalid?400:503);}
   const headers=new Headers(result.headers);if(origin&&allowed.includes(origin)){headers.set('Access-Control-Allow-Origin',origin);headers.set('Access-Control-Allow-Credentials','true');headers.set('Vary','Origin');}headers.set('Access-Control-Allow-Methods','GET, POST, OPTIONS');headers.set('Access-Control-Allow-Headers','Content-Type, Authorization');headers.set('Access-Control-Max-Age','86400');return new Response(result.body,{status:result.status,headers});
 }};

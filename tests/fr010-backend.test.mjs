@@ -158,9 +158,9 @@ test('XP recovery replays an offline final tick through the real Worker after cl
   const a=await f.account(),created=(await f.call('/api/player/runs',{factionId:'crown'},a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),created.snapshot);
   g.round=38;g.completedWaves=37;g.progress.highestWave=37;g.progress.bosses=new Set(['host_10','host_20','host_30']);g.progress.bossKills=3;g.phase='ready';g.lives=1;g.startCombat();g.combat.spawnQueue=[];const enemy=g.combat.spawn('host_01');enemy.pathIndex=enemy.route.length;g.journal=[];
   f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=?,highest_wave=37,progress_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),JSON.stringify({bosses:[...g.progress.bosses]}),g.runId);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=190 WHERE user_id=?').run(a.user.id);
-  g.advanceTicks(1,{record:true});assert.equal(g.phase,'lost');const offline=new PlayerClient({store:storage,fetcher:async()=>{throw Error('Offline');}});offline.user=a.user;offline.profile={revision:0,xpTotal:190};offline.progressionEpoch=g.progressionEpoch;await offline.attach(g);assert.ok(await storage.batch(g.runId,1));
+  g.advanceTicks(1,{record:true});assert.equal(g.phase,'lost');const offline=new PlayerClient({store:storage,fetcher:async()=>{throw Error('Offline');}});offline.user=a.user;offline.profile={revision:0,xpTotal:190};offline.progressionEpoch=g.progressionEpoch;await offline.attach(g);assert.ok(await storage.batch(g.runId,1));assert.equal(await offline.continuation(),null,'A terminal outbox must not be offered as Continue Defense');assert.ok(await storage.batch(g.runId,1),'Hiding Continue must preserve pending commands');
   const fetcher=async(url,options={})=>(await f.call(String(url).replace('./api','/api'),options.body?JSON.parse(options.body):null,a.cookie)).r;
-  const returned=new PlayerClient({store:storage,fetcher});await returned.initialize();assert.equal(returned.profile.xpTotal,202);assert.equal(returned.profile.balance,0);assert.equal(returned.profile.grants.length,0);assert.equal(await storage.batch(g.runId,1),null);assert.equal(f.db.sqlite.prepare('SELECT outcome FROM fr010_runs WHERE id=?').get(g.runId).outcome,'lost');
+  const returned=new PlayerClient({store:storage,fetcher});await returned.initialize();assert.equal(returned.profile.xpTotal,202);assert.equal(returned.profile.balance,0);assert.equal(returned.profile.grants.length,0);assert.equal(await storage.batch(g.runId,1),null);assert.equal(f.db.sqlite.prepare('SELECT outcome FROM fr010_runs WHERE id=?').get(g.runId).outcome,'lost');const stats=(await f.call('/api/player/statistics',null,a.cookie)).value;assert.equal(stats.finished,1);assert.equal(stats.highestWave,37);const hall=(await f.call('/api/player/hall?view=own',null,a.cookie)).value;assert.equal(hall.own.id,g.runId);assert.equal(hall.own.highestWave,37);
   const reopened=new PlayerClient({store:storage,fetcher});await reopened.initialize();assert.equal(reopened.profile.xpTotal,202);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM account_xp_receipts').get().n,1);
  }finally{storage.close();f.db.sqlite.close();}
 });
@@ -448,4 +448,29 @@ test('Faction achievements: an actual authoritative craft immediately completes 
    const saved=(await f.call('/api/player/active',null,a.cookie)).value.run,restored=restoreRun(data,saved.snapshot);assert.equal(restored.towers.find(t=>t.id===pieces[0].id).family,family);assert.ok(restored.progress.champions.has(family));
   }
  }finally{f.db.sqlite.close();}
+});
+
+
+test('achievement claims accept a stale UI revision without scanning historical snapshots and survive client disconnects',async()=>{
+ const f=fixture();try{
+  const a=await f.account(),user=a.user.id,data=currentFactionData('crown'),family=Object.entries(data.towers).find(([,u])=>u.advanced&&u.classification?.toLowerCase()==='intermediate')[0];
+  storedEvidence(f,user,{champions:[family]});const before=(await f.call('/api/player/profile',null,a.cookie)).value,row=before.eligible.find(r=>r.id===`champion:crown:${family}`);assert.ok(row);
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET revision=revision+7 WHERE user_id=?').run(user);
+  const prepare=f.db.prepare,queries=[];f.db.prepare=query=>{queries.push(query);return prepare(query);};const background=[],body={requestId:crypto.randomUUID(),revision:before.revision,achievementId:row.id};
+  const response=await worker.fetch(new Request(base+'/api/player/achievements/claim',{method:'POST',headers:{Origin:base,Cookie:a.cookie,'Content-Type':'application/json'},body:JSON.stringify(body)}),f.env,{waitUntil:p=>background.push(p)});
+  assert.equal(response.status,200);await Promise.all(background);assert.equal(background.length,1);const paid=await response.json();assert.equal(paid.balance,before.balance+row.reward);assert.equal(paid.xpTotal,before.xpTotal+row.xp);
+  assert.ok(!queries.some(q=>/SELECT snapshot_json FROM fr010_runs/.test(q)),'Claims use already verified entitlements, not full historical reconciliation');
+  const retried=(await f.call('/api/player/achievements/claim',body,a.cookie)).value;assert.equal(retried.balance,paid.balance);assert.equal(retried.xpTotal,paid.xpTotal);assert.equal(retried.grants.filter(r=>r.id===row.id).length,1);
+ }finally{f.db.sqlite.close();}
+});
+
+
+test('simultaneous end-screen and menu settlement retries share one verified result and XP payment',async()=>{
+ const f=fixture(),store=new RunStore({indexedDB:new IDBFactory()});try{
+  const a=await f.account(),created=(await f.call('/api/player/runs',{factionId:'crown'},a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),created.snapshot);
+  g.round=11;g.completedWaves=10;g.progress.highestWave=10;g.progress.bosses=new Set(['host_10']);g.progress.bossKills=1;g.phase='ready';g.lives=1;g.startCombat();g.combat.spawnQueue=[];const enemy=g.combat.spawn('host_01');enemy.pathIndex=enemy.route.length;g.journal=[];
+  f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=?,highest_wave=10,progress_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),JSON.stringify({bosses:['host_10']}),g.runId);g.advanceTicks(1,{record:true});assert.equal(g.phase,'lost');let posts=0;
+  const player=new PlayerClient({store,fetcher:async(url,options={})=>{if(String(url).endsWith('/results')&&options.method==='POST')posts++;return (await f.call(String(url).replace('./api','/api'),options.body?JSON.parse(options.body):null,a.cookie)).r;}});player.user=a.user;player.online=true;player.progressionEpoch=g.progressionEpoch;player.profile=(await f.call('/api/player/profile',null,a.cookie)).value;await player.attach(g);
+  const results=await Promise.all(Array.from({length:5},()=>player.settleResult('end')));assert.equal(posts,1);assert.equal(new Set(results.map(r=>r.receiptId)).size,1);assert.equal(player.profile.xpTotal,3);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM account_xp_receipts').get().n,1);assert.equal(await player.continuation(),null);
+ }finally{store.close();f.db.sqlite.close();}
 });

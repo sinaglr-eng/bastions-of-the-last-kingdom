@@ -41,7 +41,7 @@ test('Necromancer reduces damage immunity without bypassing status immunity',()=
 });
 test('Chest pity migrates changed tiers only and guarantees Rare in three, Epic in seven draws',()=>{
  const migrated=normalizeArtifactPity({1:4,2:4,3:9,4:2,5:1});assert.equal(migrated[1],4);assert.equal(migrated[4],2);assert.equal(migrated[5],1);assert.equal(migrated[2],0);assert.equal(migrated[3],0);assert.deepEqual(normalizeArtifactPity(migrated),migrated);
- const ranks=C.rarities.map(r=>r.id);for(const[tier,every,minimum]of [[2,3,'rare'],[3,7,'epic']]){let a={owned:[],pity:{_rules:C.pityRulesVersion},dust:0},miss=0;for(let seed=0;seed<500;seed++){a=rollArtifactChest(a,tier,seed);const good=ranks.indexOf(ARTIFACTS[a.items[0].id].rarity)>=ranks.indexOf(minimum);miss=good?0:miss+1;assert.ok(miss<every);}}
+ const ranks=C.rarities.map(r=>r.id);for(const[tier,every,minimum]of [[2,3,'rare'],[3,7,'epic']]){let a={owned:[],pity:{_rules:C.pityRulesVersion},dust:0},miss=0;for(let seed=0;seed<500;seed++){a=rollArtifactChest(a,tier,seed);const good=a.items.some(item=>ranks.indexOf(ARTIFACTS[item.id].rarity)>=ranks.indexOf(minimum));miss=good?0:miss+1;assert.ok(miss<every);}}
 });
 test('Armory keeps an anatomical silhouette for full sets and mixed equipment',()=>{
  const player={online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],chests:[],presets:[],pity:{},dust:1000,highestTier:5}}},v=new CommanderVault({player,render:()=>{},status:()=>{}});

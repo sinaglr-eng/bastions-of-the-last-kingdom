@@ -12,8 +12,10 @@ export function packageRuntimeAssets({root=process.cwd(),outDir='dist'}={}){
  if(output===source||!output.startsWith(path.resolve(root)+path.sep))throw Error('Invalid runtime output');
  const files=walk(source),rows=[];
  const generated=JSON.parse(fs.readFileSync(path.join(source,'assets/ui/commander-generated/manifest.json'),'utf8'));
+ const hud=JSON.parse(fs.readFileSync(path.join(source,'assets/ui/hud-generated/manifest.json'),'utf8'));
  const commander=new Set([...ARTIFACT_CATALOG.artifacts.map(a=>a.art),...ARTIFACT_CATALOG.chests.flatMap(c=>[c.art,c.openArt]),'assets/ui/commander-v080/silhouette-armed.webp',...generated.icons.map(i=>i.file)]);
- const retiredCommander=new Set([...Object.keys(GENERAL_SKILLS).map(id=>`assets/ui/geometric/skill-${id}.svg`),...['equipment','skills','chests','sets','relic-dust','commander'].map(id=>`assets/ui/geometric/${id}.svg`)]);
+ for(const item of hud.icons)commander.add(item.file);
+ const retiredCommander=new Set([...Object.keys(GENERAL_SKILLS).map(id=>`assets/ui/geometric/skill-${id}.svg`),...['equipment','skills','chests','sets','relic-dust','commander','sound',...hud.icons.map(i=>i.id)].map(id=>`assets/ui/geometric/${id}.svg`)]);
  const retiredSkill=file=>Object.keys(GENERAL_SKILLS).some(id=>file===`assets/ui/war-table/${id}.webp`)||file.startsWith('assets/ui/account-progression/')&&(file.endsWith('.png')||file.endsWith('alliance-logo-original.webp'));
  const keep=file=>!retiredSkill(file)&&(commander.has(file)||file.startsWith('assets/factions/v060/')&&!file.endsWith('.png')||['favicon.svg','release.json','privacy.html'].includes(file)||['assets/ui/geometric/','assets/audio/','assets/scenery/','assets/ui/results/','assets/ui/war-table/','assets/ui/ornate/','assets/ui/ipad-polish/','assets/ui/account-progression/','assets/ui/reference-enemy-fronts/','assets/ui/faction-scenes-v062/','assets/ui/faction-reference-portraits-v061/'].some(prefix=>file.startsWith(prefix))||/^assets\/geometric\/portraits\/host_[^/]+\.png$/.test(file)||file==='assets/geometric/geometric-enemies.json');
  for(const file of commander)if(!fs.existsSync(path.join(source,file)))throw Error('Missing current Commander art: '+file);

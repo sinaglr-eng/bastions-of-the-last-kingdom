@@ -52,7 +52,7 @@ test('mounted MainMenu handlers retain category/faction/status filters and Claim
  globalThis.document={createElement:()=>root,body:{append(){}}};
  try{
   const menu=new MainMenu({player:p,app:{inert:false}});await menu.show('achievements');assert.match(root.innerHTML,/data-category="faction"/);assert.equal(p.profile.balance,10);
-  const click=async dataset=>{callbacks.get('click')({target:{closest:()=>({dataset,disabled:false,isConnected:false,hasAttribute:()=>false})}});await new Promise(resolve=>setImmediate(resolve));};
+  const click=async dataset=>{callbacks.get('click')({target:{closest:()=>({dataset,disabled:false,isConnected:false,setAttribute(){},removeAttribute(){},hasAttribute:()=>false})}});await new Promise(resolve=>setImmediate(resolve));};
   await click({filterFaction:'all'});assert.equal(menu.faction,'all');for(const name of ['Human','Dwarf','Elf'])assert.match(root.innerHTML,new RegExp(name+' Wave 50 Victory'));
   await click({category:'faction'});assert.equal(menu.achievementKind,'faction');assert.equal(menu.offset,0);assert.match(root.innerHTML,/1–8 \/ 9/);
   await click({page:'8'});assert.match(root.innerHTML,/Elf Grove Guardians/);await click({filterFaction:'crown'});assert.equal(menu.offset,0);assert.doesNotMatch(root.innerHTML,/Dwarf Wave 50 Victory|Elf Wave 50 Victory/);

@@ -63,7 +63,8 @@ export function rollArtifactChest(account,tier,seed){
  const chest=CHESTS[tier];if(!chest)throw Error('Unknown chest tier.');
  const owned=new Set(account.owned||[]),pity=normalizeArtifactPity(account.pity),rng=artifactRng(seed),items=[],excluded=new Set();let dustGained=chest.baseDust;
  const forced=(pity[tier]||0)>=chest.pityEvery-1;
- for(let i=0;i<chest.draws;i++){
+ const artifactDrop=forced||rng()*100<(chest.artifactChance??100);
+ for(let i=0;artifactDrop&&i<chest.draws;i++){
   let roll=rng()*100,rarity=Object.keys(chest.weights).at(-1);for(const[k,w]of Object.entries(chest.weights)){roll-=w;if(roll<0){rarity=k;break;}}
   if(forced&&i===0&&rank(rarity)<rank(chest.pityRarity))rarity=chest.pityRarity;
   const candidates=catalog.artifacts.filter(a=>a.rarity===rarity&&!excluded.has(a.id)),fresh=candidates.filter(a=>!owned.has(a.id)),duplicates=candidates.filter(a=>owned.has(a.id));
