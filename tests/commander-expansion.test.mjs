@@ -45,7 +45,7 @@ test('Chest pity migrates changed tiers only and guarantees Rare in three, Epic 
 });
 test('Armory keeps an anatomical silhouette for full sets and mixed equipment',()=>{
  const player={online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],chests:[],presets:[],pity:{},dust:1000,highestTier:5}}},v=new CommanderVault({player,render:()=>{},status:()=>{}});
- for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.match(html,/commander-v080\/silhouette.webp/);assert.equal([...html.matchAll(/data-vault-slot=/g)].length,10);assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
+ for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.match(html,/commander-v080\/silhouette-armed\.webp/);assert.equal([...html.matchAll(/data-vault-slot=/g)].length,10);assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
  player.profile.artifacts.equipment={head:'N-15'};assert.doesNotMatch(v.equipment(),/body-equipment/);
  const sets=v.sets();assert.match(sets,/Complete army effects/);assert.match(sets,/10 pieces/);v.selectedSet='royal-architect';assert.match(v.sets(),/600 starting gold/);v.setRarity='rare';assert.doesNotMatch(v.sets(),/id="vault-set-celestial"/);
 });
