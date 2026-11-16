@@ -1,3 +1,4 @@
+import {validateArtifactEquipment,artifactBonuses} from '../game/core/artifacts.js';
 import {restoreRun} from '../game/core/run-state.js';
 import {validateLoadout} from '../game/core/general.js';
 
@@ -12,7 +13,7 @@ export function restoreVerifiedRun(data,run){
  if(!object(recorded)||!object(snapshot?.loadout))throw Error('Invalid frozen Commander loadout.');
  const loadout=validateLoadout(recorded);
  if(!sameLoadout(loadout,snapshot.loadout)||snapshot.factionId!==run.faction_id||snapshot.ruleset!==run.ruleset)throw Error('Saved run identity does not match its frozen Commander loadout.');
- const game=restoreRun(data,snapshot),maximum=data.balance.startingLives+5*(loadout['fortified-keep']||0);
+ const artifacts=validateArtifactEquipment(parse(run.artifact_loadout_json||'{}'));if(JSON.stringify(artifacts)!==JSON.stringify(validateArtifactEquipment(snapshot.artifactEquipment||{})))throw Error('Invalid frozen artifact equipment.');const game=restoreRun(data,snapshot),maximum=data.balance.startingLives+5*(loadout['fortified-keep']||0)+(artifactBonuses(artifacts).effects.keepHealth||0);
  if(!sameLoadout(loadout,game.general.loadout)||!Number.isSafeInteger(game.lives)||game.lives<0||game.lives>maximum||(game.maxLives??data.balance.startingLives)!==maximum)throw Error('Invalid Commander keep health.');
  return game;
 }

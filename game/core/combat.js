@@ -1,3 +1,4 @@
+import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath} from './artifact-combat.js';
 import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {fr002DamageResolved,flushFr002Pulses,applyCanonicalControlContact} from './fr002-combat.js';
 import {skyHuntAura,skyHuntSlow} from './sky-hunt.js';
@@ -58,7 +59,7 @@ export class CombatManager {
     return unmarked.length?[]:ordered;
   }
   prepareArmor(enemy){
-    enemy.armorShred=enemy.statuses.shred?.amount||0;
+    enemy.armorShred=Math.max(enemy.statuses.shred?.amount||0,enemy.statuses.artifactShred?.amount||0);
     for(const tower of this.game.towers)if(tower.state==='active'){
       const stats=towerStats(tower,this.game.data);
       if(!tower.attackPaused&&stats.armorShredAura&&distance(tower,enemy)<=offensiveAuraRange(stats,'armor'))enemy.armorShred=Math.max(enemy.armorShred,stats.armorShredAura);
@@ -67,11 +68,11 @@ export class CombatManager {
     delete enemy.mvpArmorReduction;
   }
   damage(enemy,amount,type,stats={},source){return this.resolveDamage(enemy,amount,type,stats,source).appliedDamage;}
-  finishDeath(enemy,{type,visible,source,commanderSkill}={}){
+  finishDeath(enemy,{type,visible,source,commanderSkill,artifactTransfer=false}={}){
     if(enemy.dead||enemy.hp>0)return false;
     enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;this.game.rewardBossCommandPoints(enemy);
     this.game.awardWaveScore(enemy.boss?500:10);if(source&&source.kind!=='commander')source.kills++;
-    this.game.emit('death',{enemy,type,visible,...(commanderSkill?{source,commanderSkill}:{})});return true;
+    artifactDeath(this,enemy,{transfer:artifactTransfer});this.game.emit('death',{enemy,type,visible,...(commanderSkill?{source,commanderSkill}:{})});return true;
   }
   resolveCommanderDamage(enemy,amount,commanderSkill='decisive-strike'){
     const source={kind:'commander',skill:commanderSkill};
@@ -106,12 +107,12 @@ export class CombatManager {
     let bonus=1;if(stats.beastBonus&&enemy.beast)bonus*=stats.beastBonus;
     if(stats.bossBonus&&(enemy.boss||enemy.type==='shaman'))bonus*=stats.bossBonus;
     const petrified=enemy.statuses.petrify&&type==='physical'?1+(enemy.statuses.petrify.physicalBonus||0):1;
-    result.beforeDefense=amount*frozen*bonus*petrified*(source?this.game.general?.multiplier('blood-wrath')||1:1);
+    const artifactDot=!!stats._artifactDot,ownedSource=source&&source.kind!=='commander'&&this.game.towers.includes(source);result.beforeDefense=amount*frozen*bonus*petrified*(artifactDot?1:source?this.game.general?.multiplier('blood-wrath')||1:1)*(ownedSource&&!artifactDot?artifactDamageMultiplier(this.game,enemy):1);
     this.prepareArmor(enemy);
     Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance,immunityAuraCoverage(enemy,this.game.towers,this.game.data)));
     result.shellBlock=stats.directHit?Math.min(result.afterArmor,Math.max(0,enemy.krakenShell||0)):0;
     result.afterShell=Math.max(0,result.afterArmor-result.shellBlock);
-    if(enemy.healthScaleLog){result.afterShell*=Math.exp(-enemy.healthScaleLog);if(stats._scaledExecution&&!result.blockReason)result.afterShell=Math.max(result.afterShell,enemy.hp);}
+    if(enemy.healthScaleLog&&!stats._artifactStoredHP){result.afterShell*=Math.exp(-enemy.healthScaleLog);if(stats._scaledExecution&&!result.blockReason)result.afterShell=Math.max(result.afterShell,enemy.hp);}
     if(!result.blockReason&&result.afterShell<=0)result.blockReason='shell';
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(this.rules.reactive.maxStacks,enemy.reactiveStacks+1);
     if(result.afterShell<=0)return finish();
@@ -126,8 +127,8 @@ export class CombatManager {
     this.game.emit('hit',{enemy,source,type,effect:result.effect,damage:result.appliedDamage,effectiveDamage:result.effectiveDamage,directHit:result.directHit,visible:result.visible});
     if(stats.critical&&result.effectiveDamage>0)this.game.emit('critical-hit',{enemy,source,type,effect:result.effect,amount:result.appliedDamage,effectiveDamage:result.effectiveDamage,multiplier:stats.critMultiplier,directHit:result.directHit,visible:result.visible});
     finish();
-    if(enemy.hp<=0)this.finishDeath(enemy,{type,visible:result.visible,source});
-    if(stats.fr002||stats._fr002Stats||this.game.data.fr002)fr002DamageResolved(this,result,stats,source);
+    if(enemy.hp<=0)this.finishDeath(enemy,{type,visible:result.visible,source,artifactTransfer:!!stats._artifactTransfer});
+    if(!stats._artifactDot&&(stats.fr002||stats._fr002Stats||this.game.data.fr002))fr002DamageResolved(this,result,stats,source);
     return result;
   }
   applyEffects(enemy,stats,source,{landedDamage=true}={}) {
@@ -263,6 +264,7 @@ export class CombatManager {
     const skyAuras=this.game.data.fr005?this.game.towers.filter(t=>t.state==='active').map(t=>({tower:t,stats:towerStats(t,this.game.data)})).filter(({stats})=>skyHuntAura(stats)):[];
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
+      updateArtifactDots(this,enemy);if(enemy.dead)continue;
       for(const key of ['slow','freeze','stun','root','gazeSlow','poison','burn','healBlock','regenReduction'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
       enemy.hit=Math.max(0,enemy.hit-dt);
       enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%R.cloak.period<R.cloak.hiddenDuration));
@@ -280,7 +282,7 @@ export class CombatManager {
         if(supporter.hasteAura&&this.elapsed%R.support.hastePeriod<R.support.hasteDuration)haste=Math.max(haste,supporter.hasteAura);
       }
       this.prepareArmor(enemy);
-      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};
+      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};if(enemy.statuses.artifactPoison?.time>0&&statusEffectAllowed(enemy,'healBlock')){regenReduction.amount=Math.max(regenReduction.amount||0,artifactEffects(this.game).healingReduction||0);regenReduction.time=Math.max(regenReduction.time||0,enemy.statuses.artifactPoison.time);}
       for(const [key,status] of Object.entries(enemy.statuses)) {
         if(key==='poison'&&status.applications){this.updatePoison(enemy,status,dt);continue;}
         if(status.dps){const slice=Math.min(dt,status.time);this.damage(enemy,status.dps*slice,status.damageType||(key==='bleed'?'physical':'magical'),{effect:key==='burn'?'fire':key,...status.fr002Packet,...(status.fr002Packet?{_fr002Slice:{key:'dot:'+key,dt:slice,endAt:this.elapsed-dt+slice}}:{})},status.source);}

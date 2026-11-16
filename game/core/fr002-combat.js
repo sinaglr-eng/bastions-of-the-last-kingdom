@@ -1,3 +1,4 @@
+import {artifactPrimaryContact} from './artifact-combat.js';
 import {distance,readTowerStats as towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
 const ability=(s,id)=>s.abilities?.find(a=>a.familyId===id),chance=(c,n)=>c.game.rng()<Math.max(0,Math.min(1,n/100));
@@ -8,7 +9,7 @@ function critical(c,s){const a=ability(s,'critical-strike');return a&&chance(c,a
 function hit(c,t,e,basis,type,s,{lineage=[],canCrit=false,onHit=false,direct=true,slice=null,multiplier=null,replacement=null}={}){
  const crit=multiplier??(canCrit?critical(c,s):1),aim=ability(s,'true-strike');
  const result=c.resolveDamage(e,(replacement??basis)*crit,type,{...s,...packet(s,lineage),_fr002Basis:basis,_fr002Slice:slice,_fr002OnHit:onHit,directHit:direct,critical:crit>1,critMultiplier:crit,evasionIgnore:(aim?.evasionIgnorePercent||0)/100},t);
- if(onHit&&result.contact)contact(c,t,e,s,result.effectiveDamage>0,lineage,!slice);
+ if(onHit&&result.contact)contact(c,t,e,s,result.effectiveDamage>0,lineage,!slice);if(onHit&&!lineage.length)artifactPrimaryContact(c,result,s,t);
  return result;
 }
 function contact(c,t,e,s,landed,lineage,randomEffects=true){
@@ -93,7 +94,7 @@ export function updateFr002Tower(c,t,s,dt,boost){
  const spark=ability(s,'spark');timed(c,t,'spark',spark,targets,rows=>{for(const e of rows){hit(c,t,e,spark.damage,channel(spark.damageType,s),s,{lineage:['spark']});c.game.emit('chain',{source:t,from:t,to:e,effect:'lightning',abilityId:'spark',visible:true});}});
  const heat=ability(s,'heat');timed(c,t,'heat',heat,targets.slice(0,1),rows=>{const center=rows[0];for(const e of c.enemies)if(!e.dead&&!e.flying&&c.canSee(e,t)&&distance(e,center)<=heat.radius)hit(c,t,e,heat.damage,channel(heat.damageType,s),s,{direct:false,lineage:['heat']});c.game.emit('impact',{source:t,target:center,stats:s,effect:'fire',abilityId:'heat',radius:heat.radius,visible:true});});
  const fire=ability(s,'fire-aura');if(fire)for(const e of c.enemies)if(!e.dead&&c.canSee(e,t)&&distance(e,t)<=fire.radius){const stronger=c.game.towers.some(other=>other!==t&&other.state==='active'&&!other.attackPaused&&(()=>{const a=ability(towerStats(other,c.game.data),'fire-aura');return a&&distance(other,e)<=a.radius&&(a.dps>fire.dps||a.dps===fire.dps&&other.id<t.id);})());if(!stronger)hit(c,t,e,fire.dps*dt,channel(fire.damageType,s),s,{direct:false,slice:{key:'fire-aura',dt}});}
- const morale=c.game.general?.multiplier('morale-boost')||1;
+ const morale=(c.game.general?.multiplier('morale-boost')||1)*(1+(c.game.towers.artifactEffects?.speed||0));
  const cone=s.continuousAttack;if(cone){const coneTarget=e=>!e.flying||cone.targeting==='ground-and-air',target=targets.find(coneTarget);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(coneTarget(e)&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360)hit(c,t,e,cone.dps*dt*morale,cone.damageType,s,{direct:false,onHit:true,slice:{key:'flame-cone',dt}});c.game.emit('aura-attack',{source:t,target,stats:s});}return;}
  if(!(s.damage>0)||!(boost>0))return;
  const weapon=s.weaponCycle;const priorState=t.weaponCycleState;if(weapon&&c.game.data.fr010&&priorState?.waitRemaining>0){priorState.waitRemaining=Math.max(0,priorState.waitRemaining-dt*morale);priorState.readyAt=c.elapsed+priorState.waitRemaining/morale;}t.cooldown-=dt*boost;if(weapon&&!t.weaponCycleState&&targets.length){t.weaponCycleState={remaining:weapon.magazine,start:c.elapsed,phase:0,readyAt:c.elapsed+Math.max(0,(weapon.spinUpSeconds||0)-dt)};t.cooldown=0;if(c.game.data.fr010)t.weaponCycleState.waitRemaining=Math.max(0,(weapon.spinUpSeconds||0)-dt*morale);}

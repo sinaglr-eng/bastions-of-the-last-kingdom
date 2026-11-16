@@ -143,7 +143,8 @@ export function enemyStatusState(enemy,towers,data,options={}){
   const statuses=enemy.statuses||{},effects=new Map();
   const live=key=>statuses[key]?.time>0?statuses[key]:null;
   const add=(key,value)=>{if(value>0)effects.set(key,{key,...ENEMY_EFFECT_STYLES[key],value:Math.max(value,effects.get(key)?.value||0)});};
-  let slow=statusEffectAllowed(enemy,'slow')?Math.max(live('slow')?.amount||0,live('gazeSlow')?.amount||0):0,armor=live('shred')?.amount||0;
+  if(live('artifactPoison')&&statusEffectAllowed(enemy,'poison'))add('poison',live('artifactPoison').amount);if(live('artifactBurn')&&statusEffectAllowed(enemy,'burn'))add('burn',live('artifactBurn').amount);
+  let slow=statusEffectAllowed(enemy,'slow')?Math.max(live('slow')?.amount||0,live('gazeSlow')?.amount||0):0,armor=Math.max(live('shred')?.amount||0,live('artifactShred')?.amount||0);
   const immunity=immunityAuraCoverage(enemy,towers,data),skyContext={data,towers,immunityCoverage:immunity};
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);

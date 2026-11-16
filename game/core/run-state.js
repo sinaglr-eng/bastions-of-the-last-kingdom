@@ -1,3 +1,4 @@
+import {normalizeArtifacts} from './artifact-combat.js';
 import {Game} from './game.js';
 // Indexed object graph: identities shared by projectiles, statuses, pulses and
 // removed actors are restored exactly, including Maps/Sets and cyclic references.
@@ -6,15 +7,15 @@ function graphDecode(graph){if(!graph||!Array.isArray(graph.nodes)||graph.nodes.
 const fields=(o,excluded)=>Object.fromEntries(Object.entries(o).filter(([k,v])=>!excluded.includes(k)&&typeof v!=='function'));
 export function serializeRun(game){
  const state={game:fields(game,['data','rng','listeners','grid','economy','commandPoints','draft','combat','commandMove','mvp','general','progress','waveCache','spaceCheck']),rng:game.rng.getState(),grid:fields(game.grid,[]),economy:fields(game.economy,['balance']),commandPoints:fields(game.commandPoints,['config','costs']),draft:fields(game.draft,['data','rng','commandPoints']),combat:fields(game.combat,['game']),commandMove:fields(game.commandMove,['game']),mvp:fields(game.mvp,['game']),general:fields(game.general,['game','loadout']),progress:fields(game.progress,['game'])};
- return {schema:1,ruleset:game.data.rulesetRevision,factionId:game.factionId,mode:game.mode,seed:game.seed,commanderRulesVersion:game.general.commanderRulesVersion,loadout:{...game.general.loadout},graph:graphEncode(state)};
+ return {schema:1,ruleset:game.data.rulesetRevision,factionId:game.factionId,mode:game.mode,seed:game.seed,artifactVersion:game.artifactVersion,artifactEquipment:{...game.artifactEquipment},commanderRulesVersion:game.general.commanderRulesVersion,loadout:{...game.general.loadout},graph:graphEncode(state)};
 }
 export function restoreRun(data,snapshot){
  if(snapshot?.schema!==1||snapshot.ruleset!==data.rulesetRevision||snapshot.factionId!==data.factionId||!['endless','campaign'].includes(snapshot.mode))throw Error('This save uses incompatible game rules.');
- const g=new Game(data,{seed:snapshot.seed,mode:snapshot.mode,loadout:snapshot.loadout}),s=graphDecode(snapshot.graph);
+ const g=new Game(data,{seed:snapshot.seed,mode:snapshot.mode,loadout:snapshot.loadout,artifactEquipment:snapshot.artifactEquipment||{}}),s=graphDecode(snapshot.graph);
  if(!s?.game||!Number.isSafeInteger(s.game.round)||s.game.round<1||!['build','select','ready','combat','reward','won','lost'].includes(s.game.phase))throw Error('Invalid saved run.');
  for(const[k,v]of Object.entries(s.game))if(k!=='factionId')g[k]=v;
  for(const key of ['grid','economy','commandPoints','draft','combat','commandMove','mvp','general','progress'])Object.assign(g[key],s[key]);
  g.general.commanderRulesVersion=snapshot.commanderRulesVersion??s.general?.commanderRulesVersion??1;
- g.fortifiedKeepBonus=g.general.value('fortified-keep');g.maxLives=data.balance.startingLives+g.fortifiedKeepBonus;g.general.normalizeAfterRestore();
+ normalizeArtifacts(g,snapshot);g.fortifiedKeepBonus=g.general.value('fortified-keep');g.maxLives=data.balance.startingLives+g.fortifiedKeepBonus+(g.artifactState.effects.keepHealth||0);g.general.normalizeAfterRestore();
  g.rng.setState(s.rng);g.draft.rng=g.rng;Object.defineProperty(g.towers,'general',{value:g.general,configurable:true});g.journal=[];g.recordCommands=true;return g;
 }

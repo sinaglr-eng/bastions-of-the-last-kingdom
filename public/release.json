@@ -131,19 +131,94 @@
   "factionAchievements": {
     "revision": "faction-mastery-20261116",
     "factions": 3,
-    "wave50": { "medals": 5, "xp": 8, "identity": "existing-campaign-per-faction" },
-    "allChampions": { "required": 38, "includesBasic": true, "includesSecret": true, "medals": 12, "xp": 20 },
-    "thematicCollections": { "required": 3, "medals": 4, "xp": 6 },
+    "wave50": {
+      "medals": 5,
+      "xp": 8,
+      "identity": "existing-campaign-per-faction"
+    },
+    "allChampions": {
+      "required": 38,
+      "includesBasic": true,
+      "includesSecret": true,
+      "medals": 12,
+      "xp": 20
+    },
+    "thematicCollections": {
+      "required": 3,
+      "medals": 4,
+      "xp": 6
+    },
     "verifiedHistoryBackfill": true
   },
   "commanderAbilities": {
     "revision": "commander-selected-promotion-and-range-20261116",
     "skills": 11,
     "equippedSlots": 3,
-    "fieldPromotion": { "target": "one-selected-current-draft-recruit", "costCP": 3, "uses": [1, 2, 2], "caps": [5, 5, 6], "accountLevels": [7, 10, 14] },
-    "extendedRange": { "costGold": 200, "rangeTiles": [1, 1.5, 2], "scope": "all-defenders-current-combat-wave", "usesPerWave": 1, "accountLevels": [6, 10, 13] },
-    "decisiveStrike": { "costCP": 0, "usesPerRun": 1, "normalMaxHP": [0.3, 0.4, 0.5], "bossMaxHP": [0.05, 0.07, 0.1], "accountLevels": [9, 13, 15] },
-    "fortifiedKeep": { "bonusHealth": [5, 10, 15], "accountLevels": [2, 6, 11] }
+    "fieldPromotion": {
+      "target": "one-selected-current-draft-recruit",
+      "costCP": 3,
+      "uses": [
+        1,
+        2,
+        2
+      ],
+      "caps": [
+        5,
+        5,
+        6
+      ],
+      "accountLevels": [
+        7,
+        10,
+        14
+      ]
+    },
+    "extendedRange": {
+      "costGold": 200,
+      "rangeTiles": [
+        1,
+        1.5,
+        2
+      ],
+      "scope": "all-defenders-current-combat-wave",
+      "usesPerWave": 1,
+      "accountLevels": [
+        6,
+        10,
+        13
+      ]
+    },
+    "decisiveStrike": {
+      "costCP": 0,
+      "usesPerRun": 1,
+      "normalMaxHP": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "bossMaxHP": [
+        0.05,
+        0.07,
+        0.1
+      ],
+      "accountLevels": [
+        9,
+        13,
+        15
+      ]
+    },
+    "fortifiedKeep": {
+      "bonusHealth": [
+        5,
+        10,
+        15
+      ],
+      "accountLevels": [
+        2,
+        6,
+        11
+      ]
+    }
   },
   "presentation": {
     "commanderNaming": true,
@@ -155,5 +230,16 @@
     "generatedUiIcons": 19,
     "secretRecipesInCatalog": false,
     "mazeBuilderLabel": "Maze Builder"
+  },
+  "artifacts": {
+    "revision": "fr011-v1",
+    "artifacts": 48,
+    "sets": 6,
+    "equipmentSlots": 10,
+    "presets": 3,
+    "chestTiers": 5,
+    "source": "verified-boss-death",
+    "opening": "Commander after battle",
+    "gallery": "local-only"
   }
 }

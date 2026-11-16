@@ -1,3 +1,4 @@
+import {fieldArtifactMarkup} from './commander-vault.js';
 import {siteUrl} from '../game/site-url.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
@@ -46,8 +47,8 @@ export function generalControlsMarkup(game,slot='A'){
 }
 // Keep primary buttons and focus intact while the authoritative command state changes.
 export function updateGeneralControls(host,game,slot='A'){
- const key=JSON.stringify([game?.developerMode,game?.general?.loadout||{}]);
- if(host.dataset.loadout!==key){host.innerHTML=generalControlsMarkup(game,slot);host.dataset.loadout=key;}
+ const key=JSON.stringify([game?.developerMode,game?.general?.loadout||{},game?.artifactEquipment||{}]);
+ if(host.dataset.loadout!==key){host.innerHTML=generalControlsMarkup(game,slot)+fieldArtifactMarkup(game);host.dataset.loadout=key;}
  const cp=host.querySelector('[data-general-cp]');if(cp)cp.textContent=String(game.commandPoints.value);
  const gold=host.querySelector('[data-general-gold]');if(gold)gold.textContent=Number(game.economy.gold).toLocaleString('en-US');
  const rows=generalCommandState(game,slot);

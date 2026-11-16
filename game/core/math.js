@@ -79,9 +79,9 @@ export function supportBonuses(tower,towers,data) {
 }
 export function combatTowerStats(tower,towers,data){
   const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower))*bonuses.damage;
-  bonuses.haste*=towers.general?.multiplier('morale-boost')||1;
+  bonuses.haste*=(towers.general?.multiplier('morale-boost')||1)*(1+(tower.state==='active'?towers.artifactEffects?.speed||0:0));
   const stats=factionPrimaryBonuses(scaleDamageStats(readTowerStats(tower,data),multiplier),tower,towers);
-  if(stats.damage>0||stats.continuousAttack)stats.range+=bonuses.range;
+  if(stats.damage>0||stats.continuousAttack){const extra=tower.state==='active'?towers.artifactEffects?.range||0:0;if(extra){for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;stats.range*=1+extra;}stats.range+=bonuses.range;}
   const commanderRange=tower.state==='active'?towers.general?.rangeBonus||0:0;
   if(commanderRange){
     // A legacy offensive aura may fall back to direct range. Freeze that
@@ -89,9 +89,9 @@ export function combatTowerStats(tower,towers,data){
     for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;
     bonuses.commanderRange=commanderRange;stats.range+=commanderRange;
   }
-  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier,...(commanderRange?{range:stats.range}:{})};
-  stats.trueStrike||=!!bonuses.trueStrike;
-  if(stats.berserkHaste)bonuses.haste*=stats.berserkHaste;if(stats.berserkResistance)bonuses.controlResistance=Math.max(bonuses.controlResistance||0,stats.berserkResistance);return {stats,bonuses,multiplier};
+  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier,...((commanderRange||towers.artifactEffects?.range)?{range:stats.range}:{})};
+  const gearResistance=tower.state==='active'?towers.artifactEffects?.controlResistance||0:0;stats.trueStrike||=!!bonuses.trueStrike;
+  if(stats.berserkHaste)bonuses.haste*=stats.berserkHaste;if(stats.berserkResistance)bonuses.controlResistance=Math.max(bonuses.controlResistance||0,stats.berserkResistance);if(gearResistance)bonuses.controlResistance=1-(1-(bonuses.controlResistance||0))*(1-gearResistance);return {stats,bonuses,multiplier};
 }
 
 // Offensive effect footprints are independent of direct targeting and range support.

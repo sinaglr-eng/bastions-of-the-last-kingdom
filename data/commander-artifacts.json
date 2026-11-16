@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "effectVersion": "fr011-v1",
+  "slots": [
+    "head",
+    "neck",
+    "chest",
+    "weapon",
+    "offhand",
+    "gloves",
+    "cloak",
+    "feet",
+    "ring1",
+    "ring2"
+  ],
+  "rarities": [
+    {
+      "id": "common",
+      "name": "Common",
+      "color": "#b9ae91",
+      "dust": 5,
+      "craft": 40
+    },
+    {
+      "id": "uncommon",
+      "name": "Uncommon",
+      "color": "#528657",
+      "dust": 10,
+      "craft": 80
+    },
+    {
+      "id": "rare",
+      "name": "Rare",
+      "color": "#397fba",
+      "dust": 20,
+      "craft": 160
+    },
+    {
+      "id": "epic",
+      "name": "Epic",
+      "color": "#865aa7",
+      "dust": 40,
+      "craft": 320
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "color": "#c59638",
+      "dust": 80,
+      "craft": 640
+    }
+  ],
+  "sets": [
+    {
+      "id": "iron-legion",
+      "code": "LG",
+      "name": "Iron Legion",
+      "description": "Direct army damage and boss hunting.",
+      "bonuses": {
+        "2": {
+          "damage": 0.05
+        },
+        "4": {
+          "bossDamage": 0.06
+        },
+        "6": {
+          "damage": 0.1
+        }
+      },
+      "art": "assets/ui/artifacts/set-iron-legion.webp"
+    },
+    {
+      "id": "stormwing-vanguard",
+      "code": "ST",
+      "name": "Stormwing Vanguard",
+      "description": "Rapid attacks, reach and resistance to disruption.",
+      "bonuses": {
+        "2": {
+          "speed": 0.03
+        },
+        "4": {
+          "range": 0.05
+        },
+        "6": {
+          "speed": 0.05,
+          "controlResistance": 0.15
+        }
+      },
+      "art": "assets/ui/artifacts/set-stormwing-vanguard.webp"
+    },
+    {
+      "id": "winter-court",
+      "code": "WC",
+      "name": "Winter Court",
+      "description": "Longer reach, chilling strikes and brief freezes.",
+      "bonuses": {
+        "2": {
+          "range": 0.03
+        },
+        "4": {
+          "slowBonus": 0.04
+        },
+        "6": {
+          "freezeChanceBonus": 0.04,
+          "freezeDurationBonus": 0.2
+        }
+      },
+      "art": "assets/ui/artifacts/set-winter-court.webp"
+    },
+    {
+      "id": "venom-covenant",
+      "code": "VC",
+      "name": "Venom Covenant",
+      "description": "Poisoned strikes and suppression of enemy healing.",
+      "bonuses": {
+        "2": {
+          "conditionalPoison": 0.03
+        },
+        "4": {
+          "poisonPower": 0.3
+        },
+        "6": {
+          "poisonPower": 0.5,
+          "healingReductionBonus": 0.2
+        }
+      },
+      "art": "assets/ui/artifacts/set-venom-covenant.webp"
+    },
+    {
+      "id": "ashen-dragon",
+      "code": "AD",
+      "name": "Ashen Dragon",
+      "description": "Burning strikes and the transfer of unspent embers.",
+      "bonuses": {
+        "2": {
+          "burnPower": 0.2
+        },
+        "4": {
+          "conditionalBurn": 0.05
+        },
+        "6": {
+          "burnPower": 0.6,
+          "emberTransfer": 1
+        }
+      },
+      "art": "assets/ui/artifacts/set-ashen-dragon.webp"
+    },
+    {
+      "id": "royal-architect",
+      "code": "RA",
+      "name": "Royal Architect",
+      "description": "Starting resources, a stronger keep and a resilient army.",
+      "bonuses": {
+        "2": {
+          "gold": 150
+        },
+        "4": {
+          "cp": 2
+        },
+        "6": {
+          "controlResistance": 0.15,
+          "reinforceKeep": 6
+        }
+      },
+      "art": "assets/ui/artifacts/set-royal-architect.webp"
+    }
+  ],
+  "chests": [
+    {
+      "tier": 1,
+      "name": "Gatebreaker Chest",
+      "bossId": "host_10",
+      "baseDust": 2,
+      "draws": 1,
+      "weights": {
+        "common": 60,
+        "uncommon": 35,
+        "rare": 5
+      },
+      "pityEvery": 7,
+      "pityRarity": "rare",
+      "art": "assets/ui/artifacts/chest-1.webp",
+      "openArt": "assets/ui/artifacts/chest-1-open.webp"
+    },
+    {
+      "tier": 2,
+      "name": "Bone Patriarch Chest",
+      "bossId": "host_20",
+      "baseDust": 5,
+      "draws": 1,
+      "weights": {
+        "uncommon": 60,
+        "rare": 35,
+        "epic": 5
+      },
+      "pityEvery": 5,
+      "pityRarity": "epic",
+      "art": "assets/ui/artifacts/chest-2.webp",
+      "openArt": "assets/ui/artifacts/chest-2-open.webp"
+    },
+    {
+      "tier": 3,
+      "name": "Stormwing Chest",
+      "bossId": "host_30",
+      "baseDust": 10,
+      "draws": 1,
+      "weights": {
+        "rare": 65,
+        "epic": 30,
+        "legendary": 5
+      },
+      "pityEvery": 10,
+      "pityRarity": "legendary",
+      "art": "assets/ui/artifacts/chest-3.webp",
+      "openArt": "assets/ui/artifacts/chest-3-open.webp"
+    },
+    {
+      "tier": 4,
+      "name": "Hollow King Chest",
+      "bossId": "host_40",
+      "baseDust": 20,
+      "draws": 1,
+      "weights": {
+        "rare": 30,
+        "epic": 55,
+        "legendary": 15
+      },
+      "pityEvery": 6,
+      "pityRarity": "legendary",
+      "art": "assets/ui/artifacts/chest-4.webp",
+      "openArt": "assets/ui/artifacts/chest-4-open.webp"
+    },
+    {
+      "tier": 5,
+      "name": "Wyvern Sovereign Chest",
+      "bossId": "host_50",
+      "baseDust": 40,
+      "draws": 2,
+      "weights": {
+        "epic": 65,
+        "legendary": 35
+      },
+      "pityEvery": 3,
+      "pityRarity": "legendary",
+      "art": "assets/ui/artifacts/chest-5.webp",
+      "openArt": "assets/ui/artifacts/chest-5-open.webp"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "LG-01",
+      "name": "Helm of the Vanguard",
+      "slot": "head",
+      "rarity": "common",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 3% more own damage.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/artifacts/lg-01.webp"
+    },
+    {
+      "id": "LG-02",
+      "name": "Marching Sabatons",
+      "slot": "feet",
+      "rarity": "uncommon",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 3% more own damage.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/artifacts/lg-02.webp"
+    },
+    {
+      "id": "LG-03",
+      "name": "Ring of Courage",
+      "slot": "ring",
+      "rarity": "uncommon",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 3% more own damage.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/artifacts/lg-03.webp"
+    },
+    {
+      "id": "LG-04",
+      "name": "Shield of the Gatebreaker",
+      "slot": "offhand",
+      "rarity": "rare",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 6% more own damage against bosses.",
+      "modifiers": {
+        "bossDamage": 0.06
+      },
+      "art": "assets/ui/artifacts/lg-04.webp"
+    },
+    {
+      "id": "LG-05",
+      "name": "Cuirass of Conquest",
+      "slot": "chest",
+      "rarity": "epic",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 5% more own damage.",
+      "modifiers": {
+        "damage": 0.05
+      },
+      "art": "assets/ui/artifacts/lg-05.webp"
+    },
+    {
+      "id": "LG-06",
+      "name": "Oathkeeper",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "iron-legion",
+      "description": "All active defenders deal 8% more own damage.",
+      "modifiers": {
+        "damage": 0.08
+      },
+      "art": "assets/ui/artifacts/lg-06.webp"
+    },
+    {
+      "id": "ST-01",
+      "name": "Windstep Boots",
+      "slot": "feet",
+      "rarity": "common",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 2% faster.",
+      "modifiers": {
+        "speed": 0.02
+      },
+      "art": "assets/ui/artifacts/st-01.webp"
+    },
+    {
+      "id": "ST-02",
+      "name": "Ring of Sparks",
+      "slot": "ring",
+      "rarity": "uncommon",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 3% faster.",
+      "modifiers": {
+        "speed": 0.03
+      },
+      "art": "assets/ui/artifacts/st-02.webp"
+    },
+    {
+      "id": "ST-03",
+      "name": "Swiftstrike Gauntlets",
+      "slot": "gloves",
+      "rarity": "uncommon",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 3% faster.",
+      "modifiers": {
+        "speed": 0.03
+      },
+      "art": "assets/ui/artifacts/st-03.webp"
+    },
+    {
+      "id": "ST-04",
+      "name": "Tempest Pendant",
+      "slot": "neck",
+      "rarity": "rare",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 4% faster.",
+      "modifiers": {
+        "speed": 0.04
+      },
+      "art": "assets/ui/artifacts/st-04.webp"
+    },
+    {
+      "id": "ST-05",
+      "name": "Stormcaller Crown",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 5% faster.",
+      "modifiers": {
+        "speed": 0.05
+      },
+      "art": "assets/ui/artifacts/st-05.webp"
+    },
+    {
+      "id": "ST-06",
+      "name": "Spear of the Sky Lord",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "stormwing-vanguard",
+      "description": "All active defenders attack 6% faster.",
+      "modifiers": {
+        "speed": 0.06
+      },
+      "art": "assets/ui/artifacts/st-06.webp"
+    },
+    {
+      "id": "WC-01",
+      "name": "Snowveil Cloak",
+      "slot": "cloak",
+      "rarity": "common",
+      "setId": "winter-court",
+      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.02
+      },
+      "art": "assets/ui/artifacts/wc-01.webp"
+    },
+    {
+      "id": "WC-02",
+      "name": "Ring of Rime",
+      "slot": "ring",
+      "rarity": "uncommon",
+      "setId": "winter-court",
+      "description": "Primary damaging hits slow eligible enemies by 8% for 2 combat seconds.",
+      "modifiers": {
+        "slow": 0.08
+      },
+      "art": "assets/ui/artifacts/wc-02.webp"
+    },
+    {
+      "id": "WC-03",
+      "name": "Glacier Pendant",
+      "slot": "neck",
+      "rarity": "uncommon",
+      "setId": "winter-court",
+      "description": "Attack range increases by 3%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.03
+      },
+      "art": "assets/ui/artifacts/wc-03.webp"
+    },
+    {
+      "id": "WC-04",
+      "name": "Mirror of Winter",
+      "slot": "offhand",
+      "rarity": "rare",
+      "setId": "winter-court",
+      "description": "Deal 5% more own damage to slowed or frozen enemies.",
+      "modifiers": {
+        "conditionalControl": 0.05
+      },
+      "art": "assets/ui/artifacts/wc-04.webp"
+    },
+    {
+      "id": "WC-05",
+      "name": "Crown of the Frozen Court",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": "winter-court",
+      "description": "Attack range increases by 4%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.04
+      },
+      "art": "assets/ui/artifacts/wc-05.webp"
+    },
+    {
+      "id": "WC-06",
+      "name": "Winter's Verdict",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "winter-court",
+      "description": "Primary damaging hits have a 6% freeze chance for 0.6s; bosses take half duration. Shared target cooldown: 6s.",
+      "modifiers": {
+        "freezeChance": 0.06,
+        "freezeDuration": 0.6
+      },
+      "art": "assets/ui/artifacts/wc-06.webp"
+    },
+    {
+      "id": "VC-01",
+      "name": "Plaguewarden Hood",
+      "slot": "head",
+      "rarity": "common",
+      "setId": "venom-covenant",
+      "description": "All active defenders deal 2% more own damage.",
+      "modifiers": {
+        "damage": 0.02
+      },
+      "art": "assets/ui/artifacts/vc-01.webp"
+    },
+    {
+      "id": "VC-02",
+      "name": "Ring of Venom",
+      "slot": "ring",
+      "rarity": "uncommon",
+      "setId": "venom-covenant",
+      "description": "Primary damaging hits add Magical poison equal to 4% of effective hit damage, spread over 3s.",
+      "modifiers": {
+        "poisonBase": 0.04
+      },
+      "art": "assets/ui/artifacts/vc-02.webp"
+    },
+    {
+      "id": "VC-03",
+      "name": "Serpent's Pendant",
+      "slot": "neck",
+      "rarity": "uncommon",
+      "setId": "venom-covenant",
+      "description": "Deal 4% more own damage to poisoned enemies.",
+      "modifiers": {
+        "conditionalPoison": 0.04
+      },
+      "art": "assets/ui/artifacts/vc-03.webp"
+    },
+    {
+      "id": "VC-04",
+      "name": "Toxicologist's Gloves",
+      "slot": "gloves",
+      "rarity": "rare",
+      "setId": "venom-covenant",
+      "description": "Artifact poison deals 20% more damage. Native defender poison is unchanged.",
+      "modifiers": {
+        "poisonPower": 0.2
+      },
+      "art": "assets/ui/artifacts/vc-04.webp"
+    },
+    {
+      "id": "VC-05",
+      "name": "Blightweave Armor",
+      "slot": "chest",
+      "rarity": "epic",
+      "setId": "venom-covenant",
+      "description": "Artifact-poisoned enemies receive 20% less healing and regeneration; respects immunity.",
+      "modifiers": {
+        "healingReduction": 0.2
+      },
+      "art": "assets/ui/artifacts/vc-05.webp"
+    },
+    {
+      "id": "VC-06",
+      "name": "Fang of the First Serpent",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "venom-covenant",
+      "description": "Primary damaging hits add Magical poison equal to 10% of effective hit damage, spread over 3s. Replaces weaker artifact poison.",
+      "modifiers": {
+        "poisonBase": 0.1
+      },
+      "art": "assets/ui/artifacts/vc-06.webp"
+    },
+    {
+      "id": "AD-01",
+      "name": "Emberstep Boots",
+      "slot": "feet",
+      "rarity": "common",
+      "setId": "ashen-dragon",
+      "description": "All active defenders deal 2% more own damage.",
+      "modifiers": {
+        "damage": 0.02
+      },
+      "art": "assets/ui/artifacts/ad-01.webp"
+    },
+    {
+      "id": "AD-02",
+      "name": "Cinderheart Pendant",
+      "slot": "neck",
+      "rarity": "uncommon",
+      "setId": "ashen-dragon",
+      "description": "Primary damaging hits add Magical burn equal to 4% of effective hit damage, spread over 2s.",
+      "modifiers": {
+        "burnBase": 0.04
+      },
+      "art": "assets/ui/artifacts/ad-02.webp"
+    },
+    {
+      "id": "AD-03",
+      "name": "Ashen Wings Cloak",
+      "slot": "cloak",
+      "rarity": "uncommon",
+      "setId": "ashen-dragon",
+      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.02
+      },
+      "art": "assets/ui/artifacts/ad-03.webp"
+    },
+    {
+      "id": "AD-04",
+      "name": "Dragonfire Lantern",
+      "slot": "offhand",
+      "rarity": "rare",
+      "setId": "ashen-dragon",
+      "description": "Artifact burn deals 20% more damage. Native defender burn is unchanged.",
+      "modifiers": {
+        "burnPower": 0.2
+      },
+      "art": "assets/ui/artifacts/ad-04.webp"
+    },
+    {
+      "id": "AD-05",
+      "name": "Cuirass of Living Embers",
+      "slot": "chest",
+      "rarity": "epic",
+      "setId": "ashen-dragon",
+      "description": "Deal 5% more own damage to burning enemies.",
+      "modifiers": {
+        "conditionalBurn": 0.05
+      },
+      "art": "assets/ui/artifacts/ad-05.webp"
+    },
+    {
+      "id": "AD-06",
+      "name": "Furnace Fang",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "ashen-dragon",
+      "description": "Primary damaging hits add Magical burn equal to 10% of effective hit damage, spread over 2s. Replaces weaker artifact burn.",
+      "modifiers": {
+        "burnBase": 0.1
+      },
+      "art": "assets/ui/artifacts/ad-06.webp"
+    },
+    {
+      "id": "RA-01",
+      "name": "Builder's Gloves",
+      "slot": "gloves",
+      "rarity": "common",
+      "setId": "royal-architect",
+      "description": "Start a new defense with 75 additional gold.",
+      "modifiers": {
+        "gold": 75
+      },
+      "art": "assets/ui/artifacts/ra-01.webp"
+    },
+    {
+      "id": "RA-02",
+      "name": "Foundation Boots",
+      "slot": "feet",
+      "rarity": "uncommon",
+      "setId": "royal-architect",
+      "description": "Start with 3 additional current and maximum keep health.",
+      "modifiers": {
+        "keepHealth": 3
+      },
+      "art": "assets/ui/artifacts/ra-02.webp"
+    },
+    {
+      "id": "RA-03",
+      "name": "Mantle of Resolve",
+      "slot": "cloak",
+      "rarity": "uncommon",
+      "setId": "royal-architect",
+      "description": "Defenders gain 10% resistance to enemy disruption; combines through remaining vulnerability.",
+      "modifiers": {
+        "controlResistance": 0.1
+      },
+      "art": "assets/ui/artifacts/ra-03.webp"
+    },
+    {
+      "id": "RA-04",
+      "name": "Surveyor's Crown",
+      "slot": "head",
+      "rarity": "rare",
+      "setId": "royal-architect",
+      "description": "Start a new defense with 1 additional Command Point.",
+      "modifiers": {
+        "cp": 1
+      },
+      "art": "assets/ui/artifacts/ra-04.webp"
+    },
+    {
+      "id": "RA-05",
+      "name": "Bastion Plate",
+      "slot": "chest",
+      "rarity": "epic",
+      "setId": "royal-architect",
+      "description": "Start with 5 additional current and maximum keep health.",
+      "modifiers": {
+        "keepHealth": 5
+      },
+      "art": "assets/ui/artifacts/ra-05.webp"
+    },
+    {
+      "id": "RA-06",
+      "name": "Grand Blueprint",
+      "slot": "offhand",
+      "rarity": "legendary",
+      "setId": "royal-architect",
+      "description": "Start a new defense with 3 additional Command Points.",
+      "modifiers": {
+        "cp": 3
+      },
+      "art": "assets/ui/artifacts/ra-06.webp"
+    },
+    {
+      "id": "N-01",
+      "name": "Training Blade",
+      "slot": "weapon",
+      "rarity": "common",
+      "setId": null,
+      "description": "All active defenders deal 3% more own damage.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/artifacts/n-01.webp"
+    },
+    {
+      "id": "N-02",
+      "name": "Old Scout's Cloak",
+      "slot": "cloak",
+      "rarity": "common",
+      "setId": null,
+      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.02
+      },
+      "art": "assets/ui/artifacts/n-02.webp"
+    },
+    {
+      "id": "N-03",
+      "name": "Prospector's Ring",
+      "slot": "ring",
+      "rarity": "common",
+      "setId": null,
+      "description": "Start a new defense with 75 additional gold.",
+      "modifiers": {
+        "gold": 75
+      },
+      "art": "assets/ui/artifacts/n-03.webp"
+    },
+    {
+      "id": "N-04",
+      "name": "Marksman's Gloves",
+      "slot": "gloves",
+      "rarity": "uncommon",
+      "setId": null,
+      "description": "Attack range increases by 3%. Aura and splash radii are unchanged.",
+      "modifiers": {
+        "range": 0.03
+      },
+      "art": "assets/ui/artifacts/n-04.webp"
+    },
+    {
+      "id": "N-05",
+      "name": "Fleet Ring",
+      "slot": "ring",
+      "rarity": "uncommon",
+      "setId": null,
+      "description": "All active defenders attack 3% faster.",
+      "modifiers": {
+        "speed": 0.03
+      },
+      "art": "assets/ui/artifacts/n-05.webp"
+    },
+    {
+      "id": "N-06",
+      "name": "Watchman's Helm",
+      "slot": "head",
+      "rarity": "uncommon",
+      "setId": null,
+      "description": "Start with 3 additional current and maximum keep health.",
+      "modifiers": {
+        "keepHealth": 3
+      },
+      "art": "assets/ui/artifacts/n-06.webp"
+    },
+    {
+      "id": "N-07",
+      "name": "Steward's Chain",
+      "slot": "neck",
+      "rarity": "rare",
+      "setId": null,
+      "description": "Start a new defense with 200 additional gold.",
+      "modifiers": {
+        "gold": 200
+      },
+      "art": "assets/ui/artifacts/n-07.webp"
+    },
+    {
+      "id": "N-08",
+      "name": "Guardian's Banner",
+      "slot": "offhand",
+      "rarity": "rare",
+      "setId": null,
+      "description": "Start a new defense with 2 additional Command Points.",
+      "modifiers": {
+        "cp": 2
+      },
+      "art": "assets/ui/artifacts/n-08.webp"
+    },
+    {
+      "id": "N-09",
+      "name": "Sundering Gauntlets",
+      "slot": "gloves",
+      "rarity": "rare",
+      "setId": null,
+      "description": "Primary damaging hits reduce enemy armor by 2 for 2s, never below zero. Does not replace a stronger reduction.",
+      "modifiers": {
+        "shred": 2
+      },
+      "art": "assets/ui/artifacts/n-09.webp"
+    },
+    {
+      "id": "N-10",
+      "name": "Bulwark Mantle",
+      "slot": "cloak",
+      "rarity": "epic",
+      "setId": null,
+      "description": "Defenders gain 20% resistance to enemy disruption; combines through remaining vulnerability.",
+      "modifiers": {
+        "controlResistance": 0.2
+      },
+      "art": "assets/ui/artifacts/n-10.webp"
+    },
+    {
+      "id": "N-11",
+      "name": "Warlord's Lens",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": null,
+      "description": "All active defenders deal 10% more own damage against bosses.",
+      "modifiers": {
+        "bossDamage": 0.1
+      },
+      "art": "assets/ui/artifacts/n-11.webp"
+    },
+    {
+      "id": "N-12",
+      "name": "Seal of Three Alliances",
+      "slot": "neck",
+      "rarity": "legendary",
+      "setId": null,
+      "description": "All active defenders gain 5% own damage, 3% attack speed and 2% attack range.",
+      "modifiers": {
+        "damage": 0.05,
+        "speed": 0.03,
+        "range": 0.02
+      },
+      "art": "assets/ui/artifacts/n-12.webp"
+    }
+  ]
+}

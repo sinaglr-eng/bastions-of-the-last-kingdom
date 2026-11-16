@@ -1,3 +1,4 @@
+import {artifactProfile,artifactMutation,artifactRewardStatements,unlockArtifactChests} from './artifact-store.js';
 import {hallRecords} from './hall.js';
 import {authenticatedPlayer,playerAuth} from './auth.js';
 import {currentFactionData,FR010_RULESET} from '../game/core/current-data.js';
@@ -36,7 +37,7 @@ async function profile(db,id,attempt=0){
  const owned=new Set(grants.map(g=>g.id)),eligible=mergeAchievementRows(rawEligible).filter(g=>!owned.has(g.id)&&activeAchievement(g.id)).map(g=>({...g,reward:activeAchievement(g.id).reward,xp:activeAchievement(g.id).xp}));
  const discovered=(await db.prepare("SELECT faction_id,progress_json FROM fr010_runs WHERE user_id=? AND outcome!='developer' AND started_at>=?").bind(id,reset.resetAt).all()).results,discoveries={};for(const r of discovered){const x=JSON.parse(r.progress_json);discoveries[r.faction_id]=[...new Set([...(discoveries[r.faction_id]||[]),...(x.champions||[])])];}
  const current=await db.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').bind(id).first();if(current.revision!==progression.revision||row.revision!==progression.revision){if(attempt>=7)fail('Profile is busy. Please retry.',409);return profile(db,id,attempt+1);}
- return {...progression,progressionEpoch:reset.epoch,progressionResetAt:reset.resetAt,discoveries,revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
+ return {artifacts:await artifactProfile(db,id),...progression,progressionEpoch:reset.epoch,progressionResetAt:reset.resetAt,discoveries,revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
 }
 async function ownRun(db,id,user){if(!validId(id))fail('Invalid run.');const run=await db.prepare('SELECT * FROM fr010_runs WHERE id = ? AND user_id = ?').bind(id,user).first();if(!run)fail('Run not found.',404);return run;}
 const publicRun=row=>({id:row.id,sequence:row.sequence,lastBatch:row.last_batch,factionId:row.faction_id,ruleset:row.ruleset,outcome:row.outcome,snapshot:JSON.parse(row.snapshot_json),updatedAt:row.updated_at,round:row.highest_wave+1});
@@ -105,6 +106,7 @@ async function verifyBatch(db,user,id,b){
  if(run.sequence!==b.sequence)fail('Run changed on another device. Reload the cloud save.',409);
  if(run.ruleset!==FR010_RULESET)fail('Unsupported saved rules.');
  const game=restoreVerifiedRun(currentFactionData(run.faction_id),run);
+ const artifactKills=[];game.on((type,p)=>{if(type==='death'&&p.enemy?.boss&&p.enemy.hp<=0)artifactKills.push({spawnId:p.enemy.id,bossId:p.enemy.type,wave:game.round});});
  try{replayCommands(game,b.commands);}catch{fail('Invalid player command stream.');}game.journal=[];
  if(Number.isFinite(b.elapsedSeconds)&&b.elapsedSeconds>=0)game.elapsedSeconds=Math.max(game.elapsedSeconds,Math.min(b.elapsedSeconds,(Date.now()-run.started_at)/1000+60));
  const next=run.sequence+1,snapshot=JSON.stringify(serializeRun(game)),score=game.scoreExact,outcome=['lost','won'].includes(game.phase)?game.phase:'playing',summary=JSON.stringify(progressSummary(game)),now=Date.now();
@@ -113,6 +115,7 @@ async function verifyBatch(db,user,id,b){
   const statements=[db.prepare('UPDATE fr010_runs SET sequence = ?, last_batch = ?, snapshot_json = ?, score_text = ?, score_digits = ?, highest_wave = ?, progress_json = ?, outcome = ?, updated_at = ?, finished_at = ? WHERE id = ? AND user_id = ? AND sequence = ? AND outcome = ? AND EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(next,b.batchId,snapshot,score,score.length,game.progress.highestWave,summary,outcome,now,outcome==='lost'?now:null,id,user,b.sequence,'playing',user,p.revision)];
   statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_batches (run_id,sequence,batch_id,digest,commands_json,created_at) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(id,next,b.batchId,hash,JSON.stringify(b.commands),now,id,next,b.batchId));
   for(const grant of grants)statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_eligible (user_id,achievement_id,faction_id,reward,verified_at,run_id) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(user,grant.id,grant.factionId,grant.reward,now,id,id,next,b.batchId));
+  statements.push(...artifactRewardStatements(db,user,id,game,artifactKills,guard,[id,next,b.batchId]));
   statements.push(db.prepare(`UPDATE fr010_profiles SET revision = revision + 1 WHERE user_id = ? AND revision = ? AND ${guard}`).bind(user,p.revision,id,next,b.batchId));
   await db.batch(statements);
   const saved=await ownRun(db,id,user);if(saved.sequence===next&&saved.last_batch===b.batchId){await settleVerified(saved);return {sequence:next,batchId:b.batchId,profile:await profile(db,user),outcome,score,highestWave:game.progress.highestWave};}
@@ -136,6 +139,7 @@ export async function handlePlayer(request,env){
   return json(await hallRecords(db,{faction,offset,view,user:user?.id}));
  }
  const user=await authenticatedPlayer(request,env);if(!user)fail('Sign in to your verified account.',401);
+ if(path==='/api/player/artifacts'&&request.method==='GET')return json({artifacts:await artifactProfile(db,user.id)});
  if(path==='/api/player/profile'&&request.method==='GET')return json(await profile(db,user.id));
  if(path==='/api/player/statistics'&&request.method==='GET'){
   const rows=(await db.prepare("SELECT faction_id AS factionId,outcome,score_text AS score,highest_wave AS highestWave,progress_json FROM fr010_runs WHERE user_id = ? AND outcome != 'developer' ORDER BY score_digits DESC,score_text DESC,highest_wave DESC LIMIT 1000").bind(user.id).all()).results;
@@ -146,6 +150,7 @@ export async function handlePlayer(request,env){
  if(resultMatch&&request.method==='GET'){await ownRun(db,resultMatch[1],user.id);const rows=(await db.prepare('SELECT receipt_json,acknowledged FROM account_xp_receipts WHERE user_id=? AND run_id=?').bind(user.id,resultMatch[1]).all()).results;return json({receipts:rows.map(r=>({...JSON.parse(r.receipt_json),acknowledged:!!r.acknowledged}))});}
  if(request.method!=='POST')return json({error:'Not found.'},404);
  const b=await readBody(request);
+ if(path.startsWith('/api/player/artifacts/'))return json(await artifactMutation(db,user.id,path.split('/').at(-1),b));
  if(resultMatch){await ownRun(db,resultMatch[1],user.id);const kind=b.kind==='campaign'?'campaign':'end',receipt=await settleRunExperience(db,user.id,resultMatch[1],kind);if(b.acknowledge)await db.prepare('UPDATE account_xp_receipts SET acknowledged=1 WHERE user_id=? AND receipt_id=?').bind(user.id,receipt.receiptId).run();return json({receipt:{...receipt,acknowledged:!!b.acknowledge||receipt.acknowledged},profile:await profile(db,user.id)});}
  if(path==='/api/player/nickname'){
   let name;try{name=playerName(b.name);}catch(error){fail(error.message);}await db.prepare('UPDATE user SET name=?,updatedAt=? WHERE id=?').bind(name,new Date().toISOString(),user.id).run();return json({name});
@@ -156,21 +161,22 @@ export async function handlePlayer(request,env){
   await db.batch([
    db.prepare('DELETE FROM fr010_active WHERE user_id=?').bind(user.id),
    db.prepare('DELETE FROM fr010_batches WHERE run_id IN (SELECT id FROM fr010_runs WHERE user_id=?)').bind(user.id),
-   ...['account_xp_receipts','account_xp_ledger','account_run_progression','account_progression','fr010_runs','fr010_eligible','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
+   ...['artifact_receipts','artifact_chests','artifact_accounts','account_xp_receipts','account_xp_ledger','account_run_progression','account_progression','fr010_runs','fr010_eligible','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
    db.prepare('DELETE FROM account WHERE userId=?').bind(user.id),db.prepare('DELETE FROM session WHERE userId=?').bind(user.id),db.prepare('DELETE FROM user WHERE id=?').bind(user.id),
   ]);return json({deleted:true});
  }
  if(['/api/player/purchase','/api/player/reset','/api/player/equip'].includes(path))return json(await walletMutation(db,user.id,b,path.split('/').at(-1)));
  if(path==='/api/player/achievements/claim')return json(await claimAchievement(db,user.id,b));
  if(path==='/api/player/runs'){
+  if(Object.hasOwn(b,'artifactVersion')&&b.artifactVersion!==1)fail('Unsupported artifact capability.');
   if(Object.hasOwn(b,'commanderRulesVersion')&&b.commanderRulesVersion!==2)fail('Invalid Commander rules version.');
   if(!['crown','forge','grove'].includes(b.factionId))fail('Choose a faction.');const p=await profile(db,user.id),prior=await db.prepare('SELECT r.* FROM fr010_active a JOIN fr010_runs r ON r.id=a.run_id WHERE a.user_id=?').bind(user.id).first();const priorCurrent=prior?await currentRunEpoch(db,prior):false;if(prior?.outcome==='playing'&&priorCurrent&&!b.replace)fail('Confirm replacing your active run.',409);
-  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=[...p.grants,...p.eligible].filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,discoveries:[...new Set([...discoveries,...(p.discoveries?.[b.factionId]||[])])],runId:id,accountId:user.id}),now=Date.now();
+  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=[...p.grants,...p.eligible].filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,artifactEquipment:b.artifactVersion===1?p.artifacts.equipment:{},discoveries:[...new Set([...discoveries,...(p.discoveries?.[b.factionId]||[])])],runId:id,accountId:user.id}),now=Date.now();
   for(const skill of p.equipped)if(!skillGate(skill,p.skills[skill],p).allowed)fail('Your selected loadout requires a higher account level.');
   // A cached pre-cutover client does not send this capability. Freeze its
   // newly created run to legacy replay until the recorded adoption boundary.
   game.general.commanderRulesVersion=Object.hasOwn(b,'commanderRulesVersion')?2:1;game.progressionEpoch=reset.epoch;
-  const statements=[];if(prior?.outcome==='playing')statements.push(db.prepare("UPDATE fr010_runs SET outcome=?,finished_at=?,updated_at=? WHERE id=? AND user_id=? AND outcome='playing'").bind(priorCurrent?'abandoned':'reset',now,now,prior.id,user.id));statements.push(db.prepare('INSERT INTO fr010_runs (id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)').bind(id,user.id,b.factionId,FR010_RULESET,seed,JSON.stringify(serializeRun(game)),JSON.stringify(loadout),now,now));statements.push(db.prepare('INSERT INTO fr010_active (user_id,run_id) VALUES (?,?) ON CONFLICT(user_id) DO UPDATE SET run_id=excluded.run_id').bind(user.id,id));await db.batch(statements);if(prior?.outcome==='playing'&&priorCurrent)await settleRunExperience(db,user.id,prior.id,'end');return json({run:publicRun(await ownRun(db,id,user.id)),profile:await profile(db,user.id)},201);
+  const statements=[];if(prior?.outcome==='playing')statements.push(db.prepare("UPDATE fr010_runs SET outcome=?,finished_at=?,updated_at=? WHERE id=? AND user_id=? AND outcome='playing'").bind(priorCurrent?'abandoned':'reset',now,now,prior.id,user.id));statements.push(db.prepare('INSERT INTO fr010_runs (id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,artifact_loadout_json,started_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)').bind(id,user.id,b.factionId,FR010_RULESET,seed,JSON.stringify(serializeRun(game)),JSON.stringify(loadout),JSON.stringify(game.artifactEquipment),now,now));statements.push(db.prepare('INSERT INTO fr010_active (user_id,run_id) VALUES (?,?) ON CONFLICT(user_id) DO UPDATE SET run_id=excluded.run_id').bind(user.id,id));await db.batch(statements);if(prior?.outcome==='playing'&&priorCurrent){await settleRunExperience(db,user.id,prior.id,'end');await unlockArtifactChests(db,user.id,prior.id);}return json({run:publicRun(await ownRun(db,id,user.id)),profile:await profile(db,user.id)},201);
  }
  const match=path.match(/^\/api\/player\/runs\/([a-f\d-]{36})\/(commands|developer)$/i);
  if(match){const run=await ownRun(db,match[1],user.id);if(match[2]==='developer')fail('Developer tools require a separate Guest test run.',409);return json(await verifyBatch(db,user.id,run.id,b));}

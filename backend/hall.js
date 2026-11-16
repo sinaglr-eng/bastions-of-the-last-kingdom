@@ -1,3 +1,4 @@
+import {artifactBonuses} from '../game/core/artifacts.js';
 import {FR010_RULESET} from '../game/core/current-data.js';
 
 // The order deliberately matches the existing exact-score competition.
@@ -5,7 +6,7 @@ export async function hallRecords(db,{faction='all',offset=0,view='top',user=nul
  const args=[FR010_RULESET],filter="outcome='lost' AND ruleset=?"+(faction==='all'?'':' AND faction_id=?');
  if(faction!=='all')args.push(faction);
  const ranked=`WITH ranked AS (SELECT *,ROW_NUMBER() OVER(ORDER BY score_digits DESC,score_text DESC,highest_wave DESC,finished_at,id) AS rank FROM fr010_runs WHERE ${filter})`;
- const publicRow=r=>r?{id:r.id,name:r.name,factionId:r.faction_id,score:r.score_text,highestWave:r.highest_wave,rank:r.rank,loadout:JSON.parse(r.loadout_json),finishedAt:r.finished_at}:null;
+ const publicRow=r=>r?{id:r.id,name:r.name,factionId:r.faction_id,score:r.score_text,highestWave:r.highest_wave,rank:r.rank,loadout:JSON.parse(r.loadout_json),artifactEquipment:JSON.parse(r.artifact_loadout_json||'{}'),artifactSets:artifactBonuses(JSON.parse(r.artifact_loadout_json||'{}')).sets,finishedAt:r.finished_at}:null;
  const select='SELECT r.*,u.name FROM ranked r JOIN user u ON u.id=r.user_id';
  const own=user?await db.prepare(`${ranked} ${select} WHERE r.user_id=? ORDER BY rank LIMIT 1`).bind(...args,user).first():null;
  if(view==='own'&&own)offset=Math.max(0,own.rank-3);

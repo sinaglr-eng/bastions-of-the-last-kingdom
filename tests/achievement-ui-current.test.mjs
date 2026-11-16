@@ -69,7 +69,7 @@ test('notifications canonicalize historical seen keys and coalesce alias rows wi
 
 test('both Commander screens remove refund controls and the old menu action cannot submit reset',async()=>{
  for(const html of [generalView({skills:{},balance:0}),generalPageMarkup({skills:{},balance:0})])assert.doesNotMatch(html,/reset-general|Reset.*Refund|refund medals/i);
- let resets=0;const menu=Object.assign(Object.create(MainMenu.prototype),{player:{changeProfile:async()=>{resets++;}},starting:false,status(){}});const button={dataset:{menu:'reset-general'},disabled:false,hasAttribute:()=>false};await menu.click({target:{closest:()=>button}});assert.equal(resets,0);
+ let resets=0;const menu=Object.assign(Object.create(MainMenu.prototype),{player:{changeProfile:async()=>{resets++;}},starting:false,status(){}});const button={dataset:{menu:'reset-general'},disabled:false,hasAttribute:()=>false};menu.commanderVault??={click:async()=>false};await menu.click({target:{closest:()=>button}});assert.equal(resets,0);
 });
 
 test('Hall view and Achievements retain the same styled native select and correct disabled personal option',()=>{
