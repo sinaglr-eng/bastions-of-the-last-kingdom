@@ -301,7 +301,6 @@ function renderDraft(){
   $('folio-command-actions').innerHTML=game.phase==='select'?commandPointsMarkup(game,{context:'draft'}):'';
   $('folio-create-actions').innerHTML=actualAvailableRecipeActionsMarkup(game,{displayedTower:game.selection?rankPreview.view(game.selection,game.data):null});
   if(!['build','select'].includes(game.phase)){host.innerHTML='';return;}
-  if(game.data.fr010&&game.phase==='select'&&game.selection?.state==='draft'&&!data.towers[game.selection.family].advanced&&game.selection.tier>=3&&game.general.level('deep-refit'))$('folio-actions').insertAdjacentHTML('beforeend',`<button class="text-button fr010-refit" data-action="deep-refit" data-tower-id="${game.selection.id}" ${game.economy.gold<game.general.value('deep-refit')?'disabled':''}>Deep Refit · −2 ranks · ${game.general.value('deep-refit')} gold</button>`);
   const heading=game.phase==='build'?`Building <span class="draft-sub">Place recruit ${Math.min(5,count+1)} of 5</span>`:'Choose keeper <span class="draft-sub">Recruit a defender for this wave</span>';
   host.innerHTML=`<div class="draft-heading"><h3>${heading}</h3></div>${draftCardsMarkup(game,data,images,{actions:false})}`;
   const draws=host.querySelector?.('.draws');if(draws){const selectedIndex=game.draft.draws.findIndex(draw=>draw.towerId===game.selected);host.dataset.focusedDraw=`${game.round}:${selectedIndex>=0?selectedIndex:game.activeDraw}`;}

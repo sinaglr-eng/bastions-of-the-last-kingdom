@@ -32,7 +32,14 @@ export class PlayerClient{
   })();this.achievementClaims.set(id,claim);
   try{return await claim;}finally{this.achievementClaims.delete(id);}
  }
- announceAchievements(previous){const known=achievementIdSet([...(previous?.eligible||[]),...(previous?.grants||[])]);const ready=this.readyAchievements.filter(g=>!known.has(g.id));if(ready.length)this.onAchievement({type:'ready',rows:ready});}
+ announceAchievements(previous){const known=achievementIdSet([...(previous?.eligible||[]),...(previous?.grants||[])]);const ready=this.readyAchievements.filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));if(ready.length)this.onAchievement({type:'ready',rows:ready});}
+ announceLocalAchievements(game=this.game){
+  if(!game||this.game!==game||!this.user||game.accountId!==this.user.id||game.developerMode)return;
+  const owner=this.user.id+':'+this.progressionEpoch;if(this.noticeOwner!==owner){this.noticeOwner=owner;this.pendingNotices.clear();}
+  const known=achievementIdSet([...(this.profile?.eligible||[]),...(this.profile?.grants||[])]),fresh=canonicalAchievementRows(game.progress.grants()).filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));
+  for(const row of fresh)this.pendingNotices.add(row.id);
+  if(fresh.length)this.onAchievement({type:'pending',rows:fresh});
+ }
  async artifactMutation(action,body={},resume=null){
   const operation=async()=>{
    if(!this.user||!this.online)throw Error('Connect and sign in to manage artifacts.');
@@ -53,7 +60,7 @@ export class PlayerClient{
   return {game:new Game(currentFactionData(factionId),{seed:Date.now(),mode:'endless',runId:crypto.randomUUID()}),sequence:0,nextSequence:0};
  }
  async attach(game,{sequence=0,nextSequence=sequence,revision=null,discardRun=null}={}){
-  await this.resetPromise;game.progressionEpoch=this.progressionEpoch;this.game=game;this.sync={sequence,nextSequence};this.storageRevision=revision??(await this.store.get(this.owner))?.revision??0;this.lastSave=0;this.nextRetry=0;this.status=this.user?'Pending verification':'Guest · local continuation only';this.onChange();await this.save({discardRun});if(game.accountId)try{await this.refreshResultReceipts();}catch{}
+  await this.resetPromise;this.stopAchievementWatch?.();game.progressionEpoch=this.progressionEpoch;this.game=game;this.stopAchievementWatch=game.on((type,payload)=>{if(type==='combine'||type==='wave-complete'||type==='death'&&payload.enemy?.boss)this.announceLocalAchievements(game);});this.sync={sequence,nextSequence};this.storageRevision=revision??(await this.store.get(this.owner))?.revision??0;this.lastSave=0;this.nextRetry=0;this.status=this.user?'Pending verification':'Guest · local continuation only';this.onChange();await this.save({discardRun});this.announceLocalAchievements(game);if(game.accountId)try{await this.refreshResultReceipts();}catch{}
  }
  prepareBatches(game){
   const batches=[];if(!game.accountId||game.developerMode){game.journal=[];return batches;}
@@ -74,7 +81,7 @@ export class PlayerClient{
    this.status=this.sync.sequence<this.sync.nextSequence?'Pending verification':'Progress verified';this.onChange();
   }catch(error){if(error.status===409&&/Account progress reset/.test(error.message)){await this.initialize();this.onReset();return;}this.online=false;this.status=error.status===409?'Save conflict · return to the menu to choose a continuation':error.status===401?'Sign in again to sync this account run':'Offline · progress saved locally; rewards pending';this.nextRetry=Date.now()+10000;this.onChange();}finally{this.busy=false;}
  }
- update(){if(!this.game||this.recovering)return;const now=performance.now();if(now-this.lastSave>5000){this.lastSave=now;void this.save().then(()=>this.flush()).catch(()=>{});if(!this.online&&this.game.accountId&&!this.game.developerMode){const known=achievementIdSet([...(this.profile?.eligible||[]),...(this.profile?.grants||[])]);this.pendingNotices=new Set([...this.pendingNotices].map(canonicalAchievementId));for(const g of canonicalAchievementRows(this.game.progress.grants()))if(!known.has(g.id)&&!this.pendingNotices.has(g.id)){this.pendingNotices.add(g.id);this.onAchievement({type:'pending',rows:[g]});}}}}
+ update(){if(!this.game||this.recovering)return;const now=performance.now();if(now-this.lastSave>5000){this.lastSave=now;this.announceLocalAchievements();void this.save().then(()=>this.flush()).catch(()=>{});}}
  resultReceipt(kind){return this.resultReceipts.get(this.game?.runId+':'+kind)||null;}
  async clearStaleProgressionSave(){
   const owner=this.owner,epoch=this.progressionEpoch;

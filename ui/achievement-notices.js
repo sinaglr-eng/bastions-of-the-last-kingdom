@@ -21,8 +21,7 @@ export class AchievementNotices{
   if(event.type==='summary'){if(event.count)this.enqueue({type:'summary',count:event.count,key:'summary:'+Date.now()});return;}
   if(event.type==='claimed')return;
   const known=achievementIdSet([...(this.player.profile?.eligible||[]),...(this.player.profile?.grants||[])]),rows=canonicalAchievementRows(event.rows),fresh=rows.filter(g=>!this.seen.has('unlocked:'+g.id)&&(event.type!=='pending'||!known.has(g.id)));
-  for(const row of fresh.slice(0,3))this.enqueue({...row,type:event.type,key:'unlocked:'+row.id});
-  if(fresh.length>3)this.enqueue({type:'summary',count:fresh.length-3,key:'summary:'+fresh.map(r=>r.id).join('|')});
+  for(const row of fresh)this.enqueue({...row,type:event.type,key:'unlocked:'+row.id});
  }
 
  enqueue(event){if(this.seen.has(event.key)||this.queue.some(q=>q.key===event.key)||this.current?.key===event.key)return;this.queue.push(event);this.showNext();}
