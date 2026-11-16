@@ -14,10 +14,10 @@ const reserveIdentity=defender=>{
 export class DraftManager {
   constructor(data,rng,commandPoints=new CommandPoints(data.balance)) {
     this.data=data;this.rng=rng;this.commandPoints=commandPoints;this.draws=[];this.forced=null;
-    this.rerollsUsed=0;this.carriedReserve=null;this.reserveSelection=null;this.reservedDefender=null;this.finalSelection=null;this.finalDefender=null;this.resolved=false;
+    this.rerollsUsed=0;this.carriedReserve=null;this.reserveSelection=null;this.reservedDefender=null;this.finalSelection=null;this.finalDefender=null;this.resolved=false;this.promotionRankCap=0;
   }
   roll(mastery) {
-    this.mastery=mastery;
+    this.mastery=mastery;this.promotionRankCap=0;
     this.roundForced=this.forced?{...this.forced}:null;
     this.carriedReserve=this.reservedDefender?reserveIdentity(this.reservedDefender):null;
     this.reservedDefender=null;this.reserveSelection=null;this.finalSelection=null;this.finalDefender=null;this.rerollsUsed=0;this.resolved=false;this.closedEarly=false;
@@ -38,6 +38,7 @@ export class DraftManager {
     if(this.focus){const sum=weights.reduce((a,b)=>a+b,0),at=families.findIndex(([id])=>recruitSlot(id)===this.focus.slot);if(at>=0){const old=weights[at]/sum,next=Math.min(.999,old+this.focus.bonus);weights=weights.map((w,i)=>i===at?next:w/sum*(1-next)/(1-old));}}
     draw.family=this.roundForced?.family || families[weightedIndex(weights,this.rng)][0];
     draw.tier=this.roundForced?.tier || weightedIndex(this.data.balance.mastery[this.mastery].weights,this.rng)+1;
+    if(this.promotionRankCap||draw.rolledTier!==undefined){draw.rolledTier=draw.tier;draw.promotionApplied=false;}
     return draw;
   }
   get rerollReason(){

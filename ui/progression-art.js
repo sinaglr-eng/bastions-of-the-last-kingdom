@@ -4,6 +4,9 @@ import {referenceEnemyPortrait} from './reference-portraits.js';
 export const escapeProgression=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const cache=new Map();
 const motifs={
+ 'field-promotion':'<path d="M75 155h90v17H75Z" fill="#e2c484"/><path d="m84 135 36-28 36 28m-72-28 36-28 36 28m-72-28 36-28 36 28" fill="none" stroke="#f3dba0" stroke-width="11" stroke-linejoin="round"/><path d="m120 38 6 13 15 2-11 10 3 15-13-7-13 7 3-15-11-10 15-2Z" fill="#8fb293"/>',
+ 'decisive-strike':'<circle cx="120" cy="115" r="57" fill="none" stroke="#bd9554" stroke-width="5"/><circle cx="120" cy="115" r="35" fill="none" stroke="#d7bf82" stroke-width="3"/><path d="m139 43-34 64h26l-28 68 61-85h-29l25-47Z" fill="#f3d899" stroke="#a9773c" stroke-width="3"/><path d="M53 115h17m100 0h17M120 48v17m0 100v17" stroke="#93b6a6" stroke-width="5"/>',
+ 'fortified-keep':'<path d="m120 45 58 24-8 63c-5 24-27 42-50 54-23-12-45-30-50-54l-8-63Z" fill="#dfc282"/><path d="m120 59 43 18-6 51c-4 18-20 32-37 42-17-10-33-24-37-42l-6-51Z" fill="#456d60"/><path d="M91 135V96h15v12h10V86h14v22h10V96h15v39Z" fill="#f5dfa9"/><path d="M117 135v-13h12v13" fill="#35544b"/>',
  collection:'<path d="m63 78 25 18 32-37 32 37 25-18-12 66H75Z" fill="#d8b965"/><path d="M82 135h76v18H82Z" fill="#f7dda0"/><path d="m120 91 7 15 16 2-12 12 3 16-14-7-14 7 3-16-12-12 16-2Z" fill="#507b67"/>',
  mastery:'<path d="m120 54 51 29-9 62-42 31-42-31-9-62Z" fill="#d4b15f"/><path d="m120 68 37 22-7 48-30 23-30-23-7-48Z" fill="#456d60"/><text x="120" y="133" text-anchor="middle" fill="#fff0bf" font-family="Georgia" font-size="46">VI</text>',
  campaign:'<path d="M71 151V86h22v17h14V71h26v32h14V86h22v65Z" fill="#e0c88c"/><path d="M109 151v-26a11 11 0 0 1 22 0v26" fill="#35544b"/><path d="M120 71V47m0 2 28 8-28 8" stroke="#dfba62" stroke-width="5" fill="#d98455"/>',

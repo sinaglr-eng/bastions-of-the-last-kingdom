@@ -12,6 +12,73 @@ import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
 
 const base='http://127.0.0.1:4174';
+test('new Commander skill purchases enforce each account gate, sequential costs and idempotency',async()=>{
+ const gates={'field-promotion':[200,410,850],'decisive-strike':[330,720,1000],'fortified-keep':[20,150,500]},f=fixture();try{
+  const a=await f.account();f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=500 WHERE user_id=?').run(a.user.id);
+  for(const[skill,thresholds]of Object.entries(gates))for(let level=1;level<=3;level++){
+   f.db.sqlite.prepare('UPDATE account_progression SET xp_total=? WHERE user_id=?').run(thresholds[level-1]-1,a.user.id);
+   const before=(await f.call('/api/player/profile',null,a.cookie)).value,denied=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:before.revision,skill,rank:3},a.cookie);
+   assert.equal(denied.r.status,400,skill+' below rank '+level);assert.equal((await f.call('/api/player/profile',null,a.cookie)).value.balance,before.balance);
+   f.db.sqlite.prepare('UPDATE account_progression SET xp_total=? WHERE user_id=?').run(thresholds[level-1],a.user.id);
+   const request={requestId:crypto.randomUUID(),revision:before.revision,skill,rank:3},paid=await f.call('/api/player/purchase',request,a.cookie);
+   assert.equal(paid.r.status,200,JSON.stringify(paid.value));assert.equal(paid.value.skills[skill],level);assert.equal(paid.value.balance,before.balance-[5,10,20][level-1]);
+   const retry=await f.call('/api/player/purchase',request,a.cookie);assert.equal(retry.value.balance,paid.value.balance);assert.equal(retry.value.skills[skill],level);
+  }
+ }finally{f.db.sqlite.close();}
+});
+
+test('verified command replay uses the run frozen loadout after profile changes and ignores client health claims',async()=>{
+ const f=fixture();try{
+  const a=await f.account();f.db.sqlite.prepare('UPDATE account_progression SET xp_total=1000 WHERE user_id=?').run(a.user.id);
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET skills_json=?,equipped_json=? WHERE user_id=?').run('{"fortified-keep":1}','["fortified-keep"]',a.user.id);
+  const created=await f.call('/api/player/runs',{factionId:'crown'},a.cookie);assert.equal(created.r.status,201,JSON.stringify(created.value));const run=created.value.run;
+  assert.deepEqual(run.snapshot.loadout,{'fortified-keep':1});assert.equal(restoreRun(currentFactionData('crown'),run.snapshot).lives,35);
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET skills_json=?,equipped_json=? WHERE user_id=?').run('{"fortified-keep":3}','["fortified-keep"]',a.user.id);
+  const request={batchId:crypto.randomUUID(),sequence:0,commands:[{action:'place',args:[18,18]}],loadout:{'fortified-keep':3},maxLives:45,health:45},saved=await f.call(`/api/player/runs/${run.id}/commands`,request,a.cookie);
+  assert.equal(saved.r.status,200,JSON.stringify(saved.value));const active=(await f.call('/api/player/active',null,a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),active.snapshot);
+  assert.deepEqual(active.snapshot.loadout,{'fortified-keep':1});assert.equal(g.lives,35);assert.equal(g.maxLives,35);
+  const retry=await f.call(`/api/player/runs/${run.id}/commands`,request,a.cookie);assert.equal(retry.value.sequence,saved.value.sequence);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Commander promotion replay enforces five placements, per-recruit limits and saved usage rather than submitted ranks',async()=>{
+ const f=fixture();try{
+  const a=await f.account();f.db.sqlite.prepare('UPDATE account_progression SET xp_total=1000 WHERE user_id=?').run(a.user.id);
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET skills_json=?,equipped_json=? WHERE user_id=?').run('{"field-promotion":3,"field-logistics":3}','["field-promotion","field-logistics"]',a.user.id);
+  const run=(await f.call('/api/player/runs',{factionId:'forge'},a.cookie)).value.run,places=[[18,18],[17,18],[19,18],[18,17],[18,19]];
+  const command=(action,...args)=>({action,args}),early=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[...places.slice(0,3).map(p=>command('place',...p)),command('activateGeneral','field-promotion')]},a.cookie);
+  assert.equal(early.r.status,200,JSON.stringify(early.value));let saved=(await f.call('/api/player/active',null,a.cookie)).value.run,g=restoreRun(currentFactionData('forge'),saved.snapshot);
+  assert.equal(g.commandPoints.value,13);assert.ok(g.roundCandidates.every(c=>c.tower.tier===1));
+  const promoted=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:1,commands:[...places.slice(3).map(p=>command('place',...p)),command('activateGeneral','field-promotion'),command('activateGeneral','field-promotion')],promotedRanks:[6,6,6,6,6]},a.cookie);
+  assert.equal(promoted.r.status,200,JSON.stringify(promoted.value));saved=(await f.call('/api/player/active',null,a.cookie)).value.run;g=restoreRun(currentFactionData('forge'),saved.snapshot);
+  assert.equal(g.phase,'select');assert.ok(g.roundCandidates.every(c=>c.tower.tier===2));assert.equal(g.commandPoints.value,10);
+  const retained=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:2,commands:[command('keep'),command('activateGeneral','field-promotion')]},a.cookie);
+  assert.equal(retained.r.status,200,JSON.stringify(retained.value));saved=(await f.call('/api/player/active',null,a.cookie)).value.run;g=restoreRun(currentFactionData('forge'),saved.snapshot);
+  assert.equal(g.phase,'ready');assert.equal(g.towers.find(t=>t.state==='active').tier,2);assert.equal(g.commandPoints.value,10);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Commander strike replay credits a real boss kill and persists its single use without tower MVP attribution',async()=>{
+ const f=fixture();try{
+  const a=await f.account();f.db.sqlite.prepare('UPDATE account_progression SET xp_total=1000 WHERE user_id=?').run(a.user.id);
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET skills_json=?,equipped_json=? WHERE user_id=?').run('{"decisive-strike":3,"fortified-keep":3}','["decisive-strike","fortified-keep"]',a.user.id);
+  const run=(await f.call('/api/player/runs',{factionId:'crown'},a.cookie)).value.run,g=restoreRun(currentFactionData('crown'),run.snapshot);
+  for(const[x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])g.place(x,z);g.keep();g.setTowerAttackPaused(g.selection.id,true);
+  // Isolated server-state fixture: exercise the finishing edge for both real
+  // enemy classes without pretending that the setup completed earlier waves.
+  g.round=10;g.completedWaves=9;g.progress.highestWave=9;g.startCombat();g.combat.spawnQueue=[];
+  const boss=g.combat.spawn('host_10'),ordinary=g.combat.spawn('host_01');boss.hp=boss.maxHp*.05;ordinary.hp=ordinary.maxHp*.2;g.journal=[];
+  f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),run.id);
+  const command=(action,...args)=>({action,args}),used=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[command('activateGeneral','decisive-strike'),{action:'advance',ticks:1}],score:'999999999999'},a.cookie);
+  assert.equal(used.r.status,200,JSON.stringify(used.value));let saved=(await f.call('/api/player/active',null,a.cookie)).value.run,restored=restoreRun(currentFactionData('crown'),saved.snapshot);
+  assert.equal(restored.kills,2);assert.equal(restored.progress.bossKills,1);assert.equal(restored.commandPoints.value,8);assert.equal(restored.lives,45);assert.ok(restored.towers.every(t=>(t.mvpLevel||0)===0));
+  assert.ok(restored.progress.bosses.has('host_10'));assert.ok((await f.call('/api/player/profile',null,a.cookie)).value.eligible.some(r=>r.id==='boss:crown:host_10'));
+  const nextCommands=[...[[20,18],[21,18],[20,17],[21,17],[22,18]].map(p=>command('place',...p)),command('keep'),command('startCombat'),{action:'advance',ticks:16}],next=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:1,commands:nextCommands},a.cookie);
+  assert.equal(next.r.status,200,JSON.stringify(next.value));saved=(await f.call('/api/player/active',null,a.cookie)).value.run;restored=restoreRun(currentFactionData('crown'),saved.snapshot);const before=restored.combat.enemies.map(e=>[e.id,e.hp]);assert.ok(before.length>0);
+  const duplicate=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:2,commands:[command('activateGeneral','decisive-strike')]},a.cookie);assert.equal(duplicate.r.status,200,JSON.stringify(duplicate.value));
+  saved=(await f.call('/api/player/active',null,a.cookie)).value.run;restored=restoreRun(currentFactionData('crown'),saved.snapshot);assert.deepEqual(restored.combat.enemies.map(e=>[e.id,e.hp]),before);assert.equal(restored.commandPoints.value,8);
+ }finally{f.db.sqlite.close();}
+});
 test('approved reset affects every player once, rejects old defenses and preserves account identities and old standings',async()=>{
  const f=fixture();try{const a=await f.account(),b=await f.account('reset-second@example.test','Second'),old=[];
  for(const account of [a,b]){const r=await f.call('/api/player/runs',{factionId:'crown'},account.cookie);old.push(r.value.run);f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=50,skills_json=?,equipped_json=? WHERE user_id=?').run('{"war-horn":1}','["war-horn"]',account.user.id);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=500,permanent_json=? WHERE user_id=?').run('{"war-horn":1}',account.user.id);f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,\'crown\',2,1,NULL)').run(account.user.id,'boss:crown:host_10');}

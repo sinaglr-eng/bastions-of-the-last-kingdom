@@ -18,6 +18,7 @@ import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
 import {CombatStatusVfx} from './combat-status-vfx.js';
+import {CommanderEffects} from './commander-effects.js';
 import {EnemyModelLoader,neededEnemyModelKeys,retainedEnemyModelKeys} from './enemy-model-loader.js';
 import {CriticalHitLabels} from './critical-hit-labels.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
@@ -111,6 +112,10 @@ export class Battlefield {
     const desktop=container.clientWidth>=1200&&!window.matchMedia?.('(pointer: coarse)').matches,targetHeight=e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(e);
     this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),camera:()=>this.camera,getViewport:()=>({height:this.container.clientHeight}),getSimulationTime:()=>this.game.combat.elapsed,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches,maxDetailed:desktop?192:96,maxProjectiles:desktop?144:64,maxEffects:desktop?48:32,maxBreaths:desktop?8:4});
     this.combatStatusVfx=new CombatStatusVfx(this.scene,{position:v3,targetHeight,camera:()=>this.camera,getViewport:()=>({height:this.container.clientHeight}),isVisible:e=>this.game.combat.isRevealed(e),getTime:()=>this.game.combat.elapsed,reducedMotion:()=>!!this.reducedMotion?.matches,maxInstances:desktop?512:256});
+    this.commanderEffects=new CommanderEffects(this.scene,{position:v3,camera:()=>this.camera,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:target=>target.visible!==false,
+      towerPoint:tower=>{const actor=this.models.get(tower.id)?.actor;if(!actor)return v3(tower.x,2.2,tower.z);actor.updateWorldMatrix(true,true);const box=new THREE.Box3().setFromObject(actor);return v3(tower.x,Number.isFinite(box.max.y)?box.max.y+.15:2.2,tower.z);},
+      targetPoint:target=>{const figure=this.enemies.get(target.id)||this.corpses.get(target.id);if(!figure)return v3(target.x,targetHeight(target)+.15,target.z);figure.updateWorldMatrix(true,true);const box=new THREE.Box3().setFromObject(figure);return v3(target.x,Number.isFinite(box.max.y)?box.max.y+.08:targetHeight(target),target.z);},
+    });
     this.supportEffects=new SupportEffects(this.scene,{position:v3,baseHeight:WALL_DECK_HEIGHT+.15,pedestalHeight:WALL_DECK_HEIGHT,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:e=>this.game.combat.isRevealed(e)});
     this.enemyAbilityEffects=new EnemyAbilityEffects(this.scene,{position:v3,camera:()=>this.camera,balance:()=>this.game.data.balance,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.enemyConcealmentEffects=new EnemyConcealmentEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
@@ -396,6 +401,7 @@ export class Battlefield {
     if(valid){const draw=this.game.draft.draws[this.game.activeDraw];if(draw){this.ghost.traverse(o=>{if(o.isMesh)o.material.dispose();});this.ghost.clear();const t=this.template({family:'ruin',tier:1,state:'ruin'}).clone(true);t.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.transparent=true;o.material.opacity=0.45;o.castShadow=false;}});this.ghost.add(t);this.ghost.position.copy(v3(x,0.04,z));this.ghost.visible=true;}}
   }
   event(type,payload) {
+    this.commanderEffects?.event(type,payload);
     this.combatStatusVfx?.event(type,payload);
     if(type==='mvp-awarded')this.mvpAwards?.award(payload,this.time);
     this.criticalHitLabels?.event(type,payload);
@@ -447,6 +453,7 @@ export class Battlefield {
     animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
     const battleDt=this.game.paused?0:dt*this.game.speed;
+    this.commanderEffects?.update(this.game.paused?0:dt);
     this.motionTime=this.game.combat.elapsed;
     if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
     for(const v of this.models.values())if(v.tower.state!=='reserved'){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
@@ -517,6 +524,7 @@ export class Battlefield {
     this.webglDiagnostics?.dispose();
     this.defenderPauseMarkers?.dispose();
     this.mvpAwards?.dispose();
+    this.commanderEffects?.dispose();
     this.criticalHitLabels?.dispose();
     this.disposed=true;this.assetLoads?.dispose();this.combatEffects.dispose();this.combatStatusVfx.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();

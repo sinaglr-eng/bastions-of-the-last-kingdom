@@ -1,7 +1,7 @@
 // Shared account rules. Presentation never grants experience or changes combat.
 export const MILITARY_RANKS=Object.freeze(['Peasant','Militia','Recruit','Footman','Soldier','Veteran','Sergeant','Lieutenant','Captain','Major','Colonel','Commander','General','Marshal','King'].map((name,i)=>Object.freeze({name,level:i+1,xp:[0,20,45,75,110,150,200,260,330,410,500,600,720,850,1000][i],id:name.toLowerCase()})));
 export const BOSS_XP=Object.freeze({host_10:2,host_20:3,host_30:4,host_40:5,host_50:8});
-export const SKILL_LEVEL_GATES=Object.freeze({'morale-boost':[5,9,12],'war-horn':[7,11,14],'blood-wrath':[9,12,15]});
+export const SKILL_LEVEL_GATES=Object.freeze({'morale-boost':[5,9,12],'war-horn':[7,11,14],'blood-wrath':[9,12,15],'field-promotion':[7,10,14],'decisive-strike':[9,13,15],'fortified-keep':[2,6,11]});
 export const eligibleChampion=u=>!!u?.advanced&&String(u.classification||'').trim().toLowerCase()!=='basic';
 export function accountRank(total=0){
  const xp=Number.isSafeInteger(total)&&total>=0?total:0,current=MILITARY_RANKS.findLast(r=>xp>=r.xp),next=MILITARY_RANKS[current.level]||null;

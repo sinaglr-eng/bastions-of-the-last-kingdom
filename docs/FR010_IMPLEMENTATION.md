@@ -53,6 +53,19 @@ Each skill has three ranks. Purchasing ranks I, II and III costs an additional 5
 | Morale Boost | +40% / +60% / +100% attack speed | 3 CP, 20 combat seconds. Applies to normal attacks, continuous primary fire and magazine cycles; does not accelerate unrelated ability cooldowns. |
 | War Horn | −40% / −60% / −80% movement speed | 3 CP, 20 combat seconds. Every enemy, including bosses, hidden and immune enemies; does not reveal hidden enemies. Strongest slow wins. |
 | Blood Wrath | +40% / +60% / +100% own damage | 3 CP, 20 combat seconds. Includes secondary hits, DOT and damaging auras, without multiplying support-aura bonuses twice. |
+| Field Promotion | 1 / 2 / 2 uses; resulting rank cap V / V / VI | 3 CP for the complete five-recruit draft, before its final resolution. Every eligible basic recruit gains exactly one rank. Each recruit can be promoted once per run. |
+| Decisive Strike | 30% / 40% / 50% maximum HP; bosses 5% / 7% / 10% | Once per entire run, 0 CP. Prepare, confirm or cancel. Hits every currently live ground, flying and hidden enemy with direct Commander damage; future spawns are excluded. |
+| Fortified Keep | +5 / +10 / +15 starting and maximum health | Passive at new-run creation. Standard starting health becomes 35 / 40 / 45. Loading a save preserves current health without adding the bonus again. |
+
+The current Commander extension is `commander-abilities-20261116`. Field Promotion ranks require account levels 7 / 10 / 14 (Sergeant / Major / Marshal); Decisive Strike requires 9 / 13 / 15 (Captain / General / King); Fortified Keep requires 2 / 6 / 11 (Militia / Veteran / Colonel). Each purchase still requires the previous skill rank and 5 / 10 / 20 medals. The active Commander view and legacy view distinguish rank locks, available purchases, medal shortfalls, ownership, equipment and maximum rank. Owned ranks remain usable when their next upgrade is rank-locked.
+
+Promotion preserves raw draw provenance, identities, positions and MVP. A reroll retains the draft's one-rank bonus without stacking or spending another promotion use. Reserved identity copies stay consistent. A promoted IV-to-V recruit is not a freshly rolled V for the special VI merge; two genuine fresh V rolls retain their ordinary merge. Promotion markers survive reserve, merging, crafting, saving and replay. Early-closed drafts with fewer than five placements cannot be promoted.
+
+Decisive Strike bypasses mitigation without applying defender critical hits or secondary effects. Normal death, score and boss rewards occur once, while damage and kills are attributed separately to Commander rather than to a defender or its MVP. Concealed targets receive damage without spatial visual cues. The prepared confirmation is transient UI state, not replay authority. Spent uses persist through later waves, saves and Endless.
+
+Both recovery paths respect the run-specific maximum health. The final boss's escape remains terminal and removes all remaining lives, including Fortified Keep's bonus. Server restoration binds health capacity to the run's original stored loadout, never to the account's subsequently edited skills.
+
+The renderer uses short golden promotion chevrons, bounded instanced white-gold strike shafts and a green-gold keep flourish. No persistent basic-defender rings or additional combat statuses are introduced. Reduced motion suppresses descending strike shafts, pause freezes cosmetic clocks, and each action has one bounded shared sound cue. Visuals and audio do not consume combat or recruitment RNG.
 
 Combat abilities can be combined but an already-active ability cannot be refreshed. Pause freezes their timers; game speed accelerates them. New arrivals are affected. Buffs clear when a wave ends. Efficient Redeployment and Draft Discipline are absent.
 

@@ -23,6 +23,8 @@ export class Game {
     this.mvp=new MvpManager(this);
     this.mode=mode;this.runId=runId;this.accountId=accountId;this.actualPlacements=0;this.completedWaves=0;this.scoreExact='0';this.tickRemainder=0;this.recordCommands=true;
     this.general=new General(this,loadout);Object.defineProperty(this.towers,'general',{value:this.general,configurable:true});
+    this.fortifiedKeepBonus=this.general.value('fortified-keep');this.maxLives=data.balance.startingLives+this.fortifiedKeepBonus;this.lives=this.maxLives;
+    if(this.fortifiedKeepBonus)this.emit('general-fortified',{id:'fortified-keep',amount:this.fortifiedKeepBonus,maxLives:this.maxLives});
     this.commandPoints.value+=this.general.value('field-logistics');this.economy.gold+=this.general.value('quartermaster');
     this.progress=new RunProgress(this);this.waveCache=new Map();
     if(data.fr010)installJournal(this);
@@ -114,6 +116,12 @@ export class Game {
   awardScore(points){if(!this.data.fr010){this.score+=Math.max(0,Math.floor(points));return;}const n=BigInt(this.scoreExact)+BigInt(typeof points==='string'?points:Math.max(0,Math.floor(points)));this.scoreExact=n.toString();this.score=Number(n>BigInt(Number.MAX_SAFE_INTEGER)?BigInt(Number.MAX_SAFE_INTEGER):n);}
   awardWaveScore(base){this.awardScore(this.data.fr010?(BigInt(this.round)*BigInt(base)).toString():this.round*base);}
   activateGeneral(id,slot=null){const ok=this.general.activate(id,slot);return ok;}
+  recoverLives(amount,source){
+    if(!Number.isFinite(amount)||amount<=0||['won','lost'].includes(this.phase))return 0;
+    const before=this.lives,cap=this.maxLives??this.data.balance.startingLives;
+    this.lives=Math.max(before,Math.min(cap,before+amount));const gained=this.lives-before;
+    if(gained>0)this.emit('recover',{source,amount:gained});return gained;
+  }
   setPriority(id,priority){const t=this.towers.find(t=>t.id===id&&t.state==='active');if(!t||!['first','last','strongest','weakest','fastest','slowest'].includes(priority))return false;t.priority=priority;this.emit('change');return true;}
   setPinned(id){if(id!==null&&!this.recipes.some(r=>r.id===id))return false;this.pinned=id;this.emit('change');return true;}
   get hasLegalRecruitSpace(){
@@ -192,7 +200,7 @@ export class Game {
     // Returning reserves retain their origin and never become fresh rolls.
     const placed=draws.filter(d=>d.placed),completeDraft=this.phase==='select'&&!this.draft.resolved&&draws.length===this.data.balance.drawsPerRound&&(this.draft.closedEarly||draws.every(draw=>draw.placed))&&new Set(placed.map(draw=>draw.towerId)).size===placed.length&&candidates.length===placed.filter(draw=>!draw.reservedForNextDraft).length;
     if(!completeDraft)return null;
-    const fresh=candidates.filter(tower=>draws.some(draw=>draw.placed&&draw.origin==='random'&&!draw.reservedForNextDraft&&draw.towerId===tower.id&&draw.family===tower.family&&draw.tier===tower.tier));
+    const fresh=candidates.filter(tower=>draws.some(draw=>draw.placed&&draw.origin==='random'&&!draw.reservedForNextDraft&&!draw.promotionApplied&&(draw.rolledTier??draw.tier)===5&&draw.towerId===tower.id&&draw.family===tower.family&&draw.tier===tower.tier));
     return fresh.includes(t)?mergePartner(t,fresh,this.data):null;
   }
   merge() {
@@ -201,7 +209,7 @@ export class Game {
     if(!partner)return this.message('Merge two matching fresh candidates after all five placements. Rank VI requires two new Rank V rolls from this draft.');
     const draftUsed=t.state==='draft'||partner.state==='draft';
     const draftIndex=this.draft.draws.findIndex(draw=>[t,partner].some(tower=>tower.state==='draft'&&tower.id===draw.towerId));
-    t.mvpLevel=inheritedMvpLevel([t,partner]);partner.state='ruin';t.tier++;t.kills=(t.kills||0)+(partner.kills||0);t.state='active';
+    t.mvpLevel=inheritedMvpLevel([t,partner]);if(t.fieldPromoted||partner.fieldPromoted)t.fieldPromoted=true;partner.state='ruin';t.tier++;t.kills=(t.kills||0)+(partner.kills||0);t.state='active';
     if(draftUsed)this.finishSelection(t,draftIndex);
     this.emit('combine',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'merge'});this.emit('change');return true;
   }
@@ -243,6 +251,7 @@ export class Game {
     const draftUsed=pieces.some(p=>p.state==='draft');
     const draftIndex=this.draft.draws.findIndex(draw=>pieces.some(piece=>piece.id===draw.towerId));
     const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe),previousFamily=t.family,mvp=inheritedMvpLevel(pieces);
+    if(pieces.some(p=>p.fieldPromoted))t.fieldPromoted=true;
     pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;t.mvpLevel=mvp;
     this.discoveries.add(family);
     if(this.data.towers[family]?.advanced===true)this.earnedDiscoveries.add(family);
@@ -263,8 +272,14 @@ export class Game {
   }
   reroll() {
     if(!this.commandActions.reroll.available)return this.message(this.commandActions.reroll.reason);
+    const replaced=new Set(this.draft.draws.filter(d=>(!this.draft.closedEarly||d.placed)&&!d.protectedFromReroll).map(d=>d.towerId));
     if(!this.draft.reroll())return false;
-    for(const draw of this.draft.draws){const tower=this.towers.find(t=>t.id===draw.towerId);if(tower&&tower.state==='draft'){tower.family=draw.family;tower.tier=draw.tier;}}
+    const upgrades=[];
+    for(const draw of this.draft.draws){const tower=this.towers.find(t=>t.id===draw.towerId);if(tower&&tower.state==='draft'){
+      tower.family=draw.family;tower.tier=draw.tier;
+      if(replaced.has(tower.id)){delete tower.fieldPromoted;const change=this.general.applyDraftPromotion(draw,tower);if(change)upgrades.push(change);}
+    }}
+    if(upgrades.length)this.emit('general-promoted',{id:'field-promotion',round:this.round,upgrades,cost:0,reroll:true,remainingUses:this.general.remainingUses('field-promotion')});
     this.previewRecipeId=null;this.selectionVoiceKey=null;this.emit('reroll',{cost:this.commandPoints.cost('reroll')});this.emit('change');this.message(`Draft rerolled · −${this.commandPoints.cost('reroll')} CP`);return true;
   }
   reserve(){

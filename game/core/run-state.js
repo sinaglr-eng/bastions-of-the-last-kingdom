@@ -14,5 +14,6 @@ export function restoreRun(data,snapshot){
  if(!s?.game||!Number.isSafeInteger(s.game.round)||s.game.round<1||!['build','select','ready','combat','reward','won','lost'].includes(s.game.phase))throw Error('Invalid saved run.');
  for(const[k,v]of Object.entries(s.game))if(k!=='factionId')g[k]=v;
  for(const key of ['grid','economy','commandPoints','draft','combat','commandMove','mvp','general','progress'])Object.assign(g[key],s[key]);
+ g.fortifiedKeepBonus=g.general.value('fortified-keep');g.maxLives=data.balance.startingLives+g.fortifiedKeepBonus;g.general.normalizeAfterRestore();
  g.rng.setState(s.rng);g.draft.rng=g.rng;Object.defineProperty(g.towers,'general',{value:g.general,configurable:true});g.journal=[];g.recordCommands=true;return g;
 }

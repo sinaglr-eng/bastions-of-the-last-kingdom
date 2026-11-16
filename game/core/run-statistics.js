@@ -6,9 +6,11 @@ import {immunityAuraCoverage} from './immunity-auras.js';
 
 const number=n=>Math.round((Number(n)||0)*100)/100;
 const unit=t=>({id:t.id,family:t.family,tier:t.tier,x:t.x,z:t.z});
+const commanderSkill=p=>typeof p.commanderSkill==='string'?p.commanderSkill:p.source?.kind==='commander'?p.source.skill||'decisive-strike':p.commanderSkill?'decisive-strike':null;
+const commanderPerformance=()=>({damage:0,hits:0,kills:0,bossKills:0,activations:0});
 export class RunStatistics {
   constructor(game,{id=crypto.randomUUID(),clock=()=>Date.now(),version=GAME_VERSION}={}){
-    this.game=game;this.factionId=game.factionId;this.rulesetRevision=game.data.rulesetRevision;this.contentManifestId=game.data.contentManifestId;this.clock=clock;this.id=id;this.startedAt=clock();this.version=version;this.sequence=0;this.waves=[];this.draws=[];this.decisions=[];this.current=null;this.outcome='playing';this.lastSources=new Map();this.sampleClock=0;this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
+    this.game=game;this.factionId=game.factionId;this.rulesetRevision=game.data.rulesetRevision;this.contentManifestId=game.data.contentManifestId;this.clock=clock;this.id=id;this.startedAt=clock();this.version=version;this.sequence=0;this.waves=[];this.draws=[];this.decisions=[];this.current=null;this.outcome='playing';this.lastSources=new Map();this.sampleClock=0;this.commander=game.data.fr010?{loadout:structuredClone(game.general?.loadout||{}),maxLives:game.maxLives??game.data.balance.startingLives,actions:[]}:null;this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
   }
   event(type,p){
     if(this.game.developerMode)return;
@@ -17,18 +19,21 @@ export class RunStatistics {
     // birth once; decisions and wave performance record later use and position.
     if(type==='place'&&!this.draws.some(draw=>draw.id===t.id))this.draws.push({...unit(t),wave:g.round});
     if(type==='keep'||type==='combine')this.decisions.push({...unit(t),wave:g.round,action:type,rank:t.tier});
+    if(this.commander&&type==='general-promoted')this.commander.actions.push({skill:'field-promotion',wave:g.round,phase:g.phase,cost:p.cost??3,reroll:!!p.reroll,drawIds:g.draft.draws.filter(d=>d.placed).map(d=>d.towerId),upgrades:(p.upgrades||[]).map(u=>({towerId:u.towerId??u.tower?.id,family:u.tower?.family??g.towers.find(t=>t.id===u.towerId)?.family,from:u.from,to:u.to,x:u.x??u.tower?.x,z:u.z??u.tower?.z}))});
+    if(this.commander&&type==='general-strike')this.commander.actions.push({skill:'decisive-strike',wave:g.round,phase:g.phase,cost:0,targets:(p.targets||[]).map(t=>({id:t.enemy?.id??t.id,type:t.enemy?.type??t.type,boss:!!(t.enemy?.boss??t.boss),visible:t.visible??t.visibleBeforeDeath??null}))});
     if(type==='wave'){
-      this.current={index:g.round,boss:!!g.wave.boss,completed:false,startHealth:g.lives,endHealth:g.lives,healthLost:0,kills:0,bossKills:0,leaks:0,spawned:0,durationMs:0,routeLength:g.grid.route.length-1,kingdomLevel:g.economy.level,mastery:g.economy.mastery,enemyTypes:{},towers:g.towers.filter(t=>t.state==='active').map(t=>({...unit(t),damage:0,hits:0,shots:0,kills:0,controlSeconds:0,supportSeconds:0})),effects:{}};
+      this.current={index:g.round,boss:!!g.wave.boss,completed:false,startHealth:g.lives,endHealth:g.lives,healthLost:0,kills:0,bossKills:0,leaks:0,spawned:0,durationMs:0,routeLength:g.grid.route.length-1,kingdomLevel:g.economy.level,mastery:g.economy.mastery,enemyTypes:{},towers:g.towers.filter(t=>t.state==='active').map(t=>({...unit(t),damage:0,hits:0,shots:0,kills:0,controlSeconds:0,supportSeconds:0})),effects:{},...(this.commander?{commander:commanderPerformance()}:{} )};
       this.waveUnits=new Map(this.current.towers.map(t=>[t.id,t]));
     }
     const w=this.current;
     if(w&&type==='spawn'){w.spawned++;const key=p.enemy.type;w.enemyTypes[key]??={spawned:0,kills:0,leaks:0};w.enemyTypes[key].spawned++;}
     if(w&&type==='shot'){const row=this.waveUnits.get(p.source?.id);if(row)row.shots++;}
     if(w&&type==='melancholy')w.effects.melancholyTriggers=(w.effects.melancholyTriggers||0)+1;
-    if(w&&type==='hit'){const row=this.waveUnits.get(p.source?.id);if(row){row.damage+=Number.isFinite(p.effectiveDamage)?p.effectiveDamage:Math.min(p.damage,Math.max(0,p.enemy.hp+p.damage));row.hits++;}}
-    if(w&&type==='death'){w.kills++;if(p.enemy.boss)w.bossKills++;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].kills++;const row=this.waveUnits.get(this.lastSources.get(p.enemy.id));if(row)row.kills++;this.lastSources.delete(p.enemy.id);}
+    if(w&&type==='hit'){const skill=commanderSkill(p),row=this.waveUnits.get(p.source?.id),damage=Number.isFinite(p.effectiveDamage)?p.effectiveDamage:Math.min(p.damage,Math.max(0,p.enemy.hp+p.damage));if(skill&&w.commander){w.commander.damage+=damage;w.commander.hits++;}else if(!skill&&row){row.damage+=damage;row.hits++;}}
+    if(w&&type==='death'){w.kills++;if(p.enemy.boss)w.bossKills++;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].kills++;const source=this.lastSources.get(p.enemy.id),skill=commanderSkill(p)||(typeof source==='object'?source?.commanderSkill:null),row=this.waveUnits.get(source);if(skill&&w.commander){w.commander.kills++;if(p.enemy.boss)w.commander.bossKills++;}else if(!skill&&row)row.kills++;this.lastSources.delete(p.enemy.id);}
     // hit precedes death in CombatManager; remember the actual finishing source.
-    if(w&&type==='hit')this.lastSources.set(p.enemy.id,p.source?.id);
+    if(w&&type==='hit')this.lastSources.set(p.enemy.id,commanderSkill(p)?{commanderSkill:commanderSkill(p)}:p.source?.id);
+    if(w?.commander&&type==='general-strike')w.commander.activations++;
     if(w&&type==='leak'){w.leaks++;w.healthLost+=p.healthLost??(p.enemy.leak||1);if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].leaks++;}
     if(type==='reward')this.finishWave(true);
     if(type==='won'){this.finishWave(true);this.outcome='won';this.finishedAt=this.clock();}
@@ -61,12 +66,12 @@ export class RunStatistics {
   snapshot({abandoned=false}={}){
     const g=this.game;let waves=this.waves.map(w=>structuredClone(w));
     if(this.current)waves.push({...structuredClone(this.current),endHealth:g.lives,durationMs:Math.round(g.combat.elapsed*1000)});
-    waves=waves.map(w=>({...w,effects:Object.fromEntries(Object.entries(w.effects).map(([k,v])=>[k,number(v)])),towers:w.towers.map(t=>({...t,damage:number(t.damage),controlSeconds:number(t.controlSeconds),supportSeconds:number(t.supportSeconds)}))}));
+    waves=waves.map(w=>({...w,effects:Object.fromEntries(Object.entries(w.effects).map(([k,v])=>[k,number(v)])),towers:w.towers.map(t=>({...t,damage:number(t.damage),controlSeconds:number(t.controlSeconds),supportSeconds:number(t.supportSeconds)})),...(w.commander?{commander:{...w.commander,damage:number(w.commander.damage)}}:{})}));
     // durationMs retains its historical browser-wall-time interpretation.
     // The optional elapsed-run clock comes only from Game, never from an
     // old timestamp or a sum of speed-scaled combat waves.
     const duration=Number.isFinite(g.elapsedSeconds)&&g.elapsedSeconds>=0?{durationSeconds:g.elapsedSeconds}:{};
-    return {id:this.id,...(this.factionId?{factionId:this.factionId,rulesetRevision:this.rulesetRevision,contentManifestId:this.contentManifestId}:{}),version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),...duration,kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves};
+    return {id:this.id,...(this.factionId?{factionId:this.factionId,rulesetRevision:this.rulesetRevision,contentManifestId:this.contentManifestId}:{}),version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),...duration,kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves,...(this.commander?{commander:structuredClone(this.commander)}:{})};
   }
   dispose(){this.unsubscribe();}
 }

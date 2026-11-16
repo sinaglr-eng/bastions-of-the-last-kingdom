@@ -270,6 +270,30 @@ export class AudioManager{
     else if(kind==='arcane'){this.noise(.08,'Impacts',1500,{category:'sounds',gain:.6});this.tone(520,.13,'Magic','triangle',130,{category:'sounds',gain:.4});}
     else{this.noise(.065,'Impacts',1200,{category:'sounds',gain:.75});this.tone(140,.08,'Impacts','triangle',68,{category:'sounds',gain:.35});}
   }
+  commandCue(event,payload={}){
+    if(event==='general-promoted'&&!payload.upgrades?.length||event==='general-fortified'&&![5,10,15].includes(payload.amount))return false;
+    const stamp=this.now()/1000,key='commander:'+event;if(stamp-(this.last.get(key)??-Infinity)<.2)return false;this.last.set(key,stamp);
+    // A single command cue has priority over a crowded volley. Keep the
+    // existing voice cap and selection voice; never create one cue per victim.
+    for(const voice of [...this.voices]){
+      if(this.voices.size<=this.maxVoices-4)break;if(voice===this.selectionVoice)continue;
+      try{voice.source.stop(this.context.currentTime);}catch{/* An ended voice is harmless. */}
+      voice.source.onended?.();voice.source.onended=null;
+    }
+    const options={category:'sounds',gain:.65};
+    if(event==='general-promoted'){
+      this.noise(.09,'UI',2200,{...options,gain:.35,type:'highpass'});
+      [523,659,784].forEach((frequency,index)=>this.tone(frequency,.25,'Magic','triangle',null,{...options,delay:index*.055}));
+    }else if(event==='general-strike'){
+      this.tone(180,.22,'Magic','triangle',720,{...options,gain:.5});
+      this.noise(.26,'Impacts',480,{...options,delay:.06,gain:.9,type:'lowpass'});
+      this.tone(85,.35,'Impacts','sine',35,{...options,delay:.06,gain:.8});
+      this.tone(1046,.26,'Magic','sine',784,{...options,delay:.07,gain:.28});
+    }else if(event==='general-fortified'){
+      [392,523,659].forEach((frequency,index)=>this.tone(frequency,.36,'Magic','sine',null,{...options,delay:index*.065,gain:.45}));
+    }
+    return true;
+  }
   play(event,payload={}){
     // Completion is recorded even while muted/locked. The subsequent won HUD
     // shares this round key, so the last wave never starts a second celebration.
@@ -277,6 +301,7 @@ export class AudioManager{
     if(event==='wave-complete'){this.attackGeneration++;this.music.onWaveComplete(payload);return;}
     if(event==='defender-committed')return this.playSelectionVoice(payload);
     if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','damage-trace','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
+    if(['general-promoted','general-strike','general-fortified'].includes(event))return this.commandCue(event,payload);
     if(event==='damage-trace'&&this.gameState?.phase!=='combat')return;
     if(event==='defender-select')return;
     if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();

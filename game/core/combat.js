@@ -67,6 +67,25 @@ export class CombatManager {
     delete enemy.mvpArmorReduction;
   }
   damage(enemy,amount,type,stats={},source){return this.resolveDamage(enemy,amount,type,stats,source).appliedDamage;}
+  finishDeath(enemy,{type,visible,source,commanderSkill}={}){
+    if(enemy.dead||enemy.hp>0)return false;
+    enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;this.game.rewardBossCommandPoints(enemy);
+    this.game.awardWaveScore(enemy.boss?500:10);if(source&&source.kind!=='commander')source.kills++;
+    this.game.emit('death',{enemy,type,visible,...(commanderSkill?{source,commanderSkill}:{})});return true;
+  }
+  resolveCommanderDamage(enemy,amount,commanderSkill='decisive-strike'){
+    const source={kind:'commander',skill:commanderSkill};
+    const result={enemy,source,commanderSkill,type:'true',effect:'commander',requestedDamage:amount,beforeDefense:amount,effectiveArmor:0,armorMultiplier:1,afterArmor:amount,shellBlock:0,afterShell:amount,appliedDamage:0,effectiveDamage:0,blockReason:null,directHit:false,critical:false,visible:this.isRevealed(enemy),contact:false};
+    if(this.game.phase!=='combat'||enemy.dead||!(enemy.hp>0)||!Number.isFinite(amount)||amount<=0){result.blockReason='invalid';return result;}
+    // This run-level intervention is already expressed in the enemy's actual
+    // stored HP space, including Endless normalization. No defense, proc,
+    // attacker multiplier, status application or combat RNG participates.
+    result.contact=true;result.appliedDamage=amount;result.effectiveDamage=Math.min(amount,enemy.hp);
+    enemy.hp=Math.max(0,enemy.hp-amount);enemy.hit=.16;
+    this.game.emit('hit',{enemy,source,commanderSkill,type:'true',effect:'commander',damage:amount,effectiveDamage:result.effectiveDamage,directHit:false,visible:result.visible});
+    this.game.emit('damage-trace',result);
+    this.finishDeath(enemy,{type:'true',visible:result.visible,source,commanderSkill});return result;
+  }
   resolveDamage(enemy,amount,type,stats={},source){
     type=damageType(type,stats.type);
     const result={enemy,source,type,effect:stats.effect||stats.projectileEffect||type,requestedDamage:amount,beforeDefense:0,effectiveArmor:0,armorMultiplier:1,afterArmor:0,shellBlock:0,afterShell:0,appliedDamage:0,effectiveDamage:0,blockReason:null,directHit:!!stats.directHit,critical:!!stats.critical,visible:this.isRevealed(enemy),contact:false};
@@ -107,11 +126,7 @@ export class CombatManager {
     this.game.emit('hit',{enemy,source,type,effect:result.effect,damage:result.appliedDamage,effectiveDamage:result.effectiveDamage,directHit:result.directHit,visible:result.visible});
     if(stats.critical&&result.effectiveDamage>0)this.game.emit('critical-hit',{enemy,source,type,effect:result.effect,amount:result.appliedDamage,effectiveDamage:result.effectiveDamage,multiplier:stats.critMultiplier,directHit:result.directHit,visible:result.visible});
     finish();
-    if(enemy.hp<=0){
-      enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;this.game.rewardBossCommandPoints(enemy);
-      this.game.awardWaveScore(enemy.boss?500:10);if(source)source.kills++;
-      this.game.emit('death',{enemy,type,visible:result.visible});
-    }
+    if(enemy.hp<=0)this.finishDeath(enemy,{type,visible:result.visible,source});
     if(stats.fr002||stats._fr002Stats||this.game.data.fr002)fr002DamageResolved(this,result,stats,source);
     return result;
   }
@@ -154,7 +169,7 @@ export class CombatManager {
   }
   landedProcs(stats,source,{landedDamage=true}={}) {
     if(['won','lost'].includes(this.game.phase))return;
-    if(landedDamage&&stats.recoverChance&&this.game.rng()<stats.recoverChance){const before=this.game.lives;this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));const amount=this.game.lives-before;if(amount>0)this.game.emit('recover',{source,amount});}
+    if(landedDamage&&stats.recoverChance&&this.game.rng()<stats.recoverChance)this.game.recoverLives(stats.recoverLives||1,source);
     if(stats.stoneGazeChance&&this.game.rng()<stats.stoneGazeChance)source.stoneGaze={remaining:stats.stoneGazeDuration||6,facing:new Map(),petrified:new Set(),stats};
   }
   updateStoneGazes(dt) {

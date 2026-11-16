@@ -6,6 +6,7 @@ import {PlayerClient} from '../game/player-client.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {achievementCatalog} from '../game/core/achievements.js';
 import {achievementArtwork} from '../ui/progression-art.js';
+import {GENERAL_SKILLS} from '../game/core/general.js';
 
 test('Album separates verified eligibility, claimed rewards and unverified milestones',()=>{
  const [one,two,three]=achievementCatalog(currentFactionData('crown'));
@@ -22,9 +23,9 @@ test('Collection progress and secret reveal use verified discoveries before Clai
 test('Every current champion resolves to its own faction portrait, not generated mockup art',()=>{
  for(const f of ['crown','forge','grove']){const d=currentFactionData(f);for(const a of achievementCatalog(d).filter(a=>a.kind==='champion')){const id=a.id.split(':').at(-1),asset=d.defenderAssets.find(x=>x.family===id&&x.tier===1);assert.ok(asset?.portrait,a.id);assert.ok(achievementArtwork(a,d,true).includes(asset.portrait));assert.ok(fs.existsSync('public/'+asset.portrait));}}
 });
-test('General shows one selected detail, all seven skills and distinct CP versus medal costs',()=>{
+test('General shows one selected detail, all current skills and distinct CP versus medal costs',()=>{
  const html=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true);
- assert.equal((html.match(/class="war-skill /g)||[]).length,7);assert.equal((html.match(/class="war-skill-detail"/g)||[]).length,1);assert.match(html,/Upgrade to II · 10 medals/);assert.match(html,/Balance after upgrade: 4/);assert.match(html,/20 combat seconds · 3 CP/);assert.match(html,/Loadout changes apply to new games/);
+ assert.equal((html.match(/class="war-skill /g)||[]).length,Object.keys(GENERAL_SKILLS).length);assert.equal((html.match(/class="war-skill-detail"/g)||[]).length,1);assert.match(html,/Upgrade to II · 10 medals/);assert.match(html,/Balance after upgrade: 4/);assert.match(html,/20 combat seconds · 3 CP/);assert.match(html,/Loadout changes apply to new games/);
 });
 test('Hall empty state never invents winners, exact big scores stay legible and ties are explicit',()=>{
  assert.match(hallView({top:[],podium:[],factionId:'all'}),/Set the first record/);

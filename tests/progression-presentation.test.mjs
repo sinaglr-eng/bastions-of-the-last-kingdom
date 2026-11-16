@@ -36,7 +36,7 @@ test('Achievement cards distinguish earned, pending and undiscovered states with
  const exact=medalAmount('9007199254740993');assert.match(exact,/9,007,199,254,740,993/);
 });
 test('General upgrades expose all ranks, current rank, equipment and exact next purchase cost',()=>{
- const html=generalPageMarkup({skills:{'morale-boost':2},equipped:['morale-boost'],balance:19});assert.match(html,/Rank II unlocked/);assert.match(html,/\+60%/);assert.match(html,/Upgrade to III/);assert.match(html,/1 more medals needed/);assert.match(html,/data-buy="morale-boost" disabled/);assert.match(html,/<input[^>]*name="equipped"[^>]*value="morale-boost" checked/);assert.equal((html.match(/class="general-loadout-slot[ "]/g)||[]).length,3);
+ const html=generalPageMarkup({xpTotal:1000,skills:{'morale-boost':2},equipped:['morale-boost'],balance:19});assert.match(html,/Rank II unlocked/);assert.match(html,/\+60%/);assert.match(html,/Upgrade to III/);assert.match(html,/1 more medals needed/);assert.match(html,/data-buy="morale-boost" disabled/);assert.match(html,/<input[^>]*name="equipped"[^>]*value="morale-boost" checked/);assert.equal((html.match(/class="general-loadout-slot[ "]/g)||[]).length,3);
 });
 test('Combat command presentation follows authoritative activation, CP and paused combat time without changing the run',()=>{
  const g=combat(),before=JSON.stringify(serializeRun(g));const initial=generalCommandState(g);assert.equal(JSON.stringify(serializeRun(g)),before);assert.equal(initial.find(r=>r.id==='morale-boost').disabled,false);assert.equal(initial.find(r=>r.id==='field-logistics').action,null);

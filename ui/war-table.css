@@ -1,5 +1,10 @@
-/* Approved war-table concepts: live interface, shared material and geometry. */
 @import '../public/assets/ui/war-table/fonts/fonts.css';
+/* Approved war-table concepts: live interface, shared material and geometry. */
+/* Military eligibility and medal ownership remain separate visible states. */
+.commander-purchase-badge{display:inline-flex!important;width:fit-content;max-width:100%;margin:5px 0;padding:3px 7px;border:1px solid #9a9b7b;border-radius:4px;background:#f0ead5;color:#465642;font:700 11px/1.3 var(--war-sans);white-space:normal}
+.commander-purchase-badge[data-state="available"]{background:#dcebdc;border-color:#5a8868;color:#245338}.commander-purchase-badge[data-state="rank-locked"]{background:#ede4d7;border-color:#b19a7d;color:#795736}.commander-purchase-badge[data-state="medal-shortfall"]{background:#f4e4b8;border-color:#af8737;color:#755117}.commander-purchase-badge[data-state="max"]{background:#d9e7de;border-color:#648170;color:#34583f}
+.war-skill[data-purchase-state="available"]{border:2px solid #6b9277}.war-skill.is-locked[data-purchase-state="rank-locked"]{border:2px dashed #ad9d85}.war-skill[data-purchase-state="medal-shortfall"]{border:2px solid #b78e43}.war-skill:not(.is-locked){border-color:#64816d}.war-skill:not(.is-locked) img{filter:none;opacity:1}
+.war-skill .commander-purchase-reason{font-size:11px;line-height:1.4}
 :root{--war-ink:#173d3c;--war-paper:#f5edd7;--war-brass:#c4a164;--war-serif:Cinzel,Georgia,serif;--war-sans:'Source Sans 3','Segoe UI',sans-serif}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #main-menu{padding:18px;background:radial-gradient(ellipse at 15% 0,#37605266,transparent 65%),#173d3c;color:var(--war-ink);font:16px/1.4 var(--war-sans);--gold:#c4a164}
@@ -106,3 +111,6 @@
  .war-plinth.place-1{min-height:125px}.war-plinth h2{font-size:11px!important}.war-plinth>strong{font-size:14px;overflow-wrap:anywhere}.war-plinth>span{font-size:12px}
  .war-laurel{width:48px;height:44px;top:-57px;border-width:3px}.war-laurel .faction-mark img{width:30px;height:30px;margin:0}.war-laurel .faction-mark{line-height:38px}.war-laurel b{left:10px;bottom:-12px;min-width:24px;font-size:15px}
 }
+
+#main-menu .war-detail-ranks strong{font-size:14px;line-height:1.4;overflow-wrap:anywhere}.war-detail-ranks small{font-size:11px;line-height:1.4}.war-detail-ranks .commander-rank-state{font-weight:700}.war-skill[data-purchase-state="rank-locked"] .war-skill-select small:last-child{font-weight:600;color:#85552e}.war-skill[data-purchase-state="available"] .war-skill-select small:last-child{font-weight:600;color:#32614b}.war-detail-ranks>div{min-width:0}.war-upgrade-effect strong{font-size:16px;overflow-wrap:anywhere}
+@media(max-width:600px){.war-detail-ranks{gap:5px}.war-detail-ranks>div{padding:10px 5px;gap:7px}.war-detail-ranks small{font-size:10px}#main-menu .war-detail-ranks strong{font-size:12px}.war-skill-select>span{min-width:0}.war-upgrade-effect{flex-direction:column;gap:6px}}
