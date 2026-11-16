@@ -30,7 +30,9 @@ export function artifactPrimaryContact(c,result,stats,source){
  const e=result.enemy,b=artifactEffects(c.game);if(!(b.poisonFraction||b.burnFraction||b.slow||b.shred||b.freezeChance))return;if(!source||source.kind==='commander'||!c.game.towers.includes(source)||!(result.effectiveDamage>0)||e.dead||e.hp<=0)return;
  for(const[kind,duration]of [['poison',3],['burn',2]])addDot(c,e,source,stats,kind,result.effectiveDamage*(b[kind+'Fraction']||0),duration);
  if(b.slow&&statusEffectAllowed(e,'slow')){const old=e.statuses.slow;e.statuses.slow={...(old||{}),amount:Math.max(old?.amount||0,b.slow),time:Math.max(old?.time||0,2),source:old?.amount>b.slow?old.source:source};}
- if(b.shred)e.statuses.artifactShred={amount:Math.min(b.shred,Math.max(0,e.armor||0)),time:2,source};
+ // Defense clamps the final armor after reactive stacks and the strongest
+ // shred. Keep the full reduction even when the target's base armor is zero.
+ if(b.shred)e.statuses.artifactShred={amount:b.shred,time:2,source};
  if(b.freezeChance&&statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.artifactFreezeReady||0)&&c.elapsed>=(e.factionControlRecovery||0)&&!['freeze','stun','root','petrify'].some(k=>e.statuses[k]?.time>0)){
   const attempts=e.artifactFreezeAttempts??(e.artifactFreezeAttempts=new Map()),next=attempts.get(source.id)||0;
   if(c.elapsed+eps>=next){attempts.set(source.id,c.elapsed+1);if(random(c.game)<b.freezeChance){const duration=b.freezeDuration*(e.boss?.5:1);e.statuses.freeze={time:duration,source};e.artifactFreezeReady=c.elapsed+6;e.factionControlRecovery=c.elapsed+duration+2;}}
