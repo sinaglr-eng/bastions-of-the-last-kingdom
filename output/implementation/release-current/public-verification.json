@@ -1,58 +1,16 @@
 {
-  "passed": true,
+  "status": "passed",
+  "verifiedAt": "2026-11-16T12:12:20.444Z",
+  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "checkedAt": "2026-11-16T11:21:25.527Z",
-  "files": [
-    {
-      "path": "assets/game-DkiXB2pp.js",
-      "bytes": 2861136,
-      "sha256": "5a7f225ad735d1741843004c18b7c938b6bb4f05ea520ac34235f6a2e44685c4"
-    },
-    {
-      "path": "assets/three-BBClaj7g.js",
-      "bytes": 771667,
-      "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
-    },
-    {
-      "path": "assets/game-Bpq27Sab.css",
-      "bytes": 506019,
-      "sha256": "01a175b875cb4fa0eb2a1eba995bfc32dd03adefd09d4631615e1d3584b42025"
-    },
-    {
-      "path": "assets/ui/war-table/extended-range.webp",
-      "bytes": 161034,
-      "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0"
-    }
-  ],
-  "factionAchievements": {
-    "revision": "faction-mastery-20261116",
-    "factions": 3,
-    "wave50": {
-      "medals": 5,
-      "xp": 8,
-      "identity": "existing-campaign-per-faction"
-    },
-    "allChampions": {
-      "required": 38,
-      "includesBasic": true,
-      "includesSecret": true,
-      "medals": 12,
-      "xp": 20
-    },
-    "thematicCollections": {
-      "required": 3,
-      "medals": 4,
-      "xp": 6
-    },
-    "verifiedHistoryBackfill": true
-  },
-  "accountHealth": {
-    "ok": true,
-    "storage": "SQLite",
-    "edition": "0.7.0",
-    "releaseName": "Preserved commander scores · Developer runs excluded"
-  },
-  "galleryPublished": false,
-  "unrelatedArtifactFeatureIncluded": false,
-  "publicWrites": 0
+  "entry": "/play/assets/game-DWsaPxG4.js",
+  "frontendHashMatchesLocal": true,
+  "cssHashMatchesLocal": true,
+  "version": "0.7.0",
+  "artifactCount": 48,
+  "setCount": 6,
+  "googleAvailable": true,
+  "environmentUnchanged": true,
+  "mediaAssets": 66,
+  "galleryPublic": false
 }

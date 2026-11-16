@@ -1,122 +1,549 @@
 {
   "status": "published",
   "version": "0.7.0",
-  "revision": "faction-mastery-20261116",
-  "sourceWorkspace": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\artifacts\\faction-release-current",
-  "parent": "0c8ffa23f68ac6d7ed5b8ff356728a1f5d00d28c",
-  "tree": "ba8a1c58f3af77fc82f9ba3d2163acd023632f6d",
-  "commit": "6c4b9df7a731105f4c47b132d09fe3e816f3090e",
+  "revision": "fr011-v1",
+  "sourceWorkspace": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/",
+  "parent": "70b734820268c7a8fd30dd7efbe861edd1d5882e",
+  "tree": "4f2664507ca6f3ccffa67187f3bccde4188e46e8",
+  "commit": "cdea8c066d0432ea55599e945460263f5da2dac4",
+  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
+  "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
   "files": [
     {
-      "path": "game/core/faction-achievements.js",
-      "bytes": 1799,
-      "sha256": "406c7deff3634c4c6bc4af34f765bdb4e82cb1d0f4672c3cf1cfc7c21effd040"
+      "path": "data/commander-artifacts.json",
+      "bytes": 21551,
+      "sha256": "83f69d11e64219480b1b609db8b7a296efc989744505cd52b6d26d2544555900"
     },
     {
-      "path": "game/core/achievements.js",
-      "bytes": 4393,
-      "sha256": "9b7d1fd2e16de84767b84c96ba25e20fcedbffee1d48e34480642624cc651c2c"
+      "path": "game/core/artifacts.js",
+      "bytes": 7564,
+      "sha256": "3512c474095874357a520e33b05f77c65d05d23712f7269d922f0ab55f815179"
     },
     {
-      "path": "game/core/account-progression.js",
-      "bytes": 3561,
-      "sha256": "66df230dc004e84098b706b9a95fadeed5404951f6f2b25eed8c3e22a0304284"
+      "path": "game/core/artifact-combat.js",
+      "bytes": 6959,
+      "sha256": "e5cbce01c4e9dbea93bced738cfb173b9867f9234bfbc875de0f6045f3714b12"
     },
     {
-      "path": "backend/achievement-entitlements.js",
-      "bytes": 6839,
-      "sha256": "ae4ae704535c25e4cbc38d12691007b8e53742f92d88aad3535f11dab8e43970"
+      "path": "game/core/game.js",
+      "bytes": 28060,
+      "sha256": "5c6388eb98dfac57c969a6c8ef99bd09810d0724c29fd636611e8f94ddad5fc5"
+    },
+    {
+      "path": "game/core/combat.js",
+      "bytes": 34460,
+      "sha256": "efa8fdde056008150946d4afaf6ebefd808f97d4afb99b27a3a569563f791d8a"
+    },
+    {
+      "path": "game/core/fr002-combat.js",
+      "bytes": 15220,
+      "sha256": "1fb455d23d7975d782094d025a57c45c6005dacbac683cd65d1f29c2175f355d"
+    },
+    {
+      "path": "game/core/math.js",
+      "bytes": 7781,
+      "sha256": "c09349e277df19f2d3b8f30e0f3cacf46aa559d381584f7ed83a9c0b40b9cb65"
+    },
+    {
+      "path": "game/core/run-state.js",
+      "bytes": 4069,
+      "sha256": "40c8d42fb48ac4660d669ec13421ac95d8b3f4fe6a35eb95988a31afae43d737"
+    },
+    {
+      "path": "game/render/support-effects.js",
+      "bytes": 29439,
+      "sha256": "80a64f139b769f0d5798b6d305d093f1703904bd1448bb2c33bb8008d45d98f2"
+    },
+    {
+      "path": "backend/artifact-store.js",
+      "bytes": 8801,
+      "sha256": "4ccca4e8191e3e94df7ab116289a371bc908b12be9c8fe362dee3559fc9218c8"
     },
     {
       "path": "backend/player-service.js",
-      "bytes": 24264,
-      "sha256": "f0d3093928e7a570278958708278a77a6165e267d84b1343f7acc7348269b397"
+      "bytes": 25276,
+      "sha256": "6e5ac53e2ba2e77559cdb819211aff12eacb7dcb44c0db1ed4887afbccd0e389"
     },
     {
-      "path": "backend/verified-run-progress.js",
-      "bytes": 1365,
-      "sha256": "b98335c86d5dac9ba91c93b3522604c25f4f2a2aa5dbc39bbb76000a42c97c05"
+      "path": "backend/verified-run-state.js",
+      "bytes": 1701,
+      "sha256": "a43432ad6f1db90ce8001419bf6b530ddeddeaf598e9d79eb499d85fe13fd46c"
     },
     {
-      "path": "ui/war-table-view.js",
-      "bytes": 19269,
-      "sha256": "9b5a428e3531c362e252971c48ec4c3d9f47139d9680d9ad440876dd911c611a"
+      "path": "backend/hall.js",
+      "bytes": 1898,
+      "sha256": "405c59b5bbfbef3a2cac3c2c39901eb4ac64f8a0066e95eaa050bffee191bf35"
     },
     {
-      "path": "ui/war-table.css",
-      "bytes": 34337,
-      "sha256": "d3910d33ccfe429d1ff3c0428eb1748a03cefe8bb700080af6538303647db96f"
+      "path": "backend/migrate-fr010.js",
+      "bytes": 773,
+      "sha256": "186b1f49989d9483e2e9fcd7b2a92876cfc73940f0990bb3b3ba3e2137f5ec24"
     },
     {
-      "path": "ui/achievement-notices.js",
-      "bytes": 4546,
-      "sha256": "2f1e3faa66f5a4b904126e92120418fb027bc36ad63002775371a0b6b43f30c7"
+      "path": "backend/migrations/0005_artifacts.sql",
+      "bytes": 1290,
+      "sha256": "7d2bbc264230b8c801f4ca5c20ecf80ca4d93a71c80a35d4970cbfcd8023863a"
+    },
+    {
+      "path": "backend/sites-db-schema.ts",
+      "bytes": 10084,
+      "sha256": "e6e6a64e473522bc099bb0aabc6d80a300a84576fd40a154b698aff5f3073824"
+    },
+    {
+      "path": "backend/drizzle/0005_breezy_fallen_one.sql",
+      "bytes": 1945,
+      "sha256": "e2a7eda944832f924c97b59c03a2b52faeef9efbb3a5d476eccc315764b06de3"
+    },
+    {
+      "path": "backend/drizzle/meta/0005_snapshot.json",
+      "bytes": 48218,
+      "sha256": "1713ba452f7dbbac1c44972999785e3f406893064378c6931bd6323fd6b51682"
+    },
+    {
+      "path": "backend/drizzle/meta/_journal.json",
+      "bytes": 929,
+      "sha256": "7f35ff395b9b042d9260ca5b097594075f6103ca45ac1ac8979d86b3dbb7f42e"
+    },
+    {
+      "path": "game/player-client.js",
+      "bytes": 21052,
+      "sha256": "3430ce0f51a2b5f66163393dea2acdbd023d9b5e80f07029524a95da5f9920aa"
+    },
+    {
+      "path": "game/main.js",
+      "bytes": 93493,
+      "sha256": "0f2c2d990f89d4dbfefc58e0ffbc1dbb1fab5ca1028f5ecedb5461f5f104c4e4"
+    },
+    {
+      "path": "ui/commander-vault.js",
+      "bytes": 21177,
+      "sha256": "6344d53dfa72c0478d781a830165aa8c129616451fe1c58b5a8c042a86f400a3"
+    },
+    {
+      "path": "ui/commander-vault.css",
+      "bytes": 17655,
+      "sha256": "836f758a2516f402e1df917f918225c8e52add795308f02e4be55dfe5296bd66"
+    },
+    {
+      "path": "ui/general-controls.js",
+      "bytes": 10140,
+      "sha256": "8bc1cd6b7379fb978c967db449794731bb44f2381357a80119364bf425e6e246"
     },
     {
       "path": "ui/main-menu.js",
-      "bytes": 25466,
-      "sha256": "4d2414f9573f26cd5cfaa7c78429385e785470396469da19a3f3352c5f89afe7"
+      "bytes": 25975,
+      "sha256": "a4d1f34d5b6fc7c6a71897e0915e230e607bf5b99c3ff9fdc3464282d5f7ee36"
     },
     {
-      "path": "tests/faction-achievements-core.test.mjs",
-      "bytes": 7418,
-      "sha256": "4e9be8673b759a6d1f7cdbe1d0b6cb45292cf72dc976e05d4f6ff2ca88137dff"
+      "path": "ui/account-results.js",
+      "bytes": 5947,
+      "sha256": "c052b9dc745d3c07c6b2df9f408fb0eb8eab687214f64eee283d0849e55ee709"
     },
     {
-      "path": "tests/faction-achievements-ui.test.mjs",
-      "bytes": 9506,
-      "sha256": "286d9fdc4055488c8fce6db33cfb248894c9ee15549d4a6c646ec4131a843a17"
+      "path": "ui/war-table-view.js",
+      "bytes": 19547,
+      "sha256": "391ca446819e2fe2ba19edf83718e05bb1f56ea1243338e2167dde27b05d984f"
     },
     {
-      "path": "tests/shared-achievements-core.test.mjs",
-      "bytes": 8115,
-      "sha256": "17597d84a1a9cfd6b273933905a3f32de482153a515bcca503d0f1a3f6158e2e"
+      "path": "tools/package-runtime-assets.mjs",
+      "bytes": 3418,
+      "sha256": "bda4f77a983046c70338d51270205f84faf5a214e5e2cd5d21871565c82e3f07"
     },
     {
-      "path": "tests/fr010-backend.test.mjs",
-      "bytes": 83809,
-      "sha256": "6d1e81ce39f3a7afcc01dc6a6e022030af51d533d968b591abe6364d4ed49484"
+      "path": "tools/prepare-statistics-site.mjs",
+      "bytes": 3625,
+      "sha256": "08ea0d6c109f4804c884ead57391d3ce2f44ef808110295c2e7f3e888772e56c"
+    },
+    {
+      "path": "tests/fr011-artifacts.test.mjs",
+      "bytes": 10017,
+      "sha256": "d0604d2002c73f28cc5123a378fe1cfa4721ac2163719e2de6e5fc401834a291"
+    },
+    {
+      "path": "tests/fr011-api.test.mjs",
+      "bytes": 4089,
+      "sha256": "4ca1a3370d934f0632c4600062d27c11f22d7694f10a16895567eb7769b7353a"
+    },
+    {
+      "path": "tests/achievement-ui-current.test.mjs",
+      "bytes": 8551,
+      "sha256": "2dc34fc61622f4651c42a9d7b3e413e0fb50f82f719c4eb820926e2ae7ce4785"
+    },
+    {
+      "path": "tests/fr010-client.test.mjs",
+      "bytes": 18585,
+      "sha256": "d56f05b8f4c416e4417b4427ca004e13988bee854e4d8ddb1ee3d611f3a7c584"
     },
     {
       "path": "public/release.json",
-      "bytes": 5775,
-      "sha256": "fcff633f09ad1dd9e5c2b2c52d67b3edad4a4f62ccb6cee91aca1fb88765e2cd"
+      "bytes": 6548,
+      "sha256": "cb6d1efd655fcdb205a16b36a49af000cfde4afc70a8846833596c8aa86202bd"
     },
     {
-      "path": "docs/FR010_IMPLEMENTATION.md",
-      "bytes": 17251,
-      "sha256": "86c609fdf178caad78a8f4e4aca95443b7e61787c8c2da9a18b10d97c9148239"
+      "path": "public/assets/ui/artifacts/manifest.json",
+      "bytes": 14494,
+      "sha256": "c2b1f3319ce420de8931014422c12be5296209575316f055f5ce5cc6f1b3f93f"
     },
     {
-      "path": "docs/ACCOUNT_PROGRESSION_IMPLEMENTATION.md",
-      "bytes": 7000,
-      "sha256": "cba8b50d903211040fec686ab22318db2f9bb0199d8e61a44dc2357a4694304d"
+      "path": "docs/FR011_IMPLEMENTATION.md",
+      "bytes": 3302,
+      "sha256": "4e70670d2476d7392a20d7254fadeacd8b5a416adc9b19e8279ba1a36cdfcece"
     },
     {
-      "path": "public/assets/ui/war-table/extended-range.webp",
-      "bytes": 161034,
-      "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0"
+      "path": "game/core/faction-combat.js",
+      "bytes": 10844,
+      "sha256": "a672d9eb2d198e74d6f3bb502ef18172eafd1257d67eb93594ae83279ec0e98d"
     },
     {
-      "path": "public/assets/ui/war-table/generated-assets.json",
-      "bytes": 30969,
-      "sha256": "e1022cab3fc68c53003cddbf922f9b12bbafcc6a2d8bff33606c17b483771335"
+      "path": "public/assets/ui/artifacts/ad-01.webp",
+      "bytes": 79914,
+      "sha256": "7b8c8873c81682a1831694ac4a5423ca1995b8e073d88d9eb70c75cb664c7ac8"
     },
     {
-      "path": "public/assets/ui/war-table/README.md",
-      "bytes": 3175,
-      "sha256": "4e0edb4e4e77449b329673d9a6f086f3ef5376c8897e350e2d63ac0838d9340a"
+      "path": "public/assets/ui/artifacts/ad-02.webp",
+      "bytes": 57582,
+      "sha256": "37d52a27f5569c80357be29d5abdbe33b23d15ce22e37682c22b550a5aa9cd9f"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ad-03.webp",
+      "bytes": 65638,
+      "sha256": "1354b25e62208ece1334d99ececbff494534d889780ecf2f00f3210dead61957"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ad-04.webp",
+      "bytes": 75160,
+      "sha256": "eb68c29bf5302047ba0e39666ff1a11b05abf213694e22055031d3bad4310bdf"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ad-05.webp",
+      "bytes": 84572,
+      "sha256": "8cf56589fe74e8492f8e1dc043ead7a4c75153888feaa0b1c9bb31bae946d897"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ad-06.webp",
+      "bytes": 32064,
+      "sha256": "91cf299ceac6ee1fa4c7fb3e371672a8fd3daa7985294464521517cf6685d2d8"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-1-open.webp",
+      "bytes": 96236,
+      "sha256": "61582f2b4df400261c8d48c6a88fef5bbc4a34abb6cf8062383a38f2b57d91b2"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-1.webp",
+      "bytes": 79512,
+      "sha256": "4800a94fb25412b2034d48d9aae7ec01131cf8a391a7f3670e619e8b2a53ec9f"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-2-open.webp",
+      "bytes": 93846,
+      "sha256": "69297f69e803846e811d6f34d6509389c0734aa58e62b5b15ee8e73c48843d8b"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-2.webp",
+      "bytes": 80770,
+      "sha256": "c3cc4f3b6e3560be8e5eef7485f959170e1b0610808d6c397594780d7817de2d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-3-open.webp",
+      "bytes": 95294,
+      "sha256": "a69bc475fca78550c599efb3904257bf375cde99a6aab835d9731cd28672317c"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-3.webp",
+      "bytes": 81294,
+      "sha256": "5c03d69024f5c98088a70ff46decfea7f6dd8ffbdf85c613a0183d11dacf41ee"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-4-open.webp",
+      "bytes": 84856,
+      "sha256": "1d350dabc9dea4bcd37c261b3969a4e76d7c024c6b278f53e5b62e7e87d39222"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-4.webp",
+      "bytes": 84004,
+      "sha256": "124bd88809428354cf081896c77cb9d12ec551ed2df24a65908877119bdb6dbe"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-5-open.webp",
+      "bytes": 101664,
+      "sha256": "6a4e324c54e6c68fdb820d9da6891ae3a95ce0c42ee386f46257680210a3da7c"
+    },
+    {
+      "path": "public/assets/ui/artifacts/chest-5.webp",
+      "bytes": 78748,
+      "sha256": "036c6827918f713f27c3c68d33cf62db5ab071774ec9db73eff3d6fcaf518a07"
+    },
+    {
+      "path": "public/assets/ui/artifacts/commander-body.webp",
+      "bytes": 119108,
+      "sha256": "3d7cf03801525f2a7732b21943598d54b0e2e3be57a1285c09c6ed88f694fe72"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-01.webp",
+      "bytes": 50202,
+      "sha256": "ca6a993c6c11feb793be224c6c55b8090e6eb9b583f8a26a368fd7360384c750"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-02.webp",
+      "bytes": 94258,
+      "sha256": "0a7e35abcc947253ef4311701d9f36b43f2c3daff4009f12953b81ed34a6dfd6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-03.webp",
+      "bytes": 87562,
+      "sha256": "9423ca025305aa9e7c8632edaeaae4a04db1f455bf1185ae33b5ae3f3e32ddab"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-04.webp",
+      "bytes": 67410,
+      "sha256": "082fb36b71f87dd6166d30a3fbfc95534d730b7553768e47dcf4e0784c776223"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-05.webp",
+      "bytes": 84224,
+      "sha256": "6ed271a6c53cc15de296ce3e246fe41995b1a09f656736114dec834e7940089a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/lg-06.webp",
+      "bytes": 21904,
+      "sha256": "48084487df3b2bdc1830460ce2ecdbf366e2ba5e14886f5319ba8cdef470ba98"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-01.webp",
+      "bytes": 26718,
+      "sha256": "dfc4319d5965839b2012cd11fe09de93f536c162b55d02c0edd1de2c3fdef70d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-02.webp",
+      "bytes": 47196,
+      "sha256": "3dffd0959077bd1cd6e0c36a0539a1984bdc85793596a41082ba4834acc1b48f"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-03.webp",
+      "bytes": 58696,
+      "sha256": "832274349b16fc8c363248e5de550a8be574d110b41ec892cabc48e5c4242d34"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-04.webp",
+      "bytes": 68768,
+      "sha256": "b79ac31a387fd532779771e40f34af1102c5aa9ba53c98e3262d393d4e5482be"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-05.webp",
+      "bytes": 46718,
+      "sha256": "470bb44d801b25bb60a5448fb774f23dccb69c6e07bf5fefe96391f90d0bdf9a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-06.webp",
+      "bytes": 46496,
+      "sha256": "70685dd9020abfe00aa57ac3938c424a5462ba1e710b36dcf4b20f4c6a7380fb"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-07.webp",
+      "bytes": 65374,
+      "sha256": "badfd35e04aa6a81c2ea5952c4ea679856e8acf69e2dbc73f211546789464b90"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-08.webp",
+      "bytes": 37672,
+      "sha256": "a2a23e2bd1a06d57abb36dfe5ee974f86f482f5ca433dcca35a64ba0afaed11a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-09.webp",
+      "bytes": 86826,
+      "sha256": "b548ce1ae425092db24c3dfe5225d7a4f9148d3332a07e99bbd21d319d0150e9"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-10.webp",
+      "bytes": 64600,
+      "sha256": "61b9f843a92b53c2ed2e06184549c5ab334f70bd0a4266acfa6a5dc09bc01ee6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-11.webp",
+      "bytes": 35944,
+      "sha256": "f529dfe05132b51d3c3334b56a4611c26787053c7fc5d7a98139c854ea9c9805"
+    },
+    {
+      "path": "public/assets/ui/artifacts/n-12.webp",
+      "bytes": 63004,
+      "sha256": "a8b76d5ff689cd6030350cb80a8efba84f18df8b226c62abb411ac66edc64c8a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-01.webp",
+      "bytes": 94088,
+      "sha256": "0c414f474235450a2d96315fce7aa2166572c1d6c8c321d56488dd7d528575ec"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-02.webp",
+      "bytes": 90542,
+      "sha256": "b72d16a71ca9d8b9a7378a145a2a42a77f7e32a782068f3ce01a799e2235d6d6"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-03.webp",
+      "bytes": 60070,
+      "sha256": "5b63bbd3559a19c93bef703edc684b3058744984ae9f17956fab58837591c6f8"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-04.webp",
+      "bytes": 34884,
+      "sha256": "364c97d4db749d5072fde5d4b97c49f7f8b326fd58fdc6ef4ce4ae62476c004a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-05.webp",
+      "bytes": 76846,
+      "sha256": "16cb621cff5bc55e21ab3f1915ad8b7d462a72b848ed92f0b45fa5c39dcbe0ba"
+    },
+    {
+      "path": "public/assets/ui/artifacts/ra-06.webp",
+      "bytes": 77056,
+      "sha256": "9f042677db34c9dcf3a7f7e489c86e26615f63c3d0700c999e446ba3098d001a"
+    },
+    {
+      "path": "public/assets/ui/artifacts/relic-dust.webp",
+      "bytes": 92538,
+      "sha256": "7e03ffc26232b6f10873f5597f03d48d6edfead0b292fef64fbd00207a67afce"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-ashen-dragon.webp",
+      "bytes": 127622,
+      "sha256": "3f8be98dbe9722343c4460c4c9daa543b629528489538f35aa69d3bbf879166c"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-iron-legion.webp",
+      "bytes": 136440,
+      "sha256": "42daf098de5ddb10620f5cf3bf0c99b9855ab0496834dba45e6fb9d71b667709"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-royal-architect.webp",
+      "bytes": 143122,
+      "sha256": "b8912ec115cad47d452c43790a492054d7a2be35a9c3c9099cde7334ad86d185"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-stormwing-vanguard.webp",
+      "bytes": 134094,
+      "sha256": "8e1c34f2b7486ff64185f1dd2407615a149bda343295d775fe6505d579527516"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-venom-covenant.webp",
+      "bytes": 121036,
+      "sha256": "151d982aa40861fb83892d8895fc7ffe31d98ed88ac1f9805cba366060c1cfb9"
+    },
+    {
+      "path": "public/assets/ui/artifacts/set-winter-court.webp",
+      "bytes": 121690,
+      "sha256": "8e9b7c4af6d8ce491c1d22e2c0d9c1f0f1eef749f24edfd6bdfd879e879c60ae"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-01.webp",
+      "bytes": 77046,
+      "sha256": "6e33c60a329198feee398669fed0119e792887e8f5436a8bd96f5646c028288d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-02.webp",
+      "bytes": 69914,
+      "sha256": "b75dbb1ab2153fd2f918fc5ad6a106f13c8f15df2a86bf0853cdec973f5600c9"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-03.webp",
+      "bytes": 111268,
+      "sha256": "3f8025179a0400d946cc1a573dc6900c38215b71050d3f2b3a2ade13c52b8a11"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-04.webp",
+      "bytes": 88114,
+      "sha256": "76b468368c8f9e43afaeebc93a44d4506c4e2ff737600420250a1e92b9cb704d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-05.webp",
+      "bytes": 83644,
+      "sha256": "bff97ea3eb475c0c7357c9247340d39391fbeea70b9a83bdb0549442cc04f9b5"
+    },
+    {
+      "path": "public/assets/ui/artifacts/st-06.webp",
+      "bytes": 20312,
+      "sha256": "2dcca05d4691d42bffeea4362f5b3f5335ac12308397abedf5ce977573476394"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-01.webp",
+      "bytes": 46124,
+      "sha256": "b084a8a2d948134b41e6ec8401abd71ac586d7282fa4c1c6f1b10db77735b91b"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-02.webp",
+      "bytes": 65998,
+      "sha256": "966859d36e278e52182083d7b2e1bd748b5bb56d5d04b6bfec48533df70d591d"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-03.webp",
+      "bytes": 50348,
+      "sha256": "216af15ebce1527bef0edfb757a3c4780f4582783a8e177a4b16aac49c6d1b01"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-04.webp",
+      "bytes": 93578,
+      "sha256": "275e28583a50ef8db89cac4d4f51601f0c6f34984afc14c8bd311c7361b26d17"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-05.webp",
+      "bytes": 82424,
+      "sha256": "f8f4a839fea147ef37bdd6943e1371b81ee7e18eee1798685433acfa78e7f896"
+    },
+    {
+      "path": "public/assets/ui/artifacts/vc-06.webp",
+      "bytes": 27902,
+      "sha256": "2b9e84b0a9a478fc3c343587c8e88a71dff6988e749813de538bac72ad550d73"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-01.webp",
+      "bytes": 49974,
+      "sha256": "55e2d354300f09ae8cbf5afc155e185b9dbfe4a1a6fd671da82fca6661dfe527"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-02.webp",
+      "bytes": 75190,
+      "sha256": "07b305f31582cdb568f8e8a3c777d5fcf19563c7bdb95b833a769b3c55b565d5"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-03.webp",
+      "bytes": 40282,
+      "sha256": "226e5dccc2ba5ce8a1128b83db8bd2c2dfea43789c2976a8b739e926f97bf787"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-04.webp",
+      "bytes": 59154,
+      "sha256": "883d8fce8dde953c77802afe2b7039eea1efd45e20ce46e70cca1fc25816d6d3"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-05.webp",
+      "bytes": 96698,
+      "sha256": "2db7466caa31a3abb1e5b76a1b1b56b414cde57e9184bbcd4ae842e63149736b"
+    },
+    {
+      "path": "public/assets/ui/artifacts/wc-06.webp",
+      "bytes": 35368,
+      "sha256": "0dffc2356efe9aa8d235d50f932b43280a20b59d561e30255f0f794f108d7f1e"
     }
   ],
-  "sharedIndexUnchanged": true,
-  "galleryFiles": 0,
-  "newModelFiles": 0,
-  "replacedRasterImages": 1,
-  "unrelatedArtifactFeatureIncluded": false,
+  "ci": {
+    "id": 43862867736,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43862867736",
+    "conclusion": "success"
+  },
   "backend": {
-    "sourceCommit": "5bbb1fc24786b681df61e38c1df6a6cb408206af",
-    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_874c50ca5a40819181181ba50cd7e88c",
-    "deploymentId": "appgdep_6afae53c19dc8191bbb170c1216ff189",
+    "sourceCommit": "9917174aa5ebc30364b4e254de3c97779340f141",
+    "version": 35,
+    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_fe3c8530e0108191b423a3cfe6d13d6c",
+    "deploymentId": "appgdep_6afaee3247cc8191a8d930c6a2614d75",
+    "status": "succeeded",
     "environmentRevision": 3
-  }
+  },
+  "gallery": {
+    "localOnly": true,
+    "published": false,
+    "url": "http://127.0.0.1:59544/#view=artifacts",
+    "exactOriginalHashesVerified": 48,
+    "feedback": "Local drafts keyed by artifact ID and exact original SHA-256"
+  },
+  "verifiedAt": "2026-11-16T12:12:20.444Z"
 }

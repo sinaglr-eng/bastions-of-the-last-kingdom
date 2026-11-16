@@ -1,332 +1,38 @@
 {
-  "passed": true,
-  "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "cases": [
+  "status": "passed",
+  "viewportEmulation": [
     {
-      "faction": "crown",
-      "mobile": false,
-      "passed": true,
-      "errors": [],
-      "httpErrors": [],
-      "blockedWrites": 1,
-      "canvasRect": {
-        "x": 0,
-        "y": 70,
-        "width": 1500,
-        "height": 930
-      },
-      "health": "30 / 30",
-      "dps": "Σ Peak DPS\n0.6\n· W1\nSum peak DPS\n1\nCleric\n#1 · Rank I · MVP 0\n0.6"
+      "width": 1376,
+      "height": 1032
     },
     {
-      "faction": "forge",
-      "mobile": false,
-      "passed": true,
-      "errors": [],
-      "httpErrors": [],
-      "blockedWrites": 1,
-      "canvasRect": {
-        "x": 0,
-        "y": 70,
-        "width": 1500,
-        "height": 930
-      },
-      "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nDwarf Miner\n#1 · Rank I · MVP 0\n1.8"
-    },
-    {
-      "faction": "grove",
-      "mobile": false,
-      "passed": true,
-      "errors": [],
-      "httpErrors": [],
-      "blockedWrites": 1,
-      "canvasRect": {
-        "x": 0,
-        "y": 70,
-        "width": 1500,
-        "height": 930
-      },
-      "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nMoonblade Assassin\n#1 · Rank I · MVP 0\n1.8"
-    },
-    {
-      "faction": "forge",
-      "mobile": true,
-      "passed": true,
-      "errors": [],
-      "httpErrors": [],
-      "blockedWrites": 1,
-      "tutorial": "Skipped through the ordinary UI",
-      "canvasRect": {
-        "x": 0,
-        "y": 106,
-        "width": 390,
-        "height": 738
-      },
-      "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1"
+      "width": 1032,
+      "height": 1376
     }
   ],
-  "publicWrites": 0,
-  "scope": "Ordinary compiled public UI, private contexts, no debug controls or runtime state injection. Non-GET requests are blocked before dispatch.",
-  "release": {
-    "version": "0.7.0",
-    "name": "Forged Alliances TD",
-    "edition": "Forged Alliances",
-    "date": "2026-11-15",
-    "basicClasses": 8,
-    "champions": 38,
-    "secretChampions": 1,
-    "defenderVariants": 86,
-    "artRevision": "basic-defenders-v7",
-    "enemyArtRevision": "approved-enemies-v6",
-    "championRecipes": 38,
-    "championAscension": false,
-    "championClassifications": {
-      "Basic": 5,
-      "Intermediate": 13,
-      "Advanced": 11,
-      "TOP": 8,
-      "Secret": 1
-    },
-    "authoring": "Blender 5.2",
-    "enemyVariants": 54,
-    "enemyLanguage": "en",
-    "sceneryRevision": 9,
-    "championArtRevision": "champions-v8",
-    "alliedAudioRevision": "allied-20261011-4a6051e0ce4a",
-    "alliedVoiceRecordings": 92,
-    "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
-    "recordedMusicTracks": 6,
-    "recordedAttackTypes": 15,
-    "damageClasses": [
-      "Physical",
-      "Magical",
-      "Holy"
-    ],
-    "mvpMaximumLevel": 10,
-    "developerConsole": true,
-    "classificationScaleStep": 1.1,
-    "uiRevision": "ipad-polish-20261115",
-    "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
-    "brandRevision": "three-bastions-20261114",
-    "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
-    "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
-    "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
-    "motionRevision": "approved-faction-motion-v3",
-    "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
-    "balanceRevision": "fr008-r1-20261106",
-    "factions": [
-      {
-        "id": "crown",
-        "name": "Human"
-      },
-      {
-        "id": "forge",
-        "name": "Dwarves"
-      },
-      {
-        "id": "grove",
-        "name": "Elves"
-      }
-    ],
-    "totalDefenderVariants": 258,
-    "factionArtRevision": "approved-faction-models-v3-20261030",
-    "dwarfPresentationScale": 1.75,
-    "championAuraRevision": "canonical-faction-classes-20261030-v2",
-    "babyFireDragonPresentationScale": 3.85,
-    "abilityRevision": "fr005-r2-combat-refinements-20261102",
-    "rulesetRevision": "fr010-v1",
-    "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
-    "largeEnemyPresentationScale": 0.75,
-    "largeEnemyPresentationModels": 12,
-    "championWarmModelLimit": 2,
-    "requirements": [
-      "FR-006",
-      "FR-007 revision 3",
-      "FR-008",
-      "FR-009 visual presentation",
-      "All Elf dragons air targeting and hidden Slow visuals",
-      "FR-010: menu, optional accounts, achievements, general and Endless"
-    ],
-    "humanPresentationRevision": "defender-size-feedback-20261106",
-    "defenderPresentationRevision": "defender-size-feedback-20261106",
-    "defenderBattlefieldScale": 0.8,
-    "basicChampionSizeReference": "own-faction ordinary draft median",
-    "recipeRevision": 3,
-    "rankDecorationRevision": "no-basic-rank-rings-fr008",
-    "defenderVoiceRevision": "voice-completion-20261110-v4-02d1a9224942",
-    "defenderVoicedCharacters": 136,
-    "defenderVoiceRecordings": 272,
-    "defenderVoiceNewRecordings": 190,
-    "defenderVoiceModel": "eleven_v4",
-    "defenderVoiceUpdated": "2026-11-10",
-    "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json",
-    "statusVfxRevision": "fixed-size-status-effects-20261115",
-    "attackAudioRevision": "combat-effects-20261110-33171e30c092",
-    "attackAudioRecordings": 30,
-    "attackAudioNewRecordings": 15,
-    "attackAudioCoveredProfiles": 258,
-    "attackAudioUpdated": "2026-11-10",
-    "presentationUpdated": "2026-11-13",
-    "vfxRequirement": "FR-009",
-    "suppressedStatusVisuals": [
-      "slow"
-    ],
-    "progressionRevision": "manual-achievement-claims-20261114",
-    "endless": true,
-    "accountOptional": true,
-    "achievementClaims": "manual",
-    "achievementNotifications": true,
-    "achievementRevision": "faction-mastery-20261116",
-    "achievementScopes": {
-      "champions": "faction",
-      "basicChampionAchievements": true,
-      "basicChampionMedals": 1,
-      "basicChampionXP": 1,
-      "bosses": "account",
-      "bossCollection": "account",
-      "flawlessStreaks": "account-single-run-best",
-      "campaignVictory": "faction",
-      "completeRoster": "faction-all-38-including-secret",
-      "thematicCollections": "faction-verified-champion-sets"
-    },
-    "accountProgression": {
-      "revision": "account-xp-v1",
-      "levels": 15,
-      "maxRank": "King",
-      "kingXP": 1000,
-      "manualAchievementXP": true,
-      "runBossXP": true
-    },
-    "factionAchievements": {
-      "revision": "faction-mastery-20261116",
-      "factions": 3,
-      "wave50": {
-        "medals": 5,
-        "xp": 8,
-        "identity": "existing-campaign-per-faction"
-      },
-      "allChampions": {
-        "required": 38,
-        "includesBasic": true,
-        "includesSecret": true,
-        "medals": 12,
-        "xp": 20
-      },
-      "thematicCollections": {
-        "required": 3,
-        "medals": 4,
-        "xp": 6
-      },
-      "verifiedHistoryBackfill": true
-    },
-    "commanderAbilities": {
-      "revision": "commander-selected-promotion-and-range-20261116",
-      "skills": 11,
-      "equippedSlots": 3,
-      "fieldPromotion": {
-        "target": "one-selected-current-draft-recruit",
-        "costCP": 3,
-        "uses": [
-          1,
-          2,
-          2
-        ],
-        "caps": [
-          5,
-          5,
-          6
-        ],
-        "accountLevels": [
-          7,
-          10,
-          14
-        ]
-      },
-      "extendedRange": {
-        "costGold": 200,
-        "rangeTiles": [
-          1,
-          1.5,
-          2
-        ],
-        "scope": "all-defenders-current-combat-wave",
-        "usesPerWave": 1,
-        "accountLevels": [
-          6,
-          10,
-          13
-        ]
-      },
-      "decisiveStrike": {
-        "costCP": 0,
-        "usesPerRun": 1,
-        "normalMaxHP": [
-          0.3,
-          0.4,
-          0.5
-        ],
-        "bossMaxHP": [
-          0.05,
-          0.07,
-          0.1
-        ],
-        "accountLevels": [
-          9,
-          13,
-          15
-        ]
-      },
-      "fortifiedKeep": {
-        "bonusHealth": [
-          5,
-          10,
-          15
-        ],
-        "accountLevels": [
-          2,
-          6,
-          11
-        ]
-      }
-    },
-    "presentation": {
-      "commanderNaming": true,
-      "commanderArtwork": "painted-war-table-20261116",
-      "extendedRangeArtwork": "coaxial-spyglass-20261116",
-      "commanderResetControl": false,
-      "hallDropdownTheme": "achievements",
-      "homeMazeEditor": true,
-      "generatedUiIcons": 19,
-      "secretRecipesInCatalog": false,
-      "mazeBuilderLabel": "Maze Builder"
-    }
-  },
-  "bundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DkiXB2pp.js",
-    "bytes": 2861136,
-    "sha256": "5a7f225ad735d1741843004c18b7c938b6bb4f05ea520ac34235f6a2e44685c4"
-  },
-  "factionAchievements": {
-    "passed": true,
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-    "cases": [
-      {
-        "mobile": false,
-        "passed": true,
-        "name": "Guest achievement and Commander entry points remain sign-in gated, with no reward actions exposed"
-      },
-      {
-        "mobile": true,
-        "passed": true,
-        "name": "Guest achievement and Commander entry points remain sign-in gated, with no reward actions exposed"
-      }
-    ],
-    "errors": [],
-    "publicWrites": 0,
-    "publicAccountCardsInspected": false,
-    "scope": "Ordinary public guest UI preserves sign-in gates. Authenticated achievement cards are separately verified by12 isolated native UI cases and5 actual compiled Worker cases; no live-account state injection or writes."
-  }
+  "verified": [
+    "Equip set confirmation",
+    "Five-chest opening",
+    "Duplicate Dust conversion",
+    "Crafting price and confirmation",
+    "Equipment equip",
+    "Save and load preset",
+    "Defeat to View Chests",
+    "Gallery filter and set detail",
+    "Gallery JSON export",
+    "Signed-in public Commander page"
+  ],
+  "brokenImages": 0,
+  "horizontalOverflow": false,
+  "realAccountReadOnly": true,
+  "realAccountXPUnchanged": 68,
+  "realAccountMedalsUnchanged": 22,
+  "ringSlotsMatchChosenUI": true,
+  "bossNoticeSurvivesWaveMessage": true,
+  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
+  "screenshots": [
+    "artifacts/fr011/public-commander-sets.jpg",
+    "artifacts/fr011/commander-equipment-ipad.jpg",
+    "artifacts/fr011/artifact-gallery-sets.jpg"
+  ]
 }

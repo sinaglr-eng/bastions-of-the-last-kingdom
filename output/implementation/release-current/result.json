@@ -1,116 +1,90 @@
 {
   "status": "published",
+  "feature": "FR-011",
   "version": "0.7.0",
+  "artifactRevision": "fr011-v1",
   "achievementRevision": "faction-mastery-20261116",
   "rulesetRevision": "fr010-v1",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "sourceCommit": "6c4b9df7a731105f4c47b132d09fe3e816f3090e",
-  "verifiedAt": "2026-11-16T11:26:35.045Z",
-  "tests": {
-    "passed": 2519,
-    "failed": 0,
-    "skipped": 0
-  },
-  "ci": {
-    "id": 43855818305,
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43855818305",
-    "status": "completed",
-    "conclusion": "success"
-  },
+  "sourceCommit": "cdea8c066d0432ea55599e945460263f5da2dac4",
   "backend": {
-    "sourceCommit": "5bbb1fc24786b681df61e38c1df6a6cb408206af",
-    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_874c50ca5a40819181181ba50cd7e88c",
-    "deploymentId": "appgdep_6afae53c19dc8191bbb170c1216ff189",
+    "sourceCommit": "9917174aa5ebc30364b4e254de3c97779340f141",
+    "version": 35,
+    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_fe3c8530e0108191b423a3cfe6d13d6c",
+    "deploymentId": "appgdep_6afaee3247cc8191a8d930c6a2614d75",
+    "status": "succeeded",
     "environmentRevision": 3
   },
-  "compiledFiles": [
-    {
-      "path": "assets/game-DkiXB2pp.js",
-      "bytes": 2861136,
-      "sha256": "5a7f225ad735d1741843004c18b7c938b6bb4f05ea520ac34235f6a2e44685c4"
-    },
-    {
-      "path": "assets/three-BBClaj7g.js",
-      "bytes": 771667,
-      "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
-    },
-    {
-      "path": "assets/game-Bpq27Sab.css",
-      "bytes": 506019,
-      "sha256": "01a175b875cb4fa0eb2a1eba995bfc32dd03adefd09d4631615e1d3584b42025"
-    },
-    {
-      "path": "assets/ui/war-table/extended-range.webp",
-      "bytes": 161034,
-      "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0"
-    }
-  ],
-  "localBrowserCases": 12,
-  "publicBrowserCases": [
-    {
-      "faction": "crown",
-      "mobile": false,
-      "passed": true
-    },
-    {
-      "faction": "forge",
-      "mobile": false,
-      "passed": true
-    },
-    {
-      "faction": "grove",
-      "mobile": false,
-      "passed": true
-    },
-    {
-      "faction": "forge",
-      "mobile": true,
-      "passed": true
-    }
-  ],
-  "publicAchievementGateCases": 2,
-  "publicAccountAchievementCardsInspected": false,
-  "factionAchievements": {
-    "campaign": {
-      "medals": 5,
-      "xp": 8,
-      "existingIdentitiesPreserved": true,
-      "requiresFullWave50": true
-    },
-    "fullRoster": {
-      "champions": 38,
-      "includesBasic": true,
-      "includesSecret": true,
-      "medals": 12,
-      "xp": 20
-    },
-    "thematic": {
-      "champions": 3,
-      "medals": 4,
-      "xp": 6,
-      "identities": [
-        "faction:crown:combined-arms",
-        "faction:forge:forge-engineering",
-        "faction:grove:grove-guardians"
-      ]
-    },
-    "verifiedHistoryBackfill": true,
-    "manualClaimsOnly": true
+  "tests": {
+    "passed": 2529,
+    "failed": 0,
+    "skipped": 0,
+    "dedicatedArtifactTests": 10,
+    "combatScenarios": 18
   },
-  "compiledWorkerTests": 5,
-  "compiledWorkerTemplateChecks": 14,
-  "spyglass": {
-    "revision": "coaxial-spyglass-20261116",
-    "path": "public/assets/ui/war-table/extended-range.webp",
-    "width": 640,
-    "height": 640,
-    "sha256": "33ef5e7baae733d1e8eb8416d1ff3e111d89c71ec38137c3e06cf07c3c25e3d0",
-    "bytes": 161034
+  "ci": {
+    "id": 43862867736,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43862867736",
+    "conclusion": "success"
   },
-  "publicWritesByQA": 0,
-  "playerAccountsAndProgressPreserved": true,
-  "progressionResetPerformedThisUpdate": false,
-  "galleryPublished": false,
-  "newModelFiles": 0,
-  "unrelatedArtifactFeatureIncluded": false
+  "content": {
+    "artifacts": 48,
+    "sets": 6,
+    "slots": 10,
+    "chestTiers": 5,
+    "presets": 3,
+    "runtimeImages": 66
+  },
+  "gallery": {
+    "localOnly": true,
+    "published": false,
+    "url": "http://127.0.0.1:59544/#view=artifacts",
+    "exactOriginalHashesVerified": 48,
+    "feedback": "Local drafts keyed by artifact ID and exact original SHA-256"
+  },
+  "browser": {
+    "viewportEmulation": [
+      {
+        "width": 1376,
+        "height": 1032
+      },
+      {
+        "width": 1032,
+        "height": 1376
+      }
+    ],
+    "verified": [
+      "Equip set confirmation",
+      "Five-chest opening",
+      "Duplicate Dust conversion",
+      "Crafting price and confirmation",
+      "Equipment equip",
+      "Save and load preset",
+      "Defeat to View Chests",
+      "Gallery filter and set detail",
+      "Gallery JSON export",
+      "Signed-in public Commander page"
+    ],
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "realAccountReadOnly": true,
+    "realAccountXPUnchanged": 68,
+    "realAccountMedalsUnchanged": 22,
+    "ringSlotsMatchChosenUI": true,
+    "bossNoticeSurvivesWaveMessage": true
+  },
+  "assets": {
+    "mode": "built-in image_gen",
+    "sourceManifest": "artifacts/fr011/art-manifest.json",
+    "runtimeManifest": "public/assets/ui/artifacts/manifest.json",
+    "humanAppearanceApprovalRecorded": false
+  },
+  "progressReset": false,
+  "galleryModelsUploaded": false,
+  "temporaryCheckoutsRemoved": true,
+  "temporaryDatabaseRemoved": true,
+  "verifiedAt": "2026-11-16T12:11:42.451Z",
+  "publicFrontendHashMatchesLocal": true,
+  "publicCSSHashMatchesLocal": true,
+  "publicMediaHashesVerified": 66
 }
