@@ -1,46 +1,105 @@
 {
   "passed": true,
-  "checkedAt": "2026-11-16T08:42:06.441Z",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "version": "0.7.0",
-  "achievementRevision": "shared-achievements-20261116",
+  "checkedAt": "2026-11-16T10:20:32.830Z",
   "files": [
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-BUdbOg8J.js",
-      "bytes": 2850936,
-      "sha256": "2c9b3b3280674ca4442503f420a012243ba3584468a8475744fcdcdba86d77a5"
+      "path": "assets/game-Gdm9CBl9.js",
+      "bytes": 2857516,
+      "sha256": "5ab09f4311b4910d3b16b2d773ab08422abb27239bf6fe89aa560c597cb3c701"
     },
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/three-BBClaj7g.js",
+      "path": "assets/three-BBClaj7g.js",
       "bytes": 771667,
       "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
     },
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-VNdBkMQH.css",
-      "bytes": 503901,
-      "sha256": "f2ad00192ac40ab971a44492dea5cbcbf61190d24e83193bed1d55ee2db9c1d1"
+      "path": "assets/game-miWKUl4b.css",
+      "bytes": 504240,
+      "sha256": "a3680b6c17bda0b0e1c2fe21fc88b50e5b5ee56211d830ae1537c3ddbf83432a"
     },
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/field-promotion.webp",
-      "bytes": 143986,
-      "sha256": "03ed4040aa798430605055a43e2a23beb4f3c79b451992a081ce2d03c61659a7"
-    },
-    {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/decisive-strike.webp",
-      "bytes": 125234,
-      "sha256": "7914905a9698f8613bce9c1ed5ebac3d4b1c8946b233c7c27f88eecf889ef782"
-    },
-    {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/fortified-keep.webp",
-      "bytes": 155994,
-      "sha256": "f936dbb9f9732f7ed0c4907041a951c8c0326188ca5750fb3d76cc65ee791508"
+      "path": "assets/ui/war-table/extended-range.webp",
+      "bytes": 168406,
+      "sha256": "30393792b246a1b4aadc81d51a3952de0fc23ca3c742297d326434dd8ddee76c"
     }
   ],
+  "commanderAbilities": {
+    "revision": "commander-selected-promotion-and-range-20261116",
+    "skills": 11,
+    "equippedSlots": 3,
+    "fieldPromotion": {
+      "target": "one-selected-current-draft-recruit",
+      "costCP": 3,
+      "uses": [
+        1,
+        2,
+        2
+      ],
+      "caps": [
+        5,
+        5,
+        6
+      ],
+      "accountLevels": [
+        7,
+        10,
+        14
+      ]
+    },
+    "extendedRange": {
+      "costGold": 200,
+      "rangeTiles": [
+        1,
+        1.5,
+        2
+      ],
+      "scope": "all-defenders-current-combat-wave",
+      "usesPerWave": 1,
+      "accountLevels": [
+        6,
+        10,
+        13
+      ]
+    },
+    "decisiveStrike": {
+      "costCP": 0,
+      "usesPerRun": 1,
+      "normalMaxHP": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "bossMaxHP": [
+        0.05,
+        0.07,
+        0.1
+      ],
+      "accountLevels": [
+        9,
+        13,
+        15
+      ]
+    },
+    "fortifiedKeep": {
+      "bonusHealth": [
+        5,
+        10,
+        15
+      ],
+      "accountLevels": [
+        2,
+        6,
+        11
+      ]
+    }
+  },
   "accountHealth": {
     "ok": true,
     "storage": "SQLite",
     "edition": "0.7.0",
     "releaseName": "Preserved commander scores · Developer runs excluded"
   },
+  "galleryPublished": false,
   "publicWrites": 0
 }

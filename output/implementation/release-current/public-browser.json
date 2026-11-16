@@ -16,7 +16,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.2\n· W1\nSum peak DPS\n1\nArcher\n#1 · Rank I · MVP 0\n1.2"
+      "dps": "Σ Peak DPS\n1.2\n· W1\nSum peak DPS\n1\nFrost Warden\n#1 · Rank I · MVP 0\n1.2"
     },
     {
       "faction": "forge",
@@ -32,7 +32,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nGriffin Handler\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nShieldguard\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "grove",
@@ -48,7 +48,7 @@
         "height": 930
       },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nDragon Keeper\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nNightweaver Spider\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "forge",
@@ -197,10 +197,11 @@
       "runBossXP": true
     },
     "commanderAbilities": {
-      "revision": "commander-abilities-20261116",
-      "skills": 10,
+      "revision": "commander-selected-promotion-and-range-20261116",
+      "skills": 11,
       "equippedSlots": 3,
       "fieldPromotion": {
+        "target": "one-selected-current-draft-recruit",
         "costCP": 3,
         "uses": [
           1,
@@ -216,6 +217,21 @@
           7,
           10,
           14
+        ]
+      },
+      "extendedRange": {
+        "costGold": 200,
+        "rangeTiles": [
+          1,
+          1.5,
+          2
+        ],
+        "scope": "all-defenders-current-combat-wave",
+        "usesPerWave": 1,
+        "accountLevels": [
+          6,
+          10,
+          13
         ]
       },
       "decisiveStrike": {
@@ -256,14 +272,14 @@
       "commanderResetControl": false,
       "hallDropdownTheme": "achievements",
       "homeMazeEditor": true,
-      "generatedUiIcons": 18,
+      "generatedUiIcons": 19,
       "secretRecipesInCatalog": false,
       "mazeBuilderLabel": "Maze Builder"
     }
   },
   "bundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-BUdbOg8J.js",
-    "bytes": 2850936,
-    "sha256": "2c9b3b3280674ca4442503f420a012243ba3584468a8475744fcdcdba86d77a5"
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Gdm9CBl9.js",
+    "bytes": 2857516,
+    "sha256": "5ab09f4311b4910d3b16b2d773ab08422abb27239bf6fe89aa560c597cb3c701"
   }
 }
