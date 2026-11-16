@@ -44,8 +44,19 @@
 #main-menu .commander-vault .war-loadout>div:last-child{display:flex;align-items:center;gap:10px;min-width:0}
 #main-menu .commander-vault .war-loadout>div:last-child>strong{font-size:11px;white-space:nowrap}
 #main-menu .commander-vault .war-loadout>div:last-child>button{min-height:44px;padding:7px;font-size:12px}
-#main-menu .commander-vault .war-skill-select{display:grid;grid-template-columns:64px minmax(0,1fr);padding:11px;min-height:165px;gap:10px;text-align:left}
-#main-menu .commander-vault .war-skill-select>span{min-width:0}
+/* Keep artwork inside its own track: older tablet styles use a 76px image. */
+#main-menu .commander-vault .war-skill-select{--skill-icon-size:64px;display:grid;grid-template-columns:var(--skill-icon-size) minmax(0,1fr);align-items:start;padding:12px;min-height:165px;gap:12px;text-align:left;box-sizing:border-box}
+#main-menu .commander-vault .war-skill-select>img{grid-column:1;grid-row:1;width:var(--skill-icon-size);height:var(--skill-icon-size);max-width:100%;object-fit:contain;align-self:start;box-sizing:border-box}
+#main-menu .commander-vault .war-skill-select>span{grid-column:2;grid-row:1;display:block;min-width:0;overflow-wrap:anywhere;text-align:left}
+#main-menu .commander-vault .war-skill{display:flex;flex-direction:column;min-width:0}
+#main-menu .commander-vault .war-skill-select .war-rank-pips{flex-wrap:wrap}
+#main-menu .commander-vault .war-equip{margin:0;padding:8px 12px;min-height:44px;margin-top:auto;box-sizing:border-box}
+#main-menu .commander-vault .war-equip input{flex:none}
+#main-menu .commander-vault .war-slot{gap:10px;min-width:0;box-sizing:border-box}
+#main-menu .commander-vault .war-slot img{width:42px;height:42px;flex:0 0 42px;object-fit:contain;box-sizing:border-box}
+#main-menu .commander-vault .war-slot span{min-width:0;overflow-wrap:anywhere}
+#main-menu .commander-vault .war-detail-art img{flex:0 0 80px;object-fit:contain}
+#main-menu .commander-vault .war-detail-art h2{min-width:0;overflow-wrap:anywhere}
 #main-menu .commander-vault .war-skill-select[aria-pressed=true] .commander-purchase-reason{color:#f0dfb2}
 #main-menu .commander-vault .war-skill-select[aria-pressed=true] strong{color:#fff1cc}
 #main-menu .commander-vault .war-skill-select[aria-pressed=true] .war-skill-summary{color:#f2e4c0}
