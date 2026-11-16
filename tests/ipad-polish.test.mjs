@@ -9,11 +9,11 @@ import {skillSummary} from '../ui/general-page.js';
 import {wallPanelMarkup} from '../ui/wall-panel.js';
 import {AchievementNotices} from '../ui/achievement-notices.js';
 
-test('TOP rewards agree between discovery and catalog in every faction, without basic achievements',()=>{
+test('TOP and Basic rewards agree between discovery and catalog in every faction',()=>{
  for(const faction of ['crown','forge','grove']){
   const data=currentFactionData(faction),g=new Game(data,{seed:10}),catalog=achievementCatalog(data);
   for(const [id,unit] of Object.entries(data.towers))if(unit.advanced)g.progress.champions.add(id);
-  for(const row of g.progress.grants().filter(r=>r.id.startsWith('champion:'))){const unit=data.towers[row.id.split(':').at(-1)];assert.equal(row.reward,unit.classification.toLowerCase()==='top'?3:1);assert.equal(row.reward,catalog.find(c=>c.id===row.id).reward);assert.notEqual(unit.classification.toLowerCase(),'basic');}
+  for(const row of g.progress.grants().filter(r=>r.id.startsWith('champion:'))){const unit=data.towers[row.id.split(':').at(-1)];assert.equal(row.reward,unit.classification.toLowerCase()==='top'?3:1);assert.equal(row.reward,catalog.find(c=>c.id===row.id).reward);if(unit.classification.toLowerCase()==='basic'){assert.equal(row.reward,1);assert.equal(catalog.find(c=>c.id===row.id).xp,1);}}
  }
 });
 

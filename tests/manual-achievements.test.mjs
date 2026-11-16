@@ -50,7 +50,7 @@ test('Claim and purchase serialize against one revision without lost or negative
 test('Migration treats previously paid grants as claimed, preserving wallet and timestamps on repeat',async()=>{
  const f=fixture();try{const a=await f.account();f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=17 WHERE user_id=?').run(a.user.id);f.db.sqlite.prepare('INSERT INTO fr010_grants VALUES(?,?,?,?,?)').run(a.user.id,'boss:crown:host_10','crown',2,1234);
  f.db.sqlite.exec("DROP TABLE fr010_eligible;DELETE FROM game_schema_migrations WHERE name='0002_manual_achievements.sql'");migrateFr010(f.db);migrateFr010(f.db);
- const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,17);assert.equal(p.grants[0].createdAt,1234);assert.equal(p.eligible[0].verifiedAt,1234);assert.equal((await f.call('/api/player/achievements/claim',claim(p.grants[0].id),a.cookie)).value.balance,17);
+ const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,17);assert.equal(p.grants[0].id,'boss:global:host_10');assert.equal(p.grants[0].factionId,null);assert.equal(p.grants[0].createdAt,1234);assert.equal(p.eligible.length,0);assert.equal(f.db.sqlite.prepare('SELECT verified_at FROM fr010_eligible WHERE user_id=? AND achievement_id=?').get(a.user.id,'boss:crown:host_10').verified_at,1234);assert.equal((await f.call('/api/player/achievements/claim',claim(p.grants[0].id),a.cookie)).value.balance,17);
  }finally{f.db.sqlite.close();}
 });
 test('Verified discoveries feed new game secrecy and collections before rewards are claimed',async()=>{

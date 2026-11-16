@@ -70,15 +70,7 @@ export class MainMenu{
   if(this.page!==page)return;
   this.mazeEditor?.unmount();this.root.innerHTML=this.shell(title,content);if(page==='maze'){this.mazeEditor??=new MenuMazeEditor({storage:globalThis.localStorage,onSaved:plan=>this.onBlueprintSaved?.(plan)});this.mazeEditor.mount(this.root.querySelector('.home-maze-workshop'));}if(previousPage!==page)this.root.scrollTop=0;this.root.querySelector('h1')?.focus({preventScroll:true});if(page==='hall'||page==='legacy')void this.loadHall(page);
  }
- achievementProgress(a,owned,pending){
-  const ids=new Set([...owned.keys(),...pending]),f=this.faction,run=this.player.game?.factionId===f?this.player.game.progress:null,p=this.player.profile?.progress?.[f]||{};
-  if(ids.has(a.id))return a.target;
-  if(a.kind==='collection')return Math.min(a.target,[...ids].filter(id=>id.startsWith(`champion:${f}:`)).length);
-  if(a.id===`boss-collection:${f}`)return [...ids].filter(id=>id.startsWith(`boss:${f}:`)).length;
-  if(a.kind==='streak')return Math.min(a.target,Math.max(p.streakBest||0,run?.streakBest||0));
-  if(a.kind==='endless')return Math.min(a.target,Math.max(...Object.values(this.player.profile?.progress||{}).map(v=>v.highestWave||0),this.player.game?.progress.highestWave||0,0));
-  return 0;
- }
+ achievementProgress(a){return achievementData(this.player,this.faction).progress(a);}
  socialMarkup(page){
   if(!['sign-in','register'].includes(page))return '';
   return providerButtons(this.player.authOptions)+'<p>Your first provider sign-in creates your player profile automatically.</p>';
@@ -126,7 +118,6 @@ export class MainMenu{
    else if(action==='cancel-conflict'){this.conflict=null;await this.show('home');}
    else if(action==='sign-out'){await this.onSave();await this.player.auth('sign-out',{});await this.show('home');}
    else if(action==='refresh-account'){await this.player.initialize();await this.show('home');}
-   else if(action==='reset-general'){await this.player.changeProfile('reset');this.equipmentDraft=null;await this.show('general');}
   }catch(error){if(b.dataset.provider)b.disabled=false;this.status(error.message,true);}
  }
  async submit(event){

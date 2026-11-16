@@ -5,6 +5,14 @@
 .commander-purchase-badge[data-state="available"]{background:#dcebdc;border-color:#5a8868;color:#245338}.commander-purchase-badge[data-state="rank-locked"]{background:#ede4d7;border-color:#b19a7d;color:#795736}.commander-purchase-badge[data-state="medal-shortfall"]{background:#f4e4b8;border-color:#af8737;color:#755117}.commander-purchase-badge[data-state="max"]{background:#d9e7de;border-color:#648170;color:#34583f}
 .war-skill[data-purchase-state="available"]{border:2px solid #6b9277}.war-skill.is-locked[data-purchase-state="rank-locked"]{border:2px dashed #ad9d85}.war-skill[data-purchase-state="medal-shortfall"]{border:2px solid #b78e43}.war-skill:not(.is-locked){border-color:#64816d}.war-skill:not(.is-locked) img{filter:none;opacity:1}
 .war-skill .commander-purchase-reason{font-size:11px;line-height:1.4}
+/* Both album and Hall filters use the same native, keyboard-accessible control. */
+#main-menu .war-select-control{position:relative;display:inline-flex;min-width:150px;max-width:100%;flex-direction:column;justify-content:center}
+#main-menu .war-select-control::after{content:'';position:absolute;right:16px;top:50%;width:7px;height:7px;border-right:2px solid #6d542d;border-bottom:2px solid #6d542d;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+#main-menu .war-select-control select{appearance:none;width:100%;min-height:46px;border:1px solid #b99255;border-radius:5px;padding:10px 40px 10px 14px;background:linear-gradient(140deg,#fffae8,#f1dfb9);box-shadow:inset 0 0 0 2px #fff4d8,0 2px 3px #66502526;font:600 14px/1.4 var(--war-sans);color:var(--war-ink);cursor:pointer}
+#main-menu .war-select-control select:hover{border-color:#8d6c34;background:linear-gradient(140deg,#fff9d8,#e6c888)}
+#main-menu .war-select-control select:focus-visible{outline:3px solid #347e9a;outline-offset:3px}
+#main-menu .war-select-control option{background:#fff8e7;color:#173d3c}
+.war-achievement-scope{align-self:center;padding:3px 7px;border:1px solid #92a38b;border-radius:10px;background:#e5ead9;color:#35594d;font:700 10px/1.3 var(--war-sans);text-align:center}
 :root{--war-ink:#173d3c;--war-paper:#f5edd7;--war-brass:#c4a164;--war-serif:Cinzel,Georgia,serif;--war-sans:'Source Sans 3','Segoe UI',sans-serif}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 #main-menu{padding:18px;background:radial-gradient(ellipse at 15% 0,#37605266,transparent 65%),#173d3c;color:var(--war-ink);font:16px/1.4 var(--war-sans);--gold:#c4a164}

@@ -12,7 +12,9 @@ Migration backfills trustworthy server history once, preserves medals/discoverie
 
 ## Achievements and skills
 
-Basic champion achievements retire from catalog, eligibility and Claim validation. Their units, discovery history, paid rewards and bought skills remain intact. Collections count Intermediate+ champions: Human 33, Dwarves 30, Elves 30. Rank VI still earns two medals and no XP. Every achievement reward requires manual Claim; gameplay wave/boss XP settles automatically.
+Basic champion achievements are included in the catalog, eligibility and Claim validation. Each first crafted Basic champion rewards one medal and one XP. Collections count all 38 champions in each faction, including Basic, while retaining their existing 5/15/30 milestones. Rank VI still earns two medals and no XP. Every achievement reward requires manual Claim; gameplay wave/boss XP settles automatically.
+
+Boss achievements, the five-boss collection and flawless-wave milestones share account-wide identities across factions. A flawless milestone uses the best consecutive sequence within one verified run; sequences from separate runs never add together. Additive reconciliation preserves historical grants, wallet balances, XP receipts, purchases and scores, treats previously paid faction aliases as already claimed, and backfills missing Basic eligibility from verified runs in the current progression epoch. No progression reset is performed. Commander has no reset/refund control in the active or legacy view; historical server receipts remain compatible.
 
 Morale Boost ranks require levels 5/9/12, War Horn 7/11/14 and Blood Wrath 9/12/15 plus sequential medal purchases. Existing ranks stay usable and repurchasable after refunds through permanent unlock entitlements. Saved defenses retain their original loadout.
 

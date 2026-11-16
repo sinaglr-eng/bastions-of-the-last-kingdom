@@ -1,7 +1,7 @@
 import {verifiedRunProgress} from './verified-run-progress.js';
 export {verifiedRunProgress} from './verified-run-progress.js';
 import {currentRunEpoch} from './progression-reset.js';
-import {accountRank,achievementXP,BOSS_XP,newlyAvailableSkills} from '../game/core/account-progression.js';
+import {accountRank,achievementXP,BOSS_XP,newlyAvailableSkills,canonicalAchievementId} from '../game/core/account-progression.js';
 import {achievementCatalog,streakAchievement} from '../game/core/achievements.js';
 import {currentFactionData} from '../game/core/current-data.js';
 
@@ -9,9 +9,10 @@ const parse=(s,fallback)=>{try{return JSON.parse(s);}catch{return fallback;}};
 const factions=['crown','forge','grove'];
 export function activeAchievement(id){
  if(typeof id!=='string')return null;
+ id=canonicalAchievementId(id);
  const f=id.split(':')[1],data=currentFactionData(factions.includes(f)?f:'crown');
  let row=achievementCatalog(data).find(a=>a.id===id);
- if(!row&&/^streak:(crown|forge|grove):[1-9]\d*$/.test(id)){const n=Number(id.split(':')[2]);if(Number.isSafeInteger(n)&&n%10===0)row=streakAchievement(f,n/10);}
+ if(!row&&/^streak:global:[1-9]\d*$/.test(id)){const n=Number(id.split(':')[2]);if(Number.isSafeInteger(n)&&n%10===0)row=streakAchievement('global',n/10);}
  return row?{...row,xp:achievementXP(data,id)}:null;
 }
 export async function ensureAccountProgression(db,user){

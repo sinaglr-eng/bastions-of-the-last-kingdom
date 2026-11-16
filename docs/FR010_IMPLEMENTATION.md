@@ -42,7 +42,7 @@ A positive keep-health loss resets the current flawless streak immediately. Heal
 
 ## General
 
-Each skill has three ranks. Purchasing ranks I, II and III costs an additional 5, 10 and 20 medals respectively. A player equips at most three different unlocked skills. The loadout is fixed at run creation; profile changes and refunds affect future runs. Resetting skills refunds the medals actually spent, with transaction idempotency.
+Each skill has three ranks. Purchasing ranks I, II and III costs an additional 5, 10 and 20 medals respectively. A player equips at most three different unlocked skills. The loadout is fixed at run creation; profile changes affect future runs. The Commander reset/refund controls are removed from both menu variants. Existing server receipts remain idempotent for older clients.
 
 | Skill | Rank I / II / III | Activation |
 |---|---|---|

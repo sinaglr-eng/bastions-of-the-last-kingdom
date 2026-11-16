@@ -11,7 +11,9 @@ import {playerName} from './validation.js';
 import {authCapabilities} from './social-auth.js';
 import {ensureProgressionReset,currentRunEpoch} from './progression-reset.js';
 import {activeAchievement,accountProgression,settleRunExperience} from './account-progression.js';
-import {eligibleChampion,skillGate,accountRank,newlyAvailableSkills} from '../game/core/account-progression.js';
+import {eligibleChampion,skillGate,accountRank,newlyAvailableSkills,canonicalAchievementId} from '../game/core/account-progression.js';
+import {BOSS_TYPES} from '../game/core/achievements.js';
+import {mergeAchievementRows,reconcileAchievementEntitlements} from './achievement-entitlements.js';
 
 const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const fail=(message,status=400)=>{throw Object.assign(new Error(message),{status});};
@@ -24,12 +26,13 @@ async function ensureProfile(db,id){await db.prepare('INSERT OR IGNORE INTO fr01
 async function profile(db,id,attempt=0){
  const reset=await ensureProgressionReset(db);
  await ensureProfile(db,id);
- const progression=await accountProgression(db,id);
+ let progression=await accountProgression(db,id);
+ if(await reconcileAchievementEntitlements(db,id,reset))progression=await accountProgression(db,id);
  const row=await db.prepare('SELECT * FROM fr010_profiles WHERE user_id = ?').bind(id).first();
- const grants=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results;
+ const grants=mergeAchievementRows((await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results);
  const rawEligible=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, verified_at AS verifiedAt, run_id AS runId FROM fr010_eligible WHERE user_id = ? ORDER BY verified_at, achievement_id').bind(id).all()).results;
  const progress=(await db.prepare("SELECT faction_id AS factionId,MAX(highest_wave) AS highestWave,MAX(COALESCE(json_extract(progress_json,'$.streakBest'),0)) AS streakBest FROM fr010_runs WHERE user_id=? AND outcome!='developer' AND started_at>=? GROUP BY faction_id").bind(id,reset.resetAt).all()).results;
- const eligible=rawEligible.filter(g=>activeAchievement(g.id)).map(g=>({...g,reward:activeAchievement(g.id).reward,xp:activeAchievement(g.id).xp}));
+ const owned=new Set(grants.map(g=>g.id)),eligible=mergeAchievementRows(rawEligible).filter(g=>!owned.has(g.id)&&activeAchievement(g.id)).map(g=>({...g,reward:activeAchievement(g.id).reward,xp:activeAchievement(g.id).xp}));
  const discovered=(await db.prepare("SELECT faction_id,progress_json FROM fr010_runs WHERE user_id=? AND outcome!='developer' AND started_at>=?").bind(id,reset.resetAt).all()).results,discoveries={};for(const r of discovered){const x=JSON.parse(r.progress_json);discoveries[r.faction_id]=[...new Set([...(discoveries[r.faction_id]||[]),...(x.champions||[])])];}
  const current=await db.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').bind(id).first();if(current.revision!==progression.revision||row.revision!==progression.revision){if(attempt>=7)fail('Profile is busy. Please retry.',409);return profile(db,id,attempt+1);}
  return {...progression,progressionEpoch:reset.epoch,progressionResetAt:reset.resetAt,discoveries,revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
@@ -58,23 +61,23 @@ async function walletMutation(db,user,b,kind){
 
 function earnedGrants(game,existing){
  const rows=game.progress.grants(),ids=new Set([...existing.map(x=>x.id),...rows.map(x=>x.id)]),f=game.factionId;
- const champions=[...ids].filter(x=>x.startsWith(`champion:${f}:`)&&eligibleChampion(game.data.towers[x.split(':').at(-1)])).length,bosses=[...ids].filter(x=>x.startsWith(`boss:${f}:`)).length;
+ const champions=[...ids].filter(x=>x.startsWith(`champion:${f}:`)&&eligibleChampion(game.data.towers[x.split(':').at(-1)])).length,bosses=new Set([...ids].map(canonicalAchievementId).filter(x=>x.startsWith('boss:global:')).map(x=>x.split(':').at(-1)));
  for(const [target,reward]of [[5,2],[15,4],[30,8]])if(champions>=target)rows.push({id:`collection:${f}:${target}`,factionId:f,reward});
- if(bosses>=5)rows.push({id:`boss-collection:${f}`,factionId:f,reward:5});const owned=new Set(existing.map(x=>x.id));return rows.filter(x=>!owned.has(x.id));
+ if(BOSS_TYPES.every(id=>bosses.has(id)))rows.push({id:'boss-collection:global',factionId:null,reward:5});const owned=new Set(existing.map(x=>canonicalAchievementId(x.id)));return rows.map(row=>({...row,id:canonicalAchievementId(row.id)})).filter(x=>!owned.has(x.id));
 }
 async function claimAchievement(db,user,b){
  if(!validId(b.requestId)||!Number.isSafeInteger(b.revision)||typeof b.achievementId!=='string'||b.achievementId.length>200)fail('Invalid claim request.');
- const key='request:'+b.requestId,detail=b.achievementId;
- const result=async()=>{const receipt=await db.prepare('SELECT detail FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,'xp-claim:'+detail).first();return {...await profile(db,user),...(receipt?{claimReceipt:JSON.parse(receipt.detail)}:{})};};
+ const key='request:'+b.requestId,requested=b.achievementId,detail=canonicalAchievementId(requested);
+ const result=async()=>{let receipt=await db.prepare('SELECT detail FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,'xp-claim:'+requested).first();if(!receipt&&requested!==detail)receipt=await db.prepare('SELECT detail FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,'xp-claim:'+detail).first();return {...await profile(db,user),...(receipt?{claimReceipt:JSON.parse(receipt.detail)}:{})};};
  const prior=await db.prepare('SELECT kind,detail FROM fr010_ledger WHERE user_id=? AND entry_id=?').bind(user,key).first();
- if(prior){if(prior.kind!=='claim'||prior.detail!==detail)fail('Request identity cannot change.',409);return result();}
+ if(prior){if(prior.kind!=='claim'||prior.detail!==requested)fail('Request identity cannot change.',409);return result();}
  const p=await profile(db,user);
  if(p.grants.some(g=>g.id===detail))return result();
  const definition=activeAchievement(detail);if(!definition)fail('This achievement is no longer available.');const candidate=p.eligible.find(g=>g.id===detail),earned=candidate?{...candidate,reward:definition.reward}:null;if(!earned)fail('This achievement has not been verified.',409);
  if(p.revision!==b.revision)fail('Profile changed. Refresh before trying again.',409);
  const xp=definition.xp,now=Date.now(),claimReceipt={receiptId:'achievement:'+detail,status:'confirmed',xpBefore:p.xpTotal,xpAfter:p.xpTotal+definition.xp,amount:definition.xp,levelBefore:accountRank(p.xpTotal).level,levelAfter:accountRank(p.xpTotal+definition.xp).level,newSkills:newlyAvailableSkills(p.xpTotal,p.xpTotal+definition.xp)},guard='EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id=? AND revision=?)',requestGuard='EXISTS (SELECT 1 FROM fr010_ledger WHERE user_id=? AND entry_id=? AND kind=\'claim\')';
  await db.batch([
-  db.prepare(`INSERT INTO fr010_ledger(user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,0,'claim',?,? WHERE ${guard} AND NOT EXISTS(SELECT 1 FROM fr010_grants WHERE user_id=? AND achievement_id=?)`).bind(user,key,detail,now,user,p.revision,user,detail),
+  db.prepare(`INSERT INTO fr010_ledger(user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,0,'claim',?,? WHERE ${guard} AND NOT EXISTS(SELECT 1 FROM fr010_grants WHERE user_id=? AND achievement_id=?)`).bind(user,key,requested,now,user,p.revision,user,detail),
   db.prepare(`INSERT INTO fr010_grants(user_id,achievement_id,faction_id,reward,created_at) SELECT ?,?,?,?,? WHERE ${guard} AND ${requestGuard}`).bind(user,detail,earned.factionId,earned.reward,now,user,p.revision,user,key),
   db.prepare(`INSERT INTO fr010_ledger(user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,?,'achievement',?,? WHERE ${guard} AND ${requestGuard}`).bind(user,'achievement:'+detail,earned.reward,detail,now,user,p.revision,user,key),
   db.prepare(`INSERT OR IGNORE INTO account_xp_ledger(user_id,source_id,amount,created_at) SELECT ?,?,?,? WHERE ${guard} AND ${requestGuard}`).bind(user,'achievement:'+detail,xp,now,user,p.revision,user,key),

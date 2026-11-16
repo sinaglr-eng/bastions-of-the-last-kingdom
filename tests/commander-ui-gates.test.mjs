@@ -36,9 +36,9 @@ test('rank requirements, current account, medal shortage, ownership and max rank
  const legacy={xpTotal:0,balance:100,skills:{'war-horn':1},equipped:['war-horn'],permanentUnlocks:{'war-horn':1}};assert.equal(skillGate('war-horn',1,legacy).allowed,true);assert.equal(skillPurchaseState(legacy,'war-horn').canBuy,false);assert.match(generalView(legacy,true,{selected:'war-horn'}),/Owned rank I · Equipped/);
 });
 
-test('all three new coded illustrations are distinct and preserve original skill artwork',()=>{
+test('all three new painterly illustrations use distinct shared raster paths and preserve original skill artwork',()=>{
  const icons=newIds.map(id=>progressionArtwork(id));assert.equal(new Set(icons).size,3);
- for(const [i,src]of icons.entries()){assert.match(src,/^data:image\/svg\+xml/);assert.match(decodeURIComponent(src.split(',')[1]),/<svg/);assert.equal(warArt(newIds[i]),src);}
+ for(const [i,src]of icons.entries()){assert.equal(src,`/assets/ui/war-table/${newIds[i]}.webp`);assert.equal(warArt(newIds[i]),src);const bytes=fs.readFileSync(new URL('../public'+src,import.meta.url));assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length>10000,'Runtime artwork is the full painted raster, not a tiny placeholder');}
  assert.match(progressionArtwork('war-horn'),/war-horn\.webp$/);
 });
 

@@ -10,6 +10,7 @@ import {sqliteDatabase} from '../backend/sqlite-adapter.js';
 import {migrateFr010} from '../backend/migrate-fr010.js';
 import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
+import {Game} from '../game/core/game.js';
 
 const base='http://127.0.0.1:4174';
 test('new Commander skill purchases enforce each account gate, sequential costs and idempotency',async()=>{
@@ -72,7 +73,7 @@ test('Commander strike replay credits a real boss kill and persists its single u
   const command=(action,...args)=>({action,args}),used=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:0,commands:[command('activateGeneral','decisive-strike'),{action:'advance',ticks:1}],score:'999999999999'},a.cookie);
   assert.equal(used.r.status,200,JSON.stringify(used.value));let saved=(await f.call('/api/player/active',null,a.cookie)).value.run,restored=restoreRun(currentFactionData('crown'),saved.snapshot);
   assert.equal(restored.kills,2);assert.equal(restored.progress.bossKills,1);assert.equal(restored.commandPoints.value,8);assert.equal(restored.lives,45);assert.ok(restored.towers.every(t=>(t.mvpLevel||0)===0));
-  assert.ok(restored.progress.bosses.has('host_10'));assert.ok((await f.call('/api/player/profile',null,a.cookie)).value.eligible.some(r=>r.id==='boss:crown:host_10'));
+  assert.ok(restored.progress.bosses.has('host_10'));assert.ok((await f.call('/api/player/profile',null,a.cookie)).value.eligible.some(r=>r.id==='boss:global:host_10'));
   const nextCommands=[...[[20,18],[21,18],[20,17],[21,17],[22,18]].map(p=>command('place',...p)),command('keep'),command('startCombat'),{action:'advance',ticks:16}],next=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:1,commands:nextCommands},a.cookie);
   assert.equal(next.r.status,200,JSON.stringify(next.value));saved=(await f.call('/api/player/active',null,a.cookie)).value.run;restored=restoreRun(currentFactionData('crown'),saved.snapshot);const before=restored.combat.enemies.map(e=>[e.id,e.hp]);assert.ok(before.length>0);
   const duplicate=await f.call(`/api/player/runs/${run.id}/commands`,{batchId:crypto.randomUUID(),sequence:2,commands:[command('activateGeneral','decisive-strike')]},a.cookie);assert.equal(duplicate.r.status,200,JSON.stringify(duplicate.value));
@@ -110,9 +111,79 @@ function fixture(){
  const env={DB:db,ADMIN_TOKEN:'test-only-owner',AUTH_SECRET:'test-only-auth-secret-at-least-thirty-two-characters',AUTH_BASE_URL:base,AUTH_MAIL_MODE:'local',AUTH_LOCAL_MAIL:async value=>mail.push(value),GAME_ORIGINS:base};
  const ip=`192.0.2.${++fixtureNumber}`;
  const call=async(path,body,cookie='',method=body?'POST':'GET')=>{const r=await worker.fetch(new Request(base+path,{method,headers:{Origin:base,'X-Forwarded-For':ip,'CF-Connecting-IP':ip,...(cookie?{Cookie:cookie}:{}),...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})}),env);let value;try{value=await r.clone().json();}catch{}return {r,value};};
- async function account(email='commander@example.test',name='Commander'){const signup=await call('/api/auth/sign-up/email',{name,email,password:'test-password-for-fr010',callbackURL:base+'/'});assert.ok(signup.r.ok,signup.value?.error||JSON.stringify(signup.value));assert.equal(mail.at(-1).kind,'verify');const verified=await worker.fetch(new Request(mail.at(-1).url,{headers:{Origin:base}}),env);assert.ok([200,302].includes(verified.status));const cookie=verified.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.ok(cookie);const session=await call('/api/player/session',null,cookie);assert.ok(session.value.user);return {cookie,user:session.value.user};}
+ async function account(email='commander@example.test',name='Commander'){const signup=await call('/api/auth/sign-up/email',{name,email,password:'test-password-for-fr010',callbackURL:base+'/'});assert.ok(signup.r.ok,signup.value?.error||JSON.stringify(signup.value));assert.equal(mail.at(-1).kind,'verify');const verified=await worker.fetch(new Request(mail.at(-1).url,{headers:{Origin:base,'CF-Connecting-IP':ip}}),env);assert.ok([200,302].includes(verified.status));const cookie=verified.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.ok(cookie);const session=await call('/api/player/session',null,cookie);assert.ok(session.value.user);return {cookie,user:session.value.user};}
  return {db,env,mail,call,account};
 }
+function storedEvidence(f,user,{faction='crown',champions=[],bosses=[],streak=0,outcome='abandoned',developer=false,epoch,startedAt,summary=true}={}){
+ const marker=f.db.sqlite.prepare('SELECT id,completed_at FROM progression_resets').get(),g=new Game(currentFactionData(faction),{seed:42,runId:crypto.randomUUID(),accountId:user});
+ g.progressionEpoch=epoch??marker.id;g.progress.champions=new Set(champions);g.progress.bosses=new Set(bosses);g.progress.bossKills=bosses.length;g.progress.streakBest=streak;g.progress.highestWave=streak;g.developerMode=developer;
+ const progress=summary?{champions,bosses,bossKills:bosses.length,streakBest:streak}:{};
+ f.db.sqlite.prepare('INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at,outcome,highest_wave,progress_json) VALUES(?,?,?,?,42,?,\'{}\',?,?,?,?,?)').run(g.runId,user,faction,g.data.rulesetRevision,JSON.stringify(serializeRun(g)),startedAt??Math.max(Date.now(),marker.completed_at),Date.now(),outcome,streak,JSON.stringify(progress));return g;
+}
+
+test('global entitlement reconciliation preserves historical payments, receipts, purchases and exact scores',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=77,skills_json=?,equipped_json=? WHERE user_id=?').run('{"war-horn":1}','["war-horn"]',user);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=887,credited_waves=19 WHERE user_id=?').run(user);
+  const originals=[['boss:crown:host_10','crown',2,100],['boss:forge:host_10','forge',2,101],['streak:crown:10','crown',1,102],['streak:grove:10','grove',1,103],['boss-collection:forge','forge',5,104]];
+  for(const row of originals)f.db.sqlite.prepare('INSERT INTO fr010_grants VALUES(?,?,?,?,?)').run(user,...row);
+  for(const id of ['boss:grove:host_10','boss:crown:host_20','boss:forge:host_20'])f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,?,2,1,NULL)').run(user,id,id.split(':')[1]);
+  const requestId=crypto.randomUUID(),oldReceipt={receiptId:'achievement:streak:crown:10',status:'confirmed',xpBefore:12,xpAfter:13,amount:1,levelBefore:1,levelAfter:1,newSkills:[]},receiptJSON=JSON.stringify(oldReceipt);
+  f.db.sqlite.prepare("INSERT INTO fr010_ledger VALUES(?,?,0,'claim',?,1)").run(user,'request:'+requestId,'streak:crown:10');f.db.sqlite.prepare("INSERT INTO fr010_ledger VALUES(?,?,0,'xp-claim',?,1)").run(user,'xp-claim:streak:crown:10',receiptJSON);f.db.sqlite.prepare("INSERT INTO fr010_ledger VALUES(?,?,-5,'purchase','historical purchase',1)").run(user,'historical-purchase');
+  const score=crypto.randomUUID();f.db.sqlite.prepare("INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at,outcome,score_text,score_digits,highest_wave) VALUES(?,?,'crown','fr010-v1',42,'{}','{}',1,1,'lost','9007199254740993123',19,50)").run(score,user);
+  const before={ledger:f.db.sqlite.prepare('SELECT * FROM fr010_ledger WHERE user_id=? ORDER BY entry_id').all(user),xp:f.db.sqlite.prepare('SELECT * FROM account_xp_ledger WHERE user_id=? ORDER BY source_id').all(user),score:f.db.sqlite.prepare('SELECT * FROM fr010_runs WHERE id=?').get(score)};
+  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,77);assert.equal(p.xpTotal,887);assert.deepEqual(p.skills,{'war-horn':1});assert.deepEqual(p.equipped,['war-horn']);assert.deepEqual(p.grants.map(g=>g.id).sort(),['boss-collection:global','boss:global:host_10','streak:global:10']);assert.ok(p.grants.every(g=>g.factionId===null));assert.deepEqual(p.eligible.map(g=>g.id),['boss:global:host_20']);
+  const retry=await f.call('/api/player/achievements/claim',{requestId,revision:0,achievementId:'streak:crown:10'},a.cookie);assert.equal(retry.r.status,200);assert.deepEqual(retry.value.claimReceipt,oldReceipt);assert.equal(retry.value.balance,77);assert.equal(retry.value.xpTotal,887);
+  const already=await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:'boss:global:host_10'},a.cookie);assert.equal(already.value.balance,77);
+  assert.deepEqual(f.db.sqlite.prepare('SELECT * FROM fr010_ledger WHERE user_id=? ORDER BY entry_id').all(user),before.ledger);assert.deepEqual(f.db.sqlite.prepare('SELECT * FROM account_xp_ledger WHERE user_id=? ORDER BY source_id').all(user),before.xp);assert.deepEqual(f.db.sqlite.prepare('SELECT * FROM fr010_runs WHERE id=?').get(score),before.score);
+  for(const[id,faction,reward,created]of originals)assert.deepEqual({...f.db.sqlite.prepare('SELECT faction_id,reward,created_at FROM fr010_grants WHERE user_id=? AND achievement_id=?').get(user,id)},{faction_id:faction,reward,created_at:created});
+ }finally{f.db.sqlite.close();}
+});
+
+test('legacy and canonical pending claims race for one shared payout and keep exact request identity',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;for(const faction of ['crown','forge'])f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,?,2,1,NULL)').run(user,`streak:${faction}:20`,faction);
+  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.filter(e=>e.id==='streak:global:20').length,1);
+  const requests=['streak:global:20','streak:forge:20'].map(achievementId=>({requestId:crypto.randomUUID(),revision:p.revision,achievementId})),responses=await Promise.all(requests.map(b=>f.call('/api/player/achievements/claim',b,a.cookie)));assert.ok(responses.some(r=>r.r.status===200));
+  const after=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(after.balance,2);assert.equal(after.xpTotal,2);assert.equal(after.grants.filter(g=>g.id==='streak:global:20').length,1);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_ledger WHERE user_id=? AND kind='achievement'").get(user).n,1);
+  for(let i=0;i<responses.length;i++)if(responses[i].r.status===200){const again=await f.call('/api/player/achievements/claim',requests[i],a.cookie);assert.equal(again.r.status,200);assert.equal(again.value.balance,2);}
+  const paid=f.db.sqlite.prepare("SELECT entry_id,detail FROM fr010_ledger WHERE user_id=? AND kind='claim'").get(user),request=requests.find(r=>'request:'+r.requestId===paid.entry_id);assert.equal(paid.detail,request.achievementId);
+ }finally{f.db.sqlite.close();}
+});
+
+test('Basic champion backfill uses verified current-epoch progress and snapshot Sets, then permits one manual claim',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id,basics=faction=>Object.entries(currentFactionData(faction).towers).filter(([,u])=>u.advanced&&u.classification?.toLowerCase()==='basic').map(([id])=>id),crown=basics('crown'),forge=basics('forge'),grove=basics('grove');
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=9 WHERE user_id=?').run(user);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=16 WHERE user_id=?').run(user);
+  storedEvidence(f,user,{champions:crown,summary:false});const valid=storedEvidence(f,user,{faction:'forge',champions:[forge[0],'dw_shieldguard']});storedEvidence(f,user,{faction:'grove',champions:[grove[0]],developer:true});storedEvidence(f,user,{faction:'forge',champions:[forge[1]],startedAt:1});storedEvidence(f,user,{faction:'forge',champions:[forge[2]],epoch:'initial'});storedEvidence(f,user,{faction:'grove',champions:[grove[1]],outcome:'reset'});
+  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,9);assert.equal(p.xpTotal,16);const champions=p.eligible.filter(e=>e.id.startsWith('champion:'));assert.equal(champions.length,crown.length+1);assert.ok(crown.every(id=>champions.some(e=>e.id==='champion:crown:'+id)));assert.ok(champions.some(e=>e.id==='champion:forge:'+forge[0]));assert.ok(p.eligible.some(e=>e.id==='collection:crown:5'));
+  const repeat=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(repeat.revision,p.revision);assert.deepEqual(repeat.eligible,p.eligible);
+  const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:'champion:crown:'+crown[0]},paid=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(paid.r.status,200);assert.equal(paid.value.balance,10);assert.equal(paid.value.xpTotal,17);assert.equal((await f.call('/api/player/achievements/claim',request,a.cookie)).value.xpTotal,17);
+  f.db.sqlite.prepare('UPDATE fr010_runs SET sequence=1,progress_json=? WHERE id=?').run(JSON.stringify({champions:[forge[0],forge[1]]}),valid.runId);const newer=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(newer.eligible.filter(e=>e.id==='champion:forge:'+forge[1]).length,1);assert.equal(newer.balance,10);assert.equal(newer.xpTotal,17);
+ }finally{f.db.sqlite.close();}
+});
+
+test('global boss collection combines factions while flawless milestones use the best single run',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;storedEvidence(f,user,{bosses:['host_10','host_20'],streak:9});const second=storedEvidence(f,user,{faction:'forge',bosses:['host_30','host_40'],streak:8});storedEvidence(f,user,{faction:'grove',bosses:['host_50'],streak:7});
+  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.filter(e=>e.id.startsWith('boss:global:')).length,5);assert.equal(p.eligible.filter(e=>e.id==='boss-collection:global').length,1);assert.equal(p.eligible.filter(e=>e.id.startsWith('streak:')).length,0);assert.equal(p.balance,0);assert.equal(p.xpTotal,0);
+  f.db.sqlite.prepare('UPDATE fr010_runs SET sequence=1,progress_json=? WHERE id=?').run(JSON.stringify({bosses:['host_30','host_40'],streakBest:20}),second.runId);const later=(await f.call('/api/player/profile',null,a.cookie)).value;assert.deepEqual(later.eligible.filter(e=>e.id.startsWith('streak:')).map(e=>e.id).sort(),['streak:global:10','streak:global:20']);
+ }finally{f.db.sqlite.close();}
+});
+
+test('shared reconciliation rolls back atomically and concurrent retries never alter wallet or XP',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=21 WHERE user_id=?').run(user);f.db.sqlite.prepare('UPDATE account_progression SET xp_total=99 WHERE user_id=?').run(user);f.db.sqlite.prepare("INSERT INTO fr010_grants VALUES(?,'boss:crown:host_10','crown',2,1234)").run(user);f.db.sqlite.prepare("INSERT INTO fr010_eligible VALUES(?,'streak:forge:10','forge',1,1,NULL)").run(user);
+  const before=f.db.sqlite.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').get(user).revision,batch=f.db.batch;f.db.batch=statements=>batch([...statements,f.db.prepare('INSERT INTO deliberately_missing_entitlement_fixture VALUES(1)')]);
+  assert.equal((await f.call('/api/player/profile',null,a.cookie)).r.status,503);assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_grants WHERE user_id=? AND achievement_id='boss:global:host_10'").get(user).n,0);assert.equal(f.db.sqlite.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').get(user).revision,before);
+  f.db.batch=batch;const results=await Promise.all([f.call('/api/player/profile',null,a.cookie),f.call('/api/player/profile',null,a.cookie)]);assert.ok(results.every(r=>r.r.status===200));assert.ok(results.every(r=>r.value.balance===21&&r.value.xpTotal===99));assert.equal(f.db.sqlite.prepare("SELECT COUNT(*) n FROM fr010_grants WHERE user_id=? AND achievement_id='boss:global:host_10'").get(user).n,1);assert.equal(f.db.sqlite.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').get(user).revision,before+1);
+ }finally{f.db.sqlite.close();}
+});
+
+test('legacy achievement backfill reads large snapshots individually and never materializes them with all()',async()=>{
+ const f=fixture();let originalPrepare;try{const a=await f.account(),user=a.user.id,basic=faction=>Object.entries(currentFactionData(faction).towers).find(([,u])=>u.advanced&&u.classification?.toLowerCase()==='basic')[0],valid=basic('crown');
+  for(const options of [{champions:[valid],summary:false},{faction:'forge',champions:[basic('forge')],developer:true,summary:false},{faction:'grove',champions:[basic('grove')],epoch:'initial',summary:false}]){const g=storedEvidence(f,user,options);g.legacyFixturePadding='x'.repeat(512*1024);f.db.sqlite.prepare('UPDATE fr010_runs SET snapshot_json=? WHERE id=?').run(JSON.stringify(serializeRun(g)),g.runId);}
+  const allQueries=[],snapshotReads=[];originalPrepare=f.db.prepare;
+  const trace=(statement,sql)=>{const bind=statement.bind.bind(statement),all=statement.all.bind(statement),first=statement.first.bind(statement);statement.bind=(...args)=>trace(bind(...args),sql);statement.all=(...args)=>{if(/FROM fr010_runs/i.test(sql))allQueries.push(sql);return all(...args);};statement.first=(...args)=>{if(/SELECT snapshot_json FROM fr010_runs/i.test(sql))snapshotReads.push(sql);return first(...args);};return statement;};
+  f.db.prepare=sql=>trace(originalPrepare(sql),sql);const result=await f.call('/api/player/profile',null,a.cookie);assert.equal(result.r.status,200,JSON.stringify(result.value));
+  assert.equal(snapshotReads.length,3);assert.ok(allQueries.length>0);assert.ok(allQueries.every(sql=>!/^SELECT \*/i.test(sql)&&!sql.includes('snapshot_json')));assert.deepEqual(result.value.eligible.filter(e=>e.id.startsWith('champion:')).map(e=>e.id),['champion:crown:'+valid]);assert.equal(result.value.balance,0);assert.equal(result.value.xpTotal,0);
+ }finally{if(originalPrepare)f.db.prepare=originalPrepare;f.db.sqlite.close();}
+});
 test('FR010 real Better Auth verification, session, logout and invalid origin',async()=>{
  const f=fixture();try{const a=await f.account();assert.equal((await f.call('/api/player/session')).value.user,null);assert.equal((await f.call('/api/player/profile',null,a.cookie)).r.status,200);await f.call('/api/auth/sign-out',{},a.cookie);assert.equal((await f.call('/api/player/profile',null,a.cookie)).r.status,401);const r=await worker.fetch(new Request(base+'/api/player/profile',{headers:{Origin:'https://untrusted.example'}}),f.env);assert.equal(r.status,403);}finally{f.db.sqlite.close();}
 });
@@ -195,13 +266,13 @@ test('FR010 Facebook identity cannot access progress until email ownership is ve
  }finally{globalThis.fetch=originalFetch;f.db.sqlite.close();}
 });
 
-test('XP API: intermediate Claim grants medals and XP once; retired Basic cannot be claimed',async()=>{
- const f=fixture();try{const a=await f.account(),d=currentFactionData('crown'),normal=Object.keys(d.towers).find(id=>d.towers[id].classification?.toLowerCase()==='intermediate'),basic=Object.keys(d.towers).find(id=>d.towers[id].advanced&&!eligibleChampion(d.towers[id]));
+test('XP API: Intermediate and Basic champions grant their own medals and XP once',async()=>{
+ const f=fixture();try{const a=await f.account(),d=currentFactionData('crown'),normal=Object.keys(d.towers).find(id=>d.towers[id].classification?.toLowerCase()==='intermediate'),basic=Object.keys(d.towers).find(id=>d.towers[id].advanced&&d.towers[id].classification?.toLowerCase()==='basic');
  for(const id of [normal,basic])f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,\'crown\',1,1,NULL)').run(a.user.id,'champion:crown:'+id);
- let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.length,1);assert.equal(p.xpTotal,0);
+ let p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.eligible.length,2);assert.equal(p.xpTotal,0);
  const request={requestId:crypto.randomUUID(),revision:p.revision,achievementId:'champion:crown:'+normal},first=await f.call('/api/player/achievements/claim',request,a.cookie);assert.equal(first.r.status,200);assert.equal(first.value.balance,1);assert.equal(first.value.xpTotal,2);
  assert.equal((await f.call('/api/player/achievements/claim',request,a.cookie)).value.xpTotal,2);
- const retired=await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:first.value.revision,achievementId:'champion:crown:'+basic},a.cookie);assert.equal(retired.r.status,400);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM fr010_grants').get().n,1);
+ const requestBasic={requestId:crypto.randomUUID(),revision:first.value.revision,achievementId:'champion:crown:'+basic},paidBasic=await f.call('/api/player/achievements/claim',requestBasic,a.cookie);assert.equal(paidBasic.r.status,200);assert.equal(paidBasic.value.balance,2);assert.equal(paidBasic.value.xpTotal,3);assert.equal((await f.call('/api/player/achievements/claim',requestBasic,a.cookie)).value.xpTotal,3);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM fr010_grants').get().n,2);
  }finally{f.db.sqlite.close();}
 });
 test('XP API: account level gates are authoritative even with enough medals; Claim can open a gate',async()=>{

@@ -16,16 +16,16 @@ const place=g=>{for(const [x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])asse
 function combat(){const g=new Game(data,{seed:4,loadout:{'morale-boost':2,'war-horn':3,'field-logistics':3}});place(g);g.keep();g.startCombat();return g;}
 
 test('Every achievement has an image, and every champion/boss portrait resolves to an existing approved runtime asset',()=>{
- let portraits=0,bosses=0;
+ let portraits=0,bosses=0,expectedPortraits=0,basicPortraits=0;
  for(const faction of ['crown','forge','grove']){
-  const d=currentFactionData(faction),catalog=achievementCatalog(d,{streakBest:90});
+  const d=currentFactionData(faction),catalog=achievementCatalog(d,{streakBest:90});expectedPortraits+=Object.values(d.towers).filter(u=>u.advanced).length;
   for(const achievement of catalog){
    const src=achievementArtwork(achievement,d,true);assert.ok(src,achievement.id);
    if(src.startsWith('data:')){assert.match(decodeURIComponent(src.split(',')[1]),/^<svg/);}
-   else{assert.equal(fs.existsSync(new URL('../public/'+src.split('?')[0].replace(/^\//,''),import.meta.url)),true,src);if(achievement.kind==='champion')portraits++;if(achievement.kind==='boss')bosses++;}
+   else{assert.equal(fs.existsSync(new URL('../public/'+src.split('?')[0].replace(/^\//,''),import.meta.url)),true,src);if(achievement.kind==='champion'){portraits++;if(d.towers[achievement.id.split(':').at(-1)].classification.toLowerCase()==='basic')basicPortraits++;}if(achievement.kind==='boss')bosses++;}
   }
  }
- assert.equal(portraits,93);assert.equal(bosses,15);
+ assert.equal(portraits,expectedPortraits);assert.equal(basicPortraits,21);assert.equal(bosses,15);
 });
 test('Secret champion achievements preserve their hidden identity until earned',()=>{
  for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),secret=achievementCatalog(d).find(a=>a.secret);assert.ok(secret);assert.equal(achievementArtwork(secret,d,false),progressionArtwork('secret'));assert.notEqual(achievementArtwork(secret,d,true),achievementArtwork(secret,d,false));}

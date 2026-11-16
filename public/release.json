@@ -107,6 +107,16 @@
   "accountOptional": true,
   "achievementClaims": "manual",
   "achievementNotifications": true,
+  "achievementRevision": "shared-achievements-20261116",
+  "achievementScopes": {
+    "champions": "faction",
+    "basicChampionAchievements": true,
+    "basicChampionMedals": 1,
+    "basicChampionXP": 1,
+    "bosses": "account",
+    "bossCollection": "account",
+    "flawlessStreaks": "account-single-run-best"
+  },
   "accountProgression": {
     "revision": "account-xp-v1",
     "levels": 15,
@@ -125,6 +135,9 @@
   },
   "presentation": {
     "commanderNaming": true,
+    "commanderArtwork": "painted-war-table-20261116",
+    "commanderResetControl": false,
+    "hallDropdownTheme": "achievements",
     "homeMazeEditor": true,
     "generatedUiIcons": 18,
     "secretRecipesInCatalog": false,

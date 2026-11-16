@@ -181,6 +181,66 @@
       "width": 640,
       "height": 640,
       "bytes": 126552
+    },
+    {
+      "name": "field-promotion",
+      "source": "output/implementation/achievement-scope-current/artwork/originals/field-promotion.png",
+      "prompt": "Use case: stylized-concept. Asset type: square fantasy strategy game Commander ability illustration, Field Promotion. Create ONE finished painterly high-quality game UI illustration, full bleed square, no border, no text. Match the existing Forged Alliances artwork style: polished colorful fantasy game painting with slightly stylized dimensional forms, warm sunlight, royal blue cloth with gold trim, honey-colored limestone castle towers, evergreen valley, soft blue mountains and bright blue sky with puffy clouds. Visually rich painted metal, wood, stone, cloth and gentle bloom, crisp readable main subject, friendly heroic medieval aesthetic, consistent with an illustrated golden war horn or anvil ability icon. Subject: one large polished steel knight helmet with ornate golden brow and crest resting on a stone training pedestal in the foreground, a radiant golden upward double chevron floating immediately behind and above it to communicate a one-rank promotion; four smaller recruit helmets arranged on the lower training steps make five defenders in total. Sunlit royal-blue training banner and distant castle occupy secondary background. The upgraded main helmet and upward glow dominate the middle 65 percent; use a strong clean silhouette that reads at 80 pixels and keep important subject within the central 70 percent to support UI crops. NOT a flat vector badge, not an app screenshot, not a shield logo, no letters, no numbers, no words, no UI buttons, no watermark. New original artwork only; preserve all existing reference artwork.",
+      "created": "2026-11-16",
+      "output": "field-promotion.webp",
+      "references": [],
+      "styleReferencesInspected": [
+        "public/assets/ui/war-table/deep-refit.webp",
+        "public/assets/ui/war-table/field-logistics.webp",
+        "public/assets/ui/war-table/war-horn.webp"
+      ],
+      "width": 640,
+      "height": 640,
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "originalSha256": "0304f7bf42bcf3ff738ebe4c38e1c0ef13eabdee00e9bbdb17b209911c1225c4",
+      "sha256": "03ed4040aa798430605055a43e2a23beb4f3c79b451992a081ce2d03c61659a7",
+      "bytes": 143986
+    },
+    {
+      "name": "decisive-strike",
+      "source": "output/implementation/achievement-scope-current/artwork/originals/decisive-strike.png",
+      "prompt": "Use case: stylized-concept. Asset type: square fantasy strategy game Commander ability illustration, Decisive Strike. Create ONE finished full-bleed square illustration, no border and absolutely no text. Match Forged Alliances' existing richly painted colorful medieval strategy ability art: dimensional slightly stylized forms, polished warm gold, royal-blue cloth accents, honey-colored limestone castle, bright sunlit evergreen valley, soft blue mountain layers and a vivid azure sky with white puffy clouds; the same friendly heroic high-quality game painting style as an illustrated golden war horn or supply wagon. Subject: an enormous radiant golden command sun-seal floating high in the middle of the sky, delivering one magnificent white-gold shaft of magical light onto a stone battlefield foreground, with two smaller simultaneous gold beams to its sides. Below are a few small distant dark fantasy invader silhouettes, including one tiny flying creature, dwarfed by the collective command strike. Strong brilliant central magical impact and dimensional golden rays dominate the central 65 percent, castle and landscape remain secondary. The main impact must be recognisable at 80px without relying on small figures. Calm blue outer regions contrast a luminous golden center; avoid excessive white clipping. This is a single decisive divine command strike, not a fire spell and not blue electrical lightning. No gore, no explosions covering the entire image, no UI, no letters, no numbers, no labels, no watermark, no flat vector badge, no green tile icon. Keep important forms inside the central 70 percent for crops.",
+      "created": "2026-11-16",
+      "output": "decisive-strike.webp",
+      "references": [],
+      "styleReferencesInspected": [
+        "public/assets/ui/war-table/deep-refit.webp",
+        "public/assets/ui/war-table/field-logistics.webp",
+        "public/assets/ui/war-table/war-horn.webp"
+      ],
+      "width": 640,
+      "height": 640,
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "originalSha256": "80169e0d89a07e816b92dd43543520f3e0f5a8157b7bb1666e525d9fad898aaf",
+      "sha256": "7914905a9698f8613bce9c1ed5ebac3d4b1c8946b233c7c27f88eecf889ef782",
+      "bytes": 125234
+    },
+    {
+      "name": "fortified-keep",
+      "source": "output/implementation/achievement-scope-current/artwork/originals/fortified-keep.png",
+      "prompt": "Use case: stylized-concept. Asset type: square fantasy strategy game Commander ability illustration, Fortified Keep. Create ONE original finished full-bleed square illustration with no border and no text. Match the existing Forged Alliances illustrated ability set: colorful richly painted heroic medieval fantasy, dimensional slightly stylized objects, warm golden sunlight, detailed gold metal and limestone, royal-blue cloth, emerald green accents, evergreen valley, soft distant mountains and bright blue sky with fluffy clouds. Subject: a large proud protective shield of polished gold-edged steel stands prominently against the sunlit stone battlements of a fortified royal castle. The shield has a single LARGE faceted emerald-green HEART gemstone inset in its center, clear and recognisable at 80 pixels, softly glowing with restorative green-gold light. A few small green motes rise around the shield, subtle golden protective light embraces the castle walls behind. Royal-blue banners with gold heraldic animal motifs on nearby limestone towers. Strong clean foreground shield-heart silhouette fills the middle 60 percent; castle and valley are supporting context. Painterly material depth and warm highlights consistent with polished golden war horn and medieval supply wagon illustrations, not flat icon art. Important subject stays within central 70 percent for UI crops. No medical red cross, no letters, no numerals, no words, no buttons, no app screenshot, no watermark, no green square vector tile. Make it feel like more fortress health, not an offensive weapon.",
+      "created": "2026-11-16",
+      "output": "fortified-keep.webp",
+      "references": [],
+      "styleReferencesInspected": [
+        "public/assets/ui/war-table/deep-refit.webp",
+        "public/assets/ui/war-table/field-logistics.webp",
+        "public/assets/ui/war-table/war-horn.webp"
+      ],
+      "width": 640,
+      "height": 640,
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "originalSha256": "57dd62d43cd4d38c00a18e52078507589d085f6736572ff31d135dd5925c3e37",
+      "sha256": "f936dbb9f9732f7ed0c4907041a951c8c0326188ca5750fb3d76cc65ee791508",
+      "bytes": 155994
     }
   ]
 }

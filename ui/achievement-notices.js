@@ -1,5 +1,9 @@
 import {achievementById} from './war-table-view.js';
 import {achievementArtwork,escapeProgression as esc} from './progression-art.js';
+import {canonicalAchievementId,isSharedAchievement} from '../game/core/achievements.js';
+import {canonicalAchievementRows,achievementIdSet} from '../game/achievement-client-state.js';
+
+const noticeKey=key=>key.startsWith('unlocked:')?'unlocked:'+canonicalAchievementId(key.slice(9)):key;
 
 export class AchievementNotices{
  constructor({player,onView=()=>{}}){
@@ -12,9 +16,10 @@ export class AchievementNotices{
  push(event){
   if(!this.player.user)return;
   if(this.owner!==this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial')){clearTimeout(this.timer);this.timer=null;this.owner=this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial');this.queue=[];this.current=null;this.root.innerHTML='';this.seen=new Set();try{this.seen=new Set(JSON.parse(localStorage.getItem('war-achievement-notices:'+this.owner)||'[]'));}catch{}}
+  this.seen=new Set([...this.seen].map(noticeKey));
   if(event.type==='summary'){if(event.count)this.enqueue({type:'summary',count:event.count,key:'summary:'+Date.now()});return;}
   if(event.type==='claimed')return;
-  const rows=event.rows||[],fresh=rows.filter(g=>!this.seen.has('unlocked:'+g.id));
+  const known=achievementIdSet([...(this.player.profile?.eligible||[]),...(this.player.profile?.grants||[])]),rows=canonicalAchievementRows(event.rows),fresh=rows.filter(g=>!this.seen.has('unlocked:'+g.id)&&(event.type!=='pending'||!known.has(g.id)));
   for(const row of fresh.slice(0,3))this.enqueue({...row,type:event.type,key:'unlocked:'+row.id});
   if(fresh.length>3)this.enqueue({type:'summary',count:fresh.length-3,key:'summary:'+fresh.map(r=>r.id).join('|')});
  }
@@ -25,7 +30,7 @@ export class AchievementNotices{
   this.current=this.queue.shift();const n=this.current;this.seen.add(n.key);try{localStorage.setItem('war-achievement-notices:'+this.owner,JSON.stringify([...this.seen].filter(k=>!k.startsWith('summary:')).slice(-2000)));}catch{}
   const {data,row}=n.id?achievementById(n.id):{},name=row?.secret&&n.type!=='pending'?data.towers[n.id.split(':').at(-1)]?.name||row.name:row?.name||'Achievement';
   const summary=n.type==='summary',pending=n.type==='pending';
-  this.root.innerHTML=`<section class="achievement-notice" data-notice><button class="achievement-notice-close" aria-label="Dismiss achievement notification">×</button>${row?`<img class="achievement-notice-art" src="${esc(achievementArtwork(row,data,!pending))}" alt="">`:''}<div class="achievement-notice-copy"><div class="achievement-notice-live" role="status" aria-live="polite" aria-atomic="true"><small>ACHIEVEMENT UNLOCKED</small><h2>${summary?`${n.count} achievement${n.count===1?'':'s'}`:esc(name)}</h2><p>${pending?'Well done! Verification pending.':'Well done, Commander!'}</p></div></div></section>`;
+  this.root.innerHTML=`<section class="achievement-notice" data-notice><button class="achievement-notice-close" aria-label="Dismiss achievement notification">×</button>${row?`<img class="achievement-notice-art" src="${esc(achievementArtwork(row,data,!pending))}" alt="">`:''}<div class="achievement-notice-copy"><div class="achievement-notice-live" role="status" aria-live="polite" aria-atomic="true"><small>ACHIEVEMENT UNLOCKED</small><h2>${summary?`${n.count} achievement${n.count===1?'':'s'}`:esc(name)}</h2>${isSharedAchievement(n.id)?'<small>Shared across factions</small>':''}<p>${pending?'Well done! Verification pending.':'Well done, Commander!'}</p></div></div></section>`;
   this.remaining=4500;this.resume();
  }
  pause(){if(this.timer){clearTimeout(this.timer);this.remaining=Math.max(0,this.remaining-(performance.now()-this.started));this.timer=null;}}
