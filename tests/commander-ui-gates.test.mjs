@@ -38,10 +38,10 @@ test('rank requirements, current account, medal shortage, ownership and max rank
  const legacy={xpTotal:0,balance:100,skills:{'war-horn':1},equipped:['war-horn'],permanentUnlocks:{'war-horn':1}};assert.equal(skillGate('war-horn',1,legacy).allowed,true);assert.equal(skillPurchaseState(legacy,'war-horn').canBuy,false);assert.match(generalView(legacy,true,{selected:'war-horn'}),/Owned rank I · Equipped/);
 });
 
-test('all four expanded skills use distinct shared faceted vector artwork',()=>{
+test('all four expanded skills use distinct shared generated raster artwork',()=>{
  const icons=newIds.map(id=>progressionArtwork(id));assert.equal(new Set(icons).size,4);
- for(const [i,src]of icons.entries()){assert.equal(src,`/assets/ui/geometric/skill-${newIds[i]}.svg`);assert.equal(warArt(newIds[i]),src);const svg=fs.readFileSync(new URL('../public'+src,import.meta.url),'utf8');assert.match(svg,/viewBox="0 0 96 96"/);assert.ok((svg.match(/<polygon /g)||[]).length>=3,'Faceted artwork contains separate material planes');assert.ok(new Set([...svg.matchAll(/fill="(#[a-f0-9]+)"/g)].map(m=>m[1])).size>=3);assert.doesNotMatch(svg,/<text|<image|https?:\/\/(?!www.w3.org)/,'Symbols are original geometry, not letter or remote-image placeholders');}
- assert.match(progressionArtwork('war-horn'),/skill-war-horn\.svg$/);
+ for(const [i,src]of icons.entries()){assert.equal(src,`/assets/ui/commander-generated/skill-${newIds[i]}.webp`);assert.equal(warArt(newIds[i]),src);const bytes=fs.readFileSync(new URL('../public'+src,import.meta.url));assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length>2000);}
+ assert.match(progressionArtwork('war-horn'),/skill-war-horn\.webp$/);
 });
 
 test('promotion previews only the selected recruit and each one-click command upgrades just that target',()=>{

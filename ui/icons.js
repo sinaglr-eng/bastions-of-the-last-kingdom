@@ -1,4 +1,5 @@
 import {siteUrl} from '../game/site-url.js';
+import {commanderGeneratedArt} from './commander-art.js';
 const illustrated={maze:'maze-builder',wave:'wave',shield:'keep-health',coin:'gold',command:'command-points',clock:'time',commander:'commander',book:'recipes',warband:'enemy-waves',sound:'sound',settings:'settings',crown:'champions',basic:'basic-defenders'};
 const paths={
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
@@ -35,4 +36,4 @@ const paths={
   swords:'<path d="m3 3 7 2 10 13-2 2L5 10ZM21 3l-7 2-3 4M8 13l-4 5 2 2 5-4M2 16l6 6M16 22l6-6"/>'
 };
 export const icon=(name,cls='')=>`<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]||paths.shield}</svg>`;
-export const ornateIcon=(name,cls='')=>illustrated[name]?`<img class="icon illustrated-icon ${cls}" src="${siteUrl('assets/ui/'+(name==='maze'?'ornate/':'geometric/')+illustrated[name]+(name==='maze'?'.webp':'.svg'))}" width="32" height="32" alt="" aria-hidden="true" draggable="false">`:icon(name,cls);
+export const ornateIcon=(name,cls='')=>illustrated[name]?`<img class="icon illustrated-icon ${cls}" src="${name==='commander'?commanderGeneratedArt('commander'):siteUrl('assets/ui/'+(name==='maze'?'ornate/':'geometric/')+illustrated[name]+(name==='maze'?'.webp':'.svg'))}" width="32" height="32" alt="" aria-hidden="true" draggable="false">`:icon(name,cls);

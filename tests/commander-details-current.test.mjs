@@ -47,9 +47,9 @@ test('Chest rewards equip directly, preserve the reveal, and let the player choo
  const button={dataset:{vaultAction:'equip',id:ring.id},closest:()=>({querySelector:()=>({value:'ring2'})})};await v.click({target:{closest:()=>button}});assert.equal(calls[0].kind,'equipment');assert.equal(player.profile.artifacts.equipment.ring2,ring.id);assert.equal(v.tab,'chests');assert.equal(v.reveal.items.length,2);assert.match(v.rewards(v.reveal),/✓ Equipped/);
 });
 
-test('Rank overview exposes every rank and the current level; new icon URLs resolve to geometric assets',()=>{
+test('Rank overview exposes every rank and the current level; Commander icons resolve to generated raster assets',()=>{
  assert.match(commanderArt('silhouette'),/silhouette-armed\.webp$/);assert.ok(fs.existsSync('public'+commanderArt('silhouette')));
  const html=rankOverviewMarkup({xpTotal:83},{expanded:true});assert.match(html,/commander-rank-roadmap" open/);assert.equal((html.match(/<li class=/g)||[]).length,15);assert.match(html,/Footman/);assert.match(html,/1,000 XP/);
- for(const id of Object.keys(GENERAL_SKILLS)){const url=commanderSkillArt(id);assert.match(url,/\/geometric\/skill-/);assert.ok(fs.existsSync('public'+url));}
+ for(const id of Object.keys(GENERAL_SKILLS)){const url=commanderSkillArt(id);assert.match(url,/\/commander-generated\/skill-.*\.webp$/);assert.ok(fs.existsSync('public'+url));}
  for(const id of ['equipment','skills','chests','sets','dust'])assert.ok(fs.existsSync('public'+commanderUtilityArt(id)));
 });
