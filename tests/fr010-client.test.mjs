@@ -5,8 +5,20 @@ import {RunStore} from '../game/run-store.js';
 import {PlayerClient} from '../game/player-client.js';
 import {Game} from '../game/core/game.js';
 import {currentFactionData} from '../game/core/current-data.js';
-import {serializeRun} from '../game/core/run-state.js';
+import {serializeRun,restoreRun} from '../game/core/run-state.js';
+import {replayCommands} from '../game/core/run-journal.js';
 const store=()=>new RunStore({indexedDB:new IDBFactory()}),guestFetch=async()=>Response.json({user:null,profile:null,mailMode:'local'});
+
+function legacySnapshot(game){const snapshot=serializeRun(game),root=snapshot.graph.nodes[snapshot.graph.root.r].value;delete snapshot.commanderRulesVersion;delete snapshot.graph.nodes[root.general.r].value.commanderRulesVersion;return snapshot;}
+test('resuming legacy local progress appends a rules boundary after immutable pending promotion batches',async()=>{
+ const storage=store(),owner='legacy-commander-owner',initial=new Game(currentFactionData('forge'),{seed:42,runId:crypto.randomUUID(),accountId:owner,loadout:{'field-promotion':3,'field-logistics':3}}),g=restoreRun(initial.data,legacySnapshot(initial)),commands=[...[[18,18],[17,18],[19,18],[18,17],[18,19]].map(args=>({action:'place',args})),{action:'activateGeneral',args:['field-promotion']}];replayCommands(g,commands);
+ const oldBatch={runId:g.runId,accountId:owner,batchId:crypto.randomUUID(),sequence:0,commands},envelope={revision:0,meta:{runId:g.runId,accountId:owner,progressionEpoch:'initial',factionId:'forge',round:1,phase:g.phase},snapshot:serializeRun(g),sync:{sequence:0,nextSequence:1}},saved=await storage.put(owner,envelope,[oldBatch]);
+ const client=new PlayerClient({store:storage,fetcher:async()=>Response.json({receipts:[]})});client.user={id:owner};const resumed=await client.resume({local:saved});
+ assert.equal(resumed.general.commanderRulesVersion,2);assert.ok(resumed.roundCandidates.every(c=>c.tower.tier===2));assert.equal(resumed.general.uses['field-promotion'],1);assert.deepEqual(await storage.batch(g.runId,1),oldBatch);const boundary=await storage.batch(g.runId,2);assert.deepEqual(boundary.commands,[{action:'adoptCommanderRules',args:[2]}]);assert.equal(client.sync.nextSequence,2);assert.equal((await storage.get(owner)).snapshot.commanderRulesVersion,2);storage.close();
+});
+test('resuming a legacy cloud snapshot journals the cutover before any new selected-recruit action',async()=>{
+ const storage=store(),owner='legacy-cloud-owner',g=new Game(currentFactionData('crown'),{seed:42,runId:crypto.randomUUID(),accountId:owner}),client=new PlayerClient({store:storage,fetcher:async()=>Response.json({receipts:[]})});client.user={id:owner};const resumed=await client.resume({remote:{id:g.runId,factionId:'crown',sequence:7,snapshot:legacySnapshot(g)}});assert.equal(resumed.general.commanderRulesVersion,2);assert.deepEqual((await storage.batch(g.runId,8)).commands,[{action:'adoptCommanderRules',args:[2]}]);assert.equal(client.sync.sequence,7);assert.equal(client.sync.nextSequence,8);storage.close();
+});
 
 test('full reset epoch discards old account saves and command outboxes before offline-result recovery can replay them',async()=>{
  const storage=store(),game=new Game(currentFactionData('crown'),{runId:crypto.randomUUID(),accountId:'reset-owner'}),old=new PlayerClient({store:storage});old.user={id:'reset-owner'};game.place(18,18);game.end(false);await old.attach(game);assert.ok(await storage.batch(game.runId,1));let replayed=0;

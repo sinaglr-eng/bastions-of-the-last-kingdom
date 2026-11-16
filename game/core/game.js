@@ -116,6 +116,7 @@ export class Game {
   awardScore(points){if(!this.data.fr010){this.score+=Math.max(0,Math.floor(points));return;}const n=BigInt(this.scoreExact)+BigInt(typeof points==='string'?points:Math.max(0,Math.floor(points)));this.scoreExact=n.toString();this.score=Number(n>BigInt(Number.MAX_SAFE_INTEGER)?BigInt(Number.MAX_SAFE_INTEGER):n);}
   awardWaveScore(base){this.awardScore(this.data.fr010?(BigInt(this.round)*BigInt(base)).toString():this.round*base);}
   activateGeneral(id,slot=null){const ok=this.general.activate(id,slot);return ok;}
+  adoptCommanderRules(version){return this.general.adoptCommanderRules(version);}
   recoverLives(amount,source){
     if(!Number.isFinite(amount)||amount<=0||['won','lost'].includes(this.phase))return 0;
     const before=this.lives,cap=this.maxLives??this.data.balance.startingLives;
@@ -277,7 +278,7 @@ export class Game {
     const upgrades=[];
     for(const draw of this.draft.draws){const tower=this.towers.find(t=>t.id===draw.towerId);if(tower&&tower.state==='draft'){
       tower.family=draw.family;tower.tier=draw.tier;
-      if(replaced.has(tower.id)){delete tower.fieldPromoted;const change=this.general.applyDraftPromotion(draw,tower);if(change)upgrades.push(change);}
+      if(replaced.has(tower.id)){delete tower.fieldPromoted;if(this.general.replayingLegacyRules){const change=this.general.applyDraftPromotion(draw,tower,this.draft.promotionRankCap);if(change)upgrades.push(change);}}
     }}
     if(upgrades.length)this.emit('general-promoted',{id:'field-promotion',round:this.round,upgrades,cost:0,reroll:true,remainingUses:this.general.remainingUses('field-promotion')});
     this.previewRecipeId=null;this.selectionVoiceKey=null;this.emit('reroll',{cost:this.commandPoints.cost('reroll')});this.emit('change');this.message(`Draft rerolled · −${this.commandPoints.cost('reroll')} CP`);return true;

@@ -26,8 +26,8 @@ function actionBoundary(game,header){
  const render=()=>{renders++;updateHeaderCombatControls(header.host,game);},bindings={game,world,document,app,render,$:id=>id==='dialog'?dialog:header.host,phaseUi:{apply(){}},updateHeaderCombatControls,sendWave:()=>game.startCombat(),audio:{unlock(){unlocks++;},syncGameState(){}},draftCardActivation:{clear(){}},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop};
  bindings.tour={refresh(){}};
  const functions=compile(['combatTransport','mainAction','handleCommand'],bindings);
- const clickLine=source.split('\n').find(line=>line==="app.addEventListener('click',handleCommand);");assert.ok(clickLine);
- new Function('app','handleCommand',clickLine)(app,functions.handleCommand);
+ const clickWiring=[...source.matchAll(/\bapp\.addEventListener\(\s*(['"])click\1\s*,\s*handleCommand\s*\)\s*;/g)];assert.equal(clickWiring.length,1,'Production mounts one delegated command handler regardless of line endings or formatting');
+ new Function('app','handleCommand',clickWiring[0][0])(app,functions.handleCommand);
  const keyboardLine=source.split('\n').find(line=>line.startsWith("window.addEventListener('keydown'"));assert.ok(keyboardLine);
  new Function('window','document','game','world','$','audio','mainAction',keyboardLine)({addEventListener:(type,fn)=>callbacks.set(type,fn)},document,game,world,()=>dialog,bindings.audio,functions.mainAction);
  return {world,dialog,functions,get renders(){return renders;},get unlocks(){return unlocks;},click(button){callbacks.get('click')({target:{closest:()=>button},detail:1});},keydown(event){callbacks.get('keydown')(event);}};

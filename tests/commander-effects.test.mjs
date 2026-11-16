@@ -41,3 +41,16 @@ test('one command sound is bounded independently of victim count and respects so
   audio._muted=false;audio.play('general-fortified',{amount:10});assert.equal(calls.length,7);
   audio.play('general-promoted',{upgrades:[{from:1,to:2}]});assert.equal(calls.length,11);audio.play('general-promoted',{upgrades:[]});assert.equal(calls.length,11);
 });
+
+test('range activation gives one short keep cue, with no persistent defender rings',()=>{
+  const scene=new THREE.Scene(),effects=new CommanderEffects(scene,{createLabel:null,reducedMotion:()=>true});
+  assert.equal(effects.event('general-range',{bonus:3}),false);
+  assert.equal(effects.event('general-range',{bonus:1.5}),true);const first=effects.range.group;
+  assert.equal(first.children.length,2);const point=first.position.clone();effects.update(.2);assert.deepEqual(first.position,point);
+  effects.event('general-range',{bonus:2});assert.equal(first.parent,null);assert.equal(scene.children.length,4);
+  effects.update(1.21);assert.equal(effects.range,null);assert.equal(scene.children.length,3);
+  effects.event('general-range',{bonus:1});effects.dispose();assert.equal(scene.children.length,0);
+  const audio=new AudioManager(),calls=[];audio.context={currentTime:0};audio.tone=(...args)=>calls.push(args);audio.noise=(...args)=>calls.push(args);
+  audio.play('general-range',{bonus:1.5});assert.equal(calls.length,3);assert.ok(calls.every(args=>args.at(-1).category==='sounds'));
+  audio.play('general-range',{bonus:1.5});assert.equal(calls.length,3);
+});

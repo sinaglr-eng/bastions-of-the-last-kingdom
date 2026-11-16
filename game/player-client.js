@@ -5,6 +5,11 @@ import {Game} from './core/game.js';
 import {accountRank,newlyAvailableSkills,canonicalAchievementId} from './core/account-progression.js';
 import {canonicalAchievementRows,achievementIdSet} from './achievement-client-state.js';
 
+// A restored legacy snapshot may already include unsent commands in the
+// immutable outbox. Append the rules boundary after those batches; never edit
+// their command bodies or replay old global promotion from the current UI.
+function adoptCurrentCommanderRules(game){if(game.general?.commanderRulesVersion===1&&!['lost','won'].includes(game.phase))game.adoptCommanderRules(2);}
+
 export class PlayerClient{
  constructor({store=new RunStore(),fetcher=globalThis.fetch,base='./api',onChange=()=>{},onNotice=()=>{},onAchievement=()=>{},onPromotion=()=>{},onReset=()=>{}}={}){this.store=store;this.fetcher=(...args)=>fetcher(...args);this.base=base.replace(/\/$/,'');this.onChange=onChange;this.onNotice=onNotice;this.onAchievement=onAchievement;this.onPromotion=onPromotion;this.onReset=onReset;this.progressionEpoch='initial';this.resetPromise=Promise.resolve();this.resultReceipts=new Map();this.user=null;this.profile=null;this.online=false;this.game=null;this.writeChain=Promise.resolve();this.profileWrites=Promise.resolve();this.sync={sequence:0,nextSequence:0};this.lastSave=0;this.busy=false;this.status='Guest · local continuation only';this.nextRetry=0;this.pendingNotices=new Set();globalThis.addEventListener?.('online',()=>void this.recoverFinishedRun());}
  get owner(){return this.user?.id||'guest';}
@@ -120,8 +125,8 @@ export class PlayerClient{
   return {conflict:true,local,remote};
  }
  async resume(choice){
-  const e=choice.local;if(e){if((e.meta.accountId||'guest')!==this.owner)throw Error('Sign in to the owner of this save.');const game=restoreRun(currentFactionData(e.meta.factionId),e.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');game.paused=true;await this.attach(game,{...e.sync,revision:e.revision});return game;}
-  const remote=choice.remote;if(!remote)throw Error('No saved run.');const game=restoreRun(currentFactionData(remote.factionId),remote.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');game.paused=true;await this.attach(game,{sequence:remote.sequence,discardRun:remote.id});return game;
+  const e=choice.local;if(e){if((e.meta.accountId||'guest')!==this.owner)throw Error('Sign in to the owner of this save.');const game=restoreRun(currentFactionData(e.meta.factionId),e.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');adoptCurrentCommanderRules(game);game.paused=true;await this.attach(game,{...e.sync,revision:e.revision});return game;}
+  const remote=choice.remote;if(!remote)throw Error('No saved run.');const game=restoreRun(currentFactionData(remote.factionId),remote.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');adoptCurrentCommanderRules(game);game.paused=true;await this.attach(game,{sequence:remote.sequence,discardRun:remote.id});return game;
  }
  async excludeDeveloper(){if(!this.game?.accountId)return;try{await this.request(`/player/runs/${this.game.runId}/developer`,{});}catch{this.onNotice('Developer exclusion pending. This run cannot submit further commands.');}this.game.journal=[];}
 }

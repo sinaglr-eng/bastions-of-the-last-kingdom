@@ -445,7 +445,8 @@ function handleCommand(e){
   if(action==='result-retry'){showResult(!!resultContext?.campaign);return;}
   if(!game||game.data.fr010&&mainMenu?.visible)return;
   if(action==='general-skill'){game.activateGeneral(b.dataset.skill);return;}
-  if(action==='general-promotion'){game.activateGeneral('field-promotion');return;}
+  if(action==='general-promotion'){const targetId=Number(b.dataset.towerId);if(Number.isSafeInteger(targetId)&&targetId===game.selected)game.activateGeneral('field-promotion',targetId);return;}
+  if(action==='general-range'){game.activateGeneral('extended-range');return;}
   if(action==='general-strike-prepare'){game.general.prepareStrike();return;}
   if(action==='general-strike-execute'){if(game.general.strikePrepared)game.activateGeneral('decisive-strike');return;}
   if(action==='general-strike-cancel'){game.general.cancelStrike();renderGeneralControls();$('general-controls').querySelector('[data-command-skill="decisive-strike"] button')?.focus({preventScroll:true});return;}

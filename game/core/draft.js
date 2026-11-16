@@ -14,10 +14,10 @@ const reserveIdentity=defender=>{
 export class DraftManager {
   constructor(data,rng,commandPoints=new CommandPoints(data.balance)) {
     this.data=data;this.rng=rng;this.commandPoints=commandPoints;this.draws=[];this.forced=null;
-    this.rerollsUsed=0;this.carriedReserve=null;this.reserveSelection=null;this.reservedDefender=null;this.finalSelection=null;this.finalDefender=null;this.resolved=false;this.promotionRankCap=0;
+    this.rerollsUsed=0;this.carriedReserve=null;this.reserveSelection=null;this.reservedDefender=null;this.finalSelection=null;this.finalDefender=null;this.resolved=false;
   }
   roll(mastery) {
-    this.mastery=mastery;this.promotionRankCap=0;
+    this.mastery=mastery;
     this.roundForced=this.forced?{...this.forced}:null;
     this.carriedReserve=this.reservedDefender?reserveIdentity(this.reservedDefender):null;
     this.reservedDefender=null;this.reserveSelection=null;this.finalSelection=null;this.finalDefender=null;this.rerollsUsed=0;this.resolved=false;this.closedEarly=false;

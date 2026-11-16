@@ -16,6 +16,9 @@
 @media(min-width:751px) and (max-width:1450px){#app .topbar .brand.forged-brand{flex:0 0 42px;width:42px;min-width:42px}#app .topbar .forged-brand .brand-wide{display:none}#app .topbar .forged-brand .brand-compact{display:block;width:42px;height:42px}}
 #app .general-command-skill.is-active button:disabled{opacity:1;background:#41664d;color:#fff1c3}
 .general-promotion-preview{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:0}
+.general-command-resources{display:grid;gap:3px;text-align:right;font-size:12px;color:#80632f;white-space:nowrap}
+.general-promotion-preview .is-eligible{padding:9px;background:#e7eddb;border:1px solid #98ac83;border-radius:3px}
+.general-promotion-preview .is-capped{padding:9px;background:#f1e8d4;border:1px solid #c1b18d;border-radius:3px}
 .general-promotion-preview[hidden]{display:none!important}
 .general-promotion-preview li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;padding:7px 0;border-bottom:1px solid #dbc99f;font-size:11px;line-height:1.35}
 .general-promotion-preview li>span{min-width:0}.general-promotion-preview strong{font-weight:600;overflow-wrap:anywhere}.general-promotion-preview li>span>small{display:block;color:#6d6e55}

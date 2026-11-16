@@ -31,7 +31,7 @@ const RANKS=['','I','II','III','IV','V','VI'];
 export class CommanderEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),towerPoint=null,targetPoint=null,isVisible=target=>target.visible!==false,camera=()=>null,fortressPoint=()=>new THREE.Vector3(38,19.4,14),reducedMotion=()=>false,createLabel=textLabel,maxTargets=1024}={}){
     this.scene=scene;this.position=position;this.towerPoint=towerPoint;this.targetPoint=targetPoint;this.isVisible=isVisible;this.camera=camera;this.fortressPoint=fortressPoint;this.reducedMotion=reducedMotion;this.createLabel=createLabel;this.maxTargets=Math.min(4096,Math.max(1,Math.floor(maxTargets)||1024));this.promotions=[];this.fortified=null;this.strike=null;this.disposed=false;
-    this.matrix=new THREE.Matrix4();this.scale=new THREE.Vector3();this.point=new THREE.Vector3();this.rotation=new THREE.Quaternion();
+    this.range=null;this.matrix=new THREE.Matrix4();this.scale=new THREE.Vector3();this.point=new THREE.Vector3();this.rotation=new THREE.Quaternion();
     this.beams=new THREE.InstancedMesh(new THREE.CylinderGeometry(.035,.035,1,5),material(WHITE),this.maxTargets);
     this.glows=new THREE.InstancedMesh(new THREE.CylinderGeometry(.13,.06,1,5),material(GOLD,.35),this.maxTargets);
     this.marks=new THREE.InstancedMesh(new THREE.OctahedronGeometry(.16,0),material(GOLD),this.maxTargets);
@@ -42,6 +42,7 @@ export class CommanderEffects{
     if(type==='general-promoted')return this.promote(payload);
     if(type==='general-strike')return this.strikeTargets(payload);
     if(type==='general-fortified')return this.fortify(payload);
+    if(type==='general-range')return this.extendRange(payload);
     return false;
   }
   promote(payload){
@@ -79,6 +80,15 @@ export class CommanderEffects{
     const label=this.createLabel?.(`+${amount} maximum health`,GREEN);if(label){label.position.y=-1.9;label.scale.set(6.5,1.08,1);group.add(label);}
     const origin=this.fortressPoint();group.position.copy(origin);this.scene.add(group);this.fortified={group,origin:origin.clone(),age:0,duration:1.4};return true;
   }
+  extendRange(payload){
+    if(![1,1.5,2].includes(payload.bonus))return false;
+    if(this.range)release(this.range.group);
+    const group=new THREE.Group();group.name='Commander extended range';
+    const geometry=chevronGeometry(),metal=material(GOLD);
+    for(const direction of [-1,1]){const arrow=new THREE.Mesh(geometry,metal);arrow.rotation.z=-direction*Math.PI/2;arrow.position.x=direction*.9;group.add(arrow);}
+    const label=this.createLabel?.(`+${payload.bonus} range · this wave`,GOLD);if(label){label.position.y=.85;label.scale.set(6.5,1.08,1);group.add(label);}
+    const origin=this.fortressPoint();group.position.copy(origin);this.scene.add(group);this.range={group,origin:origin.clone(),age:0,duration:1.2};return true;
+  }
   syncStrike(){
     const strike=this.strike,progress=strike?strike.age/strike.duration:1,still=this.reducedMotion(),count=strike?.points.length||0;
     this.beams.count=this.glows.count=this.marks.count=count;
@@ -101,11 +111,12 @@ export class CommanderEffects{
     const animate=row=>{row.age+=step;const p=Math.min(1,row.age/row.duration),fade=Math.min(1,(1-p)*3);row.group.position.copy(row.origin);if(!still)row.group.position.y+=p*.65;if(camera)row.group.quaternion.copy(camera.quaternion);row.group.traverse(object=>{if(object.material)object.material.opacity=fade*(object.isSprite?1:.9);});return p<1;};
     this.promotions=this.promotions.filter(row=>{if(animate(row))return true;release(row.group);return false;});
     if(this.fortified&&!animate(this.fortified)){release(this.fortified.group);this.fortified=null;}
+    if(this.range&&!animate(this.range)){release(this.range.group);this.range=null;}
     if(this.strike){this.strike.age+=step;if(this.strike.age>=this.strike.duration)this.strike=null;this.syncStrike();}
   }
   dispose(){
     if(this.disposed)return;this.disposed=true;
-    this.promotions.forEach(row=>release(row.group));this.promotions=[];if(this.fortified)release(this.fortified.group);this.fortified=null;this.strike=null;
+    this.promotions.forEach(row=>release(row.group));this.promotions=[];if(this.fortified)release(this.fortified.group);if(this.range)release(this.range.group);this.range=null;this.fortified=null;this.strike=null;
     for(const mesh of [this.beams,this.glows,this.marks]){mesh.dispose();mesh.geometry.dispose();mesh.material.dispose();mesh.removeFromParent();}
   }
 }

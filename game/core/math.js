@@ -82,7 +82,14 @@ export function combatTowerStats(tower,towers,data){
   bonuses.haste*=towers.general?.multiplier('morale-boost')||1;
   const stats=factionPrimaryBonuses(scaleDamageStats(readTowerStats(tower,data),multiplier),tower,towers);
   if(stats.damage>0||stats.continuousAttack)stats.range+=bonuses.range;
-  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier};
+  const commanderRange=tower.state==='active'?towers.general?.rangeBonus||0:0;
+  if(commanderRange){
+    // A legacy offensive aura may fall back to direct range. Freeze that
+    // footprint before extending attacks, without changing support definitions.
+    for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;
+    bonuses.commanderRange=commanderRange;stats.range+=commanderRange;
+  }
+  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier,...(commanderRange?{range:stats.range}:{})};
   stats.trueStrike||=!!bonuses.trueStrike;
   if(stats.berserkHaste)bonuses.haste*=stats.berserkHaste;if(stats.berserkResistance)bonuses.controlResistance=Math.max(bonuses.controlResistance||0,stats.berserkResistance);return {stats,bonuses,multiplier};
 }

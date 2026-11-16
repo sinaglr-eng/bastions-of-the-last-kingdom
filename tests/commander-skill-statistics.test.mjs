@@ -48,10 +48,13 @@ test('promotion statistics preserve birth ranks and record all five placed draw 
 test('a promoted reserve and merged survivor retain the once-per-unit marker across drafts and server restoration',()=>{
  const d=currentFactionData('forge'),g=new Game(d,{seed:42,loadout:{'field-promotion':3,'field-logistics':3}});g.draft.roundForced={family:'dw_shieldguard',tier:1};
  for(const[x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])assert.equal(g.place(x,z),true);
- assert.equal(g.activateGeneral('field-promotion'),true);const reserved=g.roundCandidates[0].tower,merged=g.roundCandidates[1].tower;
- g.select(reserved.id);assert.equal(g.reserve(),true);g.select(merged.id);assert.equal(g.merge(),true);assert.equal(merged.tier,3);assert.equal(merged.fieldPromoted,true);
- g.phase='combat';g.completeWave();for(const[x,z]of [[20,18],[21,18],[20,17],[21,17]])assert.equal(g.place(x,z),true);
- assert.equal(g.roundCandidates.find(c=>c.tower.id===reserved.id).tower.fieldPromoted,true);assert.equal(g.activateGeneral('field-promotion'),true);assert.equal(reserved.tier,2);
- assert.equal(g.general.promotionState().preview.find(p=>p.towerId===reserved.id).eligible,false);
- const restored=restoreVerifiedRun(d,verifiedRecord(g));assert.equal(restored.towers.find(t=>t.id===reserved.id).tier,2);assert.equal(restored.towers.find(t=>t.id===reserved.id).fieldPromoted,true);assert.equal(restored.towers.find(t=>t.id===merged.id).fieldPromoted,true);assert.equal(restored.general.remainingUses('field-promotion'),0);
+ const reserved=g.roundCandidates[0].tower,firstKeeper=g.roundCandidates[1].tower,events=[];g.on((type,p)=>{if(type==='general-promoted')events.push(p);});
+ g.select(reserved.id);assert.equal(g.activateGeneral('field-promotion',reserved.id),true);assert.deepEqual(events[0].upgrades.map(u=>u.towerId),[reserved.id]);assert.equal(g.roundCandidates.filter(c=>c.tower.tier===2).length,1);
+ assert.equal(g.reserve(),true);g.select(firstKeeper.id);assert.equal(g.merge(),true);assert.equal(firstKeeper.tier,2);assert.equal(!!firstKeeper.fieldPromoted,false);
+ g.phase='combat';g.completeWave();g.draft.roundForced={family:'dw_shieldguard',tier:2};for(const[x,z]of [[20,18],[21,18],[20,17],[21,17]])assert.equal(g.place(x,z),true);
+ assert.equal(g.roundCandidates.find(c=>c.tower.id===reserved.id).tower.fieldPromoted,true);g.select(reserved.id);assert.equal(g.general.remainingUses('field-promotion'),1);assert.equal(g.activateGeneral('field-promotion',reserved.id),false);assert.equal(reserved.tier,2);
+ const state=g.general.promotionState();assert.equal(state.preview.find(p=>p.towerId===reserved.id).eligible,false);assert.match(state.preview.find(p=>p.towerId===reserved.id).reason,/Already promoted/);
+ const fresh=g.roundCandidates.filter(c=>c.tower.id!==reserved.id).map(c=>c.tower),secondTarget=fresh[1],merged=fresh[0];g.select(secondTarget.id);assert.equal(g.activateGeneral('field-promotion',secondTarget.id),true);assert.deepEqual(events[1].upgrades.map(u=>u.towerId),[secondTarget.id]);assert.equal(merged.tier,2);assert.equal(!!merged.fieldPromoted,false);
+ g.select(merged.id);assert.equal(g.mergePartner().id,reserved.id);assert.equal(g.merge(),true);assert.equal(merged.tier,3);assert.equal(merged.fieldPromoted,true);assert.equal(reserved.state,'ruin');
+ const restored=restoreVerifiedRun(d,verifiedRecord(g));assert.equal(restored.towers.find(t=>t.id===reserved.id).tier,2);assert.equal(restored.towers.find(t=>t.id===reserved.id).fieldPromoted,true);assert.equal(restored.towers.find(t=>t.id===merged.id).tier,3);assert.equal(restored.towers.find(t=>t.id===merged.id).fieldPromoted,true);assert.equal(restored.general.remainingUses('field-promotion'),0);
 });

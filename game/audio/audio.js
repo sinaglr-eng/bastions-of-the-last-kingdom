@@ -271,7 +271,7 @@ export class AudioManager{
     else{this.noise(.065,'Impacts',1200,{category:'sounds',gain:.75});this.tone(140,.08,'Impacts','triangle',68,{category:'sounds',gain:.35});}
   }
   commandCue(event,payload={}){
-    if(event==='general-promoted'&&!payload.upgrades?.length||event==='general-fortified'&&![5,10,15].includes(payload.amount))return false;
+    if(event==='general-promoted'&&!payload.upgrades?.length||event==='general-fortified'&&![5,10,15].includes(payload.amount)||event==='general-range'&&![1,1.5,2].includes(payload.bonus))return false;
     const stamp=this.now()/1000,key='commander:'+event;if(stamp-(this.last.get(key)??-Infinity)<.2)return false;this.last.set(key,stamp);
     // A single command cue has priority over a crowded volley. Keep the
     // existing voice cap and selection voice; never create one cue per victim.
@@ -291,6 +291,9 @@ export class AudioManager{
       this.tone(1046,.26,'Magic','sine',784,{...options,delay:.07,gain:.28});
     }else if(event==='general-fortified'){
       [392,523,659].forEach((frequency,index)=>this.tone(frequency,.36,'Magic','sine',null,{...options,delay:index*.065,gain:.45}));
+    }else if(event==='general-range'){
+      this.noise(.15,'UI',1800,{...options,gain:.22,type:'highpass'});
+      [659,988].forEach((frequency,index)=>this.tone(frequency,.3,'Magic','sine',null,{...options,delay:index*.08,gain:.4}));
     }
     return true;
   }
@@ -301,7 +304,7 @@ export class AudioManager{
     if(event==='wave-complete'){this.attackGeneration++;this.music.onWaveComplete(payload);return;}
     if(event==='defender-committed')return this.playSelectionVoice(payload);
     if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','damage-trace','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
-    if(['general-promoted','general-strike','general-fortified'].includes(event))return this.commandCue(event,payload);
+    if(['general-promoted','general-strike','general-fortified','general-range'].includes(event))return this.commandCue(event,payload);
     if(event==='damage-trace'&&this.gameState?.phase!=='combat')return;
     if(event==='defender-select')return;
     if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
