@@ -9,8 +9,14 @@
       "errors": [],
       "httpErrors": [],
       "blockedWrites": 1,
+      "canvasRect": {
+        "x": 0,
+        "y": 70,
+        "width": 1500,
+        "height": 930
+      },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n0.6\n· W1\nSum peak DPS\n1\nCleric\n#1 · Rank I · MVP 0\n0.6"
+      "dps": "Σ Peak DPS\n1.2\n· W1\nSum peak DPS\n1\nArcher\n#1 · Rank I · MVP 0\n1.2"
     },
     {
       "faction": "forge",
@@ -19,8 +25,14 @@
       "errors": [],
       "httpErrors": [],
       "blockedWrites": 1,
+      "canvasRect": {
+        "x": 0,
+        "y": 70,
+        "width": 1500,
+        "height": 930
+      },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nShieldguard\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nGriffin Handler\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "grove",
@@ -29,8 +41,14 @@
       "errors": [],
       "httpErrors": [],
       "blockedWrites": 1,
+      "canvasRect": {
+        "x": 0,
+        "y": 70,
+        "width": 1500,
+        "height": 930
+      },
       "health": "30 / 30",
-      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nElven Priestess\n#1 · Rank I · MVP 0\n1.8"
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nDragon Keeper\n#1 · Rank I · MVP 0\n1.8"
     },
     {
       "faction": "forge",
@@ -160,6 +178,16 @@
     "accountOptional": true,
     "achievementClaims": "manual",
     "achievementNotifications": true,
+    "achievementRevision": "shared-achievements-20261116",
+    "achievementScopes": {
+      "champions": "faction",
+      "basicChampionAchievements": true,
+      "basicChampionMedals": 1,
+      "basicChampionXP": 1,
+      "bosses": "account",
+      "bossCollection": "account",
+      "flawlessStreaks": "account-single-run-best"
+    },
     "accountProgression": {
       "revision": "account-xp-v1",
       "levels": 15,
@@ -224,6 +252,9 @@
     },
     "presentation": {
       "commanderNaming": true,
+      "commanderArtwork": "painted-war-table-20261116",
+      "commanderResetControl": false,
+      "hallDropdownTheme": "achievements",
       "homeMazeEditor": true,
       "generatedUiIcons": 18,
       "secretRecipesInCatalog": false,
@@ -231,8 +262,8 @@
     }
   },
   "bundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DE2SnIaD.js",
-    "bytes": 2849843,
-    "sha256": "9faf02a82e025842171b4a6263284b91a6eafa157da5db45a6d4e8df49275dd3"
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-BUdbOg8J.js",
+    "bytes": 2850936,
+    "sha256": "2c9b3b3280674ca4442503f420a012243ba3584468a8475744fcdcdba86d77a5"
   }
 }

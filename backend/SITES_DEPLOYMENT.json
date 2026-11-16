@@ -2,9 +2,9 @@
   "project_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
   "source_repository": "https://git.chatgpt-team.site/2faa05f6-40b5-44d2-a156-d05fe5225c5d/appgprj_6abe518c2c1c8191a9bc044f418faed8.git",
-  "source_commit": "4c2aa4a5638797585def25cbf23dc3d45507c9d5",
-  "version_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_5b1de4efc03c8191abec13b4f72c38c2",
-  "deployment_id": "appgdep_6afaa625c33c819184d50a94145728e1",
+  "source_commit": "1935e192074b1729cfefdd9400429650f3778880",
+  "version_id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_f205609cf2ec8191a76d1a6ef4ee40f9",
+  "deployment_id": "appgdep_6afac069acc081918cd6d6c3ac637f25",
   "game_version": "0.7.0",
   "audience": "public",
   "game_url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
@@ -16,9 +16,12 @@
   "environment_revision": 3,
   "production_google_round_trip_verified": true,
   "production_google_round_trip_evidence": "Operator confirmed successful player sign-in and visible account in the public game.",
-  "ui_revision": "commander-abilities-20261116",
+  "ui_revision": "shared-achievements-20261116",
   "achievement_claims": "manual-in-collection-only",
   "top_champion_medals": 3,
   "commander_skills": 10,
-  "progression_reset_performed_this_update": false
+  "progression_reset_performed_this_update": false,
+  "commander_artwork_revision": "painted-war-table-20261116",
+  "basic_champion_achievements": true,
+  "achievement_scopes": "shared-boss-and-flawless"
 }

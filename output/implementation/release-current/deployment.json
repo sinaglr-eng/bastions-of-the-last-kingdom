@@ -1,33 +1,33 @@
 {
   "status": "succeeded",
   "version": "0.7.0",
-  "commanderRevision": "commander-abilities-20261116",
+  "achievementRevision": "shared-achievements-20261116",
   "rulesetRevision": "fr010-v1",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "sourceCommit": "47cd6c8ed28df8528e7f7663da037755626cda1c",
-  "verifiedAt": "2026-11-16T06:56:49.740Z",
+  "sourceCommit": "3f6afce0dd599cc8d5a61badc4a76fd71c1de50f",
+  "verifiedAt": "2026-11-16T08:44:39.144Z",
   "tests": {
-    "passed": 2457,
+    "passed": 2474,
     "failed": 0,
     "skipped": 0
   },
   "ci": {
-    "id": 43818544394,
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43818544394",
+    "id": 43832009221,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43832009221",
     "status": "completed",
     "conclusion": "success"
   },
   "backend": {
-    "sourceCommit": "4c2aa4a5638797585def25cbf23dc3d45507c9d5",
-    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_5b1de4efc03c8191abec13b4f72c38c2",
-    "deploymentId": "appgdep_6afaa625c33c819184d50a94145728e1",
+    "sourceCommit": "1935e192074b1729cfefdd9400429650f3778880",
+    "versionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_f205609cf2ec8191a76d1a6ef4ee40f9",
+    "deploymentId": "appgdep_6afac069acc081918cd6d6c3ac637f25",
     "environmentRevision": 3
   },
   "compiledFiles": [
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DE2SnIaD.js",
-      "bytes": 2849843,
-      "sha256": "9faf02a82e025842171b4a6263284b91a6eafa157da5db45a6d4e8df49275dd3"
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-BUdbOg8J.js",
+      "bytes": 2850936,
+      "sha256": "2c9b3b3280674ca4442503f420a012243ba3584468a8475744fcdcdba86d77a5"
     },
     {
       "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/three-BBClaj7g.js",
@@ -35,13 +35,27 @@
       "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
     },
     {
-      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Bo5AZ3cS.css",
-      "bytes": 502728,
-      "sha256": "68532c9e73dfc872ff8914352068cd6395cc2b4c81d453d265d64c847a9f1339"
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-VNdBkMQH.css",
+      "bytes": 503901,
+      "sha256": "f2ad00192ac40ab971a44492dea5cbcbf61190d24e83193bed1d55ee2db9c1d1"
+    },
+    {
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/field-promotion.webp",
+      "bytes": 143986,
+      "sha256": "03ed4040aa798430605055a43e2a23beb4f3c79b451992a081ce2d03c61659a7"
+    },
+    {
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/decisive-strike.webp",
+      "bytes": 125234,
+      "sha256": "7914905a9698f8613bce9c1ed5ebac3d4b1c8946b233c7c27f88eecf889ef782"
+    },
+    {
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/ui/war-table/fortified-keep.webp",
+      "bytes": 155994,
+      "sha256": "f936dbb9f9732f7ed0c4907041a951c8c0326188ca5750fb3d76cc65ee791508"
     }
   ],
-  "localBrowserCases": 8,
-  "actualMainBrowserVerified": true,
+  "localBrowserCases": 6,
   "publicBrowserCases": [
     {
       "faction": "crown",
@@ -64,9 +78,48 @@
       "passed": true
     }
   ],
-  "publicWrites": 0,
+  "basicChampionAchievements": {
+    "medals": 1,
+    "xp": 1,
+    "backfillVerifiedHistory": true
+  },
+  "sharedAchievements": [
+    "boss",
+    "boss-collection",
+    "flawless-streak"
+  ],
+  "streaksNeverJoinSeparateRuns": true,
+  "commanderResetControl": false,
+  "hallDropdownMatchesAchievements": true,
+  "rasterImages": [
+    {
+      "name": "field-promotion",
+      "output": "field-promotion.webp",
+      "width": 640,
+      "height": 640,
+      "sha256": "03ed4040aa798430605055a43e2a23beb4f3c79b451992a081ce2d03c61659a7",
+      "bytes": 143986
+    },
+    {
+      "name": "decisive-strike",
+      "output": "decisive-strike.webp",
+      "width": 640,
+      "height": 640,
+      "sha256": "7914905a9698f8613bce9c1ed5ebac3d4b1c8946b233c7c27f88eecf889ef782",
+      "bytes": 125234
+    },
+    {
+      "name": "fortified-keep",
+      "output": "fortified-keep.webp",
+      "width": 640,
+      "height": 640,
+      "sha256": "f936dbb9f9732f7ed0c4907041a951c8c0326188ca5750fb3d76cc65ee791508",
+      "bytes": 155994
+    }
+  ],
+  "publicWritesByQA": 0,
   "playerAccountsAndProgressPreserved": true,
   "progressionResetPerformedThisUpdate": false,
   "galleryPublished": false,
-  "modelOrAudioBinariesAdded": false
+  "newModelFiles": 0
 }
