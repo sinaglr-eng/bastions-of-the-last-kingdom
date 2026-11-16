@@ -32,15 +32,15 @@ test('rank requirements, current account, medal shortage, ownership and max rank
   assert.equal(skillPurchaseState(p,id).reason,'5 more medals needed');p.balance=5;assert.equal(skillPurchaseState(p,id).state,'available');
   p.skills[id]=3;p.equipped=[id];p.xpTotal=0;const original=JSON.stringify(p);assert.equal(skillPurchaseState(p,id).state,'max');const view=generalView(p,true,{selected:id});assert.match(view,/Fully upgraded/);assert.match(view,/Owned rank III · Equipped/);assert.match(view,/Permanently owned/);assert.equal(JSON.stringify(p),original,'Rendering never resets owned ranks or equipment');
  }
- const available=generalView({xpTotal:1000,balance:100,skills:{},equipped:[]},true,{selected:'field-promotion'});assert.match(available,/value="field-promotion"[^>]*>Buy to equip<\/label>/);assert.match(available,/class="commander-purchase-badge" data-state="available">Available to buy/);
- const locked=generalView({xpTotal:0,balance:100,skills:{},equipped:[]},true,{selected:'field-promotion'});assert.match(locked,/value="field-promotion"[^>]*>Not unlocked<\/label>/);
+ const available=generalView({xpTotal:1000,balance:100,skills:{},equipped:[]},true,{selected:'field-promotion',skillPage:1});assert.match(available,/value="field-promotion"[^>]*>Buy to equip<\/label>/);assert.match(available,/class="commander-purchase-badge" data-state="available">Available to buy/);
+ const locked=generalView({xpTotal:0,balance:100,skills:{},equipped:[]},true,{selected:'field-promotion',skillPage:1});assert.match(locked,/value="field-promotion"[^>]*>Not unlocked<\/label>/);
  const ownedNextLocked=generalView({xpTotal:0,balance:100,skills:{'field-promotion':1},equipped:[]},true,{selected:'field-promotion'});assert.match(ownedNextLocked,/value="field-promotion"[^>]*>Equip<\/label>/);assert.match(ownedNextLocked,/Unlock at Level/);const ownedClass=ownedNextLocked.match(/<article class="([^"]*war-skill[^"]*)" data-purchase-state="rank-locked"><button[^>]*data-select-skill="field-promotion"/)?.[1];assert.ok(ownedClass&&!ownedClass.includes('is-locked'),'Owned art keeps its owned presentation when the next upgrade is rank locked');
  const legacy={xpTotal:0,balance:100,skills:{'war-horn':1},equipped:['war-horn'],permanentUnlocks:{'war-horn':1}};assert.equal(skillGate('war-horn',1,legacy).allowed,true);assert.equal(skillPurchaseState(legacy,'war-horn').canBuy,false);assert.match(generalView(legacy,true,{selected:'war-horn'}),/Owned rank I · Equipped/);
 });
 
-test('all four new painterly illustrations use distinct shared raster paths and preserve original skill artwork',()=>{
+test('all four expanded skills use distinct shared geometric raster paths',()=>{
  const icons=newIds.map(id=>progressionArtwork(id));assert.equal(new Set(icons).size,4);
- for(const [i,src]of icons.entries()){assert.equal(src,`/assets/ui/war-table/${newIds[i]}.webp`);assert.equal(warArt(newIds[i]),src);const bytes=fs.readFileSync(new URL('../public'+src,import.meta.url));assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length>10000,'Runtime artwork is the full painted raster, not a tiny placeholder');}
+ for(const [i,src]of icons.entries()){assert.equal(src,`/assets/ui/commander-v080/skills/${newIds[i]}.webp`);assert.equal(warArt(newIds[i]),src);const bytes=fs.readFileSync(new URL('../public'+src,import.meta.url));assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length>10000,'Runtime artwork is the geometric raster, not a tiny placeholder');}
  assert.match(progressionArtwork('war-horn'),/war-horn\.webp$/);
 });
 

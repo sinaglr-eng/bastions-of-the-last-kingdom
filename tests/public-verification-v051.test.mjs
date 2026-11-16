@@ -334,9 +334,9 @@ test('public requests reject redirects rather than following an HTTPS-to-HTTP do
   }
 });
 
-const brand=JSON.parse(bytes('public/assets/branding/forged-alliances-v1/manifest.json'));
+const brand=JSON.parse(bytes('tests/fixtures/branding-v051/manifest.json'));
 function brandFixture(change=()=>{}){
- const files=new Map([['assets/branding/forged-alliances-v1/manifest.json',Buffer.from(JSON.stringify(brand))],...brand.assets.map(r=>[r.file.replace(/^public\//,''),bytes(r.file==='public/favicon.svg'?'public/assets/branding/forged-alliances-v1/mark.svg':r.file)])]);change(files);const requests=[];
+ const files=new Map([['assets/branding/forged-alliances-v1/manifest.json',Buffer.from(JSON.stringify(brand))],...brand.assets.map(r=>[r.file.replace(/^public\//,''),bytes(r.file==='public/favicon.svg'?'tests/fixtures/branding-v051/mark.svg':r.file.replace('public/assets/branding/forged-alliances-v1/','tests/fixtures/branding-v051/'))])]);change(files);const requests=[];
  return{requests,fetchImpl:async(url,options)=>{requests.push({url,options});const file=new URL(url).pathname.replace('/project/',''),body=files.get(file);return new Response(body,{status:body?200:404,headers:{'content-type':file.endsWith('.svg')?'image/svg+xml':'application/json'}});}};
 }
 test('historical 0.5.1 brand manifest, both vector logos and archived favicon use exact credential-free HTTPS bytes',async()=>{const f=brandFixture(),r=await verifyBrandingPublic({base,manifest:brand,fetchImpl:f.fetchImpl});assert.equal(r.status,'passed');assert.equal(r.requests,4);assert.equal(r.passed,3);assert.ok(f.requests.every(x=>x.options.method==='GET'&&x.options.credentials==='omit'&&x.options.redirect==='error'));});

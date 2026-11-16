@@ -22,9 +22,10 @@ export function validateArtifactEquipment(equipment={},owned=null){
  }
  return Object.fromEntries(ARTIFACT_SLOTS.filter(s=>result[s]).map(s=>[s,result[s]]));
 }
-export function equipArtifactSet(equipment,setId,owned=null){
+export function equipArtifactSet(equipment,setId,owned=null,{ownedOnly=false}={}){
  if(!ARTIFACT_SETS[setId])throw Error('Unknown artifact set.');
- const next={...validateArtifactEquipment(equipment)},pieces=setPieces(setId),ringIds=new Set(pieces.filter(a=>a.slot==='ring').map(a=>a.id));
+ const next={...validateArtifactEquipment(equipment)},pieces=setPieces(setId).filter(a=>!ownedOnly||owned?.includes(a.id)),ringIds=new Set(pieces.filter(a=>a.slot==='ring').map(a=>a.id));
+ if(ownedOnly&&!pieces.length)throw Error('You do not own any pieces of this set.');
  for(const item of pieces){let slot=item.slot;if(slot==='ring')slot=next.ring1===item.id?'ring1':next.ring2===item.id?'ring2':!next.ring1?'ring1':!next.ring2?'ring2':!ringIds.has(next.ring1)?'ring1':'ring2';for(const [old,id]of Object.entries(next))if(id===item.id)delete next[old];next[slot]=item.id;}
  return validateArtifactEquipment(next,owned);
 }

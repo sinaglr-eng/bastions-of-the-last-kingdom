@@ -1,5 +1,5 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
   "date": "2026-11-16",
@@ -36,7 +36,7 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "ipad-polish-20261115",
+  "uiRevision": "commander-geometric-v080",
   "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
   "brandRevision": "three-bastions-20261114",
   "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
@@ -249,7 +249,7 @@
       "legendary": 2
     },
     "rangeUnit": "tiles",
-    "equippedPortraits": 11,
+    "equippedPortraits": 0,
     "standaloneTradeoffs": 6,
     "tier2Guarantee": {
       "rarity": "rare",
@@ -259,5 +259,8 @@
       "rarity": "epic",
       "draws": 7
     }
-  }
+  },
+  "commanderUIRevision": "fr012-v080",
+  "commanderSilhouette": true,
+  "artifactIllustrationRevision": "geometric-v080"
 }

@@ -1,5 +1,14 @@
 # Current release
 
+## 0.8.0 — FR-012 Commander armory — 16 November 2026
+
+- Rebuilt Equipment, Skills, Chests and Sets around the approved geometric mockups, anatomical silhouette and existing enamel/brass controls.
+- Added 84 geometric artifact illustrations, 11 skill icons and all five closed/open chest pairs. Backpack pages render 12 items; sets use one focused composition.
+- Added server-validated equip-owned-set actions with conflict comparison and distinct ring handling. Existing accounts, wallets, XP, rewards, pity counters and frozen saved defenses remain intact.
+- Retired unused runtime Commander media from the production package; exact source art and prompts remain local. The English gallery remains local-only.
+- Verified 2,543 tests and both iPad orientations.
+
+
 ## 0.7.0 — FR-010 progression and Endless — 14 November 2026
 
 - Recreated the approved War Table concepts across Play, Hall of Fame, Achievements and General, with a three-bastion logo, illustrated podium, actual faction champion portraits and shared skill artwork.

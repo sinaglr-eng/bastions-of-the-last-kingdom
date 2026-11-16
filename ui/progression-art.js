@@ -1,3 +1,5 @@
+import {GENERAL_SKILLS} from '../game/core/general.js';
+import {commanderSkillArt} from './commander-art.js';
 import {siteUrl} from '../game/site-url.js';
 import {referenceEnemyPortrait} from './reference-portraits.js';
 
@@ -23,6 +25,7 @@ const motifs={
  'blood-wrath':'<path d="m74 156 76-76" stroke="#d7c38c" stroke-width="12"/><path d="m96 62 26 17 26-17 22 22-22 27-16-25-26 17-24-22Z" fill="#c16853" stroke="#ebc787" stroke-width="3"/><path d="m91 145 12 12m-31 5 13 13" stroke="#ad8b54" stroke-width="7"/><path d="M158 130c-20 29 20 29 0 0Z" fill="#d46e56"/>',
 };
 export function progressionArtwork(kind='collection',target=''){
+ if(GENERAL_SKILLS[kind])return commanderSkillArt(kind);
  if(['collection','mastery','campaign','streak','endless','secret','deep-refit','recruitment-focus','field-logistics','quartermaster','morale-boost','war-horn','blood-wrath','field-promotion','decisive-strike','fortified-keep','extended-range'].includes(kind))return siteUrl('assets/ui/war-table/'+kind+'.webp');
  const key=kind+':'+target;if(cache.has(key))return cache.get(key);
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><defs><radialGradient id="bg"><stop stop-color="#577665"/><stop offset="1" stop-color="#193d3d"/></radialGradient><linearGradient id="metal" x2="1" y2="1"><stop stop-color="#f6e1ac"/><stop offset=".5" stop-color="#aa8246"/><stop offset="1" stop-color="#e5c984"/></linearGradient></defs><rect x="8" y="8" width="224" height="224" rx="29" fill="url(#bg)"/><rect x="13" y="13" width="214" height="214" rx="25" fill="none" stroke="url(#metal)" stroke-width="3"/><circle cx="120" cy="114" r="77" fill="none" stroke="#bfa66a" stroke-opacity=".3"/><path d="M35 120h19m132 0h19M120 27v15m0 142v16" stroke="#e0c282" stroke-opacity=".45"/><path d="m37 178 6 18 19 5m141-23-6 18-19 5" stroke="#baa56d" fill="none" stroke-width="3"/>${motifs[kind]||motifs.collection}${target?`<rect x="83" y="182" width="74" height="30" rx="5" fill="#e5c88b"/><text x="120" y="204" text-anchor="middle" fill="#345448" font-family="Georgia" font-weight="bold" font-size="22">${escapeProgression(target)}</text>`:''}</svg>`;

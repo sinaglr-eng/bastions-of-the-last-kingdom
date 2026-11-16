@@ -25,7 +25,7 @@ test('Every current champion resolves to its own faction portrait, not generated
 });
 test('General shows one selected detail, all current skills and distinct CP versus medal costs',()=>{
  const html=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true,{selected:'morale-boost'});
- assert.equal((html.match(/class="war-skill /g)||[]).length,Object.keys(GENERAL_SKILLS).length);assert.equal((html.match(/class="war-skill-detail"/g)||[]).length,1);assert.match(html,/Upgrade to II · 10 medals/);assert.match(html,/Balance after upgrade: 4/);assert.match(html,/20 combat seconds · 3 CP/);assert.match(html,/Loadout changes apply to new games/);
+ const page2=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true,{selected:'morale-boost',skillPage:1});assert.equal((html.match(/class="war-skill /g)||[]).length+(page2.match(/class="war-skill /g)||[]).length,Object.keys(GENERAL_SKILLS).length);assert.equal((html.match(/class="war-skill-detail"/g)||[]).length,1);assert.match(html,/Upgrade to II · 10 medals/);assert.match(html,/Balance after upgrade: 4/);assert.match(html,/20 combat seconds · 3 CP/);assert.match(html,/Loadout changes apply to new games/);
 });
 test('Hall empty state never invents winners, exact big scores stay legible and ties are explicit',()=>{
  assert.match(hallView({top:[],podium:[],factionId:'all'}),/Set the first record/);

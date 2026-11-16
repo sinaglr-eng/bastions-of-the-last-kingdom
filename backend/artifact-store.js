@@ -24,7 +24,7 @@ export function artifactRewardStatements(db,user,runId,game,kills,guard,args){
 export async function unlockArtifactChests(db,user,runId){await db.prepare("UPDATE artifact_chests SET status='ready' WHERE user_id=? AND run_id=? AND status='locked'").bind(user,runId).run();}
 export async function artifactMutation(db,user,action,body){
  if(!uuid(body.requestId)||!Number.isSafeInteger(body.revision)||body.revision<0)fail('Invalid artifact request.');
- const signature=JSON.stringify({action,tier:body.tier??null,count:body.count??null,equipment:body.equipment??null,artifactId:body.artifactId??null,preset:body.preset??null,index:body.index??null});
+ const signature=JSON.stringify({action,tier:body.tier??null,count:body.count??null,equipment:body.equipment??null,artifactId:body.artifactId??null,preset:body.preset??null,index:body.index??null,...(body.ownedOnly!==undefined?{ownedOnly:body.ownedOnly}:{})});
  const old=await db.prepare('SELECT signature,receipt_json FROM artifact_receipts WHERE user_id=? AND request_id=?').bind(user,body.requestId).first();
  if(old){if(old.signature!==signature)fail('Request identity cannot change.',409);return {artifacts:await artifactProfile(db,user),receipt:parse(old.receipt_json)};}
  const a=await account(db,user);if(a.revision!==body.revision)fail('Artifact vault changed. Refresh and retry.',409);
@@ -41,8 +41,8 @@ export async function artifactMutation(db,user,action,body){
   if(!Number.isInteger(body.index)||body.index<0||body.index>2||!object(body.preset)||typeof body.preset.name!=='string'||body.preset.name.trim().length<1||body.preset.name.trim().length>32)fail('Choose a preset name of 1–32 characters.');
   next.presets[body.index]={name:body.preset.name.trim(),equipment:validateArtifactEquipment(body.preset.equipment,a.owned)};
  }else if(action==='equip-set'){
-  const set=ARTIFACT_SETS[body.artifactId];if(!set)fail('Unknown artifact set.');const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');const pieces=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id);if(pieces.some(item=>!a.owned.includes(item.id)))fail(`Collect all ${pieces.length} set pieces first.`);
-  next.equipment=equipArtifactSet(a.equipment,set.id,a.owned);
+  const set=ARTIFACT_SETS[body.artifactId];if(!set)fail('Unknown artifact set.');if(body.ownedOnly!==undefined&&typeof body.ownedOnly!=='boolean')fail('Invalid set equipment mode.');const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');const pieces=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id);if(!body.ownedOnly&&pieces.some(item=>!a.owned.includes(item.id)))fail(`Collect all ${pieces.length} set pieces first.`);
+  next.equipment=equipArtifactSet(a.equipment,set.id,a.owned,{ownedOnly:body.ownedOnly===true});
  }else fail('Unknown artifact action.');
  const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');receipt.newSets=ARTIFACT_CATALOG.sets.filter(set=>{const ids=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id).map(item=>item.id);return ids.every(id=>next.owned.includes(id))&&!ids.every(id=>a.owned.includes(id));}).map(s=>s.id);
  const now=Date.now(),guard='EXISTS(SELECT 1 FROM artifact_accounts WHERE user_id=? AND revision=?)',request='EXISTS(SELECT 1 FROM artifact_receipts WHERE user_id=? AND request_id=?)';

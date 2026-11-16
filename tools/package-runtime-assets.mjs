@@ -3,13 +3,18 @@ import path from 'node:path';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 import {GAME_VERSION} from '../game/release.js';
+import {GENERAL_SKILLS} from '../game/core/general.js';
+import {ARTIFACT_CATALOG} from '../game/core/artifacts.js';
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 export function packageRuntimeAssets({root=process.cwd(),outDir='dist'}={}){
  const output=path.resolve(root,outDir),source=path.resolve(root,'public');
  if(output===source||!output.startsWith(path.resolve(root)+path.sep))throw Error('Invalid runtime output');
  const files=walk(source),rows=[];
- const keep=file=>file.startsWith('assets/factions/v060/')&&!file.endsWith('.png')||['favicon.svg','release.json','privacy.html'].includes(file)||['assets/audio/','assets/branding/','assets/scenery/','assets/ui/results/','assets/ui/war-table/','assets/ui/ornate/','assets/ui/ipad-polish/','assets/ui/artifacts/','assets/ui/account-progression/','assets/ui/reference-enemy-fronts/','assets/ui/faction-scenes-v062/','assets/ui/faction-reference-portraits-v061/'].some(prefix=>file.startsWith(prefix))||/^assets\/geometric\/portraits\/host_[^/]+\.png$/.test(file)||file==='assets/geometric/geometric-enemies.json';
+ const commander=new Set([...ARTIFACT_CATALOG.artifacts.map(a=>a.art),...ARTIFACT_CATALOG.chests.flatMap(c=>[c.art,c.openArt]),'assets/ui/commander-v080/silhouette.webp',...Object.keys(GENERAL_SKILLS).map(id=>`assets/ui/commander-v080/skills/${id}.webp`)]);
+ const retiredSkill=file=>Object.keys(GENERAL_SKILLS).some(id=>file===`assets/ui/war-table/${id}.webp`)||file.startsWith('assets/ui/account-progression/')&&(file.endsWith('.png')||file.endsWith('alliance-logo-original.webp'));
+ const keep=file=>!retiredSkill(file)&&(commander.has(file)||file.startsWith('assets/factions/v060/')&&!file.endsWith('.png')||['favicon.svg','release.json','privacy.html'].includes(file)||['assets/audio/','assets/scenery/','assets/ui/results/','assets/ui/war-table/','assets/ui/ornate/','assets/ui/ipad-polish/','assets/ui/account-progression/','assets/ui/reference-enemy-fronts/','assets/ui/faction-scenes-v062/','assets/ui/faction-reference-portraits-v061/'].some(prefix=>file.startsWith(prefix))||/^assets\/geometric\/portraits\/host_[^/]+\.png$/.test(file)||file==='assets/geometric/geometric-enemies.json');
+ for(const file of commander)if(!fs.existsSync(path.join(source,file)))throw Error('Missing current Commander art: '+file);
  const emit=(file,bytes,originalSha256)=>{const dest=path.join(output,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,bytes);rows.push({file,bytes:bytes.length,sha256:sha(bytes),...(originalSha256?{decodedSha256:originalSha256}:{})});};
  for(const absolute of files){const file=path.relative(source,absolute).replaceAll('\\','/');if(keep(file))emit(file,fs.readFileSync(absolute));}
  const manifest=JSON.parse(fs.readFileSync(path.join(source,'assets/geometric/geometric-enemies.json'))),entries=manifest.assets||manifest.entries||manifest.models||manifest.subjects;

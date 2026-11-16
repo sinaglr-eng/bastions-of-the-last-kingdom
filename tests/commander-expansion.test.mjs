@@ -43,11 +43,11 @@ test('Chest pity migrates changed tiers only and guarantees Rare in three, Epic 
  const migrated=normalizeArtifactPity({1:4,2:4,3:9,4:2,5:1});assert.equal(migrated[1],4);assert.equal(migrated[4],2);assert.equal(migrated[5],1);assert.equal(migrated[2],0);assert.equal(migrated[3],0);assert.deepEqual(normalizeArtifactPity(migrated),migrated);
  const ranks=C.rarities.map(r=>r.id);for(const[tier,every,minimum]of [[2,3,'rare'],[3,7,'epic']]){let a={owned:[],pity:{_rules:C.pityRulesVersion},dust:0},miss=0;for(let seed=0;seed<500;seed++){a=rollArtifactChest(a,tier,seed);const good=ranks.indexOf(ARTIFACTS[a.items[0].id].rarity)>=ranks.indexOf(minimum);miss=good?0:miss+1;assert.ok(miss<every);}}
 });
-test('Armory uses a coherent portrait for every complete set and retains mixed-item overlays',()=>{
+test('Armory keeps an anatomical silhouette for full sets and mixed equipment',()=>{
  const player={online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],chests:[],presets:[],pity:{},dust:1000,highestTier:5}}},v=new CommanderVault({player,render:()=>{},status:()=>{}});
- for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.ok(html.includes(s.commanderArt));assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
- player.profile.artifacts.equipment={head:'N-15'};assert.match(v.equipment(),/body-equipment body-head/);
- const sets=v.sets();assert.match(sets,/Complete army effects/);assert.match(sets,/10 pieces/);assert.match(sets,/600 starting gold/);v.setRarity='rare';assert.doesNotMatch(v.sets(),/id="vault-set-celestial"/);
+ for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.match(html,/commander-v080\/silhouette.webp/);assert.equal([...html.matchAll(/data-vault-slot=/g)].length,10);assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
+ player.profile.artifacts.equipment={head:'N-15'};assert.doesNotMatch(v.equipment(),/body-equipment/);
+ const sets=v.sets();assert.match(sets,/Complete army effects/);assert.match(sets,/10 pieces/);v.selectedSet='royal-architect';assert.match(v.sets(),/600 starting gold/);v.setRarity='rare';assert.doesNotMatch(v.sets(),/id="vault-set-celestial"/);
 });
 test('Commander prioritizes available purchases, displays exact level locks and album has no next-medal strip',()=>{
  const html=generalView({xpTotal:0,balance:100,skills:{},equipped:[]});const cards=[...html.matchAll(/<article class="war-skill [\s\S]*?<\/article>/g)].map(m=>m[0]);const firstLocked=cards.findIndex(c=>c.includes('is-level-locked'));assert.ok(firstLocked>0);assert.ok(cards.slice(firstLocked).every(c=>c.includes('is-level-locked')));assert.match(html,/Unlock at Level 5/);assert.doesNotMatch(cards.join(''),/>Rank locked</);assert.doesNotMatch(achievementsView({online:true,profile:{grants:[],eligible:[]}}),/YOUR NEXT MEDAL/);

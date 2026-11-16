@@ -29,7 +29,7 @@ export class MainMenu{
   this.root.addEventListener('click',e=>void this.click(e));this.root.addEventListener('submit',e=>void this.submit(e));
   this.root.addEventListener('keydown',e=>{if(e.key==='Escape'&&(this.authDialog||this.replaceDialog)){e.preventDefault();e.stopPropagation();if(this.authDialog)this.closeAuth();else this.closeReplace();}});
   this.root.addEventListener('change',e=>{if(this.commanderVault.change(e))return;if(e.target.name==='equipped'){this.updateEquipment(e.target);return;}if(e.target.name==='hall-view'){this.hallView=e.target.value;this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='legacy-version'){this.legacyVersion=e.target.value;void this.show('legacy');}if(e.target.name==='legacy-mode'){this.legacyMode=Number(e.target.value);this.legacyVersion='all';void this.show('legacy');}if(e.target.name==='faction'){this.faction=e.target.value;if(this.page==='legacy')this.legacyVersion='all';this.offset=0;void this.show(this.page);}if(e.target.name==='achievement-kind'){this.achievementKind=e.target.value;this.offset=0;void this.show('achievements');}if(e.target.name==='achievement-state'){this.achievementState=e.target.value;this.offset=0;void this.show('achievements');}});
-  this.root.addEventListener('input',e=>{if(e.target.dataset.menuVolume)this.onVolumeChange(e.target.dataset.menuVolume,Number(e.target.value));});
+  this.root.addEventListener('input',e=>{if(this.commanderVault.input(e))return;if(e.target.dataset.menuVolume)this.onVolumeChange(e.target.dataset.menuVolume,Number(e.target.value));});
  }
  get visible(){return !this.root.hidden;}
  status(text,error=false){const el=(this.authDialog||this.root).querySelector('[data-menu-status]');if(el){el.textContent=text;el.classList.toggle('is-error',error);}}
@@ -59,7 +59,7 @@ export class MainMenu{
    this.displayedSave=saved;const active=saved&&!['lost','won'].includes(saved.meta.phase);this.hasSave=!!active;
    content=homeMenuMarkup({player:this.player,saved,selectedFaction:this.selectedFaction,cloudUnavailable:this.cloudUnavailable});
   }else if(page==='general'){
-   title='Commander';content=this.commanderVault.markup(generalView(this.player.profile,!!this.player.user&&this.player.online,{selected:this.selectedSkill,equipped:this.equipmentDraft||this.player.profile?.equipped||[]}));
+   title='Commander';content=this.commanderVault.markup(generalView(this.player.profile,!!this.player.user&&this.player.online,{selected:this.selectedSkill,filter:this.commanderVault.skillFilter,skillPage:this.commanderVault.skillPage,equipped:this.equipmentDraft||this.player.profile?.equipped||[]}));
   }else if(page==='maze'){
    title='Maze Builder';content=mazeEditorMarkup();
   }else if(page==='achievements'){
