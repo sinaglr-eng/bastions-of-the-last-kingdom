@@ -24,7 +24,7 @@ test('Every current champion resolves to its own faction portrait, not generated
  for(const f of ['crown','forge','grove']){const d=currentFactionData(f);for(const a of achievementCatalog(d).filter(a=>a.kind==='champion')){const id=a.id.split(':').at(-1),asset=d.defenderAssets.find(x=>x.family===id&&x.tier===1);assert.ok(asset?.portrait,a.id);assert.ok(achievementArtwork(a,d,true).includes(asset.portrait));assert.ok(fs.existsSync('public/'+asset.portrait));}}
 });
 test('General shows one selected detail, all current skills and distinct CP versus medal costs',()=>{
- const html=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true);
+ const html=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true,{selected:'morale-boost'});
  assert.equal((html.match(/class="war-skill /g)||[]).length,Object.keys(GENERAL_SKILLS).length);assert.equal((html.match(/class="war-skill-detail"/g)||[]).length,1);assert.match(html,/Upgrade to II · 10 medals/);assert.match(html,/Balance after upgrade: 4/);assert.match(html,/20 combat seconds · 3 CP/);assert.match(html,/Loadout changes apply to new games/);
 });
 test('Hall empty state never invents winners, exact big scores stay legible and ties are explicit',()=>{

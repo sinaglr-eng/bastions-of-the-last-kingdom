@@ -1,3 +1,4 @@
+import {ARTIFACT_CATALOG,ARTIFACT_VERSION} from '../game/core/artifacts.js';
 import {artifactProfile,artifactMutation,artifactRewardStatements,unlockArtifactChests} from './artifact-store.js';
 import {hallRecords} from './hall.js';
 import {authenticatedPlayer,playerAuth} from './auth.js';
@@ -168,10 +169,11 @@ export async function handlePlayer(request,env){
  if(['/api/player/purchase','/api/player/reset','/api/player/equip'].includes(path))return json(await walletMutation(db,user.id,b,path.split('/').at(-1)));
  if(path==='/api/player/achievements/claim')return json(await claimAchievement(db,user.id,b));
  if(path==='/api/player/runs'){
-  if(Object.hasOwn(b,'artifactVersion')&&b.artifactVersion!==1)fail('Unsupported artifact capability.');
+  if(Object.hasOwn(b,'artifactVersion')&&![1,2].includes(b.artifactVersion))fail('Unsupported artifact capability.');
   if(Object.hasOwn(b,'commanderRulesVersion')&&b.commanderRulesVersion!==2)fail('Invalid Commander rules version.');
   if(!['crown','forge','grove'].includes(b.factionId))fail('Choose a faction.');const p=await profile(db,user.id),prior=await db.prepare('SELECT r.* FROM fr010_active a JOIN fr010_runs r ON r.id=a.run_id WHERE a.user_id=?').bind(user.id).first();const priorCurrent=prior?await currentRunEpoch(db,prior):false;if(prior?.outcome==='playing'&&priorCurrent&&!b.replace)fail('Confirm replacing your active run.',409);
-  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=[...p.grants,...p.eligible].filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,artifactEquipment:b.artifactVersion===1?p.artifacts.equipment:{},discoveries:[...new Set([...discoveries,...(p.discoveries?.[b.factionId]||[])])],runId:id,accountId:user.id}),now=Date.now();
+  if(b.artifactVersion===1&&Object.values(p.artifacts.equipment).some(id=>!Object.hasOwn(ARTIFACT_CATALOG.legacyEffects.itemModifiers,id)))fail('Reload the game to use your new Commander equipment.');
+  const id=crypto.randomUUID(),seed=crypto.getRandomValues(new Uint32Array(1))[0],loadout=generalLoadout(p.skills,p.equipped),discoveries=[...p.grants,...p.eligible].filter(g=>g.id.startsWith(`champion:${b.factionId}:`)).map(g=>g.id.split(':').at(-1)),game=new Game(currentFactionData(b.factionId),{seed,mode:'endless',loadout,artifactEquipment:b.artifactVersion?p.artifacts.equipment:{},artifactVersion:b.artifactVersion===2?ARTIFACT_VERSION:'fr011-v1',discoveries:[...new Set([...discoveries,...(p.discoveries?.[b.factionId]||[])])],runId:id,accountId:user.id}),now=Date.now();
   for(const skill of p.equipped)if(!skillGate(skill,p.skills[skill],p).allowed)fail('Your selected loadout requires a higher account level.');
   // A cached pre-cutover client does not send this capability. Freeze its
   // newly created run to legacy replay until the recorded adoption boundary.

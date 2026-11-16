@@ -28,12 +28,13 @@ import {mvpDamageBonus} from './mvp.js';
 // Kept as a compatibility export for old integrations; no current damage
 // class or Ranger can bypass all airborne defenses.
 export const bypassesAirDefenses = () => false;
-export function damageDefenseBreakdown(amount,type,enemy,stats,balance,immunityAuras=null){
+export function damageDefenseBreakdown(amount,type,enemy,stats,balance,immunityAuras=null,artifactReduction=0){
   const canonical=damageType(type,stats.type),armor=Math.max(0,(enemy.armor||0)+(enemy.reactiveStacks||0)*(enemy.reactiveArmor||0)-(enemy.armorShred||0))*(1-Math.max(0,Math.min(1,stats.penetration||0)));
   const constant=balance.armorConstant||30,multiplier=constant/(constant+armor);
   const immune=canonical==='physical'&&enemy.physicalImmune||canonical==='magical'&&enemy.magicImmune;
   const breach=canonical==='physical'?enemy.statuses?.breachPhysical:enemy.statuses?.breachMagic;
-  const immunityMultiplier=!immune?1:immunityAuras?Math.max(0,Math.min(1,immunityAuras[canonical]?.multiplier||0)):breach?.time>0?breach.multiplier:0;
+  const nativeMultiplier=!immune?1:immunityAuras?Math.max(0,Math.min(1,immunityAuras[canonical]?.multiplier||0)):breach?.time>0?breach.multiplier:0;
+  const immunityMultiplier=immune?Math.max(nativeMultiplier,Math.max(0,Math.min(.30,artifactReduction))):nativeMultiplier;
   const blockReason=immune&&!(immunityMultiplier>0)?canonical==='physical'?'physical-immunity':'magic-immunity':null;
   return {type:canonical,effectiveArmor:armor,armorMultiplier:multiplier,afterArmor:blockReason?0:immunityAuras?amount*immunityMultiplier*multiplier:amount*multiplier*immunityMultiplier,blockReason,...(immunityAuras?{immunityMultiplier}:{})};
 }
@@ -81,7 +82,7 @@ export function combatTowerStats(tower,towers,data){
   const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower))*bonuses.damage;
   bonuses.haste*=(towers.general?.multiplier('morale-boost')||1)*(1+(tower.state==='active'?towers.artifactEffects?.speed||0:0));
   const stats=factionPrimaryBonuses(scaleDamageStats(readTowerStats(tower,data),multiplier),tower,towers);
-  if(stats.damage>0||stats.continuousAttack){const extra=tower.state==='active'?towers.artifactEffects?.range||0:0;if(extra){for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;stats.range*=1+extra;}stats.range+=bonuses.range;}
+  if(stats.damage>0||stats.continuousAttack){const extra=tower.state==='active'?towers.artifactEffects?.range||0:0,tiles=tower.state==='active'?towers.artifactEffects?.rangeTiles||0:0;if(extra||tiles){for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;stats.range=Math.max(.5,stats.range*(1+extra)+tiles);}stats.range+=bonuses.range;}
   const commanderRange=tower.state==='active'?towers.general?.rangeBonus||0:0;
   if(commanderRange){
     // A legacy offensive aura may fall back to direct range. Freeze that
@@ -89,7 +90,7 @@ export function combatTowerStats(tower,towers,data){
     for(const [effect,radius]of [['burnAura','burnAuraRange'],['slowAura','slowAuraRange'],['armorShredAura','effectRange']])if(stats[effect]&&stats[radius]===undefined)stats[radius]=stats.range;
     bonuses.commanderRange=commanderRange;stats.range+=commanderRange;
   }
-  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier,...((commanderRange||towers.artifactEffects?.range)?{range:stats.range}:{})};
+  if(stats.continuousAttack)stats.continuousAttack={...stats.continuousAttack,dps:stats.continuousAttack.dps*multiplier,...((commanderRange||towers.artifactEffects?.range||towers.artifactEffects?.rangeTiles)?{range:stats.range}:{})};
   const gearResistance=tower.state==='active'?towers.artifactEffects?.controlResistance||0:0;stats.trueStrike||=!!bonuses.trueStrike;
   if(stats.berserkHaste)bonuses.haste*=stats.berserkHaste;if(stats.berserkResistance)bonuses.controlResistance=Math.max(bonuses.controlResistance||0,stats.berserkResistance);if(gearResistance)bonuses.controlResistance=1-(1-(bonuses.controlResistance||0))*(1-gearResistance);return {stats,bonuses,multiplier};
 }

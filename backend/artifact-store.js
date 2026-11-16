@@ -1,9 +1,9 @@
-import {ARTIFACTS,ARTIFACT_SETS,CHESTS,RARITIES,validateArtifactEquipment,artifactBonuses,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet} from '../game/core/artifacts.js';
+import {ARTIFACTS,ARTIFACT_SETS,CHESTS,RARITIES,validateArtifactEquipment,artifactBonuses,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet,normalizeArtifactPity} from '../game/core/artifacts.js';
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
 const parse=JSON.parse;
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
 const uuid=value=>typeof value==='string'&&/^[a-f\d-]{36}$/i.test(value);
-async function account(db,user){await db.prepare('INSERT OR IGNORE INTO artifact_accounts(user_id) VALUES(?)').bind(user).run();const r=await db.prepare('SELECT * FROM artifact_accounts WHERE user_id=?').bind(user).first();return {revision:r.revision,dust:r.dust,owned:parse(r.owned_json),equipment:parse(r.equipment_json),presets:parse(r.presets_json),pity:parse(r.pity_json),highestTier:r.highest_tier};}
+async function account(db,user){await db.prepare('INSERT OR IGNORE INTO artifact_accounts(user_id) VALUES(?)').bind(user).run();const r=await db.prepare('SELECT * FROM artifact_accounts WHERE user_id=?').bind(user).first();return {revision:r.revision,dust:r.dust,owned:parse(r.owned_json),equipment:parse(r.equipment_json),presets:parse(r.presets_json),pity:normalizeArtifactPity(parse(r.pity_json)),highestTier:r.highest_tier};}
 export async function artifactProfile(db,user,attempt=0){
  const a=await account(db,user),chests=(await db.prepare("SELECT id,run_id AS runId,boss_spawn_id AS bossSpawnId,boss_id AS bossId,wave,tier,status,earned_at AS earnedAt FROM artifact_chests WHERE user_id=? AND status!='opened' ORDER BY earned_at,id LIMIT 1000").bind(user).all()).results;
  const counts=(await db.prepare("SELECT tier,status,COUNT(*) AS count FROM artifact_chests WHERE user_id=? AND status!='opened' GROUP BY tier,status").bind(user).all()).results;
@@ -41,7 +41,7 @@ export async function artifactMutation(db,user,action,body){
   if(!Number.isInteger(body.index)||body.index<0||body.index>2||!object(body.preset)||typeof body.preset.name!=='string'||body.preset.name.trim().length<1||body.preset.name.trim().length>32)fail('Choose a preset name of 1–32 characters.');
   next.presets[body.index]={name:body.preset.name.trim(),equipment:validateArtifactEquipment(body.preset.equipment,a.owned)};
  }else if(action==='equip-set'){
-  const set=ARTIFACT_SETS[body.artifactId];if(!set)fail('Unknown artifact set.');const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');const pieces=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id);if(pieces.some(item=>!a.owned.includes(item.id)))fail('Collect all six set pieces first.');
+  const set=ARTIFACT_SETS[body.artifactId];if(!set)fail('Unknown artifact set.');const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');const pieces=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id);if(pieces.some(item=>!a.owned.includes(item.id)))fail(`Collect all ${pieces.length} set pieces first.`);
   next.equipment=equipArtifactSet(a.equipment,set.id,a.owned);
  }else fail('Unknown artifact action.');
  const {ARTIFACT_CATALOG}=await import('../game/core/artifacts.js');receipt.newSets=ARTIFACT_CATALOG.sets.filter(set=>{const ids=ARTIFACT_CATALOG.artifacts.filter(item=>item.setId===set.id).map(item=>item.id);return ids.every(id=>next.owned.includes(id))&&!ids.every(id=>a.owned.includes(id));}).map(s=>s.id);

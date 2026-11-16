@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "effectVersion": "fr011-v1",
+  "effectVersion": "fr011-v2",
   "slots": [
     "head",
     "neck",
@@ -67,7 +67,10 @@
           "damage": 0.1
         }
       },
-      "art": "assets/ui/artifacts/set-iron-legion.webp"
+      "art": "assets/ui/artifacts/set-iron-legion.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-iron-legion.webp",
+      "rarity": "epic"
     },
     {
       "id": "stormwing-vanguard",
@@ -79,14 +82,17 @@
           "speed": 0.03
         },
         "4": {
-          "range": 0.05
+          "rangeTiles": 5
         },
         "6": {
           "speed": 0.05,
           "controlResistance": 0.15
         }
       },
-      "art": "assets/ui/artifacts/set-stormwing-vanguard.webp"
+      "art": "assets/ui/artifacts/set-stormwing-vanguard.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-stormwing-vanguard.webp",
+      "rarity": "epic"
     },
     {
       "id": "winter-court",
@@ -95,7 +101,7 @@
       "description": "Longer reach, chilling strikes and brief freezes.",
       "bonuses": {
         "2": {
-          "range": 0.03
+          "rangeTiles": 1.5
         },
         "4": {
           "slowBonus": 0.04
@@ -105,7 +111,10 @@
           "freezeDurationBonus": 0.2
         }
       },
-      "art": "assets/ui/artifacts/set-winter-court.webp"
+      "art": "assets/ui/artifacts/set-winter-court.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-winter-court.webp",
+      "rarity": "epic"
     },
     {
       "id": "venom-covenant",
@@ -124,7 +133,10 @@
           "healingReductionBonus": 0.2
         }
       },
-      "art": "assets/ui/artifacts/set-venom-covenant.webp"
+      "art": "assets/ui/artifacts/set-venom-covenant.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-venom-covenant.webp",
+      "rarity": "epic"
     },
     {
       "id": "ashen-dragon",
@@ -143,7 +155,10 @@
           "emberTransfer": 1
         }
       },
-      "art": "assets/ui/artifacts/set-ashen-dragon.webp"
+      "art": "assets/ui/artifacts/set-ashen-dragon.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-ashen-dragon.webp",
+      "rarity": "epic"
     },
     {
       "id": "royal-architect",
@@ -159,10 +174,128 @@
         },
         "6": {
           "controlResistance": 0.15,
-          "reinforceKeep": 6
+          "reinforceKeep": 6,
+          "gold": 375
         }
       },
-      "art": "assets/ui/artifacts/set-royal-architect.webp"
+      "art": "assets/ui/artifacts/set-royal-architect.webp",
+      "pieceCount": 6,
+      "commanderArt": "assets/ui/artifacts/commander-royal-architect.webp",
+      "rarity": "epic"
+    },
+    {
+      "id": "celestial",
+      "code": "CE",
+      "name": "Celestial",
+      "description": "Radiant command: strengthen every defender with damage, attack speed and reach.",
+      "bonuses": {
+        "2": {
+          "damage": 0.05
+        },
+        "4": {
+          "speed": 0.05
+        },
+        "6": {
+          "damage": 0.05,
+          "rangeTiles": 1
+        },
+        "8": {
+          "speed": 0.05,
+          "rangeTiles": 1
+        },
+        "10": {
+          "damage": 0.1,
+          "speed": 0.1,
+          "rangeTiles": 1.5
+        }
+      },
+      "art": "assets/ui/artifacts/set-celestial.webp",
+      "pieceCount": 10,
+      "commanderArt": "assets/ui/artifacts/commander-celestial.webp",
+      "rarity": "legendary"
+    },
+    {
+      "id": "necromancer",
+      "code": "NE",
+      "name": "Necromancer",
+      "description": "Dread command: weaken enemy armor, movement and Physical/Magical damage immunity.",
+      "bonuses": {
+        "2": {
+          "shredBonus": 1
+        },
+        "4": {
+          "slowBonus": 0.05
+        },
+        "6": {
+          "immunityReduction": 0.05
+        },
+        "8": {
+          "shredBonus": 2,
+          "slowBonus": 0.05
+        },
+        "10": {
+          "shredBonus": 2,
+          "slowBonus": 0.05,
+          "immunityReduction": 0.05
+        }
+      },
+      "art": "assets/ui/artifacts/set-necromancer.webp",
+      "pieceCount": 10,
+      "commanderArt": "assets/ui/artifacts/commander-necromancer.webp",
+      "rarity": "legendary"
+    },
+    {
+      "id": "militia-oath",
+      "code": "MO",
+      "name": "Militia Oath",
+      "description": "A humble village defense: dependable damage with ordinary wood and steel.",
+      "rarity": "rare",
+      "pieceCount": 2,
+      "bonuses": {
+        "2": {
+          "damage": 0.03
+        }
+      },
+      "art": "assets/ui/artifacts/set-militia-oath.webp",
+      "commanderArt": "assets/ui/artifacts/commander-militia-oath.webp"
+    },
+    {
+      "id": "scouts-trail",
+      "code": "SC",
+      "name": "Scout’s Trail",
+      "description": "Light field equipment for modest reach and faster attacks.",
+      "rarity": "rare",
+      "pieceCount": 4,
+      "bonuses": {
+        "2": {
+          "speed": 0.02
+        },
+        "4": {
+          "speed": 0.03,
+          "rangeTiles": 1
+        }
+      },
+      "art": "assets/ui/artifacts/set-scouts-trail.webp",
+      "commanderArt": "assets/ui/artifacts/commander-scouts-trail.webp"
+    },
+    {
+      "id": "stewards-kit",
+      "code": "SK",
+      "name": "Steward’s Kit",
+      "description": "Practical supplies for a small resource and keep-health advantage.",
+      "rarity": "rare",
+      "pieceCount": 4,
+      "bonuses": {
+        "2": {
+          "gold": 50
+        },
+        "4": {
+          "cp": 1,
+          "keepHealth": 1
+        }
+      },
+      "art": "assets/ui/artifacts/set-stewards-kit.webp",
+      "commanderArt": "assets/ui/artifacts/commander-stewards-kit.webp"
     }
   ],
   "chests": [
@@ -193,8 +326,8 @@
         "rare": 35,
         "epic": 5
       },
-      "pityEvery": 5,
-      "pityRarity": "epic",
+      "pityEvery": 3,
+      "pityRarity": "rare",
       "art": "assets/ui/artifacts/chest-2.webp",
       "openArt": "assets/ui/artifacts/chest-2-open.webp"
     },
@@ -209,8 +342,8 @@
         "epic": 30,
         "legendary": 5
       },
-      "pityEvery": 10,
-      "pityRarity": "legendary",
+      "pityEvery": 7,
+      "pityRarity": "epic",
       "art": "assets/ui/artifacts/chest-3.webp",
       "openArt": "assets/ui/artifacts/chest-3-open.webp"
     },
@@ -251,7 +384,7 @@
       "id": "LG-01",
       "name": "Helm of the Vanguard",
       "slot": "head",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "iron-legion",
       "description": "All active defenders deal 3% more own damage.",
       "modifiers": {
@@ -263,7 +396,7 @@
       "id": "LG-02",
       "name": "Marching Sabatons",
       "slot": "feet",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "iron-legion",
       "description": "All active defenders deal 3% more own damage.",
       "modifiers": {
@@ -275,7 +408,7 @@
       "id": "LG-03",
       "name": "Ring of Courage",
       "slot": "ring",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "iron-legion",
       "description": "All active defenders deal 3% more own damage.",
       "modifiers": {
@@ -287,7 +420,7 @@
       "id": "LG-04",
       "name": "Shield of the Gatebreaker",
       "slot": "offhand",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "iron-legion",
       "description": "All active defenders deal 6% more own damage against bosses.",
       "modifiers": {
@@ -323,7 +456,7 @@
       "id": "ST-01",
       "name": "Windstep Boots",
       "slot": "feet",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "stormwing-vanguard",
       "description": "All active defenders attack 2% faster.",
       "modifiers": {
@@ -335,7 +468,7 @@
       "id": "ST-02",
       "name": "Ring of Sparks",
       "slot": "ring",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "stormwing-vanguard",
       "description": "All active defenders attack 3% faster.",
       "modifiers": {
@@ -347,7 +480,7 @@
       "id": "ST-03",
       "name": "Swiftstrike Gauntlets",
       "slot": "gloves",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "stormwing-vanguard",
       "description": "All active defenders attack 3% faster.",
       "modifiers": {
@@ -359,7 +492,7 @@
       "id": "ST-04",
       "name": "Tempest Pendant",
       "slot": "neck",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "stormwing-vanguard",
       "description": "All active defenders attack 4% faster.",
       "modifiers": {
@@ -395,11 +528,11 @@
       "id": "WC-01",
       "name": "Snowveil Cloak",
       "slot": "cloak",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "winter-court",
-      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "description": "+1 attack range tile.",
       "modifiers": {
-        "range": 0.02
+        "rangeTiles": 1
       },
       "art": "assets/ui/artifacts/wc-01.webp"
     },
@@ -407,7 +540,7 @@
       "id": "WC-02",
       "name": "Ring of Rime",
       "slot": "ring",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "winter-court",
       "description": "Primary damaging hits slow eligible enemies by 8% for 2 combat seconds.",
       "modifiers": {
@@ -419,11 +552,11 @@
       "id": "WC-03",
       "name": "Glacier Pendant",
       "slot": "neck",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "winter-court",
-      "description": "Attack range increases by 3%. Aura and splash radii are unchanged.",
+      "description": "+1.5 attack range tiles.",
       "modifiers": {
-        "range": 0.03
+        "rangeTiles": 1.5
       },
       "art": "assets/ui/artifacts/wc-03.webp"
     },
@@ -431,7 +564,7 @@
       "id": "WC-04",
       "name": "Mirror of Winter",
       "slot": "offhand",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "winter-court",
       "description": "Deal 5% more own damage to slowed or frozen enemies.",
       "modifiers": {
@@ -445,9 +578,9 @@
       "slot": "head",
       "rarity": "epic",
       "setId": "winter-court",
-      "description": "Attack range increases by 4%. Aura and splash radii are unchanged.",
+      "description": "+2 attack range tiles.",
       "modifiers": {
-        "range": 0.04
+        "rangeTiles": 2
       },
       "art": "assets/ui/artifacts/wc-05.webp"
     },
@@ -468,7 +601,7 @@
       "id": "VC-01",
       "name": "Plaguewarden Hood",
       "slot": "head",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "venom-covenant",
       "description": "All active defenders deal 2% more own damage.",
       "modifiers": {
@@ -480,7 +613,7 @@
       "id": "VC-02",
       "name": "Ring of Venom",
       "slot": "ring",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "venom-covenant",
       "description": "Primary damaging hits add Magical poison equal to 4% of effective hit damage, spread over 3s.",
       "modifiers": {
@@ -492,7 +625,7 @@
       "id": "VC-03",
       "name": "Serpent's Pendant",
       "slot": "neck",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "venom-covenant",
       "description": "Deal 4% more own damage to poisoned enemies.",
       "modifiers": {
@@ -504,7 +637,7 @@
       "id": "VC-04",
       "name": "Toxicologist's Gloves",
       "slot": "gloves",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "venom-covenant",
       "description": "Artifact poison deals 20% more damage. Native defender poison is unchanged.",
       "modifiers": {
@@ -540,7 +673,7 @@
       "id": "AD-01",
       "name": "Emberstep Boots",
       "slot": "feet",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "ashen-dragon",
       "description": "All active defenders deal 2% more own damage.",
       "modifiers": {
@@ -552,7 +685,7 @@
       "id": "AD-02",
       "name": "Cinderheart Pendant",
       "slot": "neck",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "ashen-dragon",
       "description": "Primary damaging hits add Magical burn equal to 4% of effective hit damage, spread over 2s.",
       "modifiers": {
@@ -564,11 +697,11 @@
       "id": "AD-03",
       "name": "Ashen Wings Cloak",
       "slot": "cloak",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "ashen-dragon",
-      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "description": "+3 attack range tiles.",
       "modifiers": {
-        "range": 0.02
+        "rangeTiles": 3
       },
       "art": "assets/ui/artifacts/ad-03.webp"
     },
@@ -576,7 +709,7 @@
       "id": "AD-04",
       "name": "Dragonfire Lantern",
       "slot": "offhand",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "ashen-dragon",
       "description": "Artifact burn deals 20% more damage. Native defender burn is unchanged.",
       "modifiers": {
@@ -612,7 +745,7 @@
       "id": "RA-01",
       "name": "Builder's Gloves",
       "slot": "gloves",
-      "rarity": "common",
+      "rarity": "rare",
       "setId": "royal-architect",
       "description": "Start a new defense with 75 additional gold.",
       "modifiers": {
@@ -624,7 +757,7 @@
       "id": "RA-02",
       "name": "Foundation Boots",
       "slot": "feet",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "royal-architect",
       "description": "Start with 3 additional current and maximum keep health.",
       "modifiers": {
@@ -636,7 +769,7 @@
       "id": "RA-03",
       "name": "Mantle of Resolve",
       "slot": "cloak",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "setId": "royal-architect",
       "description": "Defenders gain 10% resistance to enemy disruption; combines through remaining vulnerability.",
       "modifiers": {
@@ -648,7 +781,7 @@
       "id": "RA-04",
       "name": "Surveyor's Crown",
       "slot": "head",
-      "rarity": "rare",
+      "rarity": "epic",
       "setId": "royal-architect",
       "description": "Start a new defense with 1 additional Command Point.",
       "modifiers": {
@@ -698,9 +831,9 @@
       "slot": "cloak",
       "rarity": "common",
       "setId": null,
-      "description": "Attack range increases by 2%. Aura and splash radii are unchanged.",
+      "description": "+1 attack range tile.",
       "modifiers": {
-        "range": 0.02
+        "rangeTiles": 1
       },
       "art": "assets/ui/artifacts/n-02.webp"
     },
@@ -722,9 +855,9 @@
       "slot": "gloves",
       "rarity": "uncommon",
       "setId": null,
-      "description": "Attack range increases by 3%. Aura and splash radii are unchanged.",
+      "description": "+1.5 attack range tiles.",
       "modifiers": {
-        "range": 0.03
+        "rangeTiles": 1.5
       },
       "art": "assets/ui/artifacts/n-04.webp"
     },
@@ -818,13 +951,717 @@
       "slot": "neck",
       "rarity": "legendary",
       "setId": null,
-      "description": "All active defenders gain 5% own damage, 3% attack speed and 2% attack range.",
+      "description": "+5% own damage; +3% attack speed; +1 attack range tile.",
       "modifiers": {
         "damage": 0.05,
         "speed": 0.03,
-        "range": 0.02
+        "rangeTiles": 1
       },
       "art": "assets/ui/artifacts/n-12.webp"
+    },
+    {
+      "id": "CE-01",
+      "name": "Crown of First Light",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+4% own damage; +0.5 attack range tiles.",
+      "modifiers": {
+        "damage": 0.04,
+        "rangeTiles": 0.5
+      },
+      "art": "assets/ui/artifacts/ce-01.webp",
+      "visualBrief": "An ivory and antique-gold radiant winged crown, empty front-facing headpiece with a small sun crystal."
+    },
+    {
+      "id": "CE-02",
+      "name": "Pendant of the Dawn",
+      "slot": "neck",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+4% attack speed.",
+      "modifiers": {
+        "speed": 0.04
+      },
+      "art": "assets/ui/artifacts/ce-02.webp",
+      "visualBrief": "An antique-gold sunburst pendant with a pale turquoise crystal, complete fine necklace chain."
+    },
+    {
+      "id": "CE-03",
+      "name": "Seraphic Aegis Plate",
+      "slot": "chest",
+      "rarity": "legendary",
+      "setId": "celestial",
+      "description": "+6% own damage.",
+      "modifiers": {
+        "damage": 0.06
+      },
+      "art": "assets/ui/artifacts/ce-03.webp",
+      "visualBrief": "Majestic frontal empty wearable ivory plate cuirass, gold filigree, turquoise heart gem and feather pauldrons, no head or body."
+    },
+    {
+      "id": "CE-04",
+      "name": "Blade of the Zenith",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "celestial",
+      "description": "+7% own damage.",
+      "modifiers": {
+        "damage": 0.07
+      },
+      "art": "assets/ui/artifacts/ce-04.webp",
+      "visualBrief": "Long celestial sword, polished ivory-silver blade, gold winged crossguard and turquoise sun gem. Complete tip and pommel."
+    },
+    {
+      "id": "CE-05",
+      "name": "Shield of the Firmament",
+      "slot": "offhand",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+0.75 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.75
+      },
+      "art": "assets/ui/artifacts/ce-05.webp",
+      "visualBrief": "Frontal ornate ivory kite shield, antique gold frame, turquoise sun surrounded by stylized gold feathers."
+    },
+    {
+      "id": "CE-06",
+      "name": "Dawnweaver Gauntlets",
+      "slot": "gloves",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+5% attack speed.",
+      "modifiers": {
+        "speed": 0.05
+      },
+      "art": "assets/ui/artifacts/ce-06.webp",
+      "visualBrief": "A matched pair of ivory armored gauntlets, gold seams and small turquoise gems, both complete, no hands."
+    },
+    {
+      "id": "CE-07",
+      "name": "Mantle of the Morning Star",
+      "slot": "cloak",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+0.75 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.75
+      },
+      "art": "assets/ui/artifacts/ce-07.webp",
+      "visualBrief": "An ivory cloth cloak with antique gold embroidered sun and restrained turquoise lining; complete cloak without mannequin."
+    },
+    {
+      "id": "CE-08",
+      "name": "Sabatons of Ascension",
+      "slot": "feet",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+3% attack speed.",
+      "modifiers": {
+        "speed": 0.03
+      },
+      "art": "assets/ui/artifacts/ce-08.webp",
+      "visualBrief": "Matched ivory plate sabatons with gold feather trim and turquoise gems, both complete, no legs."
+    },
+    {
+      "id": "CE-09",
+      "name": "Ring of the Sun",
+      "slot": "ring",
+      "rarity": "epic",
+      "setId": "celestial",
+      "description": "+3% own damage.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/artifacts/ce-09.webp",
+      "visualBrief": "One antique-gold ring with a round amber sunstone and small feather shoulders."
+    },
+    {
+      "id": "CE-10",
+      "name": "Ring of the Sky",
+      "slot": "ring",
+      "rarity": "legendary",
+      "setId": "celestial",
+      "description": "+3% attack speed; +0.5 attack range tiles.",
+      "modifiers": {
+        "speed": 0.03,
+        "rangeTiles": 0.5
+      },
+      "art": "assets/ui/artifacts/ce-10.webp",
+      "visualBrief": "One antique-gold winged signet ring with a distinct bright turquoise oval sky gem."
+    },
+    {
+      "id": "NE-01",
+      "name": "Crown of the Bone Sovereign",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "5% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "modifiers": {
+        "immunityReduction": 0.05
+      },
+      "art": "assets/ui/artifacts/ne-01.webp",
+      "visualBrief": "A frontal empty wearable blackened iron crown with bone-white prongs and one emerald soul gem; dignified, no skull head."
+    },
+    {
+      "id": "NE-02",
+      "name": "Soulbinder Pendant",
+      "slot": "neck",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "6% slow for 2s.",
+      "modifiers": {
+        "slow": 0.06
+      },
+      "art": "assets/ui/artifacts/ne-02.webp",
+      "visualBrief": "A complete dark iron necklace with bone-claw pendant holding a green soulstone."
+    },
+    {
+      "id": "NE-03",
+      "name": "Vestments of the Grave King",
+      "slot": "chest",
+      "rarity": "legendary",
+      "setId": "necromancer",
+      "description": "5% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "modifiers": {
+        "immunityReduction": 0.05
+      },
+      "art": "assets/ui/artifacts/ne-03.webp",
+      "visualBrief": "Frontal empty wearable charcoal black plate cuirass with bone-white rib filigree, dark brass seams and an emerald heart gem. No body, no head."
+    },
+    {
+      "id": "NE-04",
+      "name": "Staff of the Hollow Throne",
+      "slot": "weapon",
+      "rarity": "legendary",
+      "setId": "necromancer",
+      "description": "-3 armor for 2s; strongest reduction only.",
+      "modifiers": {
+        "shred": 3
+      },
+      "art": "assets/ui/artifacts/ne-04.webp",
+      "visualBrief": "A long complete dark staff crowned with a bone crescent and brilliant emerald soul crystal. Restrained gothic elegance, no smoke."
+    },
+    {
+      "id": "NE-05",
+      "name": "Grimoire of Withering",
+      "slot": "offhand",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "4% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "modifiers": {
+        "immunityReduction": 0.04
+      },
+      "art": "assets/ui/artifacts/ne-05.webp",
+      "visualBrief": "A closed dark green spellbook with black metal corners, bone-white spine clasps and a glowing emerald seal, no written letters."
+    },
+    {
+      "id": "NE-06",
+      "name": "Grasp of the Crypt",
+      "slot": "gloves",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "-2 armor for 2s; strongest reduction only.",
+      "modifiers": {
+        "shred": 2
+      },
+      "art": "assets/ui/artifacts/ne-06.webp",
+      "visualBrief": "A matched pair of charcoal armored gauntlets with bone-white segmented finger plates and emerald wrist gems, no hands."
+    },
+    {
+      "id": "NE-07",
+      "name": "Shroud of the Veil",
+      "slot": "cloak",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "8% slow for 2s.",
+      "modifiers": {
+        "slow": 0.08
+      },
+      "art": "assets/ui/artifacts/ne-07.webp",
+      "visualBrief": "A complete charcoal cloth cloak with muted forest-green lining and embroidered bone-white gothic edge, no mannequin or smoke."
+    },
+    {
+      "id": "NE-08",
+      "name": "Gravewalker Boots",
+      "slot": "feet",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "3% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "modifiers": {
+        "immunityReduction": 0.03
+      },
+      "art": "assets/ui/artifacts/ne-08.webp",
+      "visualBrief": "A matched pair of blackened metal armored boots with ivory bone motifs and emerald ankle gems, no legs."
+    },
+    {
+      "id": "NE-09",
+      "name": "Ring of Stillness",
+      "slot": "ring",
+      "rarity": "epic",
+      "setId": "necromancer",
+      "description": "10% slow for 2s.",
+      "modifiers": {
+        "slow": 0.1
+      },
+      "art": "assets/ui/artifacts/ne-09.webp",
+      "visualBrief": "One dark brass ring with a square black stone and tiny emerald hourglass motif, no lettering."
+    },
+    {
+      "id": "NE-10",
+      "name": "Ring of the Last Soul",
+      "slot": "ring",
+      "rarity": "legendary",
+      "setId": "necromancer",
+      "description": "3% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "modifiers": {
+        "immunityReduction": 0.03
+      },
+      "art": "assets/ui/artifacts/ne-10.webp",
+      "visualBrief": "One blackened iron signet ring with a large green emerald soulstone held by bone-white claws, distinct round silhouette."
+    },
+    {
+      "id": "MO-01",
+      "name": "Village Sword",
+      "slot": "weapon",
+      "rarity": "common",
+      "setId": "militia-oath",
+      "description": "+1% own damage.",
+      "modifiers": {
+        "damage": 0.01
+      },
+      "art": "assets/ui/artifacts/mo-01.webp",
+      "visualBrief": "A plain short iron sword with worn brown leather grip, no ornament, complete blade."
+    },
+    {
+      "id": "MO-02",
+      "name": "Village Buckler",
+      "slot": "offhand",
+      "rarity": "uncommon",
+      "setId": "militia-oath",
+      "description": "+1% own damage.",
+      "modifiers": {
+        "damage": 0.01
+      },
+      "art": "assets/ui/artifacts/mo-02.webp",
+      "visualBrief": "A small round wooden buckler with iron rim, plain hammered steel boss, worn wood, no heraldry."
+    },
+    {
+      "id": "SC-01",
+      "name": "Trail Hood",
+      "slot": "head",
+      "rarity": "common",
+      "setId": "scouts-trail",
+      "description": "+0.25 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.25
+      },
+      "art": "assets/ui/artifacts/sc-01.webp",
+      "visualBrief": "A simple muted olive cloth hood, empty wearable, linen seams, no gems or trim."
+    },
+    {
+      "id": "SC-02",
+      "name": "Trail Gloves",
+      "slot": "gloves",
+      "rarity": "uncommon",
+      "setId": "scouts-trail",
+      "description": "+0.25 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.25
+      },
+      "art": "assets/ui/artifacts/sc-02.webp",
+      "visualBrief": "A pair of plain supple brown leather scout gloves with worn stitching, no hands."
+    },
+    {
+      "id": "SC-03",
+      "name": "Trail Cloak",
+      "slot": "cloak",
+      "rarity": "uncommon",
+      "setId": "scouts-trail",
+      "description": "+0.25 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.25
+      },
+      "art": "assets/ui/artifacts/sc-03.webp",
+      "visualBrief": "A short worn moss green travel cloak, simple wooden clasp, no mannequin, no ornate trim."
+    },
+    {
+      "id": "SC-04",
+      "name": "Trail Boots",
+      "slot": "feet",
+      "rarity": "rare",
+      "setId": "scouts-trail",
+      "description": "+0.25 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 0.25
+      },
+      "art": "assets/ui/artifacts/sc-04.webp",
+      "visualBrief": "A pair of practical dark leather ranger boots with modest bronze buckles, no gems, no legs."
+    },
+    {
+      "id": "SK-01",
+      "name": "Copper Ledger Ring",
+      "slot": "ring",
+      "rarity": "common",
+      "setId": "stewards-kit",
+      "description": "+25 starting gold.",
+      "modifiers": {
+        "gold": 25
+      },
+      "art": "assets/ui/artifacts/sk-01.webp",
+      "visualBrief": "A plain copper signet ring with a small square unmarked face, humble and utilitarian."
+    },
+    {
+      "id": "SK-02",
+      "name": "Workman’s Gloves",
+      "slot": "gloves",
+      "rarity": "uncommon",
+      "setId": "stewards-kit",
+      "description": "+25 starting gold.",
+      "modifiers": {
+        "gold": 25
+      },
+      "art": "assets/ui/artifacts/sk-02.webp",
+      "visualBrief": "A pair of coarse tan leather work gloves with simple dark wrist straps, no metal plates or hands."
+    },
+    {
+      "id": "SK-03",
+      "name": "Quartermaster’s Token",
+      "slot": "neck",
+      "rarity": "uncommon",
+      "setId": "stewards-kit",
+      "description": "+1 starting CP.",
+      "modifiers": {
+        "cp": 1
+      },
+      "art": "assets/ui/artifacts/sk-03.webp",
+      "visualBrief": "A simple round brass supply token on a brown leather cord, engraved single crate symbol, no letters."
+    },
+    {
+      "id": "SK-04",
+      "name": "Mason’s Boots",
+      "slot": "feet",
+      "rarity": "rare",
+      "setId": "stewards-kit",
+      "description": "+1 starting/max keep health.",
+      "modifiers": {
+        "keepHealth": 1
+      },
+      "art": "assets/ui/artifacts/sk-04.webp",
+      "visualBrief": "A pair of sturdy brown leather work boots with simple steel toe caps, modest craftsmanship, no legs."
+    },
+    {
+      "id": "N-13",
+      "name": "Heavy Battlemaul",
+      "slot": "weapon",
+      "rarity": "rare",
+      "setId": null,
+      "description": "+12% own damage; −8% attack speed.",
+      "modifiers": {
+        "damage": 0.12,
+        "speed": -0.08
+      },
+      "art": "assets/ui/artifacts/n-13.webp",
+      "visualBrief": "A complete heavy iron two-handed war hammer, large square head, dark leather handle, restrained copper fittings."
+    },
+    {
+      "id": "N-14",
+      "name": "Quickstring Gloves",
+      "slot": "gloves",
+      "rarity": "rare",
+      "setId": null,
+      "description": "−8% own damage; +12% attack speed.",
+      "modifiers": {
+        "speed": 0.12,
+        "damage": -0.08
+      },
+      "art": "assets/ui/artifacts/n-14.webp",
+      "visualBrief": "A pair of thin burgundy archery gloves with taut brass finger bracing, elegant small mechanical tensioners, no hands."
+    },
+    {
+      "id": "N-15",
+      "name": "Farwatch Lens",
+      "slot": "head",
+      "rarity": "epic",
+      "setId": null,
+      "description": "−6% attack speed; +2 attack range tiles.",
+      "modifiers": {
+        "rangeTiles": 2,
+        "speed": -0.06
+      },
+      "art": "assets/ui/artifacts/n-15.webp",
+      "visualBrief": "A wearable dark green leather circlet with one large amber monocular viewing lens over the brow, empty wearable, no face."
+    },
+    {
+      "id": "N-16",
+      "name": "Berserker Crest",
+      "slot": "neck",
+      "rarity": "epic",
+      "setId": null,
+      "description": "+18% own damage; −1 attack range tile.",
+      "modifiers": {
+        "damage": 0.18,
+        "rangeTiles": -1
+      },
+      "art": "assets/ui/artifacts/n-16.webp",
+      "visualBrief": "A brass boar-head battle pendant with a dark red gemstone, heavy black chain, no text."
+    },
+    {
+      "id": "N-17",
+      "name": "Overclock Ring",
+      "slot": "ring",
+      "rarity": "epic",
+      "setId": null,
+      "description": "−10% own damage; +15% attack speed.",
+      "modifiers": {
+        "speed": 0.15,
+        "damage": -0.1
+      },
+      "art": "assets/ui/artifacts/n-17.webp",
+      "visualBrief": "A compact brass ring with exposed tiny silver gears and a sharp cyan crystal, distinctive mechanical design, no text."
+    },
+    {
+      "id": "N-18",
+      "name": "Oathbreaker Shield",
+      "slot": "offhand",
+      "rarity": "legendary",
+      "setId": null,
+      "description": "+15% own damage; −5% attack speed; −0.5 attack range tiles.",
+      "modifiers": {
+        "damage": 0.15,
+        "speed": -0.05,
+        "rangeTiles": -0.5
+      },
+      "art": "assets/ui/artifacts/n-18.webp",
+      "visualBrief": "A complete black steel kite shield with broken golden sun engraving, ruby in center and restrained gold edging, no hands."
     }
-  ]
+  ],
+  "catalogRevision": 3,
+  "pityRulesVersion": 2,
+  "legacyEffects": {
+    "version": "fr011-v1",
+    "itemModifiers": {
+      "LG-01": {
+        "damage": 0.03
+      },
+      "LG-02": {
+        "damage": 0.03
+      },
+      "LG-03": {
+        "damage": 0.03
+      },
+      "LG-04": {
+        "bossDamage": 0.06
+      },
+      "LG-05": {
+        "damage": 0.05
+      },
+      "LG-06": {
+        "damage": 0.08
+      },
+      "ST-01": {
+        "speed": 0.02
+      },
+      "ST-02": {
+        "speed": 0.03
+      },
+      "ST-03": {
+        "speed": 0.03
+      },
+      "ST-04": {
+        "speed": 0.04
+      },
+      "ST-05": {
+        "speed": 0.05
+      },
+      "ST-06": {
+        "speed": 0.06
+      },
+      "WC-01": {
+        "range": 0.02
+      },
+      "WC-02": {
+        "slow": 0.08
+      },
+      "WC-03": {
+        "range": 0.03
+      },
+      "WC-04": {
+        "conditionalControl": 0.05
+      },
+      "WC-05": {
+        "range": 0.04
+      },
+      "WC-06": {
+        "freezeChance": 0.06,
+        "freezeDuration": 0.6
+      },
+      "VC-01": {
+        "damage": 0.02
+      },
+      "VC-02": {
+        "poisonBase": 0.04
+      },
+      "VC-03": {
+        "conditionalPoison": 0.04
+      },
+      "VC-04": {
+        "poisonPower": 0.2
+      },
+      "VC-05": {
+        "healingReduction": 0.2
+      },
+      "VC-06": {
+        "poisonBase": 0.1
+      },
+      "AD-01": {
+        "damage": 0.02
+      },
+      "AD-02": {
+        "burnBase": 0.04
+      },
+      "AD-03": {
+        "range": 0.02
+      },
+      "AD-04": {
+        "burnPower": 0.2
+      },
+      "AD-05": {
+        "conditionalBurn": 0.05
+      },
+      "AD-06": {
+        "burnBase": 0.1
+      },
+      "RA-01": {
+        "gold": 75
+      },
+      "RA-02": {
+        "keepHealth": 3
+      },
+      "RA-03": {
+        "controlResistance": 0.1
+      },
+      "RA-04": {
+        "cp": 1
+      },
+      "RA-05": {
+        "keepHealth": 5
+      },
+      "RA-06": {
+        "cp": 3
+      },
+      "N-01": {
+        "damage": 0.03
+      },
+      "N-02": {
+        "range": 0.02
+      },
+      "N-03": {
+        "gold": 75
+      },
+      "N-04": {
+        "range": 0.03
+      },
+      "N-05": {
+        "speed": 0.03
+      },
+      "N-06": {
+        "keepHealth": 3
+      },
+      "N-07": {
+        "gold": 200
+      },
+      "N-08": {
+        "cp": 2
+      },
+      "N-09": {
+        "shred": 2
+      },
+      "N-10": {
+        "controlResistance": 0.2
+      },
+      "N-11": {
+        "bossDamage": 0.1
+      },
+      "N-12": {
+        "damage": 0.05,
+        "speed": 0.03,
+        "range": 0.02
+      }
+    },
+    "setBonuses": {
+      "iron-legion": {
+        "2": {
+          "damage": 0.05
+        },
+        "4": {
+          "bossDamage": 0.06
+        },
+        "6": {
+          "damage": 0.1
+        }
+      },
+      "stormwing-vanguard": {
+        "2": {
+          "speed": 0.03
+        },
+        "4": {
+          "range": 0.05
+        },
+        "6": {
+          "speed": 0.05,
+          "controlResistance": 0.15
+        }
+      },
+      "winter-court": {
+        "2": {
+          "range": 0.03
+        },
+        "4": {
+          "slowBonus": 0.04
+        },
+        "6": {
+          "freezeChanceBonus": 0.04,
+          "freezeDurationBonus": 0.2
+        }
+      },
+      "venom-covenant": {
+        "2": {
+          "conditionalPoison": 0.03
+        },
+        "4": {
+          "poisonPower": 0.3
+        },
+        "6": {
+          "poisonPower": 0.5,
+          "healingReductionBonus": 0.2
+        }
+      },
+      "ashen-dragon": {
+        "2": {
+          "burnPower": 0.2
+        },
+        "4": {
+          "conditionalBurn": 0.05
+        },
+        "6": {
+          "burnPower": 0.6,
+          "emberTransfer": 1
+        }
+      },
+      "royal-architect": {
+        "2": {
+          "gold": 150
+        },
+        "4": {
+          "cp": 2
+        },
+        "6": {
+          "controlResistance": 0.15,
+          "reinforceKeep": 6
+        }
+      }
+    }
+  }
 }

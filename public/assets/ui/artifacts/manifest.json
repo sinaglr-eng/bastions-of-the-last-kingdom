@@ -1,7 +1,9 @@
 {
   "feature": "FR-011",
+  "catalogRevision": 3,
   "generationMode": "built-in image_gen",
-  "artifacts": 48,
+  "artifacts": 84,
+  "sets": 11,
   "assets": [
     {
       "path": "assets/ui/artifacts/ad-01.webp",
@@ -56,6 +58,96 @@
         512
       ],
       "sha256": "91cf299ceac6ee1fa4c7fb3e371672a8fd3daa7985294464521517cf6685d2d8"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-01.webp",
+      "bytes": 48740,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "fa799a520f93c7cbe2ff2dc4798b7cc57afe0116b828868ba86377c34a5eec42"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-02.webp",
+      "bytes": 47372,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "136903069d920df5c808b3c6056642a4c4e3851fb6ca8b08255d6903daead9ea"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-03.webp",
+      "bytes": 71272,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "ad59722f23c07b0e6d2bf290e1a7e3b0d34430a6d6079d00b53516bb02958af8"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-04.webp",
+      "bytes": 31288,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "460256ff85946c39d5a1399920cf9a9b77e5e6d90cc9d8d7b0eb82963c17928b"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-05.webp",
+      "bytes": 48492,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "ebe03aae1d66f654c737b3e70b47a73e8848c5b56b01151a9b1205d09999e7e2"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-06.webp",
+      "bytes": 61392,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "3900c762a1d9a61fd30b83b193aba13f0cb903182c8716f64831ec3b619fec19"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-07.webp",
+      "bytes": 49762,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "af0d0ed1189a7d94199cb2d862d4923f6cc43d1f632a3105d5730e3d19f57370"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-08.webp",
+      "bytes": 60948,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "46afc019a004b67af03397851433c650dfa14af8013886fce7b8a3d423387957"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-09.webp",
+      "bytes": 48112,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "bb01708874777ce6cf55ef5b58cc64a386aa9300aa7bf0b652a667605f5e8951"
+    },
+    {
+      "path": "assets/ui/artifacts/ce-10.webp",
+      "bytes": 79572,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e343ce9b5ce2187d63b766f29fb3ed8fb38e5f74ac78205d1535cc4cb18e1c33"
     },
     {
       "path": "assets/ui/artifacts/chest-1-open.webp",
@@ -148,6 +240,15 @@
       "sha256": "036c6827918f713f27c3c68d33cf62db5ab071774ec9db73eff3d6fcaf518a07"
     },
     {
+      "path": "assets/ui/artifacts/commander-ashen-dragon.webp",
+      "bytes": 196134,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "8608ce0d54cb085ed2449f428d7606287b91281db329de2224b0e3287951adbc"
+    },
+    {
       "path": "assets/ui/artifacts/commander-body.webp",
       "bytes": 119108,
       "size": [
@@ -155,6 +256,96 @@
         1280
       ],
       "sha256": "3d7cf03801525f2a7732b21943598d54b0e2e3be57a1285c09c6ed88f694fe72"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-celestial.webp",
+      "bytes": 226984,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "a7c45b52969d0b2497a65d9f4ce7861b93864288d49c15eed1b6747b15fc9259"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-iron-legion.webp",
+      "bytes": 196688,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "847bfe56b7230596f584aa44e66a5d0247784d48e6b4075965e61effb8b5ebe7"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-militia-oath.webp",
+      "bytes": 164878,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "2200c15350e39e7eeedc06ada310d0b53e4cb1ed8f706e9b27614b7f76ea8347"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-necromancer.webp",
+      "bytes": 279262,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "4eec7f6ba9fcd33655789e4a03e6193a65f129b5ec23bf7e9302dbe4ef1f84f7"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-royal-architect.webp",
+      "bytes": 208094,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "74f58555b06bf51f1aaa239fb42d3de204dbb92affa1318fd18fb1a128045a68"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-scouts-trail.webp",
+      "bytes": 106108,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "da3c89b4ac96d18333fff4d9cb667ce854a775b6f5722588b9a3879349fbca78"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-stewards-kit.webp",
+      "bytes": 145966,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "0e9fc8dd60b6484be5bb1c90e00c7fc2bfa5593f1855e8719d879e378bf8f91a"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-stormwing-vanguard.webp",
+      "bytes": 181782,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "e7d6bf549ef730b058d8c129b778305f83f0a5d4c6588d5bdbaba607e5e0d471"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-venom-covenant.webp",
+      "bytes": 152874,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "c82234a2209382cd7cd5115965bd2b8cc14d54e1fd9533ee995f51abd253cba5"
+    },
+    {
+      "path": "assets/ui/artifacts/commander-winter-court.webp",
+      "bytes": 193136,
+      "size": [
+        768,
+        1280
+      ],
+      "sha256": "e801f8168dbc3a76c2d21a4ffee9c08b6427c5661a727a16a97155f85cd686c7"
     },
     {
       "path": "assets/ui/artifacts/lg-01.webp",
@@ -209,6 +400,24 @@
         512
       ],
       "sha256": "48084487df3b2bdc1830460ce2ecdbf366e2ba5e14886f5319ba8cdef470ba98"
+    },
+    {
+      "path": "assets/ui/artifacts/mo-01.webp",
+      "bytes": 23684,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e5bfbb450d1a0d6707dd39af4953018d757af2faf49c96347467dfc44df77f1e"
+    },
+    {
+      "path": "assets/ui/artifacts/mo-02.webp",
+      "bytes": 63820,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "91c70c0463bfad0c528d67748971d28a0f5e395df3ec3342e308ecad675a2bfa"
     },
     {
       "path": "assets/ui/artifacts/n-01.webp",
@@ -319,6 +528,150 @@
       "sha256": "a8b76d5ff689cd6030350cb80a8efba84f18df8b226c62abb411ac66edc64c8a"
     },
     {
+      "path": "assets/ui/artifacts/n-13.webp",
+      "bytes": 34322,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "8cee893afc1a2940cd502755e4777fd7cbd705babd34fa9c208c90cbe20ab1a6"
+    },
+    {
+      "path": "assets/ui/artifacts/n-14.webp",
+      "bytes": 74682,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "4931690b7ac1adf814df0ea54d1cba571a65e5cb19e8173750da13303d2a2cfd"
+    },
+    {
+      "path": "assets/ui/artifacts/n-15.webp",
+      "bytes": 43616,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "63ea3d5f12e2ec704f87d13a6eabdce6e3b91cc6f1077a16ab806d6b2cbff89f"
+    },
+    {
+      "path": "assets/ui/artifacts/n-16.webp",
+      "bytes": 64590,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "f37006c23a9e8a774d073e41eba9ef13bb5d45fd86b13b84fdf2a968d82e732d"
+    },
+    {
+      "path": "assets/ui/artifacts/n-17.webp",
+      "bytes": 53804,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "95df2837912a40910c56b419eb627783d0a37ef2afa4708e216e4cbdc9d54876"
+    },
+    {
+      "path": "assets/ui/artifacts/n-18.webp",
+      "bytes": 54966,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "c0c60821d031024b7f958b528751f3a755cbc485846dcd3d4be25ddcf3aa0bf6"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-01.webp",
+      "bytes": 67558,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "7cca1be22b895c54f4ae331ea00cf4f29c5e8faeb7076a0db0a9d7275b0eb9a4"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-02.webp",
+      "bytes": 52824,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "faf062f29d1dbca66b63e7e453c8a7a1bc6faaadc208642808910957ec05a8df"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-03.webp",
+      "bytes": 68954,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "9f782818385571b1c3562c0ce06029171cd6eb0ed00941cdf5776f0009ba2167"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-04.webp",
+      "bytes": 25536,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "02c69d026084bd7bba30bfd0e9feb599866b944cf82763c4581b4acf2fbef0d2"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-05.webp",
+      "bytes": 60410,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "81f68f98e8f5eb0e4f76b2b5152e755d4b0d221aaf77251d0dc7d98634356e95"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-06.webp",
+      "bytes": 82286,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "c947c2e1a0e675f0dcf773561aa7f912d84637b7d6e52743861a7fe3050f8eed"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-07.webp",
+      "bytes": 47184,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "eab0d7f1e4596fd0ded0bc99439ea357dc9225aee4b923df65a4236391614ee3"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-08.webp",
+      "bytes": 68590,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b3768c0d498249aa63b83a8673c34d2f8030b1c6f0c5ca91d45af113911cf83a"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-09.webp",
+      "bytes": 54710,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "2ec9b4e3ffdab3c0805c86541ee6eb5560e1683590f24b724598ea53ab4cd2ff"
+    },
+    {
+      "path": "assets/ui/artifacts/ne-10.webp",
+      "bytes": 60512,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "c590b34735825e9fc3afcd535398c46d5a46c6146c5427218910e2dbb789669f"
+    },
+    {
       "path": "assets/ui/artifacts/ra-01.webp",
       "bytes": 94088,
       "size": [
@@ -382,6 +735,42 @@
       "sha256": "7e03ffc26232b6f10873f5597f03d48d6edfead0b292fef64fbd00207a67afce"
     },
     {
+      "path": "assets/ui/artifacts/sc-01.webp",
+      "bytes": 34286,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "608bca7e165c96c003acad761af4064407d253cf77c400423730f347fcdaabef"
+    },
+    {
+      "path": "assets/ui/artifacts/sc-02.webp",
+      "bytes": 57234,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "6216183be5a89ed8a31d9decdf4df35beae7ebda65a7093f18e6a3bfbd93d022"
+    },
+    {
+      "path": "assets/ui/artifacts/sc-03.webp",
+      "bytes": 51866,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "12339cd4d16217d6abf4781219c9438dce8627332467c12e00b639d4f19dd748"
+    },
+    {
+      "path": "assets/ui/artifacts/sc-04.webp",
+      "bytes": 59274,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "1ce655e08e66def464b9449cbfeeb902e7d8249d90ca7ff8058926d9ff4bf992"
+    },
+    {
       "path": "assets/ui/artifacts/set-ashen-dragon.webp",
       "bytes": 127622,
       "size": [
@@ -389,6 +778,15 @@
         512
       ],
       "sha256": "3f8be98dbe9722343c4460c4c9daa543b629528489538f35aa69d3bbf879166c"
+    },
+    {
+      "path": "assets/ui/artifacts/set-celestial.webp",
+      "bytes": 127960,
+      "size": [
+        768,
+        512
+      ],
+      "sha256": "a4e323bcd979d0a75e81de1f8cba4dce1042764f639f666d03ea6ca7dbfca95a"
     },
     {
       "path": "assets/ui/artifacts/set-iron-legion.webp",
@@ -400,6 +798,24 @@
       "sha256": "42daf098de5ddb10620f5cf3bf0c99b9855ab0496834dba45e6fb9d71b667709"
     },
     {
+      "path": "assets/ui/artifacts/set-militia-oath.webp",
+      "bytes": 143394,
+      "size": [
+        768,
+        512
+      ],
+      "sha256": "5acffca87540b7819404ce4489e224d516798af5286c286091966bb6b2f353c6"
+    },
+    {
+      "path": "assets/ui/artifacts/set-necromancer.webp",
+      "bytes": 171198,
+      "size": [
+        768,
+        512
+      ],
+      "sha256": "997a073ddd9f9c452e74bce45ab7d6c319d96d0481ebc5f0b5c0572b88b42806"
+    },
+    {
       "path": "assets/ui/artifacts/set-royal-architect.webp",
       "bytes": 143122,
       "size": [
@@ -407,6 +823,24 @@
         512
       ],
       "sha256": "b8912ec115cad47d452c43790a492054d7a2be35a9c3c9099cde7334ad86d185"
+    },
+    {
+      "path": "assets/ui/artifacts/set-scouts-trail.webp",
+      "bytes": 111278,
+      "size": [
+        768,
+        512
+      ],
+      "sha256": "e5494570ae424a99c80acff533fbe8561e400f9ac0cc229dfaad5c7441aeb374"
+    },
+    {
+      "path": "assets/ui/artifacts/set-stewards-kit.webp",
+      "bytes": 159168,
+      "size": [
+        768,
+        512
+      ],
+      "sha256": "dfee578140e39b94cb2599e24f473ca09fe53a35d4cd7f2f16ba8fb94f2ce0e3"
     },
     {
       "path": "assets/ui/artifacts/set-stormwing-vanguard.webp",
@@ -434,6 +868,42 @@
         512
       ],
       "sha256": "8e9b7c4af6d8ce491c1d22e2c0d9c1f0f1eef749f24edfd6bdfd879e879c60ae"
+    },
+    {
+      "path": "assets/ui/artifacts/sk-01.webp",
+      "bytes": 30434,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "039469c1e2def61f37ec2e3772d71b4215f0439bb5808e90563bb31acfd83d95"
+    },
+    {
+      "path": "assets/ui/artifacts/sk-02.webp",
+      "bytes": 67436,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "c1403c5e1c13523d5acdc2531979100373e65c1f58631a8bbc308569ab063b09"
+    },
+    {
+      "path": "assets/ui/artifacts/sk-03.webp",
+      "bytes": 44870,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "ec9d82924e9eb4f9f1c5651aa5fcbdf1232d166f58f4bcd4be0ee4b59da5b37b"
+    },
+    {
+      "path": "assets/ui/artifacts/sk-04.webp",
+      "bytes": 66654,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "fa552d41a25e47057b0200a96f4cff34f51216412b4bbc20af804f7109514831"
     },
     {
       "path": "assets/ui/artifacts/st-01.webp",

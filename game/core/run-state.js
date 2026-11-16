@@ -11,7 +11,7 @@ export function serializeRun(game){
 }
 export function restoreRun(data,snapshot){
  if(snapshot?.schema!==1||snapshot.ruleset!==data.rulesetRevision||snapshot.factionId!==data.factionId||!['endless','campaign'].includes(snapshot.mode))throw Error('This save uses incompatible game rules.');
- const g=new Game(data,{seed:snapshot.seed,mode:snapshot.mode,loadout:snapshot.loadout,artifactEquipment:snapshot.artifactEquipment||{}}),s=graphDecode(snapshot.graph);
+ const g=new Game(data,{seed:snapshot.seed,mode:snapshot.mode,loadout:snapshot.loadout,artifactEquipment:snapshot.artifactEquipment||{},artifactVersion:snapshot.artifactVersion||'fr011-v1'}),s=graphDecode(snapshot.graph);
  if(!s?.game||!Number.isSafeInteger(s.game.round)||s.game.round<1||!['build','select','ready','combat','reward','won','lost'].includes(s.game.phase))throw Error('Invalid saved run.');
  for(const[k,v]of Object.entries(s.game))if(k!=='factionId')g[k]=v;
  for(const key of ['grid','economy','commandPoints','draft','combat','commandMove','mvp','general','progress'])Object.assign(g[key],s[key]);

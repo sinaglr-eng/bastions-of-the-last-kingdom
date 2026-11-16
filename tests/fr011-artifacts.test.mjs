@@ -12,11 +12,11 @@ import {migrateFr010} from '../backend/migrate-fr010.js';
 import {artifactMutation,artifactProfile,artifactRewardStatements} from '../backend/artifact-store.js';
 const all=C.artifacts.map(a=>a.id),gear=id=>equipArtifactSet({},id),data=currentFactionData('crown');
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
-test('FR011 catalog has 48 unique illustrated artifacts, legal six-piece sets and exact approved full bonuses',()=>{
- assert.equal(all.length,48);assert.equal(new Set(all).size,48);assert.equal(C.sets.length,6);
+test('FR011 catalog has 84 unique illustrated artifacts, legal variable-size sets and exact approved full bonuses',()=>{
+ assert.equal(all.length,84);assert.equal(new Set(all).size,84);assert.equal(C.sets.length,11);
  for(const a of C.artifacts){assert.ok(fs.existsSync('public/'+a.art));assert.ok(a.description);}
- for(const s of C.sets){assert.equal(C.artifacts.filter(a=>a.setId===s.id).length,6);assert.equal(Object.keys(gear(s.id)).length,6);}
- const expected={'iron-legion':{damage:.37,bossDamage:.12},'stormwing-vanguard':{speed:.31,range:.05,controlResistance:.15},'winter-court':{range:.12,slow:.12,freezeChance:.10,freezeDuration:.8},'venom-covenant':{poisonFraction:.2,healingReduction:.4},'ashen-dragon':{burnFraction:.2,emberTransfer:1},'royal-architect':{gold:225,cp:6,keepHealth:8,controlResistance:.25,reinforceKeep:6}};
+ for(const s of C.sets){assert.equal(C.artifacts.filter(a=>a.setId===s.id).length,s.pieceCount);assert.equal(Object.keys(gear(s.id)).length,s.pieceCount);}
+ const expected={'iron-legion':{damage:.37,bossDamage:.12},'stormwing-vanguard':{speed:.31,rangeTiles:5,controlResistance:.15},'winter-court':{rangeTiles:6,slow:.12,freezeChance:.10,freezeDuration:.8},'venom-covenant':{poisonFraction:.2,healingReduction:.4},'ashen-dragon':{burnFraction:.2,emberTransfer:1},'royal-architect':{gold:600,cp:6,keepHealth:8,controlResistance:.25,reinforceKeep:6}};
  for(const[id,values]of Object.entries(expected))for(const[k,v]of Object.entries(values))close(artifactBonuses(gear(id)).effects[k],v);
  assert.throws(()=>validateArtifactEquipment({head:'N-03'}));assert.throws(()=>validateArtifactEquipment({ring1:'N-03',ring2:'N-03'}));assert.throws(()=>validateArtifactEquipment({weapon:'N-01'},[]));assert.throws(()=>validateArtifactEquipment({head:'constructor'}));
 });
@@ -28,7 +28,7 @@ test('FR011 chest tiers and guarantees work through repeated Endless bosses',()=
  assert.deepEqual(rollArtifactChest({},5,42),rollArtifactChest({},5,42));
 });
 test('FR011 starting bonuses, primary attack speed/range and frozen save restore work for all alliances',()=>{
- for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),g=new Game(d,{seed:42,artifactEquipment:gear('royal-architect')});assert.equal(g.maxLives,38);assert.equal(g.economy.gold,315);assert.equal(g.commandPoints.value,9);g.place(18,18);const h=restoreRun(d,JSON.parse(JSON.stringify(serializeRun(g))));assert.deepEqual(serializeRun(g),serializeRun(h));assert.equal(h.economy.gold,315);}
+ for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),g=new Game(d,{seed:42,artifactEquipment:gear('royal-architect')});assert.equal(g.maxLives,38);assert.equal(g.economy.gold,690);assert.equal(g.commandPoints.value,9);g.place(18,18);const h=restoreRun(d,JSON.parse(JSON.stringify(serializeRun(g))));assert.deepEqual(serializeRun(g),serializeRun(h));assert.equal(h.economy.gold,690);}
  const g=new Game(data,{artifactEquipment:gear('stormwing-vanguard')});for(const[x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])g.place(x,z);g.keep();const t=g.towers.find(t=>t.state==='active'),stats=combatTowerStats(t,g.towers,g.data);assert.ok(stats.bonuses.haste>=1.31);
 });
 test('FR011 artifact poison distributes the exact primary-hit budget, survives save and never uses enemy max HP',()=>{

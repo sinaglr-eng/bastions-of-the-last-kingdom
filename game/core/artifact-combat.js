@@ -2,16 +2,15 @@ import {artifactBonuses,validateArtifactEquipment,ARTIFACT_VERSION,ARTIFACT_CAPS
 import {statusEffectAllowed,attackTargetAllowed} from './combat-rules.js';
 const zero=Object.freeze({}),eps=1e-9;
 export const artifactEffects=game=>game?.developerMode?zero:game?.artifactState?.effects||zero;
-export function installArtifacts(game,equipment={}){
- const aggregate=artifactBonuses(equipment);game.artifactEquipment=aggregate.equipment;game.artifactVersion=ARTIFACT_VERSION;
+export function installArtifacts(game,equipment={},version=ARTIFACT_VERSION){
+ const aggregate=artifactBonuses(equipment,version);game.artifactEquipment=aggregate.equipment;game.artifactVersion=version;
  game.artifactState={effects:aggregate.effects,sets:aggregate.sets,randomState:((game.seed>>>0)^0xAF711C79)>>>0,reinforced:false,loot:{}};
  bindArtifactTowers(game);return aggregate;
 }
 export function bindArtifactTowers(game){Object.defineProperty(game.towers,'artifactEffects',{configurable:true,get:()=>artifactEffects(game)});}
 export function normalizeArtifacts(game,snapshot){
- const equipment=validateArtifactEquipment(snapshot?.artifactEquipment||{}),aggregate=artifactBonuses(equipment);
- if(snapshot?.artifactVersion&&snapshot.artifactVersion!==ARTIFACT_VERSION)throw Error('Unsupported artifact effects version.');
- game.artifactEquipment=equipment;game.artifactVersion=ARTIFACT_VERSION;
+ const equipment=validateArtifactEquipment(snapshot?.artifactEquipment||{}),version=snapshot?.artifactVersion||'fr011-v1',aggregate=artifactBonuses(equipment,version);
+ game.artifactEquipment=equipment;game.artifactVersion=version;
  game.artifactState??={randomState:((game.seed>>>0)^0xAF711C79)>>>0,reinforced:false,loot:{}};game.artifactState.effects=aggregate.effects;game.artifactState.sets=aggregate.sets;bindArtifactTowers(game);
 }
 const random=game=>{let x=game.artifactState.randomState>>>0;x^=x<<13;x^=x>>>17;x^=x<<5;game.artifactState.randomState=x>>>0;return (x>>>0)/4294967296;};

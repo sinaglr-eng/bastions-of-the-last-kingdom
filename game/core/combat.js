@@ -109,7 +109,7 @@ export class CombatManager {
     const petrified=enemy.statuses.petrify&&type==='physical'?1+(enemy.statuses.petrify.physicalBonus||0):1;
     const artifactDot=!!stats._artifactDot,ownedSource=source&&source.kind!=='commander'&&this.game.towers.includes(source);result.beforeDefense=amount*frozen*bonus*petrified*(artifactDot?1:source?this.game.general?.multiplier('blood-wrath')||1:1)*(ownedSource&&!artifactDot?artifactDamageMultiplier(this.game,enemy):1);
     this.prepareArmor(enemy);
-    Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance,immunityAuraCoverage(enemy,this.game.towers,this.game.data)));
+    Object.assign(result,damageDefenseBreakdown(result.beforeDefense,type,enemy,stats,this.game.data.balance,immunityAuraCoverage(enemy,this.game.towers,this.game.data),ownedSource?artifactEffects(this.game).immunityReduction||0:0));
     result.shellBlock=stats.directHit?Math.min(result.afterArmor,Math.max(0,enemy.krakenShell||0)):0;
     result.afterShell=Math.max(0,result.afterArmor-result.shellBlock);
     if(enemy.healthScaleLog&&!stats._artifactStoredHP){result.afterShell*=Math.exp(-enemy.healthScaleLog);if(stats._scaledExecution&&!result.blockReason)result.afterShell=Math.max(result.afterShell,enemy.hp);}

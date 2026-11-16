@@ -15,7 +15,7 @@ import {endlessWave} from './endless.js';
 import {installJournal,recordAdvance,FIXED_STEP} from './run-journal.js';
 
 export class Game {
-  constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[],mode=data.fr010?'endless':'campaign',loadout={},artifactEquipment={},runId=null,accountId=null}={}) {
+  constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[],mode=data.fr010?'endless':'campaign',loadout={},artifactEquipment={},artifactVersion,runId=null,accountId=null}={}) {
     this.data=data;Object.defineProperty(this,'factionId',{value:data.factionId??null,enumerable:true});this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.commandPoints=new CommandPoints(data.balance);this.draft=new DraftManager(data,this.rng,this.commandPoints);this.combat=new CombatManager(this);this.commandMove=new CommandMove(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
@@ -23,7 +23,7 @@ export class Game {
     this.selectedEnemy=null;this.selectionVoiceKey=null;this.score=0;this.elapsedSeconds=0;this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);
     this.mvp=new MvpManager(this);
     this.mode=mode;this.runId=runId;this.accountId=accountId;this.actualPlacements=0;this.completedWaves=0;this.scoreExact='0';this.tickRemainder=0;this.recordCommands=true;
-    installArtifacts(this,artifactEquipment);this.general=new General(this,loadout);Object.defineProperty(this.towers,'general',{value:this.general,configurable:true});
+    installArtifacts(this,artifactEquipment,artifactVersion);this.general=new General(this,loadout);Object.defineProperty(this.towers,'general',{value:this.general,configurable:true});
     this.fortifiedKeepBonus=this.general.value('fortified-keep');this.maxLives=data.balance.startingLives+this.fortifiedKeepBonus+(this.artifactState.effects.keepHealth||0);this.lives=this.maxLives;
     if(this.fortifiedKeepBonus)this.emit('general-fortified',{id:'fortified-keep',amount:this.fortifiedKeepBonus,maxLives:this.maxLives});
     this.commandPoints.value+=this.general.value('field-logistics')+(this.artifactState.effects.cp||0);this.economy.gold+=this.general.value('quartermaster')+(this.artifactState.effects.gold||0);

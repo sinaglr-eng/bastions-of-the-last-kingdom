@@ -43,7 +43,7 @@ export function skillRankMarkup(id,profile,className='general-rank-track'){
  const p=profile||{},level=p.skills?.[id]||0,current=accountRank(p.xpTotal);
  return `<div class="${className}" aria-label="${esc(GENERAL_SKILLS[id].name)} ranks and military requirements">${[1,2,3].map(rank=>{
   const gate=skillGate(id,rank,p),owned=rank<=level,cost=SKILL_COSTS[rank-1],shortfall=Math.max(0,cost-Number(p.balance||0));
-  const state=owned?(rank===level?'Current · Owned':'Owned'):!gate.allowed?'Rank locked':rank>level+1?'Unlock previous rank first':shortfall>0?'More medals needed':'Available to buy';
+  const state=owned?(rank===level?'Current · Owned':'Owned'):!gate.allowed?`Unlock at Level ${gate.required}`:rank>level+1?'Unlock previous rank first':shortfall>0?'More medals needed':'Available to buy';
   return `<div class="${owned?'is-owned rank-owned':''} ${rank===level?'rank-current':''} ${rank===level+1?'is-next rank-next':''}" data-skill-rank="${rank}"><b>${rankLabel(rank)}${owned?' ✓':''}</b><strong>${esc(skillEffect(id,rank))}</strong><span class="commander-rank-state">${state}</span><small>Requires ${gate.rank.name} · Level ${gate.required}</small><small>Your account: ${current.name} · Level ${current.level}</small><small>${owned?'Permanently owned':`${cost} medals`}</small></div>`;
  }).join('')}</div>`;
 }
