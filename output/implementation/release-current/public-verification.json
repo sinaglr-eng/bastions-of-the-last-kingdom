@@ -1,182 +1,31 @@
 {
-  "status": "published",
-  "version": "0.7.0",
-  "rulesetRevision": "fr010-v1",
-  "baseCombatRulesetRevision": "fr008-r1-20261106",
+  "passed": true,
+  "checkedAt": "2026-11-16T06:48:38.659Z",
   "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "previousEntryUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
-  "previousEntryRedirectVerified": true,
-  "sourceCommit": "c64c37d6191c2063a651c51127929d8d6eaf1e8b",
-  "verifiedAt": "2026-11-14T17:55:11.713Z",
-  "statisticsUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
-  "statisticsVersion": "0.7.0",
-  "statisticsDeploymentId": "appgdep_6af88969735c819192fb4abd74b172a0",
-  "statisticsVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_45091fcb1b0081918eafbd56e700d43b",
-  "statisticsSourceCommit": "3c27d37b22ee108b836b568de6f0ab126d8a489e",
-  "testsPassed": 2356,
-  "testsFailed": 0,
-  "testsSkipped": 0,
-  "edgeProxyRegressionTests": 8,
-  "ci": {
-    "id": 43622518246,
-    "head_sha": "c64c37d6191c2063a651c51127929d8d6eaf1e8b",
-    "status": "completed",
-    "conclusion": "success",
-    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43622518246",
-    "testsPassed": 2356,
-    "testsFailed": 0,
-    "testsSkipped": 0,
-    "jobs": [
-      {
-        "id": 132531121052,
-        "name": "build",
-        "conclusion": "success"
-      },
-      {
-        "id": 132533466167,
-        "name": "deploy",
-        "conclusion": "success"
-      }
-    ]
-  },
-  "jobs": [
+  "version": "0.7.0",
+  "commanderRevision": "commander-abilities-20261116",
+  "files": [
     {
-      "id": 132531121052,
-      "name": "build",
-      "conclusion": "success"
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DE2SnIaD.js",
+      "bytes": 2849843,
+      "sha256": "9faf02a82e025842171b4a6263284b91a6eafa157da5db45a6d4e8df49275dd3"
     },
     {
-      "id": 132533466167,
-      "name": "deploy",
-      "conclusion": "success"
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/three-BBClaj7g.js",
+      "bytes": 771667,
+      "sha256": "0161be1d3836d0479d3b57a0dfa78b23c9dbba0239a742563cae1e5d4464195d"
+    },
+    {
+      "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-Bo5AZ3cS.css",
+      "bytes": 502728,
+      "sha256": "68532c9e73dfc872ff8914352068cd6395cc2b4c81d453d265d64c847a9f1339"
     }
   ],
-  "accounts": {
-    "serverDeployed": true,
-    "googleAppleFlowImplemented": true,
-    "facebookFlowImplemented": true,
-    "passwordlessProfileAndCloudContinuationTestedWithIsolatedGoogleIdentity": true,
-    "configuredProviders": [
-      "google"
-    ],
-    "publicSignInActive": true,
-    "publicCloudProgressAvailableToPlayers": true,
-    "realGoogleRoundTripConfirmedByOperator": true,
-    "realGoogleSignedInProfileObserved": true,
-    "persistedAccountRunObservedInProduction": true,
-    "appleDeferred": true,
-    "facebookConfigured": false,
-    "manualEmailPasswordEnabled": false,
-    "remainingConfiguration": "Apple deferred; Facebook and email/password require their operator credentials and an email sender."
+  "accountHealth": {
+    "ok": true,
+    "storage": "SQLite",
+    "edition": "0.7.0",
+    "releaseName": "Preserved commander scores · Developer runs excluded"
   },
-  "browser": {
-    "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-    "versionVisible": "0.7.0",
-    "cases": [
-      "Home navigation arrows and numbered labels are removed; themed return buttons work",
-      "Medal symbols accompany the account balance and all achievement rewards",
-      "Approved champion portraits and all five boss portraits load publicly",
-      "Every milestone has artwork; unearned secret identities remain hidden",
-      "Achievement filters, progress states and pagination remain available",
-      "All seven General skills show ranks I-III and their next purchase cost",
-      "Isolated local browser verifies three equipment slots and a rank purchase",
-      "General disclosure is mounted before Recipes in the public header",
-      "Isolated local game activates Morale Boost and War Horn for three CP each",
-      "Countdown updates retain mounted controls and the Game tick test verifies pause timing",
-      "390px General page has no overflow; page navigation returns to the top",
-      "Existing Google player session and account remain available"
-    ],
-    "consoleErrors": [],
-    "screenshots": [
-      "artifacts/fr010-public/public-achievements.png",
-      "artifacts/fr010-public/public-boss-achievements.png",
-      "artifacts/fr010-public/public-general.png",
-      "artifacts/fr010-public/public-general-mobile.png"
-    ]
-  },
-  "publicBundle": {
-    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-6W2u1DQ0.js",
-    "upstream": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-6W2u1DQ0.js",
-    "bytes": 2781389,
-    "sha256": "d628fb863160b77f8ddd1523f99b3dcd45406dde52d6f07f33de33f9c43d9d0a",
-    "matchesLocalBuild": true,
-    "matchesUpstream": true,
-    "css": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-6JPVNSRN.css"
-  },
-  "runtime": {
-    "files": 1209,
-    "bytes": 925135973,
-    "approvedModelsUnchanged": 312,
-    "exactPackedModelHashChecks": 258,
-    "decodedEnemyModelHashChecks": 54,
-    "metadataJsonContentPreserved": true
-  },
-  "galleryPublished": false,
-  "gallerySourceFilesUploaded": 0,
-  "designPackagePublished": false,
-  "modelOrAudioGitBlobsAdded": 0,
-  "scoresSubmitted": false,
-  "accountTestRecordsWrittenToProduction": false,
-  "legacyTablesPreserved": true,
-  "sameOriginCookies": true,
-  "providerSetup": "docs/PUBLIC_ACCOUNTS_SETUP.md",
-  "progressionUI": {
-    "version": "0.7.0",
-    "sourceCommit": "c64c37d6191c2063a651c51127929d8d6eaf1e8b",
-    "tests": {
-      "passed": 2356,
-      "failed": 0,
-      "skipped": 0
-    },
-    "artwork": {
-      "championPortraitMappingsVerified": 114,
-      "bossPortraitMappingsVerified": 15,
-      "allMilestoneBadgesPresent": true,
-      "secretChampionArtworkHiddenUntilEarned": true,
-      "originalArtModified": false,
-      "newBitmapOrModelUploads": 0
-    },
-    "localBrowser": {
-      "fixture": "isolated loopback database",
-      "purchaseAndRankUpdate": true,
-      "threeSkillLimit": true,
-      "savedEquipment": true,
-      "directInRunMoraleBoostActivation": true,
-      "directInRunWarHornActivation": true,
-      "activationCPChargesCorrect": true,
-      "pausedDurationVerifiedByGameTickTest": true,
-      "controlsRetainDomIdentity": true,
-      "desktop1280HeaderFits": true,
-      "mobile390HeaderAndPanelFit": true,
-      "mobileGeneralPageNoOverflow": true,
-      "pageNavigationResetsScroll": true,
-      "allVisibleAchievementImagesLoaded": true,
-      "consoleErrors": []
-    },
-    "productionTestRecordsWritten": 0,
-    "galleryPublished": false,
-    "ci": {
-      "id": 43622518246,
-      "head_sha": "c64c37d6191c2063a651c51127929d8d6eaf1e8b",
-      "status": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/43622518246",
-      "testsPassed": 2356,
-      "testsFailed": 0,
-      "testsSkipped": 0,
-      "jobs": [
-        {
-          "id": 132531121052,
-          "name": "build",
-          "conclusion": "success"
-        },
-        {
-          "id": 132533466167,
-          "name": "deploy",
-          "conclusion": "success"
-        }
-      ]
-    },
-    "publicVerifiedAt": "2026-11-14T17:55:11.713Z"
-  }
+  "publicWrites": 0
 }

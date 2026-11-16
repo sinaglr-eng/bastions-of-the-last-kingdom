@@ -1,25 +1,238 @@
 {
-  "publicOrigin": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
-  "versionVisible": "0.7.0",
+  "passed": true,
+  "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/",
   "cases": [
-    "Home navigation arrows and numbered labels are removed; themed return buttons work",
-    "Medal symbols accompany the account balance and all achievement rewards",
-    "Approved champion portraits and all five boss portraits load publicly",
-    "Every milestone has artwork; unearned secret identities remain hidden",
-    "Achievement filters, progress states and pagination remain available",
-    "All seven General skills show ranks I-III and their next purchase cost",
-    "Isolated local browser verifies three equipment slots and a rank purchase",
-    "General disclosure is mounted before Recipes in the public header",
-    "Isolated local game activates Morale Boost and War Horn for three CP each",
-    "Countdown updates retain mounted controls and the Game tick test verifies pause timing",
-    "390px General page has no overflow; page navigation returns to the top",
-    "Existing Google player session and account remain available"
+    {
+      "faction": "crown",
+      "mobile": false,
+      "passed": true,
+      "errors": [],
+      "httpErrors": [],
+      "blockedWrites": 1,
+      "health": "30 / 30",
+      "dps": "Σ Peak DPS\n0.6\n· W1\nSum peak DPS\n1\nCleric\n#1 · Rank I · MVP 0\n0.6"
+    },
+    {
+      "faction": "forge",
+      "mobile": false,
+      "passed": true,
+      "errors": [],
+      "httpErrors": [],
+      "blockedWrites": 1,
+      "health": "30 / 30",
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nShieldguard\n#1 · Rank I · MVP 0\n1.8"
+    },
+    {
+      "faction": "grove",
+      "mobile": false,
+      "passed": true,
+      "errors": [],
+      "httpErrors": [],
+      "blockedWrites": 1,
+      "health": "30 / 30",
+      "dps": "Σ Peak DPS\n1.8\n· W1\nSum peak DPS\n1\nElven Priestess\n#1 · Rank I · MVP 0\n1.8"
+    },
+    {
+      "faction": "forge",
+      "mobile": true,
+      "passed": true,
+      "errors": [],
+      "httpErrors": [],
+      "blockedWrites": 1,
+      "canvasRect": {
+        "x": 0,
+        "y": 106,
+        "width": 390,
+        "height": 738
+      },
+      "health": "30 / 30",
+      "dps": "Σ Peak DPS\n1.8\n· W1"
+    }
   ],
-  "consoleErrors": [],
-  "screenshots": [
-    "artifacts/fr010-public/public-achievements.png",
-    "artifacts/fr010-public/public-boss-achievements.png",
-    "artifacts/fr010-public/public-general.png",
-    "artifacts/fr010-public/public-general-mobile.png"
-  ]
+  "publicWrites": 0,
+  "scope": "Ordinary compiled public UI, private contexts, no debug controls or runtime state injection. Non-GET requests are blocked before dispatch.",
+  "release": {
+    "version": "0.7.0",
+    "name": "Forged Alliances TD",
+    "edition": "Forged Alliances",
+    "date": "2026-11-15",
+    "basicClasses": 8,
+    "champions": 38,
+    "secretChampions": 1,
+    "defenderVariants": 86,
+    "artRevision": "basic-defenders-v7",
+    "enemyArtRevision": "approved-enemies-v6",
+    "championRecipes": 38,
+    "championAscension": false,
+    "championClassifications": {
+      "Basic": 5,
+      "Intermediate": 13,
+      "Advanced": 11,
+      "TOP": 8,
+      "Secret": 1
+    },
+    "authoring": "Blender 5.2",
+    "enemyVariants": 54,
+    "enemyLanguage": "en",
+    "sceneryRevision": 9,
+    "championArtRevision": "champions-v8",
+    "alliedAudioRevision": "allied-20261011-4a6051e0ce4a",
+    "alliedVoiceRecordings": 92,
+    "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
+    "recordedMusicTracks": 6,
+    "recordedAttackTypes": 15,
+    "damageClasses": [
+      "Physical",
+      "Magical",
+      "Holy"
+    ],
+    "mvpMaximumLevel": 10,
+    "developerConsole": true,
+    "classificationScaleStep": 1.1,
+    "uiRevision": "ipad-polish-20261115",
+    "performanceRevision": "wave24-dynamic-surfaces-and-warm-crafting-20261102",
+    "brandRevision": "three-bastions-20261114",
+    "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
+    "uiEnemyPortraitRevision": "enemy-front-variant-fr008-20261106",
+    "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
+    "motionRevision": "approved-faction-motion-v3",
+    "vfxRevision": "fr009-weapon-materials-and-secondary-events-20261113",
+    "balanceRevision": "fr008-r1-20261106",
+    "factions": [
+      {
+        "id": "crown",
+        "name": "Human"
+      },
+      {
+        "id": "forge",
+        "name": "Dwarves"
+      },
+      {
+        "id": "grove",
+        "name": "Elves"
+      }
+    ],
+    "totalDefenderVariants": 258,
+    "factionArtRevision": "approved-faction-models-v3-20261030",
+    "dwarfPresentationScale": 1.75,
+    "championAuraRevision": "canonical-faction-classes-20261030-v2",
+    "babyFireDragonPresentationScale": 3.85,
+    "abilityRevision": "fr005-r2-combat-refinements-20261102",
+    "rulesetRevision": "fr010-v1",
+    "targetingRevision": "dwarves-and-all-dragons-ground-and-air-20261113",
+    "largeEnemyPresentationScale": 0.75,
+    "largeEnemyPresentationModels": 12,
+    "championWarmModelLimit": 2,
+    "requirements": [
+      "FR-006",
+      "FR-007 revision 3",
+      "FR-008",
+      "FR-009 visual presentation",
+      "All Elf dragons air targeting and hidden Slow visuals",
+      "FR-010: menu, optional accounts, achievements, general and Endless"
+    ],
+    "humanPresentationRevision": "defender-size-feedback-20261106",
+    "defenderPresentationRevision": "defender-size-feedback-20261106",
+    "defenderBattlefieldScale": 0.8,
+    "basicChampionSizeReference": "own-faction ordinary draft median",
+    "recipeRevision": 3,
+    "rankDecorationRevision": "no-basic-rank-rings-fr008",
+    "defenderVoiceRevision": "voice-completion-20261110-v4-02d1a9224942",
+    "defenderVoicedCharacters": 136,
+    "defenderVoiceRecordings": 272,
+    "defenderVoiceNewRecordings": 190,
+    "defenderVoiceModel": "eleven_v4",
+    "defenderVoiceUpdated": "2026-11-10",
+    "defenderVoiceCatalogue": "assets/audio/voice-completion-current/catalogue.json",
+    "statusVfxRevision": "fixed-size-status-effects-20261115",
+    "attackAudioRevision": "combat-effects-20261110-33171e30c092",
+    "attackAudioRecordings": 30,
+    "attackAudioNewRecordings": 15,
+    "attackAudioCoveredProfiles": 258,
+    "attackAudioUpdated": "2026-11-10",
+    "presentationUpdated": "2026-11-13",
+    "vfxRequirement": "FR-009",
+    "suppressedStatusVisuals": [
+      "slow"
+    ],
+    "progressionRevision": "manual-achievement-claims-20261114",
+    "endless": true,
+    "accountOptional": true,
+    "achievementClaims": "manual",
+    "achievementNotifications": true,
+    "accountProgression": {
+      "revision": "account-xp-v1",
+      "levels": 15,
+      "maxRank": "King",
+      "kingXP": 1000,
+      "manualAchievementXP": true,
+      "runBossXP": true
+    },
+    "commanderAbilities": {
+      "revision": "commander-abilities-20261116",
+      "skills": 10,
+      "equippedSlots": 3,
+      "fieldPromotion": {
+        "costCP": 3,
+        "uses": [
+          1,
+          2,
+          2
+        ],
+        "caps": [
+          5,
+          5,
+          6
+        ],
+        "accountLevels": [
+          7,
+          10,
+          14
+        ]
+      },
+      "decisiveStrike": {
+        "costCP": 0,
+        "usesPerRun": 1,
+        "normalMaxHP": [
+          0.3,
+          0.4,
+          0.5
+        ],
+        "bossMaxHP": [
+          0.05,
+          0.07,
+          0.1
+        ],
+        "accountLevels": [
+          9,
+          13,
+          15
+        ]
+      },
+      "fortifiedKeep": {
+        "bonusHealth": [
+          5,
+          10,
+          15
+        ],
+        "accountLevels": [
+          2,
+          6,
+          11
+        ]
+      }
+    },
+    "presentation": {
+      "commanderNaming": true,
+      "homeMazeEditor": true,
+      "generatedUiIcons": 18,
+      "secretRecipesInCatalog": false,
+      "mazeBuilderLabel": "Maze Builder"
+    }
+  },
+  "bundle": {
+    "url": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site/play/assets/game-DE2SnIaD.js",
+    "bytes": 2849843,
+    "sha256": "9faf02a82e025842171b4a6263284b91a6eafa157da5db45a6d4e8df49275dd3"
+  }
 }
