@@ -1,3 +1,4 @@
+import {artifactPrimaryContact} from './artifact-combat.js';
 import {distance,combatTowerStats,readTowerStats as towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
 import {fr002Impact,updateFr002Tower} from './fr002-combat.js';
@@ -35,6 +36,7 @@ export function factionImpact(c,shot){
  const strike=ability(s,'true-strike'),hitStats={...s,directHit:true,critical,critMultiplier:crit?.multiplier,evasionIgnore:fraction(strike?.evasionIgnorePercent)};
  const result=c.resolveDamage(e,amount,s.type,hitStats,t);
  if(result.contact)factionOnContact(c,t,e,s,result.appliedDamage>0);
+ artifactPrimaryContact(c,result,s,t);
  if(shot.firstPrimary){
   const excluded=new Set(shot.directTargets||[e]);
   for(const id of ['splash','cleave-physical','cleave-magical']){const a=ability(s,id);if(!a)continue;for(const victim of c.enemies)if(!victim.dead&&!excluded.has(victim)&&attackTargetAllowed(s,victim)&&c.canSee(victim,t)&&distance(victim,e)<=a.radius)c.damage(victim,s.damage*a.damagePercent/100,a.damageType==='profile'?s.type:a.damageType,{},t);}
@@ -61,7 +63,7 @@ export function updateFactionTower(c,t,s,dt,boost){
  const execution=ability(s,'execution');
  const fire=ability(s,'fire-aura');if(fire){for(const e of c.enemies)if(!e.dead&&c.canSee(e,t)&&distance(e,t)<=fire.radius){const stronger=c.game.towers.some(other=>other!==t&&other.state==='active'&&!other.attackPaused&&(()=>{const a=ability(towerStats(other,c.game.data),'fire-aura');return a&&distance(other,e)<=a.radius&&(a.dps>fire.dps||a.dps===fire.dps&&other.id<t.id);})());if(!stronger)c.damage(e,fire.dps*dt,fire.damageType,{},t);}}
  const cone=s.continuousAttack;
- if(cone){const target=targets.find(e=>!e.flying);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(!e.flying&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360){const hit=c.resolveDamage(e,cone.dps*dt,cone.damageType,{penetration:s.penetration},t);factionOnContact(c,t,e,{...s,abilities:s.abilities.filter(a=>['burn','slow','armor-reduction','anti-regeneration'].includes(a.familyId))},hit.appliedDamage>0);}c.game.emit('aura-attack',{source:t,target,stats:s});}return;}
+ if(cone){const target=targets.find(e=>!e.flying);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(!e.flying&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360){const hit=c.resolveDamage(e,cone.dps*dt*(1+(c.game.towers.artifactEffects?.speed||0)),cone.damageType,{penetration:s.penetration},t);factionOnContact(c,t,e,{...s,abilities:s.abilities.filter(a=>['burn','slow','armor-reduction','anti-regeneration'].includes(a.familyId))},hit.appliedDamage>0);artifactPrimaryContact(c,hit,s,t);}c.game.emit('aura-attack',{source:t,target,stats:s});}return;}
  if(s.damage<=0)return;
  if(!(boost>0))return;
  const weapon=s.weaponCycle;t.cooldown-=dt*boost;

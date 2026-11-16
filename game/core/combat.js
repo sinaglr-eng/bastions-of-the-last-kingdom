@@ -1,4 +1,4 @@
-import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath} from './artifact-combat.js';
+import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath,artifactPrimaryContact} from './artifact-combat.js';
 import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {fr002DamageResolved,flushFr002Pulses,applyCanonicalControlContact} from './fr002-combat.js';
 import {skyHuntAura,skyHuntSlow} from './sky-hunt.js';
@@ -221,6 +221,7 @@ export class CombatManager {
     for(const enemy of victims)if(this.canSee(enemy,source)){
       const result=this.resolveDamage(enemy,hitDamage,stats.type,hitStats,source);
       if(result.contact){contacted.push(enemy);this.applyEffects(enemy,stats,source,{landedDamage:result.appliedDamage>0});}
+      if(enemy===target)artifactPrimaryContact(this,result,stats,source);
       if(result.appliedDamage>0)landed.push(enemy);
     }
     for(const enemy of landed)this.nearbyMagicProcs(source,enemy,stats);
