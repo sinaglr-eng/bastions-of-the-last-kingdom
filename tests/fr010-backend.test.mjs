@@ -474,3 +474,31 @@ test('simultaneous end-screen and menu settlement retries share one verified res
   const results=await Promise.all(Array.from({length:5},()=>player.settleResult('end')));assert.equal(posts,1);assert.equal(new Set(results.map(r=>r.receiptId)).size,1);assert.equal(player.profile.xpTotal,3);assert.equal(f.db.sqlite.prepare('SELECT COUNT(*) n FROM account_xp_receipts').get().n,1);assert.equal(await player.continuation(),null);
  }finally{store.close();f.db.sqlite.close();}
 });
+
+test('skill mastery is verified on the rank III purchase, manually paid once, and survives refunds without farming',async()=>{
+ const f=fixture();try{
+  const a=await f.account(),user=a.user.id;
+  f.db.sqlite.prepare('UPDATE fr010_profiles SET balance=500 WHERE user_id=?').run(user);
+  for(const skill of ['deep-refit','recruitment-focus','field-logistics','quartermaster']){
+   for(let rank=1;rank<=3;rank++){
+    const threshold=[0,45,110][rank-1];
+    if(rank>1){f.db.sqlite.prepare('UPDATE account_progression SET xp_total=? WHERE user_id=?').run(threshold-1,user);const p=(await f.call('/api/player/profile',null,a.cookie)).value;const denied=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill},a.cookie);assert.equal(denied.r.status,400);assert.equal((await f.call('/api/player/profile',null,a.cookie)).value.balance,p.balance);}
+    f.db.sqlite.prepare('UPDATE account_progression SET xp_total=? WHERE user_id=?').run(threshold,user);
+    const p=(await f.call('/api/player/profile',null,a.cookie)).value,body={requestId:crypto.randomUUID(),revision:p.revision,skill},paid=await f.call('/api/player/purchase',body,a.cookie);assert.equal(paid.r.status,200,JSON.stringify(paid.value));assert.equal(paid.value.skills[skill],rank);assert.equal(paid.value.xpTotal,threshold);assert.equal(paid.value.balance,p.balance-[5,10,20][rank-1]);
+    const id='skill-mastery:global:'+skill;assert.equal(paid.value.eligible.some(g=>g.id===id),rank===3);assert.ok(!paid.value.grants.some(g=>g.id===id));
+    const retry=(await f.call('/api/player/purchase',body,a.cookie)).value;assert.equal(retry.balance,paid.value.balance);assert.equal(retry.eligible.filter(g=>g.id===id).length,rank===3?1:0);
+   }
+  }
+  let p=(await f.call('/api/player/profile',null,a.cookie)).value;const id='skill-mastery:global:deep-refit',claim={requestId:crypto.randomUUID(),revision:p.revision,achievementId:id},paid=(await f.call('/api/player/achievements/claim',claim,a.cookie)).value;assert.equal(paid.balance,p.balance+3);assert.equal(paid.xpTotal,p.xpTotal+5);assert.equal((await f.call('/api/player/achievements/claim',claim,a.cookie)).value.xpTotal,paid.xpTotal);
+  const reset=await f.call('/api/player/reset',{requestId:crypto.randomUUID(),revision:paid.revision},a.cookie);assert.equal(reset.r.status,200,JSON.stringify(reset.value));assert.equal(reset.value.grants.filter(g=>g.id===id).length,1);
+  for(let rank=1;rank<=3;rank++){p=(await f.call('/api/player/profile',null,a.cookie)).value;const bought=await f.call('/api/player/purchase',{requestId:crypto.randomUUID(),revision:p.revision,skill:'deep-refit'},a.cookie);assert.equal(bought.r.status,200,JSON.stringify(bought.value));assert.ok(!bought.value.eligible.some(g=>g.id===id));}
+  p=(await f.call('/api/player/profile',null,a.cookie)).value;const retry=(await f.call('/api/player/achievements/claim',{...claim,requestId:crypto.randomUUID()},a.cookie)).value;assert.equal(retry.balance,p.balance);assert.equal(retry.xpTotal,p.xpTotal);
+ }finally{f.db.sqlite.close();}
+});
+test('existing fully purchased skills backfill mastery eligibility without automatically paying medals or XP',async()=>{
+ const f=fixture();try{const a=await f.account(),user=a.user.id;f.db.sqlite.prepare('UPDATE fr010_profiles SET skills_json=? WHERE user_id=?').run('{"quartermaster":3,"deep-refit":2}',user);
+  const p=(await f.call('/api/player/profile',null,a.cookie)).value;assert.equal(p.balance,0);assert.equal(p.xpTotal,0);assert.deepEqual(p.eligible.filter(g=>g.id.startsWith('skill-mastery:')).map(g=>[g.id,g.reward,g.xp]),[['skill-mastery:global:quartermaster',3,5]]);assert.equal(p.grants.length,0);
+  assert.equal((await f.call('/api/player/profile',null,a.cookie)).value.revision,p.revision);
+  assert.equal((await f.call('/api/player/achievements/claim',{requestId:crypto.randomUUID(),revision:p.revision,achievementId:'skill-mastery:global:deep-refit'},a.cookie)).r.status,409);
+ }finally{f.db.sqlite.close();}
+});

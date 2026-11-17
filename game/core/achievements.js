@@ -1,8 +1,10 @@
 import {eligibleChampion,achievementXP} from './account-progression.js';
 import {FACTION_ACHIEVEMENT_DEFINITIONS,factionCollectionAchievements} from './faction-achievements.js';
+import {GENERAL_SKILLS} from './general.js';
 export {canonicalAchievementId,isSharedAchievement} from './account-progression.js';
 export const championMedalReward=unit=>unit?.classification?.toLowerCase()==='top'?3:1;
 export const BOSS_TYPES=Object.freeze(['host_10','host_20','host_30','host_40','host_50']);
+export function commanderMasteryAchievements(skills=null){return Object.entries(GENERAL_SKILLS).filter(([id])=>skills===null||skills[id]===3).map(([skillId,skill])=>({id:`skill-mastery:global:${skillId}`,factionId:null,kind:'skill-mastery',skillId,name:`${skill.name} Mastery`,description:`Purchase all three ranks of ${skill.name}. Claim this reward once across all factions.`,reward:3,xp:5,target:3}));}
 export function achievementCatalog(data,progress=null){
  const f=data.factionId,rows=Object.entries(data.towers).filter(([,u])=>eligibleChampion(u)).map(([id,u])=>({id:`champion:${f}:${id}`,factionId:f,kind:'champion',name:u.classification?.toLowerCase()==='secret'?'Secret champion':u.name,secret:u.classification?.toLowerCase()==='secret',description:'Forge this champion in a legal run.',reward:championMedalReward(u),target:1}));
  for(const id of BOSS_TYPES)rows.push({id:`boss:global:${id}`,factionId:null,kind:'boss',name:data.enemies[id]?.name||id,description:'Defeat this boss with any faction.',reward:2,target:1});
@@ -13,6 +15,7 @@ export function achievementCatalog(data,progress=null){
  const highest=Math.max(3,Math.ceil((progress?.streakBest||0)/10)+1);
  for(let n=1;n<=highest;n++)rows.push(streakAchievement(f,n));
  for(const [target,reward]of [[60,3],[75,5],[100,8]])rows.push({id:`endless:${target}`,kind:'endless',name:`Complete wave ${target}`,reward,target});
+ rows.push(...commanderMasteryAchievements());
  return rows.map(row=>({...row,xp:achievementXP(data,row.id)}));
 }
 export const streakAchievement=(f,n)=>({id:`streak:global:${10*n}`,factionId:null,kind:'streak',name:`${10*n} consecutive flawless waves`,description:'Complete consecutive waves in one run with any faction without losing keep health. Health loss resets the current streak.',reward:n,xp:n,target:10*n});

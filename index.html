@@ -9,14 +9,16 @@
     <link rel="icon" href="%BASE_URL%assets/ui/account-progression/favicon.svg" type="image/svg+xml" />
     <style>
       html,body{margin:0;background:#f8efde}
-      #app>.loading.forged-loading{min-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:32px;background:radial-gradient(ellipse at 50% 45%,#fffaf1,#f1e4cc);color:#705027;text-align:center}
+      body[data-game-booting] #app{visibility:hidden}
+      #game-boot{position:fixed;inset:0;z-index:20000;min-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:32px;background:radial-gradient(ellipse at 50% 45%,#fffaf1,#f1e4cc);color:#705027;text-align:center}
       .forged-loading img{display:block;width:min(560px,88vw);height:auto}
       .forged-loading p{margin:0;font:clamp(18px,3vw,25px)/1.4 Georgia,serif;letter-spacing:.03em}
       .forged-loading:after{content:'';display:block;width:70px;height:2px;background:linear-gradient(90deg,transparent,#b68c46,transparent)}
     </style>
   </head>
-  <body>
-    <main id="app"><div class="loading forged-loading" role="status" aria-live="polite"><img src="%BASE_URL%assets/ui/account-progression/alliance-logo.webp" width="650" height="160" alt="Forged Alliances TD" /><p>Raising the banners&#8230;</p></div></main>
+  <body data-game-booting>
+    <div id="game-boot" class="loading forged-loading" role="status" aria-live="polite"><img src="%BASE_URL%assets/ui/account-progression/alliance-logo.webp" width="650" height="160" alt="Forged Alliances TD" /><p>Raising the banners&#8230;</p></div>
+    <main id="app"></main>
     <script type="module" src="/game/main.js"></script>
   </body>
 </html>

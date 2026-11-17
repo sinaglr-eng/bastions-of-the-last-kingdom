@@ -34,6 +34,7 @@ export function progressionArtwork(kind='collection',target=''){
 export function achievementArtwork(achievement,data,reveal=false){
  if(achievement.secret&&!reveal)return progressionArtwork('secret');
  const id=achievement.id.split(':').at(-1);
+ if(achievement.kind==='skill-mastery'&&GENERAL_SKILLS[id])return commanderSkillArt(id);
  if(achievement.kind==='champion'){
   const portrait=data.defenderAssets?.find(a=>a.family===id&&a.tier===1)?.portrait;
   if(portrait)return siteUrl(portrait);

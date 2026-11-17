@@ -71,7 +71,7 @@ test('all factions expose and earn the same boss and streak milestones, with fac
  for(const faction of factions){
   const data=currentFactionData(faction),catalog=achievementCatalog(data,{streakBest:70});
   const shared=catalog.filter(row=>isSharedAchievement(row.id));
-  assert.equal(shared.length,5+1+8);for(const row of shared)assert.equal(row.factionId,null);
+  assert.equal(shared.length,5+1+8+11);for(const row of shared)assert.equal(row.factionId,null);
   const comparable=shared.map(({id,reward,xp,target})=>({id,reward,xp,target}));
   if(expected)assert.deepEqual(comparable,expected);else expected=comparable;
   const collection=catalog.find(row=>row.id==='boss-collection:global');assert.equal(collection.reward,5);assert.equal(collection.xp,10);assert.equal(collection.target,5);

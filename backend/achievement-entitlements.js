@@ -1,5 +1,5 @@
 import {canonicalAchievementId,eligibleChampion,isSharedAchievement} from '../game/core/account-progression.js';
-import {achievementCatalog,streakAchievement,BOSS_TYPES} from '../game/core/achievements.js';
+import {achievementCatalog,streakAchievement,BOSS_TYPES,commanderMasteryAchievements} from '../game/core/achievements.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {verifiedRunProgress} from './verified-run-progress.js';
 import {factionCollectionAchievements} from '../game/core/faction-achievements.js';
@@ -30,7 +30,7 @@ function definition(id){
 // a concurrent request sees the canonical rows and performs no second grant.
 export async function reconcileAchievementEntitlements(db,user,reset){
  for(let attempt=0;attempt<7;attempt++){
-  const profile=await db.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').bind(user).first();
+  const profile=await db.prepare('SELECT revision,skills_json FROM fr010_profiles WHERE user_id=?').bind(user).first();
   const rawGrants=(await db.prepare('SELECT achievement_id AS id,faction_id AS factionId,reward,created_at AS createdAt FROM fr010_grants WHERE user_id=? ORDER BY created_at,achievement_id').bind(user).all()).results;
   const rawEligible=(await db.prepare('SELECT achievement_id AS id,faction_id AS factionId,reward,verified_at AS verifiedAt,run_id AS runId FROM fr010_eligible WHERE user_id=? ORDER BY verified_at,achievement_id').bind(user).all()).results;
   const grants=mergeAchievementRows(rawGrants),eligible=mergeAchievementRows(rawEligible),owned=new Set(grants.map(g=>g.id)),knownGrants=new Set(rawGrants.map(g=>g.id)),knownEligible=new Set(rawEligible.map(g=>g.id));
@@ -38,6 +38,7 @@ export async function reconcileAchievementEntitlements(db,user,reset){
   for(const row of grants)if(shared(row.id)&&!knownGrants.has(row.id))pendingGrants.push(row);
   const remember=(id,{runId=null,at=now}={})=>{id=canonicalAchievementId(id);const d=definition(id);if(!d||owned.has(id)||knownEligible.has(id)||pendingEligible.has(id))return;pendingEligible.set(id,{id,factionId:d.factionId??null,reward:d.reward,runId,at});};
   for(const row of eligible)remember(row.id,{runId:row.runId,at:row.verifiedAt});
+  for(const row of commanderMasteryAchievements(JSON.parse(profile.skills_json||'{}')))remember(row.id);
   const champions=Object.fromEntries(factions.map(f=>[f,new Set()])),bosses=new Set();let best=0;
   const evidence=id=>{
    const canonical=canonicalAchievementId(id),[kind,f,value]=canonical.split(':');

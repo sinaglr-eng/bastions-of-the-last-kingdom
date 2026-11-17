@@ -1,8 +1,9 @@
 // Shared account rules. Presentation never grants experience or changes combat.
 import {FACTION_ACHIEVEMENT_DEFINITIONS} from './faction-achievements.js';
+import {GENERAL_SKILLS} from './general.js';
 export const MILITARY_RANKS=Object.freeze(['Peasant','Militia','Recruit','Footman','Soldier','Veteran','Sergeant','Lieutenant','Captain','Major','Colonel','Commander','General','Marshal','King'].map((name,i)=>Object.freeze({name,level:i+1,xp:[0,20,45,75,110,150,200,260,330,410,500,600,720,850,1000][i],id:name.toLowerCase()})));
 export const BOSS_XP=Object.freeze({host_10:2,host_20:3,host_30:4,host_40:5,host_50:8});
-export const SKILL_LEVEL_GATES=Object.freeze({'morale-boost':[5,9,12],'war-horn':[7,11,14],'blood-wrath':[9,12,15],'field-promotion':[7,10,14],'decisive-strike':[9,13,15],'fortified-keep':[2,6,11],'extended-range':[6,10,13]});
+export const SKILL_LEVEL_GATES=Object.freeze({'deep-refit':[1,3,5],'recruitment-focus':[1,3,5],'field-logistics':[1,3,5],quartermaster:[1,3,5],'morale-boost':[5,9,12],'war-horn':[7,11,14],'blood-wrath':[9,12,15],'field-promotion':[7,10,14],'decisive-strike':[9,13,15],'fortified-keep':[2,6,11],'extended-range':[6,10,13]});
 // Basic is a champion classification; recruit families have advanced:false.
 export const eligibleChampion=u=>!!u?.advanced;
 // Keep legacy account/save keys readable while awarding shared milestones once.
@@ -17,6 +18,7 @@ export function canonicalAchievementId(id){
 }
 export function isSharedAchievement(id){
  const canonical=canonicalAchievementId(id);
+ if(typeof canonical==='string'&&canonical.startsWith('skill-mastery:global:')&&Object.hasOwn(GENERAL_SKILLS,canonical.slice('skill-mastery:global:'.length)))return true;
  return typeof canonical==='string'&&(canonical==='boss-collection:global'||/^boss:global:host_(10|20|30|40|50)$/.test(canonical)||/^streak:global:[1-9]\d*$/.test(canonical)&&Number.isSafeInteger(+canonical.split(':')[2])&&+canonical.split(':')[2]%10===0);
 }
 export function accountRank(total=0){
@@ -30,6 +32,7 @@ export function skillGate(skill,rank,profile={}){
 export function newlyAvailableSkills(before,after){return Object.entries(SKILL_LEVEL_GATES).flatMap(([skill,levels])=>levels.flatMap((level,i)=>accountRank(before).level<level&&accountRank(after).level>=level?[{skill,rank:i+1,level}]:[]));}
 export function achievementXP(data,id){
  const [kind,faction,last]=id.split(':');
+ if(kind==='skill-mastery')return isSharedAchievement(id)?5:0;
  if(kind==='champion'){const u=data.towers[last];return eligibleChampion(u)?({basic:1,intermediate:2,advanced:3,top:5,secret:8}[String(u.classification).trim().toLowerCase()]||0):0;}
  if(kind==='collection')return last==='all'&&FACTION_ACHIEVEMENT_DEFINITIONS[faction]&&id===`collection:${faction}:all`?20:{5:3,15:8,30:15}[last]||0;
  if(kind==='faction'){const theme=FACTION_ACHIEVEMENT_DEFINITIONS[faction]?.thematic;return theme?.slug===last&&id===`faction:${faction}:${last}`?theme.xp:0;}

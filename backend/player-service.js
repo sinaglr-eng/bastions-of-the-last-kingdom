@@ -14,7 +14,7 @@ import {authCapabilities} from './social-auth.js';
 import {ensureProgressionReset,currentRunEpoch} from './progression-reset.js';
 import {activeAchievement,accountProgression,settleRunExperience} from './account-progression.js';
 import {eligibleChampion,skillGate,accountRank,newlyAvailableSkills,canonicalAchievementId} from '../game/core/account-progression.js';
-import {BOSS_TYPES} from '../game/core/achievements.js';
+import {BOSS_TYPES,commanderMasteryAchievements} from '../game/core/achievements.js';
 import {mergeAchievementRows,reconcileAchievementEntitlements} from './achievement-entitlements.js';
 import {factionCollectionAchievements} from '../game/core/faction-achievements.js';
 
@@ -59,6 +59,7 @@ async function walletMutation(db,user,b,kind){
  }else if(kind==='equip'){try{generalLoadout(skills,b.equipped);}catch(error){fail(error.message);}for(const id of b.equipped)if(!skillGate(id,skills[id],p).allowed)fail('This skill rank requires a higher account level.');equipped=b.equipped;}else fail('Invalid profile action.');
  await db.batch([
   db.prepare('INSERT INTO fr010_ledger (user_id,entry_id,amount,kind,detail,created_at) SELECT ?,?,?,?,?,? WHERE EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(user,key,amount,kind,detail,Date.now(),user,p.revision),
+  ...commanderMasteryAchievements(kind==='purchase'?{[b.skill]:skills[b.skill]}:{}).map(row=>db.prepare('INSERT OR IGNORE INTO fr010_eligible(user_id,achievement_id,faction_id,reward,verified_at,run_id) SELECT ?,?,NULL,?,?,NULL WHERE EXISTS(SELECT 1 FROM fr010_profiles WHERE user_id=? AND revision=?) AND EXISTS(SELECT 1 FROM fr010_ledger WHERE user_id=? AND entry_id=?) AND NOT EXISTS(SELECT 1 FROM fr010_grants WHERE user_id=? AND achievement_id=?)').bind(user,row.id,row.reward,Date.now(),user,p.revision,user,key,user,row.id)),
   db.prepare('UPDATE fr010_profiles SET balance = balance + ?, skills_json = ?, equipped_json = ?, revision = revision + 1 WHERE user_id = ? AND revision = ? AND EXISTS (SELECT 1 FROM fr010_ledger WHERE user_id = ? AND entry_id = ?)').bind(amount,JSON.stringify(skills),JSON.stringify(equipped),user,p.revision,user,key),
  ]);
  const committed=await db.prepare('SELECT kind FROM fr010_ledger WHERE user_id = ? AND entry_id = ?').bind(user,key).first();if(!committed)fail('Profile changed. Refresh before trying again.',409);return profile(db,user);

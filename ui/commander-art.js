@@ -1,6 +1,6 @@
 import {siteUrl} from '../game/site-url.js';
 
-export const commanderArt=name=>siteUrl(`assets/ui/commander-v080/${name==='silhouette'?'silhouette-armed':name}.webp`);
+export const commanderArt=name=>siteUrl(`assets/ui/commander-v080/${name==='silhouette'?'silhouette-commander':name}.webp`);
 // Utility helpers already return deployment-rooted URLs; catalog art is relative.
 export const commanderImageUrl=(src,base=import.meta.env?.BASE_URL||'/')=>src.startsWith('/')?src:siteUrl(src,base);
 export const geometricUiArt=id=>siteUrl(`assets/ui/geometric/${id}.svg`);
