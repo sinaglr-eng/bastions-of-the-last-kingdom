@@ -1,5 +1,13 @@
 # Current release
 
+## 0.8.2 — Commander collection and artifact refinements — 17 November 2026
+
+- Added five Common/Uncommon sets and 14 geometric artifact illustrations: Quicksilver Drill, Farwatch, Hearthwarden, Battle Cadence and Crimson Covenant. Crimson restores one missing keep health after each successful wave without growing maximum health.
+- Applied the requested Iron Legion, Celestial, Necromancer and Steward totals. Replaced current artifact Disarm/Dread resistance with matching-immunity damage passage. Versioned v1/v2/v3 defenses retain their original modifiers and limits.
+- Added unique lore and plain-language complete-set explanations, including a primary-hit Poison example and visible cumulative Poison/Burn power.
+- Added manual Claim All with existing server checks, medal navigation to Skills and a searchable Relic Dust crafting dialog. Restyled notifications and recipe filters; removed YOU labels, recipe corner ornaments and atlas footers.
+- Replaced the green Field Logistics chest with brown wood and generated geometric Champions/Basic defender icons. Exact originals and prompts remain local; the single English gallery remains local only.
+
 ## 0.8.1 — Artifact balance and five set rarities — 17 November 2026
 
 - Expanded the armory to 92 artifacts and 12 sets: Common 2, Uncommon 4, Rare 6, Epic 8 and Legendary 10 pieces, with at least two sets in every category.

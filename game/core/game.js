@@ -1,4 +1,4 @@
-import {installArtifacts} from './artifact-combat.js';
+import {installArtifacts,artifactWaveComplete} from './artifact-combat.js';
 import {withTowerStatSnapshot} from './math.js';
 import {GridManager} from './grid.js';
 import {seededRandom} from './math.js';
@@ -304,7 +304,7 @@ export class Game {
   completeWave() {
     if(this.phase!=='combat')return;
     this.selectedEnemy=null;this.mvp.awardWave();this.emit('wave-complete',{round:this.round});
-    this.completedWaves++;this.awardWaveScore(100+(this.wave.boss?200:0));this.general.active={};
+    this.completedWaves++;artifactWaveComplete(this);this.awardWaveScore(100+(this.wave.boss?200:0));this.general.active={};
     this.lastReward=this.wave.boss?200:50;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
     if(this.round===50&&this.mode==='endless')this.emit('campaign-cleared',{round:50});
     if(this.mode!=='endless'&&this.round>=this.waveLimit){this.end(true);return;}

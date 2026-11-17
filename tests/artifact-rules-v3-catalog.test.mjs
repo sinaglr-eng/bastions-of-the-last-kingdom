@@ -1,12 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {ARTIFACT_CATALOG as C,ARTIFACTS,ARTIFACT_CAPS,ARTIFACT_VERSION,artifactBonuses,artifactRangeDelta,artifactModifierText,equipArtifactSet,usesArtifactRulesV3} from '../game/core/artifacts.js';
+import {ARTIFACT_CATALOG as Current,ARTIFACTS,ARTIFACT_CAPS,artifactBonuses as currentArtifactBonuses,artifactRangeDelta,artifactModifierText,equipArtifactSet,usesArtifactRulesV3} from '../game/core/artifacts.js';
 import {Game} from '../game/core/game.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {serializeRun,restoreRun} from '../game/core/run-state.js';
 import {artifactBreakdownMarkup,artifactConditionsMarkup} from '../ui/artifact-summary.js';
 import {fieldArtifactMarkup} from '../ui/commander-vault.js';
 
+// This suite intentionally freezes the completed v3 rules contract.
+const C={...Current,effectVersion:'fr011-v3',catalogRevision:4,artifacts:Current.artifacts.filter(a=>Object.hasOwn(Current.compatibilityEffects['fr011-v3'].itemModifiers,a.id)),sets:Current.sets.filter(s=>Object.hasOwn(Current.compatibilityEffects['fr011-v3'].setBonuses,s.id))};
+const artifactBonuses=(equipment,version='fr011-v3')=>currentArtifactBonuses(equipment,version);
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,`${a} != ${b}`),gear=id=>equipArtifactSet({},id);
 const oldGear=id=>{const result={};for(const a of C.artifacts.filter(a=>a.setId===id&&Object.hasOwn(C.compatibilityEffects['fr011-v2'].itemModifiers,a.id))){const slot=a.slot==='ring'?(result.ring1?'ring2':'ring1'):a.slot;result[slot]=a.id;}return result;};
 
@@ -22,7 +25,7 @@ test('five set rarities have distinct piece counts and expanded sets preserve ap
 });
 
 test('v3 item range budgets retain identity and complete sets exceed every single range item',()=>{
- assert.equal(ARTIFACT_VERSION,'fr011-v3');assert.equal(C.catalogRevision,4);assert.equal(ARTIFACT_CAPS.rangeTiles,3);
+ assert.equal(C.effectVersion,'fr011-v3');assert.equal(C.catalogRevision,4);assert.equal(ARTIFACT_CAPS.rangeTiles,3);
  const values={'WC-01':.25,'WC-03':.5,'WC-05':.5,'AD-03':.5,'N-02':.25,'N-04':.25,'N-12':.5,'CE-01':.25,'CE-05':.25,'CE-07':.25,'CE-10':.25,'SC-01':.125,'SC-02':.125,'SC-03':.125,'SC-04':.125,'N-15':.75,'N-16':-1,'N-18':-.5};
  for(const[id,value]of Object.entries(values))near(ARTIFACTS[id].modifiers.rangeTiles,value);
  const maximum=Math.max(...C.artifacts.map(a=>a.modifiers.rangeTiles||0));near(maximum,.75);

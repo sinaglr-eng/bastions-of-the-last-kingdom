@@ -8,7 +8,6 @@
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".38" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer></filter>
     <pattern id="fibres" width="190" height="146" patternUnits="userSpaceOnUse"><g fill="none" stroke="#a78c64" stroke-width=".55" opacity=".12"><path d="m4 17 23 9 16-12 9 24 33 5 8 18M25 137l12-19 26 4 9-22 20-5 18 13 25-7 12 19 23-3M148 2l-7 28 22 18-8 30 23 13M4 80l17-8 18 12-5 23M100 1l9 19-14 19 13 18 27-2"/></g></pattern>
     <clipPath id="paper"><path d="M28 35C250 12 470 19 700 51C930 19 1150 12 1372 35L1377 676C1140 660 925 668 700 700C475 668 260 660 23 676Z"/></clipPath>
-    <g id="corner" fill="none" stroke="#af8648" stroke-width="1.8"><path d="M18 75V29Q18 18 31 18H81M25 68V33Q25 26 34 26H73M29 50C53 50 47 20 35 28C25 35 46 42 51 30M22 53l8 8 8-8M49 22l8 8 8-8M18 80h8m54-62v8"/><path d="m40 40 7-5 7 5-7 6Z" fill="#d0ad6b" stroke-width="1"/></g>
   </defs>
   <path d="M13 22C245 0 466 7 700 38C934 7 1155 0 1387 22L1395 694C1150 679 929 686 700 714C471 686 250 679 5 694Z" fill="url(#leather)" stroke="#51371c" stroke-width="3"/>
   <path d="M18 26C245 5 470 12 700 43C930 12 1155 5 1382 26L1389 688C1145 674 927 681 700 708C473 681 255 674 11 688Z" fill="none" stroke="#d5b471" stroke-width="2.5"/>
@@ -18,5 +17,4 @@
   <path d="M700 51C930 19 1150 12 1372 35L1377 676C1140 660 925 668 700 700Z" fill="url(#recto)" stroke="#bda174" stroke-width="1.2"/>
   <g clip-path="url(#paper)"><rect width="1400" height="720" fill="url(#fibres)"/><rect width="1400" height="720" fill="url(#head-shadow)"/><rect width="1400" height="720" filter="url(#grain)" opacity=".65"/><path d="M665 35Q695 365 665 706H738Q705 365 738 35Z" fill="url(#valley)"/><path d="M700 51Q696 365 700 700" fill="none" stroke="#70502b" stroke-opacity=".42" stroke-width="1.3"/><path d="M704 52Q701 365 704 698" fill="none" stroke="#fff4dd" stroke-opacity=".55" stroke-width="1.5"/></g>
   <g fill="none" stroke="#d7c2a0" stroke-width="1" opacity=".8"><path d="M38 49C248 29 467 35 675 63M725 63C933 35 1152 29 1362 49M36 660C252 646 470 654 675 684M725 684C930 654 1148 646 1364 660"/></g>
-  <use href="#corner"/><use href="#corner" transform="translate(1400 0) scale(-1 1)"/><use href="#corner" transform="translate(0 715) scale(1 -1)"/><use href="#corner" transform="translate(1400 715) scale(-1 -1)"/>
 </svg>

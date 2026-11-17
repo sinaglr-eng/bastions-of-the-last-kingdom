@@ -13,7 +13,7 @@ export function packageRuntimeAssets({root=process.cwd(),outDir='dist'}={}){
  const files=walk(source),rows=[];
  const generated=JSON.parse(fs.readFileSync(path.join(source,'assets/ui/commander-generated/manifest.json'),'utf8'));
  const hud=JSON.parse(fs.readFileSync(path.join(source,'assets/ui/hud-generated/manifest.json'),'utf8'));
- const commander=new Set([...ARTIFACT_CATALOG.artifacts.map(a=>a.art),...ARTIFACT_CATALOG.chests.flatMap(c=>[c.art,c.openArt]),'assets/ui/commander-v080/silhouette-commander.webp',...generated.icons.map(i=>i.file)]);
+ const commander=new Set([...ARTIFACT_CATALOG.artifacts.map(a=>a.art),...ARTIFACT_CATALOG.chests.flatMap(c=>[c.art,c.openArt]),'assets/ui/commander-v080/silhouette-commander.webp','assets/ui/commander-feedback/champions.webp','assets/ui/commander-feedback/basic-defenders.webp',...generated.icons.map(i=>i.file)]);
  for(const item of hud.icons)commander.add(item.file);
  const retiredCommander=new Set([...Object.keys(GENERAL_SKILLS).map(id=>`assets/ui/geometric/skill-${id}.svg`),...['equipment','skills','chests','sets','relic-dust','commander','sound',...hud.icons.map(i=>i.id)].map(id=>`assets/ui/geometric/${id}.svg`)]);
  const retiredSkill=file=>Object.keys(GENERAL_SKILLS).some(id=>file===`assets/ui/war-table/${id}.webp`)||file.startsWith('assets/ui/account-progression/')&&(file.endsWith('.png')||file.endsWith('alliance-logo-original.webp'));

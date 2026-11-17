@@ -1,7 +1,7 @@
 export const SKILL_COSTS=Object.freeze([5,10,20]);
 export const GENERAL_SKILLS=Object.freeze({
  'deep-refit':{name:'Deep Refit',kind:'draft',values:[600,500,400],description:'Keep a current basic recruit after lowering it by exactly two ranks. Gold cost: 600 / 500 / 400.'},
- 'recruitment-focus':{name:'Recruitment Focus',kind:'focus',cost:1,values:[.04,.08,.12],description:'Pay 1 CP to favour one class by 4 / 8 / 12 percentage points in the next draft, including its reroll.'},
+ 'recruitment-focus':{name:'Recruitment Focus',kind:'focus',cost:1,values:[.04,.08,.12],description:'Pay 1 CP to increase one chosen class’s chance in the next draft by +4% / +8% / +12% (for example, 20% becomes 24% at rank I). Includes the draft’s reroll.'},
  'field-logistics':{name:'Field Logistics',kind:'passive',values:[6,8,10],description:'Begin a new run with 6 / 8 / 10 additional Command Points.'},
  quartermaster:{name:'Quartermaster',kind:'passive',values:[400,600,1000],description:'Begin a new run with 400 / 600 / 1,000 additional gold.'},
  'morale-boost':{name:'Morale Boost',kind:'combat',cost:3,duration:20,values:[.4,.6,1],description:'All active defenders attack 40 / 60 / 100% faster for 20 combat seconds. Costs 3 CP.'},

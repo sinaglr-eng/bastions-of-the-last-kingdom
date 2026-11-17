@@ -10,7 +10,7 @@ export function skillEffect(id,level){
  if(id==='decisive-strike')return `${Math.round(n*100)}% max HP · bosses ${Math.round(GENERAL_SKILLS[id].bossValues[level-1]*100)}%`;
  if(id==='fortified-keep')return `+${n} keep health · ${30+n}/${30+n} start`;
  if(id==='deep-refit')return `${n} gold`;
- if(id==='recruitment-focus')return `+${Math.round(n*100)} pp`;
+ if(id==='recruitment-focus')return `+${Math.round(n*100)}% draft chance`;
  if(id==='field-logistics')return `+${n} CP`;
  if(id==='quartermaster')return `+${n.toLocaleString('en-US')} gold`;
  return `${id==='war-horn'?'−':'+'}${Math.round(n*100)}%`;
@@ -22,7 +22,7 @@ export function skillSummary(id,level=1){
  'decisive-strike':`Strike every live enemy, including hidden and flying targets, for ${Math.round(value*100)}% max HP; bosses take ${Math.round((GENERAL_SKILLS[id]?.bossValues?.[level-1]||0)*100)}%. One use per run · 0 CP.`,
  'fortified-keep':`Start a new defense with ${30+value}/${30+value} keep health (+${value}). This passive stays fixed for that run.`,
  'deep-refit':`Lower a new recruit by 2 ranks and keep it · ${value} gold.`,
- 'recruitment-focus':`Favour one class by ${Math.round(value*100)} percentage points in the next draft · 1 CP.`,
+ 'recruitment-focus':`Choose a class to recruit more often in the next draft and its reroll. Add ${Math.round(value*100)}% to its chance: for example, 20% becomes ${20+Math.round(value*100)}%. Costs 1 CP.`,
  'field-logistics':`Start your next defense with ${value} extra CP.`,quartermaster:`Start your next defense with ${Number(value).toLocaleString('en-US')} extra gold.`,
  'morale-boost':`All defenders gain ${Math.round(value*100)}% attack speed for 20s · 3 CP.`,
  'war-horn':`Slow all enemies by ${Math.round(value*100)}% for 20s · 3 CP.`,

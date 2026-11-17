@@ -10,15 +10,15 @@ import {CommanderVault} from '../ui/commander-vault.js';
 import {generalView,achievementsView} from '../ui/war-table-view.js';
 const d=currentFactionData('crown'),gear=id=>equipArtifactSet({},id),near=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
 test('Artifact set rarity has distinct 2/4/6/8/10-piece tiers',()=>{
- assert.equal(C.sets.length,12);assert.equal(C.artifacts.length,92);
+ assert.equal(C.sets.length,17);assert.equal(C.artifacts.length,106);
  for(const s of C.sets){const pieces=C.artifacts.filter(a=>a.setId===s.id);assert.equal(pieces.length,s.pieceCount);assert.equal(new Set(Object.values(gear(s.id))).size,s.pieceCount);assert.equal(s.pieceCount,{common:2,uncommon:4,rare:6,epic:8,legendary:10}[s.rarity]);assert.ok(pieces.every(a=>C.rarities.some(r=>r.id===a.rarity)),s.id);}
- assert.equal(C.sets.filter(s=>s.rarity==='rare').length,3);assert.equal(C.sets.filter(s=>s.rarity==='epic').length,3);assert.equal(C.sets.filter(s=>s.rarity==='common').length,2);assert.equal(C.sets.filter(s=>s.rarity==='uncommon').length,2);assert.equal(C.sets.filter(s=>s.rarity==='legendary').length,2);
+ assert.equal(C.sets.filter(s=>s.rarity==='rare').length,3);assert.equal(C.sets.filter(s=>s.rarity==='epic').length,3);assert.equal(C.sets.filter(s=>s.rarity==='common').length,5);assert.equal(C.sets.filter(s=>s.rarity==='uncommon').length,4);assert.equal(C.sets.filter(s=>s.rarity==='legendary').length,2);
  const e=equipArtifactSet({ring1:'N-03',ring2:'N-05'},'celestial');assert.equal(Object.keys(e).length,10);assert.deepEqual(new Set([e.ring1,e.ring2]),new Set(['CE-09','CE-10']));
  assert.deepEqual(equipArtifactSet(e,'celestial'),e);
 });
 test('Full set flat reach and starting resources match requested totals',()=>{
  for(const [id,tiles]of [['stormwing-vanguard',1.5],['winter-court',3],['ashen-dragon',1.5],['celestial',2.5],['scouts-trail',1.25]]){const effects=artifactBonuses(gear(id)).effects;near(effects.rangeTiles,tiles);assert.ok(!effects.range);}
- assert.equal(artifactBonuses(gear('royal-architect')).effects.gold,600);near(artifactBonuses(gear('celestial')).effects.damage,.4);near(artifactBonuses(gear('celestial')).effects.speed,.35);
+ assert.equal(artifactBonuses(gear('royal-architect')).effects.gold,600);near(artifactBonuses(gear('celestial')).effects.damage,.5);near(artifactBonuses(gear('celestial')).effects.speed,.35);
  const mixed=artifactBonuses({...gear('winter-court'),gloves:'N-04',feet:'SC-04'});assert.equal(mixed.effects.rangeTiles,3);
 });
 test('Tradeoff equipment changes actual damage, attack speed and flat reach',()=>{
@@ -33,11 +33,11 @@ test('Legacy saved defenses retain percentage reach and old resources across rep
 });
 test('Necromancer reduces damage immunity without bypassing status immunity',()=>{
  const g=new Game(d,{seed:4,artifactEquipment:gear('necromancer')});g.place(18,18);const t=g.towers[0];t.state='active';g.phase='combat';const e=g.combat.spawn('host_01');Object.assign(e,{hp:10000,maxHp:10000,physicalImmune:true,magicImmune:true,armor:0,immunities:['slow','freeze','poison','burn']});
- const effects=g.artifactState.effects;assert.equal(effects.shred,8);near(effects.slow,.25);near(effects.immunityReduction,.3);
+ const effects=g.artifactState.effects;assert.equal(effects.shred,20);near(effects.slow,.25);near(effects.immunityReduction,.3);
  for(const type of ['physical','magical'])near(damageDefenseBreakdown(100,type,e,{},d.balance,null,effects.immunityReduction).afterArmor,30);
  near(damageDefenseBreakdown(100,'holy',e,{},d.balance,null,.3).afterArmor,100);
  e.statuses.breachPhysical={time:1,multiplier:.6};near(damageDefenseBreakdown(100,'physical',e,{},d.balance,null,.3).afterArmor,60);
- delete e.statuses.breachPhysical;artifactPrimaryContact(g.combat,{enemy:e,effectiveDamage:10},{},t);assert.equal(e.statuses.slow,undefined);assert.equal(e.statuses.freeze,undefined);assert.equal(e.statuses.artifactShred.amount,8);
+ delete e.statuses.breachPhysical;artifactPrimaryContact(g.combat,{enemy:e,effectiveDamage:10},{},t);assert.equal(e.statuses.slow,undefined);assert.equal(e.statuses.freeze,undefined);assert.equal(e.statuses.artifactShred.amount,20);
 });
 test('Chest pity migrates changed tiers only and guarantees Rare in three, Epic in seven draws',()=>{
  const migrated=normalizeArtifactPity({1:4,2:4,3:9,4:2,5:1});assert.equal(migrated[1],4);assert.equal(migrated[4],2);assert.equal(migrated[5],1);assert.equal(migrated[2],0);assert.equal(migrated[3],0);assert.deepEqual(normalizeArtifactPity(migrated),migrated);

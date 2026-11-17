@@ -12,11 +12,11 @@ import {migrateFr010} from '../backend/migrate-fr010.js';
 import {artifactMutation,artifactProfile,artifactRewardStatements} from '../backend/artifact-store.js';
 const all=C.artifacts.map(a=>a.id),gear=id=>equipArtifactSet({},id),data=currentFactionData('crown');
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
-test('FR011 catalog has 92 unique illustrated artifacts, legal variable-size sets and exact approved full bonuses',()=>{
- assert.equal(all.length,92);assert.equal(new Set(all).size,92);assert.equal(C.sets.length,12);
+test('FR011 catalog has 106 unique illustrated artifacts, legal variable-size sets and exact approved full bonuses',()=>{
+ assert.equal(all.length,106);assert.equal(new Set(all).size,106);assert.equal(C.sets.length,17);
  for(const a of C.artifacts){assert.ok(fs.existsSync('public/'+a.art));assert.ok(a.description);}
  for(const s of C.sets){assert.equal(C.artifacts.filter(a=>a.setId===s.id).length,s.pieceCount);assert.equal(Object.keys(gear(s.id)).length,s.pieceCount);}
- const expected={'iron-legion':{damage:.37,bossDamage:.12},'stormwing-vanguard':{speed:.31,rangeTiles:1.5,controlResistance:.15},'winter-court':{rangeTiles:3,slow:.12,freezeChance:.10,freezeDuration:.8},'venom-covenant':{poisonFraction:.2,healingReduction:.4},'ashen-dragon':{burnFraction:.2,emberTransfer:1},'royal-architect':{gold:600,cp:6,keepHealth:8,controlResistance:.25,reinforceKeep:6}};
+ const expected={'iron-legion':{damage:.4,bossDamage:.15},'stormwing-vanguard':{speed:.31,rangeTiles:1.5,immunityReduction:.08},'winter-court':{rangeTiles:3,slow:.12,freezeChance:.10,freezeDuration:.8},'venom-covenant':{poisonFraction:.2,healingReduction:.4},'ashen-dragon':{burnFraction:.2,emberTransfer:1},'royal-architect':{gold:600,cp:6,keepHealth:8,immunityReduction:.10,reinforceKeep:6}};
  for(const[id,values]of Object.entries(expected))for(const[k,v]of Object.entries(values))close(artifactBonuses(gear(id)).effects[k],v);
  assert.throws(()=>validateArtifactEquipment({head:'N-03'}));assert.throws(()=>validateArtifactEquipment({ring1:'N-03',ring2:'N-03'}));assert.throws(()=>validateArtifactEquipment({weapon:'N-01'},[]));assert.throws(()=>validateArtifactEquipment({head:'constructor'}));
 });

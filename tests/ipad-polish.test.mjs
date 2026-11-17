@@ -22,7 +22,7 @@ test('field recruitment options preserve A–H command codes and explain the act
   const data=currentFactionData(faction),g=new Game(data,{seed:10,loadout:{'recruitment-focus':2}}),rows=recruitmentClassOptions(g);
   assert.deepEqual(rows.map(r=>r.code),[...'ABCDEFGH']);
   for(const row of rows){const unit=Object.values(data.towers).find(u=>!u.advanced&&u.unitCode===row.code);assert.equal(row.label,`${row.code} — ${unit.name}`);}
-  assert.match(generalControlsMarkup(g),/value="A" selected>A — /);assert.match(generalControlsMarkup(g),/8 percentage points.*1 CP/);
+  assert.match(generalControlsMarkup(g),/value="A" selected>A — /);assert.match(generalControlsMarkup(g),/Add 8%.*20% becomes 28%.*1 CP/);
  }
  for(const id of Object.keys(GENERAL_SKILLS))for(let rank=1;rank<=3;rank++)assert.ok(skillSummary(id,rank).length>20);
  assert.match(wallPanelMarkup({phase:'build'}),/src="\/assets\/ui\/ipad-polish\/castle-wall.webp"/);assert.doesNotMatch(wallPanelMarkup(),/src="undefined"/);

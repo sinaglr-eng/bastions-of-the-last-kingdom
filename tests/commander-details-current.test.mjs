@@ -50,6 +50,6 @@ test('Chest rewards equip directly, preserve the reveal, and let the player choo
 test('Rank overview exposes every rank and the current level; Commander icons resolve to generated raster assets',()=>{
  assert.match(commanderArt('silhouette'),/silhouette-commander\.webp$/);assert.ok(fs.existsSync('public'+commanderArt('silhouette')));
  const html=rankOverviewMarkup({xpTotal:83},{expanded:true});assert.match(html,/commander-rank-roadmap" open/);assert.equal((html.match(/<li class=/g)||[]).length,15);assert.match(html,/Footman/);assert.match(html,/1,000 XP/);
- for(const id of Object.keys(GENERAL_SKILLS)){const url=commanderSkillArt(id);assert.match(url,/\/commander-generated\/skill-.*\.webp$/);assert.ok(fs.existsSync('public'+url));}
+ for(const id of Object.keys(GENERAL_SKILLS)){const url=commanderSkillArt(id);assert.match(url,/\/commander-generated\/skill-.*\.webp(?:\?v=[\w-]+)?$/);assert.ok(fs.existsSync('public'+url.split('?')[0]));}
  for(const id of ['equipment','skills','chests','sets','dust'])assert.ok(fs.existsSync('public'+commanderUtilityArt(id)));
 });

@@ -1,4 +1,4 @@
-import {artifactBonuses,validateArtifactEquipment,ARTIFACT_VERSION,ARTIFACT_CAPS,usesArtifactRulesV3} from './artifacts.js';
+import {artifactBonuses,validateArtifactEquipment,ARTIFACT_VERSION,ARTIFACT_CAPS,usesArtifactRulesV3,usesArtifactRulesV4} from './artifacts.js';
 import {statusEffectAllowed,attackTargetAllowed} from './combat-rules.js';
 const zero=Object.freeze({}),eps=1e-9;
 export const artifactEffects=game=>game?.developerMode?zero:game?.artifactState?.effects||zero;
@@ -89,4 +89,12 @@ export function artifactDeath(c,enemy,{transfer=false}={}){
  for(const row of rows){if(!(row.pending>eps))continue;const targets=c.enemies.filter(e=>!e.dead&&e!==enemy&&e.hp>0&&Math.hypot(e.x-enemy.x,e.z-enemy.z)<=1.5&&attackTargetAllowed({groundOnly:row.groundOnly},e)&&c.canSee(e,row.source)).sort((a,b)=>a.id-b.id).slice(0,3);if(!targets.length)continue;
   const share=row.pending/targets.length;for(const target of targets){const log=Math.log(share)+(enemy.healthScaleLog||0)-(target.healthScaleLog||0),amount=Math.exp(Math.min(Math.log(Number.MAX_VALUE),log));c.resolveDamage(target,amount,'magical',{effect:'fire',_artifactDot:true,_artifactStoredHP:true,_artifactTransfer:true,directHit:false},row.source);}
  }
+}
+
+// Successful waves heal only missing health; neither maximum health nor a failed
+// run can grow. The frozen per-run rules and last-wave marker survive restores.
+export function artifactWaveComplete(game){
+ const b=artifactEffects(game);if(!usesArtifactRulesV4(game)||game.phase!=='combat'||!(game.lives>0)||!b.waveHeal||game.artifactState.lastHealedWave>=game.round)return 0;
+ game.artifactState.lastHealedWave=game.round;const amount=Math.max(0,Math.min(b.waveHeal,game.maxLives-game.lives));
+ if(amount){game.lives+=amount;game.emit('artifact-heal',{amount,id:'crimson-covenant',round:game.round});}return amount;
 }
