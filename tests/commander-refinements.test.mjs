@@ -10,6 +10,15 @@ import {achievementData,achievementsView} from '../ui/war-table-view.js';
 import {rankSkillUnlocks,rankOverviewMarkup} from '../ui/account-progression.js';
 import {bootToMenu} from '../ui/game-boot.js';
 
+test('compact chest receipts retain Dust, equip and inspect actions, with bounded scrolling only for batch rewards',()=>{
+ const v=new CommanderVault({player:{online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],pity:{},dust:500,highestTier:5}}},render(){},status(){}});
+ for(const count of [0,1,2,10]){
+  const html=v.rewards({tier:4,dustGained:20,items:C.artifacts.slice(0,count).map(a=>({id:a.id}))});
+  assert.match(html,/vault-reveal-compact/);assert.match(html,/\+20 Relic Dust/);assert.equal((html.match(/data-vault-action="equip"/g)||[]).length,count);assert.equal((html.match(/Inspect in backpack/g)||[]).length,count);assert.equal(html.includes('has-many-rewards'),count>2);assert.doesNotMatch(html,/reveal-dust/);
+ }
+ v.skip=true;assert.doesNotMatch(v.rewards({tier:4,dustGained:20,items:[{id:'LG-01'}]}),/Skip animation/);
+});
+
 test('set artifact inspection and close preserve the same Sets page and selected set',async()=>{
  const v=new CommanderVault({player:{online:true,profile:{artifacts:{owned:['CE-01'],equipment:{},counts:[],pity:{},dust:0,highestTier:0}}},render:async()=>{},status(){}});
  v.tab='sets';v.selectedSet='celestial';v.setRarity='legendary';v.focusDetail=()=>{};

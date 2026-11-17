@@ -100,3 +100,34 @@
 .vault-set-inspector{margin:18px 0;padding:0;scroll-margin:24px;outline-offset:5px}.vault-set-inspector .vault-item-detail{display:block;min-height:0;position:relative;border:2px solid #b28b49;background:#faf2df;box-shadow:0 5px 18px #183c3920}.vault-set-inspector .vault-item-detail>header{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:center;gap:18px;text-align:left;padding:12px 56px 14px 12px}.vault-set-inspector .vault-detail-close{position:absolute;right:10px;top:10px;min-width:44px;min-height:44px}.vault-set-inspector .vault-item-detail>header img{width:100px;height:100px}.vault-set-inspector .vault-item-detail>div,.vault-set-inspector .vault-item-detail>footer{padding:14px 18px}.vault-set-inspector .artifact-comparison{columns:2;column-gap:24px}.vault-set-inspector .artifact-comparison li{break-inside:avoid}@media(max-width:700px){.vault-set-inspector .artifact-comparison{columns:1}.vault-set-inspector .vault-item-detail>header{grid-template-columns:72px minmax(0,1fr);gap:10px;padding:14px 52px 14px 14px}.vault-set-inspector .vault-item-detail>header img{width:72px;height:72px}}
 
 .vault-set-inspector .vault-item-detail>footer{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}.vault-set-inspector .vault-item-detail>footer>label{flex-basis:100%}.vault-set-inspector .vault-item-detail>footer>button{flex:none;min-width:180px}.vault-set-inspector .vault-item-detail>footer>small{flex:1;min-width:180px}
+
+/* A receipt is a compact reward strip; the chest browser remains in view. */
+.commander-vault .vault-reveal-compact{padding:12px 16px;margin-bottom:14px;display:grid;gap:8px}
+.vault-reveal-compact>header{align-items:center;gap:12px;min-width:0}
+.vault-reveal-compact>header>div{flex:1;min-width:0}
+#main-menu .vault-reveal-compact>header h3{margin:2px 0;font-size:19px;line-height:1.2}
+.vault-reveal-compact>header .progression-eyebrow{font-size:9px}
+.vault-reveal-compact>header .reveal-chest{width:48px;height:48px;margin:0;flex:none}
+.vault-reveal-compact>header>button{width:44px;height:44px;padding:0;flex:none}
+.vault-reward-summary{display:flex;gap:12px;align-items:center;flex-wrap:wrap;min-width:0}
+.vault-reward-summary .vault-dust-reward{display:inline-flex;align-items:center;gap:8px;font-size:13px;flex-wrap:wrap}
+.vault-reward-summary .vault-dust-reward>img{width:30px;height:30px;object-fit:contain;background:none;padding:0}
+.vault-reward-summary small,.vault-reward-summary p{font-size:11px;color:#746347;margin:0}
+.vault-reward-summary>button{margin-left:auto;min-height:32px!important;font-size:11px!important;padding:4px 10px!important}
+.vault-reveal-compact .vault-reward-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));justify-content:stretch;align-items:stretch;max-height:290px;overflow:auto;gap:8px}
+.vault-reveal-compact .vault-reward-grid>article{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;text-align:left;gap:6px 12px;padding:10px 12px;min-width:0}
+.vault-reveal-compact .vault-reward-grid>article>img{width:64px;height:64px;padding:3px;grid-row:1/3;align-self:center}
+.vault-reward-copy{min-width:0;overflow-wrap:anywhere}
+.vault-reward-copy>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.vault-reward-copy>header strong{font-size:14px;line-height:1.3}
+.vault-reward-copy>header span,.vault-reward-copy>header b{font-size:10px;line-height:1.4}
+.vault-reward-copy>header b{color:#8a6529}
+.vault-reward-copy p{font-size:12px;line-height:1.4;margin:4px 0 0}
+.vault-reveal-compact .vault-reward-grid .vault-reward-actions{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin:0;max-width:none;width:auto;align-items:center}
+.vault-reveal-compact .vault-reward-grid .vault-reward-actions button{width:auto;min-height:44px!important;font-size:12px!important;padding:6px 12px!important}
+.vault-reveal-compact .vault-reward-actions label{display:flex;align-items:center;gap:6px}
+.vault-reveal-compact .vault-reward-actions select{min-height:40px!important;max-width:145px}
+#main-menu .vault-reveal-compact>.vault-reward-note{font-size:10px;line-height:1.4;margin:0;color:#746347}
+@media(max-width:600px){.commander-vault .vault-reveal-compact{padding:10px}.vault-reward-summary .vault-dust-reward small{display:none}.vault-reveal-compact .vault-reward-grid>article{grid-template-columns:48px minmax(0,1fr);gap:6px 10px}.vault-reveal-compact .vault-reward-grid>article>img{width:48px;height:48px}.vault-reveal-compact .vault-reward-grid .vault-reward-actions{grid-column:1/-1}.vault-reveal-compact .vault-reward-grid{max-height:330px}}
+
+.vault-reveal-compact:not(.has-many-rewards) .vault-reward-grid{max-height:none;overflow:visible}
