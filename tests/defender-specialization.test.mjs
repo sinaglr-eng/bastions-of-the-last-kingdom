@@ -37,7 +37,7 @@ test('marshal armor aura uses its own radius, strongest reduction, and disappear
  const g=arena(),t=unit('royalmarshal'),near=foe(g),far=foe(g,15);g.towers=[t];t.cooldown=999;
  g.tick(.01);assert.equal(near.armorShred,15);assert.equal(far.armorShred,0);
  g.combat.applyEffects(near,{shred:40},t);g.tick(.01);assert.equal(near.armorShred,40);
- delete near.statuses.shred;t.state='ruin';g.tick(.01);assert.equal(near.armorShred,0);
+ delete near.statuses.shred;if(near.artifactTimedStatuses)delete near.artifactTimedStatuses.shred;t.state='ruin';g.tick(.01);assert.equal(near.armorShred,0);
 });
 
 test('wyvern hunter applies anti-air effects only to flying targets',()=>{

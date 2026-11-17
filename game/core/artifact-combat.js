@@ -1,4 +1,4 @@
-import {artifactBonuses,validateArtifactEquipment,ARTIFACT_VERSION,ARTIFACT_CAPS} from './artifacts.js';
+import {artifactBonuses,validateArtifactEquipment,ARTIFACT_VERSION,ARTIFACT_CAPS,usesArtifactRulesV3} from './artifacts.js';
 import {statusEffectAllowed,attackTargetAllowed} from './combat-rules.js';
 const zero=Object.freeze({}),eps=1e-9;
 export const artifactEffects=game=>game?.developerMode?zero:game?.artifactState?.effects||zero;
@@ -15,8 +15,34 @@ export function normalizeArtifacts(game,snapshot){
 }
 const random=game=>{let x=game.artifactState.randomState>>>0;x^=x<<13;x^=x>>>17;x^=x<<5;game.artifactState.randomState=x>>>0;return (x>>>0)/4294967296;};
 export function artifactDamageMultiplier(game,enemy){
- const b=artifactEffects(game);let conditional=0;if(enemy.statuses.poison?.time>0||enemy.statuses.artifactPoison?.time>0)conditional+=b.conditionalPoison||0;if(enemy.statuses.burn?.time>0||enemy.statuses.artifactBurn?.time>0)conditional+=b.conditionalBurn||0;if(enemy.statuses.slow?.time>0||enemy.statuses.freeze?.time>0||enemy.statuses.gazeSlow?.time>0)conditional+=b.conditionalControl||0;
+ const b=artifactEffects(game);let conditional=0;if(enemy.statuses.poison?.time>0||enemy.statuses.artifactPoison?.time>0)conditional+=b.conditionalPoison||0;if(enemy.statuses.burn?.time>0||enemy.statuses.artifactBurn?.time>0)conditional+=b.conditionalBurn||0;if(b.conditionalControl&&(usesArtifactRulesV3(game)?enemy.statuses.freeze?.time>0||game.combat.effectiveSlow(enemy)>0:enemy.statuses.slow?.time>0||enemy.statuses.freeze?.time>0||enemy.statuses.gazeSlow?.time>0))conditional+=b.conditionalControl;
  return 1+(b.damage||0)+(enemy.boss?b.bossDamage||0:0)+Math.min(ARTIFACT_CAPS.conditional,conditional);
+}
+// Each independent strength/source keeps its own absolute expiry. A weaker
+// contact cannot lend its duration to a stronger native or artifact effect.
+// Arrays and source identities are preserved by the normal saved-run graph.
+export function refreshArtifactTimedStatuses(c,enemy){
+ if(!usesArtifactRulesV3(c.game)||!enemy.artifactTimedStatuses)return;
+ for(const [key,rows]of Object.entries(enemy.artifactTimedStatuses)){
+  const allowed=statusEffectAllowed(enemy,key==='artifactShred'?'shred':key),active=allowed?rows.filter(row=>row.until>c.elapsed+eps):[];
+  if(!active.length){delete enemy.artifactTimedStatuses[key];delete enemy.statuses[key];continue;}
+  enemy.artifactTimedStatuses[key]=active;
+  const best=active.reduce((a,b)=>b.amount>a.amount||b.amount===a.amount&&b.until>a.until?b:a);
+  enemy.statuses[key]={amount:best.amount,time:best.until-c.elapsed,source:best.source,_artifactTimed:true};
+ }
+}
+export function applyArtifactTimedStatus(c,enemy,key,{amount,time,source},origin='native'){
+ if(!usesArtifactRulesV3(c.game))throw Error('Independent status timers require artifact rules v3.');
+ if(!(amount>0)||!(time>0)||!statusEffectAllowed(enemy,key==='artifactShred'?'shred':key))return;
+ enemy.artifactTimedStatuses??={};let rows=enemy.artifactTimedStatuses[key];
+ if(!rows){rows=enemy.artifactTimedStatuses[key]=[];const old=enemy.statuses[key];if(old?.time>0&&!old._artifactTimed)rows.push({amount:old.amount,until:c.elapsed+old.time,source:old.source,origin:'existing'});}
+ const previous=rows.find(row=>row.origin===origin&&row.source===source&&row.amount===amount);
+ if(previous)previous.until=Math.max(previous.until,c.elapsed+time);else rows.push({amount,until:c.elapsed+time,source,origin});
+ refreshArtifactTimedStatuses(c,enemy);
+}
+export function applyArtifactAwareNativeControl(c,enemy,key,duration,source){
+ const old=enemy.statuses[key];
+ if(!usesArtifactRulesV3(c.game)||!old?._artifactFreeze||duration>old.time)enemy.statuses[key]={time:duration,source};
 }
 function addDot(c,enemy,source,stats,kind,total,duration){
  if(!(total>0)||enemy.dead||!statusEffectAllowed(enemy,kind))return;
@@ -28,13 +54,13 @@ function addDot(c,enemy,source,stats,kind,total,duration){
 export function artifactPrimaryContact(c,result,stats,source){
  const e=result.enemy,b=artifactEffects(c.game);if(!(b.poisonFraction||b.burnFraction||b.slow||b.shred||b.freezeChance))return;if(!source||source.kind==='commander'||!c.game.towers.includes(source)||!(result.effectiveDamage>0)||e.dead||e.hp<=0)return;
  for(const[kind,duration]of [['poison',3],['burn',2]])addDot(c,e,source,stats,kind,result.effectiveDamage*(b[kind+'Fraction']||0),duration);
- if(b.slow&&statusEffectAllowed(e,'slow')){const old=e.statuses.slow;e.statuses.slow={...(old||{}),amount:Math.max(old?.amount||0,b.slow),time:Math.max(old?.time||0,2),source:old?.amount>b.slow?old.source:source};}
+ if(b.slow&&statusEffectAllowed(e,'slow')){if(usesArtifactRulesV3(c.game))applyArtifactTimedStatus(c,e,'slow',{amount:b.slow,time:2,source},'artifact');else{const old=e.statuses.slow;e.statuses.slow={...(old||{}),amount:Math.max(old?.amount||0,b.slow),time:Math.max(old?.time||0,2),source:old?.amount>b.slow?old.source:source};}}
  // Defense clamps the final armor after reactive stacks and the strongest
  // shred. Keep the full reduction even when the target's base armor is zero.
- if(b.shred)e.statuses.artifactShred={amount:b.shred,time:2,source};
+ if(b.shred){if(usesArtifactRulesV3(c.game))applyArtifactTimedStatus(c,e,'artifactShred',{amount:b.shred,time:2,source},'artifact');else e.statuses.artifactShred={amount:b.shred,time:2,source};}
  if(b.freezeChance&&statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.artifactFreezeReady||0)&&c.elapsed>=(e.factionControlRecovery||0)&&!['freeze','stun','root','petrify'].some(k=>e.statuses[k]?.time>0)){
   const attempts=e.artifactFreezeAttempts??(e.artifactFreezeAttempts=new Map()),next=attempts.get(source.id)||0;
-  if(c.elapsed+eps>=next){attempts.set(source.id,c.elapsed+1);if(random(c.game)<b.freezeChance){const duration=b.freezeDuration*(e.boss?.5:1);e.statuses.freeze={time:duration,source};e.artifactFreezeReady=c.elapsed+6;e.factionControlRecovery=c.elapsed+duration+2;}}
+  if(c.elapsed+eps>=next){attempts.set(source.id,c.elapsed+1);if(random(c.game)<b.freezeChance){const duration=b.freezeDuration*(e.boss?.5:1);e.statuses.freeze={time:duration,source,...(usesArtifactRulesV3(c.game)?{_artifactFreeze:true}:{})};e.artifactFreezeReady=c.elapsed+6;if(!usesArtifactRulesV3(c.game))e.factionControlRecovery=c.elapsed+duration+2;}}
  }
 }
 export function updateArtifactDots(c,enemy){
@@ -55,7 +81,7 @@ export function updateArtifactDots(c,enemy){
 }
 export function artifactDeath(c,enemy,{transfer=false}={}){
  const b=artifactEffects(c.game);
- if(enemy.boss&&b.reinforceKeep&&!c.game.artifactState.reinforced&&!c.game.developerMode){c.game.artifactState.reinforced=true;const amount=Math.min(b.reinforceKeep,c.game.maxLives-c.game.lives);if(amount>0){c.game.lives+=amount;c.game.emit('artifact-heal',{amount,id:'royal-architect'});}}
+ if(enemy.boss&&b.reinforceKeep&&!c.game.artifactState.reinforced&&!c.game.developerMode){const amount=Math.min(b.reinforceKeep,c.game.maxLives-c.game.lives);if(!usesArtifactRulesV3(c.game)||amount>0)c.game.artifactState.reinforced=true;if(amount>0){c.game.lives+=amount;c.game.emit('artifact-heal',{amount,id:'royal-architect'});}}
  if(transfer||!b.emberTransfer||!enemy.artifactDots?.burn?.size)return;
  // Clear before resolving recipients: deaths caused by the transfer cannot
  // recursively transfer this budget or establish any new artifact effects.

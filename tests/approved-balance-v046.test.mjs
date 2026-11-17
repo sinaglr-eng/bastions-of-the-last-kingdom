@@ -71,7 +71,8 @@ for(const [family,amount,radius,onHit]of [['royalranger',.25,3.5,.4],['kingsrang
   e.z=12+radius+.001;g.tick(0);close(e.currentSpeed,1);assert.equal(e.statuses.slow,undefined);
   e.z=13;g.combat.applyEffects(e,s,t);g.tick(0);close(e.currentSpeed,1-onHit);assert.equal(e.statuses.slow.time,s.slowDuration||2);
   e.boss=true;g.tick(0);close(e.currentSpeed,1-onHit*.5);
-  delete e.statuses.slow;t.attackPaused=true;g.tick(0);close(e.currentSpeed,1);
+  // Clear the hit effect's authoritative v3 rows as well as its display view.
+  delete e.statuses.slow;if(e.artifactTimedStatuses)delete e.artifactTimedStatuses.slow;t.attackPaused=true;g.tick(0);close(e.currentSpeed,1);
   t.attackPaused=false;e.physicalImmune=true;g.tick(0);close(e.currentSpeed,1);
   e.physicalImmune=false;e.flying=false;e.boss=false;g.tick(0);close(e.currentSpeed,1-amount);
 });
@@ -98,7 +99,7 @@ test('B06: the bomber branch applies the strongest fixed armor reduction within 
   for(const [z,shred]of [[16,45],[16.5,45],[17.5,45],[17.501,0]]){e.z=z;g.combat.prepareArmor(e);assert.equal(e.armorShred,shred);}
   e.z=13;g.combat.prepareArmor(e);close(damageAfterDefense(100,'holy',e,{},data.balance),100*30/33);
   g.combat.applyEffects(e,towerStats(ship,data),ship);assert.equal(e.statuses.shred.amount,64);assert.equal(e.statuses.shred.time,4);assert.equal(e.armorShred,64);close(damageAfterDefense(100,'holy',e,{},data.balance),100);
-  e.statuses={};ship.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,35);griffin.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,20);small.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,0);
+  e.statuses={};e.artifactTimedStatuses={};ship.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,35);griffin.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,20);small.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.armorShred,0);
 });
 
 test('B04 overlapping real ranger auras choose one strongest slow and switch immediately when that source pauses or leaves',()=>{

@@ -1,47 +1,62 @@
-# FR-011 — Commander armory, current implementation
+# FR-011 revision 3 — Current artifact rules
 
-The current canonical catalog (`data/commander-artifacts.json`, revision 3, combat effects `fr011-v2`) contains **84 artifacts and 11 sets** across ten equipment slots, shared by all three alliances. Commander contains Equipment, Skills, Chests and Sets. Gallery updates remain local only and in English.
+The current game is **0.8.1**. New defenses use combat effects **fr011-v3**, catalog revision **4**, with **92 artifacts and 12 sets**. All original 84 artifact IDs, ownership, Dust, chest receipts, pity progress, XP, medals and scores remain valid. No database reset or schema migration is part of this release.
 
-Set rarity is independent of an individual artifact’s rarity:
+## Set structure
 
-| Set rarity | Sets | Pieces | Item rarities |
-| --- | --- | --- | --- |
-| Rare | Militia Oath, Scout’s Trail, Steward’s Kit | 2, 4, 4 | Common–Rare |
-| Epic | Iron Legion, Stormwing Vanguard, Winter Court, Venom Covenant, Ashen Dragon, Royal Architect | 6 each | Rare, Epic, Legendary |
-| Legendary | Celestial, Necromancer | 10 each | Epic, Legendary |
+| Set rarity | Required pieces | Sets |
+| --- | ---: | --- |
+| Common | 2 | Militia Oath; Watchman’s Vigil |
+| Uncommon | 4 | Scout’s Trail; Steward’s Kit |
+| Rare | 6 | Winter Court; Venom Covenant; Royal Architect |
+| Epic | 8 | Iron Legion; Stormwing Vanguard; Ashen Dragon |
+| Legendary | 10 | Celestial Ascendancy; Necromancer’s Dominion |
 
-All original artifact IDs and player ownership remain valid. Existing Common/Uncommon pieces in advanced sets are promoted to Rare; the fourth pieces become Epic. New starter pieces use simpler wood, leather, copper and cloth artwork. Every threshold adds to earlier bonuses; pieces in the backpack do not activate a set. Full-set panels show aggregate artifact properties and all set bonuses, with caps applied. Two distinct rings fill the two ring slots without overwriting one another.
+Set rarity and individual-item rarity are separate properties. The eight added items are LG-07/08, ST-07/08, AD-07/08 and WV-01/02. The three Epic sets redistribute their approved final power across eight pieces and cumulative 2/4/6/8-piece thresholds. Previously collected six-piece equipment remains owned; completing a new Epic set requires its two new pieces. Existing saved v2 defenses retain their original six-piece completion rules.
 
-## Current complete-set totals
+## Complete-set effects
 
-- Iron Legion: +37% army own damage, +12% damage against bosses.
-- Stormwing Vanguard: +31% attack speed, **+5 attack range tiles**, +15% disruption resistance.
-- Winter Court: **+6 attack range tiles**, +5% damage against slowed/frozen enemies, 12% slow for 2s; 10% freeze chance for 0.8s (half duration on bosses, 6s shared target cooldown).
-- Venom Covenant: +2% own damage, +7% damage against poisoned enemies, poison equal to 20% of the originating effective primary hit over 3s; 40% less healing while artifact-poisoned.
-- Ashen Dragon: +2% own damage, +10% damage against burning enemies, **+3 attack range tiles**, burn equal to 20% of the originating effective primary hit over 2s, Ember Transfer.
-- Royal Architect: **+600 starting gold**, +6 starting CP, +8 starting/current/max keep health, +25% disruption resistance, first boss restores up to 6 keep health once per run.
-- Celestial: +40% own damage, +35% attack speed, +6 attack range tiles; cumulative thresholds at 2/4/6/8/10 pieces.
-- Necromancer: strongest armor reduction 8 for 2s, 25% slow for 2s, 30% Physical/Magical damage passes through damage immunity; cumulative thresholds at 2/4/6/8/10 pieces. Native status immunity and target restrictions remain unchanged. A stronger native immunity breach takes precedence.
-- Militia Oath: +5% own damage.
-- Scout’s Trail: +5% attack speed, +2 attack range tiles.
-- Steward’s Kit: +100 starting gold, +2 CP, +2 keep health.
+| Set | Complete effects, before additional equipment in empty slots |
+| --- | --- |
+| Iron Legion | +37% own damage; +12% damage against bosses |
+| Stormwing Vanguard | +31% attack speed; +1.5 attack range tiles; +15% Disarm/Dread resistance |
+| Winter Court | +3 attack range tiles; +5% damage against slowed/frozen targets; 12% Slow for 2s; 10% Freeze chance for 0.8s |
+| Venom Covenant | +2% own damage; +7% damage against poisoned targets; 20% artifact Poison budget over 3s; 40% less healing while any allowed Poison is active |
+| Ashen Dragon | +2% own damage; +10% damage against burning targets; +1.5 attack range tiles; 20% artifact Burn budget over 2s; Ember Transfer |
+| Royal Architect | +600 starting gold; +6 starting CP; +8 starting/current/max keep health; +25% Disarm/Dread resistance; one useful boss-death heal of up to 6 health |
+| Celestial Ascendancy | +40% own damage; +35% attack speed; +2.5 attack range tiles |
+| Necromancer’s Dominion | 30% damage through Physical/Magical immunity; 25% Slow for 2s; 8 armor reduction for 2s |
+| Militia Oath | +5% own damage |
+| Scout’s Trail | +5% attack speed; +1.25 attack range tiles |
+| Steward’s Kit | +100 starting gold; +2 starting CP; +2 starting/max keep health |
+| Watchman’s Vigil | +2 starting/max keep health; +5% Disarm/Dread resistance |
 
-Range is a flat tile bonus for new defenses. Aura and splash footprints stay unchanged. Mixed equipment has an overall +8 artifact tile cap; reductions have a −2 tile floor and actual attack range cannot fall below 0.5 tiles. Own damage and attack speed reductions have a −30% floor, with positive caps of +45% and +35%. Starting artifact gold has a +1,000 cap, so the Architect’s +600 is not truncated.
+## Range and aggregation
 
-Six new standalone tradeoffs are N-13 through N-18: Heavy Battlemaul (+12% damage, −8% attack speed), Quickstring Gloves (+12% attack speed, −8% damage), Farwatch Lens (+2 range tiles, −6% attack speed), Berserker Crest (+18% damage, −1 range tile), Overclock Ring (+15% attack speed, −10% damage), Oathbreaker Shield (+15% damage, −5% attack speed, −0.5 range tiles). The signs apply to actual combat and appear in the UI and gallery.
+All positive artifact-item and cumulative set range is capped at **+3 tiles**, then signed equipment penalties are subtracted. The existing -2 artifact floor and 0.5 final attack-range floor remain. Range affects primary targeting and continuous-cone length; independent aura/splash/bounce/transfer footprints and target permissions are unchanged. Commander Extended Range is separate.
 
-## Rewards and saved progress
+Poison and Burn use the strongest equipped base, followed by summed artifact power. Artifact Slow and armor reduction use the strongest base plus cumulative set contributions; set Slow can supply its own base without a hidden dependency on another set name. Native and artifact Slow, armor reduction, healing reduction and immunity passage use the strongest active effect instead of adding their final strengths. Source strengths and expiries remain independent, including across save/restore.
 
-Every verified boss death grants exactly one chest, identified by run and spawn. It opens after its wave completes or the defense ends. Guest/Developer play does not grant permanent rewards. Tier II guarantees at least Rare within three draws; Tier III guarantees at least Epic within seven draws. Those tiers each draw one item per chest. New pity rules reset only their old incompatible pity counters, once, using a JSON rules marker. Other tiers, owned artifacts, currencies, receipts and account progress remain intact. Durable opening receipts stay idempotent; server-owned rarity draws, duplicate Dust, crafting gates and revision checks remain authoritative.
+Own-damage, boss-damage and applicable conditional artifact bonuses add inside their damage multiplier. Attack speed affects normal releases, applicable reload/spin-up clocks and continuous primary fire; fixed native aura and ability clocks remain unchanged. Negative tradeoffs remain effective and are shown explicitly.
 
-New runs use `fr011-v2`; existing `fr011-v1` snapshots retain their original percentage range, resource values and frozen equipment. The catalog embeds the minimal legacy effect mappings required to replay those saved runs; it does not preserve an old game release. Save restoration and server health validation derive the correct version. Equipment and skills purchased now affect the next new defense. Existing XP, medals, achievements, historical scores, accounts and active games are preserved. No progression reset or schema migration is introduced.
+## Hit effects and conditions
 
-## Presentation and artwork
+Artifact hit effects require a successful main damaging hit against a surviving eligible target. Secondary splash, chains, secondary multishot/cone victims, passive auras, DOT ticks and Commander strikes do not establish more artifact hit effects. Each qualifying hit contributes its finite post-defense HP-based Poison/Burn budget, then that Magical DOT resolves the target’s defenses. Power does not amplify native Poison/Burn. Original source ownership and Dread reactions remain; no repeated damage multiplier or enemy-max-HP basis is introduced.
 
-A complete set selects its own coherent generated Commander portrait; additional pieces in otherwise unfilled slots are layered over six-piece or starter portraits. Mixed equipment uses the neutral Commander with item overlays. Empty slots use matching engraved SVG slot icons, placed in two columns outside the character’s head. Equipment presets are no longer exposed in the UI; stored presets remain compatible.
+Blightweave Armor works while either native or artifact Poison is active, respecting Poison/heal-block permissions. Stronger native antiheal takes precedence. Mirror of Winter checks actual allowed Slow from statuses, Slow Aura, Sky Hunt or War Horn, or active Freeze; Root/Stun/Petrify alone do not qualify.
 
-Rarity colors fill each image background and label, across equipment, backpack, reward cards and the gallery. Set rarity can be filtered separately. Locked, unowned skills are gray with a prominent exact “Unlock at Level N” line. Eligible purchases appear before owned/medal-shortfall/level-locked entries. The selected skill detail keeps all rank requirements and medal prices visible. The Achievements page title is centered and its “Your next medal” strip is removed.
+Artifact Freeze retains one attempt per source/target/second and a shared six-second successful target cooldown. Boss duration is halved. Artifact Freeze does not create native control recovery, overwrite stronger native control or prevent a later longer native Freeze. Native recovery protections remain.
 
-All eleven complete-set appearances and every artifact are in the existing local gallery, with variable piece counts, complete totals, current values, exact original PNG downloads and exact recorded prompts. Existing review identity remains artifact ID plus original-image SHA256. Source manifests and generated originals are preserved under `artifacts/commander-expansion/`; the current aggregate is `art-manifest.json`. Public delivery contains WebP assets and integrity metadata only. Artwork was produced using built-in `image_gen`; agent review and separate human approval remain distinct.
+Ember Transfer divides only unspent artifact Burn among up to three eligible visible targets within 1.5 tiles. Transfer does not multiply the budget or recursively cause another transfer. Royal Architect preserves its heal while the keep is full, spends it on the first useful boss death, and never exceeds max health. Final-boss escape still removes every remaining life.
 
-Validation covers legal set composition, two-ring replacement, rarity pools, exact full effects, signed combat tradeoffs, immunity/status behavior, pity windows, saved-run compatibility, idempotent backend rewards, and UI rendering. Browser QA uses isolated local account fixtures, not production reward grants, and checks iPad landscape/portrait layouts.
+## Saved games and server authority
+
+The current client declares artifact capability 3. Cached capability-2 clients start explicit fr011-v2 defenses; capability 1 retains fr011-v1. Minimal versioned effect maps and behavior branches preserve saved rules and cumulative thresholds; they are replay dependencies, not maintained previous game releases. Cached clients cannot start a defense with unknown new artifacts and receive a reload message without abandoning their active game.
+
+Equipment is frozen at the start. Loading, saving and wave transitions cannot repay starting resources or heal charges. Both the authenticated Worker and browser run the same core rules. Server-derived rewards and chest/crafting revision checks stay authoritative; no production account data is modified by verification.
+
+## Presentation and verification
+
+Commander shows all five set rarity filters, variable completion counts, item/set/penalty/final contributions, caps, inactive powers and conditional effects. Active defender inspection shows actual own-damage/range and native attack-cycle effects, including artifact-disabled Developer Mode. The local English gallery contains all current items and exact original artwork identities. New generated assets have agent review; separate human appearance approval is not implied.
+
+Functional, API, saved-run compatibility and independent inspection tests accompany the implementation. Diamond Spiral simulations use native combat and progressive legal campaigns across all three factions; separate prepared-army, paired-version and campaign phases are recorded under output/implementation/artifact-rules-current/simulations. Earlier analysis reports are unchanged.

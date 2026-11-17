@@ -8,10 +8,10 @@ export const datasets=loadCurrentDatasets({revision:process.env.FR005_BASELINE==
 export const diamond=preparedBlueprints(JSON.parse(fs.readFileSync(new URL('../../../data/maze-blueprints.json',import.meta.url)))).find(p=>p.id==='diamond-spiral');
 export const weight=(d,id,t=1)=>d.towers[id].advanced?d.recipes.find(r=>r.id===id).ingredients.reduce((n,i)=>n+weight(d,i.family,i.tier),0):2**(t-1);
 export const expand=(...entries)=>entries.flatMap(([family,n=1,tier=1])=>Array.from({length:n},()=>({family,tier})));
-export function makeGame(faction,army,{seed=42,wave=50,positions=diamond.core,patch,life=30,variant}={}){
+export function makeGame(faction,army,{seed=42,wave=50,positions=diamond.core,patch,life=30,variant,artifactVersion}={}){
  const d=patch||variant!==undefined?structuredClone(datasets[faction]):datasets[faction];if(patch)patch(d);
  if(variant!==undefined)for(const group of d.waves[wave-1].groups){const variants=d.enemies[group.type].variants;assert.ok(variants?.[variant]);group.variant=variants[variant];}
- const g=new Game(d,{seed,waveLimit:wave});g.round=wave;g.lives=life;
+ const g=new Game(d,{seed,waveLimit:wave,artifactVersion});g.round=wave;g.lives=life;
  const ids=new Map();
  for(const [i,p]of diamond.walls.entries()){assert.ok(g.grid.occupy(p.x,p.z,i+1).ok);ids.set(`${p.x},${p.z}`,i+1);}
  assert.equal(g.grid.route.length,diamond.route.length);

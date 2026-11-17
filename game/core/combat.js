@@ -1,4 +1,5 @@
-import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath,artifactPrimaryContact} from './artifact-combat.js';
+import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath,artifactPrimaryContact,refreshArtifactTimedStatuses,applyArtifactTimedStatus,applyArtifactAwareNativeControl} from './artifact-combat.js';
+import {usesArtifactRulesV3} from './artifacts.js';
 import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {fr002DamageResolved,flushFr002Pulses,applyCanonicalControlContact} from './fr002-combat.js';
 import {skyHuntAura,skyHuntSlow} from './sky-hunt.js';
@@ -58,7 +59,18 @@ export class CombatManager {
     // Wait for the last unmarked targets' shots to land before ordinary targeting.
     return unmarked.length?[]:ordered;
   }
+  effectiveSlow(enemy,{skyAuras=null}={}){
+    refreshArtifactTimedStatuses(this,enemy);
+    let slow=Math.max(enemy.statuses.slow?.time>0?enemy.statuses.slow.amount:0,enemy.statuses.gazeSlow?.time>0?enemy.statuses.gazeSlow.amount:0);
+    for(const tower of this.game.towers)if(tower.state==='active'&&!tower.attackPaused){const stats=towerStats(tower,this.game.data);if(slowAuraApplies(stats,enemy)&&distance(tower,enemy)<=offensiveAuraRange(stats,'slow'))slow=Math.max(slow,stats.slowAura);}
+    const coverage=this.game.data.fr008&&enemy.flying&&enemy.physicalImmune?immunityAuraCoverage(enemy,this.game.towers,this.game.data):null,context={data:this.game.data,towers:this.game.towers,immunityCoverage:coverage};
+    const sky=skyAuras||(this.game.data.fr005?this.game.towers.filter(t=>t.state==='active').map(tower=>({tower,stats:towerStats(tower,this.game.data)})).filter(({stats})=>skyHuntAura(stats)):[]);
+    for(const {tower,stats}of sky)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy,context));
+    if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
+    return Math.max(slow,this.game.general?.slow||0);
+  }
   prepareArmor(enemy){
+    refreshArtifactTimedStatuses(this,enemy);
     enemy.armorShred=Math.max(enemy.statuses.shred?.amount||0,enemy.statuses.artifactShred?.amount||0);
     for(const tower of this.game.towers)if(tower.state==='active'){
       const stats=towerStats(tower,this.game.data);
@@ -137,9 +149,9 @@ export class CombatManager {
     if(!statusEffectAllowed(enemy,'slow'))stats={...stats,slow:0,freeze:0};
     if(!statusEffectAllowed(enemy,'poison'))stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0,healingBlockDuration:0};
     if(!landedDamage)stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0};
-    if(stats.slow){const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}
+    if(stats.slow){if(usesArtifactRulesV3(this.game))applyArtifactTimedStatus(this,enemy,'slow',{amount:stats.slow,time:stats.slowDuration||2,source});else{const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}}
     if(stats.fr005CanonicalControl)applyCanonicalControlContact(this,source,enemy,stats);
-    else if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
+    else if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){applyArtifactAwareNativeControl(this,enemy,'freeze',(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source);enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
     for(const key of ['burn','poison','bleed'])if(stats[key]||(key==='poison'&&stats.poisonDps)||(key==='burn'&&stats.burnDps)) {
       const previous=enemy.statuses[key];
       const dps=key==='poison'&&stats.poisonDps?stats.poisonDps:key==='burn'&&stats.burnDps?stats.burnDps:stats.damage*stats[key];
@@ -151,7 +163,7 @@ export class CombatManager {
         enemy.statuses.poison=poisonStatus([...applications,application]);
       }else enemy.statuses[key]={dps:Math.max(dps,previous?.dps||0),time:stats.dotDuration||3,source:dps>=(previous?.dps||0)?source:previous.source,damageType:effectDamageType(stats,key)};
     }
-    if(stats.shred){const previous=enemy.statuses.shred;enemy.statuses.shred={amount:Math.max(stats.shred,previous?.amount||0),time:4,source:stats.shred>=(previous?.amount||0)?source:previous.source};}
+    if(stats.shred){if(usesArtifactRulesV3(this.game))applyArtifactTimedStatus(this,enemy,'shred',{amount:stats.shred,time:stats.shredDuration||4,source});else{const previous=enemy.statuses.shred;enemy.statuses.shred={amount:Math.max(stats.shred,previous?.amount||0),time:4,source:stats.shred>=(previous?.amount||0)?source:previous.source};}}
     this.prepareArmor(enemy);
     if(stats.healingBlockDuration)enemy.statuses.healBlock={time:stats.healingBlockDuration,source};
   }
@@ -180,7 +192,7 @@ export class CombatManager {
       const slice=Math.min(dt,gaze.remaining),s=gaze.stats;
       for(const e of this.enemies){
         if(e.dead||(!s.petrifyIgnoresImmunity&&e.magicImmune)||!this.canSee(e,tower)||distance(tower,e)>(s.stoneGazeRange||10)){gaze.facing.delete(e.id);continue;}
-        if(statusEffectAllowed(e,'gazeSlow'))e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05,source:tower};
+        if(statusEffectAllowed(e,'gazeSlow')){const row={amount:s.stoneGazeSlow||.8,time:slice+.05,source:tower};if(usesArtifactRulesV3(this.game))applyArtifactTimedStatus(this,e,'gazeSlow',row,'gaze');else e.statuses.gazeSlow=row;}
         if(gaze.petrified.has(e.id))continue;
         const next=e.route[e.pathIndex],dx=(next?.x??e.x)-e.x,dz=(next?.z??e.z)-e.z;
         const toward=dx*(tower.x-e.x)+dz*(tower.z-e.z)>0;
@@ -265,6 +277,7 @@ export class CombatManager {
     const skyAuras=this.game.data.fr005?this.game.towers.filter(t=>t.state==='active').map(t=>({tower:t,stats:towerStats(t,this.game.data)})).filter(({stats})=>skyHuntAura(stats)):[];
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
+      refreshArtifactTimedStatuses(this,enemy);
       updateArtifactDots(this,enemy);if(enemy.dead)continue;
       for(const key of ['slow','freeze','stun','root','gazeSlow','poison','burn','healBlock','regenReduction'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
       enemy.hit=Math.max(0,enemy.hit-dt);
@@ -283,8 +296,14 @@ export class CombatManager {
         if(supporter.hasteAura&&this.elapsed%R.support.hastePeriod<R.support.hasteDuration)haste=Math.max(haste,supporter.hasteAura);
       }
       this.prepareArmor(enemy);
-      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};if(enemy.statuses.artifactPoison?.time>0&&statusEffectAllowed(enemy,'healBlock')){regenReduction.amount=Math.max(regenReduction.amount||0,artifactEffects(this.game).healingReduction||0);regenReduction.time=Math.max(regenReduction.time||0,enemy.statuses.artifactPoison.time);}
+      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};
+      const artifactPoisonTime=enemy.statuses.artifactPoison?.time||0,poisonTime=usesArtifactRulesV3(this.game)?Math.max(artifactPoisonTime,enemy.statuses.poison?.time||0):artifactPoisonTime;
+      if(poisonTime>0&&statusEffectAllowed(enemy,'healBlock')){
+        if(usesArtifactRulesV3(this.game))regenReduction.applications=[{amount:regenReduction.amount||0,time:regenReduction.time||0},{amount:artifactEffects(this.game).healingReduction||0,time:poisonTime}];
+        else{regenReduction.amount=Math.max(regenReduction.amount||0,artifactEffects(this.game).healingReduction||0);regenReduction.time=Math.max(regenReduction.time||0,poisonTime);}
+      }
       for(const [key,status] of Object.entries(enemy.statuses)) {
+        if(status._artifactTimed)continue;
         if(key==='poison'&&status.applications){this.updatePoison(enemy,status,dt);continue;}
         if(status.dps){const slice=Math.min(dt,status.time);this.damage(enemy,status.dps*slice,status.damageType||(key==='bleed'?'physical':'magical'),{effect:key==='burn'?'fire':key,...status.fr002Packet,...(status.fr002Packet?{_fr002Slice:{key:'dot:'+key,dt:slice,endAt:this.elapsed-dt+slice}}:{})},status.source);}
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
@@ -293,13 +312,15 @@ export class CombatManager {
       this.updateEnemyHealing(enemy,dt,healingBlockedFor,regenReduction);
       if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<R.sapper.radius)ruin.weakened=R.sapper.duration;
       const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
-      let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
+      let slow=usesArtifactRulesV3(this.game)?this.effectiveSlow(enemy,{skyAuras}):Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       this.prepareArmor(enemy);
-      for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(slowAuraApplies(s,enemy)&&distance(t,enemy)<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);}
-      const skyContext={data:this.game.data,towers:this.game.towers,immunityCoverage:this.game.data.fr008&&enemy.flying&&enemy.physicalImmune?immunityAuraCoverage(enemy,this.game.towers,this.game.data):null};
-      for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy,skyContext));
-      if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
-      slow=Math.max(slow,this.game.general?.slow||0);
+      if(!usesArtifactRulesV3(this.game)){
+        for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(slowAuraApplies(s,enemy)&&distance(t,enemy)<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);}
+        const skyContext={data:this.game.data,towers:this.game.towers,immunityCoverage:this.game.data.fr008&&enemy.flying&&enemy.physicalImmune?immunityAuraCoverage(enemy,this.game.towers,this.game.data):null};
+        for(const {tower,stats} of skyAuras)slow=Math.max(slow,skyHuntSlow(stats,tower,enemy,skyContext));
+        if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
+        slow=Math.max(slow,this.game.general?.slow||0);
+      }
       const move=amount=>{
         let travel=amount;
         while(travel>0 && enemy.pathIndex<enemy.route.length) {
@@ -392,12 +413,18 @@ export class CombatManager {
   updateEnemyHealing(enemy,dt,blockedFor,reduction={}){
     const R=this.rules;
     const clockEpsilon=1e-9;
+    const independent=usesArtifactRulesV3(this.game)&&reduction.applications,amountAt=at=>independent?Math.max(0,...independent.filter(row=>at<row.time).map(row=>row.amount||0)):at<(reduction.time||0)?reduction.amount||0:0;
     const heal=(value,cause)=>{
       const before=enemy.hp;enemy.hp=Math.min(enemy.maxHp,enemy.hp+value);
       const amount=enemy.hp-before;
       if(amount>0)this.game.emit('enemy-heal',{enemy,cause,amount,visible:this.isRevealed(enemy)});
     };
     const regenerate=(from,to)=>{
+      if(independent){
+        const begin=Math.max(from,blockedFor),boundaries=[begin,...independent.map(row=>row.time).filter(at=>at>begin&&at<to),to].sort((a,b)=>a-b);
+        if(enemy.regen>0&&to>begin)for(let i=1;i<boundaries.length;i++){const left=boundaries[i-1],right=boundaries[i];if(right>left)heal(enemy.maxHp*enemy.regen*(right-left)*(1-amountAt((left+right)/2)),'regeneration');}
+        return;
+      }
       const active=Math.max(0,to-Math.max(from,blockedFor));
       const reduced=Math.max(0,Math.min(to,reduction.time||0)-Math.max(from,blockedFor));if(enemy.regen>0&&active>0)heal(enemy.maxHp*enemy.regen*(active-reduced*(reduction.amount||0)),'regeneration');
     };
@@ -408,7 +435,7 @@ export class CombatManager {
         const at=Math.min(dt,Math.max(0,deadline));regenerate(cursor,at);
         // Compare each real deadline with expiry, instead of sampling a block
         // at the beginning/end of a large tick and losing eligible pulses.
-        if(at+clockEpsilon>=blockedFor)heal(Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge*(at<(reduction.time||0)?1-(reduction.amount||0):1),'recharge');
+        if(at+clockEpsilon>=blockedFor)heal(Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge*(1-amountAt(at)),'recharge');
         cursor=at;deadline+=R.recharge.period;
       }
       enemy.rechargeClock=deadline-dt;

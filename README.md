@@ -1,6 +1,8 @@
-# Forged Alliances TD — 0.7.0
+# Forged Alliances TD — 0.8.1
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
+
+**Current release 0.8.1:** 92 Commander artifacts in 12 sets, with Common/Uncommon/Rare/Epic/Legendary sets requiring 2/4/6/8/10 pieces. Revised range budgets, independent effect durations, native Poison healing denial and corrected Freeze priority use versioned saved-run rules. [Current artifact implementation](docs/FR011_IMPLEMENTATION.md).
 
 **Release 0.7.0 adds FR-010:** a main menu, optional verified accounts, exact saved continuation, medal achievements, a three-slot general and seeded Endless waves beyond 50. Guest runs remain fully playable without account statistics. Start locally with `START_GAME.cmd`; account verification links use a private local mailbox during local development. [Implementation, configuration and verification](docs/FR010_IMPLEMENTATION.md).
 

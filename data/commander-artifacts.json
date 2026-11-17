@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "effectVersion": "fr011-v2",
+  "effectVersion": "fr011-v3",
   "slots": [
     "head",
     "neck",
@@ -61,14 +61,17 @@
           "damage": 0.05
         },
         "4": {
-          "bossDamage": 0.06
+          "bossDamage": 0.03
         },
         "6": {
-          "damage": 0.1
+          "damage": 0.03
+        },
+        "8": {
+          "damage": 0.04
         }
       },
       "art": "assets/ui/commander-v080/artifacts/lg-01.webp",
-      "pieceCount": 6,
+      "pieceCount": 8,
       "rarity": "epic"
     },
     {
@@ -81,43 +84,51 @@
           "speed": 0.03
         },
         "4": {
-          "rangeTiles": 5
+          "rangeTiles": 0.25
         },
         "6": {
-          "speed": 0.05,
-          "controlResistance": 0.15
+          "speed": 0.01,
+          "controlResistance": 0.05,
+          "rangeTiles": 0.25
+        },
+        "8": {
+          "speed": 0.01,
+          "controlResistance": 0.1,
+          "rangeTiles": 0.75
         }
       },
       "art": "assets/ui/commander-v080/artifacts/st-01.webp",
-      "pieceCount": 6,
+      "pieceCount": 8,
       "rarity": "epic"
     },
     {
       "id": "winter-court",
       "code": "WC",
       "name": "Winter Court",
-      "description": "Longer reach, chilling strikes and brief freezes.",
+      "description": "The strongest complete-set reach, chilling strikes and brief freezes. Set slow works without a separate slow item.",
       "bonuses": {
         "2": {
-          "rangeTiles": 1.5
+          "rangeTiles": 0.25
         },
         "4": {
-          "slowBonus": 0.04
+          "slowBonus": 0.04,
+          "rangeTiles": 0.25
         },
         "6": {
           "freezeChanceBonus": 0.04,
-          "freezeDurationBonus": 0.2
+          "freezeDurationBonus": 0.2,
+          "rangeTiles": 1.25
         }
       },
       "art": "assets/ui/commander-v080/artifacts/wc-01.webp",
       "pieceCount": 6,
-      "rarity": "epic"
+      "rarity": "rare"
     },
     {
       "id": "venom-covenant",
       "code": "VC",
       "name": "Venom Covenant",
-      "description": "Poisoned strikes and suppression of enemy healing.",
+      "description": "Artifact-poisoned strikes and suppression of healing on enemies with native or artifact poison.",
       "bonuses": {
         "2": {
           "conditionalPoison": 0.03
@@ -132,34 +143,39 @@
       },
       "art": "assets/ui/commander-v080/artifacts/vc-01.webp",
       "pieceCount": 6,
-      "rarity": "epic"
+      "rarity": "rare"
     },
     {
       "id": "ashen-dragon",
       "code": "AD",
       "name": "Ashen Dragon",
-      "description": "Burning strikes and the transfer of unspent embers.",
+      "description": "Artifact-burning strikes and a non-recursive transfer of unspent burn budget to up to three valid targets within 1.5 tiles.",
       "bonuses": {
         "2": {
           "burnPower": 0.2
         },
         "4": {
-          "conditionalBurn": 0.05
+          "conditionalBurn": 0.03
         },
         "6": {
-          "burnPower": 0.6,
-          "emberTransfer": 1
+          "burnPower": 0.2,
+          "rangeTiles": 0.25
+        },
+        "8": {
+          "burnPower": 0.3,
+          "emberTransfer": 1,
+          "rangeTiles": 0.75
         }
       },
       "art": "assets/ui/commander-v080/artifacts/ad-01.webp",
-      "pieceCount": 6,
+      "pieceCount": 8,
       "rarity": "epic"
     },
     {
       "id": "royal-architect",
       "code": "RA",
       "name": "Royal Architect",
-      "description": "Starting resources, a stronger keep and a resilient army.",
+      "description": "Starting resources, a stronger keep and Disarm/Dread resistance. Once per run, a boss kill restores up to 6 keep health when health is missing; full health preserves the charge.",
       "bonuses": {
         "2": {
           "gold": 150
@@ -175,7 +191,7 @@
       },
       "art": "assets/ui/commander-v080/artifacts/ra-01.webp",
       "pieceCount": 6,
-      "rarity": "epic"
+      "rarity": "rare"
     },
     {
       "id": "celestial",
@@ -191,16 +207,16 @@
         },
         "6": {
           "damage": 0.05,
-          "rangeTiles": 1
+          "rangeTiles": 0.25
         },
         "8": {
           "speed": 0.05,
-          "rangeTiles": 1
+          "rangeTiles": 0.25
         },
         "10": {
           "damage": 0.1,
           "speed": 0.1,
-          "rangeTiles": 1.5
+          "rangeTiles": 1
         }
       },
       "art": "assets/ui/commander-v080/artifacts/ce-01.webp",
@@ -241,7 +257,7 @@
       "code": "MO",
       "name": "Militia Oath",
       "description": "A humble village defense: dependable damage with ordinary wood and steel.",
-      "rarity": "rare",
+      "rarity": "common",
       "pieceCount": 2,
       "bonuses": {
         "2": {
@@ -255,7 +271,7 @@
       "code": "SC",
       "name": "Scout’s Trail",
       "description": "Light field equipment for modest reach and faster attacks.",
-      "rarity": "rare",
+      "rarity": "uncommon",
       "pieceCount": 4,
       "bonuses": {
         "2": {
@@ -263,7 +279,7 @@
         },
         "4": {
           "speed": 0.03,
-          "rangeTiles": 1
+          "rangeTiles": 0.75
         }
       },
       "art": "assets/ui/commander-v080/artifacts/sc-01.webp"
@@ -273,7 +289,7 @@
       "code": "SK",
       "name": "Steward’s Kit",
       "description": "Practical supplies for a small resource and keep-health advantage.",
-      "rarity": "rare",
+      "rarity": "uncommon",
       "pieceCount": 4,
       "bonuses": {
         "2": {
@@ -285,6 +301,21 @@
         }
       },
       "art": "assets/ui/commander-v080/artifacts/sk-01.webp"
+    },
+    {
+      "id": "watchmans-vigil",
+      "code": "WV",
+      "name": "Watchman’s Vigil",
+      "description": "A simple patrol kit for a sturdier keep and light Disarm/Dread resistance.",
+      "rarity": "common",
+      "pieceCount": 2,
+      "bonuses": {
+        "2": {
+          "keepHealth": 1,
+          "controlResistance": 0.02
+        }
+      },
+      "art": "assets/ui/commander-v080/artifacts/wv-01.webp"
     }
   ],
   "chests": [
@@ -524,9 +555,9 @@
       "slot": "cloak",
       "rarity": "rare",
       "setId": "winter-court",
-      "description": "+1 attack range tile.",
+      "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 1
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/wc-01.webp"
     },
@@ -536,7 +567,7 @@
       "slot": "ring",
       "rarity": "rare",
       "setId": "winter-court",
-      "description": "Primary damaging hits slow eligible enemies by 8% for 2 combat seconds.",
+      "description": "Primary damaging hits apply 8% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
         "slow": 0.08
       },
@@ -548,9 +579,9 @@
       "slot": "neck",
       "rarity": "rare",
       "setId": "winter-court",
-      "description": "+1.5 attack range tiles.",
+      "description": "+0.5 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 1.5
+        "rangeTiles": 0.5
       },
       "art": "assets/ui/commander-v080/artifacts/wc-03.webp"
     },
@@ -560,7 +591,7 @@
       "slot": "offhand",
       "rarity": "epic",
       "setId": "winter-court",
-      "description": "Deal 5% more own damage to slowed or frozen enemies.",
+      "description": "Deal 5% more own damage to enemies actually slowed or frozen by any permitted defender or Commander source. Root, Stun and Petrify alone do not qualify.",
       "modifiers": {
         "conditionalControl": 0.05
       },
@@ -572,9 +603,9 @@
       "slot": "head",
       "rarity": "epic",
       "setId": "winter-court",
-      "description": "+2 attack range tiles.",
+      "description": "+0.5 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 2
+        "rangeTiles": 0.5
       },
       "art": "assets/ui/commander-v080/artifacts/wc-05.webp"
     },
@@ -584,7 +615,7 @@
       "slot": "weapon",
       "rarity": "legendary",
       "setId": "winter-court",
-      "description": "Primary damaging hits have a 6% freeze chance for 0.6s; bosses take half duration. Shared target cooldown: 6s.",
+      "description": "Successful primary damaging hits have a 6% freeze chance for 0.6s; bosses take half duration. At most one attempt per defender and target each second, with a shared 6s target cooldown after success. Never blocks stronger native control.",
       "modifiers": {
         "freezeChance": 0.06,
         "freezeDuration": 0.6
@@ -609,7 +640,7 @@
       "slot": "ring",
       "rarity": "rare",
       "setId": "venom-covenant",
-      "description": "Primary damaging hits add Magical poison equal to 4% of effective hit damage, spread over 3s.",
+      "description": "Primary damaging hits add Magical artifact poison with a budget of 4% of effective HP damage over 3s. Target defenses still apply. Only the strongest artifact poison base is used.",
       "modifiers": {
         "poisonBase": 0.04
       },
@@ -621,7 +652,7 @@
       "slot": "neck",
       "rarity": "rare",
       "setId": "venom-covenant",
-      "description": "Deal 4% more own damage to poisoned enemies.",
+      "description": "Deal 4% more own damage to enemies with active native or artifact poison.",
       "modifiers": {
         "conditionalPoison": 0.04
       },
@@ -633,7 +664,7 @@
       "slot": "gloves",
       "rarity": "epic",
       "setId": "venom-covenant",
-      "description": "Artifact poison deals 20% more damage. Native defender poison is unchanged.",
+      "description": "Artifact poison deals 20% more damage. Requires an equipped artifact poison source; native defender poison is unchanged.",
       "modifiers": {
         "poisonPower": 0.2
       },
@@ -645,7 +676,7 @@
       "slot": "chest",
       "rarity": "epic",
       "setId": "venom-covenant",
-      "description": "Artifact-poisoned enemies receive 20% less healing and regeneration; respects immunity.",
+      "description": "Enemies with active native or artifact poison receive 20% less healing and regeneration, respecting status immunity. A stronger native reduction takes precedence.",
       "modifiers": {
         "healingReduction": 0.2
       },
@@ -657,7 +688,7 @@
       "slot": "weapon",
       "rarity": "legendary",
       "setId": "venom-covenant",
-      "description": "Primary damaging hits add Magical poison equal to 10% of effective hit damage, spread over 3s. Replaces weaker artifact poison.",
+      "description": "Primary damaging hits add Magical artifact poison with a budget of 10% of effective HP damage over 3s. Target defenses still apply. Replaces weaker artifact poison bases.",
       "modifiers": {
         "poisonBase": 0.1
       },
@@ -681,7 +712,7 @@
       "slot": "neck",
       "rarity": "rare",
       "setId": "ashen-dragon",
-      "description": "Primary damaging hits add Magical burn equal to 4% of effective hit damage, spread over 2s.",
+      "description": "Primary damaging hits add Magical artifact burn with a budget of 4% of effective HP damage over 2s. Target defenses still apply. Only the strongest artifact burn base is used.",
       "modifiers": {
         "burnBase": 0.04
       },
@@ -693,9 +724,9 @@
       "slot": "cloak",
       "rarity": "rare",
       "setId": "ashen-dragon",
-      "description": "+3 attack range tiles.",
+      "description": "+0.5 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 3
+        "rangeTiles": 0.5
       },
       "art": "assets/ui/commander-v080/artifacts/ad-03.webp"
     },
@@ -705,7 +736,7 @@
       "slot": "offhand",
       "rarity": "epic",
       "setId": "ashen-dragon",
-      "description": "Artifact burn deals 20% more damage. Native defender burn is unchanged.",
+      "description": "Artifact burn deals 20% more damage. Requires an equipped artifact burn source; native defender burn and Fire Aura are unchanged.",
       "modifiers": {
         "burnPower": 0.2
       },
@@ -717,7 +748,7 @@
       "slot": "chest",
       "rarity": "epic",
       "setId": "ashen-dragon",
-      "description": "Deal 5% more own damage to burning enemies.",
+      "description": "Deal 5% more own damage to enemies with an active native or artifact Burn. A fire hit or Fire Aura without lasting Burn does not qualify.",
       "modifiers": {
         "conditionalBurn": 0.05
       },
@@ -729,7 +760,7 @@
       "slot": "weapon",
       "rarity": "legendary",
       "setId": "ashen-dragon",
-      "description": "Primary damaging hits add Magical burn equal to 10% of effective hit damage, spread over 2s. Replaces weaker artifact burn.",
+      "description": "Primary damaging hits add Magical artifact burn with a budget of 10% of effective HP damage over 2s. Target defenses still apply. Replaces weaker artifact burn bases.",
       "modifiers": {
         "burnBase": 0.1
       },
@@ -765,7 +796,7 @@
       "slot": "cloak",
       "rarity": "rare",
       "setId": "royal-architect",
-      "description": "Defenders gain 10% resistance to enemy disruption; combines through remaining vulnerability.",
+      "description": "Defenders gain 10% Disarm and Dread resistance. Reduces Disarm duration and Dread intensity; combines with native resistance through remaining vulnerability. Does not affect Melancholy, Sapper or equipment penalties.",
       "modifiers": {
         "controlResistance": 0.1
       },
@@ -825,9 +856,9 @@
       "slot": "cloak",
       "rarity": "common",
       "setId": null,
-      "description": "+1 attack range tile.",
+      "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 1
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/n-02.webp"
     },
@@ -849,9 +880,9 @@
       "slot": "gloves",
       "rarity": "uncommon",
       "setId": null,
-      "description": "+1.5 attack range tiles.",
+      "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 1.5
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/n-04.webp"
     },
@@ -909,7 +940,7 @@
       "slot": "gloves",
       "rarity": "rare",
       "setId": null,
-      "description": "Primary damaging hits reduce enemy armor by 2 for 2s, never below zero. Does not replace a stronger reduction.",
+      "description": "Primary damaging hits reduce armor by 2 for 2s. Uses the strongest active reduction against base and reactive armor; armor never falls below zero.",
       "modifiers": {
         "shred": 2
       },
@@ -921,7 +952,7 @@
       "slot": "cloak",
       "rarity": "epic",
       "setId": null,
-      "description": "Defenders gain 20% resistance to enemy disruption; combines through remaining vulnerability.",
+      "description": "Defenders gain 20% Disarm and Dread resistance. Reduces Disarm duration and Dread intensity; combines with native resistance through remaining vulnerability. Does not affect Melancholy, Sapper or equipment penalties.",
       "modifiers": {
         "controlResistance": 0.2
       },
@@ -945,11 +976,11 @@
       "slot": "neck",
       "rarity": "legendary",
       "setId": null,
-      "description": "+5% own damage; +3% attack speed; +1 attack range tile.",
+      "description": "+5% own damage, +3% attack speed and +0.5 attack range tiles.",
       "modifiers": {
         "damage": 0.05,
         "speed": 0.03,
-        "rangeTiles": 1
+        "rangeTiles": 0.5
       },
       "art": "assets/ui/commander-v080/artifacts/n-12.webp"
     },
@@ -959,10 +990,10 @@
       "slot": "head",
       "rarity": "epic",
       "setId": "celestial",
-      "description": "+4% own damage; +0.5 attack range tiles.",
+      "description": "+4% own damage and +0.25 attack range tiles.",
       "modifiers": {
         "damage": 0.04,
-        "rangeTiles": 0.5
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/ce-01.webp",
       "visualBrief": "An ivory and antique-gold radiant winged crown, empty front-facing headpiece with a small sun crystal."
@@ -1012,9 +1043,9 @@
       "slot": "offhand",
       "rarity": "epic",
       "setId": "celestial",
-      "description": "+0.75 attack range tiles.",
+      "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.75
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/ce-05.webp",
       "visualBrief": "Frontal ornate ivory kite shield, antique gold frame, turquoise sun surrounded by stylized gold feathers."
@@ -1038,9 +1069,9 @@
       "slot": "cloak",
       "rarity": "epic",
       "setId": "celestial",
-      "description": "+0.75 attack range tiles.",
+      "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.75
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/ce-07.webp",
       "visualBrief": "An ivory cloth cloak with antique gold embroidered sun and restrained turquoise lining; complete cloak without mannequin."
@@ -1077,10 +1108,10 @@
       "slot": "ring",
       "rarity": "legendary",
       "setId": "celestial",
-      "description": "+3% attack speed; +0.5 attack range tiles.",
+      "description": "+3% attack speed and +0.25 attack range tiles.",
       "modifiers": {
         "speed": 0.03,
-        "rangeTiles": 0.5
+        "rangeTiles": 0.25
       },
       "art": "assets/ui/commander-v080/artifacts/ce-10.webp",
       "visualBrief": "One antique-gold winged signet ring with a distinct bright turquoise oval sky gem."
@@ -1091,7 +1122,7 @@
       "slot": "head",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "5% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "description": "5% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
         "immunityReduction": 0.05
       },
@@ -1104,7 +1135,7 @@
       "slot": "neck",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "6% slow for 2s.",
+      "description": "Primary damaging hits apply 6% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
         "slow": 0.06
       },
@@ -1117,7 +1148,7 @@
       "slot": "chest",
       "rarity": "legendary",
       "setId": "necromancer",
-      "description": "5% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "description": "5% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
         "immunityReduction": 0.05
       },
@@ -1130,7 +1161,7 @@
       "slot": "weapon",
       "rarity": "legendary",
       "setId": "necromancer",
-      "description": "-3 armor for 2s; strongest reduction only.",
+      "description": "Primary damaging hits reduce armor by 3 for 2s. Uses the strongest active reduction against base and reactive armor; armor never falls below zero.",
       "modifiers": {
         "shred": 3
       },
@@ -1143,7 +1174,7 @@
       "slot": "offhand",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "4% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "description": "4% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
         "immunityReduction": 0.04
       },
@@ -1156,7 +1187,7 @@
       "slot": "gloves",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "-2 armor for 2s; strongest reduction only.",
+      "description": "Primary damaging hits reduce armor by 2 for 2s. Uses the strongest active reduction against base and reactive armor; armor never falls below zero.",
       "modifiers": {
         "shred": 2
       },
@@ -1169,7 +1200,7 @@
       "slot": "cloak",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "8% slow for 2s.",
+      "description": "Primary damaging hits apply 8% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
         "slow": 0.08
       },
@@ -1182,7 +1213,7 @@
       "slot": "feet",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "3% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "description": "3% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
         "immunityReduction": 0.03
       },
@@ -1195,7 +1226,7 @@
       "slot": "ring",
       "rarity": "epic",
       "setId": "necromancer",
-      "description": "10% slow for 2s.",
+      "description": "Primary damaging hits apply 10% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
         "slow": 0.1
       },
@@ -1208,7 +1239,7 @@
       "slot": "ring",
       "rarity": "legendary",
       "setId": "necromancer",
-      "description": "3% Physical/Magical damage passes through immunity; status immunities unchanged.",
+      "description": "3% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
         "immunityReduction": 0.03
       },
@@ -1247,9 +1278,9 @@
       "slot": "head",
       "rarity": "common",
       "setId": "scouts-trail",
-      "description": "+0.25 attack range tiles.",
+      "description": "+0.125 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.25
+        "rangeTiles": 0.125
       },
       "art": "assets/ui/commander-v080/artifacts/sc-01.webp",
       "visualBrief": "A simple muted olive cloth hood, empty wearable, linen seams, no gems or trim."
@@ -1260,9 +1291,9 @@
       "slot": "gloves",
       "rarity": "uncommon",
       "setId": "scouts-trail",
-      "description": "+0.25 attack range tiles.",
+      "description": "+0.125 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.25
+        "rangeTiles": 0.125
       },
       "art": "assets/ui/commander-v080/artifacts/sc-02.webp",
       "visualBrief": "A pair of plain supple brown leather scout gloves with worn stitching, no hands."
@@ -1273,9 +1304,9 @@
       "slot": "cloak",
       "rarity": "uncommon",
       "setId": "scouts-trail",
-      "description": "+0.25 attack range tiles.",
+      "description": "+0.125 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.25
+        "rangeTiles": 0.125
       },
       "art": "assets/ui/commander-v080/artifacts/sc-03.webp",
       "visualBrief": "A short worn moss green travel cloak, simple wooden clasp, no mannequin, no ornate trim."
@@ -1286,9 +1317,9 @@
       "slot": "feet",
       "rarity": "rare",
       "setId": "scouts-trail",
-      "description": "+0.25 attack range tiles.",
+      "description": "+0.125 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
-        "rangeTiles": 0.25
+        "rangeTiles": 0.125
       },
       "art": "assets/ui/commander-v080/artifacts/sc-04.webp",
       "visualBrief": "A pair of practical dark leather ranger boots with modest bronze buckles, no gems, no legs."
@@ -1379,9 +1410,9 @@
       "slot": "head",
       "rarity": "epic",
       "setId": null,
-      "description": "−6% attack speed; +2 attack range tiles.",
+      "description": "−6% attack speed; +0.75 attack range tiles. Equipment range penalties apply after the positive artifact range cap.",
       "modifiers": {
-        "rangeTiles": 2,
+        "rangeTiles": 0.75,
         "speed": -0.06
       },
       "art": "assets/ui/commander-v080/artifacts/n-15.webp",
@@ -1393,7 +1424,7 @@
       "slot": "neck",
       "rarity": "epic",
       "setId": null,
-      "description": "+18% own damage; −1 attack range tile.",
+      "description": "+18% own damage; −1 attack range tile. The range penalty applies after the positive artifact range cap.",
       "modifiers": {
         "damage": 0.18,
         "rangeTiles": -1
@@ -1421,7 +1452,7 @@
       "slot": "offhand",
       "rarity": "legendary",
       "setId": null,
-      "description": "+15% own damage; −5% attack speed; −0.5 attack range tiles.",
+      "description": "+15% own damage; −5% attack speed; −0.5 attack range tiles. The range penalty applies after the positive artifact range cap.",
       "modifiers": {
         "damage": 0.15,
         "speed": -0.05,
@@ -1429,9 +1460,105 @@
       },
       "art": "assets/ui/commander-v080/artifacts/n-18.webp",
       "visualBrief": "A complete black steel kite shield with broken golden sun engraving, ruby in center and restrained gold edging, no hands."
+    },
+    {
+      "id": "LG-07",
+      "name": "Lionheart Pendant",
+      "slot": "neck",
+      "rarity": "rare",
+      "setId": "iron-legion",
+      "description": "+3% own damage. Contributes to the eight-piece Iron Legion set.",
+      "modifiers": {
+        "damage": 0.03
+      },
+      "art": "assets/ui/commander-v080/artifacts/lg-07.webp"
+    },
+    {
+      "id": "LG-08",
+      "name": "Gatebreaker Gauntlets",
+      "slot": "gloves",
+      "rarity": "epic",
+      "setId": "iron-legion",
+      "description": "+3% own damage against bosses. Contributes to the eight-piece Iron Legion set.",
+      "modifiers": {
+        "bossDamage": 0.03
+      },
+      "art": "assets/ui/commander-v080/artifacts/lg-08.webp"
+    },
+    {
+      "id": "ST-07",
+      "name": "Windborne Mantle",
+      "slot": "cloak",
+      "rarity": "rare",
+      "setId": "stormwing-vanguard",
+      "description": "+0.25 attack range tiles. Contributes to the eight-piece Stormwing Vanguard set.",
+      "modifiers": {
+        "rangeTiles": 0.25
+      },
+      "art": "assets/ui/commander-v080/artifacts/st-07.webp"
+    },
+    {
+      "id": "ST-08",
+      "name": "Tempest Aegis",
+      "slot": "offhand",
+      "rarity": "epic",
+      "setId": "stormwing-vanguard",
+      "description": "+3% attack speed. Contributes to the eight-piece Stormwing Vanguard set.",
+      "modifiers": {
+        "speed": 0.03
+      },
+      "art": "assets/ui/commander-v080/artifacts/st-08.webp"
+    },
+    {
+      "id": "AD-07",
+      "name": "Emberwatch Helm",
+      "slot": "head",
+      "rarity": "rare",
+      "setId": "ashen-dragon",
+      "description": "Deal 2% more own damage to enemies with active native or artifact Burn. A fire hit or Fire Aura without lasting Burn does not qualify.",
+      "modifiers": {
+        "conditionalBurn": 0.02
+      },
+      "art": "assets/ui/commander-v080/artifacts/ad-07.webp"
+    },
+    {
+      "id": "AD-08",
+      "name": "Furnacekeeper Gloves",
+      "slot": "gloves",
+      "rarity": "epic",
+      "setId": "ashen-dragon",
+      "description": "Artifact burn deals 10% more damage. Requires an equipped artifact burn source; native defender burn and Fire Aura are unchanged.",
+      "modifiers": {
+        "burnPower": 0.1
+      },
+      "art": "assets/ui/commander-v080/artifacts/ad-08.webp"
+    },
+    {
+      "id": "WV-01",
+      "name": "Patrol Cap",
+      "slot": "head",
+      "rarity": "common",
+      "setId": "watchmans-vigil",
+      "description": "Start a new defense with 1 additional current and maximum keep health.",
+      "modifiers": {
+        "keepHealth": 1
+      },
+      "art": "assets/ui/commander-v080/artifacts/wv-01.webp"
+    },
+    {
+      "id": "WV-02",
+      "name": "Patrol Buckler",
+      "slot": "offhand",
+      "rarity": "common",
+      "setId": "watchmans-vigil",
+      "description": "Defenders gain 3% Disarm and Dread resistance. Combines with native resistance through remaining vulnerability; Melancholy, Sapper and equipment penalties are unchanged.",
+      "modifiers": {
+        "controlResistance": 0.03
+      },
+      "art": "assets/ui/commander-v080/artifacts/wv-02.webp"
     }
   ],
-  "catalogRevision": 3,
+  "catalogRevision": 4,
   "pityRulesVersion": 2,
   "legacyEffects": {
     "version": "fr011-v1",
@@ -1658,5 +1785,414 @@
       }
     }
   },
-  "visualRevision": "commander-geometric-v080"
+  "visualRevision": "commander-geometric-v080",
+  "compatibilityEffects": {
+    "fr011-v2": {
+      "version": "fr011-v2",
+      "itemModifiers": {
+        "LG-01": {
+          "damage": 0.03
+        },
+        "LG-02": {
+          "damage": 0.03
+        },
+        "LG-03": {
+          "damage": 0.03
+        },
+        "LG-04": {
+          "bossDamage": 0.06
+        },
+        "LG-05": {
+          "damage": 0.05
+        },
+        "LG-06": {
+          "damage": 0.08
+        },
+        "ST-01": {
+          "speed": 0.02
+        },
+        "ST-02": {
+          "speed": 0.03
+        },
+        "ST-03": {
+          "speed": 0.03
+        },
+        "ST-04": {
+          "speed": 0.04
+        },
+        "ST-05": {
+          "speed": 0.05
+        },
+        "ST-06": {
+          "speed": 0.06
+        },
+        "WC-01": {
+          "rangeTiles": 1
+        },
+        "WC-02": {
+          "slow": 0.08
+        },
+        "WC-03": {
+          "rangeTiles": 1.5
+        },
+        "WC-04": {
+          "conditionalControl": 0.05
+        },
+        "WC-05": {
+          "rangeTiles": 2
+        },
+        "WC-06": {
+          "freezeChance": 0.06,
+          "freezeDuration": 0.6
+        },
+        "VC-01": {
+          "damage": 0.02
+        },
+        "VC-02": {
+          "poisonBase": 0.04
+        },
+        "VC-03": {
+          "conditionalPoison": 0.04
+        },
+        "VC-04": {
+          "poisonPower": 0.2
+        },
+        "VC-05": {
+          "healingReduction": 0.2
+        },
+        "VC-06": {
+          "poisonBase": 0.1
+        },
+        "AD-01": {
+          "damage": 0.02
+        },
+        "AD-02": {
+          "burnBase": 0.04
+        },
+        "AD-03": {
+          "rangeTiles": 3
+        },
+        "AD-04": {
+          "burnPower": 0.2
+        },
+        "AD-05": {
+          "conditionalBurn": 0.05
+        },
+        "AD-06": {
+          "burnBase": 0.1
+        },
+        "RA-01": {
+          "gold": 75
+        },
+        "RA-02": {
+          "keepHealth": 3
+        },
+        "RA-03": {
+          "controlResistance": 0.1
+        },
+        "RA-04": {
+          "cp": 1
+        },
+        "RA-05": {
+          "keepHealth": 5
+        },
+        "RA-06": {
+          "cp": 3
+        },
+        "N-01": {
+          "damage": 0.03
+        },
+        "N-02": {
+          "rangeTiles": 1
+        },
+        "N-03": {
+          "gold": 75
+        },
+        "N-04": {
+          "rangeTiles": 1.5
+        },
+        "N-05": {
+          "speed": 0.03
+        },
+        "N-06": {
+          "keepHealth": 3
+        },
+        "N-07": {
+          "gold": 200
+        },
+        "N-08": {
+          "cp": 2
+        },
+        "N-09": {
+          "shred": 2
+        },
+        "N-10": {
+          "controlResistance": 0.2
+        },
+        "N-11": {
+          "bossDamage": 0.1
+        },
+        "N-12": {
+          "damage": 0.05,
+          "speed": 0.03,
+          "rangeTiles": 1
+        },
+        "CE-01": {
+          "damage": 0.04,
+          "rangeTiles": 0.5
+        },
+        "CE-02": {
+          "speed": 0.04
+        },
+        "CE-03": {
+          "damage": 0.06
+        },
+        "CE-04": {
+          "damage": 0.07
+        },
+        "CE-05": {
+          "rangeTiles": 0.75
+        },
+        "CE-06": {
+          "speed": 0.05
+        },
+        "CE-07": {
+          "rangeTiles": 0.75
+        },
+        "CE-08": {
+          "speed": 0.03
+        },
+        "CE-09": {
+          "damage": 0.03
+        },
+        "CE-10": {
+          "speed": 0.03,
+          "rangeTiles": 0.5
+        },
+        "NE-01": {
+          "immunityReduction": 0.05
+        },
+        "NE-02": {
+          "slow": 0.06
+        },
+        "NE-03": {
+          "immunityReduction": 0.05
+        },
+        "NE-04": {
+          "shred": 3
+        },
+        "NE-05": {
+          "immunityReduction": 0.04
+        },
+        "NE-06": {
+          "shred": 2
+        },
+        "NE-07": {
+          "slow": 0.08
+        },
+        "NE-08": {
+          "immunityReduction": 0.03
+        },
+        "NE-09": {
+          "slow": 0.1
+        },
+        "NE-10": {
+          "immunityReduction": 0.03
+        },
+        "MO-01": {
+          "damage": 0.01
+        },
+        "MO-02": {
+          "damage": 0.01
+        },
+        "SC-01": {
+          "rangeTiles": 0.25
+        },
+        "SC-02": {
+          "rangeTiles": 0.25
+        },
+        "SC-03": {
+          "rangeTiles": 0.25
+        },
+        "SC-04": {
+          "rangeTiles": 0.25
+        },
+        "SK-01": {
+          "gold": 25
+        },
+        "SK-02": {
+          "gold": 25
+        },
+        "SK-03": {
+          "cp": 1
+        },
+        "SK-04": {
+          "keepHealth": 1
+        },
+        "N-13": {
+          "damage": 0.12,
+          "speed": -0.08
+        },
+        "N-14": {
+          "speed": 0.12,
+          "damage": -0.08
+        },
+        "N-15": {
+          "rangeTiles": 2,
+          "speed": -0.06
+        },
+        "N-16": {
+          "damage": 0.18,
+          "rangeTiles": -1
+        },
+        "N-17": {
+          "speed": 0.15,
+          "damage": -0.1
+        },
+        "N-18": {
+          "damage": 0.15,
+          "speed": -0.05,
+          "rangeTiles": -0.5
+        }
+      },
+      "setBonuses": {
+        "iron-legion": {
+          "2": {
+            "damage": 0.05
+          },
+          "4": {
+            "bossDamage": 0.06
+          },
+          "6": {
+            "damage": 0.1
+          }
+        },
+        "stormwing-vanguard": {
+          "2": {
+            "speed": 0.03
+          },
+          "4": {
+            "rangeTiles": 5
+          },
+          "6": {
+            "speed": 0.05,
+            "controlResistance": 0.15
+          }
+        },
+        "winter-court": {
+          "2": {
+            "rangeTiles": 1.5
+          },
+          "4": {
+            "slowBonus": 0.04
+          },
+          "6": {
+            "freezeChanceBonus": 0.04,
+            "freezeDurationBonus": 0.2
+          }
+        },
+        "venom-covenant": {
+          "2": {
+            "conditionalPoison": 0.03
+          },
+          "4": {
+            "poisonPower": 0.3
+          },
+          "6": {
+            "poisonPower": 0.5,
+            "healingReductionBonus": 0.2
+          }
+        },
+        "ashen-dragon": {
+          "2": {
+            "burnPower": 0.2
+          },
+          "4": {
+            "conditionalBurn": 0.05
+          },
+          "6": {
+            "burnPower": 0.6,
+            "emberTransfer": 1
+          }
+        },
+        "royal-architect": {
+          "2": {
+            "gold": 150
+          },
+          "4": {
+            "cp": 2
+          },
+          "6": {
+            "controlResistance": 0.15,
+            "reinforceKeep": 6,
+            "gold": 375
+          }
+        },
+        "celestial": {
+          "2": {
+            "damage": 0.05
+          },
+          "4": {
+            "speed": 0.05
+          },
+          "6": {
+            "damage": 0.05,
+            "rangeTiles": 1
+          },
+          "8": {
+            "speed": 0.05,
+            "rangeTiles": 1
+          },
+          "10": {
+            "damage": 0.1,
+            "speed": 0.1,
+            "rangeTiles": 1.5
+          }
+        },
+        "necromancer": {
+          "2": {
+            "shredBonus": 1
+          },
+          "4": {
+            "slowBonus": 0.05
+          },
+          "6": {
+            "immunityReduction": 0.05
+          },
+          "8": {
+            "shredBonus": 2,
+            "slowBonus": 0.05
+          },
+          "10": {
+            "shredBonus": 2,
+            "slowBonus": 0.05,
+            "immunityReduction": 0.05
+          }
+        },
+        "militia-oath": {
+          "2": {
+            "damage": 0.03
+          }
+        },
+        "scouts-trail": {
+          "2": {
+            "speed": 0.02
+          },
+          "4": {
+            "speed": 0.03,
+            "rangeTiles": 1
+          }
+        },
+        "stewards-kit": {
+          "2": {
+            "gold": 50
+          },
+          "4": {
+            "cp": 1,
+            "keepHealth": 1
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,4 +1,5 @@
-import {artifactPrimaryContact} from './artifact-combat.js';
+import {artifactPrimaryContact,applyArtifactTimedStatus,applyArtifactAwareNativeControl} from './artifact-combat.js';
+import {usesArtifactRulesV3} from './artifacts.js';
 import {distance,combatTowerStats,readTowerStats as towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
 import {fr002Impact,updateFr002Tower} from './fr002-combat.js';
@@ -36,7 +37,7 @@ export function factionImpact(c,shot){
  const strike=ability(s,'true-strike'),hitStats={...s,directHit:true,critical,critMultiplier:crit?.multiplier,evasionIgnore:fraction(strike?.evasionIgnorePercent)};
  const result=c.resolveDamage(e,amount,s.type,hitStats,t);
  if(result.contact)factionOnContact(c,t,e,s,result.appliedDamage>0);
- artifactPrimaryContact(c,result,s,t);
+ if(!usesArtifactRulesV3(c.game)||shot.firstPrimary!==false)artifactPrimaryContact(c,result,s,t);
  if(shot.firstPrimary){
   const excluded=new Set(shot.directTargets||[e]);
   for(const id of ['splash','cleave-physical','cleave-magical']){const a=ability(s,id);if(!a)continue;for(const victim of c.enemies)if(!victim.dead&&!excluded.has(victim)&&attackTargetAllowed(s,victim)&&c.canSee(victim,t)&&distance(victim,e)<=a.radius)c.damage(victim,s.damage*a.damagePercent/100,a.damageType==='profile'?s.type:a.damageType,{},t);}
@@ -47,10 +48,10 @@ export function factionImpact(c,shot){
 }
 function factionOnContact(c,t,e,s,landed){
  if(e.dead)return;
- for(const [id,key]of [['slow','slow'],['armor-reduction','shred']]){const a=ability(s,id);if(a&&(key!=='slow'||statusEffectAllowed(e,'slow')))status(e,key,{amount:key==='slow'?fraction(a.slowPercent):a.armorReduction,time:a.duration,source:t});}
+ for(const [id,key]of [['slow','slow'],['armor-reduction','shred']]){const a=ability(s,id);if(a&&(key!=='slow'||statusEffectAllowed(e,'slow'))){const row={amount:key==='slow'?fraction(a.slowPercent):a.armorReduction,time:a.duration,source:t};if(usesArtifactRulesV3(c.game))applyArtifactTimedStatus(c,e,key,row);else status(e,key,row);}}
  for(const id of ['poison','burn']){const a=ability(s,id);if(a&&landed&&statusEffectAllowed(e,id))status(e,id,{dps:a.dps,time:a.duration,source:t,damageType:a.damageType||'magical',amount:a.dps});}
  const anti=ability(s,'anti-regeneration');if(anti&&statusEffectAllowed(e,'healBlock'))status(e,'regenReduction',{amount:fraction(anti.reductionPercent),time:anti.duration,source:t});
- for(const id of ['freeze','stun']){const a=ability(s,id);if(a&&statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.factionControlRecovery||0)&&c.game.rng()<fraction(a.chancePercent)){const duration=a.duration*(e.boss?.5:1);status(e,id,{time:duration,source:t});e.factionControlRecovery=c.elapsed+duration+2;}}
+ for(const id of ['freeze','stun']){const a=ability(s,id);if(a&&statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.factionControlRecovery||0)&&c.game.rng()<fraction(a.chancePercent)){const duration=a.duration*(e.boss?.5:1);if(usesArtifactRulesV3(c.game))applyArtifactAwareNativeControl(c,e,id,duration,t);else status(e,id,{time:duration,source:t});e.factionControlRecovery=c.elapsed+duration+2;}}
  const lightning=ability(s,'lightning');if(lightning&&landed&&c.game.rng()<fraction(lightning.chancePercent)){const used=new Set([e]);let previous=e;for(let i=0;i<lightning.targets;i++){const next=c.enemies.filter(v=>!v.dead&&!used.has(v)&&c.canSee(v,t)&&distance(v,previous)<=lightning.linkRange).sort((a,b)=>distance(a,previous)-distance(b,previous)||a.id-b.id)[0];if(!next)break;used.add(next);secondary(c,t,next,lightning.damage,s.type==='holy'?'holy':'magical');c.game.emit('chain',{source:t,from:previous,to:next,effect:'lightning',visible:true});previous=next;}}
 }
 export function updateFactionTower(c,t,s,dt,boost){
@@ -63,7 +64,7 @@ export function updateFactionTower(c,t,s,dt,boost){
  const execution=ability(s,'execution');
  const fire=ability(s,'fire-aura');if(fire){for(const e of c.enemies)if(!e.dead&&c.canSee(e,t)&&distance(e,t)<=fire.radius){const stronger=c.game.towers.some(other=>other!==t&&other.state==='active'&&!other.attackPaused&&(()=>{const a=ability(towerStats(other,c.game.data),'fire-aura');return a&&distance(other,e)<=a.radius&&(a.dps>fire.dps||a.dps===fire.dps&&other.id<t.id);})());if(!stronger)c.damage(e,fire.dps*dt,fire.damageType,{},t);}}
  const cone=s.continuousAttack;
- if(cone){const target=targets.find(e=>!e.flying);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(!e.flying&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360){const hit=c.resolveDamage(e,cone.dps*dt*(1+(c.game.towers.artifactEffects?.speed||0)),cone.damageType,{penetration:s.penetration},t);factionOnContact(c,t,e,{...s,abilities:s.abilities.filter(a=>['burn','slow','armor-reduction','anti-regeneration'].includes(a.familyId))},hit.appliedDamage>0);artifactPrimaryContact(c,hit,s,t);}c.game.emit('aura-attack',{source:t,target,stats:s});}return;}
+ if(cone){const target=targets.find(e=>!e.flying);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(!e.flying&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360){const hit=c.resolveDamage(e,cone.dps*dt*(1+(c.game.towers.artifactEffects?.speed||0)),cone.damageType,{penetration:s.penetration},t);factionOnContact(c,t,e,{...s,abilities:s.abilities.filter(a=>['burn','slow','armor-reduction','anti-regeneration'].includes(a.familyId))},hit.appliedDamage>0);if(!usesArtifactRulesV3(c.game)||e===target)artifactPrimaryContact(c,hit,s,t);}c.game.emit('aura-attack',{source:t,target,stats:s});}return;}
  if(s.damage<=0)return;
  if(!(boost>0))return;
  const weapon=s.weaponCycle;t.cooldown-=dt*boost;

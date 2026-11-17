@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {distance,readTowerStats as towerStats,offensiveAuraRange,damageDefenseBreakdown} from '../core/math.js';
+import {distance,readTowerStats as towerStats,offensiveAuraRange,damageDefenseBreakdown,combatTowerStats} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
 import {statusEffectAllowed,slowAuraApplies,effectDamageType} from '../core/combat-rules.js';
 import {immunityAuraCoverage} from '../core/immunity-auras.js';
@@ -96,7 +96,7 @@ export function towerSupportState(tower,towers,data,options={}){
     state.effects.push(effect(key,value,entry.amount,entry.sources));
   }
   if(combatActive(options)){
-    const combat=options.combat,R=combat.rules||enemyRulesFor(data),resist=state.bonuses.controlResistance||0,disarm=[],ruins=[];
+    const combat=options.combat,R=combat.rules||enemyRulesFor(data),resist=combatTowerStats(tower,towers,data).bonuses.controlResistance||0,disarm=[],ruins=[];
     for(const enemy of combat.enemies||[]){
       if(enemy.dead)continue;const d=distance(tower,enemy);
       if(d<R.disarm.radius&&enemyDisarmActive(enemy,combat.elapsed||0,resist,R))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});

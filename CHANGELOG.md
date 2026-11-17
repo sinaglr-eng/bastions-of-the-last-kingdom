@@ -1,5 +1,13 @@
 # Current release
 
+## 0.8.1 — Artifact balance and five set rarities — 17 November 2026
+
+- Expanded the armory to 92 artifacts and 12 sets: Common 2, Uncommon 4, Rare 6, Epic 8 and Legendary 10 pieces, with at least two sets in every category.
+- Added eight matching generated equipment icons and Watchman’s Vigil; the expanded Epic sets retain their approved final power across eight pieces.
+- Rebalanced individual range contributions and completion bonuses with a +3 artifact cap before penalties. Updated conditions, independent source expiries, Freeze priority and useful Royal Architect healing.
+- Preserved original v1/v2 saved defenses, account ownership and rewards; Commander and defender inspection explain actual contributions and inactive effects. The English design gallery remains local only.
+
+
 ## 0.8.0 — FR-012 Commander armory — 16 November 2026
 
 - Rebuilt Equipment, Skills, Chests and Sets around the approved geometric mockups, anatomical silhouette and existing enamel/brass controls.
