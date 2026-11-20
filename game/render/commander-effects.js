@@ -1,16 +1,10 @@
 import * as THREE from 'three';
+import {commanderSkillArt} from '../../ui/commander-art.js';
+import {battlefieldIcon} from './battlefield-icon.js';
 
 const GOLD='#f8d577',WHITE='#fff8dc',GREEN='#93dfac';
 const finite=value=>Number.isFinite(value);
 const material=(color,opacity=1)=>new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide,toneMapped:false});
-function chevronGeometry(){
-  const shape=new THREE.Shape();
-  shape.moveTo(-.44,-.1);shape.lineTo(0,.25);shape.lineTo(.44,-.1);shape.lineTo(.44,.07);shape.lineTo(0,.42);shape.lineTo(-.44,.07);shape.closePath();
-  return new THREE.ShapeGeometry(shape);
-}
-function shieldGeometry(){
-  const shape=new THREE.Shape();shape.moveTo(0,.8);shape.lineTo(.65,.55);shape.lineTo(.55,-.25);shape.quadraticCurveTo(.4,-.6,0,-.85);shape.quadraticCurveTo(-.4,-.6,-.55,-.25);shape.lineTo(-.65,.55);shape.closePath();return new THREE.ShapeGeometry(shape);
-}
 function textLabel(text,color=WHITE){
   if(typeof document==='undefined')return null;
   const canvas=document.createElement('canvas');canvas.width=768;canvas.height=128;
@@ -51,8 +45,7 @@ export class CommanderEffects{
       const tower=upgrade.tower||upgrade,from=upgrade.from??upgrade.fromTier,to=upgrade.to??upgrade.toTier;
       if(!finite(tower.x)||!finite(tower.z)||!Number.isInteger(from)||!Number.isInteger(to)||to!==from+1||to>6)continue;
       const group=new THREE.Group();group.name='Commander field promotion';
-      const geometry=chevronGeometry(),metal=material(GOLD);
-      for(let i=0;i<2;i++){const mesh=new THREE.Mesh(geometry,metal);mesh.position.y=.2+i*.37;group.add(mesh);}
+      const icon=battlefieldIcon(commanderSkillArt('field-promotion'),1.15);icon.position.y=.3;group.add(icon);
       const label=this.createLabel?.(`${RANKS[from]} → ${RANKS[to]}`);if(label){label.position.y=1.05;group.add(label);}
       const origin=this.towerPoint?.(tower)||this.position(tower.x,2.1,tower.z);group.position.copy(origin);this.scene.add(group);this.promotions.push({group,origin:origin.clone(),age:0,duration:.85});added=true;
     }
@@ -75,8 +68,7 @@ export class CommanderEffects{
     const amount=payload.amount;if(![5,10,15].includes(amount))return false;
     if(this.fortified)release(this.fortified.group);
     const group=new THREE.Group();group.name='Commander fortified keep';
-    const outline=new THREE.Mesh(shieldGeometry(),material(GOLD,.85));outline.scale.setScalar(1.75);group.add(outline);
-    const inset=new THREE.Mesh(shieldGeometry(),material(GREEN,.7));inset.scale.setScalar(1.49);inset.position.z=.02;group.add(inset);
+    group.add(battlefieldIcon(commanderSkillArt('fortified-keep'),2.9));
     const label=this.createLabel?.(`+${amount} maximum health`,GREEN);if(label){label.position.y=-1.9;label.scale.set(6.5,1.08,1);group.add(label);}
     const origin=this.fortressPoint();group.position.copy(origin);this.scene.add(group);this.fortified={group,origin:origin.clone(),age:0,duration:1.4};return true;
   }
@@ -84,8 +76,7 @@ export class CommanderEffects{
     if(![1,1.5,2].includes(payload.bonus))return false;
     if(this.range)release(this.range.group);
     const group=new THREE.Group();group.name='Commander extended range';
-    const geometry=chevronGeometry(),metal=material(GOLD);
-    for(const direction of [-1,1]){const arrow=new THREE.Mesh(geometry,metal);arrow.rotation.z=-direction*Math.PI/2;arrow.position.x=direction*.9;group.add(arrow);}
+    group.add(battlefieldIcon(commanderSkillArt('extended-range'),1.5));
     const label=this.createLabel?.(`+${payload.bonus} range · this wave`,GOLD);if(label){label.position.y=.85;label.scale.set(6.5,1.08,1);group.add(label);}
     const origin=this.fortressPoint();group.position.copy(origin);this.scene.add(group);this.range={group,origin:origin.clone(),age:0,duration:1.2};return true;
   }

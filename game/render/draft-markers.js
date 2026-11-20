@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {icon} from '../../ui/icons.js';
 import {recipeFamily,recipeLabel,rankLabel} from '../core/recipes.js';
 import {referenceDefenderPortrait as legacyDefenderPortrait} from '../../ui/reference-portraits.js';
 import {RecipeMarkerActivation} from '../../ui/recipe-marker-input.js';
@@ -51,10 +52,8 @@ export class DraftMarkers {
   }
   create(number){
     const group=new THREE.Group();
-    const canvas=document.createElement('canvas');canvas.width=canvas.height=96;const c=canvas.getContext('2d');
-    c.fillStyle='#172b2b';c.beginPath();c.arc(48,48,38,0,Math.PI*2);c.fill();c.strokeStyle='#ffe0a1';c.lineWidth=4;c.stroke();
-    c.fillStyle='#fff0c2';c.font='bold 48px Georgia';c.textAlign='center';c.textBaseline='middle';c.fillText(String(number),48,51);
-    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const texture=new THREE.TextureLoader().load(siteUrl('assets/ui/war-table/ui-icons/recruit-'+number+'.webp'));
+    texture.colorSpace=THREE.SRGBColorSpace;
     const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,depthTest:false,depthWrite:false}));sprite.scale.set(.62,.62,1);sprite.position.y=.43;group.add(sprite);
     group.traverse(o=>o.renderOrder=20);group.userData={texture,sprite};this.scene.add(group);return group;
   }
@@ -81,7 +80,7 @@ export class DraftMarkers {
       badge.el.className=`recipe-map-badge ${role==='result'?'recipe-result':role}`;badge.line.setAttribute('stroke',role==='result'?'#ffdb83':role==='consumed'?'#e89479':'#b9d2c5');badge.el.setAttribute('aria-label',label);badge.el.title=label;
       badge.el.dataset.tower=String(tower.id);badge.el.dataset.recipe=recipe.id;badge.el.dataset.role=role;
       if(role!=='discarded')badge.el.title+=' · Double-click or double-tap to create here';
-      badge.el.innerHTML=`<span class="recipe-map-portrait">${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${defenderPortrait(recipeFamily(recipe),1)}" alt="">`}</span><b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
+      badge.el.innerHTML=`<span class="recipe-map-portrait">${role==='discarded'?`<img src="${siteUrl('assets/ui/ipad-polish/castle-wall.webp')}" alt="">`:`<img src="${defenderPortrait(recipeFamily(recipe),1)}" alt="">`}</span><b>${role==='result'?icon('check'):role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
       badge.el.onclick=event=>{
         if(event.detail>0||this.gesture.suppressClick(event))return;
         this.pinnedActivation.clear();
@@ -114,7 +113,7 @@ export class DraftMarkers {
       if(!badge){const el=document.createElement('button'),line=document.createElementNS('http://www.w3.org/2000/svg','line');this.layer.append(el);this.lines.append(line);badge={el,line};this.pinnedBadges.set(id,badge);}
       const label=`Select ${game.data.towers[tower.family].name} rank ${rankLabel(tower.tier)} · This round ingredient for pinned recipe`;
       badge.el.className='recipe-map-badge pinned-recruit-map-badge';badge.el.type='button';badge.el.dataset.tower=String(id);badge.el.dataset.role='pinned';badge.el.setAttribute('aria-label',label);badge.el.title=label+(game.phase==='select'?' · Double-click or double-tap to keep this placed recruit':' · Place all five recruits before Keep');
-      badge.el.innerHTML=`<span class="recipe-map-portrait"><img src="${defenderPortrait(tower.family,tower.tier)}" alt=""></span><b>◆</b>`;badge.line.setAttribute('stroke','#efcb7a');
+      badge.el.innerHTML=`<span class="recipe-map-portrait"><img src="${defenderPortrait(tower.family,tower.tier)}" alt=""></span><b>${icon('pin')}</b>`;badge.line.setAttribute('stroke','#efcb7a');
       badge.el.onclick=event=>{if(event.detail>0||this.gesture.suppressClick(event))return;this.activation.clear();if(badge.el.hidden||badge.el.disabled||badge.el.isConnected===false||this.game!==game){this.pinnedActivation.clear();return;}this.pinnedActivation.activate(game,id);};
       const body=models.get(id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
     }

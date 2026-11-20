@@ -1,8 +1,14 @@
-# Forged Alliances TD — 0.8.2
+# Forged Alliances TD — 0.8.3
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**Current release 0.8.2:** 106 Commander artifacts in 17 sets, with Common/Uncommon/Rare/Epic/Legendary sets requiring 2/4/6/8/10 pieces. Five new lower-rarity sets, capped Vampire recovery, revised army bonuses, clear set stories and effects, manual Claim All and a Relic Dust forge use the existing account authority. Saved defenses retain their original artifact rules. [Current artifact implementation](docs/FR011_IMPLEMENTATION.md).
+To prepare offline play, open **Home → Download offline game** while connected. Wait for **Ready to play offline**, then reopen the same address in the same browser. A local guest defense can start offline, and a downloaded account defense can continue with pending commands stored on this device. Account verification, rewards and the Hall of Fame require a connection.
+
+The selected Commander skill appears above its catalog. Use an empty slot to assign an owned skill or remove one from the loadout, then select **Save Loadout**.
+
+In a new Elf defense, every recruit rank and champion can attack flying enemies in weapon range. All Dwarf profiles also hit flyers. Among Humans, Soldier I–VI and Frozen Paladin attack ground targets only.
+
+**Commander artifacts.** The vault contains 106 Commander artifacts in 17 sets, with Common/Uncommon/Rare/Epic/Legendary sets requiring 2/4/6/8/10 pieces. Five new lower-rarity sets, capped Vampire recovery, revised army bonuses, clear set stories and effects, manual Claim All and a Relic Dust forge use the existing account authority. Saved defenses retain their original artifact rules. [Current artifact implementation](docs/FR011_IMPLEMENTATION.md).
 
 **Release 0.7.0 adds FR-010:** a main menu, optional verified accounts, exact saved continuation, medal achievements, a three-slot general and seeded Endless waves beyond 50. Guest runs remain fully playable without account statistics. Start locally with `START_GAME.cmd`; account verification links use a private local mailbox during local development. [Implementation, configuration and verification](docs/FR010_IMPLEMENTATION.md).
 

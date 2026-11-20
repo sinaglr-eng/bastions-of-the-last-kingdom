@@ -1,6 +1,8 @@
 import {prepareFactionVfxAnchors} from './faction-vfx-anchors.js';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
-import {Group,Mesh,RingGeometry,BoxGeometry,MeshBasicMaterial,DoubleSide} from 'three';
+import {Group} from 'three';
+import {siteUrl} from '../site-url.js';
+import {battlefieldIcon} from './battlefield-icon.js';
 import {prepareReconstructedDefender} from './reconstruction-adapter.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
 import {prepareApprovedMotionTemplate,prepareApprovedMotionActor,disposeApprovedMotion} from './approved-model-motion.js';
@@ -9,16 +11,14 @@ const factionBatches=new WeakMap();
 export const factionTemplateBatching=scene=>factionBatches.get(scene)||null;
 
 // A pending asset must not impersonate a defender from a different renderer
-// or rank. This low, selectable dial retains the occupied tile while the
+// or rank. This low, selectable marker retains the occupied tile while the
 // exact approved figure loads. It has no character rig or source materials.
 export function defenderLoadingTemplate(status='loading'){
   const root=new Group();root.name=status==='unavailable'?'Defender model unavailable':'Loading approved defender model';
   root.userData.defenderModelStatus=status;
-  const material=new MeshBasicMaterial({color:status==='unavailable'?'#e09a7c':'#e6d7a9',side:DoubleSide});
-  const ring=new Mesh(new RingGeometry(.20,.27,24),material);ring.rotation.x=-Math.PI/2;ring.position.y=.06;root.add(ring);
-  const bar=(length,angle)=>{const mesh=new Mesh(new BoxGeometry(.028,.035,length),material);mesh.position.set(Math.sin(angle)*length/2,.08,Math.cos(angle)*length/2);mesh.rotation.y=angle;root.add(mesh);};
-  if(status==='unavailable'){bar(.16,Math.PI/4);bar(.16,-Math.PI/4);}
-  else {bar(.15,0);bar(.11,-Math.PI/2);}
+  const art=status==='unavailable'?'assets/ui/war-table/ui-icons/close.webp':'assets/ui/hud-generated/time.webp';
+  const marker=battlefieldIcon(siteUrl(art),.74,{depthTest:true});
+  marker.rotation.x=-Math.PI/2;marker.position.y=.07;root.add(marker);
   return root;
 }
 

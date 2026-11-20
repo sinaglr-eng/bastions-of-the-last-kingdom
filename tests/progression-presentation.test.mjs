@@ -5,7 +5,7 @@ import {Game} from '../game/core/game.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {achievementCatalog} from '../game/core/achievements.js';
 import {serializeRun} from '../game/core/run-state.js';
-import {achievementArtwork,progressionArtwork,medalAmount} from '../ui/progression-art.js';
+import {achievementArtwork,medalAmount} from '../ui/progression-art.js';
 import {achievementCardsMarkup} from '../ui/achievement-page.js';
 import {generalPageMarkup} from '../ui/general-page.js';
 import {generalCommandState,generalControlsMarkup,updateGeneralControls} from '../ui/general-controls.js';
@@ -25,10 +25,10 @@ test('Every achievement has an image, and every champion/boss portrait resolves 
    else{assert.equal(fs.existsSync(new URL('../public/'+src.split('?')[0].replace(/^\//,''),import.meta.url)),true,src);if(achievement.kind==='champion'){portraits++;if(d.towers[achievement.id.split(':').at(-1)].classification.toLowerCase()==='basic')basicPortraits++;}if(achievement.kind==='boss')bosses++;}
   }
  }
- assert.equal(portraits,expectedPortraits);assert.equal(basicPortraits,21);assert.equal(bosses,15);
+ assert.equal(portraits,expectedPortraits);assert.equal(basicPortraits,21);assert.equal(bosses,18);
 });
 test('Secret champion achievements preserve their hidden identity until earned',()=>{
- for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),secret=achievementCatalog(d).find(a=>a.secret);assert.ok(secret);assert.equal(achievementArtwork(secret,d,false),progressionArtwork('secret'));assert.notEqual(achievementArtwork(secret,d,true),achievementArtwork(secret,d,false));}
+ for(const faction of ['crown','forge','grove']){const d=currentFactionData(faction),secret=achievementCatalog(d).find(a=>a.secret);assert.ok(secret);assert.match(achievementArtwork(secret,d,false),new RegExp('/sealed-'+faction+'\\.webp$'));assert.notEqual(achievementArtwork(secret,d,true),achievementArtwork(secret,d,false));}
 });
 test('Achievement cards distinguish earned, pending and undiscovered states with accessible progress and medal rewards',()=>{
  const rows=achievementCatalog(data).slice(0,3),owned=new Map([[rows[0].id,{createdAt:1}]]),pending=new Set([rows[1].id]);

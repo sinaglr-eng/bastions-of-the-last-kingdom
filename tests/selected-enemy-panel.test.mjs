@@ -120,10 +120,10 @@ test('health/progress and presentation values stay finite and clamped, positive 
 test('dynamic refresh caches source markup and preserves sidebar scroll plus the focused command through real value changes',()=>{
   const game=arena(),enemy=game.combat.spawn('host_42'),body={scrollTop:240,scrollLeft:0},document={activeElement:null};
   const panel={writes:0,buttons:[],ownerDocument:document,closest:()=>body,contains(node){return this.buttons.includes(node);},querySelectorAll(){return this.buttons;},
-    set innerHTML(value){this.writes++;if(this.contains(document.activeElement))document.activeElement=null;body.scrollTop=0;this.markup=value.replaceAll('/>','></path>');
+    set innerHTML(value){this.writes++;if(this.contains(document.activeElement))document.activeElement=null;body.scrollTop=0;this.markup=value.replaceAll('width="24" height="24"','height="24" width="24"');
       this.buttons=[...value.matchAll(/data-action="([^"]+)"/g)].map(match=>({action:match[1],getAttribute(){return this.action;},focus(opts){assert.equal(opts.preventScroll,true);document.activeElement=this;}}));},get innerHTML(){return this.markup;}};
   assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),true);assert.equal(panel.writes,1);assert.equal(body.scrollTop,240);
-  assert.ok(panel.markup.includes('</path>'),'A real immunity SVG has browser-like serialization different from the source string');
+  assert.match(panel.markup,/enemy-defense-glyph[^>]*height="24" width="24"/,'The serialized immunity picture differs from the input markup');
   assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),false);assert.equal(panel.writes,1);
   const focused=panel.buttons.find(button=>button.action==='enemy-inspect-close');document.activeElement=focused;body.scrollTop=360;
   enemy.hp-=1;game.paused=true;assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),true);

@@ -186,7 +186,7 @@ test('catalog refresh updates allocated row progress and detail after a real res
   const game=fresh();placed(game,[...ranger.ingredients,{family:'soldier',tier:2},{family:'soldier',tier:2}]);game.select(game.towers[0].id);
   const state={recipeId:ranger.id},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
   catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open=true;assert.equal(game.reserve(),true);connection.refresh();
-  const row=catalog.querySelector(`[data-catalog-recipe="${ranger.id}"]`);assert.match(row.querySelector('em').textContent,/○ 1 Missing/);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Missing/);assert.doesNotMatch(catalog.querySelector('.catalog-recipe-detail').innerHTML,/data-action="craft"/);assert.equal(catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open,true);connection.dispose();
+  const row=catalog.querySelector(`[data-catalog-recipe="${ranger.id}"]`);assert.match(row.querySelector('em').textContent,/1 Missing/);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Missing/);assert.doesNotMatch(catalog.querySelector('.catalog-recipe-detail').innerHTML,/data-action="craft"/);assert.equal(catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open,true);connection.dispose();
 });
 
 test('basic book keeps all 48 canonical ranks in its index and renders one exact rank profile on the reading leaf',()=>{

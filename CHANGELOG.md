@@ -1,5 +1,13 @@
 # Current release
 
+## 0.8.3 — Offline play, Commander and Elf targeting — 20 November 2026
+
+- Added a resumable offline game download across all three factions. Prepared devices can start local guest defenses and resume saved games offline.
+- Opening models are verified when packaging the game and when the renderer loads them. Home reuses three lightweight illustrated faction scenes.
+- Added illustrated achievement scenes, faction-specific secret discoveries, geometric interface artwork and a loading-screen standard.
+- All Elf defenders can attack visible flyers within their weapon range in new defenses. Existing saves replay with their original targeting.
+- Commander shows skill thumbnails at rank unlocks. Its loadout supports direct removal and assignment, the selected skill detail precedes the catalog, and equipped army bonuses have a dedicated summary.
+
 ## 0.8.2 — Commander collection and artifact refinements — 17 November 2026
 
 - Added five Common/Uncommon sets and 14 geometric artifact illustrations: Quicksilver Drill, Farwatch, Hearthwarden, Battle Cadence and Crimson Covenant. Crimson restores one missing keep health after each successful wave without growing maximum health.

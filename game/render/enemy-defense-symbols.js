@@ -3,23 +3,17 @@ import {enemyRulesFor,enemyNumber,enemyRegenerationPerSecond} from '../core/enem
 
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
-const shield=[[-16,17],[16,17],[13,-7],[0,-19],[-13,-7],[-16,17]];
-const diamond=[[0,20],[17,0],[0,-20],[-17,0],[0,20]];
-const cross=[[[-15,0],[15,0]],[[0,-15],[0,15]]];
-const symbol=(label,color,paths)=>Object.freeze({label,color,viewBox:'-24 -24 48 48',paths:Object.freeze(paths.map(path=>Object.freeze(path.map(point=>Object.freeze(point))))),svgPaths:Object.freeze(paths.map(path=>path.map(([x,y],index)=>(index?'L':'M')+x+' '+(-y)).join(' ')))});
-
-// Both the real 3D strokes and the UI SVG use these exact colored paths.
-// Separate silhouettes retain meaning even when the color is hard to see.
+const symbol=(label,color,id)=>Object.freeze({label,color,art:`assets/ui/war-table/ui-icons/status-${id}.webp`});
 export const ENEMY_DEFENSE_SYMBOLS=Object.freeze({
-  physicalImmune:symbol('Physical immunity','#ffd18c',[shield,[[-19,-19],[19,19]],[[0,-9],[0,11]]]),
-  magicImmune:symbol('Magic immunity','#d99aff',[diamond,[[-18,-18],[18,18]],[[-9,0],[0,10],[9,0],[0,-10],[-9,0]]]),
-  reactive:symbol('Reactive armor','#efb261',[shield,[[-11,9],[11,9]],[[-9,1],[9,1]],[[-5,-8],[5,-8]]]),
-  refraction:symbol('Direct-hit shields','#7bfff4',[shield,[[-9,4],[0,12],[9,4],[0,-9],[-9,4]]]),
-  regen:symbol('Regeneration','#82efa2',[[[-7,17],[7,17],[7,7],[17,7],[17,-7],[7,-7],[7,-17],[-7,-17],[-7,-7],[-17,-7],[-17,7],[-7,7],[-7,17]]]),
-  recharge:symbol('Periodic healing','#5de4cd',[[[-17,6],[-12,16],[0,20],[12,16],[18,6],[18,-8],[10,-17],[-3,-20],[-14,-14]],[[11,-12],[-14,-14],[-10,7]],...cross.map(path=>path.map(([x,y])=>[x*.48,y*.48]))]),
-  evasion:symbol('Direct-hit evasion','#a8dfca',[[[-20,-9],[-6,-9],[2,1],[-5,12],[9,12],[20,1],[9,-12]],[[11,1],[-1,1]],[[-20,4],[-13,4]]]),
-  krakenShell:symbol('Damage absorption','#adc8ee',[[[-19,-16],[-21,-2],[-15,11],[-6,19],[6,19],[15,11],[21,-2],[19,-16],[-19,-16]],[[0,-16],[0,18]],[[-1,-16],[-13,12]],[[1,-16],[13,12]],[[-2,-16],[-20,-2]],[[2,-16],[20,-2]]]),
-  untouchable:symbol('Dread on damaging hit','#e9a6da',[[[-15,19],[15,19],[-12,-18],[12,-18],[-15,19]],[[-8,11],[8,11]],[[-6,-10],[6,-10]]]),
+ physicalImmune:symbol('Physical immunity','#ffd18c','physical-ward'),
+ magicImmune:symbol('Magic immunity','#d99aff','arcane-ward'),
+ reactive:symbol('Reactive armor','#efb261','reactive-plate'),
+ refraction:symbol('Direct-hit shields','#7bfff4','prism-shields'),
+ regen:symbol('Regeneration','#82efa2','regeneration'),
+ recharge:symbol('Periodic healing','#5de4cd','periodic-healing'),
+ evasion:symbol('Direct-hit evasion','#a8dfca','direct-evasion'),
+ krakenShell:symbol('Damage absorption','#adc8ee','kraken-shell'),
+ untouchable:symbol('Dread on damaging hit','#e9a6da','dread'),
 });
 
 const defenseBalance=balance=>({armorConstant:Math.max(.0001,finite(balance?.armorConstant,30))});

@@ -19,7 +19,7 @@ test('promotion shows only real +1 changes, expires without pedestal rings and u
   const scene=new THREE.Scene(),effects=new CommanderEffects(scene,{createLabel:null});
   const entries=[{tower:{x:1,z:2},from:1,to:2},{tower:{x:3,z:4},from:5,to:5},{tower:{x:5,z:6},from:5,to:6}];
   assert.equal(effects.event('general-promoted',{upgrades:entries}),true);assert.equal(effects.promotions.length,2);
-  const geometries=[];for(const row of effects.promotions)row.group.traverse(object=>{if(object.geometry)geometries.push(object.geometry.type);});assert.ok(geometries.every(type=>type==='ShapeGeometry'));
+  for(const row of effects.promotions){assert.equal(row.group.children.length,1);assert.match(row.group.children[0].material.map.name,/skill-field-promotion\.webp$/);}
   const original=effects.promotions[0].group.position.clone();effects.update(.4);assert.ok(effects.promotions[0].group.position.y>original.y);
   effects.update(.5);assert.equal(effects.promotions.length,0);assert.equal(scene.children.length,3);effects.dispose();
 });
@@ -27,7 +27,7 @@ test('promotion shows only real +1 changes, expires without pedestal rings and u
 test('reduced motion uses static target marks and keep flourish while preserving expiry and disposal',()=>{
   const scene=new THREE.Scene(),effects=new CommanderEffects(scene,{createLabel:null,reducedMotion:()=>true});
   effects.event('general-strike',{targets:[{id:1,x:1,z:2,visible:true}]});assert.equal(effects.beams.visible,false);assert.equal(effects.glows.visible,false);assert.equal(effects.marks.visible,true);
-  effects.event('general-fortified',{amount:10,maxLives:40});const point=effects.fortified.group.position.clone();effects.update(.3);assert.deepEqual(effects.fortified.group.position,point);
+  effects.event('general-fortified',{amount:10,maxLives:40});assert.match(effects.fortified.group.children[0].material.map.name,/skill-fortified-keep\.webp$/);const point=effects.fortified.group.position.clone();effects.update(.3);assert.deepEqual(effects.fortified.group.position,point);
   const disposed=[];for(const mesh of [effects.beams,effects.glows,effects.marks])mesh.geometry.addEventListener('dispose',()=>disposed.push(mesh.name));
   effects.update(1.2);assert.equal(effects.fortified,null);assert.equal(effects.strike,null);effects.dispose();effects.dispose();assert.equal(disposed.length,3);assert.equal(scene.children.length,0);
   assert.equal(effects.event('general-fortified',{amount:5}),false);
@@ -46,7 +46,7 @@ test('range activation gives one short keep cue, with no persistent defender rin
   const scene=new THREE.Scene(),effects=new CommanderEffects(scene,{createLabel:null,reducedMotion:()=>true});
   assert.equal(effects.event('general-range',{bonus:3}),false);
   assert.equal(effects.event('general-range',{bonus:1.5}),true);const first=effects.range.group;
-  assert.equal(first.children.length,2);const point=first.position.clone();effects.update(.2);assert.deepEqual(first.position,point);
+  assert.equal(first.children.length,1);assert.match(first.children[0].material.map.name,/skill-extended-range\.webp$/);const point=first.position.clone();effects.update(.2);assert.deepEqual(first.position,point);
   effects.event('general-range',{bonus:2});assert.equal(first.parent,null);assert.equal(scene.children.length,4);
   effects.update(1.21);assert.equal(effects.range,null);assert.equal(scene.children.length,3);
   effects.event('general-range',{bonus:1});effects.dispose();assert.equal(scene.children.length,0);

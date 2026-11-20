@@ -46,7 +46,7 @@ test('native decode attributes and HUD count updates never replace or redecode a
     for(let tick=0;tick<100;tick++)assert.equal(updatePinnedGoal(host,current,images),false);
     current.counts={built:1,draft:0,missing:2};current.missingBasics.summary='Archer I & Soldier III';assert.equal(updatePinnedGoal(host,current,images),true);await flush();
     assert.equal(host.querySelectorAll('img')[0],image);assert.equal(host.children[0],open);assert.equal(host.children[1],unpin);assert.equal(host.replacements,1);assert.equal(image.requests.length,1);assert.equal(image.getAttribute('data-approved-portrait-state'),'ready');
-    assert.equal(open.children[1].children[0].textContent,"King's Ranger Guard");assert.equal(open.children[1].children[1].textContent,'✓ 1 built · ◆ 0 this round · ○ 2 missing');assert.equal(open.children[1].children[2].textContent,'Missing basics: Archer I & Soldier III');
+    assert.equal(open.children[1].children[0].textContent,"King's Ranger Guard");assert.equal(open.children[1].children[1].textContent,'1 built · 0 this round · 2 missing');assert.equal(open.children[1].children[2].textContent,'Missing basics: Archer I & Soldier III');
     updatePinnedGoal(host,current,images,{visible:false});assert.equal(host.hidden,true);updatePinnedGoal(host,null,images);updatePinnedGoal(host,current,images);await flush();assert.equal(host.hidden,false);assert.equal(host.querySelectorAll('img')[0],image);assert.equal(image.requests.length,1);
   }finally{connection.dispose();}
 });

@@ -21,7 +21,7 @@ export function updatePinnedGoal(host,plan,images={}, {visible=true}={}){
   else if(panel.image.hasAttribute('src')){panel.image.removeAttribute('src');changed=true;}
   panel.image.hidden=!source;
   changed=text(panel.name,plan.name)||changed;
-  changed=text(panel.progress,`✓ ${plan.counts.built} built · ◆ ${plan.counts.draft} this round · ○ ${plan.counts.missing} missing`)||changed;
+  changed=text(panel.progress,`${plan.counts.built} built · ${plan.counts.draft} this round · ${plan.counts.missing} missing`)||changed;
   changed=text(panel.missing,`Missing basics: ${plan.missingBasics?.summary||'None'}`)||changed;
   changed=attribute(panel.open,'aria-label',`Open pinned ${plan.name}`)||changed;
   changed=attribute(panel.unpin,'data-id',plan.recipe.id)||changed;

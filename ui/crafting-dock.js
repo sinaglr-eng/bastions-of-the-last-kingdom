@@ -1,8 +1,10 @@
+import {recipeStatusIcon} from './recipe-navigation.js';
 import {publicRecipe} from './recipe-visibility.js';
 import {recipeFamily,recipeTier,recipeLabel,rankLabel,recipeTreeProgress} from '../game/core/recipes.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {eligibleDrawKeeper,drawKeeperKey,mergeTowerKey} from './draft-input.js';
 import {icon} from './icons.js';
+import {castleWallPortrait} from './wall-panel.js';
 import {recipeDisplayInventory,recipeCatalogNavigation,downstreamRecipes,missingBasicFrontier} from './recipe-navigation.js';
 import {recipeIngredientLabel} from './grimoire.js';
 
@@ -95,19 +97,19 @@ const portrait=(plan,images,cls='')=>{
   const src=images[`${plan.family}:${plan.tier}`]||images[plan.family];
   return src?`<img class="${cls}" src="${escape(src)}" alt="${escape(plan.name)}" draggable="false">`:'';
 };
-const progressSummary=counts=>`✓ ${counts.built} built · ◆ ${counts.draft} this round · ○ ${counts.missing} missing`;
-const statusGlyph=state=>state==='built'?'✓':state==='draft'?'◆':'○';
+const progressSummary=counts=>`${counts.built} built · ${counts.draft} this round · ${counts.missing} missing`;
+
 const statusText=state=>state==='built'?'Built':state==='draft'?'This round':'Missing';
 function progressRows(plan,images,data){
   return `<ul class="crafting-ingredients" aria-label="Exact recipe ingredients">${plan.rows.map(row=>{
     const src=images[`${row.family}:${row.tier}`]||(data.towers[row.family]?.advanced||row.tier===1?images[row.family]:null);
-    return `<li class="crafting-ingredient ${row.state}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}${recipeIngredientLabel(row,data,{interactive:true,scope:'dock'})}<span class="crafting-ingredient-state"><b aria-hidden="true">${statusGlyph(row.state)}</b><span>${statusText(row.state)}<small>${row.ownedCount}/1 Built${row.draftCount?' +1 This round':''}</small></span></span></li>`;
+    return `<li class="crafting-ingredient ${row.state}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}${recipeIngredientLabel(row,data,{interactive:true,scope:'dock'})}<span class="crafting-ingredient-state"><b aria-hidden="true">${recipeStatusIcon(row.state)}</b><span>${statusText(row.state)}<small>${row.ownedCount}/1 Built${row.draftCount?' +1 This round':''}</small></span></span></li>`;
   }).join('')}</ul>`;
 }
 function treeMarkup(plan,data){
   const node=p=>{
     const state=p.ownedCount?'built':p.draftCount?'draft':'missing',covered=p.coveredBy;
-    const label=covered?`${covered.state==='active'?'✓':'◆'} Included in ${covered.state==='active'?'built':'this round’s'} ${data.towers[covered.family].name}`:`${statusGlyph(state)} ${statusText(state)}`;
+    const label=covered?`Included in ${covered.state==='active'?'built':'this round’s'} ${data.towers[covered.family].name}`:statusText(state);
     return `<li class="crafting-chain-node ${covered?'covered':state}"><div>${recipeIngredientLabel(p,data,{interactive:true,scope:'dock'})}<small>${escape(label)}</small></div>${p.children.length?`<ul>${p.children.map(node).join('')}</ul>`:''}</li>`;
   };
   return `<details class="crafting-chain" data-crafting-disclosure="chain:${escape(plan.recipe.id)}"><summary data-crafting-focus="chain:${escape(plan.recipe.id)}">${icon('book')} Full ingredient chain</summary><p>A ready component champion covers its entire branch. Each defender is allocated once.</p><ul>${plan.tree.map(node).join('')}</ul></details>`;
@@ -115,13 +117,13 @@ function treeMarkup(plan,data){
 const foundationLabel=t=>`(${t.x+1}, ${t.z+1})`;
 function consequenceMarkup(context,data){
   const defender=t=>`${unitLabel(t,data)} · ${foundationLabel(t)}`;
-  return `<section class="crafting-outcome" aria-label="Exact combination outcome"><p class="crafting-result">${icon('target')} <strong>Result here</strong> ${escape(defender(context.anchor))}</p><p><span aria-hidden="true">−</span> Consumed → wall: ${escape(context.consumed.map(defender).join('; '))}</p>${context.draftUsed?`<p><span aria-hidden="true">▧</span> Unchosen current recruits → walls: ${context.discarded.length?escape(context.discarded.map(defender).join('; ')):'None'}</p>`:'<p>This combination preserves the current draft.</p>'}</section>`;
+  return `<section class="crafting-outcome" aria-label="Exact combination outcome"><p class="crafting-result">${icon('target')} <strong>Result here</strong> ${escape(defender(context.anchor))}</p><p><span aria-hidden="true">−</span> Consumed → wall: ${escape(context.consumed.map(defender).join('; '))}</p>${context.draftUsed?`<p><img class="icon" src="${castleWallPortrait()}" width="18" height="18" alt=""> Unchosen current recruits → walls: ${context.discarded.length?escape(context.discarded.map(defender).join('; ')):'None'}</p>`:'<p>This combination preserves the current draft.</p>'}</section>`;
 }
 function dockParts(game,images={},options={}){
   const model=craftingDockModel(game,options);if(!model.visible)return null;
   const {plan,context,pinned}=model,counts=plan.counts;
   const heading=context?'Combination available':pinned?.recipe.id===plan.recipe.id?'Pinned recipe':'Recipe details';
-  const summary=`${portrait(plan,images,'crafting-summary-portrait')}<span><strong>${heading} · ${escape(plan.name)}</strong><small>${progressSummary(counts)}</small></span><span class="crafting-disclosure-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg></span>`;
+  const summary=`${portrait(plan,images,'crafting-summary-portrait')}<span><strong>${heading} · ${escape(plan.name)}</strong><small>${progressSummary(counts)}</small></span><span class="crafting-disclosure-chevron" aria-hidden="true">${icon('chevron')}</span>`;
   const alternatives=context&&context.alternatives.length>1?`<div class="crafting-alternatives" role="group" aria-label="Available champion alternatives">${context.alternatives.filter(publicRecipe).map(r=>`<button type="button" class="text-button ${r.id===plan.recipe.id?'active':''}" data-action="recipe-explore" data-id="${escape(r.id)}" data-crafting-focus="recipe:${escape(r.id)}" aria-pressed="${r.id===plan.recipe.id}">${escape(recipeLabel(r,game.data))}</button>`).join('')}</div>`:'';
   const otherPinned=pinned&&publicRecipe(pinned.recipe)&&pinned.recipe.id!==plan.recipe.id?`<div class="crafting-other-pinned">${portrait(pinned,images)}<span>Pinned · ${escape(pinned.name)}<small>${progressSummary(pinned.counts)}</small></span><button type="button" class="text-button" data-action="pin" data-id="${escape(pinned.recipe.id)}" data-crafting-focus="unpin:${escape(pinned.recipe.id)}">Unpin</button></div>`:'';
   const order=recipeCatalogNavigation(game.recipes.filter(publicRecipe),plan.recipe.id);

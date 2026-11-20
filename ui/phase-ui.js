@@ -46,5 +46,5 @@ export function updateCombatStatus(counts,banner,game){const model=combatStatusM
 
 export function pinnedGoalMarkup(plan,images={}){
   if(!plan)return '';
-  return `<button class="pinned-goal-open" data-action="inspector-plan" aria-label="Open pinned ${escape(plan.name)}"><img src="${escape(images[plan.family]||'')}" alt=""><span><strong>${escape(plan.name)}</strong><small>✓ ${plan.counts.built} built · ◆ ${plan.counts.draft} this round · ○ ${plan.counts.missing} missing</small><small class="pinned-missing-basics">Missing basics: ${escape(plan.missingBasics?.summary||'None')}</small></span></button><button class="text-button" data-action="pin" data-id="${escape(plan.recipe.id)}" aria-label="Unpin ${escape(plan.name)}">Unpin</button>`;
+  return `<button class="pinned-goal-open" data-action="inspector-plan" aria-label="Open pinned ${escape(plan.name)}"><img src="${escape(images[plan.family]||'')}" alt=""><span><strong>${escape(plan.name)}</strong><small>${plan.counts.built} built · ${plan.counts.draft} this round · ${plan.counts.missing} missing</small><small class="pinned-missing-basics">Missing basics: ${escape(plan.missingBasics?.summary||'None')}</small></span></button><button class="text-button" data-action="pin" data-id="${escape(plan.recipe.id)}" aria-label="Unpin ${escape(plan.name)}">Unpin</button>`;
 }

@@ -1,3 +1,4 @@
+import {siteUrl} from '../game/site-url.js';
 import {publicRecipe} from './recipe-visibility.js';
 import {recipeFamily,recipeTier,rankLabel,recipeTreeProgress} from '../game/core/recipes.js';
 import {defenderCode} from '../game/core/unit-label.js';
@@ -71,4 +72,12 @@ export function missingBasicFrontier(tree,data){
 export function pinnedMissingBasicSummary(game,recipe=game.pinned){
   const target=game.recipes.find(entry=>entry.id===(typeof recipe==='object'?recipe?.id:recipe));
   return target?missingBasicFrontier(recipeTreeProgress(target,recipeDisplayInventory(game,target),game.data),game.data):{items:[],total:0,summary:'None'};
+}
+
+const recipeStatusImages={
+ built:'war-table/ui-icons/check.webp',draft:'commander-generated/skill-recruitment-focus.webp',missing:'war-table/ui-icons/help.webp'
+};
+export function recipeStatusIcon(state){
+ const file=recipeStatusImages[state];
+ return file?`<img class="recipe-status-image" src="${siteUrl('assets/ui/'+file)}" alt="" width="18" height="18">`:'';
 }

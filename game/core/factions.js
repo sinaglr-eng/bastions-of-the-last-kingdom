@@ -2,9 +2,9 @@ import {fr002HumanStats} from './fr002-registry.js';
 import {fr003HumanStats} from './fr003-registry.js';
 import {fr005HumanStats} from './fr005-registry.js';
 export const FACTIONS=Object.freeze([
- {id:'crown',name:'Human',specialty:'Versatile',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/crown-march.png',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
- {id:'forge',name:'Dwarves',specialty:'Physical damage',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/forge-march.png',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
- {id:'grove',name:'Elves',specialty:'Magical damage',sceneWidth:1659,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/grove-march.png',description:'Magical damage specialists. Elemental spells, lunar magic and battlefield control overwhelm the enemy.'}
+ {id:'crown',name:'Human',specialty:'Versatile',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/crown-march.webp',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
+ {id:'forge',name:'Dwarves',specialty:'Physical damage',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/forge-march.webp',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
+ {id:'grove',name:'Elves',specialty:'Magical damage',sceneWidth:1659,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/grove-march.webp',description:'Magical damage specialists. Elemental spells, lunar magic and battlefield control overwhelm the enemy.'}
 ]);
 export const factionName=id=>FACTIONS.find(f=>f.id===id)?.name||'Faction not recorded';
 export function factionProfile(profile){
@@ -20,7 +20,7 @@ export function factionProfile(profile){
  const aim=get('true-strike-aura');if(aim)s.aura={...s.aura,range:Math.max(s.aura?.range||0,aim.radius),trueStrike:aim.evasionIgnorePercent===100};
  return s;
 }
-export function createFactionData(current,registry,id){
+export function createFactionData(current,registry,id,{elfAirTargeting=!!registry.fr008}={}){
  const f=registry.factions.find(f=>f.id===id);if(!f||!FACTIONS.some(f=>f.id===id))throw Error('Choose a valid faction.');
  const towers={};
  for(const u of f.units){
@@ -32,8 +32,14 @@ export function createFactionData(current,registry,id){
  if(registry.fr002)for(const u of f.units){const t=towers[u.id];if(id==='crown'||u.id==='ladyclaire'){if(t.levels)t.levels=t.levels.map((s,i)=>fr002HumanStats(s,u.profiles[i]));else Object.assign(t,fr002HumanStats(t,u.profiles[0]));}}
  if(registry.fr003)for(const u of f.units){const t=towers[u.id];if(id==='crown'||u.id==='ladyclaire'){if(t.levels)t.levels=t.levels.map((s,i)=>fr003HumanStats(s,u.profiles[i]));else Object.assign(t,fr003HumanStats(t,u.profiles[0]));}}
  if(registry.fr005)for(const u of f.units){const t=towers[u.id];if(id==='crown'||u.id==='ladyclaire'){if(t.levels)t.levels=t.levels.map((s,i)=>fr005HumanStats(s,u.profiles[i]));else{const updated=fr005HumanStats(t,u.profiles[0]);if(updated!==t){for(const key of Object.keys(t))if(!Object.hasOwn(updated,key))delete t[key];Object.assign(t,updated);}}}}
+ if(id==='grove'&&elfAirTargeting){
+  for(const tower of Object.values(towers)){
+   if(tower.groundOnly)tower.groundOnly=false;
+   for(const level of tower.levels||[])if(level.groundOnly)level.groundOnly=false;
+  }
+ }
  const recipes=id==='crown'?structuredClone(current.recipes):f.units.filter(u=>u.kind!=='basic').map(u=>({id:u.id,level:1,stage:u.classification,currentRoundOnly:u.id==='ladyclaire'||!!u.currentRoundOnly,ingredients:u.recipe.map(i=>({family:i.id,tier:i.rank}))}));
  for(const r of recipes){if(!towers[r.id]||!r.ingredients?.length)throw Error('Invalid faction recipe.');for(const i of r.ingredients)if(!towers[i.family]||!Number.isInteger(i.tier)||i.tier<1||i.tier>(towers[i.family].advanced?1:6))throw Error('Foreign or invalid ingredient.');}
  if(Object.values(towers).filter(t=>!t.advanced).length!==8||recipes.length!==38||f.assets.length!==86)throw Error('Incomplete faction package.');
- return {...current,towers,recipes,factionId:id,factionName:factionName(id),rulesetRevision:registry.revision,...(registry.fr002?{fr002:true}:{}),...(registry.fr003?{fr003:true}:{}),...(registry.fr004?{fr004:true}:{}),...(registry.fr005?{fr005:true}:{}),...(registry.fr006?{fr006:true}:{}),...(registry.fr007?{fr007:true}:{}),...(registry.fr008?{fr008:true}:{}),contentManifestId:'approved-faction-models-v3-20261030',defenderAssets:f.assets};
+ return {...current,towers,recipes,factionId:id,factionName:factionName(id),rulesetRevision:registry.revision,...(id==='grove'&&elfAirTargeting?{elfAirTargeting:true}:{}),...(registry.fr002?{fr002:true}:{}),...(registry.fr003?{fr003:true}:{}),...(registry.fr004?{fr004:true}:{}),...(registry.fr005?{fr005:true}:{}),...(registry.fr006?{fr006:true}:{}),...(registry.fr007?{fr007:true}:{}),...(registry.fr008?{fr008:true}:{}),contentManifestId:'approved-faction-models-v3-20261030',defenderAssets:f.assets};
 }

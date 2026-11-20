@@ -30,7 +30,7 @@ export function draftCardsMarkup(game,data,images,{actions=true}={}){
     if(draw.reservedForNextDraft)return reservedCard(draw,index,game,data,images,{pending:true});
     if(!draw.placed)return `<div class="draw-slot"><button class="draw-card mystery-card ${game.activeDraw===index?'active':''}" data-action="draw" data-index="${index}" aria-label="${index+1}: Place a defender on the map. Build on an empty tile to reveal." aria-pressed="${game.activeDraw===index}">${mysteryPlacement}<span class="draw-name">Place a defender on the map</span></button></div>`;
     const tower=game.towers.find(tower=>tower.id===draw.towerId);
-    if(!tower)return `<div class="draw-slot"><button class="draw-card cleared-card" disabled aria-label="${index+1}: Cleared position"><span class="cleared-sigil">◇</span><span class="draw-name">Position cleared</span></button></div>`;
+    if(!tower)return `<div class="draw-slot"><button class="draw-card cleared-card" disabled aria-label="${index+1}: Cleared position"><span class="cleared-sigil" aria-hidden="true">${icon('grid')}</span><span class="draw-name">Position cleared</span></button></div>`;
     const ruin=tower.state==='ruin',stats=data.towers[ruin?draw.family:tower.family];
     const selected=game.selected===tower.id,mergeKey=mergeTowerKey(game,tower.id);
     const highlighted=!ruin&&pinnedIds.has(tower.id);

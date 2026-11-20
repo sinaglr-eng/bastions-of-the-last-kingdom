@@ -1,13 +1,8 @@
 import {siteUrl} from '../game/site-url.js';
 
-const icons={
- google:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285f4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"/><path fill="#34a853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.59A10 10 0 0 0 12 22Z"/><path fill="#fbbc05" d="M6.41 13.92a6 6 0 0 1 0-3.84V7.49H3.06a10 10 0 0 0 0 9.02l3.35-2.59Z"/><path fill="#ea4335" d="M12 5.96c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.94 5.49l3.35 2.59C7.2 7.72 9.4 5.96 12 5.96Z"/></svg>',
- apple:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.05 12.54c.03 3.26 2.86 4.35 2.89 4.36-.02.08-.45 1.55-1.49 3.07-.9 1.32-1.84 2.63-3.31 2.66-1.44.04-1.91-.86-3.56-.86-1.64 0-2.16.83-3.53.9-1.42.05-2.5-1.42-3.41-2.73-1.86-2.69-3.28-7.61-1.37-10.93a5.3 5.3 0 0 1 4.49-2.72c1.4-.02 2.72.96 3.56.96.83 0 2.4-1.19 4.04-1.02.69.03 2.62.28 3.86 2.1-.1.06-2.31 1.35-2.27 4.21ZM14.35 4.44c.75-.91 1.26-2.18 1.12-3.44-1.08.04-2.39.72-3.16 1.63-.69.8-1.3 2.08-1.14 3.31 1.2.1 2.42-.61 3.18-1.5Z"/></svg>',
- facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0866ff"/><path fill="#fff" d="M13.8 23v-8.5h2.85l.43-3.32H13.8V9.06c0-.96.27-1.62 1.65-1.62h1.76V4.47a23.7 23.7 0 0 0-2.57-.13c-2.54 0-4.28 1.55-4.28 4.4v2.44H7.5v3.32h2.86V23Z"/></svg>',
-};
 export function providerButtons(options={}){
  const available=options.providers||[];
- return `<div class="menu-social">${[['google','Google'],['apple','Apple'],['facebook','Facebook']].map(([id,name])=>`<button type="button" data-provider="${id}" ${available.includes(id)?'':'disabled'}>${icons[id]}<span>Continue with ${name}</span>${available.includes(id)?'':'<small>Coming soon</small>'}</button>`).join('')}</div>`;
+ return `<div class="menu-social">${[['google','Google'],['apple','Apple'],['facebook','Facebook']].map(([id,name])=>`<button type="button" data-provider="${id}" ${available.includes(id)?'':'disabled'}><img class="provider-logo" src="${siteUrl(`assets/ui/war-table/auth/${id}.webp`)}" alt="" width="24" height="24"><span>Continue with ${name}</span>${available.includes(id)?'':'<small>Coming soon</small>'}</button>`).join('')}</div>`;
 }
 export function authDialogMarkup(page,options={},mailMode='disabled'){
  const register=page==='register',reset=page==='reset-request',password=page==='reset-password',social=!reset&&!password,enabled=!!options.emailPassword||password;

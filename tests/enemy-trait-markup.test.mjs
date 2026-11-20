@@ -9,8 +9,8 @@ const enemies=JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta
 test('wave descriptions pair each defense with the exact colored 3D silhouette',()=>{
   for(const [kind,symbol]of Object.entries(ENEMY_DEFENSE_SYMBOLS)){
     const markup=enemyDefenseGlyph(kind);
-    assert.ok(markup.includes(`data-defense="${kind}"`));assert.ok(markup.includes(symbol.color));
-    for(const path of symbol.svgPaths)assert.ok(markup.includes(`d="${path}"`));
+    assert.ok(markup.includes(`data-defense="${kind}"`));assert.ok(markup.includes(symbol.art));
+    assert.match(markup,/<img\b/);
   }
   for(const enemy of Object.values(enemies)){
     const details=warbandTraitDetails(enemy);

@@ -58,8 +58,8 @@
 /* Recipe arrows rotate inside a stationary frame, without a font baseline or
    vertical translation affecting their position. */
 #app :is(.folio-recipe-chevron,.crafting-disclosure-chevron) { display: grid; place-items: center; width: 24px; height: 24px; min-width: 24px; min-height: 24px; padding: 0; line-height: 0; transform: none!important; translate: none; }
-#app :is(.folio-recipe-chevron,.crafting-disclosure-chevron)>svg { display: block; width: 16px; height: 16px; margin: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-#app .folio-recipe-row[aria-expanded=true] .folio-recipe-chevron>svg,#app .crafting-dock-disclosure[open]>.crafting-dock-summary .crafting-disclosure-chevron>svg { transform: rotate(180deg); }
+#app :is(.folio-recipe-chevron,.crafting-disclosure-chevron)>img { display: block; width: 16px; height: 16px; margin: 0; object-fit: contain; }
+#app .folio-recipe-row[aria-expanded=true] .folio-recipe-chevron>img,#app .crafting-dock-disclosure[open]>.crafting-dock-summary .crafting-disclosure-chevron>img { transform: rotate(180deg); }
 
 @media(min-width:601px) and (max-width:1050px) {
   #app .folio-inspection .defender-panel[data-defender-state=draft] { display: grid; grid-template-columns: minmax(150px,.65fr) minmax(0,1.35fr); gap: 3px 12px; }

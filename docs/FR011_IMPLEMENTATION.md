@@ -1,6 +1,6 @@
 # FR-011 revision 4 — Current artifact rules
 
-The current game is **0.8.2**. New defenses use combat effects **fr011-v4**, catalog revision **5**, with **106 artifacts and 17 sets**. All 92 prior artifact IDs, ownership, Dust, chest receipts, pity progress, XP, medals and scores remain valid. No database reset or schema migration is part of this release.
+Artifact catalog revision 5 shipped in **0.8.2**. New defenses use combat effects **fr011-v4**, catalog revision **5**, with **106 artifacts and 17 sets**. All 92 prior artifact IDs, ownership, Dust, chest receipts, pity progress, XP, medals and scores remain valid. No database reset or schema migration is part of this release.
 
 ## Set structure
 

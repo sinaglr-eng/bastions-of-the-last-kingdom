@@ -35,7 +35,7 @@ test('all 258 profiles expose finite weapon-specific VFX, while every actual ext
   for(const entry of f.assets){const t={id:1,family:entry.family,tier:entry.tier,state:'active',x:10,z:10};const s=towerStats(t,d),kind=attackVisualKind(t.family,s);assert.ok(kind);seen.add(kind);
    const source={...t,id:2},target={id:1,family:basic,tier:1,state:'active',x:11,z:10};const state=towerSupportState(target,[target,source],d);assert.deepEqual(state.bonuses,supportBonuses(target,[target,source],d));
    for(const e of state.effects){assert.ok(e.sources.some(x=>x.id===source.id)||e.sources.some(x=>x.id===target.id));}
-   if(s.aura){const fx=new SupportEffects(new THREE.Scene());fx.sync([target,source],d);for(const e of state.effects){const batch=fx.batches.get(e.key);assert.ok(batch.visible&&batch.count>0);assert.ok(batch.material.opacity>.7);assert.ok(batch.geometry.boundingSphere||batch.geometry.attributes.position.count>0);}fx.dispose();}
+   if(s.aura){const fx=new SupportEffects(new THREE.Scene());fx.sync([target,source],d);for(const e of state.effects){const batch=fx.batches.get(e.key);assert.ok(batch.visible&&batch.count>0);assert.ok(batch.userData.art.opacity>.7&&batch.userData.art.map?.userData.source.endsWith('.webp'));assert.ok(batch.geometry.boundingSphere||batch.geometry.attributes.position.count>0);}fx.dispose();}
   }
  }
  for(const kind of ['bullet','bulletRapid','cannon','shell','grenade','axe','pick','drum','web','treeSlam','stormSpear','moon','flame'])assert.ok(seen.has(kind),kind);

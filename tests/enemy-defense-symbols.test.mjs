@@ -137,9 +137,9 @@ test('only real defense layers remain across obsolete resistance caps, fixed shr
 test('shared UI paths remain distinctive and configured wave descriptions never pretend depleted live defenses remain active',()=>{
   const signatures=new Set();
   for(const symbol of Object.values(ENEMY_DEFENSE_SYMBOLS)){
-    assert.ok(symbol.label&&/^#[0-9a-f]{6}$/i.test(symbol.color));assert.equal(symbol.viewBox,'-24 -24 48 48');
-    const signature=JSON.stringify(symbol.paths);assert.equal(signatures.has(signature),false,'each defense has a distinguishable silhouette');signatures.add(signature);
-    assert.ok(symbol.svgPaths.every(path=>path.startsWith('M')));
+    assert.ok(symbol.label&&/^#[0-9a-f]{6}$/i.test(symbol.color));
+    assert.match(symbol.art,/status-[a-z-]+\.webp$/);
+    assert.ok(!signatures.has(symbol.art));signatures.add(symbol.art);
   }
   const reactive=data.enemies.host_24;assert.deepEqual(enemyDefenseVisualState({...reactive,reactiveStacks:0}),[]);
   const reactiveDescription=enemyDefenseDescriptions(reactive).find(row=>row.kind==='reactive');
@@ -163,7 +163,7 @@ test('actual defense draw queues contain only colored small particles and charge
       assert.equal(batch.root.children.length,batch.panels?4:2);assert.equal(batch.backing,undefined);assert.equal(batch.ring,undefined);
       if(batch.shell){assert.equal(batch.shell.geometry.type,'SphereGeometry');assert.equal(batch.shell.count,3);assert.ok(batch.shell.material.opacity<.3);}
       assert.equal(batch.glyph.material.opacity,1);assert.equal(batch.glyph.material.blending,THREE.NormalBlending);
-      assert.equal(batch.dots.material.color.getHex(),batch.glyph.material.color.getHex());
+      assert.ok(batch.glyph.material.map?.userData.source.endsWith('.webp'));
     }
     const disk=new THREE.Mesh(new THREE.CircleGeometry(1,24),new THREE.MeshBasicMaterial({color:0x0a151c,transparent:true,opacity:.86}));fx.group.add(disk);
     assert.equal(coloredParticlesOnly(drawList()),false,'an actual reintroduced black disk fails the draw-content regression');
@@ -200,15 +200,15 @@ test('several small camera-facing glyphs and matching dots rise/fall around meas
         assert.ok(scale.x<=size.y*.09,'glyphs remain a small fraction of actual actor height');
       }
       for(let i=0;i<centres.length;i++)for(let j=i+1;j<centres.length;j++)assert.ok(centres[i].distanceTo(centres[j])>.15,'several real glyphs occupy separate body positions');
-      assert.equal(batch.glyph.material.color.getHexString(),ENEMY_DEFENSE_SYMBOLS[row.kind].color.slice(1));assert.equal(batch.glyph.material.depthTest,false);
-      assert.equal(batch.glyph.count,3);assert.equal(batch.dots.count,6);assert.equal(batch.dots.material.color.getHex(),batch.glyph.material.color.getHex());assert.ok(batch.glyph.geometry.attributes.position.count>=12);
+      assert.equal(batch.dots.material.color.getHexString(),ENEMY_DEFENSE_SYMBOLS[row.kind].color.slice(1));assert.ok(batch.glyph.material.map.userData.source.endsWith(ENEMY_DEFENSE_SYMBOLS[row.kind].art));assert.equal(batch.glyph.material.depthTest,false);
+      assert.equal(batch.glyph.count,3);assert.equal(batch.dots.count,6);assert.ok(batch.glyph.material.map?.userData.source.endsWith('.webp'));assert.equal(batch.glyph.geometry.attributes.uv.count,4);
     }
     assert.ok(particlesFit(),'actual instance matrices wrap measured body bounds rather than a large camera-plane circle');
     const glyph=fx.batches.get('reactive').glyph,original=new THREE.Matrix4();glyph.getMatrixAt(0,original);glyph.setMatrixAt(0,original.clone().scale(new THREE.Vector3(5,5,5)));
     assert.equal(particlesFit(),false,'mutating the real glyph matrix back to a giant symbol fails');glyph.setMatrixAt(0,original);
     const matrices=()=>[...fx.batches.values()].flatMap(batch=>[...batch.glyph.instanceMatrix.array,...batch.dots.instanceMatrix.array,...(batch.panels?.instanceMatrix.array||[])]);
     const moving=matrices(),firstY=new THREE.Vector3().setFromMatrixPosition(original).y;fx.sync([enemy],new Map([[enemy.id,figure]]),3);assert.notDeepEqual(matrices(),moving,'actual glyph positions orbit');glyph.getMatrixAt(0,original);assert.notEqual(new THREE.Vector3().setFromMatrixPosition(original).y,firstY,'actual glyph height rises and falls');assert.ok(particlesFit());
-    const regen=fx.batches.get('regen');assert.equal(regen.glyph.count,3);assert.equal(regen.glyph.material.color.getHexString(),ENEMY_DEFENSE_SYMBOLS.regen.color.slice(1));assert.equal(ENEMY_DEFENSE_SYMBOLS.regen.paths[0].length,13,'several real green cross outlines are rendered');
+    const regen=fx.batches.get('regen');assert.equal(regen.glyph.count,3);assert.ok(regen.glyph.material.map.userData.source.endsWith('status-regeneration.webp'));
     fx.reducedMotion=true;fx.sync([enemy],new Map([[enemy.id,figure]]),4);const still=matrices();fx.sync([enemy],new Map([[enemy.id,figure]]),400);assert.deepEqual(matrices(),still);
     assert.equal(JSON.stringify(enemy),before);
     fx.sync(Array.from({length:20},(_,i)=>({...enemy,id:i})),new Map(),500);

@@ -1,3 +1,4 @@
+import {supportArtwork,applyStatusTexture} from './status-art.js';
 import * as THREE from 'three';
 import {distance,readTowerStats as towerStats,offensiveAuraRange,damageDefenseBreakdown,combatTowerStats} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
@@ -173,46 +174,26 @@ export function enemyStatusState(enemy,towers,data,options={}){
 
 const noPick=()=>{};
 function geometryFor(glyph,{inner=.51,outer=.58,glyphRadius=.74,angle=.65}={}){
-  const vertices=[];
-  const triangle=(a,b,c)=>vertices.push(...a,0,...b,0,...c,0); // remapped below to XZ
-  const strip=(a,b,width=.014)=>{
-    const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz)||1,n=[-dz/length*width,dx/length*width];
-    const p=[a[0]+n[0],a[1]+n[1]],q=[a[0]-n[0],a[1]-n[1]],r=[b[0]+n[0],b[1]+n[1]],s=[b[0]-n[0],b[1]-n[1]];triangle(p,q,r);triangle(q,s,r);
-  };
-  const line=(points,width)=>{for(let i=1;i<points.length;i++)strip(points[i-1],points[i],width);};
-  const circle=(radius,cx=0,cy=0,segments=16)=>line(Array.from({length:segments+1},(_,i)=>[cx+Math.cos(i/segments*Math.PI*2)*radius,cy+Math.sin(i/segments*Math.PI*2)*radius]),.009);
+  const vertices=[],uvs=[];
   for(let i=0;i<16;i++){
     if(i%4===3)continue;
     const a=-Math.PI/2-angle/2+angle*i/16,b=a+angle/16;
-    const p=[Math.cos(a)*inner,Math.sin(a)*inner],q=[Math.cos(a)*outer,Math.sin(a)*outer],r=[Math.cos(b)*inner,Math.sin(b)*inner],s=[Math.cos(b)*outer,Math.sin(b)*outer];triangle(p,q,r);triangle(q,s,r);
+    const at=(theta,r)=>[Math.cos(theta)*r,0,Math.sin(theta)*r];
+    vertices.push(...at(a,inner),...at(a,outer),...at(b,inner),...at(a,outer),...at(b,outer),...at(b,inner));
+    uvs.push(0,0,0,0,0,0,0,0,0,0,0,0);
   }
-  const offset=vertices.length,sy=-glyphRadius;
-  if(glyph==='clock'){circle(.095,0,sy);line([[0,sy-.058],[0,sy],[.055,sy+.032]],.012);}
-  else if(glyph==='blade'){line([[-.075,sy+.08],[.075,sy-.08]],.022);line([[-.085,sy+.01],[-.01,sy+.075]],.013);line([[-.07,sy+.075],[-.11,sy+.115]],.018);}
-  else if(glyph==='arrows'){for(const sign of [-1,1]){line([[0,sy],[sign*.10,sy]],.014);line([[sign*.065,sy-.04],[sign*.105,sy],[sign*.065,sy+.04]],.014);}}
-  else if(glyph==='shield'){line([[-.09,sy-.09],[.09,sy-.09],[.07,sy+.035],[0,sy+.105],[-.07,sy+.035],[-.09,sy-.09]],.015);}
-  else if(glyph==='brokenShield'){
-    line([[-.09,sy-.09],[.09,sy-.09],[.07,sy+.035],[0,sy+.105],[-.07,sy+.035],[-.09,sy-.09]],.014);
-    line([[.015,sy-.09],[-.028,sy-.03],[.023,sy-.008],[-.02,sy+.052]],.012);
-  }
-  else if(glyph==='target'){circle(.086,0,sy);circle(.035,0,sy);line([[-.115,sy],[.115,sy]],.008);line([[0,sy-.115],[0,sy+.115]],.008);}
-  else if(glyph==='spiral'){line(Array.from({length:22},(_,i)=>{const a=i*.48,r=.018+i*.004;return[Math.cos(a)*r,sy+Math.sin(a)*r];}),.013);}
-  else if(glyph==='cross'){line([[-.085,sy-.085],[.085,sy+.085]],.023);line([[-.085,sy+.085],[.085,sy-.085]],.023);}
-  else if(glyph==='brokenSword'){
-    line([[0,sy+.13],[0,sy+.065]],.020);line([[-.07,sy+.055],[.07,sy+.055]],.014);
-    line([[-.025,sy+.045],[-.025,sy-.015],[0,sy-.035],[.025,sy-.015],[.025,sy+.045]],.012);
-    line([[-.010,sy-.064],[.008,sy-.085],[.060,sy-.155],[.065,sy-.085],[.040,sy-.049]],.014);
-  }
-  else if(glyph==='crack'){line([[-.075,sy-.09],[0,sy-.025],[-.027,sy+.025],[.075,sy+.09]],.018);line([[-.1,sy+.02],[-.1,sy+.09],[.1,sy+.09],[.1,sy+.025]],.010);}
-  else if(glyph==='snowflake'){for(let i=0;i<3;i++){const a=i*Math.PI/3;line([[-Math.cos(a)*.11,sy-Math.sin(a)*.11],[Math.cos(a)*.11,sy+Math.sin(a)*.11]],.012);}}
-  else if(glyph==='diamond')line([[0,sy-.12],[.09,sy],[0,sy+.12],[-.09,sy],[0,sy-.12]],.019);
-  else if(glyph==='drop')line([[0,sy-.115],[.075,sy+.025],[.05,sy+.082],[-.05,sy+.082],[-.075,sy+.025],[0,sy-.115]],.014);
-  else if(glyph==='flame')line([[-.085,sy+.08],[-.065,sy-.04],[0,sy-.12],[.012,sy-.015],[.07,sy-.06],[.085,sy+.08],[-.085,sy+.08]],.015);
-  else if(glyph==='brokenStar'){line([[-.09,sy-.045],[.03,sy-.045],[0,sy-.12],[.09,sy+.05],[-.03,sy+.05],[0,sy+.12],[-.09,sy-.045]],.013);}
-  else if(glyph==='moon'){line(Array.from({length:18},(_,i)=>{const a=.55+i/17*(Math.PI*2-1.1);return[Math.cos(a)*.1,sy+Math.sin(a)*.1];}),.016);line(Array.from({length:16},(_,i)=>{const a=.93+i/15*(Math.PI*2-1.86);return[.043+Math.cos(a)*.067,sy+Math.sin(a)*.095];}),.014);}
-  // Glyph triangles were generated in a 2D plane (x,z,0).
-  for(let i=0;i<vertices.length;i+=3){vertices[i+2]=vertices[i+1];vertices[i+1]=0;}
-  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals();geometry.computeBoundingSphere();geometry.userData.glyph=glyph;geometry.userData.glyphVertexStart=offset/3;return geometry;
+  const glyphStart=vertices.length/3;
+  const half=.18,z=-glyphRadius;
+  vertices.push(-half,0,z-half,-half,0,z+half,half,0,z-half,half,0,z-half,-half,0,z+half,half,0,z+half);
+  uvs.push(0,1,0,0,1,1,1,1,0,0,1,0);
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+  geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2));
+  geometry.addGroup(0,glyphStart,0);
+  geometry.addGroup(glyphStart,6,1);
+  geometry.computeBoundingSphere();
+  geometry.userData.glyph=glyph;
+  return geometry;
 }
 function dashedRadius(){
   const values=[];
@@ -220,27 +201,15 @@ function dashedRadius(){
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(values,3));return geometry;
 }
 const defaultPosition=(x,y,z)=>new THREE.Vector3(x,y,z);
-function brokenSwordGeometry(){
-  const pieces=[
-    [[-.027,-.25],[.027,-.25],[.027,-.13],[.115,-.13],[.115,-.09],[.036,-.09],[.036,.045],[.007,.024],[-.013,.068],[-.036,.043],[-.036,-.09],[-.115,-.09],[-.115,-.13],[-.027,-.13]],
-    [[-.014,.122],[.018,.099],[.053,.132],[.102,.33],[.025,.249]],
-  ],positions=[];
-  for(const points of pieces){
-    const shape=new THREE.Shape(points.map(([x,y])=>new THREE.Vector2(x,y)));
-    const indexed=new THREE.ExtrudeGeometry(shape,{depth:.026,bevelEnabled:false}),geometry=indexed.index?indexed.toNonIndexed():indexed;
-    positions.push(...geometry.attributes.position.array);if(geometry!==indexed)geometry.dispose();indexed.dispose();
-  }
-  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.computeVertexNormals();geometry.computeBoundingSphere();geometry.userData.glyph='brokenSword';return geometry;
-}
 export class SupportEffects{
   constructor(scene,{position=defaultPosition,baseHeight=.15,pedestalHeight=.74,reducedMotion=()=>false,isVisible=enemy=>!enemy.cloaked,maxTowers=250,maxEnemies=256}={}){
     this.scene=scene;this.position=position;this.baseHeight=baseHeight;this.pedestalHeight=pedestalHeight;this.reducedMotion=reducedMotion;this.isVisible=isVisible;this.maxTowers=maxTowers;this.maxEnemies=maxEnemies;this.disposed=false;
-    this.group=new THREE.Group();this.group.name='Actual support and status overlays';scene.add(this.group);this.batches=new Map();this.entries=new Map();this.states=new Map();this.enemyStates=new Map();this.time=0;this.matrix=new THREE.Matrix4();this.rotation=new THREE.Quaternion();this.scale=new THREE.Vector3(1,1,1);this.up=new THREE.Vector3(0,1,0);
+    this.group=new THREE.Group();this.group.name='Actual support and status overlays';scene.add(this.group);this.batches=new Map();this.symbolTextures=new Map();this.entries=new Map();this.states=new Map();this.enemyStates=new Map();this.time=0;this.matrix=new THREE.Matrix4();this.rotation=new THREE.Quaternion();this.scale=new THREE.Vector3(1,1,1);this.up=new THREE.Vector3(0,1,0);
     for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES))this.batch(key,style,maxTowers,negativeKeys.includes(key)?{inner:1.08,outer:1.14,glyphRadius:1.28}:{inner:.84,outer:.91,glyphRadius:1.05});
     // Keep Slow data and inspected source reach, but allocate no automatic
     // enemy Slow clock/halo. Other support and condition glyphs are unchanged.
     for(const [key,style]of Object.entries(ENEMY_EFFECT_STYLES))if(key!=='slow')this.batch(`enemy:${key}`,style,maxEnemies,{inner:.34,outer:.39,glyphRadius:.54,angle:.57});
-    this.batch('disarm:orbit',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,brokenSwordGeometry());
+    this.batch('disarm:orbit',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,new THREE.PlaneGeometry(.47,.66));
     const halo=new THREE.RingGeometry(.67,.73,48);halo.rotateX(-Math.PI/2);
     this.batch('disarm:aura',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,halo);
     this.batches.get('disarm:orbit').name='Active disarm hovering broken swords';
@@ -253,7 +222,16 @@ export class SupportEffects{
     this.radius=new THREE.LineSegments(radiusGeometry,new THREE.LineBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:.68,depthWrite:false,toneMapped:false}));this.radius.name='Selected source actual aura reach';this.radius.visible=false;this.radius.raycast=noPick;this.radius.frustumCulled=false;this.radius.renderOrder=5;this.group.add(this.radius);
   }
   batch(key,style,capacity,shape,geometry){
-    const object=new THREE.InstancedMesh(geometry||geometryFor(style.glyph,shape),new THREE.MeshBasicMaterial({color:style.color,transparent:true,opacity:.86,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}),capacity);
+    const options={transparent:true,opacity:.86,depthWrite:false,side:THREE.DoubleSide,toneMapped:false};
+    const isOrbit=key==='disarm:orbit',hasArt=!geometry||isOrbit;
+    const halo=isOrbit?null:new THREE.MeshBasicMaterial({...options,color:style.color});
+    const art=hasArt?new THREE.MeshBasicMaterial({...options,alphaTest:.06}):null;
+    const object=new THREE.InstancedMesh(geometry||geometryFor(style.glyph,shape),halo&&art?[halo,art]:art||halo,capacity);
+    if(art){
+      object.userData.art=art;
+      object.userData.artwork=supportArtwork(style.glyph,key.replace(/^enemy:/,''));
+      object.geometry.userData.glyph=style.glyph;
+    }
     object.name=`${key} glyph and segmented halo`;object.count=0;object.instanceMatrix.setUsage(THREE.DynamicDrawUsage);object.raycast=noPick;object.frustumCulled=false;object.renderOrder=6;this.group.add(object);this.batches.set(key,object);this.entries.set(key,[]);
   }
   sync(towers,data,{selected=null,combat=null,phase,time=this.time}={}){
@@ -297,7 +275,9 @@ export class SupportEffects{
   update(time,{reducedMotion}={}){
     if(this.disposed)return;this.time=Number.isFinite(time)?time:0;const still=reducedMotion??(typeof this.reducedMotion==='function'?this.reducedMotion():this.reducedMotion),clock=still?0:this.time;
     for(const [key,object]of this.batches){const values=this.entries.get(key);object.count=Math.min(values.length,object.instanceMatrix.count);object.visible=object.count>0;
-      object.material.opacity=still?.86:.79+.09*Math.sin(clock*2.3+(key.startsWith('enemy:')?1:0));
+      const background=Array.isArray(object.material)?object.material[0]:object.material;
+      background.opacity=still?.86:.79+.09*Math.sin(clock*2.3+(key.startsWith('enemy:')?1:0));
+      if(object.visible&&object.userData.art)applyStatusTexture(object.userData.art,object.userData.artwork,this.symbolTextures);
       for(let i=0;i<object.count;i++){
         const e=values[i],pulse=still?1:1+.025*Math.sin(clock*3+e.id*.47),orbit=key==='disarm:orbit',aura=key==='disarm:aura',angle=orbit?clock*.9+e.id*.47:e.angle||0;
         this.rotation.setFromAxisAngle(this.up,angle);this.scale.set(pulse,1,pulse);
@@ -310,6 +290,6 @@ export class SupportEffects{
     }
   }
   dispose(){
-    if(this.disposed)return;this.disposed=true;this.group.traverse(object=>{object.geometry?.dispose();object.material?.dispose();object.dispose?.();});this.group.removeFromParent();this.batches.clear();this.entries.clear();this.states.clear();this.enemyStates.clear();
+    if(this.disposed)return;this.disposed=true;this.group.traverse(object=>{object.geometry?.dispose();for(const m of Array.isArray(object.material)?object.material:[object.material])m?.dispose();object.dispose?.();});this.group.removeFromParent();for(const texture of this.symbolTextures.values())texture.dispose();this.symbolTextures.clear();this.batches.clear();this.entries.clear();this.states.clear();this.enemyStates.clear();
   }
 }

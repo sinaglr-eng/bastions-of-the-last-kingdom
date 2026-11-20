@@ -1,3 +1,4 @@
+import {icon} from './icons.js';
 import {towerStats} from '../game/core/math.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {rankColor} from '../game/render/ranks.js';
@@ -31,5 +32,5 @@ export function basicCatalogDetailMarkup(profile,data,images={},profiles=[]){
 }
 
 export function basicCatalogFrontispieceMarkup(){
-  return `<span class="catalog-frontispiece-emblem" aria-hidden="true">✦</span><span class="eyebrow">Bastions of the Last Kingdom</span><h3>A field book<br>of defenders</h3><p>Choose a defender and rank on the facing page to study its portrait, attacks and abilities.</p><div class="catalog-frontispiece-rule" aria-hidden="true">◆</div><small>Eight defenders.<br>Six ranks to master.</small>`;
+  return `<span class="catalog-frontispiece-emblem" aria-hidden="true">${icon('basic')}</span><span class="eyebrow">Bastions of the Last Kingdom</span><h3>A field book<br>of defenders</h3><p>Choose a defender and rank on the facing page to study its portrait, attacks and abilities.</p><div class="catalog-frontispiece-rule" aria-hidden="true"></div><small>Eight defenders.<br>Six ranks to master.</small>`;
 }

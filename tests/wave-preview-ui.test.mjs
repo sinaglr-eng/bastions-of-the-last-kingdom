@@ -96,7 +96,7 @@ test('empty waves, missing future waves and final-wave boundaries create no phan
 test('unknown enemies, unavailable portraits and unfamiliar trait glyphs never crash or display broken images',()=>{
   const m=model();m.next.enemies=[{type:'unknown',name:'Unknown invader',count:4,unknown:true,variants:[{name:'Unknown profile',traitDetails:[{kind:'constructor',text:'Unfamiliar trait'}]}]}];m.next.primaryThreats=[threat('unknown','Unfamiliar threat',{icon:'constructor'})];
   const html=wavePreviewMarkup(m,{},{});assert.match(html,/wave-enemy-placeholder/);assert.match(html,/Enemy information unavailable/);assert.match(html,/Unfamiliar trait/);
-  assert.doesNotMatch(html,/<img|undefined|NaN|function Object|data-defense="constructor"/);
+  assert.doesNotMatch(html,/<img(?! class="icon )|undefined|NaN|function Object|data-defense="constructor"/);
 });
 
 test('enemy names, URLs, wave names, labels and heading identifiers are escaped in every context',()=>{

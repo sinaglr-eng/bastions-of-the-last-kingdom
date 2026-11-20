@@ -1,3 +1,5 @@
+import {siteUrl} from '../site-url.js';
+import {applyStatusTexture} from './status-art.js';
 import * as THREE from 'three';
 import {ENEMY_DEFENSE_SYMBOLS,enemyDefenseVisualState} from './enemy-defense-symbols.js';
 export {enemyDefenseVisualState} from './enemy-defense-symbols.js';
@@ -17,16 +19,6 @@ export function hasEnemySpecialMechanic(enemy){
   return finite(enemy.rush)>1||finite(enemy.hasteAura)>1;
 }
 
-function lineGlyph(kind){
-  const paths=ENEMY_DEFENSE_SYMBOLS[kind].paths.map(path=>path.map(([x,y])=>[x/24,y/24]));
-  const vertices=[];
-  for(const path of paths)for(let i=1;i<path.length;i++){
-    const a=path[i-1],b=path[i],dx=b[0]-a[0],dy=b[1]-a[1],length=Math.hypot(dx,dy)||1,w=.085;
-    const nx=-dy/length*w,ny=dx/length*w;
-    vertices.push(a[0]+nx,a[1]+ny,0,a[0]-nx,a[1]-ny,0,b[0]+nx,b[1]+ny,0,b[0]+nx,b[1]+ny,0,a[0]-nx,a[1]-ny,0,b[0]-nx,b[1]-ny,0);
-  }
-  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));g.computeVertexNormals();return g;
-}
 function effectMaterial(color,opacity=.72){return new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,toneMapped:false});}
 function dispose(root){
   const resources=new Set();root.traverse(node=>{if(node.geometry)resources.add(node.geometry);for(const m of Array.isArray(node.material)?node.material:[node.material])if(m)resources.add(m);if(node.isInstancedMesh)node.dispose();});resources.forEach(resource=>resource.dispose());root.removeFromParent();
@@ -35,15 +27,16 @@ function dispose(root){
 export class EnemyAbilityEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),isVisible=()=>true,reducedMotion=false,camera=null,balance=null,maxEnemies=256,maxEffects=48}={}){
     this.scene=scene;this.position=position;this.isVisible=isVisible;this.reducedMotion=reducedMotion;this.camera=camera;this.balance=balance;this.maxEnemies=Math.max(1,Math.floor(maxEnemies));this.maxEffects=Math.max(1,Math.floor(maxEffects));
-    this.group=new THREE.Group();this.group.name='Enemy defenses and rifts';scene.add(this.group);this.batches=new Map();this.effects=[];this.measurements=new WeakMap();this.disposed=false;this.pose=new THREE.Object3D();this.up=new THREE.Vector3(0,1,0);
+    this.group=new THREE.Group();this.group.name='Enemy defenses and rifts';scene.add(this.group);this.batches=new Map();this.symbolTextures=new Map();this.effects=[];this.measurements=new WeakMap();this.disposed=false;this.pose=new THREE.Object3D();this.up=new THREE.Vector3(0,1,0);
     this.cameraQuaternion=new THREE.Quaternion();this.centre=new THREE.Vector3();this.worldBounds=new THREE.Box3();this.shieldBounds=new Map();
   }
   still(){return typeof this.reducedMotion==='function'?!!this.reducedMotion():!!this.reducedMotion;}
   batch(kind){
     if(this.batches.has(kind))return this.batches.get(kind);
     const root=new THREE.Group();root.name='Defense: '+kind;
-    const glyph=new THREE.InstancedMesh(lineGlyph(kind),new THREE.MeshBasicMaterial({color:styles[kind],transparent:true,opacity:1,blending:THREE.NormalBlending,depthTest:false,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}),this.maxEnemies*glyphsPerDefense);
-    glyph.name='Small colored defense glyphs';
+    const glyph=new THREE.InstancedMesh(new THREE.PlaneGeometry(1.9,1.9),new THREE.MeshBasicMaterial({alphaTest:.06,transparent:true,opacity:1,blending:THREE.NormalBlending,depthTest:false,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}),this.maxEnemies*glyphsPerDefense);
+    glyph.name='Illustrated defense symbols';
+    applyStatusTexture(glyph.material,siteUrl(ENEMY_DEFENSE_SYMBOLS[kind].art),this.symbolTextures);
     const dots=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0),new THREE.MeshBasicMaterial({color:styles[kind],transparent:true,opacity:.85,depthTest:false,depthWrite:false,toneMapped:false}),this.maxEnemies*dotsPerDefense);
     dots.name='Matching floating defense dots';
     let crystals=null,shell=null;
@@ -160,5 +153,5 @@ export class EnemyAbilityEffects{
     }
   }
   clear(){for(const effect of [...this.effects])this.remove(effect);this.shieldBounds.clear();for(const batch of this.batches.values()){batch.count=0;batch.glyphCount=0;batch.dotCount=0;batch.crystalCount=0;batch.shellCount=0;batch.root.visible=false;batch.glyph.count=0;batch.dots.count=0;if(batch.crystals)batch.crystals.count=0;if(batch.shell)batch.shell.count=0;}}
-  dispose(){if(this.disposed)return;this.clear();dispose(this.group);this.batches.clear();this.disposed=true;}
+  dispose(){if(this.disposed)return;this.clear();dispose(this.group);this.batches.clear();for(const texture of this.symbolTextures.values())texture.dispose();this.symbolTextures.clear();this.disposed=true;}
 }

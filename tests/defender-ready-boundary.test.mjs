@@ -50,7 +50,7 @@ async function withCanvas(run){
 function pendingAssertion(field,id,key){
   const model=field.models.get(id);assert.equal(model.modelKey,key);assert.equal(model.modelStatus,'loading');
   assert.equal(model.actor.userData.defenderModelStatus,'loading');assert.equal(model.attack,null);assert.equal(model.siege,null);assert.equal(model.aura,null);assert.equal(model.hero,false);
-  assert.equal(geometricMetadata(model.actor),null);assert.equal(model.actor.children.length,3,'only the low dial, never a procedural body or previous source');
+  assert.equal(geometricMetadata(model.actor),null);assert.equal(model.actor.children.length,1);assert.match(model.actor.children[0].material.map.name,/hud-generated\/time\.webp$/);
   assert.equal(model.actor.getObjectByName('Rank signal'),undefined);assert.equal(model.actor.getObjectByName('Mythic aura'),undefined);
 }
 
@@ -159,7 +159,7 @@ test('neutral loading/unavailable models preserve real Reserved occupancy, found
     const object=field.models.get(tower.id).object;assert.equal(object.children.length,2);assert.equal(field.models.get(tower.id).actor.position.y,WALL_DECK_HEIGHT);
     object.updateMatrixWorld(true);const ray=new THREE.Raycaster(new THREE.Vector3(tower.x-18,4,tower.z-18),new THREE.Vector3(0,-1,0));assert.equal(pointedTower(ray,field.models),tower.id);
     await field.defenderLoader.requestTower(tower,data.towers);await tick();assert.equal(field.models.get(tower.id).modelStatus,'unavailable');assert.equal(field.defenderLoadingLabel.textContent,'Defender appearance unavailable');assert.equal(field.defenderRetryButton.hidden,false);
-    const failed=field.models.get(tower.id);assert.equal(failed.attack,null);assert.equal(failed.siege,null);assert.equal(failed.aura,null);assert.equal(failed.actor.visible,true);
+    const failed=field.models.get(tower.id);assert.match(failed.actor.children[0].material.map.name,/ui-icons\/close\.webp$/);assert.equal(failed.attack,null);assert.equal(failed.siege,null);assert.equal(failed.aura,null);assert.equal(failed.actor.visible,true);
     for(let i=0;i<100;i++)field.recoverDefenderModels(0);assert.equal(loads,2);
     game.towers=[];now=10000;field.recoverDefenderModels(10000);field.sync();assert.equal(loads,2,'removed identities do not retry');assert.equal(field.models.size,0);assert.equal(field.defenderLoadingStatus.hidden,true);
     assert.deepEqual([...game.grid.occupied],occupied);assert.equal(game.grid.route,route);assert.equal(JSON.stringify(game.draft.draws),draws);assert.equal(game.rng(),control.rng());

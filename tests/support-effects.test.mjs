@@ -131,9 +131,9 @@ test('owned instanced overlays have bounded counts, visible independent glyph ge
   const towers=[target,support,nature,...Array.from({length:10},(_,i)=>unit('archer',20+i))],enemies=Array.from({length:12},(_,i)=>({id:i,x:10,z:10,statuses:{poison:{time:2,dps:5}},dead:false,cloaked:i===0}));
   fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,24);assert.equal(fx.group.children.length,26);assert.equal(fx.batches.has('enemy:magic'),false);assert.equal(fx.batches.has('enemy:slow'),false,'Slow allocates no automatic clock or halo');
   assert.equal(fx.batches.get('haste').count,4);assert.equal(fx.batches.get('enemy:poison').count,3);assert.equal(fx.enemyStates.has(0),false);assert.ok(fx.radius.visible);assert.equal(fx.tint.count,4);
-  const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(Array.from(mesh.geometry.attributes.position.array).join(','));assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.userData.glyphVertexStart>0);}
+  const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(mesh.userData.artwork);assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.groups[0].count>0);assert.equal(mesh.geometry.groups[1].count,6);}
   assert.equal(signatures.size,9,'Shapes differ as well as colors');
-  fx.group.traverse(o=>{assert.equal(o.raycast(),undefined);assert.ok(!o.isLight);if(o.geometry)assert.ok(o.geometry.attributes.position.array.every(Number.isFinite));if(o.material)assert.equal(o.material.depthWrite,false);});
+  fx.group.traverse(o=>{assert.equal(o.raycast(),undefined);assert.ok(!o.isLight);if(o.geometry)assert.ok(o.geometry.attributes.position.array.every(Number.isFinite));for(const m of [].concat(o.material||[]))assert.equal(m.depthWrite,false);});
   const position=fx.radius.geometry.attributes.position;fx.sync(towers,data,{selected:nature});assert.equal(fx.radius.geometry.attributes.position,position,'Selected radius buffer is reused');
   support.state='ruin';nature.state='draft';fx.sync(towers,data);assert.ok([...fx.batches.values()].every(m=>m.count===0));assert.equal(fx.radius.visible,false);assert.equal(fx.tint.count,0);fx.dispose();
 });
@@ -144,7 +144,7 @@ test('actual periodic disarm has one hovering broken sword and matching bounded 
   const sample=elapsed=>{g.combat.elapsed=elapsed;g.combat.update(0);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:elapsed});};
   try{
     sample(.23);assert.equal(target.disarmed,true);assert.equal(orbit.count,1);assert.equal(aura.count,1);
-    assert.equal(orbit.geometry.userData.glyph,'brokenSword');assert.equal(orbit.material.color.getHex(),new THREE.Color(SUPPORT_EFFECT_STYLES.disarm.color).getHex());
+    assert.equal(orbit.geometry.userData.glyph,'brokenSword');assert.match(orbit.material.map.userData.source,/status-disarmed\.webp$/);
     orbit.getMatrixAt(0,matrix);const first=matrix.clone(),centre=new THREE.Vector3().setFromMatrixPosition(matrix);
     assert.ok(centre.y>fx.pedestalHeight+.85&&centre.y<fx.pedestalHeight+1);
     assert.ok(Math.abs(Math.hypot(centre.x-target.x,centre.z-target.z)-.65)<1e-5);
@@ -173,9 +173,9 @@ test('paused combat preserves the real disarm window while an unpaused cosmetic 
 
 test('reduced motion freezes instance matrices/materials; cleanup is idempotent and never mutates defender materials',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene),towers=[unit('archer'),unit('monk',2)];fx.sync(towers,data,{selected:towers[1]});
-  fx.update(3,{reducedMotion:true});const snapshot=()=>[...fx.batches.values()].map(o=>({matrix:Array.from(o.instanceMatrix.array),opacity:o.material.opacity})),still=snapshot();fx.update(10000,{reducedMotion:true});assert.deepEqual(snapshot(),still);
+  fx.update(3,{reducedMotion:true});const snapshot=()=>[...fx.batches.values()].map(o=>({matrix:Array.from(o.instanceMatrix.array),opacity:[].concat(o.material).map(m=>m.opacity)})),still=snapshot();fx.update(10000,{reducedMotion:true});assert.deepEqual(snapshot(),still);
   fx.update(NaN);for(const mesh of fx.batches.values())assert.ok(mesh.instanceMatrix.array.every(Number.isFinite));
-  const resources=new Set(),counts=new Map();fx.group.traverse(o=>{if(o.geometry)resources.add(o.geometry);if(o.material)resources.add(o.material);});for(const r of resources){counts.set(r,0);r.addEventListener('dispose',()=>counts.set(r,counts.get(r)+1));}
+  const resources=new Set(),counts=new Map();fx.group.traverse(o=>{if(o.geometry)resources.add(o.geometry);for(const material of [].concat(o.material||[])){resources.add(material);if(material.map)resources.add(material.map);}});for(const r of resources){counts.set(r,0);r.addEventListener('dispose',()=>counts.set(r,counts.get(r)+1));}
   const cachedMaterial=new THREE.MeshStandardMaterial({color:'#3b6298'}),before=cachedMaterial.color.getHex();fx.dispose();fx.dispose();fx.sync(towers,data);fx.update(2);
   assert.equal(scene.children.length,0);assert.ok([...counts.values()].every(n=>n===1));assert.equal(cachedMaterial.color.getHex(),before);cachedMaterial.dispose();
 });
@@ -201,5 +201,5 @@ test('wall-cap edge tint leaves stone paving unobstructed, uses one stable hue, 
   const expected=new THREE.Color(SUPPORT_EFFECT_STYLES.haste.color);assert.ok(Math.abs(color.r-expected.r)<1e-6&&Math.abs(color.g-expected.g)<1e-6&&Math.abs(color.b-expected.b)<1e-6);assert.equal(supportTintKey(fx.states.get(target.id)),'haste');assert.equal(fx.states.get(target.id).effects.length,5,'Other simultaneous glyphs stay present');
   const invader={id:1,x:11,z:10,untouchable:.4,disarm:true};target.dread={amount:.4,until:3,source:invader,visible:true};fx.sync([target],data,{combat:{elapsed:0,enemies:[invader]},phase:'combat'});assert.equal(fx.tint.count,1);assert.equal(supportTintKey(fx.states.get(target.id)),'dread');fx.tint.getColorAt(0,color);const danger=new THREE.Color(SUPPORT_EFFECT_STYLES.dread.color);assert.ok(Math.abs(color.r-danger.r)<1e-6&&Math.abs(color.b-danger.b)<1e-6);
   assert.equal(fx.tint.geometry,geometry);assert.equal(fx.tint.material,material);fx.dispose();assert.deepEqual([...cached].map(m=>[m.color?.getHex(),m.opacity,m.transparent]),before);
-  const resources=new Set();template.traverse(o=>{if(o.geometry)resources.add(o.geometry);if(o.material)resources.add(o.material);});for(const resource of resources)resource.dispose();
+  const resources=new Set();template.traverse(o=>{if(o.geometry)resources.add(o.geometry);for(const material of [].concat(o.material||[])){resources.add(material);if(material.map)resources.add(material.map);}});for(const resource of resources)resource.dispose();
 });

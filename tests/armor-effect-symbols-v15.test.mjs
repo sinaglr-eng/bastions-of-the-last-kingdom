@@ -63,30 +63,16 @@ test('the same armor symbol covers actual in-range armor auras and never exposes
   }finally{fx.dispose();}
 });
 
-// Recover the centre lines of actual triangle ribbons, excluding their halos.
-// A shield has a closed perimeter; the barricade's fracture and U are open.
-function hasClosedGlyphContour(geometry){
-  const vertices=geometry.attributes.position,nodes=[],parent=[];
-  const point=index=>new THREE.Vector3().fromBufferAttribute(vertices,index);
-  const node=point=>{let index=nodes.findIndex(other=>point.distanceTo(other)<1e-6);if(index<0){index=nodes.length;nodes.push(point);parent.push(index);}return index;};
-  const root=index=>parent[index]===index?index:(parent[index]=root(parent[index]));
-  for(let i=geometry.userData.glyphVertexStart;i<vertices.count;i+=6){
-    const a=node(point(i).add(point(i+1)).multiplyScalar(.5)),b=node(point(i+2).add(point(i+4)).multiplyScalar(.5));
-    if(root(a)===root(b))return true;parent[root(a)]=root(b);
-  }
-  return false;
-}
-
 test('actual armor glyph is a fractured shield, distinct from the barricade mesh and correctly explained in the accessible legend',()=>{
   const fx=new SupportEffects(new THREE.Scene());
   try{
-    const armor=fx.batches.get('enemy:armor').geometry,barricade=fx.batches.get('weakened').geometry;
+    const armor=fx.batches.get('enemy:armor'),barricade=fx.batches.get('weakened');
     assert.equal(ENEMY_EFFECT_STYLES.armor.glyph,'brokenShield');assert.equal(SUPPORT_EFFECT_STYLES.weakened.glyph,'crack');
-    assert.ok(hasClosedGlyphContour(armor),'Actual armor triangles form a shield outline');assert.equal(hasClosedGlyphContour(barricade),false);
-    for(const geometry of [armor,barricade])assert.ok(geometry.attributes.position.array.every(Number.isFinite));
-    const armorSvg=supportGlyph(ENEMY_EFFECT_STYLES.armor.glyph,ENEMY_EFFECT_STYLES.armor.color),barricadeSvg=supportGlyph(SUPPORT_EFFECT_STYLES.weakened.glyph,SUPPORT_EFFECT_STYLES.weakened.color);
-    const content=svg=>svg.match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];
-    assert.notEqual(content(armorSvg),content(barricadeSvg));assert.match(content(armorSvg),/Z.*<path/,'Closed shield outline includes a separate fracture');
+    assert.match(armor.userData.artwork,/status-fractured-shield\.webp$/);
+    assert.match(barricade.userData.artwork,/status-broken-barricade\.webp$/);
+    for(const mesh of [armor,barricade])assert.ok(mesh.geometry.attributes.position.array.every(Number.isFinite));
+    assert.ok(supportGlyph('brokenShield',ENEMY_EFFECT_STYLES.armor.color).includes(armor.userData.artwork));
+    assert.ok(supportGlyph('crack',SUPPORT_EFFECT_STYLES.weakened.color).includes(barricade.userData.artwork));
     const legend=supportMapLegendMarkup(),item=key=>legend.match(new RegExp(`<li[^>]*data-effect="${key}"[\\s\\S]*?</li>`))[0];
     assert.match(legend,/aria-label="Defender effect symbols"/);assert.match(legend,/aria-label="Enemy effect symbols"/);
     assert.match(item('armor'),/Enemy armor reduced/);assert.match(item('armor'),/data-glyph="brokenShield"/);assert.match(item('armor'),/tabindex="0"/);assert.match(item('armor'),/role="tooltip"/);

@@ -18,7 +18,7 @@ function arena(id=family,faction='grove'){
  return {game,source,stats:towerStats(source,data),spawn,traces,channels,sparks,tick:dt=>game.tick(dt)};
 }
 
-test('only four Elf dragons gain air targeting; all 258 profiles retain primary numbers and existing secondary records',()=>{
+test('all four Elf dragons gain air targeting; every faction retains its primary numbers and secondary records',()=>{
  const fields=['damage','listedDamage','interval','range','type','melee','groundOnly','projectileSpeed','weaponCycle','continuousAttack'];let profiles=0;
  for(const [faction,data]of Object.entries(current))for(const [id,unit]of Object.entries(data.towers))for(let tier=1;tier<=(unit.advanced?1:6);tier++){
   const value=towerStats({family:id,tier},data),old=towerStats({family:id,tier},prior[faction]);profiles++;
@@ -29,7 +29,7 @@ test('only four Elf dragons gain air targeting; all 258 profiles retain primary 
    assert.deepEqual({...cone,text:oldCone.text,targeting:oldCone.targeting},oldCone,'only cone targeting and its English description change');
    assert.deepEqual(value.abilities.filter(a=>a.familyId!=='flame-cone'),old.abilities.filter(a=>a.familyId!=='flame-cone'),'Burn, Fire Aura and Spark records remain exact');
    for(const field of fields.filter(k=>!['groundOnly','continuousAttack'].includes(k)))assert.deepEqual(value[field],old[field],id+'/'+field);
-  }else for(const field of fields)assert.deepEqual(value[field],old[field],faction+'/'+id+'/'+tier+'/'+field);
+  }else for(const field of fields)assert.deepEqual(value[field],faction==='grove'&&field==='groundOnly'&&old.groundOnly?false:old[field],faction+'/'+id+'/'+tier+'/'+field);
  }
  assert.equal(profiles,258);
 });

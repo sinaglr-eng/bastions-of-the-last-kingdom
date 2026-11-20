@@ -1,3 +1,4 @@
+import {castleWallPortrait} from '../../ui/wall-panel.js';
 import * as THREE from 'three';
 import {loadPackedModel} from './packed-model.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -549,16 +550,11 @@ export class Battlefield {
 }
 
 export function makeThumbnails(data) {
-  const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setSize(180,156);renderer.setPixelRatio(1);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
-  const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight('#fff4dd','#61717a',3));const light=new THREE.DirectionalLight('#ffedcf',4);light.position.set(-3,5,4);scene.add(light);
-  const camera=new THREE.PerspectiveCamera(32,180/156,0.1,20);camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,0.95,0);
   const images={};
   for(const [id,stats]of Object.entries(data.towers))for(let tier=1;tier<=(stats.advanced?1:data.balance.tiers.length);tier++){
     images[`${id}:${tier}`]=data.defenderAssets?siteUrl(data.defenderAssets.find(a=>a.family===id&&a.tier===tier)?.portrait||''):referenceDefenderPortrait(id,tier);
     if(tier===1)images[id]=images[`${id}:${tier}`];
   }
-  camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
   for(const id of Object.keys(data.enemies).filter(id=>id.startsWith('host_')))images['enemy:'+id]=enemyPortrait(id);
-  camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
-  const wall=castleWallModel(10);scene.add(wall);camera.lookAt(0,WALL_DECK_HEIGHT/2,0);renderer.render(scene,camera);images.ruin=renderer.domElement.toDataURL('image/png');wall.traverse(o=>o.geometry?.dispose());renderer.dispose();return images;
+  images.ruin=castleWallPortrait();return images;
 }

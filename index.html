@@ -6,18 +6,19 @@
     <meta name="theme-color" content="#f5ebd4" />
     <meta name="description" content="Forged Alliances TD. Draft defenders, forge champion alliances, and shape a maze against fifty fantasy warbands." />
     <title>Forged Alliances TD</title>
-    <link rel="icon" href="%BASE_URL%assets/ui/account-progression/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="%BASE_URL%assets/ui/war-table/ui-icons/loading.webp" type="image/webp" />
     <style>
       html,body{margin:0;background:#f8efde}
       body[data-game-booting] #app{visibility:hidden}
       #game-boot{position:fixed;inset:0;z-index:20000;min-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:32px;background:radial-gradient(ellipse at 50% 45%,#fffaf1,#f1e4cc);color:#705027;text-align:center}
-      .forged-loading img{display:block;width:min(560px,88vw);height:auto}
+      .forged-loading img{display:block;width:clamp(92px,16vmin,160px);height:auto}
+      .forged-loading strong{font:small-caps 600 clamp(24px,4vw,42px)/1 Georgia,serif;color:#244d42}
       .forged-loading p{margin:0;font:clamp(18px,3vw,25px)/1.4 Georgia,serif;letter-spacing:.03em}
       .forged-loading:after{content:'';display:block;width:70px;height:2px;background:linear-gradient(90deg,transparent,#b68c46,transparent)}
     </style>
   </head>
-  <body data-game-booting>
-    <div id="game-boot" class="loading forged-loading" role="status" aria-live="polite"><img src="%BASE_URL%assets/ui/account-progression/alliance-logo.webp" width="650" height="160" alt="Forged Alliances TD" /><p>Raising the banners&#8230;</p></div>
+  <body data-game-booting style="--game-loading-art:url('%BASE_URL%assets/ui/war-table/ui-icons/loading.webp')">
+    <div id="game-boot" class="loading forged-loading" role="status" aria-live="polite"><img src="%BASE_URL%assets/ui/war-table/ui-icons/loading.webp" width="160" height="160" fetchpriority="high" alt="" /><strong>Forged Alliances TD</strong><p>Raising the banners&#8230;</p></div>
     <main id="app"></main>
     <script type="module" src="/game/main.js"></script>
   </body>

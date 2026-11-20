@@ -16,13 +16,14 @@ import {currentWaveSummaryMarkup} from '../ui/current-wave-summary.js';
 import {selectedEnemyMarkup} from '../ui/selected-enemy.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url)),json=p=>JSON.parse(read(p)),sha=b=>createHash('sha256').update(b).digest('hex');
 const all=loadCurrentDatasets(),prior=loadCurrentDatasets({revision:'fr007r3'}),images=referencePortraitImageMap({base:'/fixture/'});
-test('current FR008 preserves every numeric profile, recipe and enemy definition; only four Elf dragon targeting profiles are amended',()=>{
+test('current FR008 preserves every numeric profile, recipe and enemy definition; Elf primary weapons gain air targeting',()=>{
  const withoutNarrative=value=>JSON.parse(JSON.stringify(value,(key,v)=>['text','description'].includes(key)?undefined:v));
  for(const id of Object.keys(all)){
   assert.equal(all[id].fr008,true);assert.equal(all[id].rulesetRevision,'fr008-r1-20261106');
   for(const key of ['towers','recipes','enemies','waves']){
    const expected=structuredClone(prior[id][key]);
    if(id==='grove'&&key==='towers')for(const family of ['el_baby_fire_dragon','el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch']){const dragon=expected[family];dragon.groundOnly=false;dragon.continuousAttack.targeting='ground-and-air';dragon.abilities.find(a=>a.familyId==='flame-cone').targeting='ground-and-air';}
+   if(id==='grove'&&key==='towers')for(const unit of Object.values(expected))for(const stats of [unit,...(unit.levels||[])])if(stats.groundOnly)stats.groundOnly=false;
    assert.deepEqual(withoutNarrative(all[id][key]),withoutNarrative(expected),`${id} ${key}`);
   }
  }
@@ -58,7 +59,7 @@ test('FR008 actual scheduled wave-38 weapons apply HP damage in all 628 cases wi
  const baseline=json('output/design/fr008-current/wave38/results.json');
  for(const key of ['allProfiles','knifemanSamples','dwarfWithRuneMage','auraSamples','healingSamples']){
   const actual=structuredClone(r[key]);
-  for(const row of actual)if(row.faction==='grove'&&['el_baby_fire_dragon','el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch'].includes(row.family)&&row.stats){assert.equal(row.stats.groundOnly,false);row.stats.groundOnly=true;}
+  for(const [i,row] of actual.entries())if(row.faction==='grove'&&row.stats){assert.equal(row.stats.groundOnly,false);row.stats.groundOnly=baseline[key][i].stats.groundOnly;}
   assert.deepEqual(actual,baseline[key],`${key}: the authorized Elf dragon targeting metadata cannot change ground-wave damage or healing`);
  }
 });

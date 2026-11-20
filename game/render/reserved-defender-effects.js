@@ -1,19 +1,18 @@
 import * as THREE from 'three';
+import {siteUrl} from '../site-url.js';
+import {battlefieldIcon} from './battlefield-icon.js';
+import {disposeGeometricResources} from './geometric-resources.js';
 
-// The actual defender stays on its stone foundation. An independent bookmark
-// with pause bars marks dormancy without changing shared model materials.
+// The Reserve action and its battlefield marker share the same pin.
 export class ReservedDefenderEffects {
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x-18,y,z-18)}={}){
     this.position=position;this.disposed=false;this.items=new Map();this.anchor=new THREE.Vector3();this.group=new THREE.Group();this.group.name='Reserved defenders';scene.add(this.group);
-    const bookmark=new THREE.Shape();bookmark.moveTo(-.18,.27);bookmark.lineTo(.18,.27);bookmark.lineTo(.18,-.28);bookmark.lineTo(0,-.16);bookmark.lineTo(-.18,-.28);bookmark.closePath();
-    this.geometries={back:new THREE.PlaneGeometry(.54,.72),bookmark:new THREE.ShapeGeometry(bookmark),pause:new THREE.PlaneGeometry(.045,.16)};
-    const make=color=>new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide,depthTest:false,depthWrite:false,toneMapped:false});this.materials={back:make('#203637'),bookmark:make('#e7c985')};
+    this.template=null;
   }
   create(tower){
     const pin=new THREE.Group();pin.name=`Reserved defender #${tower.id}`;pin.userData={towerId:tower.id,inactive:true};
-    for(const [key,material,z,x]of [['back','back',0,0],['bookmark','bookmark',.002,0],['pause','back',.004,-.055],['pause','back',.004,.055]]){
-      const mesh=new THREE.Mesh(this.geometries[key],this.materials[material]);mesh.position.set(x,.02,z);mesh.renderOrder=24;mesh.raycast=()=>{};pin.add(mesh);
-    }
+    this.template??=battlefieldIcon(siteUrl('assets/ui/war-table/ui-icons/pin.webp'),.72);
+    const mesh=this.template.clone();mesh.position.y=.02;mesh.renderOrder=24;mesh.raycast=()=>{};pin.add(mesh);
     this.group.add(pin);return pin;
   }
   sync(game,models=new Map()){
@@ -35,5 +34,5 @@ export class ReservedDefenderEffects {
       const scale=Math.min(3,Math.max(.8,unitsPerPixel*23/.72));pin.scale.setScalar(scale);pin.position.y=pin.userData.height+.43*scale;pin.quaternion.copy(camera.quaternion);
     }
   }
-  dispose(){if(this.disposed)return;this.disposed=true;this.group.removeFromParent();this.group.clear();this.items.clear();Object.values(this.geometries).forEach(g=>g.dispose());Object.values(this.materials).forEach(m=>m.dispose());}
+  dispose(){if(this.disposed)return;this.disposed=true;this.group.removeFromParent();this.group.clear();this.items.clear();disposeGeometricResources(this.template);this.template=null;}
 }

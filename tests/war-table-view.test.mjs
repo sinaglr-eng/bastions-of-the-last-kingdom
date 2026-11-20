@@ -20,8 +20,8 @@ test('Collection progress and secret reveal use verified discoveries before Clai
  const a=achievementData(player);assert.equal(a.progress(a.catalog.find(a=>a.id==='collection:crown:5')),5);assert.equal(a.state(secret),'ready');
  const html=achievementsView(player,{status:'ready',focusId:secret.id});assert.match(html,/Lady Claire/);assert.equal(player.profile.balance,0);
 });
-test('Every current champion resolves to its own faction portrait, not generated mockup art',()=>{
- for(const f of ['crown','forge','grove']){const d=currentFactionData(f);for(const a of achievementCatalog(d).filter(a=>a.kind==='champion')){const id=a.id.split(':').at(-1),asset=d.defenderAssets.find(x=>x.family===id&&x.tier===1);assert.ok(asset?.portrait,a.id);assert.ok(achievementArtwork(a,d,true).includes(asset.portrait));assert.ok(fs.existsSync('public/'+asset.portrait));}}
+test('Champion achievements keep their approved unit icon or their own illustrated secret discovery',()=>{
+ for(const f of ['crown','forge','grove']){const d=currentFactionData(f);for(const a of achievementCatalog(d).filter(a=>a.kind==='champion')){const id=a.id.split(':').at(-1),asset=d.defenderAssets.find(x=>x.family===id&&x.tier===1);assert.ok(asset?.portrait,a.id);const image=achievementArtwork(a,d,true);assert.ok(a.secret?image.endsWith('/discovery-'+f+'.webp'):image.includes(asset.portrait));assert.ok(fs.existsSync('public'+image));}}
 });
 test('General shows one selected detail, all current skills and distinct CP versus medal costs',()=>{
  const html=generalView({xpTotal:330,balance:14,skills:{'morale-boost':1},equipped:['morale-boost']},true,{selected:'morale-boost'});

@@ -84,7 +84,7 @@ test('three placed recruits distinguish Built, This round and Missing without le
   const before=snapshot(game),model=craftingDockModel(game),html=craftingDockMarkup(game,{}),cards=draftCardsMarkup(game,data,{});
   assert.equal(model.phaseText,'Place recruits · 3/5');assert.equal(model.context,null);assert.deepEqual(model.plan.counts,{built:1,draft:1,missing:1});
   assert.deepEqual([...model.highlightIds],[needed.id]);assert.ok(!model.highlightIds.has(surplus.id));
-  assert.match(html,/✓/);assert.match(html,/◆/);assert.match(html,/○/);assert.match(html,/Missing Archer I/);assert.match(html,/Place all five recruits first/);
+  assert.match(html,/recipe-status-image/);assert.match(html,/this round/);assert.match(html,/missing/i);assert.match(html,/Missing Archer I/);assert.match(html,/Place all five recruits first/);
   assert.equal((cards.match(/class="draw-slot/g)||[]).length,5);assert.equal((cards.match(/mystery-card/g)||[]).length,2);assert.equal((cards.match(/draw-recipe-ingredient/g)||[]).length,1);
   assert.doesNotMatch(cards,/Archer/);assert.equal(snapshot(game),before);
 });

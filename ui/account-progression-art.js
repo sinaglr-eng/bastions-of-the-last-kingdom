@@ -9,7 +9,7 @@ export const ALLIANCE_LOGO_ART=Object.freeze({
  original:BASE+'alliance-logo-original.png',
  vector:BASE+'alliance-logo.svg',
  light:BASE+'alliance-logo-light.svg',
- compact:BASE+'alliance-crest-compact.svg',
+ compact:BASE+'alliance-crest-compact.webp',
  crest:BASE+'alliance-crest.svg',
  monochrome:BASE+'alliance-logo-monochrome.svg',
  monochromeCrest:BASE+'alliance-crest-monochrome.svg',

@@ -1,40 +1,25 @@
 import {siteUrl} from '../game/site-url.js';
-import {commanderGeneratedArt} from './commander-art.js';
-const illustrated={maze:'maze-builder',wave:'wave',shield:'keep-health',coin:'gold',command:'command-points',clock:'time',spark:'command-points',mute:'sound',commander:'commander',book:'recipes',warband:'enemy-waves',sound:'sound',settings:'settings',crown:'champions',basic:'basic-defenders'};
-const paths={
-  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
-  wave:'<path d="M5 21V3m0 1c5-4 9 4 15 0v10c-6 4-10-4-15 0M2 21h6"/>',
-  warband:'<path d="M8 12V8a4 4 0 0 1 8 0v4l-4 2Zm0-4h8M12 8v6M5 11V8a3 3 0 0 0-3 3v3l3 2 2-1M19 11V8a3 3 0 0 1 3 3v3l-3 2-2-1M7 21v-3l5-2 5 2v3M2 21v-2l3-1M22 21v-2l-3-1"/>',
-  command:'<path d="m12 2 9 5v10l-9 5-9-5V7Z"/><path d="m12 6 1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9L8.4 17l.7-4-2.9-2.8 4-.6Z"/>',
-  settings:'<path d="m9 3-.5 3-2 1.2L4 6l-2 3 2.3 2v2L2 15l2 3 2.5-1.2 2 1.2.5 3h6l.5-3 2-1.2L20 18l2-3-2.3-2v-2L22 9l-2-3-2.5 1.2-2-1.2-.5-3Z"/><circle cx="12" cy="12" r="3"/>',
-  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Zm-3.5-7v3M12 20v3M1 12h3M20 12h3"/>',
-  scroll:'<path d="M6 4h12v16H6M6 4C2 4 2 8 6 8M18 16c4 0 4 4 0 4M9 8h6M9 12h6M9 16h4"/>',
-  maze:'<path d="M3 3h18v18H3V7h10v6H7v4h10V7M17 3v4M7 3v4M21 17h-4"/>',
-  shield:'<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/>',
-  coin:'<circle cx="12" cy="12" r="8"/><path d="M14.5 8h-4a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4h-4M12 6v12"/>',
-  crown:'<path d="m3 6 4 4 5-6 5 6 4-4-3 12H6Z"/><path d="M7 21h10"/>',
-  book:'<path d="M12 6c-4-3-9-2-9-2v15s5-1 9 2c4-3 9-2 9-2V4s-5-1-9 2Zm0 0v15"/>',
-  bow:'<path d="M6 3c13 1 14 13 14 13L6 3v15l14-2M3 21 17 7M13 7h4v4"/>',
-  bolt:'<path d="m4 20 16-16M12 4h8v8M3 8c8-4 17 5 13 13M3 8l13 13M8 14l-4 4"/>',
-  spark:'<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/>',
-  snow:'<path d="M12 2v20M3 7l18 10M3 17 21 7M9 4l3 3 3-3M9 20l3-3 3 3M3 10l4-1-1-4M18 19l-1-4 4-1"/>',
-  fire:'<path d="M12 2c3 6-2 7 2 9l3-5c7 8 4 16-5 16C3 22 1 12 8 7c-1 5 2 6 3 6 3-3-2-5 1-11Z"/>',
-  flask:'<path d="M9 3h6M10 3v7L5 19c-1 2 1 2 2 2h10c1 0 3 0 2-2l-5-9V3M8 15h8"/>',
-  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>',
-  hammer:'<path d="m14 4 6 6-4 4-6-6Z M12 10 4 18l2 2 8-8M14 4l3-2 5 5-2 3"/>',
-  play:'<path d="m8 4 12 8-12 8Z"/>',pause:'<path d="M8 5v14M16 5v14"/>',
-  path:'<circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M5 7v9c0 4 7 4 7 0V8c0-4 7-4 7 0v9"/>',
-  grid:'<path d="M3 3h18v18H3ZM3 9h18M3 15h18M9 3v18M15 3v18"/>',
-  reset:'<path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/>',
-  sound:'<path d="m11 4-6 5H2v6h3l6 5ZM15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16"/>',
-  mute:'<path d="m11 4-6 5H2v6h3l6 5ZM16 9l6 6M22 9l-6 6"/>',
-  help:'<circle cx="12" cy="12" r="9"/><path d="M9 8c0-4 7-3 6 1-.5 2-3 2-3 5M12 17h.01"/>',
-  close:'<path d="m6 6 12 12M6 18 18 6"/>',
-  check:'<path d="m5 12 4 4L20 5"/>',
-  pin:'<path d="m14 3 7 7-4 1-3 5-3-3-7 7 7-7-3-3 5-3Z"/>',
-  target:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/>',
-  swords:'<path d="m3 3 7 2 10 13-2 2L5 10ZM21 3l-7 2-3 4M8 13l-4 5 2 2 5-4M2 16l6 6M16 22l6-6"/>'
+
+const artwork={
+  maze:'ornate/maze-builder.webp?v=faceted-maze',
+  wave:'hud-generated/wave.webp', shield:'hud-generated/keep-health.webp',
+  coin:'hud-generated/gold.webp', command:'hud-generated/command-points.webp',
+  clock:'hud-generated/time.webp', spark:'hud-generated/command-points.webp',
+  commander:'commander-generated/commander.webp', book:'hud-generated/recipes.webp',
+  warband:'hud-generated/enemy-waves.webp', sound:'commander-generated/skill-war-horn.webp',
+  settings:'hud-generated/settings.webp', crown:'commander-feedback/champions.webp',
+  basic:'commander-feedback/basic-defenders.webp', swords:'commander-generated/skill-blood-wrath.webp',
+  bow:'commander-generated/skill-extended-range.webp',
 };
-export const icon=(name,cls='')=>`<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]||paths.shield}</svg>`;
-const generatedHud=new Set(['wave','keep-health','gold','command-points','time','recipes','enemy-waves','settings']);
-export const ornateIcon=(name,cls='')=>illustrated[name]?`<img class="icon illustrated-icon ${cls}" src="${name==='commander'?commanderGeneratedArt('commander'):(name==='sound'||name==='mute')?commanderGeneratedArt('skill-war-horn'):generatedHud.has(illustrated[name])?siteUrl('assets/ui/hud-generated/'+illustrated[name]+'.webp'):siteUrl('assets/ui/'+(name==='maze'?'ornate/':'geometric/')+illustrated[name]+(name==='maze'?'.webp':'.svg'))}" width="32" height="32" alt="" aria-hidden="true" draggable="false">`:icon(name,cls);
+const interfaceIcons=new Set([
+  'loading','compass','play','pause','path','grid','reset','help','close','check','pin','target',
+  'chevron','mute','snow','fire','flask','sun','hammer','bolt','scroll',
+]);
+export function iconArt(name){
+  const file=interfaceIcons.has(name)?'war-table/ui-icons/'+name+'.webp':Object.hasOwn(artwork,name)?artwork[name]:artwork.shield;
+  return siteUrl('assets/ui/'+file);
+}
+export function icon(name,cls=''){
+  return `<img class="icon ${cls}" src="${iconArt(name)}" width="24" height="24" alt="" aria-hidden="true" draggable="false">`;
+}
+export const ornateIcon=(name,cls='')=>icon(name,'illustrated-icon '+cls);

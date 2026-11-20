@@ -1,6 +1,7 @@
 import {Box3,Vector3} from 'three';
 
-const pauseGlyph='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor"/></svg>';
+import {icon} from '../../ui/icons.js';
+const pauseGlyph=icon('pause');
 
 // These screen-sized badges read only each real defender's attackPaused flag.
 // Global pause, selection and rank previews cannot create a badge.

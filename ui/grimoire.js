@@ -1,3 +1,4 @@
+import {recipeStatusIcon} from './recipe-navigation.js';
 import {publicRecipe} from './recipe-visibility.js';
 import {towerStats,offensiveAuraRange} from '../game/core/math.js';
 import {rankColor} from '../game/render/ranks.js';
@@ -85,7 +86,7 @@ export function recipeIngredientLabel(piece,data,{interactive=false,scope='catal
 function exactIngredientRows(progress,data,images){
   return progress.map(piece=>{
     const src=images[`${piece.family}:${piece.tier}`]||images[piece.family],state=piece.owned?'Built':piece.draft?'This round':'Missing';
-    return `<li class="recipe-ingredient-row ${piece.owned?'owned':piece.draft?'draft-available':'missing'}">${src?`<img class="recipe-ingredient-portrait" src="${escape(src)}" alt="" draggable="false">`:''}${recipeIngredientLabel(piece,data,{interactive:true})}<span class="recipe-ingredient-status ${piece.owned?'owned-progress':piece.draft?'draft-progress':'missing-progress'}"><span aria-hidden="true">${piece.owned?'✓':piece.draft?'◆':'○'}</span> ${state}</span></li>`;
+    return `<li class="recipe-ingredient-row ${piece.owned?'owned':piece.draft?'draft-available':'missing'}">${src?`<img class="recipe-ingredient-portrait" src="${escape(src)}" alt="" draggable="false">`:''}${recipeIngredientLabel(piece,data,{interactive:true})}<span class="recipe-ingredient-status ${piece.owned?'owned-progress':piece.draft?'draft-progress':'missing-progress'}">${state}</span></li>`;
   }).join('');
 }
 export const recipeProgressLegend=()=>`<div class="recipe-progress-heading"><span class="owned-progress">Built</span><span class="draft-progress">This round</span></div>`;
@@ -94,7 +95,7 @@ export function basicRecipeBreakdown(recipe,data,towerList){
 }
 export function recipeIngredientTree(recipe,data,towerList,{interactive=false}={}){
   const label=p=>data.towers[p.family].advanced?`${p.count}×${data.towers[p.family].name} · ${rankLabel(p.tier)}`:basicIngredientLabel(p,data);
-  const progress=p=>p.coveredBy?`<span class="recipe-tree-covered ${p.coveredBy.state==='active'?'owned-progress':'draft-progress'}">${p.coveredBy.state==='active'?'✓':'◆'} Included in ${p.coveredBy.state==='active'?'built':'this round’s'} ${data.towers[p.coveredBy.family].name}</span>`:`<span class="pinned-progress"><b class="${p.ownedCount?'owned-progress':''}">${p.ownedCount}/${p.count} built</b>${p.draftCount?`<small class="draft-progress">+${p.draftCount} this round</small>`:''}</span>`;
+  const progress=p=>p.coveredBy?`<span class="recipe-tree-covered ${p.coveredBy.state==='active'?'owned-progress':'draft-progress'}">Included in ${p.coveredBy.state==='active'?'built':'this round’s'} ${data.towers[p.coveredBy.family].name}</span>`:`<span class="pinned-progress"><b class="${p.ownedCount?'owned-progress':''}">${p.ownedCount}/${p.count} built</b>${p.draftCount?`<small class="draft-progress">+${p.draftCount} this round</small>`:''}</span>`;
   const node=(p,root=false)=>`<li class="recipe-tree-node ${p.ownedCount?'owned':p.draftCount?'draft-available':p.coveredBy?'covered':''}" data-family="${p.family}" data-tier="${p.tier}"><div class="recipe-tree-row"><span class="recipe-tree-label">${interactive&&data.towers[p.family].advanced?recipeIngredientLabel(p,data,{interactive:true}):`<b>${label(p)}</b>${!data.towers[p.family].advanced?`<small>${data.towers[p.family].name}</small>`:''}`}</span>${progress(p)}</div>${p.children.length?`${root?'<div class="recipe-tree-branch-heading">How to build this champion</div>':''}<ul class="recipe-tree-children">${p.children.map(child=>node(child)).join('')}</ul>`:''}</li>`;
   return `<div class="recipe-tree-heading">Combine these ${recipe.ingredients.length} ingredients</div>${recipe.currentRoundOnly?'<p class="recipe-round-rule">All three must be among this round’s five newly placed defenders. Select one of those ingredients; the other two candidates become walls.</p>':''}<ul class="recipe-tree">${recipeTreeProgress(recipe,towerList,data).map(p=>node(p,true)).join('')}</ul>`;
 }
@@ -117,7 +118,7 @@ export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false
     <p class="recipe-built"><strong>${ownedResults}</strong> built</p>
     ${performanceStatsMarkup(stats)}
     <div class="recipe-ability-heading">${damageTypeName(stats.type)} · Effects</div><ul class="recipe-effects">${abilities.map(line=>`<li>${line}</li>`).join('')}</ul>
-    <div class="recipe-ability-heading">Combine these ${recipe.ingredients.length} defenders</div>${recipe.currentRoundOnly?'<p class="recipe-round-rule">Secret recipe: all three ingredients must be in the same current round’s five defenders. Previously kept units cannot be used.</p>':''}<ul class="recipe-ingredients">${progress.map(p=>`<li class="${p.owned?'owned':p.draft?'draft-available':''}"><span>${p.owned?'✓':p.draft?'◆':'○'}</span>${ingredientName(p,data)}${p.draft?' <small class="draft-progress">this round</small>':''}</li>`).join('')}</ul>
+    <div class="recipe-ability-heading">Combine these ${recipe.ingredients.length} defenders</div>${recipe.currentRoundOnly?'<p class="recipe-round-rule">Secret recipe: all three ingredients must be in the same current round’s five defenders. Previously kept units cannot be used.</p>':''}<ul class="recipe-ingredients">${progress.map(p=>`<li class="${p.owned?'owned':p.draft?'draft-available':''}">${recipeStatusIcon(p.owned?'built':p.draft?'draft':'missing')}<span class="sr-only">${p.owned?'Built':p.draft?'This round':'Missing'}</span>${ingredientName(p,data)}${p.draft?' <small class="draft-progress">this round</small>':''}</li>`).join('')}</ul>
     ${pinned?`<details class="recipe-basic-breakdown" open><summary>Full crafting chain</summary>${recipeProgressLegend()}${recipeIngredientTree(recipe,data,towerList)}<details class="recipe-basic-totals"><summary>Basic recruit totals</summary>${basicRecipeBreakdown(recipe,data,towerList)}</details></details>`:''}
     <button class="text-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Pinned':'Pin recipe'}</button>${ready&&craftable?` <button class="text-button gold" data-action="craft" data-id="${recipe.id}">Recruit champion</button>`:''}
   </article>`;

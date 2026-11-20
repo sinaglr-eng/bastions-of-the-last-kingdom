@@ -1,3 +1,4 @@
+import {siteUrl} from '../game/site-url.js';
 import {ENEMY_DEFENSE_SYMBOLS} from '../game/render/enemy-defense-symbols.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 
@@ -5,7 +6,7 @@ const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
 export function enemyDefenseGlyph(kind){
   const symbol=ENEMY_DEFENSE_SYMBOLS[kind];
   if(!symbol)return '';
-  return `<svg class="enemy-defense-glyph" data-defense="${kind}" style="color:${symbol.color}" viewBox="${symbol.viewBox}" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbol.svgPaths.map(path=>`<path d="${path}"/>`).join('')}</svg>`;
+  return `<img class="enemy-defense-glyph" data-defense="${kind}" src="${siteUrl(symbol.art)}" width="24" height="24" alt="">`;
 }
 export function enemyTraitsMarkup(traits){
   if(!traits?.length)return '<ul class="enemy-trait-list"><li>No special resistances or abilities</li></ul>';

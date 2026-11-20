@@ -8,10 +8,16 @@ import {rankLabel} from '../game/core/recipes.js';
 import {loadBlueprintLibrary} from '../game/core/blueprints.js';
 
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export const lockMark='<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg>';
 export function factionPickerMarkup(id='crown'){
  const selected=FACTIONS.find(f=>f.id===id)||FACTIONS[0];
- return `<section class="war-faction-panel" data-faction-picker aria-label="Faction for your new game"><img class="war-faction-scene" src="${siteUrl(selected.scene)}" width="${selected.sceneWidth}" height="${selected.sceneHeight}" alt="${selected.name} champions marching into battle"><div class="war-faction-selection">${factionTabs(selected.id,{attribute:'new-faction'})}<div class="war-faction-caption"><p>${esc(selected.description)}</p><button data-menu="new"><span data-start-faction>New Game · ${selected.name}</span></button></div></div></section>`;
+ const scenes=FACTIONS.map(f=>`<img class="war-faction-scene" data-faction-scene="${f.id}" src="${siteUrl(f.scene)}" width="${f.sceneWidth}" height="${f.sceneHeight}" alt="${f.name} champions marching into battle" decoding="async" fetchpriority="${f.id===selected.id?'high':'low'}" ${f.id===selected.id?'':'hidden'}>`).join('');
+ return `<section class="war-faction-panel" data-faction-picker aria-label="Faction for your new game">${scenes}<div class="war-faction-selection">${factionTabs(selected.id,{attribute:'new-faction'})}<div class="war-faction-caption"><p>${esc(selected.description)}</p><button data-menu="new"><span data-start-faction>New Game · ${selected.name}</span></button></div></div></section>`;
+}
+export function selectHomeFaction(panel,faction){
+ for(const image of panel.querySelectorAll('[data-faction-scene]'))image.hidden=image.dataset.factionScene!==faction.id;
+ for(const button of panel.querySelectorAll('[data-new-faction]'))button.setAttribute('aria-pressed',String(button.dataset.newFaction===faction.id));
+ panel.querySelector('.war-faction-caption p').textContent=faction.description;
+ panel.querySelector('[data-start-faction]').textContent='New Game · '+faction.name;
 }
 export function commanderLoadoutMarkup(player){
  const profile=player.profile||{},equipped=(profile.equipped||[]).filter(id=>GENERAL_SKILLS[id]).slice(0,3);

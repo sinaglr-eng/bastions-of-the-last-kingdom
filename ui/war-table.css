@@ -15,7 +15,13 @@
 .war-achievement-scope{align-self:center;padding:3px 7px;border:1px solid #92a38b;border-radius:10px;background:#e5ead9;color:#35594d;font:700 10px/1.3 var(--war-sans);text-align:center}
 .war-achievement-scope.is-faction{display:inline-flex;align-items:center;justify-content:center;gap:5px;background:#f1e5c4;border-color:#b49b61;color:#655126}
 .war-achievement-scope .faction-mark{min-width:18px;width:18px;height:18px;font-size:18px;line-height:18px}.war-achievement-scope .faction-mark img{width:18px;height:18px;object-fit:contain}
-.war-achievement-trio-art{width:100%;height:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:2px}.war-achievement-trio-art>img{min-width:0;max-width:100%;object-fit:contain}
+.war-achievement-art:has(.achievement-scene,.achievement-watch-panels){padding:0;overflow:hidden}
+.war-achievement .war-achievement-art .achievement-scene{object-fit:cover;object-position:center;filter:none}
+.war-achievement.is-progress .war-achievement-art .achievement-scene,.war-achievement.is-progress .achievement-watch-panels img{filter:saturate(.86)}
+.achievement-watch-panels{display:flex;align-items:stretch;gap:2px;width:100%;height:100%;overflow:hidden;background:#bca36f}
+.achievement-watch-panels>img,.war-achievement .achievement-watch-panels>img{display:block;flex:1 1 0;min-width:0;width:0;height:100%;object-fit:cover;object-position:center;filter:none}
+.achievement-portrait>.achievement-scene{width:100%;height:100%;object-fit:cover;object-position:center}
+.achievement-notice>.achievement-watch-panels{height:54px;width:78px;flex:none;align-self:center}
 .war-achievement-requirements{list-style:none;padding:0;margin:0;display:grid;gap:5px;font:600 11px/1.35 var(--war-sans)}.war-achievement-requirements li{display:flex;align-items:center;gap:5px;min-width:0}.war-achievement-requirements li>span:first-child{font-size:14px;min-width:15px;color:#7e744f}.war-achievement-requirements li[data-discovery="discovered"]>span:first-child{color:#386749}.war-achievement-requirements small{display:block;color:#7d745d;font-size:10px;font-weight:400}
 .war-category-faction{width:38px;text-align:center;font-size:34px;line-height:38px;color:#8e7037}
 :root{--war-ink:#173d3c;--war-paper:#f5edd7;--war-brass:#c4a164;--war-serif:Cinzel,Georgia,serif;--war-sans:'Source Sans 3','Segoe UI',sans-serif}
@@ -146,3 +152,23 @@
 @media(max-width:1100px){.war-general-grid{grid-template-columns:1fr}.war-skill-detail{position:static;scroll-margin-top:20px}.war-skill-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.war-title{grid-template-columns:1fr 1fr}.war-title h1{grid-column:1/-1!important;grid-row:2!important;order:0}.war-title .war-return{grid-column:2;grid-row:1}.war-title .menu-back{grid-row:1}.war-detail-ranks{gap:6px}}
 @media(max-width:600px){.war-skill-catalog{grid-template-columns:1fr}.war-detail-copy{padding:14px}.war-detail-ranks b{font-size:20px}.war-detail-ranks strong{font-size:15px}.war-detail-ranks span{font-size:11px}}
+
+.war-faction-scene[hidden]{display:none}
+
+.offline-game-panel{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #c7ab76;margin:16px 0 0;padding:14px 0 0;color:#264e45}
+.offline-game-panel p,.offline-game-panel small{margin:3px 0;font-size:.88em}
+.offline-game-panel a{color:#285746;text-underline-offset:3px}
+.offline-game-panel offline-game-download{display:grid;justify-items:end;gap:4px}
+.offline-game-panel progress{width:100%;height:6px;accent-color:#276451}
+.offline-game-panel progress[hidden]{display:none}
+.offline-game-panel button{min-height:40px}
+@media(max-width:650px){.offline-game-panel{align-items:start;flex-direction:column}.offline-game-panel offline-game-download{justify-items:start}}
+
+
+#main-menu[aria-busy=true] .page-home>.menu-status::before,
+.menu-replace-dialog[aria-busy=true] .menu-replace-status::before,
+.faction-chooser[aria-busy=true] .faction-status::before,
+.war-loading::before{
+ content:"";display:inline-block;width:2.25rem;height:2.25rem;margin-inline-end:.45rem;
+ vertical-align:middle;background:var(--game-loading-art) center/contain no-repeat
+}

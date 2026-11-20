@@ -17,7 +17,8 @@ export const FR010_RULESET='fr010-v1';
 const approvedRegistry=applyFr008Registry(applyFr006Fr007Registry(applyFr005Registry(applyFr004Registry(applyFr003Registry(applyFr002Registry(registry))))));
 const base={balance,towers:campaignTowers(towers),enemies:campaignEnemies(enemies),waves:campaignWaves(waves),recipes:campaignRecipes(recipes)};
 const cache=new Map();
-export function currentFactionData(id){
- if(!cache.has(id))cache.set(id,applyRecruitSlots({...createFactionData(base,approvedRegistry,id),fr010:true,rulesetRevision:FR010_RULESET}));
- return cache.get(id);
+export function currentFactionData(id,{elfAirTargeting=true}={}){
+ const key=id==='grove'&&!elfAirTargeting?'grove-legacy-air':id;
+ if(!cache.has(key))cache.set(key,applyRecruitSlots({...createFactionData(base,approvedRegistry,id,{elfAirTargeting}),fr010:true,rulesetRevision:FR010_RULESET}));
+ return cache.get(key);
 }

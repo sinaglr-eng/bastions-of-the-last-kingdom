@@ -15,11 +15,9 @@ import {allianceLogoArtwork} from '../ui/account-progression-art.js';
 import {animatePromotion,showPromotionNotice} from '../ui/account-progression.js';
 import '../ui/achievement-notices.css';
 import {AchievementNotices} from '../ui/achievement-notices.js';
-import {currentFactionData} from './core/current-data.js';
 import {WaveThreatAnalyzer as EndlessAnalyzer} from './core/wave-threats.js';
 
 import {withTowerStatSnapshot} from './core/math.js';
-import {releaseAsset} from './release.js';
 import factionRegistry from '../data/factions-v060.json' with {type:'json'};
 import {applyFr002Registry} from './core/fr002-registry.js';
 import {applyFr003Registry} from './core/fr003-registry.js';
@@ -28,7 +26,6 @@ import {applyFr006Fr007Registry} from './core/fr006-fr007-registry.js';
 import {applyFr008Registry} from './core/fr008-registry.js';
 import {applyFr005Registry} from './core/fr005-registry.js';
 import {createFactionData} from './core/factions.js';
-import {decodedModelBytes} from './render/packed-model.js';
 import {chooseFaction} from '../ui/faction-selection.js';
 import '../ui/faction-selection.css';
 import '../ui/style.css';
@@ -82,7 +79,7 @@ import {developerConsoleMarkup,connectDeveloperConsole} from '../ui/developer-co
 import '../ui/developer-console.css';
 import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import '../ui/mvp-details.css';
-import {Battlefield,makeThumbnails} from './render/world.js';
+import {Battlefield} from './render/world.js';
 import {AudioManager} from './audio/audio.js';
 import {CURRENT_DEFENDER_VOICE_CATALOGUE,CURRENT_VOICE_REVIEW} from './audio/current-voice-assets.js';
 import {recordedAudioBankReview,RECORDED_MUSIC_TRACK_COUNT} from './audio/audio-assets.js';
@@ -519,14 +516,8 @@ async function requestFactionRun(selectedFactionId=null,{replace=false}={}){
  if(factionChoicePending)return;factionChoicePending=true;
  const previousGame=game,wasPaused=game?.paused;if($('dialog').open)closeDialog();if(game){modalPaused=wasPaused;game.paused=true;}
  const prepare=async(id,{signal})=>{
-  const selected=currentFactionData(id);
-  // Validate the actual opening skins before replacing an existing battlefield.
-  for(const asset of selected.defenderAssets.filter(a=>a.tier===1&&!selected.towers[a.family].advanced)){
-   const response=await fetch(releaseAsset(asset.packedFile||asset.file),{signal});if(!response.ok)throw Error('A required defender model is unavailable.');
-   const decoded=await decodedModelBytes(response,{sha256:asset.sha256,signal}),bytes=decoded.buffer.slice(decoded.byteOffset,decoded.byteOffset+decoded.byteLength),view=new DataView(bytes);if(view.byteLength<20||view.getUint32(0,true)!==0x46546c67||view.getUint32(4,true)!==2||view.getUint32(8,true)!==view.byteLength)throw Error('Invalid defender content.');
-   const json=JSON.parse(new TextDecoder().decode(new Uint8Array(bytes,20,view.getUint32(12,true))));if(!json.skins?.length||!['Idle','Attack'].every(name=>json.animations?.some(a=>a.name===name)))throw Error('Required animations are missing.');
-  }
-  if(signal.aborted)throw Error('Selection cancelled.');const context=await player.newRun(id,{replace});startGame({factionData:selected,replacement:context.game,restoring:false});await player.attach(game,context);mainMenu.hide();
+  // Opening skins are validated at build time. The renderer checks each approved model on first use.
+  if(signal.aborted)throw Error('Selection cancelled.');const context=await player.newRun(id,{replace});startGame({factionData:context.game.data,replacement:context.game,restoring:false});await player.attach(game,{...context,fresh:true});mainMenu.hide();
  };
  try{const committed=selectedFactionId?(await prepare(selectedFactionId,{signal:new AbortController().signal}),true):await chooseFaction({registry:factionRegistry,replace:!!previousGame,allowCancel:true,confirm:prepare});if(!committed&&previousGame===game&&game){game.paused=wasPaused;render();}
  }catch(error){if(previousGame===game&&game){game.paused=wasPaused;render();}throw error;}finally{factionChoicePending=false;}
@@ -554,7 +545,7 @@ achievementNotices=new AchievementNotices({player,onView:async id=>{if(game){gam
 mainMenu=new MainMenu({player,app,audio,onBlueprintSaved:plan=>{if(world?.maze){const library=loadBlueprintLibrary(localStorage);world.maze.saved=library.plans;world.maze.choose(plan.id);}},onNew:({factionId,replace})=>requestFactionRun(factionId,{replace}),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
 }
 
-try{initializePlayerMenu();images={...referencePortraitImageMap()};void bootToMenu(()=>player.initialize(),async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(player.readyAchievements.length)player.onAchievement({type:'summary',count:player.readyAchievements.length});if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');}).catch(error=>failGameBoot(error));
+try{initializePlayerMenu();images={...referencePortraitImageMap()};void bootToMenu(()=>player.initialize({localGuest:params.get('offline')==='guest'}),async()=>{const failed=params.has('error');await mainMenu.show(failed?'sign-in':params.has('reset')&&params.has('token')?'reset-password':'home');if(player.readyAchievements.length)player.onAchievement({type:'summary',count:player.readyAchievements.length});if(failed)mainMenu.status(params.get('error')==='email_not_verified'?'Check your email and open the verification link to finish signing in.':'Sign-in did not complete. Please try again.',params.get('error')!=='email_not_verified');}).catch(error=>failGameBoot(error));
 
   let frameStage='idle';
   startFrameLoop({step(now){const elapsedDt=Math.max(0,(now-previous)/1000),dt=Math.min(elapsedDt,0.05);previous=now;if(game&&world&&!mainMenu.visible)withTowerStatSnapshot(game.data,()=>{const graphicsReady=world.contextRecovery?.update()!==false;frameStage='statistics';statistics.sample(dt,elapsedDt);frameStage='simulation';game.tick(graphicsReady?dt:0,elapsedDt);if(graphicsReady){frameStage='battlefield';world.update(dt);}frameStage='interface';uiClock+=dt;if(uiClock>0.2){hud();uiClock=0;}if(graphicsReady)world.contextRecovery?.frameSucceeded();});player.update();},onError(error){if(game)game.paused=true;if(world?.contextRecovery)world.contextRecovery.fail(error,{stage:frameStage});else console.error(error);}});

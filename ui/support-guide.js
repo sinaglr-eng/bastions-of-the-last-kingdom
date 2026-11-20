@@ -1,23 +1,7 @@
 import {SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,supportLegend,supportSourceAreas} from '../game/render/support-effects.js';
 
-// Use the same distinguishable shapes as the world overlays, with text labels
-// alongside them so color is never the sole source of meaning.
-const paths={
-  clock:'<circle cx="12" cy="12" r="8"/><path d="M12 6v6l5 3"/>',
-  blade:'<path d="M7 17 19 5l-1 6-9 8M4 14l6 6M3 21l3-3"/>',
-  arrows:'<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>',
-  shield:'<path d="M4 4h16l-2 11-6 6-6-6Z"/>',
-  brokenShield:'<path d="M4 4h16l-2 11-6 6-6-6Z"/><path d="m13 4-4 6 5 2-4 6"/>',
-  target:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v20M2 12h20"/>',
-  spiral:'<path d="M12 12c-3-3 3-5 4-1 2 6-7 9-10 3C1 4 17 0 21 10c3 9-7 14-14 11"/>',
-  cross:'<path d="m5 5 14 14M5 19 19 5"/>',
-  brokenSword:'<path d="m3 21 4-4m-2-3 5 5m-3-4 5-5 3 1-1-4-2 1-3 5m7-8 2-3 4-1-1 4-2 2-1-3-2 1Z"/>',
-  crack:'<path d="m5 3 8 7-4 4 10 7M3 14v7h18v-7"/>',
-  snowflake:'<path d="M12 2v20M3 7l18 10M3 17 21 7"/>',
-  moon:'<path d="M19 16A9 9 0 0 1 8 3a9 9 0 1 0 11 13Z"/>',
-  flame:'<path d="M5 20 4 11l8-9 1 10 6-6 2 14Z"/>',
-  brokenStar:'<path d="M3 8h13l-4-6 9 14H8l4 6Z"/>'
-};
+import {supportArtwork} from '../game/render/status-art.js';
+
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const SUPPORT_EFFECT_DESCRIPTIONS=Object.freeze({
   haste:'Attacks happen more often. Only the strongest standard attack-speed bonus applies. Otomad adds a separate +500% bonus; duplicate Otomad sources do not stack.',
@@ -38,7 +22,7 @@ export const SUPPORT_EFFECT_DESCRIPTIONS=Object.freeze({
 });
 const tooltipAttributes=(key,label,extraClass='')=>`class="has-effect-tooltip${extraClass?' '+extraClass:''}" tabindex="0" aria-label="${escape(label+'. '+(SUPPORT_EFFECT_DESCRIPTIONS[key]||label))}"`;
 const tooltip=key=>`<span class="support-effect-tooltip" role="tooltip">${escape(SUPPORT_EFFECT_DESCRIPTIONS[key]||'')}</span>`;
-export const supportGlyph=(glyph,color)=>`<svg class="support-glyph" data-glyph="${glyph}" style="color:${color}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[glyph]||paths.target}</svg>`;
+export const supportGlyph=(glyph,color,key)=>`<img class="support-glyph" data-glyph="${glyph}" src="${supportArtwork(glyph,key)}" width="24" height="24" alt="">`;
 export function supportEffectsMarkup(tower,towers,data,options){
   const effects=supportLegend(tower,towers,data,options);
   if(!effects.length)return `<p class="support-empty">${tower.state==='active'?'No active bonuses or penalties.':'Retain this defender to receive support effects.'}</p>`;
@@ -52,13 +36,13 @@ export function supportEffectsMarkup(tower,towers,data,options){
     return `${source.name} #${source.id}`;
   };
   const labels=effect=>[...new Set(providers(effect).map(source=>providerLabel(effect,source)))].map(escape).join(', ');
-  return `<ul class="support-effects-list">${effects.map(effect=>`<li ${tooltipAttributes(effect.key,effect.label,['dread','disarm','weakened','melancholy'].includes(effect.key)?'negative':'friendly')} data-effect="${effect.key}">${supportGlyph(effect.glyph,effect.color)}<span><b>${escape(effect.label)}</b><small>From ${labels(effect)}</small></span>${tooltip(effect.key)}</li>`).join('')}</ul>`;
+  return `<ul class="support-effects-list">${effects.map(effect=>`<li ${tooltipAttributes(effect.key,effect.label,['dread','disarm','weakened','melancholy'].includes(effect.key)?'negative':'friendly')} data-effect="${effect.key}">${supportGlyph(effect.glyph,effect.color,effect.key)}<span><b>${escape(effect.label)}</b><small>From ${labels(effect)}</small></span>${tooltip(effect.key)}</li>`).join('')}</ul>`;
 }
 export function supportMapLegendMarkup(){
   const armor=ENEMY_EFFECT_STYLES.armor,armorLabel='Enemy armor reduced';
-  return `<details class="support-map-legend"><summary>Map effect symbols</summary><p>The wall color follows the first listed effect; separate symbols show every active effect. The selected provider’s dashed circle shows its reach.</p><ul aria-label="Defender effect symbols">${Object.entries(SUPPORT_EFFECT_STYLES).map(([key,style])=>`<li ${tooltipAttributes(key,style.label)} data-effect="${key}">${supportGlyph(style.glyph,style.color)}<span>${style.label}</span>${tooltip(key)}</li>`).join('')}</ul><p>On enemies</p><ul aria-label="Enemy effect symbols"><li ${tooltipAttributes('armor',armorLabel)} data-effect="armor">${supportGlyph(armor.glyph,armor.color)}<span>${armorLabel}</span>${tooltip('armor')}</li></ul></details>`;
+  return `<details class="support-map-legend"><summary>Map effect symbols</summary><p>The wall color follows the first listed effect; separate symbols show every active effect. The selected provider’s dashed circle shows its reach.</p><ul aria-label="Defender effect symbols">${Object.entries(SUPPORT_EFFECT_STYLES).map(([key,style])=>`<li ${tooltipAttributes(key,style.label)} data-effect="${key}">${supportGlyph(style.glyph,style.color,key)}<span>${style.label}</span>${tooltip(key)}</li>`).join('')}</ul><p>On enemies</p><ul aria-label="Enemy effect symbols"><li ${tooltipAttributes('armor',armorLabel)} data-effect="armor">${supportGlyph(armor.glyph,armor.color)}<span>${armorLabel}</span>${tooltip('armor')}</li></ul></details>`;
 }
 export function selectedSupportMarkup(tower,towers,data,options){
   const areas=supportSourceAreas(tower,data,{towers});
-  return `<section class="selected-support" aria-label="Current support effects"><div class="section-label">ACTIVE BONUSES &amp; PENALTIES</div><div id="selected-support-effects">${supportEffectsMarkup(tower,towers,data,options)}</div>${areas.length?`<div class="support-source-heading">Projected by this defender</div><ul class="support-source-list">${areas.map(area=>`<li ${tooltipAttributes(area.key,area.label)}>${supportGlyph(area.glyph,area.color)}<span>${escape(area.label)}</span>${tooltip(area.key)}</li>`).join('')}</ul>`:''}</section>`;
+  return `<section class="selected-support" aria-label="Current support effects"><div class="section-label">ACTIVE BONUSES &amp; PENALTIES</div><div id="selected-support-effects">${supportEffectsMarkup(tower,towers,data,options)}</div>${areas.length?`<div class="support-source-heading">Projected by this defender</div><ul class="support-source-list">${areas.map(area=>`<li ${tooltipAttributes(area.key,area.label)}>${supportGlyph(area.glyph,area.color,area.key)}<span>${escape(area.label)}</span>${tooltip(area.key)}</li>`).join('')}</ul>`:''}</section>`;
 }

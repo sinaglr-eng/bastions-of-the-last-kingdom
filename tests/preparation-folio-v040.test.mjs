@@ -27,11 +27,11 @@ test('Archer II→IV changes the displayed profile and recipe suggestions while 
   const game=candidates(),control=candidates(),tower=game.selection,preview=new DefenderRankPreview(),images={'archer:2':'/archer-II.png','archer:4':'/archer-IV.png'};
   const key=drawKeeperKey(game,0),before=snapshot(game),render=()=>defenderPanelMarkup(game,tower,{images,rankPreview:preview});
   let html=render();assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['12','48','3.5','0.25s']);
-  assert.match(html,/Targets 1 · No additional status effect/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
+  assert.match(html,/Targets 1 · No additional status effect/);assert.match(html,/aria-label="Keep Archer II">(?:<img[^>]*aria-hidden="true"[^>]*>\s*)?Keep Archer II<\/button>/);
   assert.equal(preview.select(tower,4,data),true);html=render();
   assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['48','192','3.5','0.25s']);
   assert.match(html,/src="\/archer-IV.png"[^>]*data-portrait-rank="4"/);assert.doesNotMatch(html.slice(0,html.indexOf('</header>')),/src="\/archer-II.png"/);
-  assert.match(html,/Actual rank II · Candidate/);assert.match(html,/Preview rank IV · Actual rank II unchanged/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
+  assert.match(html,/Actual rank II · Candidate/);assert.match(html,/Preview rank IV · Actual rank II unchanged/);assert.match(html,/aria-label="Keep Archer II">(?:<img[^>]*aria-hidden="true"[^>]*>\s*)?Keep Archer II<\/button>/);
   assert.deepEqual(optionIds(html),recipesUsing({...tower,tier:4},game.recipes).map(recipe=>recipe.id));assert.match(html,/Viewed rank IV recipes/);assert.doesNotMatch(html,/data-action="craft-dock"/);
   const cards=draftCardsMarkup(game,data,images,{actions:false});assert.equal((cards.match(/src="\/archer-II.png"/g)||[]).length,5);assert.doesNotMatch(cards,/archer-IV.png|keep-draw|merge-tower|has-keep|mergeable/);
   assert.equal(button(html,'keep-draw').match(/data-keeper-key="([^"]+)"/)[1],key);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
@@ -60,7 +60,7 @@ test('Build/Select share five selection cards and detail without hidden identity
   const game=new Game(data,{seed:402}),control=new Game(data,{seed:402});for(const current of [game,control]){place(current,Array.from({length:3},()=>({family:'archer',tier:2})));}
   for(const draw of game.draft.draws.filter(draw=>!draw.placed))for(const key of ['family','tier'])Object.defineProperty(draw,key,{get(){throw Error('Hidden identity read');},configurable:true});
   const hidden=draftCardsMarkup(game,data,{'archer:2':'/archer-II.png'},{actions:false}),detail=defenderPanelMarkup(game,game.selection);
-  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Place a defender on the map\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img/g)||[]).length,5);
+  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Place a defender on the map\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img(?![^>]*class="icon )/g)||[]).length,5);
   assert.doesNotMatch(hidden+detail,/data-action="(?:keep-draw|reroll|reserve|merge-tower)"|src="(?:undefined|null|)"/);assert.equal(game.phase,'build');assert.equal(game.rng(),control.rng());
   const complete=candidates(),plain=draftCardsMarkup(complete,data,{}, {actions:false}),legacy=draftCardsMarkup(complete,data,{}),panel=defenderPanelMarkup(complete,complete.selection);
   assert.equal((plain.match(/data-action="draw"/g)||[]).length,5);assert.equal((plain.match(/<button/g)||[]).length,5);assert.equal((legacy.match(/data-action="keep-draw"/g)||[]).length,1);assert.equal((panel.match(/data-action="keep-draw"/g)||[]).length,1);assert.doesNotMatch(plain,/keep-draw|merge-tower|has-keep|mergeable/);
