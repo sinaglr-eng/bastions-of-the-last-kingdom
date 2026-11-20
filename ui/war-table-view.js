@@ -75,6 +75,8 @@ export function generalView(profile,enabled=true,{selected=null,filter='all',ski
  const p=profile||{balance:0,skills:{}},skills=p.skills||{};const catalog=Object.entries(GENERAL_SKILLS).sort(([a],[b])=>{const x=skillPurchaseState(p,a,enabled),y=skillPurchaseState(p,b,enabled),order=i=>i.canBuy?0:i.level?1:i.state==='rank-locked'?3:2;return order(x)-order(y)||x.gate.required-y.gate.required;});if(!GENERAL_SKILLS[selected])selected=catalog[0][0];
  const filtered=catalog.filter(([id])=>filter==='all'||filter==='available'&&skillPurchaseState(p,id,enabled).canBuy||filter==='equipped'&&equipped.includes(id)),page=Math.min(Math.max(0,skillPage),Math.max(0,Math.ceil(filtered.length/6)-1)),visible=filtered.slice(page*6,page*6+6);
  const s=GENERAL_SKILLS[selected],purchase=skillPurchaseState(p,selected,enabled),level=purchase.level;
+ const medalNote=purchase.state==='rank-locked'&&purchase.shortfall===0?' · Medal requirement met':'';
+ const purchaseMessage=purchase.canBuy?`Balance after upgrade: ${(purchase.balance-purchase.cost).toLocaleString('en-US')}`:purchase.reason+medalNote;
  const addable=catalog.filter(([id])=>skills[id]>0&&!equipped.includes(id));
  const slots=Array.from({length:3},(_,index)=>{
   const id=equipped[index];
@@ -108,7 +110,7 @@ export function generalView(profile,enabled=true,{selected=null,filter='all',ski
      <p class="war-skill-description">${esc(s.description)}</p>
      ${skillRankMarkup(selected,p,'war-skill-rank-track',{compact:true,enabled})}
      <footer class="war-skill-detail-actions">
-      <small role="status">${purchase.canBuy?`Balance after upgrade: ${(purchase.balance-purchase.cost).toLocaleString('en-US')}`:esc(purchase.reason)}</small>
+      <small role="status">${esc(purchaseMessage)}</small>
       ${purchase.next?`<button type="button" class="war-primary" data-buy="${selected}" aria-label="${esc(s.name+' · '+purchase.label+' · '+purchase.reason)}" ${purchase.canBuy?'':'disabled'}>${purchase.label}</button>`:'<strong>Fully upgraded</strong>'}
       ${level?`<button type="button" data-toggle-skill="${selected}" ${!enabled?'disabled':''} aria-pressed="${equipped.includes(selected)}">${equipped.includes(selected)?'✓ Equipped':'Equip skill'}</button>`:''}
      </footer>
