@@ -8,7 +8,7 @@ import {canonicalAchievementRows} from '../game/achievement-client-state.js';
 import {GENERAL_SKILLS,SKILL_COSTS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {achievementPicture,medalAmount,escapeProgression as esc} from './progression-art.js';
-import {skillEffect,skillSummary,skillKindLabel,skillPurchaseState,skillRankMarkup,skillEquipLabel,skillPurchaseBadge} from './general-page.js';
+import {skillSummary,skillKindLabel,skillPurchaseState,skillRankMarkup,skillEquipLabel,skillPurchaseBadge} from './general-page.js';
 import {eligibleChampion} from '../game/core/account-progression.js';
 import {rankOverviewMarkup,xpAmount} from './account-progression.js';
 
@@ -98,7 +98,22 @@ export function generalView(profile,enabled=true,{selected=null,filter='all',ski
   </section>
   <p class="war-helper">Loadout changes apply to new games. A saved defense keeps its original skills.</p>
   <div class="war-general-grid">
-   <article class="war-skill-detail" data-purchase-state="${purchase.state}"><div class="war-detail-art"><img src="${warArt(selected)}" alt="${esc(s.name)} illustration"><h2 tabindex="-1">${s.name}</h2></div><div class="war-detail-copy"><div class="war-command-type">${skillKindLabel(selected)}</div><p class="war-command-description">${esc(s.description)}</p>${!level&&purchase.state==='rank-locked'?`<div class="war-detail-unlock">Unlock at Level ${purchase.gate.required}<small>Requires ${esc(purchase.gate.rank.name)} · Your level ${purchase.current.level}</small></div>`:''}<div class="war-rank-heading"><span>Permanent skill ranks</span><small>Your rank: ${purchase.current.name} · Level ${purchase.current.level}</small></div>${skillRankMarkup(selected,p,'war-detail-ranks')}${level&&level<3?`<div class="war-upgrade-effect"><span>Upgrade effect</span><strong>${esc(skillEffect(selected,level))} → ${esc(skillEffect(selected,level+1))}</strong></div>`:''}<div class="war-purchase"><p>Buy permanent ranks with medals. Equip for your next new game.</p><button type="button" class="war-primary" data-buy="${selected}" aria-label="${esc(s.name+' · '+purchase.label+' · '+purchase.reason)}" ${purchase.canBuy?'':'disabled'}>${purchase.label}</button><small role="status">${purchase.canBuy?`Balance after upgrade: ${(purchase.balance-purchase.cost).toLocaleString('en-US')}`:esc(purchase.reason)+(purchase.state==='rank-locked'&&purchase.shortfall===0?' · Medal requirement met':'')}</small></div><button type="button" data-toggle-skill="${selected}" ${!enabled||!level?'disabled':''} aria-pressed="${equipped.includes(selected)}">${equipped.includes(selected)?'✓ Equipped':'Equip skill'}</button></div></article>
+   <article class="war-skill-detail" data-purchase-state="${purchase.state}">
+    <header class="war-skill-detail-header">
+     <img src="${warArt(selected)}" width="48" height="48" alt="">
+     <div><h2 tabindex="-1">${esc(s.name)}</h2><span class="war-skill-kind">${skillKindLabel(selected)}</span></div>
+     <small class="war-skill-account">Your rank · ${purchase.current.name} · Level ${purchase.current.level}</small>
+    </header>
+    <div class="war-skill-detail-body">
+     <p class="war-skill-description">${esc(s.description)}</p>
+     ${skillRankMarkup(selected,p,'war-skill-rank-track',{compact:true,enabled})}
+     <footer class="war-skill-detail-actions">
+      <small role="status">${purchase.canBuy?`Balance after upgrade: ${(purchase.balance-purchase.cost).toLocaleString('en-US')}`:esc(purchase.reason)}</small>
+      ${purchase.next?`<button type="button" class="war-primary" data-buy="${selected}" aria-label="${esc(s.name+' · '+purchase.label+' · '+purchase.reason)}" ${purchase.canBuy?'':'disabled'}>${purchase.label}</button>`:'<strong>Fully upgraded</strong>'}
+      ${level?`<button type="button" data-toggle-skill="${selected}" ${!enabled?'disabled':''} aria-pressed="${equipped.includes(selected)}">${equipped.includes(selected)?'✓ Equipped':'Equip skill'}</button>`:''}
+     </footer>
+    </div>
+   </article>
    <div class="vault-skill-toolbar"><div role="group" aria-label="Skill filter">${[['all','All skills'],['available','Available'],['equipped','Equipped']].map(([id,label])=>`<button type="button" data-vault-skill-filter="${id}" aria-pressed="${filter===id}">${label}</button>`).join('')}</div><small>${filtered.length} skills</small></div>
    <div class="war-skill-catalog">${visible.map(([id,g])=>{const item=skillPurchaseState(p,id,enabled),lv=item.level,locked=!lv&&item.state==='rank-locked';return `<article class="war-skill ${selected===id?'is-selected':''} ${lv?'':'is-locked'} ${locked?'is-level-locked':''}" data-purchase-state="${item.state}"><button type="button" class="war-skill-select" data-select-skill="${id}" aria-pressed="${selected===id}"><img src="${warArt(id)}" alt=""><span><strong>${g.name}</strong>${item.state!=='rank-locked'?`<span class="commander-purchase-badge" data-state="${item.state}">${skillPurchaseBadge(item)}</span>`:''}<small class="war-skill-summary">${esc(skillSummary(id,lv||1))}</small><span class="war-rank-pips" aria-label="${lv} of 3 ranks owned">${[1,2,3].map(n=>`<i class="${n<=lv?'is-owned':''}">${rankLabel(n)}</i>`).join('')}</span><small>${lv?`Owned rank ${rankLabel(lv)}${equipped.includes(id)?' · Equipped':''}`:'Not owned'}</small>${locked?`<strong class="war-skill-lockline">Unlock at Level ${item.gate.required}</strong>`:`<small class="commander-purchase-reason">${esc(item.reason)}</small>`}</span></button><label class="war-equip"><input type="checkbox" name="equipped" aria-label="Equip ${esc(g.name)}" value="${id}" ${equipped.includes(id)?'checked':''} ${!enabled||!lv?'disabled':''}>${locked?'Not unlocked':skillEquipLabel(item,equipped.includes(id))}</label></article>`;}).join('')||'<p>No skills match this filter.</p>'}<nav class="vault-skill-pages"><button type="button" data-vault-skill-page="${page-1}" ${page?'':'disabled'}>Previous</button><span>${filtered.length?page*6+1:0}–${Math.min(page*6+6,filtered.length)} / ${filtered.length}</span><button type="button" data-vault-skill-page="${page+1}" ${page*6+6<filtered.length?'':'disabled'}>Next</button></nav></div>
   </div>

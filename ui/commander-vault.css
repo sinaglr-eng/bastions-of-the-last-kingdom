@@ -147,8 +147,86 @@
 .vault-army-strip .artifact-bonus-breakdown{min-width:0}.vault-set-total .artifact-condition-list{columns:1}
 
 .page-general .commander-vault .war-skill-detail{
+ align-self:start;
  position:static;
  min-height:0;
+}
+.war-skill-detail-header{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ padding:7px 14px;
+ color:#fff6d9;
+ background:linear-gradient(115deg,#183e3b,#355e50);
+}
+.war-skill-detail-header>img{width:48px;height:48px;object-fit:contain;flex:none}
+#main-menu .war-skill-detail-header h2{font-size:1.28rem;margin:0;color:inherit}
+.war-skill-kind,.war-skill-account{font:600 .78rem/1.4 var(--war-sans)}
+.war-skill-account{margin-inline-start:auto;text-align:right;color:#f1e1b4}
+.war-skill-detail-body{padding:8px 14px}
+#main-menu .war-skill-description{font:400 .9rem/1.35 var(--war-sans);margin:0 0 8px}
+.war-skill-rank-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.war-rank-card{
+ --rank-accent:#a16a3a;
+ --rank-tint:#f4e4c9;
+ display:grid;
+ grid-template-columns:34px minmax(0,1fr) auto;
+ grid-template-areas:"emblem state cost" "emblem effect effect" "emblem gate gate";
+ align-content:center;
+ align-items:center;
+ gap:2px 8px;
+ padding:7px 9px;
+ border:1px solid #b6a17b;
+ border-top:4px solid var(--rank-accent);
+ border-radius:6px;
+ background:linear-gradient(145deg,#fffaf0,var(--rank-tint));
+ line-height:1.3;
+}
+.war-rank-card[data-skill-rank="2"]{--rank-accent:#648484;--rank-tint:#e2ebe4}
+.war-rank-card[data-skill-rank="3"]{--rank-accent:#ab812d;--rank-tint:#f4e9b6}
+.war-rank-emblem{
+ grid-area:emblem;
+ display:grid;
+ width:34px;
+ height:38px;
+ place-items:center;
+ background:var(--rank-accent);
+ clip-path:polygon(15% 0,85% 0,100% 16%,100% 73%,50% 100%,0 73%,0 16%);
+ color:#fffbe8;
+ font:700 .96rem var(--war-serif);
+ text-shadow:0 1px 2px #221c17;
+}
+.war-rank-card[data-rank-status="locked"] .war-rank-state{color:#6b573b}
+.war-rank-card[data-rank-status="available"] .war-rank-state{color:#245942}
+.war-rank-card[aria-current="true"],.war-rank-card.is-next-rank[data-rank-status="available"]{box-shadow:inset 0 0 0 1px var(--rank-accent)}
+.war-rank-state{grid-area:state;font:700 .78rem/1.3 var(--war-sans)}
+.war-rank-effect{grid-area:effect;font:700 .88rem/1.3 var(--war-sans)}
+.war-rank-gate{grid-area:gate;font:400 .74rem/1.3 var(--war-sans);color:#62583f}
+.war-rank-cost{grid-area:cost;font:600 .76rem/1.3 var(--war-sans);text-align:right;color:#55462d}
+.war-rank-cost .medal-amount{gap:3px}
+.war-rank-cost .medal-icon{width:15px;height:15px;object-fit:contain}
+.war-skill-detail-actions{
+ display:flex;
+ justify-content:flex-end;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:6px 10px;
+ margin-top:8px;
+}
+.war-skill-detail-actions>small{margin-inline-end:auto;font:600 .8rem/1.35 var(--war-sans);color:#5c533c}
+#main-menu .war-skill-detail-actions button{min-height:38px;padding:6px 12px;font-size:.875rem}
+@media(max-width:840px){
+ .war-rank-card{grid-template-columns:30px minmax(0,1fr);grid-template-areas:"emblem state" "emblem effect" "emblem gate" "emblem cost";gap:3px 7px}
+ .war-rank-emblem{width:30px;height:34px}
+ .war-rank-cost{text-align:left}
+}
+@media(max-width:560px){
+ .war-skill-detail-header,.war-skill-detail-body{padding-inline:9px}
+ .war-skill-account{max-width:10ch}
+ .war-skill-rank-track{grid-template-columns:1fr;gap:5px}
+ .war-rank-card{grid-template-columns:30px minmax(0,1fr) auto;grid-template-areas:"emblem state cost" "emblem effect effect" "emblem gate gate";padding-block:5px}
+ .war-rank-cost{text-align:right}
+ #main-menu .war-skill-detail-actions button{min-height:44px}
 }
 @media(min-width:1100px){
  .page-general .commander-vault .war-skill-catalog{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -223,18 +301,3 @@
 }
 .vault-army-totals>p{margin:0}
 .vault-army-strip>.artifact-bonus-breakdown{box-sizing:border-box;padding:0 18px}
-
-@media(max-width:700px){
- .commander-vault .war-detail-ranks>div{
-  display:grid;
-  grid-template-columns:minmax(32px,auto) minmax(0,1fr);
-  align-items:center;
-  gap:3px 12px;
-  padding:9px 10px;
- }
- .commander-vault .war-detail-ranks>div>b{
-  grid-row:1 / span 5;
-  text-align:center;
- }
- .commander-vault .war-detail-ranks>div>small{margin:0}
-}
