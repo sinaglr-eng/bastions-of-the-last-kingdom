@@ -31,7 +31,14 @@ export class CommanderVault{
  card(item,owned){const equipped=Object.values(this.account.equipment).includes(item.id);return `<button class="vault-item rarity-${item.rarity} ${owned?'is-owned':'is-undiscovered'} ${this.selected===item.id?'is-selected':''}" data-vault-item="${item.id}" aria-label="${esc(item.name)} · ${rarityLabel(item.rarity)} · ${equipped?'Equipped':owned?'Owned':'Not collected'}">${image(item.art,item.name)}<strong>${esc(item.name)}</strong><small>${rarityLabel(item.rarity)} · ${equipped?'Equipped':owned?slotLabel(item.slot):'Not collected'}</small></button>`;}
  nextEquipment(item,slot=null){const a=this.account,e={...a.equipment};slot??=item.slot==='ring'?this.targetSlot?.startsWith('ring')?this.targetSlot:e.ring1===item.id?'ring1':e.ring2===item.id?'ring2':!e.ring1?'ring1':!e.ring2?'ring2':'ring1':item.slot;for(const[s,id]of Object.entries(e))if(id===item.id)delete e[s];e[slot]=item.id;return validateArtifactEquipment(e);}
  detail(item){const a=this.account,owned=a.owned.includes(item.id),equipped=Object.entries(a.equipment).find(([,id])=>id===item.id),next=this.nextEquipment(item),set=ARTIFACT_SETS[item.setId],rarity=RARITIES[item.rarity],canCraft=!owned&&a.highestTier>=craftUnlockTier(item.rarity)&&a.dust>=rarity.craft;
- return `<article class="vault-item-detail rarity-${item.rarity}" aria-label="Artifact details"><header>${image(item.art,item.name)}<div><span>${rarity.name} · ${slotLabel(item.slot)}</span><h3>${esc(item.name)}</h3><p>${esc(item.description)}</p>${set?`<button data-vault-inspect-set="${set.id}">${esc(set.name)} · ${artifactBonuses(a.equipment).sets[set.id]||0} / ${set.pieceCount} equipped</button>`:'<small>Standalone artifact</small>'}</div><button class="vault-detail-close" data-vault-action="close-detail" aria-label="Close artifact details">×</button></header>${owned?`<div><h4>Equipment comparison</h4>${comparison(a.equipment,next)}</div>`:''}<section class="artifact-preview-conditions"><h4>Conditions after equipping</h4>${artifactConditionsMarkup(artifactBonuses(next))||'<p>No additional status source is required for this equipment.</p>'}</section><footer>${owned?`${item.slot==='ring'?`<label>Ring slot<span class="vault-select"><select data-vault-filter="targetSlot"><option value="ring1" ${next.ring1===item.id?'selected':''}>Left ring</option><option value="ring2" ${next.ring2===item.id?'selected':''}>Right ring</option></select></span></label>`:''}<button class="war-primary" data-vault-action="equip" data-id="${item.id}" ${this.busy||!this.player.online?'disabled':''}>Equip${item.slot==='ring'?' ring':''}</button>${equipped?`<button data-vault-action="unequip" data-slot="${equipped[0]}" ${this.busy||!this.player.online?'disabled':''}>Unequip</button>`:''}`:`<button class="war-primary" data-vault-action="craft" data-id="${item.id}" ${canCraft&&!this.busy&&this.player.online?'':'disabled'}>Craft · ${num(rarity.craft)} Dust</button><small>${a.highestTier<craftUnlockTier(item.rarity)?'Earn a tier '+craftUnlockTier(item.rarity)+' chest to unlock this rarity.':a.dust<rarity.craft?num(rarity.craft-a.dust)+' more Dust needed.':'Create this exact missing artifact.'}</small>`}</footer></article>`;
+ return `<article class="vault-item-detail rarity-${item.rarity}" aria-label="Artifact details"><header>${image(item.art,item.name)}<div><span>${rarity.name} · ${slotLabel(item.slot)}</span><h3>${esc(item.name)}</h3><p>${esc(item.description)}</p>${set?`<button data-vault-inspect-set="${set.id}">${esc(set.name)} · ${artifactBonuses(a.equipment).sets[set.id]||0} / ${set.pieceCount} equipped</button>`:'<small>Standalone artifact</small>'}</div><button class="vault-detail-close" data-vault-action="close-detail" aria-label="Close artifact details">×</button></header>${owned?`<div><h4>Equipment comparison</h4>${comparison(a.equipment,next)}</div>`:''}<section class="artifact-preview-conditions"><h4>Conditions after equipping</h4>${artifactConditionsMarkup(artifactBonuses(next))||'<p>No additional status source is required for this equipment.</p>'}</section><footer>${owned?`${item.slot==='ring'?`<label>Ring slot<span class="vault-select"><select data-vault-filter="targetSlot"><option value="ring1" ${next.ring1===item.id?'selected':''}>Left ring</option><option value="ring2" ${next.ring2===item.id?'selected':''}>Right ring</option></select></span></label>`:''}<button class="war-primary" data-vault-action="equip" data-id="${item.id}" ${this.busy||!this.player.online?'disabled':''}>Equip${item.slot==='ring'?' ring':''}</button>${equipped?`<button data-vault-action="unequip" data-slot="${equipped[0]}" ${this.busy||!this.player.online?'disabled':''}>Unequip</button>`:''}`:`<button class="war-primary" data-vault-action="craft" data-id="${item.id}" ${canCraft&&!this.busy&&this.player.online?'':'disabled'}>Craft · ${num(rarity.craft)} Dust</button><small>${a.highestTier<craftUnlockTier(item.rarity)?'Earn a tier '+craftUnlockTier(item.rarity)+' chest to unlock this rarity.':a.dust<rarity.craft?num(rarity.craft-a.dust)+' more Dust needed.':'Create this exact missing artifact.'}</small>`}${this.tab==='equipment'&&owned?this.dismantleControls(item,!!equipped):''}</footer></article>`;
+ }
+ dismantleControls(item,equipped){
+  const dust=RARITIES[item.rarity].dust;
+  return `<div class="vault-dismantle">
+   <button type="button" data-vault-action="salvage" data-id="${item.id}" ${equipped||this.busy||!this.player.online?'disabled':''}>Dismantle · +${num(dust)} Relic Dust</button>
+   ${equipped?'<small>Unequip this artifact before dismantling it.</small>':''}
+  </div>`;
  }
  chests(){return chestLayout(this,pendingArtifactChests(this.player));}
  rewards(receipt){
@@ -53,10 +60,28 @@ export class CommanderVault{
   if(action==='equip'){kind='equipment';const slot=b.closest('.vault-reward-actions')?.querySelector('[data-vault-reward-slot]')?.value;body={equipment:this.nextEquipment(ARTIFACTS[b.dataset.id],slot||null)};}
   if(action==='unequip'){kind='equipment';const equipment={...this.account.equipment};delete equipment[b.dataset.slot];body={equipment};}
   if(action==='craft'){const item=ARTIFACTS[b.dataset.id],cost=RARITIES[item.rarity].craft;if(!await confirmArtifact('Forge '+item.name,`<p>${esc(item.description)}</p><p>Cost: <b>${num(cost)} Dust</b>. Balance after crafting: <b>${num(this.account.dust-cost)}</b>.</p>`,'Forge artifact'))return true;body={artifactId:item.id};}
+  if(action==='salvage'){
+   const item=ARTIFACTS[b.dataset.id];
+   if(!item||!this.account.owned.includes(item.id))throw Error('You do not own this artifact.');
+   if(Object.values(this.account.equipment).includes(item.id))throw Error('Unequip this artifact before dismantling it.');
+   const dust=RARITIES[item.rarity].dust;
+   const confirmed=await confirmArtifact('Dismantle '+item.name+'?',`<p>This removes <b>${esc(item.name)}</b> from your backpack and any saved equipment presets.</p><p>You receive <b>+${num(dust)} Relic Dust</b>.</p>`,'Dismantle artifact');
+   if(!confirmed)return true;
+   body={artifactId:item.id};
+  }
   if(action==='equip-set'){const set=ARTIFACT_SETS[b.dataset.id],before=this.account.equipment,after=equipArtifactSet(before,set.id,this.account.owned,{ownedOnly:true});if(!await confirmArtifact('Equip '+set.name,`<p>Replace the conflicting pieces for your next new defense.</p>${comparison(before,after)}`,'Equip set'))return true;body={artifactId:set.id,ownedOnly:true};}
   if(action==='save-preset'){const index=Number(b.dataset.index),input=b.closest('.vault-presets').querySelector(`[data-vault-preset-name="${index}"]`);body={index,preset:{name:input.value,equipment:this.account.equipment}};}
   if(action==='load-preset'){kind='equipment';body={equipment:this.account.presets[Number(b.dataset.index)].equipment};if(!await confirmArtifact('Equip saved preset',comparison(this.account.equipment,body.equipment),'Equip preset'))return true;}
-  this.busy=true;await this.render();const result=await this.player.artifactMutation(kind,body);if(['open','craft'].includes(kind)){this.reveal=result.receipt;this.tab='chests';}this.status(kind==='equipment'||kind==='equip-set'?'Equipment saved for the next new defense.':'Artifact vault updated.');
+  this.busy=true;
+  await this.render();
+  const result=await this.player.artifactMutation(kind,body);
+  if(kind==='salvage'){
+   this.selected=null;
+   this.status(ARTIFACTS[body.artifactId].name+' dismantled. +'+num(result.receipt.dustGained)+' Relic Dust.');
+  }else{
+   if(['open','craft'].includes(kind)){this.reveal=result.receipt;this.tab='chests';}
+   this.status(kind==='equipment'||kind==='equip-set'?'Equipment saved for the next new defense.':'Artifact vault updated.');
+  }
  }catch(error){this.status(error.message,true);}finally{this.busy=false;await this.render();if(['open','craft'].includes(b.dataset.vaultAction)&&this.reveal)globalThis.document?.querySelector?.('.commander-vault .vault-reveal')?.scrollIntoView?.({block:'start',behavior:'auto'});}
  return true;
  }

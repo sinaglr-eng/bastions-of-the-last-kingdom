@@ -53,9 +53,11 @@ test('Commander prioritizes available purchases, displays exact level locks and 
  const p={xpTotal:0,balance:100,skills:{},equipped:[]};
  const html=generalView(p,true,{selected:'morale-boost'});
  const cards=[...html.matchAll(/<li><button type="button" data-select-skill="[^"]+"[\s\S]*?<\/li>/g)].map(m=>m[0]);
- const firstLocked=cards.findIndex(card=>card.includes('Requires'));
+ const firstLocked=cards.findIndex(card=>card.includes('skills-locked-row'));
  assert.ok(firstLocked>0);
- assert.ok(cards.slice(firstLocked).every(card=>card.includes('Requires')));
+ assert.ok(cards.slice(firstLocked).every(card=>card.includes('skills-locked-row')));
+ assert.match(html,/class="skills-lock-badge">Unlock at Level 5/);
+ assert.match(html,/class="skills-purchase-lock"><span>Unlock at Level 5/);
  assert.match(html,/Requires Soldier · Level 5/);
  assert.doesNotMatch(achievementsView({online:true,profile:{grants:[],eligible:[]}}),/YOUR NEXT MEDAL/);
 });

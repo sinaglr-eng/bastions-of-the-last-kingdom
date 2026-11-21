@@ -7,8 +7,8 @@ import {PlayerClient} from '../game/player-client.js';
 import {RunStore} from '../game/run-store.js';
 import {IDBFactory} from 'fake-indexeddb';
 
-test('every chest always grants Dust, can miss its artifact, and matches its advertised chance above 50 percent',()=>{
- assert.deepEqual(C.chests.map(c=>c.artifactChance),[60,70,80,90,95]);
+test('chests always grant Dust and use the advertised 50–90 percent base artifact chance',()=>{
+ assert.deepEqual(C.chests.map(c=>c.artifactChance),[50,60,70,80,90]);
  assert.deepEqual(C.chests.map(c=>c.noArtifactDust),[10,20,30,40,50]);
  for(const chest of C.chests){let drops=0,misses=0;for(let seed=0;seed<4000;seed++){
   const r=rollArtifactChest({},chest.tier,seed);assert.ok(r.dustGained>=chest.baseDust);assert.equal(r.dust,r.dustGained);assert.equal(r.baseDust,chest.baseDust);

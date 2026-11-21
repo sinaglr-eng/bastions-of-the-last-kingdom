@@ -45,6 +45,45 @@ test('FR011 armor reduction includes reactive armor and never creates negative e
 });
 function fixture(){const db=sqliteDatabase();db.sqlite.exec(fs.readFileSync('backend/migrations/0000_statistics.sql','utf8'));migrateFr010(db);db.sqlite.prepare('INSERT INTO user(id,name,email,emailVerified,createdAt,updatedAt) VALUES(?,?,?,?,?,?)').run('fr011','Commander','fr011@example.test',1,0,0);const g=new Game(data,{seed:5,accountId:'fr011',runId:crypto.randomUUID()});db.sqlite.prepare("INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at) VALUES(?,?,?,?,?,?,?,0,0)").run(g.runId,'fr011','crown',g.data.rulesetRevision,5,JSON.stringify(serializeRun(g)),'{}');return {db,g};}
 
+test('dismantling credits the rarity value once and preserves equipped gear and saved runs',async()=>{
+ const {db,g}=fixture();
+ try{
+  const user='fr011';
+  await artifactProfile(db,user);
+  const samples=C.rarities.map(rarity=>C.artifacts.find(item=>item.rarity===rarity.id));
+  const equipped=C.artifacts.find(item=>item.slot==='weapon'&&!samples.includes(item));
+  const levelSlot=samples[0].slot==='ring'?'ring1':samples[0].slot;
+  db.sqlite.prepare('UPDATE artifact_accounts SET owned_json=?,equipment_json=?,presets_json=? WHERE user_id=?').run(
+   JSON.stringify([...samples.map(item=>item.id),equipped.id]),
+   JSON.stringify({weapon:equipped.id}),
+   JSON.stringify([null,{name:'Saved',equipment:{[levelSlot]:samples[0].id}}]),
+   user,
+  );
+  const query=db.sqlite.prepare('SELECT snapshot_json FROM fr010_runs WHERE id=?');
+  const snapshot=query.get(g.runId).snapshot_json;
+  await assert.rejects(artifactMutation(db,user,'salvage',{requestId:crypto.randomUUID(),revision:0,artifactId:equipped.id}),/Unequip/);
+  let balance=0;
+  for(const [revision,item] of samples.entries()){
+   const request={requestId:crypto.randomUUID(),revision,artifactId:item.id,dustGained:100000};
+   const expected=[5,10,20,40,80][revision];
+   const first=await artifactMutation(db,user,'salvage',request);
+   assert.equal(first.receipt.dustGained,expected);
+   assert.equal(first.artifacts.dust,balance+=expected);
+   assert.equal(first.artifacts.owned.includes(item.id),false);
+   const replay=await artifactMutation(db,user,'salvage',request);
+   assert.deepEqual(replay.receipt,first.receipt);
+   assert.equal(replay.artifacts.dust,balance);
+   await assert.rejects(artifactMutation(db,user,'salvage',{...request,requestId:crypto.randomUUID(),revision:revision+1}),/do not own/);
+  }
+  const after=await artifactProfile(db,user);
+  assert.deepEqual(after.owned,[equipped.id]);
+  assert.deepEqual(after.equipment,{weapon:equipped.id});
+  assert.deepEqual(after.presets,[null,{name:'Saved',equipment:{}}]);
+  assert.equal(after.lastOpening,null);
+  assert.equal(query.get(g.runId).snapshot_json,snapshot);
+ }finally{db.sqlite.close();}
+});
+
 test('FR012 partial set equip verifies ownership and remains idempotent',async()=>{
  const {db}=fixture();try{await artifactProfile(db,'fr011');const owned=['CE-01','CE-09','CE-10','N-01'];db.sqlite.prepare('UPDATE artifact_accounts SET owned_json=?,equipment_json=? WHERE user_id=?').run(JSON.stringify(owned),JSON.stringify({weapon:'N-01',ring2:'CE-09'}),'fr011');const request={requestId:crypto.randomUUID(),revision:0,artifactId:'celestial',ownedOnly:true};const result=await artifactMutation(db,'fr011','equip-set',request);assert.equal(result.artifacts.equipment.weapon,'N-01');assert.equal(result.artifacts.equipment.head,'CE-01');assert.equal(result.artifacts.equipment.ring2,'CE-09');assert.equal(result.artifacts.equipment.ring1,'CE-10');assert.equal(Object.keys(result.artifacts.equipment).length,4);assert.deepEqual((await artifactMutation(db,'fr011','equip-set',request)).receipt,result.receipt);await assert.rejects(artifactMutation(db,'fr011','equip-set',{...request,ownedOnly:false}),/identity/);await assert.rejects(artifactMutation(db,'fr011','equip-set',{...request,requestId:crypto.randomUUID(),revision:1,ownedOnly:false}),/Collect all/);await assert.rejects(artifactMutation(db,'fr011','equip-set',{...request,requestId:crypto.randomUUID(),revision:1,artifactId:'necromancer'}),/own any/);assert.equal((await artifactProfile(db,'fr011')).revision,1);}finally{db.sqlite.close();}
 });

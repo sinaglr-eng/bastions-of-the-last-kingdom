@@ -59,6 +59,7 @@ function skillDetail(id, profile, purchase, equipped, enabled, feedback) {
  if (!id) return '<article class="skills-detail skills-panel"><h2>No skills match this filter</h2><p>Choose another filter to browse the library.</p></article>';
  const skill = GENERAL_SKILLS[id];
  const buttonText = purchase.level ? `Upgrade to Rank ${rankLabel(purchase.next)}` : 'Unlock Rank I';
+ const rankLocked = purchase.state === 'rank-locked';
  return `<article class="skills-detail skills-panel" data-purchase-state="${purchase.state}" aria-labelledby="skills-detail-title">
   <button type="button" class="skills-back" data-skill-library-back>‹ Skill library</button>
   <header class="skills-detail-header">${skillImage(id)}<div>
@@ -71,7 +72,7 @@ function skillDetail(id, profile, purchase, equipped, enabled, feedback) {
    ${purchase.next ? `<button type="button" class="war-primary" data-buy="${id}" ${purchase.canBuy ? '' : 'disabled'}>
     ${medalIcon()}<span>${buttonText} · ${purchase.cost} medals</span>
    </button>
-   <small>${purchase.canBuy ? `${formatMedals(purchase.balance - purchase.cost)} medals after ${purchase.level ? 'upgrade' : 'unlock'}` : esc(purchase.reason)}</small>` : '<strong>Fully upgraded</strong>'}
+   ${rankLocked ? `<p class="skills-purchase-lock"><span>Unlock at Level ${purchase.gate.required}</span><small>${esc(purchase.reason)}</small></p>` : `<small>${purchase.canBuy ? `${formatMedals(purchase.balance - purchase.cost)} medals after ${purchase.level ? 'upgrade' : 'unlock'}` : esc(purchase.reason)}</small>`}` : '<strong>Fully upgraded</strong>'}
    ${purchase.state === 'rank-locked' && purchase.shortfall ? `<small>${formatMedals(purchase.shortfall)} more medals needed</small>` : ''}
    <p class="skills-feedback" data-skill-feedback role="status" ${feedback ? '' : 'hidden'}>${esc(feedback)}</p>
   </div>
@@ -111,9 +112,13 @@ export function generalView(profile = {}, enabled = true, options = {}) {
    <section class="skills-library skills-panel" aria-labelledby="skills-library-title">
     <h2 id="skills-library-title" tabindex="-1">Skill Library</h2>
     <div class="skills-filters" role="group" aria-label="Skill filter">${[['all','All'],['owned','Owned'],['available','Can buy']].map(([id, label]) => `<button type="button" data-skill-filter="${id}" aria-pressed="${filter === id}">${label}</button>`).join('')}</div>
-    <ul class="skills-list" aria-label="Available skills">${visible.map(({id, purchase}) => `<li><button type="button" data-select-skill="${id}" aria-pressed="${id === active?.id}">
-     ${skillImage(id)}<span><strong>${esc(GENERAL_SKILLS[id].name)}</strong><small>${esc(libraryState(purchase, equipped.includes(id)))}</small></span>
-    </button></li>`).join('') || '<li class="skills-empty">No skills match this filter.</li>'}</ul>
+    <ul class="skills-list" aria-label="Available skills">${visible.map(({id, purchase}) => {
+     const locked = !purchase.level && purchase.state === 'rank-locked';
+     return `<li><button type="button" data-select-skill="${id}" ${locked ? 'class="skills-locked-row"' : ''} aria-pressed="${id === active?.id}">
+      ${skillImage(id)}<span><strong>${esc(GENERAL_SKILLS[id].name)}</strong>${locked ? '' : `<small>${esc(libraryState(purchase, equipped.includes(id)))}</small>`}</span>
+      ${locked ? `<span class="skills-lock-badge">Unlock at Level ${purchase.gate.required}</span>` : ''}
+     </button></li>`;
+    }).join('') || '<li class="skills-empty">No skills match this filter.</li>'}</ul>
    </section>
    ${skillDetail(active?.id, current, active?.purchase, equipped, enabled, feedback)}
   </div>

@@ -59,6 +59,19 @@ export async function artifactMutation(db,user,action,body){
  }else if(action==='equipment')next.equipment=validateArtifactEquipment(body.equipment,a.owned);
  else if(action==='craft'){
   const item=ARTIFACTS[body.artifactId];if(!item)fail('Unknown artifact.');if(a.owned.includes(item.id))fail('You already own this artifact.');if(a.highestTier<craftUnlockTier(item.rarity))fail('Earn a higher-tier boss chest to unlock this crafting rarity.');const cost=RARITIES[item.rarity].craft;if(a.dust<cost)fail('Not enough Relic Dust.');next.dust-=cost;next.owned.push(item.id);receipt.items=[{id:item.id,duplicate:false,dust:0}];receipt.dustSpent=cost;
+ }else if(action==='salvage'){
+  const id=body.artifactId;
+  if(typeof id!=='string'||!Object.hasOwn(ARTIFACTS,id)||!a.owned.includes(id))fail('You do not own this artifact.');
+  if(Object.values(a.equipment).includes(id))fail('Unequip this artifact before dismantling it.');
+  const dust=RARITIES[ARTIFACTS[id].rarity].dust;
+  next.owned=next.owned.filter(ownedId=>ownedId!==id);
+  next.presets=next.presets.map(preset=>preset&&{
+   ...preset,
+   equipment:Object.fromEntries(Object.entries(preset.equipment).filter(([,artifactId])=>artifactId!==id)),
+  });
+  next.dust+=dust;
+  receipt.artifactId=id;
+  receipt.dustGained=dust;
  }else if(action==='save-preset'){
   if(!Number.isInteger(body.index)||body.index<0||body.index>2||!object(body.preset)||typeof body.preset.name!=='string'||body.preset.name.trim().length<1||body.preset.name.trim().length>32)fail('Choose a preset name of 1–32 characters.');
   next.presets[body.index]={name:body.preset.name.trim(),equipment:validateArtifactEquipment(body.preset.equipment,a.owned)};
