@@ -1,6 +1,6 @@
 import {CHESTS} from '../game/core/artifacts.js';
 import {siteUrl} from '../game/site-url.js';
-import {accountRank,MILITARY_RANKS,SKILL_LEVEL_GATES,rankChestReward} from '../game/core/account-progression.js';
+import {accountRank,MILITARY_RANKS,SKILL_LEVEL_GATES,promotionChestTier} from '../game/core/account-progression.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 import {commanderSkillArt} from './commander-art.js';
 import {accountRankArtwork} from './account-progression-art.js';
@@ -10,10 +10,9 @@ const num=n=>(n||0).toLocaleString('en-US');
 export function rankProgressMarkup(total=0){const r=accountRank(total);return `<div class="account-xp-bar" role="progressbar" aria-label="${r.name}, Level ${r.level}${r.next?`. ${r.progress} of ${r.span} XP toward ${r.next.name}`:'. Maximum rank'}" aria-valuemin="0" aria-valuemax="${r.span||100}" aria-valuenow="${r.next?r.progress:100}"><i style="--xp-fill:${r.percent}%"></i></div><small class="account-xp-caption">${r.next?`${num(r.progress)} / ${num(r.span)} XP to ${r.next.name}`:'MAX RANK'} <span>${num(r.total)} total XP</span></small>`;}
 export function accountBadgeMarkup(profile={},large=false){const r=accountRank(profile.xpTotal);return `<section class="account-rank ${large?'is-large':''}" aria-label="Account rank"><img src="${accountRankArtwork(r.level)}" alt="${r.name} rank badge" width="${large?112:48}" height="${large?112:48}"><div><strong>${r.name} <span>Level ${r.level}</span></strong>${rankProgressMarkup(r.total)}</div></section>`;}
 function rankChestMarkup(level){
- const reward=rankChestReward(level);
- if(!reward)return '';
- const chest=CHESTS[reward.tier];const name=chest.name+(reward.count===1?'':'s');
- return `<span class="rank-chest-reward"><img src="${siteUrl(chest.art)}" alt="" width="25" height="22"> <span>${reward.count} × ${esc(name)}</span></span>`;
+ const chest=CHESTS[promotionChestTier(level)];
+ if(!chest)return '';
+ return `<span class="rank-chest-reward"><img src="${siteUrl(chest.art)}" alt="" width="25" height="22"> <span>1 × ${esc(chest.name)}</span></span>`;
 }
 export function rankOverviewMarkup(profile={},{expanded=false}={}){
  const r=accountRank(profile.xpTotal),next=r.next;

@@ -93,6 +93,7 @@ export function rollArtifactChest(account,tier,seed){
   const a=pool[Math.floor(rng()*pool.length)];if(!a)throw Error('Empty artifact pool.');excluded.add(a.id);
   const duplicate=owned.has(a.id),dust=duplicate?RARITIES[a.rarity].dust:0;owned.add(a.id);dustGained+=dust;items.push({id:a.id,duplicate,dust});
  }
+ if(!items.length)dustGained=chest.noArtifactDust;
  pity[tier]=items.some(row=>rank(ARTIFACTS[row.id].rarity)>=rank(chest.pityRarity))?0:(pity[tier]||0)+1;
  return {owned:[...owned].sort(),pity,dust:(account.dust||0)+dustGained,dustGained,baseDust:chest.baseDust,items};
 }

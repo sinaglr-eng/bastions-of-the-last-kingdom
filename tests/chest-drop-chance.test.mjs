@@ -9,9 +9,10 @@ import {IDBFactory} from 'fake-indexeddb';
 
 test('every chest always grants Dust, can miss its artifact, and matches its advertised chance above 50 percent',()=>{
  assert.deepEqual(C.chests.map(c=>c.artifactChance),[60,70,80,90,95]);
+ assert.deepEqual(C.chests.map(c=>c.noArtifactDust),[10,20,30,40,50]);
  for(const chest of C.chests){let drops=0,misses=0;for(let seed=0;seed<4000;seed++){
   const r=rollArtifactChest({},chest.tier,seed);assert.ok(r.dustGained>=chest.baseDust);assert.equal(r.dust,r.dustGained);assert.equal(r.baseDust,chest.baseDust);
-  if(r.items.length){drops++;assert.equal(r.items.length,chest.draws);assert.ok(r.items.every(i=>chest.weights[ARTIFACTS[i.id].rarity]>0));}else{misses++;assert.deepEqual(r.owned,[]);assert.equal(r.dustGained,chest.baseDust);}
+  if(r.items.length){drops++;assert.equal(r.items.length,chest.draws);assert.ok(r.items.every(i=>chest.weights[ARTIFACTS[i.id].rarity]>0));assert.equal(r.dustGained,chest.baseDust);}else{misses++;assert.deepEqual(r.owned,[]);assert.equal(r.dustGained,chest.noArtifactDust);}
  }assert.ok(misses>0);assert.ok(Math.abs(drops/40-chest.artifactChance)<3,`${chest.name}: observed ${drops/40}%`);}
 });
 
@@ -24,8 +25,13 @@ test('the existing pity guarantee includes an artifact even after Dust-only open
 
 test('Dust-only rewards have their own honest reward card and no artifact equip action',()=>{
  const v=new CommanderVault({player:{online:true,profile:{artifacts:{owned:[],equipment:{},counts:[],pity:{},dust:8}}},render(){},status(){}});
- const html=v.rewards({action:'open',tier:1,baseDust:3,dustGained:3,items:[]});assert.match(html,/vault-dust-reward/);assert.match(html,/\+3 Relic Dust/);assert.match(html,/No artifact this time/);assert.doesNotMatch(html,/data-vault-action="equip"/);
- v.chestTier=1;const page=v.chests();assert.ok(page.includes(`Always ${C.chests[0].baseDust} Relic Dust`));assert.match(page,/60% chance/);assert.match(page,/Dust only: 40%/);
+ const html=v.rewards({action:'open',tier:1,baseDust:2,dustGained:10,items:[]});assert.match(html,/vault-dust-reward/);assert.match(html,/\+10 Relic Dust/);assert.match(html,/No artifact this time/);assert.doesNotMatch(html,/data-vault-action="equip"/);
+ for(const chest of C.chests){
+  v.chestTier=chest.tier;const page=v.chests();
+  assert.ok(page.includes(`${chest.baseDust} Relic Dust with an artifact`));
+  assert.ok(page.includes(`${chest.artifactChance}% chance`));
+  assert.ok(page.includes(`Dust only: ${100-chest.artifactChance}% of chests award ${chest.noArtifactDust} Relic Dust`));
+ }
 });
 
 test('an unverified terminal save is hidden even while its matching cloud snapshot still says playing',async()=>{

@@ -404,6 +404,7 @@
       "name": "Gatebreaker Chest",
       "bossId": "host_10",
       "baseDust": 2,
+      "noArtifactDust": 10,
       "draws": 1,
       "weights": {
         "common": 60,
@@ -421,6 +422,7 @@
       "name": "Bone Patriarch Chest",
       "bossId": "host_20",
       "baseDust": 5,
+      "noArtifactDust": 20,
       "draws": 1,
       "weights": {
         "uncommon": 60,
@@ -438,6 +440,7 @@
       "name": "Stormwing Chest",
       "bossId": "host_30",
       "baseDust": 10,
+      "noArtifactDust": 30,
       "draws": 1,
       "weights": {
         "rare": 65,
@@ -455,6 +458,7 @@
       "name": "Hollow King Chest",
       "bossId": "host_40",
       "baseDust": 20,
+      "noArtifactDust": 40,
       "draws": 1,
       "weights": {
         "rare": 30,
@@ -472,6 +476,7 @@
       "name": "Wyvern Sovereign Chest",
       "bossId": "host_50",
       "baseDust": 40,
+      "noArtifactDust": 50,
       "draws": 2,
       "weights": {
         "epic": 65,

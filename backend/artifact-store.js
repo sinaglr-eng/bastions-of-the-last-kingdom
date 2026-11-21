@@ -1,5 +1,5 @@
 import {ARTIFACTS,ARTIFACT_SETS,CHESTS,RARITIES,validateArtifactEquipment,artifactBonuses,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet,normalizeArtifactPity} from '../game/core/artifacts.js';
-import {accountRank,rankChestReward} from '../game/core/account-progression.js';
+import {accountRank,promotionChestTier} from '../game/core/account-progression.js';
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
 const parse=JSON.parse;
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
@@ -12,10 +12,10 @@ async function ensureRankChests(db,user){
  if(!progress)return;
  const upper=accountRank(progress.xpTotal).level,now=Date.now(),grants=[];
  for(let level=progress.lastLevel+1;level<=upper;level++){
-  const {tier,count}=rankChestReward(level);
-  for(let ordinal=1;ordinal<=count;ordinal++)grants.push(db.prepare(`INSERT INTO rank_chests
-   (id,user_id,rank_level,ordinal,tier,seed,earned_at) VALUES(?,?,?,?,?,?,?)
-   ON CONFLICT(user_id,rank_level,ordinal) DO NOTHING`).bind(crypto.randomUUID(),user,level,ordinal,tier,crypto.getRandomValues(new Uint32Array(1))[0],now));
+  const tier=promotionChestTier(level);
+  grants.push(db.prepare(`INSERT INTO rank_chests
+   (id,user_id,rank_level,ordinal,tier,seed,earned_at) VALUES(?,?,?,1,?,?,?)
+   ON CONFLICT(user_id,rank_level,ordinal) DO NOTHING`).bind(crypto.randomUUID(),user,level,tier,crypto.getRandomValues(new Uint32Array(1))[0],now));
  }
  if(grants.length)await db.batch(grants);
 }

@@ -3,13 +3,8 @@ import {FACTION_ACHIEVEMENT_DEFINITIONS} from './faction-achievements.js';
 import {GENERAL_SKILLS} from './general.js';
 export const MILITARY_RANKS=Object.freeze(['Peasant','Militia','Recruit','Footman','Soldier','Veteran','Sergeant','Lieutenant','Captain','Major','Colonel','Commander','General','Marshal','King'].map((name,i)=>Object.freeze({name,level:i+1,xp:[0,20,45,75,110,150,200,260,330,410,500,600,720,850,1000][i],id:name.toLowerCase()})));
 export const BOSS_XP=Object.freeze({host_10:2,host_20:3,host_30:4,host_40:5,host_50:8});
-const promotionChests=[
- null,[1,1],[1,1],[1,2],[2,1],[2,1],[2,2],[2,2],[3,1],[3,2],[3,2],[4,1],[4,2],[4,2],[5,3],
-];
-export function rankChestReward(level){
- const reward=promotionChests[level-1];
- return reward?{tier:reward[0],count:reward[1]}:null;
-}
+const promotionChestTiers=[null,1,1,1,2,2,2,2,3,3,3,4,4,4,5];
+export const promotionChestTier=level=>promotionChestTiers[level-1]??null;
 export const SKILL_LEVEL_GATES=Object.freeze({'deep-refit':[1,3,5],'recruitment-focus':[1,3,5],'field-logistics':[1,3,5],quartermaster:[1,3,5],'morale-boost':[5,9,12],'war-horn':[7,11,14],'blood-wrath':[9,12,15],'field-promotion':[7,10,14],'decisive-strike':[9,13,15],'fortified-keep':[2,6,11],'extended-range':[6,10,13]});
 // Basic is a champion classification; recruit families have advanced:false.
 export const eligibleChampion=u=>!!u?.advanced;
