@@ -21,6 +21,11 @@ test('FR012 partial set never creates missing pieces and preserves non-conflicti
 test('FR012 chest selector shows one selected stage and current guarantee without opening anything',()=>{
  const v=fixture();v.chestTier=2;v.player.profile.artifacts.pity[2]=2;const html=v.chests();assert.equal([...html.matchAll(/data-vault-chest=/g)].length,5);assert.equal([...html.matchAll(/class="chest-hero/g)].length,1);assert.match(html,/Within 1 more chest/);assert.match(html,/Rare every 3 chests/);assert.match(html,/data-count="5" disabled/);v.chestTier=3;assert.match(v.chests(),/Epic every 7 chests/);assert.equal(v.reveal,null);
 });
-test('FR012 skills expose all 11 entries over two pages and no unreachable rank purchase',()=>{
- const profile={xpTotal:0,balance:100,skills:{},equipped:[]};const first=generalView(profile),second=generalView(profile,true,{skillPage:1});assert.equal([...first.matchAll(/<article class="war-skill /g)].length,6);assert.equal([...second.matchAll(/<article class="war-skill /g)].length,5);assert.equal([...generalView(profile,true,{filter:'equipped'}).matchAll(/<article class="war-skill /g)].length,0);assert.doesNotMatch(first,/commander-progression|war-table\/deep-refit/);assert.match(first,/Unlock at Level 3/);
+test('Skills exposes all 11 entries, supports an empty owned filter and labels rank requirements',()=>{
+ const profile={xpTotal:0,balance:100,skills:{},equipped:[]};
+ const html=generalView(profile);
+ assert.equal([...html.matchAll(/data-select-skill=/g)].length,11);
+ assert.equal([...generalView(profile,true,{filter:'owned'}).matchAll(/data-select-skill=/g)].length,0);
+ assert.doesNotMatch(html,/commander-progression|war-table\/deep-refit/);
+ assert.match(html,/Recruit · Level 3/);
 });

@@ -50,5 +50,12 @@ test('Armory keeps an anatomical silhouette for full sets and mixed equipment',(
  const sets=v.sets();assert.match(sets,/Complete army effects/);assert.match(sets,/10 pieces/);v.selectedSet='royal-architect';assert.match(v.sets(),/600 starting gold/);v.setRarity='rare';assert.doesNotMatch(v.sets(),/id="vault-set-celestial"/);
 });
 test('Commander prioritizes available purchases, displays exact level locks and album has no next-medal strip',()=>{
- const html=generalView({xpTotal:0,balance:100,skills:{},equipped:[]});const cards=[...html.matchAll(/<article class="war-skill [\s\S]*?<\/article>/g)].map(m=>m[0]);const firstLocked=cards.findIndex(c=>c.includes('is-level-locked'));assert.ok(firstLocked>0);assert.ok(cards.slice(firstLocked).every(c=>c.includes('is-level-locked')));assert.match(html,/Unlock at Level 5/);assert.doesNotMatch(cards.join(''),/>Rank locked</);assert.doesNotMatch(achievementsView({online:true,profile:{grants:[],eligible:[]}}),/YOUR NEXT MEDAL/);
+ const p={xpTotal:0,balance:100,skills:{},equipped:[]};
+ const html=generalView(p,true,{selected:'morale-boost'});
+ const cards=[...html.matchAll(/<li><button type="button" data-select-skill="[^"]+"[\s\S]*?<\/li>/g)].map(m=>m[0]);
+ const firstLocked=cards.findIndex(card=>card.includes('Requires'));
+ assert.ok(firstLocked>0);
+ assert.ok(cards.slice(firstLocked).every(card=>card.includes('Requires')));
+ assert.match(html,/Requires Soldier · Level 5/);
+ assert.doesNotMatch(achievementsView({online:true,profile:{grants:[],eligible:[]}}),/YOUR NEXT MEDAL/);
 });

@@ -5,10 +5,9 @@ import {currentFactionData} from '../game/core/current-data.js';
 import {FACTIONS} from '../game/core/factions.js';
 import {achievementCatalog,streakAchievement,BOSS_TYPES,canonicalAchievementId,isSharedAchievement} from '../game/core/achievements.js';
 import {canonicalAchievementRows} from '../game/achievement-client-state.js';
-import {GENERAL_SKILLS,SKILL_COSTS} from '../game/core/general.js';
+import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {achievementPicture,medalAmount,escapeProgression as esc} from './progression-art.js';
-import {skillSummary,skillKindLabel,skillPurchaseState,skillRankMarkup,skillEquipLabel,skillPurchaseBadge} from './general-page.js';
 import {eligibleChampion} from '../game/core/account-progression.js';
 import {rankOverviewMarkup,xpAmount} from './account-progression.js';
 
@@ -71,56 +70,7 @@ export function achievementsView(player,{faction='crown',kind='all',status='all'
   return `<article class="war-achievement is-${state} ${factionFeat(g)?'is-faction-feat':''} ${focusId===g.id?'is-target':''}" data-achievement="${esc(g.id)}"${g.factionId?` data-achievement-faction="${g.factionId}"`:''}><div class="war-achievement-art">${art}</div><div class="war-achievement-copy"><h2>${esc(name)}</h2>${factionName?`<span class="war-achievement-scope is-faction">${factionMark(g.factionId)}${esc(factionName)} · Faction achievement</span>`:isSharedAchievement(g.id)?'<span class="war-achievement-scope">Shared across factions</span>':''}<p title="${esc(g.description||g.name)}">${esc(g.description||g.name)}</p>${members.length?`<ul class="war-achievement-requirements" aria-label="Required ${esc(factionName)} champions">${members.map(family=>{const current=memberState(family);return `<li data-required-champion="${family}" data-discovery="${current}"><span aria-hidden="true">${current==='discovered'?'✓':current==='pending'?'◷':'○'}</span><span>${esc(roster.towers[family]?.name||'Champion')}<small>${current==='discovered'?'Discovered':current==='pending'?'Verification pending':'Not discovered'}</small></span></li>`;}).join('')}</ul>`:''}<div class="war-achievement-bottom"><span class="war-achievement-state">${state==='claimed'?'✓ Claimed':state==='ready'?'Ready to claim':state==='pending'?'Verification pending':'In progress'}</span>${medalAmount(grant?grant.reward:g.reward,'')}${g.xp?xpAmount(g.xp):''}</div>${state==='progress'||state==='pending'||factionFeat(g)?`<div class="war-progress" role="progressbar" aria-label="${esc(name)} progress" aria-valuenow="${value}" aria-valuemin="0" aria-valuemax="${g.target}"><i style="width:${value/g.target*100}%"></i><span>${value.toLocaleString('en-US')} / ${g.target.toLocaleString('en-US')}</span></div>`:''}${state==='ready'?`<button class="war-claim" data-claim="${esc(g.id)}" ${player.online?'':'disabled'}>Claim · ${g.reward} ${g.reward===1?'medal':'medals'}${g.xp?' + '+g.xp+' XP':''}</button>${!player.online?'<small>Connect to claim your reward.</small>':''}`:state==='claimed'?`<time datetime="${new Date(grant.createdAt).toISOString()}">${new Date(grant.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</time>`:''}</div></article>`;
  }).join('')||'<div class="war-empty"><h2>No achievements match these filters</h2><p>Try another category or show all achievements.</p><button data-clear-filters>Show all achievements</button></div>'}</div><nav class="menu-pagination"><button data-page="${Math.max(0,offset-8)}" ${offset?'':'disabled'}>Previous</button><span>${rows.length?offset+1:0}–${Math.min(offset+8,rows.length)} / ${rows.length}</span><button data-page="${offset+8}" ${offset+8<rows.length?'':'disabled'}>Next</button></nav><p class="war-helper">Claim rewards individually or use Claim all, once per achievement per account. Faction feats use that faction's own verified champions and victories; the full roster includes all 38 champions, from Basic through Secret. Boss victories and flawless milestones are shared across factions. Flawless waves must be consecutive in one run; any keep health loss resets the current streak.</p></div></div>`;
 }
-export function generalView(profile,enabled=true,{selected=null,filter='all',skillPage=0,equipped=profile?.equipped||[]}={}){
- const p=profile||{balance:0,skills:{}},skills=p.skills||{};const catalog=Object.entries(GENERAL_SKILLS).sort(([a],[b])=>{const x=skillPurchaseState(p,a,enabled),y=skillPurchaseState(p,b,enabled),order=i=>i.canBuy?0:i.level?1:i.state==='rank-locked'?3:2;return order(x)-order(y)||x.gate.required-y.gate.required;});if(!GENERAL_SKILLS[selected])selected=catalog[0][0];
- const filtered=catalog.filter(([id])=>filter==='all'||filter==='available'&&skillPurchaseState(p,id,enabled).canBuy||filter==='equipped'&&equipped.includes(id)),page=Math.min(Math.max(0,skillPage),Math.max(0,Math.ceil(filtered.length/6)-1)),visible=filtered.slice(page*6,page*6+6);
- const s=GENERAL_SKILLS[selected],purchase=skillPurchaseState(p,selected,enabled),level=purchase.level;
- const medalNote=purchase.state==='rank-locked'&&purchase.shortfall===0?' · Medal requirement met':'';
- const purchaseMessage=purchase.canBuy?`Balance after upgrade: ${(purchase.balance-purchase.cost).toLocaleString('en-US')}`:purchase.reason+medalNote;
- const addable=catalog.filter(([id])=>skills[id]>0&&!equipped.includes(id));
- const slots=Array.from({length:3},(_,index)=>{
-  const id=equipped[index];
-  if(id){
-   const label=esc(GENERAL_SKILLS[id].name);
-   return `<div class="war-filled-slot">
-    <button type="button" data-select-skill="${id}" class="war-slot"><img src="${warArt(id)}" alt=""><span>${label} ${rankLabel(skills[id])}</span></button>
-    <button type="button" class="war-slot-remove" data-remove-skill="${id}" aria-label="Remove ${label} from loadout" title="Remove ${label}" ${enabled?'':'disabled'}>×</button>
-   </div>`;
-  }
-  const placeholder=addable.length?'Add skill…':equipped.length?'All owned skills equipped':'Unlock a skill first';
-  return `<label class="war-open-slot"><span>Open slot</span><select data-add-skill aria-label="Add skill to loadout, open slot ${index+1}" ${enabled&&addable.length?'':'disabled'}>
-    <option value="">${placeholder}</option>${addable.map(([id,g])=>`<option value="${id}">${esc(g.name)} ${rankLabel(skills[id])}</option>`).join('')}
-   </select></label>`;
- }).join('');
- return `<form data-form="equipment" class="war-equipment">
-  <section class="war-loadout" aria-label="Equipped loadout">
-   <h2>Equipped loadout</h2>
-   <div class="war-loadout-slots">${slots}</div>
-   <div><strong>${equipped.length} / 3 equipped</strong><button class="war-primary" type="submit" ${enabled?'':'disabled'}>Save Loadout</button></div>
-  </section>
-  <p class="war-helper">Loadout changes apply to new games. A saved defense keeps its original skills.</p>
-  <div class="war-general-grid">
-   <article class="war-skill-detail" data-purchase-state="${purchase.state}">
-    <header class="war-skill-detail-header">
-     <img src="${warArt(selected)}" width="48" height="48" alt="">
-     <div><h2 tabindex="-1">${esc(s.name)}</h2><span class="war-skill-kind">${skillKindLabel(selected)}</span></div>
-     <small class="war-skill-account">Your rank · ${purchase.current.name} · Level ${purchase.current.level}</small>
-    </header>
-    <div class="war-skill-detail-body">
-     <p class="war-skill-description">${esc(s.description)}</p>
-     ${skillRankMarkup(selected,p,'war-skill-rank-track',{compact:true,enabled})}
-     <footer class="war-skill-detail-actions">
-      <small role="status">${esc(purchaseMessage)}</small>
-      ${purchase.next?`<button type="button" class="war-primary" data-buy="${selected}" aria-label="${esc(s.name+' · '+purchase.label+' · '+purchase.reason)}" ${purchase.canBuy?'':'disabled'}>${purchase.label}</button>`:'<strong>Fully upgraded</strong>'}
-      ${level?`<button type="button" data-toggle-skill="${selected}" ${!enabled?'disabled':''} aria-pressed="${equipped.includes(selected)}">${equipped.includes(selected)?'✓ Equipped':'Equip skill'}</button>`:''}
-     </footer>
-    </div>
-   </article>
-   <div class="vault-skill-toolbar"><div role="group" aria-label="Skill filter">${[['all','All skills'],['available','Available'],['equipped','Equipped']].map(([id,label])=>`<button type="button" data-vault-skill-filter="${id}" aria-pressed="${filter===id}">${label}</button>`).join('')}</div><small>${filtered.length} skills</small></div>
-   <div class="war-skill-catalog">${visible.map(([id,g])=>{const item=skillPurchaseState(p,id,enabled),lv=item.level,locked=!lv&&item.state==='rank-locked';return `<article class="war-skill ${selected===id?'is-selected':''} ${lv?'':'is-locked'} ${locked?'is-level-locked':''}" data-purchase-state="${item.state}"><button type="button" class="war-skill-select" data-select-skill="${id}" aria-pressed="${selected===id}"><img src="${warArt(id)}" alt=""><span><strong>${g.name}</strong>${item.state!=='rank-locked'?`<span class="commander-purchase-badge" data-state="${item.state}">${skillPurchaseBadge(item)}</span>`:''}<small class="war-skill-summary">${esc(skillSummary(id,lv||1))}</small><span class="war-rank-pips" aria-label="${lv} of 3 ranks owned">${[1,2,3].map(n=>`<i class="${n<=lv?'is-owned':''}">${rankLabel(n)}</i>`).join('')}</span><small>${lv?`Owned rank ${rankLabel(lv)}${equipped.includes(id)?' · Equipped':''}`:'Not owned'}</small>${locked?`<strong class="war-skill-lockline">Unlock at Level ${item.gate.required}</strong>`:`<small class="commander-purchase-reason">${esc(item.reason)}</small>`}</span></button><label class="war-equip"><input type="checkbox" name="equipped" aria-label="Equip ${esc(g.name)}" value="${id}" ${equipped.includes(id)?'checked':''} ${!enabled||!lv?'disabled':''}>${locked?'Not unlocked':skillEquipLabel(item,equipped.includes(id))}</label></article>`;}).join('')||'<p>No skills match this filter.</p>'}<nav class="vault-skill-pages"><button type="button" data-vault-skill-page="${page-1}" ${page?'':'disabled'}>Previous</button><span>${filtered.length?page*6+1:0}–${Math.min(page*6+6,filtered.length)} / ${filtered.length}</span><button type="button" data-vault-skill-page="${page+1}" ${page*6+6<filtered.length?'':'disabled'}>Next</button></nav></div>
-  </div>
- </form>`;
-}
+export {generalView} from './commander-skills.js';
 const loadoutMarkup=loadout=>Object.entries(loadout||{}).map(([id,level])=>`<span class="war-loadout-icon" tabindex="0" title="${esc(GENERAL_SKILLS[id]?.name||id)} ${rankLabel(level)}" aria-label="${esc(GENERAL_SKILLS[id]?.name||id)} rank ${rankLabel(level)}"><img src="${warArt(id)}" alt=""><small>${rankLabel(level)}</small></span>`).join('')||'<small>No skills</small>';
 export function hallView(result,{guest=false,view='top'}={}){
  const rows=result.top||[],podium=result.podium||rows.slice(0,3),own=result.own;
