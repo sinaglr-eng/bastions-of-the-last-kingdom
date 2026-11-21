@@ -5,7 +5,7 @@ import {accountRank,skillGate} from '../game/core/account-progression.js';
 
 export function skillEffect(id,level){
  const n=GENERAL_SKILLS[id]?.values[level-1];
- if(id==='field-promotion')return `+1 selected recruit · ${n} ${n===1?'use':'uses'} · cap ${rankLabel(GENERAL_SKILLS[id].caps[level-1])}`;
+ if(id==='field-promotion')return `${n} CP · ${level===3?'Promotes V to VI':'Cap rank V'}`;
  if(id==='extended-range')return `+${n} ${n===1?'tile':'tiles'} · current wave · 200 gold`;
  if(id==='decisive-strike')return `${Math.round(n*100)}% max HP · bosses ${Math.round(GENERAL_SKILLS[id].bossValues[level-1]*100)}%`;
  if(id==='fortified-keep')return `+${n} keep health · ${30+n}/${30+n} start`;
@@ -17,7 +17,7 @@ export function skillEffect(id,level){
 }
 export function skillSummary(id,level=1){
  const value=GENERAL_SKILLS[id]?.values[Math.max(1,level)-1];
- return ({'field-promotion':`Promote one selected current recruit by one rank after all five placements, before choosing a keeper · 3 CP · ${value} ${value===1?'use':'uses'} per run. Each recruit can be promoted once. Cap: rank ${rankLabel(GENERAL_SKILLS[id]?.caps?.[level-1])}.`,
+ return ({'field-promotion':`Promote one selected basic recruit after all five placements and before choosing a keeper. Once per round · ${value} CP · ${level===3?'can promote V to VI':'cap rank V'}.`,
  'extended-range':`All defenders gain +${value} ${value===1?'tile':'tiles'} of attack range until this combat wave ends. Once per wave · 200 gold · 0 CP. Support aura radii stay unchanged.`,
  'decisive-strike':`Strike every live enemy, including hidden and flying targets, for ${Math.round(value*100)}% max HP; bosses take ${Math.round((GENERAL_SKILLS[id]?.bossValues?.[level-1]||0)*100)}%. One use per run · 0 CP.`,
  'fortified-keep':`Start a new defense with ${30+value}/${30+value} keep health (+${value}). This passive stays fixed for that run.`,
@@ -29,7 +29,7 @@ export function skillSummary(id,level=1){
  'blood-wrath':`All defenders gain ${Math.round(value*100)}% damage for 20s · 3 CP.`})[id]||'';
 }
 export function skillKindLabel(id){
- const s=GENERAL_SKILLS[id];return s.kind==='combat'?'Active · 20 combat seconds · 3 CP':s.kind==='wave-range'?'Combat command · 200 gold · Until wave ends':s.kind==='focus'?'Draft command · 1 CP':s.kind==='draft'?'Draft command · Gold cost':s.kind==='promotion'?'Selected recruit · 3 CP · Limited uses':s.kind==='strike'?'Prepare and confirm · 0 CP · Once per run':'Passive · New games';
+ const s=GENERAL_SKILLS[id];return s.kind==='combat'?'Active · 20 combat seconds · 3 CP':s.kind==='wave-range'?'Combat command · 200 gold · Until wave ends':s.kind==='focus'?'Draft command · 1 CP':s.kind==='draft'?'Draft command · Gold cost':s.kind==='promotion'?'Draft command · Once per round':s.kind==='strike'?'Prepare and confirm · 0 CP · Once per run':'Passive · New games';
 }
 export function skillPurchaseState(profile,id,enabled=true){
  const p=profile||{},level=p.skills?.[id]||0,current=accountRank(p.xpTotal),next=level<3?level+1:null,cost=next?SKILL_COSTS[level]:0,gate=skillGate(id,next||3,p),balance=Number(p.balance||0),shortfall=Math.max(0,cost-balance);

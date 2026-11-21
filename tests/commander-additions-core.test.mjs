@@ -16,14 +16,29 @@ function recruit(rank=1,level=1){const g=new Game(data,{seed:42,loadout:{'field-
 function enemy(g,props={}){return Object.assign(g.combat.spawn('host_01',{}),{x:2,z:2,hp:1000,maxHp:1000,armor:0,physicalImmune:false,magicImmune:false,evasion:0,shields:0,krakenShell:0,statuses:{},boss:false,regen:0,...props});}
 
 test('Commander metadata keeps eleven shared skill IDs and the approved costs, caps and fractions',()=>{
- assert.equal(Object.keys(GENERAL_SKILLS).length,11);assert.deepEqual(GENERAL_SKILLS['field-promotion'].values,[1,2,2]);assert.deepEqual(GENERAL_SKILLS['field-promotion'].caps,[5,5,6]);assert.equal(GENERAL_SKILLS['field-promotion'].cost,3);assert.deepEqual(GENERAL_SKILLS['decisive-strike'].values,[.3,.4,.5]);assert.deepEqual(GENERAL_SKILLS['decisive-strike'].bossValues,[.05,.07,.1]);assert.equal(GENERAL_SKILLS['decisive-strike'].cost,0);assert.deepEqual(GENERAL_SKILLS['extended-range'].values,[1,1.5,2]);assert.equal(GENERAL_SKILLS['extended-range'].goldCost,200);assert.equal(GENERAL_SKILLS['extended-range'].cost,0);
+ assert.equal(Object.keys(GENERAL_SKILLS).length,11);assert.deepEqual(GENERAL_SKILLS['field-promotion'].values,[5,3,3]);assert.deepEqual(GENERAL_SKILLS['field-promotion'].caps,[5,5,6]);assert.deepEqual(GENERAL_SKILLS['decisive-strike'].values,[.3,.4,.5]);assert.deepEqual(GENERAL_SKILLS['decisive-strike'].bossValues,[.05,.07,.1]);assert.equal(GENERAL_SKILLS['decisive-strike'].cost,0);assert.deepEqual(GENERAL_SKILLS['extended-range'].values,[1,1.5,2]);assert.equal(GENERAL_SKILLS['extended-range'].goldCost,200);assert.equal(GENERAL_SKILLS['extended-range'].cost,0);
 });
 
 test('Field Promotion upgrades only one selected current recruit, charges once and consumes no RNG',()=>{
  const g=recruit(1,2),rng=g.rng.getState(),target=g.towers[1];g.towers.push({id:999,family:'soldier',tier:1,state:'active',round:0,x:3,z:3,mvpLevel:4});g.select(999);
- let event;g.on((type,p)=>{if(type==='general-promoted')event=p;});assert.equal(g.general.promotionState().preview.length,5);assert.equal(g.activateGeneral('field-promotion',999),false);g.select(target.id);assert.equal(g.activateGeneral('field-promotion',target.id),true);assert.equal(g.commandPoints.value,97);assert.equal(g.general.remainingUses('field-promotion'),1);assert.equal(g.rng.getState(),rng);assert.equal(g.towers.at(-1).tier,1);assert.deepEqual(event.upgrades.map(x=>x.towerId),[target.id]);
+ let event;g.on((type,p)=>{if(type==='general-promoted')event=p;});assert.equal(g.general.promotionState().preview.length,5);assert.equal(g.activateGeneral('field-promotion',999),false);g.select(target.id);assert.equal(g.activateGeneral('field-promotion',target.id),true);assert.equal(g.commandPoints.value,97);assert.equal(g.general.remainingUses('field-promotion'),0);assert.equal(g.rng.getState(),rng);assert.equal(g.towers.at(-1).tier,1);assert.deepEqual(event.upgrades.map(x=>x.towerId),[target.id]);
  for(const draw of g.draft.draws){const chosen=draw.towerId===target.id;assert.equal(draw.tier,chosen?2:1);assert.equal(!!draw.promotionApplied,chosen);assert.equal(!!g.towers.find(t=>t.id===draw.towerId).fieldPromoted,chosen);}assert.equal(g.draft.draws[1].rolledTier,1);
- assert.equal(g.activateGeneral('field-promotion',target.id),false);assert.equal(g.commandPoints.value,97);g.select(g.towers[2].id);assert.equal(g.activateGeneral('field-promotion',g.towers[2].id),true);assert.equal(g.general.remainingUses('field-promotion'),0);assert.equal(g.commandPoints.value,94);
+ assert.equal(g.activateGeneral('field-promotion',target.id),false);g.select(g.towers[2].id);assert.equal(g.activateGeneral('field-promotion',g.towers[2].id),false);assert.equal(g.towers[2].tier,1);assert.equal(g.commandPoints.value,97);
+});
+
+test('Field Promotion charges the rank-specific price once and leaves CP alone if the player cannot afford it',()=>{
+ for(const [rank,cost] of [[1,5],[2,3],[3,3]]){
+  const g=recruit(1,rank),target=g.selection;
+  g.commandPoints.value=cost-1;
+  assert.equal(g.general.promotionState().reason,`Need ${cost} CP.`);
+  assert.equal(g.activateGeneral('field-promotion',target.id),false);
+  assert.equal(g.commandPoints.value,cost-1);
+  g.commandPoints.value=cost;
+  let paid;g.on((type,event)=>{if(type==='general-promoted')paid=event.cost;});
+  assert.equal(g.activateGeneral('field-promotion',target.id),true);
+  assert.equal(paid,cost);
+  assert.equal(g.commandPoints.value,0);
+ }
 });
 
 test('Field Promotion rejects incomplete/early drafts and capped targets without spending anything',()=>{
@@ -37,7 +52,9 @@ test('Only Field Promotion III can promote one V to VI without forging the fresh
 });
 
 test('Promotion-created V cannot replace two genuine fresh V, while genuine V still merge',()=>{
- const promoted=recruit(4,2);for(const tower of promoted.towers.slice(0,2)){promoted.select(tower.id);promoted.activateGeneral('field-promotion',tower.id);}assert.equal(promoted.mergePartner(promoted.towers[0]),null);
+ const promoted=recruit(4,2),[target,other]=promoted.towers;
+ other.tier=5;promoted.draft.draws[1].tier=5;
+ promoted.select(target.id);assert.ok(promoted.activateGeneral('field-promotion',target.id));assert.equal(target.tier,5);assert.equal(promoted.mergePartner(target),null);
  const g=recruit(5,2);for(let i=2;i<5;i++){g.towers[i].tier=4;g.draft.draws[i].tier=4;}g.activateGeneral('field-promotion',g.selected);g.select(g.towers[0].id);assert.equal(g.mergePartner().id,g.towers[1].id);assert.equal(g.merge(),true);assert.equal(g.selection.tier,6);assert.equal(g.progress.mythic,true);
 });
 
@@ -83,7 +100,7 @@ test('Strike is unavailable without live targets and transient preparation is ne
  const g=new Game(data,{loadout:{'decisive-strike':1}});g.phase='combat';assert.equal(g.activateGeneral('decisive-strike'),false);assert.equal(g.general.remainingUses('decisive-strike'),1);enemy(g);const before=serializeRun(g);assert.equal(g.general.prepareStrike(),true);same(serializeRun(g),before);assert.equal(g.general.cancelStrike(),true);assert.equal(g.activateGeneral('decisive-strike'),true);
  const h=restoreRun(data,JSON.parse(JSON.stringify(serializeRun(g))));assert.equal(h.general.strikePrepared,false);assert.equal(h.general.remainingUses('decisive-strike'),0);h.phase='reward';h.nextRound();assert.equal(h.general.remainingUses('decisive-strike'),0);
 });
-test('Commander usages survive the campaign-to-Endless checkpoint rather than resetting with a wave',()=>{
+test('The campaign-to-Endless checkpoint refreshes Field Promotion while preserving the used Decisive Strike',()=>{
  const g=new Game(data,{loadout:{'field-promotion':2,'decisive-strike':1}});g.general.uses['field-promotion']=1;g.phase='combat';enemy(g);g.activateGeneral('decisive-strike');g.round=50;g.completeWave();assert.equal(g.round,51);assert.equal(g.general.remainingUses('decisive-strike'),0);assert.equal(g.general.remainingUses('field-promotion'),1);const h=restoreRun(data,serializeRun(g));assert.equal(h.general.remainingUses('decisive-strike'),0);assert.equal(h.general.remainingUses('field-promotion'),1);
 });
 test('Promotion, reroll and reserved identities round-trip and reproduce through the existing command journal',()=>{

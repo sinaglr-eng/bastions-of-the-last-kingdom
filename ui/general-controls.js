@@ -12,7 +12,8 @@ export function generalCommandState(game,slot='A'){
   const skill=GENERAL_SKILLS[id],ended=['lost','won'].includes(game.phase),remaining=game.general.remaining(id),cp=game.commandPoints.value;
   if(skill.kind==='promotion'){
    const state=game.general.promotionState();
-   return {id,level,action:'general-promotion',towerId:state.selectedTowerId??'',disabled:!state.available,remaining:0,label:state.available?'Promote selected · 3 CP':state.reason,detail:`${uses(state)} · Cap rank ${rankLabel(skill.caps[level-1])}`,preview:state.preview||[],showPreview:['build','select'].includes(game.phase)&&!game.draft?.resolved,reason:state.reason,usage:uses(state)};
+   const usage=state.perRound?(state.remainingUses?'Available this round':'Used this round'):uses(state);
+   return {id,level,action:'general-promotion',towerId:state.selectedTowerId??'',disabled:!state.available,remaining:0,label:state.available?`Promote selected · ${state.cost} CP`:state.reason,detail:`${usage} · Cap rank ${rankLabel(state.cap)}`,preview:state.preview||[],showPreview:['build','select'].includes(game.phase)&&!game.draft?.resolved,reason:state.reason,usage};
   }
   if(skill.kind==='wave-range'){
    const state=game.general.rangeState();

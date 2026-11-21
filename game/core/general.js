@@ -1,4 +1,6 @@
 export const SKILL_COSTS=Object.freeze([5,10,20]);
+export const COMMANDER_RULES_VERSION=3;
+const legacyPromotionUses=[1,2,2];
 export const GENERAL_SKILLS=Object.freeze({
  'deep-refit':{name:'Deep Refit',kind:'draft',values:[600,500,400],description:'Keep a current basic recruit after lowering it by exactly two ranks. Gold cost: 600 / 500 / 400.'},
  'recruitment-focus':{name:'Recruitment Focus',kind:'focus',cost:1,values:[.04,.08,.12],description:'Pay 1 CP to increase one chosen class’s chance in the next draft by +4% / +8% / +12% (for example, 20% becomes 24% at rank I). Includes the draft’s reroll.'},
@@ -7,7 +9,7 @@ export const GENERAL_SKILLS=Object.freeze({
  'morale-boost':{name:'Morale Boost',kind:'combat',cost:3,duration:20,values:[.4,.6,1],description:'All active defenders attack 40 / 60 / 100% faster for 20 combat seconds. Costs 3 CP.'},
  'war-horn':{name:'War Horn',kind:'combat',cost:3,duration:20,values:[.4,.6,.8],description:'Slow every enemy by 40 / 60 / 80% for 20 combat seconds, including immune enemies and bosses. Costs 3 CP.'},
  'blood-wrath':{name:'Blood Wrath',kind:'combat',cost:3,duration:20,values:[.4,.6,1],description:'All active defenders deal 40 / 60 / 100% more own damage for 20 combat seconds. Costs 3 CP.'},
- 'field-promotion':{name:'Field Promotion',kind:'promotion',cost:3,values:[1,2,2],caps:[5,5,6],description:'Raise one selected basic recruit in the completed five-defender draft by one rank. Costs 3 CP per recruit; 1 / 2 / 2 uses per run. Only rank III can promote V to VI. Rerolls receive no promotion bonus.'},
+ 'field-promotion':{name:'Field Promotion',kind:'promotion',values:[5,3,3],caps:[5,5,6],description:'Raise one selected basic recruit by one rank after placing all five and before choosing a keeper. Once per round, including rerolls. Costs 5 / 3 / 3 CP. Only rank III can promote V to VI.'},
  'extended-range':{name:'Extended Range',kind:'wave-range',cost:0,goldCost:200,values:[1,1.5,2],description:'Pay 200 gold to give every active defender +1 / +1.5 / +2 tiles of attack range for the current combat wave. Once per wave; costs no CP and does not extend support auras.'},
  'decisive-strike':{name:'Decisive Strike',kind:'strike',cost:0,values:[.3,.4,.5],bossValues:[.05,.07,.1],uses:[1,1,1],description:'Once per run, deal true damage equal to 30 / 40 / 50% of every current enemy’s maximum health; bosses take 5 / 7 / 10%. Costs no CP.'},
  'fortified-keep':{name:'Fortified Keep',kind:'passive',values:[5,10,15],description:'Begin with 5 / 10 / 15 additional keep health and the same increase to maximum health.'},
@@ -21,7 +23,7 @@ export function validateLoadout(loadout={}){return generalLoadout(loadout,Object
 export class General{
  constructor(game,loadout={}){
   this.game=game;this.loadout=validateLoadout(loadout);this.active={};this.pendingFocus=null;this.draftFocus=null;
-  this.uses={'field-promotion':0,'decisive-strike':0};this.waveRange=null;this.commanderRulesVersion=2;
+  this.uses={'field-promotion':0,'decisive-strike':0};this.waveRange=null;this.commanderRulesVersion=COMMANDER_RULES_VERSION;
   // Confirmation belongs to the mounted UI, never to authoritative saves/replay.
   Object.defineProperty(this,'strikePrepared',{value:false,writable:true,enumerable:false});
   Object.defineProperty(this,'legacyCommanderReplay',{value:false,writable:true,enumerable:false});
@@ -32,7 +34,13 @@ export class General{
  multiplier(id){return this.remaining(id)>1e-9?1+this.value(id):1;}
  get slow(){return this.remaining('war-horn')>1e-9?this.value('war-horn'):0;}
  get rangeBonus(){return this.game.phase==='combat'&&this.waveRange?.round===this.game.round?this.waveRange.bonus:0;}
- maxUses(id){return id==='field-promotion'?this.value(id):id==='decisive-strike'&&this.level(id)?1:0;}
+ get promotionPerRound(){return this.commanderRulesVersion>=3;}
+ get promotionCost(){return this.promotionPerRound?this.value('field-promotion'):3;}
+ maxUses(id){
+  if(!this.level(id))return 0;
+  if(id==='field-promotion')return this.promotionPerRound?1:legacyPromotionUses[this.level(id)-1];
+  return id==='decisive-strike'?1:0;
+ }
  remainingUses(id){return Math.max(0,this.maxUses(id)-(this.uses[id]||0));}
  promotionState(targetId=this.game.selected,legacy=false){
   const g=this.game,rank=this.level('field-promotion'),cap=GENERAL_SKILLS['field-promotion'].caps[rank-1]||5,draws=g.draft.draws;
@@ -54,12 +62,12 @@ export class General{
   else if(g.commandMove.active)reason='Finish or cancel Move first.';
   else if(g.draft.closedEarly||draws.length!==5||draws.some(d=>!d.placed)||new Set(draws.map(d=>d.towerId)).size!==5||preview.some(p=>p.from===null||p.reason==='Not a current placed recruit.'))reason='Place all five recruits first.';
   else if(legacy&&this.promotedDraft?.round===g.round)reason='This draft has already been promoted.';
-  else if(!this.remainingUses('field-promotion'))reason='No Field Promotion uses remain in this run.';
-  else if(g.commandPoints.value<3)reason='Need 3 CP.';
+  else if(!this.remainingUses('field-promotion'))reason=this.promotionPerRound?'Field Promotion has already been used this round.':'No Field Promotion uses remain in this run.';
+  else if(g.commandPoints.value<this.promotionCost)reason=`Need ${this.promotionCost} CP.`;
   else if(legacy&&!preview.some(row=>row.eligible))reason='No eligible recruits can gain a rank.';
   else if(!legacy&&(!target||targetId!==g.selected))reason='Select one current recruit to promote.';
   else if(!legacy&&!target.eligible)reason=target.reason;
-  return{available:!reason,reason,preview,selectedTowerId:targetId,target,remainingUses:this.remainingUses('field-promotion'),maxUses:this.maxUses('field-promotion'),cost:3,cap};
+  return{available:!reason,reason,preview,selectedTowerId:targetId,target,remainingUses:this.remainingUses('field-promotion'),maxUses:this.maxUses('field-promotion'),cost:this.promotionCost,perRound:this.promotionPerRound,cap};
  }
  applyDraftPromotion(draw,tower,cap){
   const unit=tower&&this.game.data.towers[tower.family];
@@ -74,10 +82,10 @@ export class General{
   const state=this.promotionState(targetId);if(!state.available)return false;
   const g=this.game,draw=g.draft.draws.find(draw=>draw.towerId===targetId),tower=g.towers.find(tower=>tower.id===targetId);
   const change=this.applyDraftPromotion(draw,tower,state.cap);if(!change)return false;
-  g.commandPoints.value-=3;this.uses['field-promotion']++;
+  g.commandPoints.value-=state.cost;this.uses['field-promotion']++;
   const upgrades=[change];
   g.previewRecipeId=null;g.selectionVoiceKey=null;
-  g.emit('general-promoted',{id:'field-promotion',round:g.round,upgrades,cost:3,remainingUses:this.remainingUses('field-promotion')});
+  g.emit('general-promoted',{id:'field-promotion',round:g.round,upgrades,cost:state.cost,remainingUses:this.remainingUses('field-promotion')});
   return true;
  }
  promoteLegacyDraft(){
@@ -89,8 +97,16 @@ export class General{
  }
  get replayingLegacyRules(){return this.legacyCommanderReplay&&this.commanderRulesVersion===1;}
  adoptCommanderRules(version){
-  if(version!==2||this.commanderRulesVersion!==1||['won','lost'].includes(this.game.phase))return false;
-  this.commanderRulesVersion=2;delete this.promotedDraft;delete this.game.draft.promotionRankCap;this.game.emit('change');return true;
+  if(![2,COMMANDER_RULES_VERSION].includes(version)||version<=this.commanderRulesVersion||['won','lost'].includes(this.game.phase))return false;
+  const {draft,phase}=this.game;
+  if(version===COMMANDER_RULES_VERSION){
+   // Earlier snapshots kept a run-wide count. A reroll may have erased a
+   // promotion from this draft, so preserve the limit when that is possible.
+   const usedInDraft=this.uses['field-promotion']>0&&phase==='select'&&
+    (draft.rerollsUsed>0||draft.draws.some(draw=>draw.promotionApplied)||this.promotedDraft?.round===this.game.round);
+   this.uses['field-promotion']=Number(usedInDraft);
+  }
+  this.commanderRulesVersion=version;delete this.promotedDraft;delete draft.promotionRankCap;this.game.emit('change');return true;
  }
  rangeState(){
   const g=this.game,skill=GENERAL_SKILLS['extended-range'],used=this.waveRange?.round===g.round;
@@ -129,13 +145,13 @@ export class General{
   return true;
  }
  normalizeAfterRestore(){
+  if(![1,2,COMMANDER_RULES_VERSION].includes(this.commanderRulesVersion))throw Error('Invalid saved Commander rules.');
   const prior=this.uses||{};this.uses={};
   for(const id of ['field-promotion','decisive-strike']){const value=prior[id]??0;if(!Number.isInteger(value)||value<0||value>this.maxUses(id))throw Error('Invalid saved Commander usage.');this.uses[id]=value;}
   this.strikePrepared=false;
-  if(![1,2].includes(this.commanderRulesVersion))throw Error('Invalid saved Commander rules.');
-  // Only immutable, already queued commands may use the markerless save's
-  // promotion rules. The client journals an explicit one-way adoption first.
-  if(this.commanderRulesVersion===2){delete this.promotedDraft;delete this.game.draft.promotionRankCap;}
+  // Already queued commands replay under the saved rules until the client
+  // journals a one-way adoption. Only v1 keeps a draft-wide modifier.
+  if(this.commanderRulesVersion!==1){delete this.promotedDraft;delete this.game.draft.promotionRankCap;}
   else if(this.promotedDraft){
    const expected=GENERAL_SKILLS['field-promotion'].caps[this.level('field-promotion')-1];
    if(!Number.isInteger(this.promotedDraft.round)||this.promotedDraft.round<1||this.promotedDraft.cap!==expected||!this.uses['field-promotion'])throw Error('Invalid saved Field Promotion draft.');
@@ -157,8 +173,8 @@ export class General{
    if(g.phase!=='combat'||this.remaining(id)>1e-9||g.commandPoints.value<3)return false;
    g.commandPoints.value-=3;this.active[id]=g.combat.elapsed+20;
   }else return false;
-  g.emit('general-activated',{id,slot,cost:skill.cost});g.emit('change');return true;
+  g.emit('general-activated',{id,slot,cost:skill.kind==='promotion'?this.promotionCost:skill.cost});g.emit('change');return true;
  }
- beginDraft(){this.draftFocus=this.pendingFocus;this.pendingFocus=null;this.active={};this.waveRange=null;this.strikePrepared=false;if(this.commanderRulesVersion===1){this.promotedDraft=null;this.game.draft.promotionRankCap=0;}}
+ beginDraft(){this.draftFocus=this.pendingFocus;this.pendingFocus=null;this.active={};this.waveRange=null;this.strikePrepared=false;if(this.promotionPerRound)this.uses['field-promotion']=0;if(this.commanderRulesVersion===1){this.promotedDraft=null;this.game.draft.promotionRankCap=0;}}
  finishDraft(){this.draftFocus=null;if(this.commanderRulesVersion===1)this.promotedDraft=null;}
 }

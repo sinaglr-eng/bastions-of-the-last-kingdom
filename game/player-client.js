@@ -2,6 +2,7 @@ import {RunStore} from './run-store.js';
 import {serializeRun,restoreRun} from './core/run-state.js';
 import {currentFactionData} from './core/current-data.js';
 import {Game} from './core/game.js';
+import {COMMANDER_RULES_VERSION} from './core/general.js';
 import {accountRank,newlyAvailableSkills,canonicalAchievementId} from './core/account-progression.js';
 import {canonicalAchievementRows,achievementIdSet} from './achievement-client-state.js';
 
@@ -10,7 +11,7 @@ import {canonicalAchievementRows,achievementIdSet} from './achievement-client-st
 // their command bodies or replay old global promotion from the current UI.
 function adoptCurrentRules(game){
  if(['lost','won'].includes(game.phase))return;
- if(game.general?.commanderRulesVersion===1)game.adoptCommanderRules(2);
+ if(game.general.commanderRulesVersion<COMMANDER_RULES_VERSION)game.adoptCommanderRules(COMMANDER_RULES_VERSION);
  if(game.factionId==='grove'&&!game.data.elfAirTargeting)game.adoptElfAirTargeting();
 }
 
@@ -67,7 +68,7 @@ export class PlayerClient{
  async newRun(factionId,{replace=false}={}){
   await this.resetPromise;await this.clearStaleProgressionSave();await this.recoverFinishedRun({strict:true});
   if(this.game){await this.save();if(this.game.accountId){while(this.busy)await new Promise(r=>setTimeout(r,50));await this.flush();if(this.sync.sequence<this.sync.nextSequence)throw Error('Sync the current account run before replacing it.');}}
-  if(this.user){if(!this.online)throw Error('Connect and sign in to start an account run. You can continue the saved run offline.');const {run,profile}=await this.request('/player/runs',{factionId,replace,commanderRulesVersion:2,artifactVersion:4,elfAirTargeting:true});if(profile)this.applyProfile(profile);return {game:restoreRun(currentFactionData(factionId),run.snapshot),sequence:run.sequence,nextSequence:run.sequence};}
+  if(this.user){if(!this.online)throw Error('Connect and sign in to start an account run. You can continue the saved run offline.');const {run,profile}=await this.request('/player/runs',{factionId,replace,commanderRulesVersion:COMMANDER_RULES_VERSION,artifactVersion:4,elfAirTargeting:true});if(profile)this.applyProfile(profile);return {game:restoreRun(currentFactionData(factionId),run.snapshot),sequence:run.sequence,nextSequence:run.sequence};}
   return {game:new Game(currentFactionData(factionId),{seed:Date.now(),mode:'endless',runId:crypto.randomUUID()}),sequence:0,nextSequence:0};
  }
  async attach(game,{sequence=0,nextSequence=sequence,revision=null,discardRun=null,fresh=false}={}){

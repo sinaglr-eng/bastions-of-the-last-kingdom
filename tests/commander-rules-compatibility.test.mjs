@@ -10,9 +10,9 @@ function completeDraft(){const g=new Game(data,{seed:83,loadout:{'field-promotio
 function markerless(game){const snapshot=JSON.parse(JSON.stringify(serializeRun(game))),root=snapshot.graph.nodes[snapshot.graph.root.r].value,general=snapshot.graph.nodes[root.general.r].value;delete snapshot.commanderRulesVersion;delete general.commanderRulesVersion;delete general.waveRange;return snapshot;}
 const command=(action,...args)=>({action,args});
 
-test('new runs and policy2 command replay always reject untargeted promotion and cannot downgrade their rules',()=>{
- const g=completeDraft(),initial=serializeRun(g);assert.equal(g.general.commanderRulesVersion,2);assert.equal(initial.commanderRulesVersion,2);
- replayCommands(g,[command('activateGeneral','field-promotion'),command('adoptCommanderRules',1)]);assert.ok(g.towers.every(tower=>tower.tier===1));assert.equal(g.commandPoints.value,100);assert.equal(g.general.uses['field-promotion'],0);assert.equal(g.general.commanderRulesVersion,2);assert.equal(g.general.legacyCommanderReplay,false);
+test('New games reject untargeted promotion and cannot switch back to earlier rules',()=>{
+ const g=completeDraft(),initial=serializeRun(g);assert.equal(g.general.commanderRulesVersion,3);assert.equal(initial.commanderRulesVersion,3);
+ replayCommands(g,[command('activateGeneral','field-promotion'),command('adoptCommanderRules',2),command('adoptCommanderRules',1)]);assert.ok(g.towers.every(tower=>tower.tier===1));assert.equal(g.commandPoints.value,100);assert.equal(g.general.uses['field-promotion'],0);assert.equal(g.general.commanderRulesVersion,3);assert.equal(g.general.legacyCommanderReplay,false);
  const replay=restoreRun(data,initial);assert.equal(replay.activateGeneral('field-promotion'),false);assert.equal(replay.adoptCommanderRules(1),false);
 });
 
@@ -33,5 +33,22 @@ test('a primitive adoption after an old immutable prefix switches all later comm
 test('adoption is journaled, preserves committed legacy ranks, never refunds usage, and replay scope cannot leak on errors',()=>{
  const g=restoreRun(data,markerless(completeDraft()));replayCommands(g,[command('activateGeneral','field-promotion')]);g.journal=[];const before=g.towers.map(tower=>tower.tier),cp=g.commandPoints.value;assert.equal(g.adoptCommanderRules(2),true);assert.deepEqual(g.journal,[command('adoptCommanderRules',2)]);assert.deepEqual(g.towers.map(tower=>tower.tier),before);assert.equal(g.commandPoints.value,cp);assert.equal(g.general.uses['field-promotion'],1);
  assert.throws(()=>replayCommands(g,[command('activateGeneral','field-promotion',{})]));assert.equal(g.general.legacyCommanderReplay,false);assert.equal(g.activateGeneral('field-promotion'),false);assert.equal(serializeRun(g).commanderRulesVersion,2);
- for(const version of [0,3,'2',null]){const h=restoreRun(data,markerless(completeDraft()));assert.equal(h.adoptCommanderRules(version),false);assert.equal(h.general.commanderRulesVersion,1);}
+ for(const version of [0,4,'2',null]){const h=restoreRun(data,markerless(completeDraft()));assert.equal(h.adoptCommanderRules(version),false);assert.equal(h.general.commanderRulesVersion,1);}
+});
+
+test('Pending v2 promotions keep their original costs before v3 adoption, even across a reroll',()=>{
+ const initial=completeDraft();initial.general.commanderRulesVersion=2;
+ const g=restoreRun(data,serializeRun(initial)),[first,second,third]=g.towers;
+ replayCommands(g,[
+  command('select',first.id),command('activateGeneral','field-promotion',first.id),
+  command('select',second.id),command('activateGeneral','field-promotion',second.id),
+  command('reroll'),
+ ]);
+ assert.equal(g.general.uses['field-promotion'],2);
+ const resumed=restoreRun(data,serializeRun(g)),cp=resumed.commandPoints.value;
+ replayCommands(resumed,[command('adoptCommanderRules',3),command('select',third.id),command('activateGeneral','field-promotion',third.id)]);
+ assert.equal(resumed.general.commanderRulesVersion,3);
+ assert.equal(resumed.general.uses['field-promotion'],1);
+ assert.equal(resumed.commandPoints.value,cp);
+ assert.ok(resumed.towers.every(tower=>tower.tier===1));
 });

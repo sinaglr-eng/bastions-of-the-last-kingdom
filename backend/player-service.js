@@ -7,7 +7,7 @@ import {Game} from '../game/core/game.js';
 import {serializeRun} from '../game/core/run-state.js';
 import {replayCommands} from '../game/core/run-journal.js';
 import {restoreVerifiedRun} from './verified-run-state.js';
-import {GENERAL_SKILLS,SKILL_COSTS,generalLoadout} from '../game/core/general.js';
+import {COMMANDER_RULES_VERSION,GENERAL_SKILLS,SKILL_COSTS,generalLoadout} from '../game/core/general.js';
 import {validId} from './validation.js';
 import {playerName} from './validation.js';
 import {authCapabilities} from './social-auth.js';
@@ -178,7 +178,7 @@ export async function handlePlayer(request,env){
  if(path==='/api/player/runs'){
   if(Object.hasOwn(b,'elfAirTargeting')&&b.elfAirTargeting!==true)fail('Unsupported Elf targeting capability.');
   if(Object.hasOwn(b,'artifactVersion')&&![1,2,3,4].includes(b.artifactVersion))fail('Unsupported artifact capability.');
-  if(Object.hasOwn(b,'commanderRulesVersion')&&b.commanderRulesVersion!==2)fail('Invalid Commander rules version.');
+  if(Object.hasOwn(b,'commanderRulesVersion')&&![2,COMMANDER_RULES_VERSION].includes(b.commanderRulesVersion))fail('Invalid Commander rules version.');
   if(!['crown','forge','grove'].includes(b.factionId))fail('Choose a faction.');const p=await profile(db,user.id),prior=await db.prepare('SELECT r.* FROM fr010_active a JOIN fr010_runs r ON r.id=a.run_id WHERE a.user_id=?').bind(user.id).first();const priorCurrent=prior?await currentRunEpoch(db,prior):false;if(prior?.outcome==='playing'&&priorCurrent&&!b.replace)fail('Confirm replacing your active run.',409);
   if(b.artifactVersion===1&&Object.values(p.artifacts.equipment).some(id=>!Object.hasOwn(ARTIFACT_CATALOG.legacyEffects.itemModifiers,id)))fail('Reload the game to use your new Commander equipment.');
   if(b.artifactVersion===2&&Object.values(p.artifacts.equipment).some(id=>!Object.hasOwn(ARTIFACT_CATALOG.compatibilityEffects['fr011-v2'].itemModifiers,id)))fail('Reload the game to use your new Commander equipment.');
@@ -187,7 +187,7 @@ export async function handlePlayer(request,env){
   for(const skill of p.equipped)if(!skillGate(skill,p.skills[skill],p).allowed)fail('Your selected loadout requires a higher account level.');
   // A cached pre-cutover client does not send this capability. Freeze its
   // newly created run to legacy replay until the recorded adoption boundary.
-  game.general.commanderRulesVersion=Object.hasOwn(b,'commanderRulesVersion')?2:1;game.progressionEpoch=reset.epoch;
+  game.general.commanderRulesVersion=b.commanderRulesVersion??1;game.progressionEpoch=reset.epoch;
   const statements=[];if(prior?.outcome==='playing')statements.push(db.prepare("UPDATE fr010_runs SET outcome=?,finished_at=?,updated_at=? WHERE id=? AND user_id=? AND outcome='playing'").bind(priorCurrent?'abandoned':'reset',now,now,prior.id,user.id));statements.push(db.prepare('INSERT INTO fr010_runs (id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,artifact_loadout_json,started_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)').bind(id,user.id,b.factionId,FR010_RULESET,seed,JSON.stringify(serializeRun(game)),JSON.stringify(loadout),JSON.stringify(game.artifactEquipment),now,now));statements.push(db.prepare('INSERT INTO fr010_active (user_id,run_id) VALUES (?,?) ON CONFLICT(user_id) DO UPDATE SET run_id=excluded.run_id').bind(user.id,id));await db.batch(statements);if(prior?.outcome==='playing'&&priorCurrent){await settleRunExperience(db,user.id,prior.id,'end');await unlockArtifactChests(db,user.id,prior.id);}return json({run:publicRun(await ownRun(db,id,user.id)),profile:await profile(db,user.id)},201);
  }
  const match=path.match(/^\/api\/player\/runs\/([a-f\d-]{36})\/(commands|developer)$/i);
