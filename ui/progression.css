@@ -29,3 +29,21 @@
 @media(max-width:520px){#app #general-controls{padding:12px;max-height:calc(100dvh - 100px)}.general-promotion-preview li{padding:6px 0}.general-command-skill .general-skill-summary{font-size:11px!important}.general-promotion-preview li>b{font-size:11px}}
 @media(max-width:750px){#app .topbar .header-actions>button.text-button:is([data-action="codex"],[data-action="warbands"]){padding:8px 5px;gap:3px;font-size:11px}#app .topbar .header-actions>button.text-button:is([data-action="codex"],[data-action="warbands"])>span{font-size:11px;letter-spacing:0}#app .topbar .header-actions>button.text-button:is([data-action="codex"],[data-action="warbands"])>.icon{width:14px;height:14px}}
 @media(max-width:420px){#app .topbar .header-actions>button.text-button[data-action="warbands"]>.icon{display:none}}
+.field-map-tool-stack{
+ position:absolute;right:calc(var(--inspection,0px) + max(12px,env(safe-area-inset-right)));top:calc(var(--register) + 12px);
+ z-index:13;display:grid;justify-items:end;gap:5px;
+}
+#app .field-map-tool-stack>.map-tools{position:static}
+.field-quick-commander{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px;max-width:calc(100vw - 20px)}
+.field-quick-commander[hidden],.field-quick-commander [hidden]{display:none}
+.field-command-shortcut{display:flex;align-items:center;gap:3px}
+#app .field-command-shortcut button,#app .field-command-shortcut select{
+ display:inline-flex;align-items:center;justify-content:center;gap:3px;min-width:44px;min-height:44px;
+ padding:3px 5px;border:1px solid #a88c55;border-radius:4px;background:#f6ebd1;color:#284d41;
+ box-shadow:0 1px 2px #3e2f2430;font:700 11px/1.1 var(--war-sans);
+}
+#app .field-command-shortcut button:disabled,#app .field-command-shortcut select:disabled{opacity:.72;filter:saturate(.4)}
+#app .field-command-shortcut select{width:56px}
+#app .field-command-shortcut button:not(:disabled):hover,#app .field-command-shortcut.is-active button{background:#d9bb78}
+.field-command-shortcut img{width:30px;height:30px;object-fit:contain}
+@media(max-width:620px){.field-map-tool-stack{right:max(10px,env(safe-area-inset-right));top:calc(var(--register) + 10px)}}

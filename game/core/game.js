@@ -13,6 +13,7 @@ import {General} from './general.js';
 import {RunProgress} from './achievements.js';
 import {endlessWave} from './endless.js';
 import {installJournal,recordAdvance,FIXED_STEP} from './run-journal.js';
+import {currentFactionData} from './current-data.js';
 
 export class Game {
   constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[],mode=data.fr010?'endless':'campaign',loadout={},artifactEquipment={},artifactVersion,runId=null,accountId=null}={}) {
@@ -119,6 +120,12 @@ export class Game {
   awardWaveScore(base){this.awardScore(this.data.fr010?(BigInt(this.round)*BigInt(base)).toString():this.round*base);}
   activateGeneral(id,slot=null){const ok=this.general.activate(id,slot);return ok;}
   adoptCommanderRules(version){return this.general.adoptCommanderRules(version);}
+  adoptElfAirTargeting(){
+    if(this.factionId!=='grove'||!this.data.fr010||this.data.elfAirTargeting||['lost','won'].includes(this.phase))return false;
+    this.data=currentFactionData('grove');
+    this.draft.data=this.data;
+    return true;
+  }
   recoverLives(amount,source){
     if(!Number.isFinite(amount)||amount<=0||['won','lost'].includes(this.phase))return 0;
     const before=this.lives,cap=this.maxLives??this.data.balance.startingLives;

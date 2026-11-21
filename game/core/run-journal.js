@@ -1,5 +1,5 @@
 export const FIXED_STEP=1/60;
-export const RECORDED_COMMANDS=Object.freeze(['select','setTowerAttackPaused','selectEnemy','beginMove','cancelMove','selectMove','place','keep','downgrade','merge','craft','remove','reroll','reserve','startCombat','finishRecruitment','activateGeneral','adoptCommanderRules','setPriority','setPinned']);
+export const RECORDED_COMMANDS=Object.freeze(['select','setTowerAttackPaused','selectEnemy','beginMove','cancelMove','selectMove','place','keep','downgrade','merge','craft','remove','reroll','reserve','startCombat','finishRecruitment','activateGeneral','adoptCommanderRules','adoptElfAirTargeting','setPriority','setPinned']);
 export function installJournal(game){
  Object.defineProperty(game,'journal',{value:[],writable:true,enumerable:false});
  Object.defineProperty(game,'journalDepth',{value:0,writable:true,enumerable:false});

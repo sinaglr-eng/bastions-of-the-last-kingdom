@@ -1,6 +1,22 @@
 import {sql} from 'drizzle-orm';
 export const progressionResets=sqliteTable('progression_resets',{id:text('id').primaryKey().notNull(),completedAt:integer('completed_at').notNull().default(0),scopeJson:text('scope_json').notNull()});
 import {sqliteTable,text,integer,index,primaryKey,uniqueIndex,check} from 'drizzle-orm/sqlite-core';
+export const rankChests=sqliteTable('rank_chests',{
+ id:text('id').primaryKey().notNull(),
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),
+ rankLevel:integer('rank_level').notNull(),
+ ordinal:integer('ordinal').notNull(),
+ tier:integer('tier').notNull(),
+ seed:integer('seed').notNull(),
+ earnedAt:integer('earned_at').notNull(),
+ openedAt:integer('opened_at'),
+},t=>[
+ uniqueIndex('rank_chests_reward').on(t.userId,t.rankLevel,t.ordinal),
+ index('rank_chests_owner').on(t.userId,t.openedAt,t.tier,t.earnedAt,t.id),
+ check('rank_chests_level',sql`${t.rankLevel} BETWEEN 2 AND 15`),
+ check('rank_chests_ordinal',sql`${t.ordinal} BETWEEN 1 AND 3`),
+ check('rank_chests_tier',sql`${t.tier} BETWEEN 1 AND 5`),
+]);
 export const runs=sqliteTable('runs',{
   id:text('id').primaryKey().notNull(),tokenHash:text('token_hash').notNull(),version:text('version').notNull(),mode:integer('mode').notNull(),seed:text('seed').notNull(),startedAt:integer('started_at').notNull(),updatedAt:integer('updated_at').notNull(),finishedAt:integer('finished_at'),sequence:integer('sequence').notNull().default(0),outcome:text('outcome').notNull().default('playing'),score:integer('score').notNull().default(0),wavesSurvived:integer('waves_survived').notNull().default(0),durationMs:integer('duration_ms').notNull().default(0),health:integer('health').notNull().default(30),kingdomLevel:integer('kingdom_level').notNull().default(1),gold:integer('gold').notNull().default(0),name:text('name'),summaryJson:text('summary_json').notNull().default('{"draws":[],"decisions":[]}')
 },t=>[index('idx_runs_leaderboard').on(t.mode,t.version,sql`${t.score} DESC`,t.finishedAt,t.id).where(sql`${t.name} IS NOT NULL`)]);

@@ -169,7 +169,7 @@ export async function handlePlayer(request,env){
   await db.batch([
    db.prepare('DELETE FROM fr010_active WHERE user_id=?').bind(user.id),
    db.prepare('DELETE FROM fr010_batches WHERE run_id IN (SELECT id FROM fr010_runs WHERE user_id=?)').bind(user.id),
-   ...['artifact_receipts','artifact_chests','artifact_accounts','account_xp_receipts','account_xp_ledger','account_run_progression','account_progression','fr010_runs','fr010_eligible','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
+   ...['artifact_receipts','artifact_chests','rank_chests','artifact_accounts','account_xp_receipts','account_xp_ledger','account_run_progression','account_progression','fr010_runs','fr010_eligible','fr010_grants','fr010_ledger','fr010_profiles'].map(table=>db.prepare(`DELETE FROM ${table} WHERE user_id=?`).bind(user.id)),
    db.prepare('DELETE FROM account WHERE userId=?').bind(user.id),db.prepare('DELETE FROM session WHERE userId=?').bind(user.id),db.prepare('DELETE FROM user WHERE id=?').bind(user.id),
   ]);return json({deleted:true});
  }

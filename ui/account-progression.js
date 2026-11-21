@@ -1,4 +1,6 @@
-import {accountRank,MILITARY_RANKS,SKILL_LEVEL_GATES} from '../game/core/account-progression.js';
+import {CHESTS} from '../game/core/artifacts.js';
+import {siteUrl} from '../game/site-url.js';
+import {accountRank,MILITARY_RANKS,SKILL_LEVEL_GATES,rankChestReward} from '../game/core/account-progression.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 import {commanderSkillArt} from './commander-art.js';
 import {accountRankArtwork} from './account-progression-art.js';
@@ -7,9 +9,27 @@ export const rankSkillUnlocks=level=>Object.entries(SKILL_LEVEL_GATES).flatMap((
 const num=n=>(n||0).toLocaleString('en-US');
 export function rankProgressMarkup(total=0){const r=accountRank(total);return `<div class="account-xp-bar" role="progressbar" aria-label="${r.name}, Level ${r.level}${r.next?`. ${r.progress} of ${r.span} XP toward ${r.next.name}`:'. Maximum rank'}" aria-valuemin="0" aria-valuemax="${r.span||100}" aria-valuenow="${r.next?r.progress:100}"><i style="--xp-fill:${r.percent}%"></i></div><small class="account-xp-caption">${r.next?`${num(r.progress)} / ${num(r.span)} XP to ${r.next.name}`:'MAX RANK'} <span>${num(r.total)} total XP</span></small>`;}
 export function accountBadgeMarkup(profile={},large=false){const r=accountRank(profile.xpTotal);return `<section class="account-rank ${large?'is-large':''}" aria-label="Account rank"><img src="${accountRankArtwork(r.level)}" alt="${r.name} rank badge" width="${large?112:48}" height="${large?112:48}"><div><strong>${r.name} <span>Level ${r.level}</span></strong>${rankProgressMarkup(r.total)}</div></section>`;}
+function rankChestMarkup(level){
+ const reward=rankChestReward(level);
+ if(!reward)return '';
+ const chest=CHESTS[reward.tier];const name=chest.name+(reward.count===1?'':'s');
+ return `<span class="rank-chest-reward"><img src="${siteUrl(chest.art)}" alt="" width="25" height="22"> <span>${reward.count} × ${esc(name)}</span></span>`;
+}
 export function rankOverviewMarkup(profile={},{expanded=false}={}){
- const r=accountRank(profile.xpTotal),future=Object.entries(SKILL_LEVEL_GATES).flatMap(([id,levels])=>levels.map((level,i)=>({id,level,rank:i+1}))).filter(g=>g.level>r.level).sort((a,b)=>a.level-b.level),nextLevel=future[0]?.level;
- return `<section class="commander-progression">${accountBadgeMarkup(profile,true)}<div class="commander-next"><small>YOUR NEXT MILESTONE</small>${future.length?`<strong>${MILITARY_RANKS[nextLevel-1].name} · Level ${nextLevel}</strong><p>${future.filter(g=>g.level===nextLevel).map(g=>`${GENERAL_SKILLS[g.id].name} ${['I','II','III'][g.rank-1]}`).join(' · ')}</p><span>Available to buy with medals after promotion.</span>`:'<strong>Every rank is within reach</strong><p>You have reached the highest account rank. Continue building your legacy.</p>'}</div><details class="commander-rank-roadmap" ${expanded?'open':''}><summary>View all 15 military ranks</summary><ol>${MILITARY_RANKS.map(rank=>`<li class="${rank.level===r.level?'is-current':rank.level<r.level?'is-earned':'is-future'}"><img src="${accountRankArtwork(rank.level)}" alt="" width="48" height="48"><span><b>${rank.name}</b><small>Level ${rank.level} · ${num(rank.xp)} XP</small><span class="rank-skill-unlocks"><small>Available to purchase</small>${rankSkillUnlocks(rank.level).map(skill=>`<span class="rank-unlock-skill"><img src="${commanderSkillArt(skill.id)}" alt="" width="26" height="26" loading="lazy"><span>${esc(skill.name)} <b>${['I','II','III'][skill.rank-1]}</b></span></span>`).join('')||'<span>No new skill ranks</span>'}</span></span><em>${rank.level===r.level?'Current':rank.level<r.level?'✓':'Locked'}</em></li>`).join('')}</ol></details></section>`;
+ const r=accountRank(profile.xpTotal),next=r.next;
+ const skillList=next?rankSkillUnlocks(next.level):[];
+ const ready=(profile.artifacts?.chests||[]).filter(chest=>chest.rankLevel&&chest.status==='ready').length;
+ return `<section class="commander-progression">${accountBadgeMarkup(profile,true)}<div class="commander-next">
+  <small>${next?'NEXT PROMOTION':'MAXIMUM RANK'}</small>
+  ${next?`<strong>${next.name} · Level ${next.level}</strong>${rankChestMarkup(next.level)}
+  ${skillList.length?`<p>${skillList.map(skill=>`${esc(skill.name)} ${['I','II','III'][skill.rank-1]}`).join(' · ')}</p>`:''}`:'<strong>King · Level 15</strong>'}
+  ${ready?`<p><button type="button" data-menu="rank-chests">View ${ready} promotion ${ready===1?'chest':'chests'}</button></p>`:''}
+ </div><details class="commander-rank-roadmap" ${expanded?'open':''}><summary>View all 15 military ranks</summary>
+ <ol>${MILITARY_RANKS.map(rank=>`<li class="${rank.level===r.level?'is-current':rank.level<r.level?'is-earned':'is-future'}">
+  <img src="${accountRankArtwork(rank.level)}" alt="" width="48" height="48"><span>
+  <b>${rank.name}</b><small>Level ${rank.level} · ${num(rank.xp)} XP</small>${rankChestMarkup(rank.level)}
+  <span class="rank-skill-unlocks"><small>Available to purchase</small>${rankSkillUnlocks(rank.level).map(skill=>`<span class="rank-unlock-skill"><img src="${commanderSkillArt(skill.id)}" alt="" width="19" height="19" loading="lazy"><span>${esc(skill.name)} <b>${['I','II','III'][skill.rank-1]}</b></span></span>`).join('')||'<span>No new skill ranks</span>'}</span>
+  </span><em>${rank.level===r.level?'Current':rank.level<r.level?'✓':'Locked'}</em></li>`).join('')}</ol></details></section>`;
 }
 export const xpAmount=xp=>`<span class="account-xp-reward" aria-label="${xp||0} experience points">+${num(xp)} XP</span>`;
 function seenKey(owner,id){return 'account-xp-celebrated:'+owner+':'+id;}
@@ -36,5 +56,5 @@ export function animatePromotion(root,{receipt,owner='guest',storage=globalThis.
 export function showPromotionNotice(receipt,owner){
  if(receipt.levelAfter<=receipt.levelBefore)return;
  const key=seenKey(owner,receipt.receiptId);try{if(localStorage.getItem(key))return;}catch{}
- const root=document.createElement('aside');root.className='account-promotion-notice result-rank-card';root.setAttribute('role','status');root.innerHTML=`<button aria-label="Dismiss promotion">×</button><small>CONGRATULATIONS, COMMANDER!</small><h2>Promoted to ${esc(accountRank(receipt.xpAfter).name)}</h2>${accountBadgeMarkup({xpTotal:receipt.xpAfter},true)}`;(document.querySelector('#dialog[open]')||document.body).append(root);animatePromotion(root,{receipt,owner});root.querySelector('button').onclick=()=>root.remove();setTimeout(()=>root.remove(),9000);
+ const root=document.createElement('aside');root.className='account-promotion-notice result-rank-card';root.setAttribute('role','status');root.innerHTML=`<button aria-label="Dismiss promotion">×</button><small>CONGRATULATIONS, COMMANDER!</small><h2>Promoted to ${esc(accountRank(receipt.xpAfter).name)}</h2>${accountBadgeMarkup({xpTotal:receipt.xpAfter},true)}${MILITARY_RANKS.filter(rank=>rank.level>receipt.levelBefore&&rank.level<=receipt.levelAfter).map(rank=>rankChestMarkup(rank.level)).join('')}`;(document.querySelector('#dialog[open]')||document.body).append(root);animatePromotion(root,{receipt,owner});root.querySelector('button').onclick=()=>root.remove();setTimeout(()=>root.remove(),9000);
 }

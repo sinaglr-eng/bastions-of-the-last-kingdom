@@ -32,6 +32,42 @@ export function generalCommandState(game,slot='A'){
  });
 }
 export const recruitmentClassOptions=game=>'ABCDEFGH'.split('').map(code=>{const unit=Object.values(game.data?.towers||{}).find(u=>!u.advanced&&u.unitCode===code);return {code,label:unit?`${code} — ${unit.name}`:code};});
+export function updateQuickCommanderControls(host,game,slot){
+ const rows=generalCommandState(game,slot).filter(row=>row.action);
+ const key=`${game?.factionId}:${rows.map(row=>row.id+row.level).join(',')}`;
+ host.hidden=!rows.length;
+ if(host.dataset.loadout!==key){
+  host.dataset.loadout=key;
+  host.innerHTML=rows.map(row=>{
+   const {id}=row;
+   const choices=id==='recruitment-focus'?`<select data-recruitment-class aria-label="Recruitment Focus class">${recruitmentClassOptions(game).map(({code,label})=>`<option value="${code}">${esc(label)}</option>`).join('')}</select>`:'';
+   const cancel=id==='decisive-strike'?'<button type="button" data-quick-cancel data-action="general-strike-cancel" hidden aria-label="Cancel Decisive Strike" title="Cancel Decisive Strike">×</button>':'';
+   return `<div class="field-command-shortcut" data-quick-skill="${id}">${choices}
+    <button type="button" data-quick-action><img src="${progressionArtwork(id)}" width="30" height="30" alt=""><span data-quick-label hidden></span></button>${cancel}
+   </div>`;
+  }).join('');
+ }
+ for(const row of rows){
+  const card=host.querySelector(`[data-quick-skill="${row.id}"]`);
+  const button=card.querySelector('[data-quick-action]');
+  const name=GENERAL_SKILLS[row.id].name;
+  const tooltip=`${name} ${rankLabel(row.level)} · ${row.label}`;
+  button.disabled=row.disabled;
+  button.dataset.action=row.action;
+  button.dataset.skill=row.id;
+  if(row.towerId!==undefined)button.dataset.towerId=String(row.towerId);
+  button.setAttribute('aria-label',tooltip);
+  button.title=tooltip;
+  const label=button.querySelector('[data-quick-label]');
+  label.hidden=!row.prepared;
+  label.textContent=row.prepared?'Confirm':'';
+  card.classList.toggle('is-active',row.waveActive||row.remaining>1e-9);
+  const select=card.querySelector('select');
+  if(select){select.disabled=!!game.general.pendingFocus;select.value=slot;select.title=select.selectedOptions[0]?.textContent||'Recruitment Focus class';}
+  const cancel=card.querySelector('[data-quick-cancel]');
+  if(cancel)cancel.hidden=!row.prepared;
+ }
+}
 export function promotionPreviewMarkup(preview=[],selectedTowerId=null){
  const row=preview.find(candidate=>candidate.towerId!=null&&candidate.towerId===selectedTowerId);
  if(!row||row.from==null)return `<li class="is-pending"><span>Select a current recruit</span><small>Place all five, then select the recruit you want to promote.</small></li>`;

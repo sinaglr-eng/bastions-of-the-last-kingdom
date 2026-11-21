@@ -7,6 +7,14 @@
 #app .folio-candidates .draw-card .draw-damage{position:static;inset:auto;grid-column:1;grid-row:4;align-self:end;margin:0;padding:0 1px;font-size:9px;line-height:12px;background:none}
 #app .folio-candidates .draw-card .draw-recipe-ingredient{position:static;inset:auto;grid-column:1;grid-row:1;justify-self:start;align-self:center;z-index:2;display:flex;width:18px;height:18px;padding:1px;background:#e3f1f4;color:#245c6d;border-radius:3px}
 #app .folio-candidates .draw-card .draw-recipe-ingredient>span{display:none}
+#app .draw-card .draw-recipe-ingredient>img.icon{
+ position:static;inset:auto;transform:none;display:block;flex:none;
+ width:14px;height:14px;max-width:100%;max-height:100%;object-fit:contain;
+ border:0;padding:0;margin:0;box-shadow:none;background:none
+}
+#app :is(.draw-merge,.folio-actions,.crafting-recruit) img.icon{
+ position:static;inset:auto;transform:none;width:15px;height:15px;object-fit:contain;flex:none
+}
 #app .folio-candidates .draw-card .draw-reservation{position:static;inset:auto;grid-column:1;grid-row:5;min-height:0;padding:2px;font-size:8px;line-height:1.1}
 #app .folio-candidates .draw-card.reserved-return,#app .folio-candidates .draw-card.reserved-pending{grid-template-rows:18px minmax(18px,1fr) max-content max-content max-content}
 @media(max-width:900px){#app .folio-candidates .draw-card .draw-name{font-size:10px}#app .folio-candidates .draw-card .tier-pips{font-size:10px;padding:1px 4px}#app .folio-candidates .draw-card .draw-damage{font-size:8px}}

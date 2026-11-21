@@ -91,7 +91,7 @@
 .commander-ranks-page>p{font:16px/1.6 var(--war-sans);max-width:760px}
 .commander-ranks-page .commander-rank-roadmap summary{font:600 20px var(--war-serif);min-height:44px}
 .commander-ranks-page .commander-rank-roadmap li{padding:14px;min-height:85px;border-radius:5px}
-.commander-ranks-page .commander-rank-roadmap li img{width:56px;height:56px;object-fit:contain;flex:none}
+.commander-ranks-page .commander-rank-roadmap li>img{width:56px;height:56px;object-fit:contain;flex:none}
 .commander-ranks-page .commander-rank-roadmap li>span{min-width:0}
 .commander-ranks-page>button{margin-top:16px;min-height:48px}
 @media(max-width:700px){#main-menu .page-general .war-title h1{font-size:23px}}

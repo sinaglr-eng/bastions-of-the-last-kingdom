@@ -13,7 +13,7 @@ const artwork={
 };
 const interfaceIcons=new Set([
   'loading','compass','play','pause','path','grid','reset','help','close','check','pin','target',
-  'chevron','mute','snow','fire','flask','sun','hammer','bolt','scroll',
+  'chevron','mute','snow','fire','flask','sun','hammer','bolt','scroll','merge','combine',
 ]);
 export function iconArt(name){
   const file=interfaceIcons.has(name)?'war-table/ui-icons/'+name+'.webp':Object.hasOwn(artwork,name)?artwork[name]:artwork.shield;
