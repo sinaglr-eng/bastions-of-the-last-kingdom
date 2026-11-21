@@ -15,7 +15,7 @@ const gear=id=>equipArtifactSet({},id),near=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,
 const effects=(id,version=ARTIFACT_VERSION)=>artifactBonuses(gear(id),version).effects;
 
 test('v4 has seventeen legal sets and five useful new lower-rarity sets',()=>{
- assert.equal(ARTIFACT_VERSION,'fr011-v4');assert.equal(C.catalogRevision,5);
+ assert.equal(ARTIFACT_VERSION,'fr011-v4');assert.equal(C.catalogRevision,6);
  assert.equal(C.artifacts.length,106);assert.equal(C.sets.length,17);
  assert.equal(new Set(C.artifacts.map(a=>a.id)).size,106);
  for(const [rarity,count]of [['common',5],['uncommon',4],['rare',3],['epic',3],['legendary',2]])assert.equal(C.sets.filter(s=>s.rarity===rarity).length,count);

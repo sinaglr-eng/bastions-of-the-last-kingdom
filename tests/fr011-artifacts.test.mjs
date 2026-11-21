@@ -45,6 +45,68 @@ test('FR011 armor reduction includes reactive armor and never creates negative e
 });
 function fixture(){const db=sqliteDatabase();db.sqlite.exec(fs.readFileSync('backend/migrations/0000_statistics.sql','utf8'));migrateFr010(db);db.sqlite.prepare('INSERT INTO user(id,name,email,emailVerified,createdAt,updatedAt) VALUES(?,?,?,?,?,?)').run('fr011','Commander','fr011@example.test',1,0,0);const g=new Game(data,{seed:5,accountId:'fr011',runId:crypto.randomUUID()});db.sqlite.prepare("INSERT INTO fr010_runs(id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at) VALUES(?,?,?,?,?,?,?,0,0)").run(g.runId,'fr011','crown',g.data.rulesetRevision,5,JSON.stringify(serializeRun(g)),'{}');return {db,g};}
 
+test('Wave 50 and Endless boss chests each award one gem, including when no artifact drops',async()=>{
+ const {db,g}=fixture(),user='fr011';
+ try{
+  g.phase='lost';
+  const kills=[{spawnId:1,bossId:'host_40',wave:40},{spawnId:2,bossId:'host_50',wave:50},{spawnId:3,bossId:'host_50',wave:70}];
+  await db.batch(artifactRewardStatements(db,user,g.runId,g,kills,'1=1',[]));
+  let dustOnlySeed=0;
+  while(rollArtifactChest({},5,dustOnlySeed).items.length)dustOnlySeed+=2;
+  const seedChest=db.sqlite.prepare('UPDATE artifact_chests SET seed=?,earned_at=? WHERE boss_spawn_id=?');
+  seedChest.run(0,1,1);
+  seedChest.run(dustOnlySeed,2,2);
+  seedChest.run(1,3,3);
+  db.sqlite.prepare('INSERT INTO rank_chests(id,user_id,rank_level,ordinal,tier,seed,earned_at) VALUES(?,?,15,1,5,1,4)').run(crypto.randomUUID(),user);
+  for(const [revision,tier,gems,drop] of [
+   [0,4,{aquamarine:0,emerald:0}],
+   [1,5,{aquamarine:1,emerald:0},false],
+   [2,5,{aquamarine:0,emerald:1}],
+   [3,5,{aquamarine:0,emerald:0}],
+  ]){
+   const request={requestId:crypto.randomUUID(),revision,tier,count:1};
+   const first=await artifactMutation(db,user,'open',request);
+   assert.deepEqual(first.receipt.gemsGained,gems);
+   if(drop===false)assert.deepEqual(first.receipt.items,[]);
+   assert.deepEqual(await artifactMutation(db,user,'open',request),first);
+  }
+  assert.deepEqual((await artifactProfile(db,user)).gems,{aquamarine:1,emerald:1});
+ }finally{db.sqlite.close();}
+});
+
+test('Only Legendary set pieces require the matching gem and deduct it together with Relic Dust once',async()=>{
+ const {db}=fixture(),user='fr011';
+ try{
+  await artifactProfile(db,user);
+  const seedWallet=db.sqlite.prepare('UPDATE artifact_accounts SET dust=?,highest_tier=5,gems_json=? WHERE user_id=?');
+  const craft=(artifactId,revision)=>({requestId:crypto.randomUUID(),revision,artifactId});
+  for(const set of C.sets.filter(set=>set.rarity==='legendary')){
+   const pieces=C.artifacts.filter(item=>item.setId===set.id);
+   assert.equal(pieces.length,10);
+   assert.ok(pieces.every(item=>item.rarity==='legendary'));
+  }
+  seedWallet.run(1280,'{"aquamarine":0,"emerald":1}',user);
+  const celestial=craft('CE-01',0);
+  await assert.rejects(artifactMutation(db,user,'craft',celestial),/1 Aquamarine/);
+  assert.equal((await artifactProfile(db,user)).dust,1280);
+  seedWallet.run(639,'{"aquamarine":1,"emerald":1}',user);
+  await assert.rejects(artifactMutation(db,user,'craft',celestial),/Not enough Relic Dust/);
+  assert.deepEqual((await artifactProfile(db,user)).gems,{aquamarine:1,emerald:1});
+  seedWallet.run(1920,'{"aquamarine":1,"emerald":1}',user);
+  const first=await artifactMutation(db,user,'craft',celestial);
+  assert.equal(first.receipt.gemSpent,'aquamarine');
+  assert.equal(first.artifacts.dust,1280);
+  assert.deepEqual(await artifactMutation(db,user,'craft',celestial),first);
+  const second=await artifactMutation(db,user,'craft',craft('NE-01',1));
+  assert.equal(second.receipt.gemSpent,'emerald');
+  assert.deepEqual(second.artifacts.gems,{aquamarine:0,emerald:0});
+  const standalone=C.artifacts.find(item=>item.rarity==='legendary'&&!item.setId);
+  const third=await artifactMutation(db,user,'craft',craft(standalone.id,2));
+  assert.equal(third.receipt.gemSpent,undefined);
+  assert.equal(third.artifacts.dust,0);
+ }finally{db.sqlite.close();}
+});
+
 test('dismantling credits the rarity value once and preserves equipped gear and saved runs',async()=>{
  const {db,g}=fixture();
  try{

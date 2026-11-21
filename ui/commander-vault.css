@@ -488,6 +488,52 @@
  background: linear-gradient(120deg, #fff5dc, #f7dfaa);
  border-inline-start-color: #24594b;
 }
+#main-menu .commander-vault .skills-list button[aria-pressed="true"] strong {
+ color: #193c38;
+}
+.vault-materials,.artifact-gem-balances {
+ display: flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 6px;
+}
+.vault-materials { justify-content: flex-end; }
+.artifact-gem {
+ display: inline-flex;
+ align-items: center;
+ gap: 7px;
+ padding: 5px 8px;
+ border: 1px solid #a5bcb8;
+ border-radius: 5px;
+ color: #1c4747;
+ background: #ecf2e7;
+ font-size: 13px;
+ font-weight: 650;
+ white-space: nowrap;
+}
+.artifact-gem > i {
+ display: inline-block;
+ width: 12px;
+ height: 12px;
+ border: 1px solid #2b7a7d;
+ border-radius: 2px;
+ background: linear-gradient(135deg,#c4f8ef 10%,#67c8cd 45%,#33818c 75%);
+ transform: rotate(45deg);
+ flex: none;
+}
+.artifact-gem-emerald > i {
+ border-color: #3b714e;
+ background: linear-gradient(135deg,#d0ecc5 10%,#7eb879 45%,#32704e 75%);
+}
+.vault-gem-perk,.vault-set-gem-cost {
+ padding: 8px 10px;
+ border: 1px solid #aebfb0;
+ border-radius: 5px;
+ background: #eaf0de;
+}
+.vault-gem-perk { margin-bottom: 10px; }
+.vault-gem-perk p { margin: 4px 0 0; font-size: 12px; }
+.vault-set-gem-cost { font-weight: 650; }
 .skills-list img { width: 46px; height: 46px; object-fit: contain; }
 .skills-list strong, .skills-list small { display: block; overflow-wrap: anywhere; }
 .skills-list strong { font: 600 17px/1.2 var(--war-serif, Georgia, serif); }

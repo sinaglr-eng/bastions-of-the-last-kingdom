@@ -6,6 +6,9 @@ export const ARTIFACT_SETS=Object.freeze(Object.setPrototypeOf(Object.fromEntrie
 export const ARTIFACT_SLOTS=Object.freeze(catalog.slots);
 export const RARITIES=Object.freeze(Object.fromEntries(catalog.rarities.map(r=>[r.id,r])));
 export const CHESTS=Object.freeze(Object.fromEntries(catalog.chests.map(c=>[c.tier,c])));
+export const ARTIFACT_GEMS=Object.freeze({aquamarine:'Aquamarine',emerald:'Emerald'});
+export const artifactCraftGem=item=>ARTIFACT_SETS[item.setId]?.craftGem||null;
+export const bossChestHasGem=(bossId,wave)=>!!bossId&&(wave>50||wave===50&&bossId==='host_50');
 export const ARTIFACT_CAPS=Object.freeze({damage:.50,bossDamage:.25,conditional:.20,speed:.35,rangeTiles:3,poisonPower:1.5,burnPower:1.5,slow:.25,freezeChance:.15,freezeDuration:1,gold:1000,cp:8,keepHealth:12,controlResistance:.5,shred:20,immunityReduction:.30,waveHeal:1});
 export const usesArtifactRulesV3=value=>['fr011-v3','fr011-v4'].includes(typeof value==='string'?value:value?.artifactVersion);
 export const usesArtifactRulesV4=value=>(typeof value==='string'?value:value?.artifactVersion)==='fr011-v4';

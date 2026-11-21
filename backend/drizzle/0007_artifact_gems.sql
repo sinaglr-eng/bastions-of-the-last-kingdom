@@ -1,0 +1,1 @@
+ALTER TABLE `artifact_accounts` ADD `gems_json` text DEFAULT '{}' NOT NULL;

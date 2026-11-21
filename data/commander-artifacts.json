@@ -222,7 +222,8 @@
       },
       "art": "assets/ui/commander-v080/artifacts/ce-01.webp",
       "pieceCount": 10,
-      "rarity": "legendary"
+      "rarity": "legendary",
+      "craftGem": "aquamarine"
     },
     {
       "id": "necromancer",
@@ -251,7 +252,8 @@
       },
       "art": "assets/ui/commander-v080/artifacts/ne-01.webp",
       "pieceCount": 10,
-      "rarity": "legendary"
+      "rarity": "legendary",
+      "craftGem": "emerald"
     },
     {
       "id": "militia-oath",
@@ -1073,7 +1075,7 @@
       "id": "CE-01",
       "name": "Crown of First Light",
       "slot": "head",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+4% own damage and +0.25 attack range tiles.",
       "modifiers": {
@@ -1087,7 +1089,7 @@
       "id": "CE-02",
       "name": "Pendant of the Dawn",
       "slot": "neck",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+4% attack speed.",
       "modifiers": {
@@ -1126,7 +1128,7 @@
       "id": "CE-05",
       "name": "Shield of the Firmament",
       "slot": "offhand",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
@@ -1139,7 +1141,7 @@
       "id": "CE-06",
       "name": "Dawnweaver Gauntlets",
       "slot": "gloves",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+5% attack speed.",
       "modifiers": {
@@ -1152,7 +1154,7 @@
       "id": "CE-07",
       "name": "Mantle of the Morning Star",
       "slot": "cloak",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+0.25 attack range tiles. Set completion provides the main range reward.",
       "modifiers": {
@@ -1165,7 +1167,7 @@
       "id": "CE-08",
       "name": "Sabatons of Ascension",
       "slot": "feet",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+3% attack speed.",
       "modifiers": {
@@ -1178,7 +1180,7 @@
       "id": "CE-09",
       "name": "Ring of the Sun",
       "slot": "ring",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "celestial",
       "description": "+3% own damage.",
       "modifiers": {
@@ -1205,7 +1207,7 @@
       "id": "NE-01",
       "name": "Crown of the Bone Sovereign",
       "slot": "head",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "5% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
@@ -1218,7 +1220,7 @@
       "id": "NE-02",
       "name": "Soulbinder Pendant",
       "slot": "neck",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "Primary damaging hits apply 6% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
@@ -1257,7 +1259,7 @@
       "id": "NE-05",
       "name": "Grimoire of Withering",
       "slot": "offhand",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "4% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
@@ -1270,7 +1272,7 @@
       "id": "NE-06",
       "name": "Grasp of the Crypt",
       "slot": "gloves",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "Primary damaging hits reduce armor by 2 for 2s. Uses the strongest active reduction against base and reactive armor; armor never falls below zero.",
       "modifiers": {
@@ -1283,7 +1285,7 @@
       "id": "NE-07",
       "name": "Shroud of the Veil",
       "slot": "cloak",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "Primary damaging hits apply 8% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
@@ -1296,7 +1298,7 @@
       "id": "NE-08",
       "name": "Gravewalker Boots",
       "slot": "feet",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "3% of Physical/Magical damage passes through damage immunity before other defenses. The strongest native or artifact breach applies; status immunities remain unchanged.",
       "modifiers": {
@@ -1309,7 +1311,7 @@
       "id": "NE-09",
       "name": "Ring of Stillness",
       "slot": "ring",
-      "rarity": "epic",
+      "rarity": "legendary",
       "setId": "necromancer",
       "description": "Primary damaging hits apply 10% slow for 2s. Uses the strongest active slow; weaker effects do not extend stronger effects. Half strength on bosses.",
       "modifiers": {
@@ -1811,7 +1813,7 @@
       "art": "assets/ui/commander-v080/artifacts/cc-04.webp"
     }
   ],
-  "catalogRevision": 5,
+  "catalogRevision": 6,
   "pityRulesVersion": 2,
   "legacyEffects": {
     "version": "fr011-v1",

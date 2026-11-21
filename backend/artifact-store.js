@@ -1,10 +1,10 @@
-import {ARTIFACTS,ARTIFACT_SETS,CHESTS,RARITIES,validateArtifactEquipment,artifactBonuses,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet,normalizeArtifactPity} from '../game/core/artifacts.js';
+import {ARTIFACTS,ARTIFACT_SETS,ARTIFACT_GEMS,CHESTS,RARITIES,validateArtifactEquipment,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet,normalizeArtifactPity,artifactCraftGem,bossChestHasGem} from '../game/core/artifacts.js';
 import {accountRank,promotionChestTier} from '../game/core/account-progression.js';
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
 const parse=JSON.parse;
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
 const uuid=value=>typeof value==='string'&&/^[a-f\d-]{36}$/i.test(value);
-async function account(db,user){await db.prepare('INSERT OR IGNORE INTO artifact_accounts(user_id) VALUES(?)').bind(user).run();const r=await db.prepare('SELECT * FROM artifact_accounts WHERE user_id=?').bind(user).first();return {revision:r.revision,dust:r.dust,owned:parse(r.owned_json),equipment:parse(r.equipment_json),presets:parse(r.presets_json),pity:normalizeArtifactPity(parse(r.pity_json)),highestTier:r.highest_tier};}
+async function account(db,user){await db.prepare('INSERT OR IGNORE INTO artifact_accounts(user_id) VALUES(?)').bind(user).run();const r=await db.prepare('SELECT * FROM artifact_accounts WHERE user_id=?').bind(user).first();return {revision:r.revision,dust:r.dust,gems:{aquamarine:0,emerald:0,...parse(r.gems_json)},owned:parse(r.owned_json),equipment:parse(r.equipment_json),presets:parse(r.presets_json),pity:normalizeArtifactPity(parse(r.pity_json)),highestTier:r.highest_tier};}
 async function ensureRankChests(db,user){
  const progress=await db.prepare(`SELECT xp_total AS xpTotal,
   (SELECT COALESCE(MAX(rank_level),1) FROM rank_chests WHERE user_id=?) AS lastLevel
@@ -49,16 +49,44 @@ export async function artifactMutation(db,user,action,body){
  const old=await db.prepare('SELECT signature,receipt_json FROM artifact_receipts WHERE user_id=? AND request_id=?').bind(user,body.requestId).first();
  if(old){if(old.signature!==signature)fail('Request identity cannot change.',409);return {artifacts:await artifactProfile(db,user),receipt:parse(old.receipt_json)};}
  const a=await account(db,user);if(a.revision!==body.revision)fail('Artifact vault changed. Refresh and retry.',409);
- const next={...a,owned:[...a.owned],equipment:{...a.equipment},presets:[...a.presets],pity:{...a.pity}},receipt={id:body.requestId,action,items:[],dustGained:0,baseDust:0,newSets:[]},opened=[];
+ const next={...a,gems:{...a.gems},owned:[...a.owned],equipment:{...a.equipment},presets:[...a.presets],pity:{...a.pity}},receipt={id:body.requestId,action,items:[],dustGained:0,baseDust:0,newSets:[]},opened=[];
  if(action==='open'){
   if(!Number.isInteger(body.tier)||!CHESTS[body.tier]||![1,5].includes(body.count))fail('Choose one chest or five chests of the same tier.');
   await ensureRankChests(db,user);
-  const selected=(await db.prepare(`SELECT id,seed,rankLevel FROM (${unopenedChests}) WHERE tier=? AND status='ready' ORDER BY earnedAt,id LIMIT ?`).bind(user,user,body.tier,body.count).all()).results;if(selected.length!==body.count)fail('Not enough ready chests.',409);
-  for(const chest of selected){const rolled=rollArtifactChest(next,body.tier,chest.seed);Object.assign(next,{owned:rolled.owned,pity:rolled.pity,dust:rolled.dust});receipt.items.push(...rolled.items.map(item=>({...item,chestId:chest.id})));receipt.dustGained+=rolled.dustGained;receipt.baseDust+=rolled.baseDust;opened.push(chest);}
+  const selected=(await db.prepare(`SELECT id,seed,rankLevel,bossId,wave FROM (${unopenedChests}) WHERE tier=? AND status='ready' ORDER BY earnedAt,id LIMIT ?`).bind(user,user,body.tier,body.count).all()).results;if(selected.length!==body.count)fail('Not enough ready chests.',409);
+  receipt.gemsGained={aquamarine:0,emerald:0};
+  for(const chest of selected){
+   const rolled=rollArtifactChest(next,body.tier,chest.seed);
+   Object.assign(next,{owned:rolled.owned,pity:rolled.pity,dust:rolled.dust});
+   receipt.items.push(...rolled.items.map(item=>({...item,chestId:chest.id})));
+   receipt.dustGained+=rolled.dustGained;
+   receipt.baseDust+=rolled.baseDust;
+   // The persisted uniform 32-bit seed fixes the 50/50 reward across retries.
+   if(bossChestHasGem(chest.bossId,chest.wave)){
+    const gem=chest.seed%2===0?'aquamarine':'emerald';
+    next.gems[gem]++;
+    receipt.gemsGained[gem]++;
+   }
+   opened.push(chest);
+  }
   receipt.tier=body.tier;receipt.chestIds=opened.map(chest=>chest.id);
  }else if(action==='equipment')next.equipment=validateArtifactEquipment(body.equipment,a.owned);
  else if(action==='craft'){
-  const item=ARTIFACTS[body.artifactId];if(!item)fail('Unknown artifact.');if(a.owned.includes(item.id))fail('You already own this artifact.');if(a.highestTier<craftUnlockTier(item.rarity))fail('Earn a higher-tier boss chest to unlock this crafting rarity.');const cost=RARITIES[item.rarity].craft;if(a.dust<cost)fail('Not enough Relic Dust.');next.dust-=cost;next.owned.push(item.id);receipt.items=[{id:item.id,duplicate:false,dust:0}];receipt.dustSpent=cost;
+  const item=ARTIFACTS[body.artifactId];
+  if(!item)fail('Unknown artifact.');
+  if(a.owned.includes(item.id))fail('You already own this artifact.');
+  if(a.highestTier<craftUnlockTier(item.rarity))fail('Earn a higher-tier boss chest to unlock this crafting rarity.');
+  const cost=RARITIES[item.rarity].craft,gem=artifactCraftGem(item);
+  if(a.dust<cost)fail('Not enough Relic Dust.');
+  if(gem&&a.gems[gem]<1)fail(`You need 1 ${ARTIFACT_GEMS[gem]} to craft this artifact.`);
+  if(gem){
+   next.gems[gem]--;
+   receipt.gemSpent=gem;
+  }
+  next.dust-=cost;
+  next.owned.push(item.id);
+  receipt.items=[{id:item.id,duplicate:false,dust:0}];
+  receipt.dustSpent=cost;
  }else if(action==='salvage'){
   const id=body.artifactId;
   if(typeof id!=='string'||!Object.hasOwn(ARTIFACTS,id)||!a.owned.includes(id))fail('You do not own this artifact.');
@@ -88,7 +116,7 @@ export async function artifactMutation(db,user,action,body){
   const update=chest.rankLevel===null?"UPDATE artifact_chests SET status='opened',opened_at=? WHERE id=? AND user_id=? AND status='ready'":"UPDATE rank_chests SET opened_at=? WHERE id=? AND user_id=? AND opened_at IS NULL";
   statements.push(db.prepare(`${update} AND ${guard} AND ${request}`).bind(now,chest.id,user,user,a.revision,user,body.requestId));
  }
- statements.push(db.prepare(`UPDATE artifact_accounts SET dust=?,owned_json=?,equipment_json=?,presets_json=?,pity_json=?,revision=revision+1 WHERE user_id=? AND revision=? AND ${request}`).bind(next.dust,JSON.stringify([...new Set(next.owned)].sort()),JSON.stringify(next.equipment),JSON.stringify(next.presets),JSON.stringify(next.pity),user,a.revision,user,body.requestId));
+ statements.push(db.prepare(`UPDATE artifact_accounts SET dust=?,gems_json=?,owned_json=?,equipment_json=?,presets_json=?,pity_json=?,revision=revision+1 WHERE user_id=? AND revision=? AND ${request}`).bind(next.dust,JSON.stringify(next.gems),JSON.stringify([...new Set(next.owned)].sort()),JSON.stringify(next.equipment),JSON.stringify(next.presets),JSON.stringify(next.pity),user,a.revision,user,body.requestId));
  await db.batch(statements);const committed=await db.prepare('SELECT signature,receipt_json FROM artifact_receipts WHERE user_id=? AND request_id=?').bind(user,body.requestId).first();if(!committed)fail('Artifact vault changed. Refresh and retry.',409);if(committed.signature!==signature)fail('Request identity cannot change.',409);
  return {artifacts:await artifactProfile(db,user),receipt:parse(committed.receipt_json)};
 }
