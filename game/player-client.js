@@ -88,8 +88,8 @@ export class PlayerClient{
  }
  async flush(){
   if(this.busy||!this.user||this.user.id!==this.game?.accountId||this.game.developerMode||Date.now()<this.nextRetry)return;this.busy=true;
-  try{await this.save();const game=this.game;for(let i=0;i<8&&this.game===game;i++){const batch=await this.store.batch(game.runId,this.sync.sequence+1);if(!batch)break;const result=await this.request(`/player/runs/${game.runId}/commands`,batch);if(this.user?.id!==game.accountId)break;const previous=this.profile;this.applyProfile(result.profile);this.online=true;if(this.game!==game){await this.resetPromise;break;}await this.queueWrite(async()=>{const saved=await this.store.acknowledge(game.accountId,this.storageRevision,game.runId,result.sequence);this.storageRevision=saved.revision;this.sync.sequence=result.sequence;});this.announceAchievements(previous);}
-   if(game.progress?.campaign||['lost','won'].includes(game.phase))await this.refreshResultReceipts();
+  try{const game=this.game;if(game.journal.length)await this.save();let legacyReceipts=false;for(let i=0;i<8&&this.game===game;i++){const batch=await this.store.batch(game.runId,this.sync.sequence+1);if(!batch)break;const result=await this.request(`/player/runs/${game.runId}/commands`,batch);if(this.user?.id!==game.accountId)break;const previous=this.profile;this.applyProfile(result.profile);this.online=true;if(this.game!==game){await this.resetPromise;break;}await this.queueWrite(async()=>{const saved=await this.store.acknowledge(game.accountId,this.storageRevision,game.runId,result.sequence);this.storageRevision=saved.revision;this.sync.sequence=result.sequence;});this.announceAchievements(previous);if(result.receipts)this.rememberResultReceipts(game.runId,result.receipts);else legacyReceipts=true;}
+   if(legacyReceipts&&(game.progress?.campaign||['lost','won'].includes(game.phase)))await this.refreshResultReceipts();
    this.status=this.sync.sequence<this.sync.nextSequence?'Pending verification':'Progress verified';this.onChange();
   }catch(error){if(error.status===409&&/Account progress reset/.test(error.message)){await this.initialize();this.onReset();return;}this.online=false;this.status=error.status===409?'Save conflict · return to the menu to choose a continuation':error.status===401?'Sign in again to sync this account run':'Offline · progress saved locally; rewards pending';this.nextRetry=Date.now()+10000;this.onChange();}finally{this.busy=false;}
  }
@@ -103,36 +103,43 @@ export class PlayerClient{
  async recoverFinishedRun({strict=false}={}){
   if(!this.user||this.busy||this.recovering)return null;this.recovering=true;
   try{
-   let saved=await this.store.get(this.owner);const owner=this.owner,id=saved?.meta.runId,beforeRecovery=this.profile?.xpTotal||0;
+   let saved=await this.store.get(this.owner),confirmed=null;const owner=this.owner,id=saved?.meta.runId,beforeRecovery=this.profile?.xpTotal||0;
    if(!saved||saved.meta.accountId!==owner||!['lost','won'].includes(saved.meta.phase)||saved.meta.developerMode)return null;
    for(let count=0;saved.sync.sequence<saved.sync.nextSequence;count++){
     if(count>=2000)throw Error('Your previous result is still syncing. Please retry before starting a new defense.');
     const batch=await this.store.batch(id,saved.sync.sequence+1);if(!batch)throw Error('Your saved result has a missing command batch. Keep this save and retry recovery.');
     const result=await this.request('/player/runs/'+id+'/commands',batch);if(this.owner!==owner)return null;
     const previous=this.profile;this.applyProfile(result.profile);saved=await this.store.acknowledge(owner,saved.revision,id,result.sequence);this.announceAchievements(previous);
+    if(result.receipts){this.rememberResultReceipts(id,result.receipts);confirmed=result.receipts.find(r=>r.kind==='end')||confirmed;}
     if(this.game?.runId===id){this.sync.sequence=result.sequence;this.storageRevision=saved.revision;}
    }
-   const result=await this.request('/player/runs/'+id+'/results',{kind:'end'});if(this.owner!==owner)return null;
+   const result=confirmed?{receipt:confirmed,profile:this.profile}:await this.request('/player/runs/'+id+'/results',{kind:'end'});if(this.owner!==owner)return null;
    this.resultReceipts.set(id+':end',result.receipt);this.applyProfile(result.profile);this.online=true;this.status='Previous result verified · account XP saved';this.onPromotion({...result.receipt,receiptId:'recovery:'+id,xpBefore:beforeRecovery,xpAfter:this.profile.xpTotal,levelBefore:accountRank(beforeRecovery).level,levelAfter:accountRank(this.profile.xpTotal).level});return result.receipt;
   }catch(error){this.status=error.status===409?'Saved result conflicts with the cloud. Your local commands are preserved. Choose a continuation before replacing them.':'Previous result verification pending · saved locally';if(strict)throw error;return null;}
   finally{this.recovering=false;this.onChange();}
  }
  get campaignPending(){const r=this.resultReceipt('campaign');return !!r&&!r.acknowledged&&!this.game?.campaignResultAcknowledged;}
+ rememberResultReceipts(runId,receipts){
+  for(const receipt of receipts||[]){
+   const key=runId+':'+receipt.kind,prior=this.resultReceipts.get(key);
+   this.resultReceipts.set(key,{...receipt,acknowledged:receipt.acknowledged||prior?.acknowledged||false});
+  }
+ }
  async refreshResultReceipts(){
   const game=this.game;if(!game?.accountId||game.developerMode)return;
   const {receipts}=await this.request('/player/runs/'+game.runId+'/results');
-  for(const receipt of receipts||[])this.resultReceipts.set(game.runId+':'+receipt.kind,receipt);
+  this.rememberResultReceipts(game.runId,receipts);
   let ack=false;try{ack=localStorage.getItem('account-campaign-ack:'+game.accountId+':'+game.runId)==='1';}catch{}
   if(ack&&receipts?.some(r=>r.kind==='campaign'&&!r.acknowledged)){const r=await this.request('/player/runs/'+game.runId+'/results',{kind:'campaign',acknowledge:true});this.resultReceipts.set(game.runId+':campaign',r.receipt);this.applyProfile(r.profile);}
  }
- settleResult(kind){
+ settleResult(kind,{saved=false}={}){
   const key=this.game?.runId+':'+kind,receipt=this.resultReceipt(kind);if(receipt?.status==='confirmed'&&(this.profile?.xpTotal||0)>=receipt.xpAfter&&(this.profile?.revision||0)>=(receipt.revision||0))return Promise.resolve(receipt);
   this.pendingSettlements??=new Map();if(this.pendingSettlements.has(key))return this.pendingSettlements.get(key);
-  const pending=this.settleResultNow(kind).finally(()=>this.pendingSettlements.delete(key));this.pendingSettlements.set(key,pending);return pending;
+  const pending=this.settleResultNow(kind,saved).finally(()=>this.pendingSettlements.delete(key));this.pendingSettlements.set(key,pending);return pending;
  }
- async settleResultNow(kind){
+ async settleResultNow(kind,saved){
   const game=this.game;if(!game?.accountId||game.developerMode)return null;
-  await this.save();
+  if(!saved)await this.save();
   for(let attempt=0;attempt<2000;attempt++){
    while(this.busy)await new Promise(resolve=>setTimeout(resolve,30));
    this.nextRetry=0;await this.flush();
@@ -140,6 +147,8 @@ export class PlayerClient{
    if(this.sync.sequence>=this.sync.nextSequence)break;
    if(attempt===1999)throw Error('Verification pending. Your saved command queue is still syncing.');
   }
+  const confirmed=this.resultReceipts.get(game.runId+':'+kind);
+  if(confirmed?.status==='confirmed'&&(this.profile?.xpTotal||0)>=confirmed.xpAfter&&(this.profile?.revision||0)>=(confirmed.revision||0))return confirmed;
   const result=await this.request('/player/runs/'+game.runId+'/results',{kind});
   this.resultReceipts.set(game.runId+':'+kind,result.receipt);this.applyProfile(result.profile);this.onChange();return result.receipt;
  }

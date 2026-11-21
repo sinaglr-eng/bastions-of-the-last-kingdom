@@ -1,3 +1,4 @@
+import {cancelDraftSkill,preparedDraftSkill,draftSkillActionsMarkup} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -37,7 +38,7 @@ function node(){return {dataset:{},innerHTML:'',textContent:'',hidden:false,scro
 const inventory=game=>JSON.stringify({towers:game.towers,draws:game.draft.draws,lives:game.lives,score:game.score,cp:game.commandPoints.value,gold:game.economy.gold,occupied:[...game.grid.occupied]});
 const memory=()=>{const values=new Map();return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)};};
 function kept(game){for(const x of [3,5,7,9,11])assert.equal(game.place(x,3),true);assert.equal(game.keep(),true);}
-function commandBindings(game,phaseUi,app,world,extra={}){return {game,phaseUi,app,world,document:{querySelector:()=>null},audio:{unlock:noop},draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,render:noop,sendWave:()=>game.startCombat(),syncInspector:()=>phaseUi.apply(app,game),...extra};}
+function commandBindings(game,phaseUi,app,world,extra={}){return {game,phaseUi,app,world,cancelDraftSkill,document:{querySelector:()=>null},audio:{unlock:noop},draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,render:noop,sendWave:()=>game.startCombat(),syncInspector:()=>phaseUi.apply(app,game),...extra};}
 function press(command,action,dataset={}){const button={disabled:false,dataset:{action,...dataset},closest(){return this;}};command({target:button,detail:1});}
 function selectionIntent(game,phaseUi){
   const statement=source.match(/if\(type==='selection'&&payload\.id!==null\)phaseUi\.open\('unit'\);/)?.[0];assert.ok(statement,'Actual main explicitly opens map selections');
@@ -47,7 +48,7 @@ function selectionIntent(game,phaseUi){
 test('actual main render and event wiring follow repeated draft, keeper, combat and pause transitions with five slots restored',()=>{
   const game=new Game(data,{seed:402,waveLimit:10}),phaseUi=new PhaseUiState(),app=node(),nodes=new Map(['phase-strip','draft','compact-draft-actions','folio-command-actions','folio-create-actions','map-start','start-wave'].map(id=>[id,node()])),world={maze:{panelOpen:false},resize:noop};
   const $=id=>nodes.get(id)||null,profile={bestScore:0,bestWave:0,wins:0},tracker=new RunStatistics(game,{id:'phase-transitions',clock:()=>100}),resultFacts=new RunResultFacts(),guidance=new ContextGuidance(),dpsTracker=new TowerDpsTracker(),dpsMeasurement=new DpsMeasurement();
-  const bindings={game,phaseUi,app,$,document:{activeElement:null},world,phaseStripMarkup,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,rankPreview:new DefenderRankPreview(),icon,data,images:{},tour:{refresh:noop},stampCraftButtons:noop,renderIntelligence:noop,renderSidebar:noop,renderRecipeBrowser:noop,renderEconomy:noop,hud:()=>phaseUi.apply(app,game),syncFolio:noop,draftCardActivation:{clear:noop}};
+  const bindings={game,phaseUi,app,$,preparedDraftSkill,draftSkillActionsMarkup,document:{activeElement:null},world,phaseStripMarkup,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,rankPreview:new DefenderRankPreview(),icon,data,images:{},tour:{refresh:noop},stampCraftButtons:noop,renderIntelligence:noop,renderSidebar:noop,renderRecipeBrowser:noop,renderEconomy:noop,hud:()=>phaseUi.apply(app,game),syncFolio:noop,draftCardActivation:{clear:noop}};
   const functions=compile(['render','renderDraft','renderMapAction','sendWave'],bindings,'let intelligenceKey=null;');
   // Execute the saved subscriber itself so selection intent, guidance and phase
   // updates have the same ordering as the running application.

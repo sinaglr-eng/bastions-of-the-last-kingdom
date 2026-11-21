@@ -1,3 +1,4 @@
+import {applyPreparedDraftSkill,toggleDraftSkill} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -44,7 +45,7 @@ test('Combat command presentation follows authoritative activation, CP and pause
 });
 test('Focus queue, contextual two-rank refit, and ended runs expose the same eligibility as game commands',()=>{
  const focus=new Game(data,{loadout:{'recruitment-focus':2}});assert.equal(generalCommandState(focus,'B')[0].disabled,false);focus.activateGeneral('recruitment-focus','B');let row=generalCommandState(focus,'C')[0];assert.equal(row.disabled,true);assert.match(row.detail,/Class B/);assert.match(row.label,/draft 2/);
- const refit=new Game(data,{loadout:{'deep-refit':1}});refit.draft.forced={family:'archer',tier:3};refit.draft.roll(0);place(refit);refit.economy.gold=600;row=generalCommandState(refit)[0];assert.equal(row.disabled,false);assert.equal(row.towerId,refit.selected);assert.equal(refit.downgrade(2),true);assert.equal(refit.selection.tier,1);assert.equal(generalCommandState(refit)[0].disabled,true);
+ const refit=new Game(data,{loadout:{'deep-refit':1}});refit.draft.forced={family:'archer',tier:3};refit.draft.roll(0);place(refit);refit.economy.gold=600;row=generalCommandState(refit)[0];assert.equal(row.disabled,false);assert.equal(row.action,'prepare-draft-skill');assert.ok(toggleDraftSkill(refit,'deep-refit'));assert.ok(applyPreparedDraftSkill(refit,refit.selected));assert.equal(refit.selection.tier,1);assert.equal(generalCommandState(refit)[0].disabled,true);
  const g=combat();g.phase='lost';for(const r of generalCommandState(g).filter(r=>r.action))assert.equal(r.disabled,true);
 });
 test('General command updates preserve mounted controls across countdown ticks and CP changes',()=>{

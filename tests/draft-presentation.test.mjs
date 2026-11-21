@@ -1,3 +1,4 @@
+import {preparedDraftSkill,draftSkillActionsMarkup} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
@@ -129,8 +130,8 @@ test('production draft refresh renders all five choices without programmatic scr
   };
   Object.defineProperty(host,'innerHTML',{get:()=>host.markup||'',set:markup=>{host.writes++;host.markup=markup;strip=createStrip();}});host.querySelector=selector=>selector==='.draws'?strip:null;
   const compact={hidden:false,innerHTML:'stale controls',clears:0,replaceChildren(){this.innerHTML='';this.clears++;}},commands={innerHTML:''},createActions={innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='folio-command-actions'?commands:id==='folio-create-actions'?createActions:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
-  const decisionCount=[],decisionRow={style:{setProperty(name,value){assert.equal(name,'--decision-count');decisionCount.push(value);}},querySelectorAll(selector){assert.equal(selector,'button');return [...(commands.innerHTML+createActions.innerHTML).matchAll(/<button\b/g)];}},app={querySelector(selector){assert.equal(selector,'.folio-decision-row');return decisionRow;}};
-  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup','actualAvailableRecipeActionsMarkup','rankPreview','app',`let intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup,actualAvailableRecipeActionsMarkup,new DefenderRankPreview(),app);
+  const decisionCount=[],decisionRow={style:{setProperty(name,value){assert.equal(name,'--decision-count');decisionCount.push(value);}},querySelectorAll(selector){assert.equal(selector,'button');return [...(commands.innerHTML+createActions.innerHTML).matchAll(/<button\b/g)];}},app={dataset:{},querySelector(selector){assert.equal(selector,'.folio-decision-row');return decisionRow;}};
+  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup','actualAvailableRecipeActionsMarkup','rankPreview','app','preparedDraftSkill','draftSkillActionsMarkup',`let intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup,actualAvailableRecipeActionsMarkup,new DefenderRankPreview(),app,preparedDraftSkill,draftSkillActionsMarkup);
   const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
   assert.equal(compact.hidden,true);assert.equal(compact.innerHTML,'');assert.equal(compact.clears,1);assert.equal(commands.innerHTML,'','Building has no unavailable draft commitment controls');
   assert.equal(modePicker.change,undefined,'Construction cannot switch the campaign length');assert.doesNotMatch(host.innerHTML,/id="mode"|Campaign length|10 waves/);

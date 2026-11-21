@@ -7,6 +7,7 @@ import {currentFactionData} from '../game/core/current-data.js';
 import {PlayerClient} from '../game/player-client.js';
 import {RunStore} from '../game/run-store.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
+import {applyPreparedDraftSkill,draftSkillActionsMarkup,preparedDraftSkill,toggleDraftSkill} from '../ui/draft-skill-targeting.js';
 import {wallPanelMarkup} from '../ui/wall-panel.js';
 import {AchievementNotices} from '../ui/achievement-notices.js';
 import {CommanderVault} from '../ui/commander-vault.js';
@@ -15,12 +16,23 @@ import {rankOverviewMarkup} from '../ui/account-progression.js';
 import {commanderArt,commanderSkillArt,commanderUtilityArt} from '../ui/commander-art.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 
-test('Deep Refit follows only the inspected actual recruit and is rendered once with its other actions',()=>{
+test('Deep Refit appears once beside draft actions and charges only when a valid target is chosen',()=>{
  const g=new Game(currentFactionData('forge'),{seed:14,loadout:{'deep-refit':1}});
  for(const [x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])g.place(x,z);
- const [a,b]=g.roundCandidates.map(c=>c.tower);a.tier=4;b.tier=3;g.economy.gold=600;
- for(const t of [a,b,a,b]){g.select(t.id);const html=defenderPanelMarkup(g,t);assert.equal((html.match(/class="text-button fr010-refit"/g)||[]).length,1);assert.match(html,new RegExp(`data-action="deep-refit" data-tower-id="${t.id}"`));}
- b.tier=1;assert.doesNotMatch(defenderPanelMarkup(g,b),/fr010-refit/);g.select(a.id);g.economy.gold=599;assert.match(defenderPanelMarkup(g,a),/data-action="deep-refit"[^>]*disabled/);g.phase='combat';assert.doesNotMatch(defenderPanelMarkup(g,a),/fr010-refit/);
+ const [a,b,c]=g.roundCandidates.map(c=>c.tower);a.tier=4;b.tier=3;c.tier=1;g.economy.gold=599;
+ assert.match(draftSkillActionsMarkup(g),/data-skill="deep-refit"[^>]*disabled/);assert.equal(toggleDraftSkill(g,'deep-refit'),false);
+ g.economy.gold=600;
+ for(const t of [a,b,a,b]){
+  g.select(t.id);
+  assert.equal((draftSkillActionsMarkup(g).match(/data-skill="deep-refit"/g)||[]).length,1);
+  assert.doesNotMatch(defenderPanelMarkup(g,t),/fr010-refit/);
+ }
+ assert.ok(toggleDraftSkill(g,'deep-refit'));assert.equal(g.economy.gold,600);
+ assert.equal(applyPreparedDraftSkill(g,c.id),true);assert.equal(g.economy.gold,600);assert.equal(preparedDraftSkill(g),'deep-refit');
+ assert.ok(toggleDraftSkill(g,'deep-refit'));assert.equal(preparedDraftSkill(g),null);
+ assert.ok(toggleDraftSkill(g,'deep-refit'));
+ assert.ok(applyPreparedDraftSkill(g,a.id));assert.equal(a.tier,2);assert.equal(a.state,'active');assert.equal(g.economy.gold,0);assert.equal(preparedDraftSkill(g),null);
+ assert.doesNotMatch(draftSkillActionsMarkup(g),/deep-refit/);
  assert.doesNotMatch(wallPanelMarkup(),/crenellated|Footprint|<strong>None|<strong>Maze/);
 });
 

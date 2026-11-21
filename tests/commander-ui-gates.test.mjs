@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {applyPreparedDraftSkill,draftSkillActionsMarkup,preparedDraftSkill,toggleDraftSkill} from '../ui/draft-skill-targeting.js';
 import fs from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import {Game} from '../game/core/game.js';
@@ -53,18 +54,18 @@ test('all four expanded skills use distinct shared generated raster artwork',()=
  assert.match(progressionArtwork('war-horn'),/skill-war-horn\.webp$/);
 });
 
-test('promotion previews only the selected recruit and each one-click command upgrades just that target',()=>{
- const g=new Game(data,{loadout:{'field-promotion':2}}),unplaced=generalControlsMarkup(g);assert.match(unplaced,/Place all five, then select the recruit/);assert.doesNotMatch(unplaced,/data-promotion-tower="null"/);g.draft.forced={family:'archer',tier:5};g.draft.roll(0);
+test('Field Promotion lets the player pick a different recruit from the one currently inspected',()=>{
+ const g=new Game(data,{loadout:{'field-promotion':2}});g.draft.forced={family:'archer',tier:5};g.draft.roll(0);
  for(const [x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])assert.ok(g.place(x,z));
- const first=g.towers.find(t=>t.id===g.draft.draws[0].towerId),second=g.towers.find(t=>t.id===g.draft.draws[1].towerId);first.tier=4;g.draft.draws[0].tier=4;second.tier=3;g.draft.draws[1].tier=3;g.commandPoints.value=6;
- assert.equal(generalCommandState(g)[0].disabled,true,'The selected capped rank-V recruit stays blocked even when another candidate is eligible');assert.match(generalControlsMarkup(g),/Rank V is the limit/);
- g.select(first.id);const before=JSON.stringify(serializeRun(g)),row=generalCommandState(g)[0];assert.equal(row.action,'general-promotion');assert.equal(row.towerId,first.id);assert.equal(row.disabled,false);assert.equal(JSON.stringify(serializeRun(g)),before);
- const html=generalControlsMarkup(g);assert.equal((html.match(/data-promotion-tower=/g)||[]).length,1);assert.match(html,new RegExp(`data-promotion-tower="${first.id}"`));assert.match(html,/Only this recruit gains one rank/);assert.match(html,/Promote selected · 3 CP/);assert.doesNotMatch(html,/Promote all five/);assert.match(html,/Available this round/);
- assert.ok(g.activateGeneral('field-promotion',first.id));assert.equal(first.tier,5);assert.equal(second.tier,3);assert.equal(g.commandPoints.value,3);assert.equal(generalCommandState(g)[0].disabled,true);assert.match(generalCommandState(g)[0].detail,/Used this round/);
- g.select(second.id);assert.equal(generalCommandState(g)[0].disabled,true);assert.equal(g.activateGeneral('field-promotion',second.id),false);assert.equal(second.tier,3);assert.equal(first.tier,5);assert.equal(g.commandPoints.value,3);
- assert.equal(generalCommandState(g)[0].showPreview,true);g.keep();assert.equal(generalCommandState(g)[0].showPreview,false,'Resolved drafts hide the selected promotion preview');
+ const first=g.towers[0],second=g.towers[1];first.tier=4;g.draft.draws[0].tier=4;g.commandPoints.value=6;g.select(second.id);
+ assert.equal(generalCommandState(g)[0].disabled,false);assert.match(generalControlsMarkup(g),/Rank V is the limit/);
+ assert.match(draftSkillActionsMarkup(g),/Field Promotion · 3 CP/);
+ const before=JSON.stringify(serializeRun(g));assert.ok(toggleDraftSkill(g,'field-promotion'));assert.equal(JSON.stringify(serializeRun(g)),before);
+ assert.match(generalControlsMarkup(g),/Cancel target selection/);
+ assert.ok(applyPreparedDraftSkill(g,second.id));assert.equal(g.commandPoints.value,6);assert.equal(preparedDraftSkill(g),'field-promotion');
+ assert.ok(applyPreparedDraftSkill(g,first.id));assert.equal(g.selection,first);assert.equal(first.tier,5);assert.equal(g.commandPoints.value,3);
+ assert.equal(preparedDraftSkill(g),null);assert.equal(generalCommandState(g)[0].disabled,true);assert.match(generalCommandState(g)[0].detail,/Used this round/);
  assert.match(promotionPreviewMarkup([]),/Select a current recruit/);
- const main=fs.readFileSync(new URL('../game/main.js',import.meta.url),'utf8');assert.match(main,/targetId===game.selected\)game.activateGeneral\('field-promotion',targetId\)/);
 });
 
 test('Extended Range commands show gold and wave scope, stay active through pause, and reopen next wave',()=>{
@@ -79,13 +80,16 @@ test('Extended Range commands show gold and wave scope, stay active through paus
  const main=fs.readFileSync(new URL('../game/main.js',import.meta.url),'utf8');assert.match(main,/action==='general-range'\)\{game.activateGeneral\('extended-range'\)/);
 });
 
-test('actual main command handler rejects a stale promotion target and dispatches the gold ability',()=>{
+test('Main command handler arms Field Promotion from its icon and dispatches Extended Range',()=>{
  const source=fs.readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),prefix=source.slice(source.indexOf('function handleCommand(e){'),source.indexOf("  if(action==='general-strike-prepare')"));
  const g=new Game(data,{loadout:{'field-promotion':2,'extended-range':2}});g.draft.forced={family:'archer',tier:2};g.draft.roll(0);for(const [x,z]of [[18,18],[17,18],[19,18],[18,17],[18,19]])assert.ok(g.place(x,z));
- const first=g.towers.find(t=>t.id===g.draft.draws[0].towerId),second=g.towers.find(t=>t.id===g.draft.draws[1].towerId);g.commandPoints.value=6;
- const handle=runInNewContext(prefix+'\n}\nhandleCommand',{game:g,audio:{unlock(){}},mainMenu:{visible:false}}),click=(action,towerId)=>handle({target:{closest:()=>({disabled:false,dataset:{action,towerId:String(towerId)}})}});
- g.select(second.id);click('general-promotion',first.id);assert.equal(first.tier,2);assert.equal(second.tier,2);assert.equal(g.commandPoints.value,6,'A stale rendered target cannot spend CP');
- click('general-promotion',second.id);assert.equal(second.tier,3);assert.equal(first.tier,2);assert.equal(g.commandPoints.value,3);
+ const [first,second]=g.towers;g.commandPoints.value=6;
+ const noop=()=>{};
+ const handle=runInNewContext(prefix+'\n}\nhandleCommand',{game:g,audio:{unlock:noop},mainMenu:{visible:false},toggleDraftSkill,preparedDraftSkill,app:{dataset:{}},syncFolio:noop,
+  draftCardActivation:{clear:noop},world:{doubleTap:{clear:noop},sync:noop},closeGeneralCommand:noop,renderDraft:noop,renderGeneralControls:noop});
+ const click=(action,skill)=>handle({target:{closest:()=>({disabled:false,dataset:{action,skill}})}});
+ g.select(second.id);click('prepare-draft-skill','field-promotion');assert.equal(first.tier,2);assert.equal(second.tier,2);assert.equal(g.commandPoints.value,6);
+ assert.ok(applyPreparedDraftSkill(g,first.id));assert.equal(first.tier,3);assert.equal(second.tier,2);assert.equal(g.commandPoints.value,3);
  assert.ok(g.keep());assert.ok(g.startCombat());g.economy.gold=200;click('general-range');assert.equal(g.economy.gold,0);assert.equal(g.commandPoints.value,3);assert.equal(g.general.rangeBonus,1.5);
 });
 

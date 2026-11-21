@@ -1,3 +1,4 @@
+import {applyPreparedDraftSkill} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import {PhaseUiState} from '../ui/phase-ui.js';
 import assert from 'node:assert/strict';
@@ -58,11 +59,11 @@ function setup({placed=true,distinct=false}={}){
   });
   const render=()=>{renders++;sidebar();};game.on(type=>{if(type==='change')render();});
   const activation=new DraftCardActivation(()=>now);
-  const activate=compile(between('function activateDraw(','app.addEventListener(\'pointerdown\''),'activateDraw',{game,world,audio,draftCardActivation:activation,render});
+  const activate=compile(between('function activateDraw(','app.addEventListener(\'pointerdown\''),'activateDraw',{game,world,audio,draftCardActivation:activation,render,applyPreparedDraftSkill});
   const input=new DraftCardPointerInput({now:()=>now,hitTest:()=>hit,activate,clearActivation:()=>activation.clear()});
   // Run the actual production bindings, not a second implementation of them.
   Function('app','window','game','draftPointerInput',between("app.addEventListener('pointerdown'","function handleCommand("))(app,window,game,input);
-  const commandPrefix=between('function handleCommand(','  draftCardActivation.clear();world.doubleTap.clear();')+'\n}';
+  const commandPrefix=between('function handleCommand(','\n  draftCardActivation.clear();world.doubleTap.clear();')+'\n}';
   const command=compile(commandPrefix,'handleCommand',{game,world,audio,draftPointerInput:input,debug:false});
   render();
   return {game,cards,app,window,input,activation,body,command,render,rankPreview,images,get renders(){return renders;},advance(ms){now+=ms;},hit(value){hit=value;},

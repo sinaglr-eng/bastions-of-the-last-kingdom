@@ -37,7 +37,10 @@ async function profile(db,id,attempt=0,{reconcile=false}={}){
  const grants=mergeAchievementRows((await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, created_at AS createdAt FROM fr010_grants WHERE user_id = ? ORDER BY created_at, achievement_id').bind(id).all()).results);
  const rawEligible=(await db.prepare('SELECT achievement_id AS id, faction_id AS factionId, reward, verified_at AS verifiedAt, run_id AS runId FROM fr010_eligible WHERE user_id = ? ORDER BY verified_at, achievement_id').bind(id).all()).results;
  const progress=(await db.prepare("SELECT faction_id AS factionId,MAX(highest_wave) AS highestWave,MAX(COALESCE(json_extract(progress_json,'$.streakBest'),0)) AS streakBest FROM fr010_runs WHERE user_id=? AND outcome NOT IN ('developer','reset') AND started_at>=? GROUP BY faction_id").bind(id,reset.resetAt).all()).results;
- const owned=new Set(grants.map(g=>g.id)),eligible=mergeAchievementRows(rawEligible).filter(g=>!owned.has(g.id)&&activeAchievement(g.id)).map(g=>({...g,reward:activeAchievement(g.id).reward,xp:activeAchievement(g.id).xp}));
+ const owned=new Set(grants.map(g=>g.id)),eligible=mergeAchievementRows(rawEligible).flatMap(g=>{
+  const definition=owned.has(g.id)?null:activeAchievement(g.id);
+  return definition?[{...g,reward:definition.reward,xp:definition.xp}]:[];
+ });
  const discovered=(await db.prepare("SELECT faction_id,progress_json FROM fr010_runs WHERE user_id=? AND outcome NOT IN ('developer','reset') AND started_at>=?").bind(id,reset.resetAt).all()).results,discoveries={};for(const r of discovered){const x=JSON.parse(r.progress_json);discoveries[r.faction_id]=[...new Set([...(discoveries[r.faction_id]||[]),...(x.champions||[])])];}
  const current=await db.prepare('SELECT revision FROM fr010_profiles WHERE user_id=?').bind(id).first();if(current.revision!==progression.revision||row.revision!==progression.revision){if(attempt>=7)fail('Profile is busy. Please retry.',409);return profile(db,id,attempt+1,{reconcile});}
  return {artifacts:await artifactProfile(db,id),...progression,progressionEpoch:reset.epoch,progressionResetAt:reset.resetAt,discoveries,revision:row.revision,balance:row.balance,skills:JSON.parse(row.skills_json),equipped:JSON.parse(row.equipped_json),grants,eligible,progress:Object.fromEntries(progress.map(p=>[p.factionId,p]))};
@@ -100,16 +103,21 @@ async function tryClaimAchievement(db,user,b){
  if(!committed)fail('Profile changed. Refresh before trying again.',409);
  return result();
 }
-const progressSummary=g=>({kills:g.progress.kills,bossKills:g.progress.bossKills,bosses:[...g.progress.bosses],bossWaves:g.progress.bossWaves||{},highestWave:g.progress.highestWave,streak:g.progress.streak,streakBest:g.progress.streakBest,campaign:g.progress.campaign,champions:[...g.progress.champions]});
+const progressSummary=g=>({kills:g.progress.kills,bossKills:g.progress.bossKills,bosses:[...g.progress.bosses],bossWaves:g.progress.bossWaves||{},campaignBossKills:g.progress.campaignBossKills,startedRound:g.round,progressionEpoch:g.progressionEpoch,highestWave:g.progress.highestWave,streak:g.progress.streak,streakBest:g.progress.streakBest,campaign:g.progress.campaign,champions:[...g.progress.champions]});
 
 async function verifyBatch(db,user,id,b){
- const settleVerified=async row=>{if(row.highest_wave>=50)await settleRunExperience(db,user,id,'campaign');if(['lost','won','abandoned'].includes(row.outcome))await settleRunExperience(db,user,id,'end');};
+ const settleVerified=async row=>{
+  const receipts=[];
+  if(row.highest_wave>=50)receipts.push(await settleRunExperience(db,user,id,'campaign',row));
+  if(['lost','won','abandoned'].includes(row.outcome))receipts.push(await settleRunExperience(db,user,id,'end',row));
+  return receipts;
+ };
  if(!validId(b.batchId)||!Number.isSafeInteger(b.sequence)||b.sequence<0)fail('Invalid batch identity.');
  const hash=await digest(JSON.stringify(b.commands));
  const seen=await db.prepare('SELECT sequence,digest FROM fr010_batches WHERE run_id = ? AND batch_id = ?').bind(id,b.batchId).first();
  const run=await ownRun(db,id,user);
  if(!await currentRunEpoch(db,run))fail('Account progress reset. Start a new defense.',409);
- if(seen){if(seen.digest!==hash)fail('Batch identity cannot change.',409);if(run.sequence!==seen.sequence)fail('Run advanced on another device. Reload the cloud save.',409);await settleVerified(run);return {sequence:seen.sequence,batchId:b.batchId,profile:await profile(db,user),outcome:run.outcome};}
+ if(seen){if(seen.digest!==hash)fail('Batch identity cannot change.',409);if(run.sequence!==seen.sequence)fail('Run advanced on another device. Reload the cloud save.',409);const receipts=await settleVerified(run);return {sequence:seen.sequence,batchId:b.batchId,profile:await profile(db,user),outcome:run.outcome,receipts};}
  if(run.outcome!=='playing')fail('This run no longer accepts commands.',409);
  if(run.sequence!==b.sequence)fail('Run changed on another device. Reload the cloud save.',409);
  if(run.ruleset!==FR010_RULESET)fail('Unsupported saved rules.');
@@ -119,14 +127,22 @@ async function verifyBatch(db,user,id,b){
  if(Number.isFinite(b.elapsedSeconds)&&b.elapsedSeconds>=0)game.elapsedSeconds=Math.max(game.elapsedSeconds,Math.min(b.elapsedSeconds,(Date.now()-run.started_at)/1000+60));
  const next=run.sequence+1,snapshot=JSON.stringify(serializeRun(game)),score=game.scoreExact,outcome=['lost','won'].includes(game.phase)?game.phase:'playing',summary=JSON.stringify(progressSummary(game)),now=Date.now();
  for(let attempt=0;attempt<5;attempt++){
-  const p=await profile(db,user),grants=earnedGrants(game,[...p.grants,...p.eligible]),guard='EXISTS (SELECT 1 FROM fr010_runs WHERE id = ? AND sequence = ? AND last_batch = ?)';
+  const p=await db.prepare(`SELECT revision, (SELECT json_group_array(id) FROM (
+   SELECT achievement_id AS id FROM fr010_grants WHERE user_id=?
+   UNION SELECT achievement_id FROM fr010_eligible WHERE user_id=?
+  )) AS achievement_ids FROM fr010_profiles WHERE user_id=?`).bind(user,user,user).first();
+  const grants=earnedGrants(game,JSON.parse(p.achievement_ids).map(id=>({id}))),guard='EXISTS (SELECT 1 FROM fr010_runs WHERE id = ? AND sequence = ? AND last_batch = ?)';
   const statements=[db.prepare('UPDATE fr010_runs SET sequence = ?, last_batch = ?, snapshot_json = ?, score_text = ?, score_digits = ?, highest_wave = ?, progress_json = ?, outcome = ?, updated_at = ?, finished_at = ? WHERE id = ? AND user_id = ? AND sequence = ? AND outcome = ? AND EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(next,b.batchId,snapshot,score,score.length,game.progress.highestWave,summary,outcome,now,outcome==='lost'?now:null,id,user,b.sequence,'playing',user,p.revision)];
   statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_batches (run_id,sequence,batch_id,digest,commands_json,created_at) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(id,next,b.batchId,hash,JSON.stringify(b.commands),now,id,next,b.batchId));
   for(const grant of grants)statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_eligible (user_id,achievement_id,faction_id,reward,verified_at,run_id) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(user,grant.id,grant.factionId,grant.reward,now,id,id,next,b.batchId));
   statements.push(...artifactRewardStatements(db,user,id,game,artifactKills,guard,[id,next,b.batchId]));
   statements.push(db.prepare(`UPDATE fr010_profiles SET revision = revision + 1 WHERE user_id = ? AND revision = ? AND ${guard}`).bind(user,p.revision,id,next,b.batchId));
   await db.batch(statements);
-  const saved=await ownRun(db,id,user);if(saved.sequence===next&&saved.last_batch===b.batchId){await settleVerified(saved);return {sequence:next,batchId:b.batchId,profile:await profile(db,user),outcome,score,highestWave:game.progress.highestWave};}
+  const saved=await db.prepare('SELECT sequence,last_batch,outcome FROM fr010_runs WHERE id=? AND user_id=?').bind(id,user).first();
+  if(saved.sequence===next&&saved.last_batch===b.batchId){
+   const receipts=await settleVerified({...run,outcome,highest_wave:game.progress.highestWave,progress_json:summary,snapshot_json:snapshot});
+   return {sequence:next,batchId:b.batchId,profile:await profile(db,user),outcome,score,highestWave:game.progress.highestWave,receipts};
+  }
   if(saved.outcome==='reset')fail('Account progress reset. Start a new defense.',409);if(saved.sequence!==b.sequence)fail('Run changed on another device. Reload the cloud save.',409);
  }
  fail('Profile is busy. Please retry.',409);

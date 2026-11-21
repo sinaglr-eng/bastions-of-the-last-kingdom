@@ -5,6 +5,7 @@ import {siteUrl} from '../game/site-url.js';
 import {OUTCOME_ART_SCENES,selectOutcomeArt} from './outcome-art.js';
 import {runEndingStory} from './run-result-stories.js';
 import {accountResultMarkup} from './account-results.js';
+import {runWaveXP} from '../game/core/account-progression.js';
 import {FACTION_OUTCOME_ART_SCENES} from './outcome-art.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -51,7 +52,13 @@ export function runResultModel(game,{tracker=null,facts=null,campaignCheckpoint=
   const leaks=observed?.leaks??(Number.isFinite(lastWave?.leaks)?count(lastWave.leaks):null);
   const healthLost=observed?(observed.healthKnown?observed.healthLost:null):Number.isFinite(lastWave?.startHealth)&&Number.isFinite(lastWave?.endHealth)?Math.max(0,lastWave.startHealth-lastWave.endHealth):null;
   const lastLeak=facts?.lastLeak?.wave===wave?{...facts.lastLeak}:null,lastThreat=lastLeak|| (facts?.lastSpawn?.wave===wave?{...facts.lastSpawn}:null);
-  return {ended,won,accountProgression:!!game.data?.fr010,accountId:game.accountId,campaignCheckpoint,bossesDefeated:game.progress?.bossKills||0,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:game.data?.fr010?game.scoreExact:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave:campaignCheckpoint?50:wave}),art:campaignCheckpoint?(FACTION_OUTCOME_ART_SCENES[game.factionId]?.won?.[0]||OUTCOME_ART_SCENES.won[0]):selectOutcomeArt(game)};
+  const bossesDefeated=game.progress?.bossKills||0,campaignCleared=completedWaves>=50;
+  const campaignBosses=game.progress?.campaignBossKills??Object.values(game.progress?.bossWaves||{}).filter(round=>round<=50).length;
+  const estimate=game.accountId&&!game.developerMode&&ended?{
+    waveXP:campaignCheckpoint?runWaveXP(50):Math.max(0,runWaveXP(wave)-(campaignCleared?runWaveXP(50):0)),
+    bossXP:campaignCheckpoint?campaignBosses:Math.max(0,bossesDefeated-(campaignCleared?campaignBosses:0)),
+  }:null;
+  return {ended,won,accountProgression:!!game.data?.fr010,accountId:game.accountId,campaignCheckpoint,bossesDefeated,estimate,factionId:game.factionId??null,factionName:factionName(game.factionId),factionPortrait:game.data?.defenderAssets?.find(a=>a.tier===6)?.portrait,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:game.data?.fr010?game.scoreExact:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,story:runEndingStory({won,wave:campaignCheckpoint?50:wave}),art:campaignCheckpoint?(FACTION_OUTCOME_ART_SCENES[game.factionId]?.won?.[0]||OUTCOME_ART_SCENES.won[0]):selectOutcomeArt(game)};
 }
 
 function storyMarkup(model){

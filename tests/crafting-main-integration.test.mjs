@@ -1,3 +1,4 @@
+import {cancelDraftSkill} from '../ui/draft-skill-targeting.js';
 import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
@@ -32,7 +33,7 @@ function actualGame({retained=false}={}){
 function productionCommands(game){
   const callbacks=new Map(),captureCallbacks=new Map(),calls={render:0,close:0,unlock:0},world={maze:{editing:false},doubleTap:{clear:noop}},app={addEventListener:(type,callback,options)=>((options===true||options?.capture)?captureCallbacks:callbacks).set(type,callback)};
   const methods=runInNewContext(`${stampSource}\n${handlerSource}\n({stampCraftButtons,handleCommand})`,{
-    game,app,world,audio:{unlock:()=>calls.unlock++},draftCardActivation:{clear:noop},debug:false,
+    game,app,world,cancelDraftSkill,audio:{unlock:()=>calls.unlock++},draftCardActivation:{clear:noop},debug:false,
     CommandPointerInput,window:{addEventListener:noop},document:{addEventListener:noop,elementFromPoint:()=>null},
     craftRecipeKey,craftRecipeFromDock,render:()=>calls.render++,closeDialog:()=>calls.close++,
     codex:noop,warbands:noop,help:noop,sendWave:noop,debugPanel:noop,toggleAudioSettings:noop,

@@ -26,6 +26,21 @@
 #app .folio-decision-row [data-action=move] { background: #f2e6c9; border-color: #b39b65; color: #60491e; }
 #app .folio-decision-row [data-action=reroll]:not(:disabled):hover { background: #c4e1e8; }
 #app .folio-decision-row [data-action=reserve]:not(:disabled):hover { background: #dacbea; }
+#app .folio-decision-row:has(.draft-skill-action) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 116px), 1fr));
+}
+#app .folio-decision-row .draft-skill-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: normal;
+}
+#app .draft-skill-action img { width: 22px; height: 22px; object-fit: contain; flex: none; }
+#app .draft-skill-action[aria-pressed="true"] { background: #dcebe1; border-color: #34795e; color: #174b38; }
+#app .draw-card.is-draft-skill-target { outline: 2px solid #36836a; outline-offset: -4px; }
+#app .draft-skill-target-note { color: #175238; font-weight: 700; }
+#app[data-draft-targeting="true"] .recipe-map-badges { visibility: hidden; }
 #app #folio-create-actions { grid-column: 1/-1; }
 #app .rank-preview-buttons { grid-template-columns: repeat(6,minmax(0,1fr))!important; overflow: visible!important; width: 100%; min-width: 0; }
 #app .rank-preview-buttons>button { min-width: 0!important; width: 100%; padding: 3px 0; }

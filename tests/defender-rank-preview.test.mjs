@@ -1,3 +1,4 @@
+import {cancelDraftSkill} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -184,7 +185,7 @@ function retainedVPanelGame(phase){
 function productionMergeClick(game){
   const callbacks=new Map(),captures=new Map(),noop=()=>{},app={addEventListener:(type,fn,options)=>((options===true||options?.capture)?captures:callbacks).set(type,fn)};
   const start=mainSource.indexOf('function handleCommand('),end=mainSource.indexOf('function toggleWorld(',start);assert.ok(start>=0&&end>start);
-  runInNewContext(mainSource.slice(start,end),{game,app,CommandPointerInput,window:{addEventListener:noop},document:{addEventListener:noop,elementFromPoint:()=>null},world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},draftCardActivation:{clear:noop},mergeTowerFromBadge,debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop});
+  runInNewContext(mainSource.slice(start,end),{game,app,CommandPointerInput,cancelDraftSkill,window:{addEventListener:noop},document:{addEventListener:noop,elementFromPoint:()=>null},world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},draftCardActivation:{clear:noop},mergeTowerFromBadge,debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop});
   return button=>{let stopped=false;const event={target:{closest:()=>button},detail:1,preventDefault:noop,stopImmediatePropagation:()=>{stopped=true;}};captures.get('click')?.(event);if(!stopped)callbacks.get('click')(event);};
 }
 for(const phase of ['ready','build','select'])test(`production retained Rank V sidebar has no merge action in ${phase} and rejects stale previous-version commands`,()=>{

@@ -8,6 +8,7 @@ import {PointerTapGesture} from './touch-input.js';
 import {pinnedRecipeHighlightIds} from '../../ui/crafting-dock.js';
 import {PinnedRecruitActivation} from '../../ui/pinned-recruit-input.js';
 import {siteUrl} from '../site-url.js';
+import {draftSkillState,preparedDraftSkill} from '../../ui/draft-skill-targeting.js';
 
 // Independent world-space markers: aiming and recoil never move the round indicators.
 export class DraftMarkers {
@@ -59,6 +60,7 @@ export class DraftMarkers {
   }
   sync(game,models){
     this.game=game;
+    const prepared=preparedDraftSkill(game),targets=new Set(prepared?draftSkillState(game,prepared).targets:[]);
     const defenderPortrait=(family,tier=1)=>game.data.defenderAssets?siteUrl(game.data.defenderAssets.find(a=>a.family===family&&a.tier===tier)?.portrait||''):legacyDefenderPortrait(family,tier);
     const candidates=game.roundCandidates,ids=new Set(candidates.map(c=>c.tower.id)),hints=game.combinationHints,hintIds=new Set(hints.map(h=>h.tower.id));
     const merges=candidates.flatMap(({tower,number})=>{const key=mergeTowerKey(game,tower.id);return key?[{tower,number,key}]:[];}),mergeIds=new Set(merges.map(merge=>merge.tower.id));
@@ -68,8 +70,8 @@ export class DraftMarkers {
       const body=models.get(tower.id)?.object;
       const height=body?new THREE.Box3().setFromObject(body).max.y:2;
       marker.position.set(tower.x-18,height+.5,tower.z-18);marker.userData.height=height;
-      marker.userData.sprite.material.color.set(tower.id===game.selected?'#fff1b2':'#ffffff');
-      marker.userData.sprite.visible=!hintIds.has(tower.id)&&!mergeIds.has(tower.id);
+      marker.userData.sprite.material.color.set(targets.has(tower.id)?'#a6ffcc':tower.id===game.selected?'#fff1b2':'#ffffff');
+      marker.userData.sprite.visible=prepared?targets.has(tower.id):!hintIds.has(tower.id)&&!mergeIds.has(tower.id);
     }
     for(const [id,badge] of this.badges)if(!hintIds.has(id)){badge.el.remove();badge.line.remove();this.badges.delete(id);}
     for(const hint of hints){

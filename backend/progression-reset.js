@@ -1,9 +1,9 @@
 // Explicitly authorized by the operator on 2026-11-15: all achievements,
 // medals, XP, skills and active defenses reset; identities/scores preserved.
 // Never change this identity without a new, explicit reset instruction.
-import {verifiedRunProgress} from './verified-run-progress.js';
+import {verifiedRunProgress,verifiedRunExperience} from './verified-run-progress.js';
 export const PROGRESSION_RESET_ID='20261115-approved-fresh-start';
-export async function currentRunEpoch(db,run){const marker=await db.prepare('SELECT completed_at FROM progression_resets WHERE id=?').bind(PROGRESSION_RESET_ID).first();return !marker?.completed_at||run.started_at>=marker.completed_at&&verifiedRunProgress(run).epoch===PROGRESSION_RESET_ID;}
+export async function currentRunEpoch(db,run,epoch){const marker=await db.prepare('SELECT completed_at FROM progression_resets WHERE id=?').bind(PROGRESSION_RESET_ID).first();return !marker?.completed_at||run.started_at>=marker.completed_at&&(epoch??verifiedRunExperience(run).epoch)===PROGRESSION_RESET_ID;}
 export async function ensureProgressionReset(db){
  const read=()=>db.prepare('SELECT completed_at FROM progression_resets WHERE id=?').bind(PROGRESSION_RESET_ID).first();
  const prior=await read();if(prior?.completed_at)return {epoch:PROGRESSION_RESET_ID,resetAt:prior.completed_at};

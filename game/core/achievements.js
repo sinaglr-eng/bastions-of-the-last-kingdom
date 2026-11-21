@@ -28,7 +28,7 @@ export class RunProgress{
   if(type==='combine'&&p.crafted)this.champions.add(p.tower.family);
   if(type==='combine'&&!p.crafted&&p.tower.tier===6&&!this.game.data.towers[p.tower.family].advanced)this.mythic=true;
   if(type==='death'){this.kills++;if(p.enemy.boss){this.bossKills++;if(BOSS_TYPES.includes(p.enemy.type)){this.bosses.add(p.enemy.type);this.bossWaves[p.enemy.type]??=this.game.round;}}}
-  if(type==='wave-complete'){this.highestWave=Math.max(this.highestWave,p.round);this.streak=this.waveDamaged?0:this.streak+1;this.streakBest=Math.max(this.streakBest,this.streak);if(p.round===50)this.campaign=true;}
+  if(type==='wave-complete'){this.highestWave=Math.max(this.highestWave,p.round);this.streak=this.waveDamaged?0:this.streak+1;this.streakBest=Math.max(this.streakBest,this.streak);if(p.round===50){this.campaign=true;this.campaignBossKills=this.bossKills;}}
  }
  grants(){
   const f=this.game.factionId,rows=[];

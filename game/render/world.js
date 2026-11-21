@@ -374,6 +374,7 @@ export class Battlefield {
     if(this.hoverEnemy!=null){this.doubleTap.clear();this.game.selectEnemy(this.hoverEnemy);return;}
     if(this.hover){
       const tower=this.game.towers.find(t=>t.x===this.hover.x&&t.z===this.hover.z);
+      if(this.onDraftTarget?.(tower?.id)){this.doubleTap.clear();return;}
       const confirm=tower&&this.doubleTap.tap(tower.id,e,{selected:this.game.selected===tower.id,eligible:!this.game.commandMove?.active&&this.game.phase==='select'&&tower.state==='draft'&&tower.round===this.game.round});
       if(confirm)this.game.keep();else this.onTile(this.hover.x,this.hover.z);
       if(!tower)this.doubleTap.clear();

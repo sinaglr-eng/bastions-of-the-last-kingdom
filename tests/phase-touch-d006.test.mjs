@@ -1,3 +1,4 @@
+import {applyPreparedDraftSkill,cancelDraftSkill} from '../ui/draft-skill-targeting.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -34,11 +35,11 @@ function interfaceFixture({complete=true}={}){
   const render=()=>{phaseUi.sync(game);phaseUi.apply(app,game);};render();
   const cards=game.draft.draws.map((_,index)=>{const target={disabled:false,isConnected:true,dataset:{action:'draw',index:String(index)}};target.closest=()=>target;return target;});
   let now=1000,hit=outside;const activation=new DraftCardActivation(()=>now);
-  const activate=runInNewContext(activateSource+'\nactivateDraw',{game,phaseUi,world,audio,draftCardActivation:activation,render});
+  const activate=runInNewContext(activateSource+'\nactivateDraw',{game,phaseUi,world,audio,draftCardActivation:activation,render,applyPreparedDraftSkill});
   const input=new DraftCardPointerInput({now:()=>now,hitTest:()=>hit,activate,clearActivation:()=>activation.clear()});
   runInNewContext(acceptedSelectionHook,{game,phaseUi,render});
   runInNewContext(bindingSource,{app,window,game,draftPointerInput:input});
-  const commands=app;runInNewContext(handlerSource,{game,phaseUi,app:commands,window,document:{addEventListener:noop,elementFromPoint:()=>hit},CommandPointerInput,world,audio,draftCardActivation:activation,draftPointerInput:input,keepDrawKeeper,mergeTowerFromBadge,render,debug:false,codex:noop,warbands:noop,help:noop,sendWave:()=>game.startCombat(),closeDialog:noop,debugPanel:noop});
+  const commands=app;runInNewContext(handlerSource,{game,phaseUi,app:commands,window,document:{addEventListener:noop,elementFromPoint:()=>hit},CommandPointerInput,world,audio,draftCardActivation:activation,draftPointerInput:input,cancelDraftSkill,keepDrawKeeper,mergeTowerFromBadge,render,debug:false,codex:noop,warbands:noop,help:noop,sendWave:()=>game.startCombat(),closeDialog:noop,debugPanel:noop});
   if(complete)for(let index=0;index<5;index++){game.draft.roundForced={family:['mage','archer','cleric','druid','soldier'][index],tier:1};assert.equal(game.place(3+index,3),true);}
   return {game,phaseUi,app,cards,render,input,activation,advance(ms){now+=ms;},tap(index,id=1){hit=cards[index];window.emit('pointerdown',finger(cards[index],id));app.emit('pointerdown',finger(cards[index],id));window.emit('pointerup',finger(outside,id));},press(index,id=1){hit=cards[index];window.emit('pointerdown',finger(cards[index],id));app.emit('pointerdown',finger(cards[index],id));},release(index,id=1){hit=cards[index];window.emit('pointerup',finger(outside,id));},click(button){commands.emit('click',{target:{closest:()=>button},detail:1});}};
 }

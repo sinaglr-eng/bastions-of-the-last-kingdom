@@ -42,7 +42,7 @@ export class General{
   return id==='decisive-strike'?1:0;
  }
  remainingUses(id){return Math.max(0,this.maxUses(id)-(this.uses[id]||0));}
- promotionState(targetId=this.game.selected,legacy=false){
+ promotionState(targetId=this.game.selected,legacy=false,chooseTarget=false){
   const g=this.game,rank=this.level('field-promotion'),cap=GENERAL_SKILLS['field-promotion'].caps[rank-1]||5,draws=g.draft.draws;
   const preview=draws.map(draw=>{
    const tower=g.towers.find(t=>t.id===draw.towerId),unit=tower&&g.data.towers[tower.family];
@@ -64,9 +64,9 @@ export class General{
   else if(legacy&&this.promotedDraft?.round===g.round)reason='This draft has already been promoted.';
   else if(!this.remainingUses('field-promotion'))reason=this.promotionPerRound?'Field Promotion has already been used this round.':'No Field Promotion uses remain in this run.';
   else if(g.commandPoints.value<this.promotionCost)reason=`Need ${this.promotionCost} CP.`;
-  else if(legacy&&!preview.some(row=>row.eligible))reason='No eligible recruits can gain a rank.';
-  else if(!legacy&&(!target||targetId!==g.selected))reason='Select one current recruit to promote.';
-  else if(!legacy&&!target.eligible)reason=target.reason;
+  else if((legacy||chooseTarget)&&!preview.some(row=>row.eligible))reason='No eligible recruits can gain a rank.';
+  else if(!legacy&&!chooseTarget&&(!target||targetId!==g.selected))reason='Select one current recruit to promote.';
+  else if(!legacy&&!chooseTarget&&!target.eligible)reason=target.reason;
   return{available:!reason,reason,preview,selectedTowerId:targetId,target,remainingUses:this.remainingUses('field-promotion'),maxUses:this.maxUses('field-promotion'),cost:this.promotionCost,perRound:this.promotionPerRound,cap};
  }
  applyDraftPromotion(draw,tower,cap){

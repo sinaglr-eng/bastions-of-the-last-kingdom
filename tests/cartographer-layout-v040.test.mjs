@@ -1,3 +1,4 @@
+import {preparedDraftSkill,draftSkillActionsMarkup,cancelDraftSkill,applyPreparedDraftSkill} from '../ui/draft-skill-targeting.js';
 import {publicRecipe} from '../ui/recipe-visibility.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -75,7 +76,7 @@ function documentFixture(){
 
 function mainFixture(game,{subscriber=false}={}){
   const dom=documentFixture(),rankPreview=new DefenderRankPreview(),phaseUi=new PhaseUiState();phaseUi.sync(game);
-  const context={...dom,game,data,images:{},rankPreview,preparationNavigation:new PreparationRecipeNavigation(),phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,publicRecipe,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
+  const context={...dom,game,data,preparedDraftSkill,draftSkillActionsMarkup,cancelDraftSkill,images:{},rankPreview,preparationNavigation:new PreparationRecipeNavigation(),phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,publicRecipe,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
   const source=[singleLine('syncFolio'),singleLine('cancelRecipePreview'),singleLine('towerPanel'),declaration('renderSidebar'),declaration('renderRecipeBrowser'),singleLine('openRecipePreview')].join('\n');
   const methods=runInNewContext(source+'\n({syncFolio,cancelRecipePreview,renderSidebar,renderRecipeBrowser,openRecipePreview})',context);
   context.render=()=>{methods.renderSidebar();methods.renderRecipeBrowser();methods.syncFolio();};
@@ -274,7 +275,7 @@ test('actual draft renderer removes Ready/Combat history controls and production
   const from=main.indexOf('function activateDraw('),to=main.indexOf("app.addEventListener('pointerdown'",from);assert.ok(from>=0&&to>from);const activateSource=main.slice(from,to);
   for(const phase of ['build','select','ready','combat']){
     const game=create(phase),control=create(phase),dom=documentFixture();for(const id of ['draft','compact-draft-actions','folio-command-actions','folio-create-actions','dialog'])dom.app.append(new dom.Element(id==='dialog'?'dialog':'div',{id}));
-    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,app:dom.app,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),rankPreview:new DefenderRankPreview(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
+    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,app:dom.app,preparedDraftSkill,draftSkillActionsMarkup,cancelDraftSkill,applyPreparedDraftSkill,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),rankPreview:new DefenderRankPreview(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
     const methods=runInNewContext(declaration('renderDraft')+'\n'+activateSource+'\n'+keyboard+'\n({renderDraft,activateDraw})',context),input=new DraftCardPointerInput({activate:(index,event)=>methods.activateDraw(index,event)});let queries=0;
     dom.document.querySelector=selector=>{queries++;const index=selector.match(/data-index="(\d+)"/)?.[1],card=dom.get('draft').querySelectorAll('[data-action="draw"]').find(card=>card.dataset.index===index);if(card)card.click=()=>input.click(game,{target:card,detail:0});return card;};
     const before=snapshot(game);methods.renderDraft();assert.equal(snapshot(game),before,'Rendering '+phase+' cannot mutate Game');
