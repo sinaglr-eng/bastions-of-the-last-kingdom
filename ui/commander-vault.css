@@ -7,7 +7,7 @@
 #main-menu .commander-vault{font:14px/1.4 var(--war-sans);color:#29493f;min-width:0}.commander-vault *{box-sizing:border-box}#main-menu .commander-vault :is(button,input,select),.artifact-confirm :is(button,input,select){font-family:var(--war-sans,'Source Sans 3','Segoe UI',sans-serif);touch-action:manipulation;min-height:44px}
 #main-menu .commander-vault button,.artifact-confirm button{border:1px solid #b49358;border-radius:4px;box-shadow:inset 0 0 0 2px #fff4d4,0 2px 3px #553c181a;background:linear-gradient(135deg,#fff9e8,#e9d9b4);color:#23463d;font-size:14px;padding:8px 12px;cursor:pointer;overflow-wrap:anywhere}#main-menu .commander-vault button:disabled{opacity:.5;cursor:default;filter:saturate(.5)}#main-menu .commander-vault button.war-primary,.artifact-confirm .war-primary{background:linear-gradient(120deg,#3d6a55,#173d3c);color:#fff0cd;box-shadow:inset 0 0 0 2px #dfbf76,0 2px 4px #3c2f1930}.commander-vault :is(button,input,select):focus-visible,.commander-subnav button:focus-visible{outline:3px solid #187c91;outline-offset:3px}
 #main-menu .commander-vault :is(h2,h3,h4){color:#20453e;text-align:left;overflow-wrap:anywhere;margin:0 0 8px;font-family:var(--war-serif);line-height:1.25}#main-menu .commander-vault h2{font-size:21px}#main-menu .commander-vault h3{font-size:17px}#main-menu .commander-vault h4{font-size:15px}#main-menu .commander-vault p{margin:4px 0 10px;line-height:1.45;overflow-wrap:anywhere}
-.vault-section-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;min-height:45px}.vault-section-caption>p{margin:0!important;color:#6d715f}.vault-dust{display:inline-flex;align-items:center;gap:7px;flex:none;color:#5d4e2f}.vault-dust img{width:34px;height:34px;object-fit:contain}.vault-dust>span{display:flex;flex-direction:column}.vault-dust b{font:700 20px var(--war-serif)}.vault-dust small{font-size:11px}
+.vault-section-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;min-height:45px}.vault-section-caption>p{margin:0!important;color:#6d715f}.vault-dust{display:inline-flex;align-items:center;gap:7px;flex:none;color:#5d4e2f}.vault-dust>span{display:flex;flex-direction:column}.vault-dust b{font:700 20px var(--war-serif)}.vault-dust small{font-size:11px}
 .vault-panel,.vault-item-detail,.vault-reveal{min-width:0;border:1px solid #b89a61;border-radius:7px;padding:15px;background:linear-gradient(135deg,#fcf5e4,#ede1c3);box-shadow:inset 0 0 0 3px #fff7df,0 3px 7px #3d2d1715}.vault-panel>header{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:3px double #c5ab76;padding-bottom:10px;margin-bottom:12px}.vault-panel>header h2{margin:0!important}.vault-panel>header small{color:#777259;font-size:12px}
 .vault-equipment-layout{display:grid;grid-template-columns:minmax(310px,1.02fr) minmax(320px,1.05fr) minmax(245px,.79fr);gap:14px;align-items:start}.commander-paperdoll{position:relative;height:470px;margin:5px 0 12px;isolation:isolate;background:radial-gradient(ellipse at 50% 48%,#b9b99a75,transparent 70%)}.commander-body{position:absolute;left:12%;top:2%;width:76%;height:96%;object-fit:contain;filter:drop-shadow(0 8px 9px #132e2b32);pointer-events:none}
 #main-menu .vault-slot{position:absolute;padding:4px;width:68px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #b99a60;background:linear-gradient(145deg,#fdf5dded,#cbb98ff0);box-shadow:inset 0 0 0 2px #fff6df,0 3px 5px #273c3230;z-index:2;border-radius:5px}.vault-slot img{width:48px;height:48px;object-fit:contain;padding:3px;background:radial-gradient(ellipse,var(--rarity-light,#f3e9d0),var(--rarity-field,#d9ca9f));border-radius:3px}.vault-slot .empty-slot-art{filter:sepia(1) saturate(.3);opacity:.35}.vault-slot>span{font:600 10px/1.05 var(--war-sans);white-space:nowrap}.vault-slot>small{position:absolute;top:-12px;background:#214e49;color:#fff1c9;padding:1px 5px;font-size:9px;border-radius:3px}#main-menu .vault-slot.is-compatible{outline:3px solid #578c71;outline-offset:3px}
@@ -111,7 +111,7 @@
 .vault-reveal-compact>header>button{width:44px;height:44px;padding:0;flex:none}
 .vault-reward-summary{display:flex;gap:12px;align-items:center;flex-wrap:wrap;min-width:0}
 .vault-reward-summary .vault-dust-reward{display:inline-flex;align-items:center;gap:8px;font-size:13px;flex-wrap:wrap}
-.vault-reward-summary .vault-dust-reward>img{width:30px;height:30px;object-fit:contain;background:none;padding:0}
+.vault-reward-summary .vault-dust-reward>img{background:none;padding:0}
 .vault-reward-summary small,.vault-reward-summary p{font-size:11px;color:#746347;margin:0}
 .vault-reward-summary>button{margin-left:auto;min-height:32px!important;font-size:11px!important;padding:4px 10px!important}
 .vault-reveal-compact .vault-reward-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));justify-content:stretch;align-items:stretch;max-height:290px;overflow:auto;gap:8px}
@@ -135,12 +135,12 @@
 .artifact-forge *{box-sizing:border-box}.artifact-forge::backdrop{background:#102b2cbb;backdrop-filter:blur(3px)}
 .artifact-forge-heading{display:flex;align-items:start;justify-content:space-between;gap:15px;padding-bottom:12px;border-bottom:3px double #c1a66a}.artifact-forge-heading small{font-size:11px;letter-spacing:.12em;color:#876d3c}.artifact-forge h2{font:600 27px/1.2 var(--war-serif,Georgia,serif);margin:5px 0}.artifact-forge h3{font:600 16px/1.25 var(--war-serif,Georgia,serif);margin:4px 0}.artifact-forge p{margin:5px 0;line-height:1.45}.artifact-forge-heading>button{flex:none;width:44px;padding:3px;font-size:25px}
 .artifact-forge button{min-height:44px;padding:8px 12px;border:1px solid #ad8b4e;border-radius:4px;background:linear-gradient(135deg,#fff8e6,#e6d2a3);box-shadow:inset 0 0 0 2px #fff3d2;color:#284f41;font:600 13px/1.3 var(--war-sans,'Segoe UI',sans-serif);cursor:pointer}.artifact-forge button:disabled{opacity:.5;cursor:default}.artifact-forge :is(button,input,select):focus-visible{outline:3px solid #45856c;outline-offset:3px}
-.artifact-forge-wallet{display:flex;align-items:center;gap:9px;padding:12px 0}.artifact-forge-wallet>img{width:43px;height:43px;object-fit:contain}.artifact-forge-wallet>strong{font-size:19px;white-space:nowrap}.artifact-forge-wallet>span{margin-left:auto;max-width:420px;color:#756b50;font-size:12px}
+.artifact-forge-wallet{display:flex;align-items:center;gap:9px;padding:12px 0}.artifact-forge-wallet>strong{font-size:19px;white-space:nowrap}.artifact-forge-wallet>.artifact-forge-wallet-note{margin-left:auto;max-width:420px;color:#756b50;font-size:12px}
 .artifact-forge-filters{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,.35fr);gap:12px}.artifact-forge-filters label{font-size:12px;color:#6c634a;min-width:0}.artifact-forge-filters input{display:block;width:100%;min-height:44px;margin-top:3px;padding:9px 12px;border:1px solid #b39860;border-radius:4px;background:#fff9e9;color:#284f41;font:14px var(--war-sans,'Segoe UI',sans-serif)}.artifact-forge .vault-select select{min-height:44px;font:14px var(--war-sans,'Segoe UI',sans-serif)}
 .artifact-forge .artifact-forge-status{margin:10px 0;min-height:20px;color:#3b6a49}.artifact-forge-status.is-error{color:#993d2e}
 .artifact-forge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch}.artifact-forge-grid article{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;padding:12px;border:1px solid var(--artifact-rarity,#ac995e);border-radius:5px;background:linear-gradient(135deg,var(--rarity-light,#fbf3dc),#f3e6c5);min-width:0}.artifact-forge-grid article>img{width:74px;height:80px;object-fit:contain;background:radial-gradient(ellipse,var(--rarity-glow,#d5c39288),transparent 75%)}.artifact-forge-grid article>div{min-width:0;overflow-wrap:anywhere}.artifact-forge-grid article small{display:block;font-size:10px;color:var(--rarity-ink,#796b47)}.artifact-forge-grid article p,.artifact-forge-grid article ul{font-size:11px;line-height:1.4}.artifact-forge-grid article ul{padding-left:14px;margin:6px 0}.artifact-forge-grid footer{grid-column:1/-1;align-self:end;display:flex;flex-direction:column;gap:4px}.artifact-forge-grid footer>button:not(:disabled){background:linear-gradient(130deg,#3c6a54,#173e3b);color:#fff3cf}.artifact-forge-empty{grid-column:1/-1;min-height:180px;padding:40px;text-align:center}.artifact-forge .vault-pagination{margin-top:12px}
 @media(max-width:850px){.artifact-forge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.artifact-forge{width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:14px}.artifact-forge-wallet{flex-wrap:wrap}.artifact-forge-wallet>span{flex:1 1 100%;margin:0}.artifact-forge-filters{grid-template-columns:minmax(0,1fr)}.artifact-forge-grid{grid-template-columns:minmax(0,1fr)}.artifact-forge h2{font-size:24px}}
+@media(max-width:520px){.artifact-forge{width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:14px}.artifact-forge-wallet{flex-wrap:wrap}.artifact-forge-wallet>.artifact-forge-wallet-note{flex:1 1 100%;margin:0}.artifact-forge-filters{grid-template-columns:minmax(0,1fr)}.artifact-forge-grid{grid-template-columns:minmax(0,1fr)}.artifact-forge h2{font-size:24px}}
 
 .vault-reveal-compact:not(.has-many-rewards) .vault-reward-grid{max-height:none;overflow:visible}
 
@@ -511,19 +511,16 @@
  font-weight: 650;
  white-space: nowrap;
 }
-.artifact-gem > i {
- display: inline-block;
- width: 12px;
- height: 12px;
- border: 1px solid #2b7a7d;
- border-radius: 2px;
- background: linear-gradient(135deg,#c4f8ef 10%,#67c8cd 45%,#33818c 75%);
- transform: rotate(45deg);
+.vault-reward-summary { --vault-material-icon-size: 30px; }
+.artifact-forge-wallet { --vault-material-icon-size: 43px; }
+:is(.artifact-gem, .vault-dust, .vault-dust-reward, .artifact-forge-wallet) > img {
+ width: var(--vault-material-icon-size, 34px);
+ height: var(--vault-material-icon-size, 34px);
+ object-fit: contain;
  flex: none;
 }
-.artifact-gem-emerald > i {
- border-color: #3b714e;
- background: linear-gradient(135deg,#d0ecc5 10%,#7eb879 45%,#32704e 75%);
+@media (max-width: 700px) {
+ .vault-section-caption { flex-wrap: wrap; }
 }
 .vault-gem-perk,.vault-set-gem-cost {
  padding: 8px 10px;
