@@ -14,7 +14,7 @@ test('compact chest receipts retain Dust, equip and inspect actions, with bounde
  const v=new CommanderVault({player:{online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],pity:{},dust:500,highestTier:5}}},render(){},status(){}});
  for(const count of [0,1,2,10]){
   const html=v.rewards({tier:4,dustGained:20,items:C.artifacts.slice(0,count).map(a=>({id:a.id}))});
-  assert.match(html,/vault-reveal-compact/);assert.match(html,/\+20 Relic Dust/);assert.equal((html.match(/data-vault-action="equip"/g)||[]).length,count);assert.equal((html.match(/Inspect in backpack/g)||[]).length,count);assert.equal(html.includes('has-many-rewards'),count>2);assert.doesNotMatch(html,/reveal-dust/);
+  assert.match(html,/vault-reveal-compact/);assert.match(html,/\+20 Relic Dust/);assert.equal((html.match(/data-vault-action="equip"/g)||[]).length,count);assert.equal((html.match(/Inspect in inventory/g)||[]).length,count);assert.equal(html.includes('has-many-rewards'),count>2);assert.doesNotMatch(html,/reveal-dust/);
  }
  v.skip=true;assert.doesNotMatch(v.rewards({tier:4,dustGained:20,items:[{id:'LG-01'}]}),/Skip animation/);
 });

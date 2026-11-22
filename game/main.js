@@ -384,7 +384,7 @@ function continueCampaign(){
  completed.campaignResultPending=false;
  if(completed.campaignResultAcknowledged)return;
  completed.campaignResultAcknowledged=true;
- if(!completed.accountId||completed.developerMode){void player.save();return;}
+ if(!completed.accountId||completed.developerMode){void player.save().catch(()=>{});return;}
  void player.settleResult('campaign').then(()=>{if(player.game===completed)player.acknowledgeCampaign();}).catch(error=>{if(player.game===completed)notice(error.message);});
 }
 function showResult(campaign=false){
@@ -452,7 +452,7 @@ function handleCommand(e){
   const b=e.target.closest('[data-action]');if(!b||b.disabled)return;audio.unlock();const action=b.dataset.action;
   if(action==='main-menu'){void saveAndMenu().catch(error=>notice(error.message));return;}
   if(game?.data.fr010&&(action==='new-run'||action==='restart')){void saveAndMenu().then(()=>mainMenu.click({target:mainMenu.root.querySelector('[data-menu="new"]')}));return;}
-  if(action==='continue-endless'){game.campaignResultPending=false;player.acknowledgeCampaign();closeDialog();game.paused=false;resultContext=null;void player.save();return;}
+  if(action==='continue-endless'){game.campaignResultPending=false;player.acknowledgeCampaign();closeDialog();game.paused=false;resultContext=null;void player.save().catch(()=>{});return;}
   if(action==='result-chests'){mainMenu.commanderVault.tab='chests';closeDialog();game.paused=true;void player.save().then(()=>mainMenu.show('general'));return;}
   if(action==='result-general'||action==='result-achievements'){closeDialog();game.paused=true;void player.save().then(()=>mainMenu.show(action==='result-general'?'general':'achievements'));return;}
   if(action==='result-retry'){showResult(!!resultContext?.campaign);return;}
