@@ -129,6 +129,21 @@
 #main-menu .menu-header .menu-account .account-rank strong,#main-menu .menu-header .menu-account .account-rank small{color:#fff2d0}
 #main-menu .commander-vault .skills-detail-header h2{color:#fff2d0}
 #main-menu .war-home .war-saved-copy h2{background:transparent;padding:0}
+#main-menu .war-home .war-saved-card time{margin:4px 0;font-size:14px}
+#main-menu .war-home .war-saved-copy>strong{font-size:clamp(24px,2.4vw,36px)}
+#main-menu .homeland-start-actions button{font-weight:650;color:#302518}
+#main-menu .homeland-start-actions button.war-primary{color:#fff1cd}
+#main-menu .menu-account .menu-medal-link :is(span,strong,b){color:#fff1cd}
+#main-menu .war-home .homeland-snapshot{color:#27382c;font-size:15px}
+#main-menu .war-home .homeland-snapshot small{color:#354334;font-size:14px}
+@media(min-width:760px){
+  #main-menu .war-home .war-command-deck>.war-saved-card:not(.is-empty){
+    display:grid;grid-template-columns:minmax(150px,1fr) minmax(200px,1.3fr) auto;
+    align-items:center;gap:16px;text-align:left;padding:16px 20px 16px clamp(95px,12vw,176px);
+    background:linear-gradient(90deg,transparent 0%,#f8e6be 15%,#f8e6be 100%),url('/assets/ui/war-table/saved-defense.webp') left center/auto 100% no-repeat;
+  }
+  #main-menu .war-home .war-saved-card .homeland-snapshot{max-width:none}
+}
 #main-menu .page-ranks .commander-progression>.account-rank{background:#233b30 url('/assets/ui/war-table/hall-backdrop.webp') center/cover;box-shadow:inset 0 0 0 100vmax #112e20b5;color:#fff2d0}
 #main-menu .page-ranks .commander-progression>.account-rank :is(strong,small,span){color:#fff2d0}
 .homeland-compare{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;text-align:center;padding:8px;border-block:1px solid #b49561}
