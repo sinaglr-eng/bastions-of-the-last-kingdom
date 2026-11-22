@@ -17,19 +17,20 @@ function rankChestMarkup(level){
 }
 export function rankOverviewMarkup(profile={},{expanded=false}={}){
  const r=accountRank(profile.xpTotal),next=r.next;
- const skillList=next?rankSkillUnlocks(next.level):[];
  const ready=(profile.artifacts?.chests||[]).filter(chest=>chest.rankLevel&&chest.status==='ready').length;
- return `<section class="commander-progression">${accountBadgeMarkup(profile,true)}<div class="commander-next">
-  <small>${next?'NEXT PROMOTION':'MAXIMUM RANK'}</small>
-  ${next?`<strong>${next.name} · Level ${next.level}</strong>${rankChestMarkup(next.level)}
-  ${skillList.length?`<p>${skillList.map(skill=>`${esc(skill.name)} ${['I','II','III'][skill.rank-1]}`).join(' · ')}</p>`:''}`:'<strong>King · Level 15</strong>'}
+ return `<section class="commander-progression"><aside class="rank-portrait-panel" aria-label="Current military rank">
+  <img class="rank-hero-head" src="${homelandArt('rank'+r.level)}" width="152" height="152" alt="">
+  <small>Current rank · Level ${r.level}</small><h2>${r.name}</h2><b>${num(r.total)} total XP</b>
+  <div class="rank-next-progress"><strong>${next?'Next · '+next.name:'Maximum rank'}</strong>
+  ${rankProgressMarkup(r.total)}
+  ${next?`<p>${num(next.xp-r.total)} XP to promotion</p>`:''}</div>
   ${ready?`<p><button type="button" data-menu="rank-chests">View ${ready} promotion ${ready===1?'chest':'chests'}</button></p>`:''}
- </div><details class="commander-rank-roadmap" ${expanded?'open':''}><summary>View all 15 military ranks</summary>
- <ol>${MILITARY_RANKS.map(rank=>`<li class="${rank.level===r.level?'is-current':rank.level<r.level?'is-earned':'is-future'}">
+ </aside><details class="commander-rank-roadmap" ${expanded?'open':''}><summary>Promotion path</summary>
+ <ol tabindex="0" aria-label="All 15 military ranks">${MILITARY_RANKS.map(rank=>`<li class="${rank.level===r.level?'is-current':rank.level<r.level?'is-earned':'is-future'}" ${rank.level===r.level?'aria-current="step"':''}>
   <img src="${homelandArt('rank'+rank.level)}" alt="" width="48" height="48"><span>
-  <b>${rank.name}</b><small>Level ${rank.level} · ${num(rank.xp)} XP</small>${rankChestMarkup(rank.level)}
-  <span class="rank-skill-unlocks"><small>Available to purchase</small>${rankSkillUnlocks(rank.level).map(skill=>`<span class="rank-unlock-skill"><img src="${commanderSkillArt(skill.id)}" alt="" width="19" height="19" loading="lazy"><span>${esc(skill.name)} <b>${['I','II','III'][skill.rank-1]}</b></span></span>`).join('')||'<span>No new skill ranks</span>'}</span>
-  </span><em>${rank.level===r.level?'Current':rank.level<r.level?'✓':'Locked'}</em></li>`).join('')}</ol></details></section>`;
+  <small>Level ${rank.level} · ${num(rank.xp)} XP</small><b>${rank.name}</b>
+  <span class="rank-skill-unlocks"><small class="sr-only">Available to purchase</small>${rankSkillUnlocks(rank.level).map(skill=>`<span class="rank-unlock-skill"><img src="${commanderSkillArt(skill.id)}" alt="" width="19" height="19" loading="lazy"><span>${esc(skill.name)} <b>${['I','II','III'][skill.rank-1]}</b></span></span>`).join('')}</span>${rankChestMarkup(rank.level)}
+  </span><em>${rank.level===r.level?'Current':rank.level===next?.level?'Next':rank.level<r.level?'Earned':''}</em></li>`).join('')}</ol></details></section>`;
 }
 export const xpAmount=xp=>`<span class="account-xp-reward" aria-label="${xp||0} experience points">+${num(xp)} XP</span>`;
 function seenKey(owner,id){return 'account-xp-celebrated:'+owner+':'+id;}

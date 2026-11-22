@@ -133,7 +133,7 @@ export class MainMenu{
   }else if(page==='general'){
    title='Commander';content=this.commanderVault.markup(generalView(this.player.profile,!!this.player.user&&this.player.online,{selected:this.selectedSkill,filter:this.skillFilter,equipped:this.selectedLoadout,feedback:skillFeedback,loadoutFeedback}));
   }else if(page==='ranks'){
-   title='Commander Ranks';content=`<section class="commander-ranks-page"><p>Earn XP through completed waves, boss victories and claimed achievements. Your current rank is highlighted below.</p>${rankOverviewMarkup(this.player.profile||{},{expanded:true})}<button class="war-primary" data-nav="general">Back to Commander</button></section>`;
+   title='Commander Ranks';content=`<section class="commander-ranks-page"><button class="rank-return" data-nav="general">‹ Commander</button>${rankOverviewMarkup(this.player.profile||{},{expanded:true})}</section>`;
   }else if(page==='maze'){
    title='Maze Builder';content=mazeEditorMarkup();
   }else if(page==='achievements'){
@@ -145,7 +145,13 @@ export class MainMenu{
   }
   if(page==='hall')content='<div data-hall-content><div class="war-loading" role="status">Loading verified records…</div></div>';
   if(this.page!==page)return;
-  this.mazeEditor?.unmount();this.root.innerHTML=this.shell(title,content);const library=this.root.querySelector('.skills-list');if(library)library.scrollTop=libraryScroll;if(page==='maze'){this.mazeEditor??=new MenuMazeEditor({storage:globalThis.localStorage,onSaved:plan=>this.onBlueprintSaved?.(plan)});this.mazeEditor.mount(this.root.querySelector('.home-maze-workshop'));}if(previousPage!==page)this.root.scrollTop=0;this.root.querySelector('h1')?.focus({preventScroll:true});if(page==='hall'||page==='legacy')void this.loadHall(page);
+  this.mazeEditor?.unmount();this.root.innerHTML=this.shell(title,content);if(page==='ranks'){
+   const path=this.root.querySelector('.commander-rank-roadmap ol');
+   const current=path?.querySelector('.is-current');
+   const anchor=current?.previousElementSibling||current;
+   if(anchor)path.scrollTop+=anchor.getBoundingClientRect().top-path.getBoundingClientRect().top;
+  }
+  const library=this.root.querySelector('.skills-list');if(library)library.scrollTop=libraryScroll;if(page==='maze'){this.mazeEditor??=new MenuMazeEditor({storage:globalThis.localStorage,onSaved:plan=>this.onBlueprintSaved?.(plan)});this.mazeEditor.mount(this.root.querySelector('.home-maze-workshop'));}if(previousPage!==page)this.root.scrollTop=0;this.root.querySelector('h1')?.focus({preventScroll:true});if(page==='hall'||page==='legacy')void this.loadHall(page);
  }
  achievementProgress(a){return achievementData(this.player,this.faction).progress(a);}
  socialMarkup(page){
