@@ -7,18 +7,23 @@ import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {loadBlueprintLibrary} from '../game/core/blueprints.js';
 import {artifactBonuses,artifactModifierText} from '../game/core/artifacts.js';
-import {homelandArt} from './homeland-art.js';
+import {homelandArt,woodSignUrl} from './homeland-art.js';
 
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function factionPickerMarkup(id='crown'){
  const selected=FACTIONS.find(f=>f.id===id)||FACTIONS[0];
- const scenes=FACTIONS.map(f=>`<img class="war-faction-scene" data-faction-scene="${f.id}" src="${homelandArt(f.id)}" alt="" decoding="async" loading="${f.id===selected.id?'eager':'lazy'}" fetchpriority="${f.id===selected.id?'high':'low'}" ${f.id===selected.id?'':'hidden'}>`).join('');
+ const scenes=FACTIONS.map(f=>`<img class="war-faction-scene" data-faction-scene="${f.id}" src="${homelandArt(f.id==='crown'?f.id:f.id+'-banner')}" alt="" decoding="async" loading="${f.id===selected.id?'eager':'lazy'}" fetchpriority="${f.id===selected.id?'high':'low'}" ${f.id===selected.id?'':'hidden'}>`).join('');
  return `<section class="war-faction-panel" data-faction-picker aria-label="Faction for your new game"><div class="homeland-panorama">${scenes}<div class="war-faction-caption"><h2>${allianceTitles[selected.id]}</h2><p>${esc(selected.description)}</p></div></div><div class="war-faction-selection">${factionTabs(selected.id,{attribute:'new-faction'})}</div></section>`;
 }
 const allianceTitles={crown:'Human Alliance',forge:'Dwarven Alliance',grove:'Elven Alliance'};
 export function selectHomeFaction(panel,faction){
  for(const image of panel.querySelectorAll('[data-faction-scene]'))image.hidden=image.dataset.factionScene!==faction.id;
- for(const button of panel.querySelectorAll('[data-new-faction]'))button.setAttribute('aria-pressed',String(button.dataset.newFaction===faction.id));
+ for(const button of panel.querySelectorAll('[data-new-faction]')){
+  const selected=button.dataset.newFaction===faction.id;
+  button.setAttribute('aria-pressed',String(selected));
+  const sign=button.querySelector('.wood-sign');
+  if(sign)sign.src=woodSignUrl(button.dataset.newFaction,selected);
+ }
  panel.querySelector('.war-faction-caption p').textContent=faction.description;
  panel.querySelector('.war-faction-caption h2').textContent=allianceTitles[faction.id];
  const start=panel.closest('.war-home')?.querySelector('[data-start-faction]');

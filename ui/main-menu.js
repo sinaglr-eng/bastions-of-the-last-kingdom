@@ -17,7 +17,7 @@ import {medalAmount} from './progression-art.js';
 import {generalPageMarkup,refreshGeneralLoadout} from './general-page.js';
 import {achievementCardsMarkup,achievementSummaryMarkup} from './achievement-page.js';
 import {icon} from './icons.js';
-import {accountBadgeMarkup,rankOverviewMarkup} from './account-progression.js';
+import {accountBadgeMarkup,rankOverviewMarkup,rankInspectionMarkup} from './account-progression.js';
 import {allianceLogoArtwork} from './account-progression-art.js';
 import {MenuMazeEditor,mazeEditorMarkup} from './menu-maze-editor.js';
 export {generalControlsMarkup} from './general-controls.js';
@@ -32,6 +32,16 @@ export class MainMenu{
   this.root=document.createElement('section');this.root.className='fr010-menu';this.root.id='main-menu';this.root.hidden=true;this.root.setAttribute('aria-label','Main menu');document.body.append(this.root);
   this.commanderVault=new CommanderVault({player:this.player,render:()=>this.show('general'),status:(text,error)=>this.status(text,error)});
   this.root.addEventListener('click',e=>void this.click(e));this.root.addEventListener('submit',e=>void this.submit(e));
+  this.albumResize=typeof ResizeObserver==='function'?new ResizeObserver(()=>{
+   const grid=this.root.querySelector('.war-achievement-grid');
+   if(!grid||!grid.clientWidth||this.page!=='achievements')return;
+   const capacity=getComputedStyle(grid).gridTemplateColumns.split(' ').length*2;
+   if(capacity===this.achievementPageSize)return;
+   this.achievementPageSize=capacity;
+   this.offset=Math.floor(this.offset/capacity)*capacity;
+   requestAnimationFrame(()=>{if(this.page==='achievements'&&grid.isConnected)void this.show('achievements');});
+  }):null;
+  globalThis.matchMedia?.('(max-width: 560px)').addEventListener?.('change',()=>{if(this.page==='general'&&this.commanderVault.tab==='equipment')void this.show('general');});
   this.root.addEventListener('keydown',e=>{if(e.key==='Escape'&&(this.authDialog||this.replaceDialog)){e.preventDefault();e.stopPropagation();if(this.authDialog)this.closeAuth();else if(!this.starting)this.closeReplace();}});
   this.root.addEventListener('change',e=>{if(this.commanderVault.change(e))return;if(e.target.name==='hall-view'){this.hallView=e.target.value;this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='legacy-version'){this.legacyVersion=e.target.value;void this.show('legacy');}if(e.target.name==='legacy-mode'){this.legacyMode=Number(e.target.value);this.legacyVersion='all';void this.show('legacy');}if(e.target.name==='faction'){this.faction=e.target.value;if(this.page==='legacy')this.legacyVersion='all';this.offset=0;void this.show(this.page);}if(e.target.name==='achievement-kind'){this.achievementKind=e.target.value;this.offset=0;void this.show('achievements');}if(e.target.name==='achievement-state'){this.achievementState=e.target.value;this.offset=0;void this.show('achievements');}});
   this.root.addEventListener('input',e=>{if(this.commanderVault.input(e))return;if(e.target.dataset.menuVolume)this.onVolumeChange(e.target.dataset.menuVolume,Number(e.target.value));});
@@ -137,7 +147,7 @@ export class MainMenu{
   }else if(page==='maze'){
    title='Maze Builder';content=mazeEditorMarkup();
   }else if(page==='achievements'){
-   title='Achievements';content=achievementsView(this.player,{faction:this.faction,kind:this.achievementKind,status:this.achievementState,offset:this.offset,focusId:this.focusAchievement});
+   title='Achievements';content=achievementsView(this.player,{faction:this.faction,kind:this.achievementKind,status:this.achievementState,offset:this.offset,focusId:this.focusAchievement,pageSize:this.achievementPageSize});
   }else if(page==='hall'||page==='legacy'){
    title=page==='hall'?'Hall of Fame':'Legacy records';content=`<p>One shared competition. Earn medals, strengthen your commander and push your best score further.</p><div class="menu-filters">${this.factionSelector(page==='legacy')}${page==='legacy'?`<label>Campaign<select name="legacy-mode"><option value="50" ${this.legacyMode===50?'selected':''}>50 waves</option><option value="10" ${this.legacyMode===10?'selected':''}>10 waves</option></select></label><label>Version<select name="legacy-version"><option value="all">All Legacy versions</option></select></label>`:''}<button data-nav="${page==='hall'?'legacy':'hall'}">${page==='hall'?'Legacy records':'Current standings'}</button></div><div data-hall-content><p>Loading standings…</p></div><div data-personal-content></div>`;
   }else if(page==='account'){
@@ -145,7 +155,7 @@ export class MainMenu{
   }
   if(page==='hall')content='<div data-hall-content><div class="war-loading" role="status">Loading verified records…</div></div>';
   if(this.page!==page)return;
-  this.mazeEditor?.unmount();this.root.innerHTML=this.shell(title,content);if(page==='ranks'){
+  this.mazeEditor?.unmount();this.albumResize?.disconnect();this.root.innerHTML=this.shell(title,content);if(page==='achievements')this.albumResize?.observe(this.root.querySelector('.war-achievement-grid'));if(page==='ranks'){
    const path=this.root.querySelector('.commander-rank-roadmap ol');
    const current=path?.querySelector('.is-current');
    const anchor=current?.previousElementSibling||current;
@@ -191,6 +201,12 @@ export class MainMenu{
  }
  async click(event){
   const b=event.target.closest('button');if(!b||b.disabled||this.starting||this.skillWrite)return;
+  if(b.dataset.inspectRank){
+   const panel=this.root.querySelector('.rank-portrait-panel');
+   panel.outerHTML=rankInspectionMarkup(this.player.profile,Number(b.dataset.inspectRank));
+   for(const row of this.root.querySelectorAll('[data-inspect-rank]'))row.setAttribute('aria-pressed',String(row===b));
+   return;
+  }
   // Do not yield to unrelated async handlers before opening the native dialog.
   if(b.dataset.menu==='new'){try{await this.requestNewRun();}catch(error){this.status(error.message,true);}return;}
   if(await this.commanderVault.click(event))return;
