@@ -126,7 +126,7 @@ export class MainMenu{
   let title='Choose your allegiance.',content='';
   if(page==='home'){
    let saved=null;try{saved=await this.player.store.get(this.player.owner);}catch{}
-   this.cloudUnavailable=false;if(this.player.user&&this.player.online&&(!saved||['lost','won','abandoned','reset'].includes(saved.meta.phase)))try{const remote=(await this.player.request('/player/active')).run;if(remote&&remote.outcome==='playing'&&!(saved&&['lost','won','abandoned','reset'].includes(saved.meta.phase)&&saved.meta.runId===remote.id))saved={meta:{runId:remote.id,phase:'playing',factionId:remote.factionId,round:remote.round||1},savedAt:remote.updatedAt};}catch{this.cloudUnavailable=true;this.status('Cloud continuation unavailable. Your local save is preserved.',true);}
+   this.cloudUnavailable=false;if(this.player.user&&this.player.online&&(!saved||['lost','won','abandoned','reset'].includes(saved.meta.phase)))try{const remote=(await this.player.request('/player/active')).run;if(remote&&remote.outcome==='playing'&&!(saved&&['lost','won','abandoned','reset'].includes(saved.meta.phase)&&saved.meta.runId===remote.id))saved={meta:{runId:remote.id,phase:'playing',factionId:remote.factionId,round:remote.round||1},snapshot:remote.snapshot,savedAt:remote.updatedAt};}catch{this.cloudUnavailable=true;this.status('Cloud continuation unavailable. Your local save is preserved.',true);}
    this.displayedSave=saved;const active=saved&&!['lost','won','abandoned','reset'].includes(saved.meta.phase);this.hasSave=!!active;
    content=homeMenuMarkup({player:this.player,saved,selectedFaction:this.selectedFaction,cloudUnavailable:this.cloudUnavailable});
    if(import.meta.env?.PROD)content+=offlinePlayMarkup(this.player);
