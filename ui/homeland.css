@@ -378,3 +378,66 @@
 
 #main-menu .vault-inspector .vault-dismantle{display:contents}
 #main-menu .rank-inspect-unlocks :is(strong,p,span),#main-menu .rank-portrait-panel .rank-next-progress>strong{color:#fff2cc}
+
+/* Commander preparation */
+#main-menu .skills-loadout>footer{min-height:0;padding:2px 12px;gap:5px}
+#main-menu .skills-loadout>footer p{margin:0}
+#main-menu .skills-loadout>footer button{min-height:32px;padding:3px 12px;line-height:1.2}
+@media(pointer:coarse){#main-menu .skills-loadout>footer button{min-height:42px}}
+@media(min-width:761px){
+ #main-menu .commander-skills .skills-library,#main-menu .commander-skills .skills-detail{align-self:stretch}
+ #main-menu .skills-library{display:flex;flex-direction:column}
+ #main-menu .skills-library .skills-list{flex:1 1 0;min-height:210px;max-height:none;align-content:start}
+}
+#main-menu .vault-balances{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;justify-items:stretch;gap:8px;margin-left:auto;width:min(100%,528px)}
+#main-menu .vault-balances .vault-balance{display:flex;box-sizing:border-box;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:44px;margin:0;padding:0 2px;background:none;border:0;border-radius:0;box-shadow:none;color:#273b32;text-shadow:none}
+#main-menu .vault-balance img{width:32px;height:32px;object-fit:contain}
+#main-menu .vault-balance b{font:700 20px/1 Consolas,'Courier New',monospace;font-variant-numeric:tabular-nums slashed-zero;color:#1e362f}
+#main-menu .vault-balance>span{font:600 15px/1.15 Georgia,serif}
+#main-menu button.vault-balance:hover>span{text-decoration:underline}
+#main-menu button.vault-balance:focus-visible{outline:2px solid #71541d}
+#main-menu .vault-section-caption:has(>.vault-balances:only-child){justify-content:flex-end}
+#main-menu .war-saved-card.is-empty .homeland-start-actions button[data-menu=new]{background:linear-gradient(#ffe6a0,#e7b951 65%,#d6a340);color:#263222;text-shadow:0 1px #fff2c3;border:2px solid #765123;box-shadow:inset 0 0 0 1px #fff2c3,0 3px 0 #70491f,0 3px 8px #4e3a1938;padding:10px 20px;min-height:52px;font:700 clamp(18px,1.5vw,23px)/1.1 Georgia,serif}
+#main-menu .war-saved-card.is-empty [data-start-faction]{color:inherit;font:inherit}
+#main-menu .war-saved-card.is-empty .homeland-start-actions button:hover{filter:brightness(1.06)}
+/* A single portrait mounting across the badge, rank list and inspection panel. */
+.rank-framed-face,#main-menu .rank-framed-face{--frame-size:clamp(44px,5vw,64px);position:relative;display:block;flex:none;width:var(--frame-size);height:var(--frame-size);background:#123826;clip-path:polygon(24% 0,76% 0,100% 24%,100% 76%,76% 100%,24% 100%,0 76%,0 24%)}
+.rank-framed-face img,#main-menu .rank-framed-face img,#main-menu .menu-header [data-account-rank] .rank-framed-face img{position:absolute;left:11%;top:13%;width:78%;height:77%;max-width:none;object-fit:contain;clip-path:none;border:0;background:transparent;box-shadow:none;margin:0;padding:0}
+.rank-framed-face:after{content:'';position:absolute;inset:0;background:url('/assets/ui/war-table/homeland/rank-surround.webp') center/100% 100% no-repeat;pointer-events:none}
+.rank-framed-face.rank-header-face,#main-menu .rank-framed-face.rank-header-face{--frame-size:clamp(32px,3.3vw,50px)}
+.rank-framed-face.rank-large{--frame-size:112px}
+#main-menu .rank-framed-face.rank-hero-medallion{--frame-size:clamp(96px,12vw,172px);margin-bottom:8px}
+/* The illustration, odds and guarantee share one reading order and one opening action. */
+#main-menu .vault-chests-layout>.chest-folio{display:flex;flex-direction:column;min-width:0;overflow:hidden;padding:0;background:#f6e8c9;border:2px ridge #b49962}
+#main-menu .chest-folio>header.chest-folio-hero{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,44px);padding:12px 18px;min-height:145px;text-align:left;background:linear-gradient(90deg,#162e2560,#142a22d9),url('/assets/ui/war-table/homeland/armory.webp') center 53%/cover;color:#fff1cb}
+#main-menu .chest-folio-hero .chest-hero{display:block;width:clamp(92px,15vw,200px);height:clamp(100px,12vw,170px);object-fit:contain;filter:drop-shadow(0 4px 5px #120d0777)}
+#main-menu .chest-folio-hero h2{margin:4px 0;font:700 clamp(22px,2.5vw,36px)/1.1 Georgia,serif;color:#fff1cb}
+#main-menu .chest-folio-hero p,#main-menu .chest-folio-hero small{margin:4px 0;color:#f2deb4}
+#main-menu .chest-folio-rewards{padding:0 clamp(12px,2vw,28px) 10px}
+#main-menu .chest-outcomes{display:grid;grid-template-columns:1fr 1fr;padding:14px 0;border-bottom:1px solid #b79a63}
+#main-menu .chest-outcomes>div{display:grid;grid-template-columns:auto auto;justify-content:center;align-items:center;column-gap:10px}
+#main-menu .chest-outcomes>div+div{border-left:1px solid #b79a63}
+#main-menu .chest-outcomes b{grid-row:span 2;font:700 clamp(23px,3vw,38px)/1 Georgia,serif;color:#304a35}
+#main-menu .chest-outcomes span{font-weight:700}
+#main-menu .chest-outcomes small{color:#51472d}
+#main-menu .chest-folio-rewards h3{margin:12px 0 8px;font:700 17px/1.2 Georgia,serif}
+#main-menu .chest-rarity-band{display:flex;gap:2px;height:9px;background:#f7ebc9}
+#main-menu .chest-rarity-band i,#main-menu .chest-rarity-key dt:before{background:var(--artifact-rarity)}
+#main-menu .chest-rarity-key{display:flex;flex-wrap:wrap;gap:5px 16px;margin:7px 0 14px}
+#main-menu .chest-rarity-key div{display:flex;align-items:baseline;gap:5px}
+#main-menu .chest-rarity-key dt:before{content:'';display:inline-block;width:9px;height:9px;margin-right:4px}
+#main-menu .chest-rarity-key dd{margin:0;font-weight:bold}
+#main-menu .chest-milestone{display:grid;grid-template-columns:1fr auto;align-items:center;gap:5px 12px;border-top:1px solid #b79a6355;padding:10px 0}
+#main-menu .chest-milestone h3{margin:0}
+#main-menu .chest-milestone strong{font-size:14px;color:#48553a}
+#main-menu .chest-milestone .vault-pity-track{grid-column:1/-1}
+#main-menu .chest-roll-notes summary{cursor:pointer;padding:5px 0;color:#3f4c39}
+#main-menu .chest-folio-actions{display:flex;justify-content:center;gap:10px;margin-top:auto;padding:10px;border-top:1px solid #b99d67;background:#ecdbb6}
+#main-menu .chest-folio-actions button{min-width:100px;min-height:44px}
+@media(max-width:600px){
+ #main-menu .vault-balances{gap:1px}
+ #main-menu .vault-balances .vault-balance{flex-wrap:wrap;gap:3px}
+ #main-menu .vault-balance img{width:26px;height:26px}
+ #main-menu .vault-balance>span{flex-basis:100%;text-align:center;font-size:13px}
+ #main-menu .chest-outcomes>div{display:flex;flex-direction:column;align-items:center}
+}

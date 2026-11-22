@@ -28,9 +28,9 @@ test('Dust-only rewards have their own honest reward card and no artifact equip 
  const html=v.rewards({action:'open',tier:1,baseDust:2,dustGained:10,items:[]});assert.match(html,/vault-dust-reward/);assert.match(html,/\+10 Relic Dust/);assert.match(html,/No artifact this time/);assert.doesNotMatch(html,/data-vault-action="equip"/);
  for(const chest of C.chests){
   v.chestTier=chest.tier;const page=v.chests();
-  assert.ok(page.includes(`${chest.baseDust} Relic Dust with an artifact`));
-  assert.ok(page.includes(`${chest.artifactChance}% chance`));
-  assert.ok(page.includes(`Dust only: ${100-chest.artifactChance}% of chests award ${chest.noArtifactDust} Relic Dust`));
+  assert.ok(page.includes(`<b>${chest.artifactChance}%</b><span>${chest.draws===1?'Artifact drop':'Two artifacts'}</span><small>+${chest.baseDust} Relic Dust</small>`));
+  assert.ok(page.includes(`<b>${100-chest.artifactChance}%</b><span>Dust only</span><small>+${chest.noArtifactDust} Relic Dust</small>`));
+  for(const [rarity,weight] of Object.entries(chest.weights))assert.ok(page.includes(`<div class="rarity-${rarity}"><dt>${rarity[0].toUpperCase()+rarity.slice(1)}</dt><dd>${weight}%</dd>`));
  }
 });
 
