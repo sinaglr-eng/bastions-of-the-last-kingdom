@@ -1,0 +1,178 @@
+/* The interactive pages sit on the same illustrated materials as the review. */
+#main-menu {
+  --forest:#1a372d; --brass:#a98346; --ink:#24382d;
+  --paper:url('/assets/ui/war-table/homeland/paper.webp');
+  padding:clamp(4px,1vw,16px);background:#152922;
+}
+#main-menu .menu-shell.war-shell {
+  width:min(100%,1600px);min-width:0;margin:auto;padding:0 clamp(12px,2.3vw,38px) 12px;
+  background:#f3dfb0 var(--paper) center/800px;border:4px ridge #c5a05e;border-radius:7px;color:var(--ink);
+}
+#main-menu .menu-shell .menu-header {
+  position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;
+  grid-template-columns:minmax(170px,19%) minmax(max-content,1fr) minmax(88px,10%) auto;
+  gap:8px;padding:6px clamp(10px,1.8vw,26px);min-height:92px;
+  margin:0 calc(-1 * clamp(12px,2.3vw,38px)) 16px;
+  border-bottom:4px ridge #be9b56;background:linear-gradient(90deg,#10271de0,#142e21bd),url('/assets/ui/war-table/homeland/castle.webp') center 94%/cover;
+}
+#main-menu .menu-header .war-brand{min-width:0;width:100%;max-width:270px;padding:0;border:0}
+#main-menu .menu-header .war-brand img{display:block;width:100%;height:78px;object-fit:contain}
+#main-menu .menu-header .war-main-nav{order:0;min-width:0;display:flex;flex-wrap:nowrap;justify-content:center;gap:3px;border:0;padding:0}
+#main-menu .menu-header .war-main-nav button{min-height:46px;white-space:nowrap;background:transparent;color:#fff1ce;border:1px solid transparent;border-radius:4px;box-shadow:none;font:600 clamp(14px,1.25vw,21px)/1.1 Georgia,serif;padding:7px clamp(5px,.75vw,13px)}
+#main-menu .menu-header .war-main-nav button[aria-current=page]{background:#19392e;border:2px solid #d3ac67;box-shadow:inset 0 0 0 1px #5f724e}
+#main-menu .menu-header .war-main-nav button:disabled{opacity:.76}
+.homeland-horizon{position:relative;align-self:stretch;z-index:-1;pointer-events:none}
+.homeland-horizon:before{content:'';position:absolute;inset:-7px auto -7px 50%;width:550px;transform:translateX(-50%);background:url('/assets/ui/war-table/homeland/castle.webp') -197px -68px/800px auto no-repeat;mask-image:linear-gradient(90deg,transparent,#000 36%,#000 66%,transparent)}
+#main-menu .menu-header .menu-account{width:auto;max-width:290px;margin:0;justify-content:flex-end;gap:6px}
+#main-menu .menu-header .menu-rank-link{min-width:0;flex:0 1 auto;background:transparent}
+#main-menu .menu-header .menu-rank-link :is(strong,small,span),#main-menu .menu-player-wallet button{color:#fff2d0}
+#main-menu .menu-header .menu-account-name,#main-menu .menu-header .menu-medal-link{background:transparent}
+#main-menu .menu-account>button[data-nav]{min-height:44px;min-width:83px}
+#main-menu .war-title{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+#main-menu .war-title h1{grid-column:2;text-align:center}
+#main-menu .war-title .war-return{grid-column:3;justify-self:end}
+#main-menu .war-title .menu-back[hidden]{display:none}
+#main-menu .war-home{display:flex!important;flex-direction:column;gap:12px}
+#main-menu .war-home .war-faction-panel{order:0;display:block;width:100%;padding:0;background:none;border:none;box-shadow:none;border-radius:0}
+.homeland-panorama{position:relative;isolation:isolate;overflow:hidden;height:clamp(200px,30vh,385px);border:3px ridge #b79d69}
+#main-menu .homeland-panorama .war-faction-scene{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 12%;border:none}
+#main-menu .homeland-panorama .war-faction-scene[hidden]{display:none}
+#main-menu .homeland-panorama .war-faction-caption{position:absolute;inset:auto 0 0;display:block;margin:0;padding:30px clamp(14px,2vw,30px) 12px;background:linear-gradient(0deg,#11291ef2,transparent);color:#fff3d5}
+#main-menu .homeland-panorama .war-faction-caption h2{margin:0;color:inherit;font:700 clamp(24px,3vw,46px)/1 Georgia,serif;font-variant:small-caps;text-shadow:0 2px 3px #162319}
+#main-menu .homeland-panorama .war-faction-caption p{margin:5px 0;font-size:15px;color:#fff2d1;text-shadow:0 1px 3px #162319}
+#main-menu .war-faction-selection{padding:8px 0 0}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav){display:grid;gap:clamp(9px,1.5vw,24px);padding:0;border:0;background:none;box-shadow:none}
+#main-menu .war-faction-selection .war-faction-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+#main-menu .commander-subnav{grid-template-columns:repeat(4,minmax(0,1fr));margin-block:8px 15px}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button{
+  --carving:url('/assets/ui/war-table/homeland/wood1.webp');--stain:#15513de0;
+  position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;flex-direction:row;gap:9px;min-width:0;min-height:55px;padding:4px 15px;
+  color:#fff0ca;background:transparent;border:0;box-shadow:none;font:700 clamp(14px,1.6vw,22px)/1.1 Georgia,serif;text-shadow:0 1px 3px #23150a;filter:drop-shadow(0 2px 1px #73542f77);
+}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:before{content:'';position:absolute;inset:0;z-index:-2;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px);background:linear-gradient(90deg,transparent,#301909a8 25%,#301909a8 75%,transparent),var(--carving) center/100% 100%}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:nth-child(2){--carving:url('/assets/ui/war-table/homeland/wood2.webp')}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:nth-child(3){--carving:url('/assets/ui/war-table/homeland/wood3.webp')}
+#main-menu button[data-new-faction=crown]{--stain:#164b76e3}
+#main-menu button[data-new-faction=forge]{--stain:#833714de}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:is([aria-current=page],[aria-pressed=true]):after{content:'✓';position:absolute;inset:5px 8px;display:flex;align-items:center;justify-content:flex-end;z-index:-1;padding-right:4%;border:1px solid #d4b267;clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);background:var(--stain);color:#ffdd8e}
+#main-menu :is(.war-faction-selection .faction-mark,.commander-subnav button>img){width:34px;height:34px;flex:none;border-radius:100%;background:#f3dfac;border:1px solid #a98140;object-fit:contain;padding:3px;box-sizing:border-box}
+#main-menu .war-faction-selection .faction-mark img{width:100%;height:100%;object-fit:contain}
+#main-menu .war-home .war-command-deck{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#main-menu .war-command-deck>.war-saved-card,#main-menu .war-command-deck>.home-commander-loadout,#main-menu .war-command-deck>.war-helper{grid-column:1/-1}
+#main-menu .war-command-deck>.war-saved-card{order:0;min-height:100px;display:flex;align-items:center;flex-wrap:wrap;gap:14px;justify-content:space-between;padding:15px 22px;background:#ffefca96;border:2px ridge #b7995e;border-radius:3px}
+#main-menu .war-command-deck>.war-saved-card:before{display:none}
+#main-menu .war-saved-copy :is(h2,h3,strong,p,time){color:#26392c;text-shadow:none}
+#main-menu .war-saved-copy h2{font-size:16px}
+#main-menu .war-saved-copy h3{font:700 25px Georgia,serif}
+.homeland-snapshot{max-width:46%;font-size:15px}.homeland-snapshot span{display:inline-flex;align-items:center;margin-right:8px}.homeland-snapshot img{width:25px;height:25px}.homeland-start-actions{display:grid;gap:5px}
+#main-menu .home-loadout-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+#main-menu .home-skill-slot img{width:44px;height:44px;object-fit:contain}
+#main-menu .war-command-deck>.home-maze-entry{min-height:60px}
+#main-menu .homeland-medal{width:46px;height:46px;object-fit:contain}
+#main-menu [data-hall-content]{display:flex;flex-direction:column;gap:12px}
+#main-menu .war-personal-best{order:-1;background:#214133;color:#fff1cd}#main-menu .war-personal-best h2{color:inherit}
+#main-menu .war-leaderboard th:last-child,#main-menu .war-leaderboard td:last-child{display:table-cell}
+#main-menu .war-collection-heading{position:relative;display:flex;justify-content:center;align-items:center;gap:12px;padding:18px 16px 18px 28%;min-height:114px;border:2px ridge #b49960;background:#e9d4aa url('/assets/ui/war-table/homeland/claim.webp') left 32%/cover no-repeat}
+#main-menu .war-collection-heading>div{padding:8px 14px;background:#1f402f;color:#f9e7bd}
+#main-menu .war-collection-heading h2{margin:0;color:inherit} .homeland-gift{width:70px;height:70px;object-fit:contain}
+#main-menu .war-achievement.is-progress .war-achievement-art{filter:grayscale(1);opacity:.65}
+#main-menu .war-achievement-grid{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));align-items:start}
+#main-menu .war-album{background:#faeac457;border-radius:2px}
+#main-menu .commander-rank-roadmap ol{display:grid;grid-template-columns:1fr}
+#main-menu .commander-rank-roadmap li{border-left:3px solid #967b43}
+#main-menu .commander-rank-roadmap li.is-current{background:#e2dcb4;border-left-color:#315c41}
+#main-menu .commander-rank-roadmap li>img{width:65px;height:65px;object-fit:contain}
+#main-menu .commander-vault .commander-paperdoll{width:100%;max-width:none;height:clamp(430px,47vh,620px);overflow:hidden;background:#242c24}
+#main-menu .commander-vault .commander-body{inset:0;width:100%;height:100%;transform:none;filter:none;object-fit:cover;object-position:center;}
+#main-menu .paperdoll-slots{position:absolute;inset:0;display:grid;grid-template-columns:72px 1fr 72px;grid-template-rows:repeat(5,1fr);align-items:center;padding:4px 7px}
+#main-menu .commander-vault .paperdoll-slots>.vault-slot{position:static;inset:auto;transform:none;width:68px;height:69px;min-height:44px;padding:1px;background:#20352be3;color:#f8e8bd;border:2px ridge #bd9b5a}
+.paperdoll-slots .slot-head{grid-area:1/1}.paperdoll-slots .slot-chest{grid-area:2/1}.paperdoll-slots .slot-weapon{grid-area:3/1}.paperdoll-slots .slot-cloak{grid-area:4/1}.paperdoll-slots .slot-ring1{grid-area:5/1}
+.paperdoll-slots .slot-neck{grid-area:1/3}.paperdoll-slots .slot-gloves{grid-area:2/3}.paperdoll-slots .slot-offhand{grid-area:3/3}.paperdoll-slots .slot-feet{grid-area:4/3}.paperdoll-slots .slot-ring2{grid-area:5/3}
+#main-menu .vault-chest-stage{background:linear-gradient(0deg,#f4e4bf 29%,transparent 62%),url('/assets/ui/war-table/homeland/armory.webp') center top/cover}
+#main-menu .vault-chest-stage :is(h2,.progression-eyebrow){color:#fff1cc;text-shadow:0 1px 3px #19251c}
+#main-menu .vault-army-totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:8px}
+#main-menu .vault-army-totals>span{padding:5px;border:0;border-right:1px solid #b89962;background:none;text-align:center;border-radius:0}
+#main-menu :is(.vault-panel,.skills-panel,.menu-replace-panel,.menu-account-settings,.home-maze-workshop){background-color:#f7e9ca;border-radius:3px}
+#main-menu .vault-panel>header:first-child,#main-menu .skills-loadout>header,#main-menu .skills-library>h2{padding:9px 12px;background:#223f32;color:#ffedc7;border-bottom:2px ridge #b9955b}
+#main-menu .vault-panel>header:first-child h2,#main-menu .skills-loadout>header h2{color:inherit}
+#main-menu .skills-detail-header{padding:16px;border-bottom:2px ridge #b89962;background:#2b4438;color:#fff0c8}
+#main-menu .skills-detail-header :is(h2,p){color:inherit}
+#main-menu .skills-detail-header .skills-kind{color:#22392a}
+#main-menu .army-stat b{display:flex;align-items:center;justify-content:center;gap:6px;font:700 21px Georgia,serif}
+#main-menu .army-stat .gain{color:#214933}#main-menu .army-stat .loss{color:#832f25}
+#main-menu .army-stat b img{width:26px;height:26px;object-fit:contain}
+#main-menu .army-stat small{display:block;color:#49391f;font-size:14px}
+.result-loot{display:flex;gap:12px;flex-wrap:wrap}.result-loot span{display:inline-flex;align-items:center;gap:5px}
+#dialog .account-result-paper,.auth-dialog,.artifact-confirm{background:#f4e3bd url('/assets/ui/war-table/homeland/paper.webp') center/850px}
+#main-menu :is(.menu-account-settings,.menu-replace-panel,.home-maze-workshop){border:2px ridge #ba9a60;padding:clamp(14px,2vw,28px)}
+#main-menu .war-collection-heading>p{display:none}
+#main-menu .war-album{display:block;padding:10px}
+#main-menu .war-categories{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;border:0;margin-bottom:10px}
+#main-menu .war-categories button{min-height:44px;font-size:15px;padding:5px 9px}
+#main-menu .war-categories img{width:22px;height:22px}
+#main-menu .war-achievement{display:flex;flex-direction:column;border-radius:2px;padding:8px;min-height:0}
+#main-menu .war-achievement-art{width:100%;height:85px}
+#main-menu .war-achievement-copy{min-width:0}
+#main-menu .war-achievement-requirements{max-height:130px;overflow:auto}
+#main-menu .vault-sets-layout,#main-menu .vault-chests-layout{align-items:start}
+#main-menu .vault-set-selector button,#main-menu .vault-chest-selector button{min-height:48px}
+#main-menu .vault-chest-stage .chest-hero{max-height:245px;object-fit:contain}
+#main-menu .vault-section-caption{flex-wrap:wrap}
+#main-menu .vault-item-grid{align-items:start}
+#main-menu .vault-item-detail,#main-menu .vault-set-inspector{scroll-margin-block:16px}
+#main-menu .war-home .war-command-deck{width:100%;align-self:stretch}
+#main-menu .war-home .war-saved-card.is-empty{flex-direction:row;order:0;align-items:center;text-align:left;min-height:96px}
+#main-menu .war-home .war-saved-card .war-saved-copy{flex:1;max-width:none;text-align:left}
+#main-menu .war-faction-selection .war-faction-tabs>button[data-new-faction=crown]{--stain:#174a75e6}
+#main-menu .war-faction-selection .war-faction-tabs>button[data-new-faction=forge]{--stain:#8a3f20de}
+#main-menu .war-home .homeland-panorama .war-faction-caption p,#main-menu .commander-vault .skills-detail-header p{color:#ffefcf;opacity:1}
+#main-menu .menu-header .menu-account .account-rank strong,#main-menu .menu-header .menu-account .account-rank small{color:#fff2d0}
+#main-menu .commander-vault .skills-detail-header h2{color:#fff2d0}
+#main-menu .war-home .war-saved-copy h2{background:transparent;padding:0}
+#main-menu .page-ranks .commander-progression>.account-rank{background:#233b30 url('/assets/ui/war-table/hall-backdrop.webp') center/cover;box-shadow:inset 0 0 0 100vmax #112e20b5;color:#fff2d0}
+#main-menu .page-ranks .commander-progression>.account-rank :is(strong,small,span){color:#fff2d0}
+.homeland-compare{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;text-align:center;padding:8px;border-block:1px solid #b49561}
+.homeland-compare img{width:54px;height:54px;object-fit:contain}
+.homeland-compare span,.homeland-compare small{display:block}
+.artifact-forge-heading,.auth-dialog header{border-bottom:2px ridge #b49561}
+#main-menu .war-personal-best :is(p,strong,span,small){color:#fff0c7}
+#main-menu .homeland-claim-value{display:block;color:#ffedbf}
+#dialog .account-result-heading{padding:clamp(20px,6vh,84px) 18px 15px;background:linear-gradient(0deg,#10271ff2,transparent 95%),var(--result-scene) center 41%/cover;color:#fff1c9}
+#dialog.account-results-dialog .account-result-heading :is(h2,p,small){color:#fff1c9}
+#main-menu .vault-reveal{padding:10px 14px}.vault-reveal .vault-reward-grid img{max-height:52px}
+@media(min-width:900px){
+  #main-menu .commander-skills{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(350px,1.2fr);gap:12px;align-items:start}
+  #main-menu .commander-skills>.skills-heading{grid-column:1/-1}
+  #main-menu .skills-layout{display:contents}
+  #main-menu .skills-loadout{grid-area:2/1}
+  #main-menu .skills-library{grid-area:3/1}
+  #main-menu .skills-detail{grid-area:2/2/4/3}
+  #main-menu .skills-slots,#main-menu .skills-rank-track{grid-template-columns:1fr}
+  #main-menu .skills-rank-tile{display:grid;grid-template-columns:48px 1fr 1fr;align-items:center;min-height:62px}
+  #main-menu .vault-equipment-layout{display:grid;grid-template-columns:minmax(330px,1fr) minmax(320px,1fr);gap:12px;align-items:start}
+  #main-menu .vault-character-panel{grid-column:1;grid-row:1/3}
+  #main-menu .vault-backpack,#main-menu .vault-inspector{grid-column:2}
+}
+@media(max-width:1150px){
+  #main-menu .menu-shell .menu-header{grid-template-columns:minmax(145px,19%) 1fr minmax(72px,8%) auto;padding-inline:10px;gap:3px}
+  #main-menu .menu-header .menu-rank-link .account-xp-caption,#main-menu .menu-header .menu-rank-link .account-xp-bar{display:none}
+  #main-menu .menu-header .menu-account{max-width:205px}
+}
+@media(max-width:820px){
+  #main-menu .menu-shell .menu-header{grid-template-columns:minmax(120px,1fr) minmax(65px,.6fr) auto}
+  #main-menu .menu-header .war-main-nav{grid-column:1/-1;grid-row:2;width:100%;justify-content:space-around}
+  #main-menu .menu-header .war-brand img{height:56px}
+  #main-menu .homeland-panorama{height:clamp(165px,28vh,270px)}
+  #main-menu .homeland-panorama .war-faction-caption p{font-size:13px}
+  #main-menu .war-command-deck>.war-saved-card{padding:12px}
+  .homeland-snapshot{max-width:100%}
+  #main-menu .war-collection-heading{padding:10px;flex-wrap:wrap}.homeland-gift{width:44px;height:44px}
+}
+@media(max-width:560px){
+  #main-menu .menu-account>button[data-nav]{min-width:64px}
+  #main-menu .commander-subnav{grid-template-columns:1fr 1fr}
+  #main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button{padding:4px 2px;gap:4px;font-size:14px}
+  #main-menu .war-faction-selection .faction-mark{width:24px;height:24px}
+  #main-menu .home-loadout-slots,#main-menu .war-home .war-command-deck{grid-template-columns:1fr}
+  #main-menu .war-title{display:flex;flex-wrap:wrap;justify-content:center}
+}

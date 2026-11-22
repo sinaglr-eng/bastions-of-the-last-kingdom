@@ -43,9 +43,9 @@ test('Chest pity migrates changed tiers only and guarantees Rare in three, Epic 
  const migrated=normalizeArtifactPity({1:4,2:4,3:9,4:2,5:1});assert.equal(migrated[1],4);assert.equal(migrated[4],2);assert.equal(migrated[5],1);assert.equal(migrated[2],0);assert.equal(migrated[3],0);assert.deepEqual(normalizeArtifactPity(migrated),migrated);
  const ranks=C.rarities.map(r=>r.id);for(const[tier,every,minimum]of [[2,3,'rare'],[3,7,'epic']]){let a={owned:[],pity:{_rules:C.pityRulesVersion},dust:0},miss=0;for(let seed=0;seed<500;seed++){a=rollArtifactChest(a,tier,seed);const good=a.items.some(item=>ranks.indexOf(ARTIFACTS[item.id].rarity)>=ranks.indexOf(minimum));miss=good?0:miss+1;assert.ok(miss<every);}}
 });
-test('Armory keeps an anatomical silhouette for full sets and mixed equipment',()=>{
+test('Armory keeps the illustrated commander on the plinth for full sets and mixed equipment',()=>{
  const player={online:true,profile:{artifacts:{owned:C.artifacts.map(a=>a.id),equipment:{},counts:[],chests:[],presets:[],pity:{},dust:1000,highestTier:5}}},v=new CommanderVault({player,render:()=>{},status:()=>{}});
- for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.match(html,/commander-v080\/silhouette-commander\.webp/);assert.equal([...html.matchAll(/data-vault-slot=/g)].length,10);assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
+ for(const s of C.sets){player.profile.artifacts.equipment=gear(s.id);const html=v.equipment();assert.match(html,/homeland\/stage\.webp/);assert.equal([...html.matchAll(/data-vault-slot=/g)].length,10);assert.doesNotMatch(html,/class="body-equipment/);assert.match(html,/Commander Equipment/);assert.doesNotMatch(html,/Three equipment presets|◇/);}
  player.profile.artifacts.equipment={head:'N-15'};assert.doesNotMatch(v.equipment(),/body-equipment/);
  const sets=v.sets();assert.match(sets,/Complete army effects/);assert.match(sets,/10 pieces/);v.selectedSet='royal-architect';assert.match(v.sets(),/600 starting gold/);v.setRarity='rare';assert.doesNotMatch(v.sets(),/id="vault-set-celestial"/);
 });

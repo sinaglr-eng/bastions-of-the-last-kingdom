@@ -1,3 +1,4 @@
+import {homelandArt} from './homeland-art.js';
 import {CHESTS} from '../game/core/artifacts.js';
 import {siteUrl} from '../game/site-url.js';
 import {accountRank,MILITARY_RANKS,SKILL_LEVEL_GATES,promotionChestTier} from '../game/core/account-progression.js';
@@ -25,7 +26,7 @@ export function rankOverviewMarkup(profile={},{expanded=false}={}){
   ${ready?`<p><button type="button" data-menu="rank-chests">View ${ready} promotion ${ready===1?'chest':'chests'}</button></p>`:''}
  </div><details class="commander-rank-roadmap" ${expanded?'open':''}><summary>View all 15 military ranks</summary>
  <ol>${MILITARY_RANKS.map(rank=>`<li class="${rank.level===r.level?'is-current':rank.level<r.level?'is-earned':'is-future'}">
-  <img src="${accountRankArtwork(rank.level)}" alt="" width="48" height="48"><span>
+  <img src="${homelandArt('rank'+rank.level)}" alt="" width="48" height="48"><span>
   <b>${rank.name}</b><small>Level ${rank.level} · ${num(rank.xp)} XP</small>${rankChestMarkup(rank.level)}
   <span class="rank-skill-unlocks"><small>Available to purchase</small>${rankSkillUnlocks(rank.level).map(skill=>`<span class="rank-unlock-skill"><img src="${commanderSkillArt(skill.id)}" alt="" width="19" height="19" loading="lazy"><span>${esc(skill.name)} <b>${['I','II','III'][skill.rank-1]}</b></span></span>`).join('')||'<span>No new skill ranks</span>'}</span>
   </span><em>${rank.level===r.level?'Current':rank.level<r.level?'✓':'Locked'}</em></li>`).join('')}</ol></details></section>`;
