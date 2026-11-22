@@ -1,3 +1,4 @@
+import {activeAttackStatuses,newAttackStatuses} from './attack-feedback.js';
 import {artifactPrimaryContact,applyArtifactTimedStatus,applyArtifactAwareNativeControl} from './artifact-combat.js';
 import {usesArtifactRulesV3} from './artifacts.js';
 import {distance,combatTowerStats,readTowerStats as towerStats} from './math.js';
@@ -29,6 +30,7 @@ function secondary(c,t,e,amount,type,s={}){return c.resolveDamage(e,amount,type,
 export function factionImpact(c,shot){
  if(shot.stats.fr002)return fr002Impact(c,shot);
  const {source:t,target:e,stats:s}=shot;if(e.dead||!c.canSee(e,t)||!attackTargetAllowed(s,e))return;
+ const previousStatuses=activeAttackStatuses(e);
  const sky=ability(s,'sky-hunt'),crit=ability(s,s.type==='magical'?'magical-critical-strike':'critical-strike')||ability(s,'critical-strike'),charge=ability(s,'charged-attack');
  let amount=s.damage;if(e.flying&&sky&&s.type==='physical')amount*=1+sky.bonusPercent/100;
  if(charge&&shot.firstPrimary&&shot.releaseCount%charge.everyAttacks===0)amount*=1+charge.bonusPercent/100;
@@ -44,7 +46,7 @@ export function factionImpact(c,shot){
   const ricochet=ability(s,'ricochet');if(ricochet&&c.game.rng()<fraction(ricochet.chancePercent)){let from=e;for(let n=1;n<=ricochet.maxBounces;n++){const target=c.enemies.filter(v=>!v.dead&&!excluded.has(v)&&attackTargetAllowed(s,v)&&c.canSee(v,t)&&distance(from,v)<=ricochet.jumpRange).sort((a,b)=>distance(a,from)-distance(b,from)||a.id-b.id)[0];if(!target)break;excluded.add(target);secondary(c,t,target,(s.listedDamage??s.damage)*(1-ricochet.damageReductionPercent/100)**n,s.type);c.game.emit('chain',{source:t,from,to:target,visible:true,effect:s.projectileEffect});from=target;}}
   const moon=ability(s,'moon-strike');if(moon&&shot.releaseCount%moon.everyAttacks===0)secondary(c,t,e,(s.listedDamage??s.damage)*moon.damagePercent/100,'holy');
  }
- c.game.emit('impact',{source:t,target:e,stats:s,effect:s.projectileEffect,x:e.x,z:e.z,color:s.color,radius:ability(s,'splash')?.radius||.4});
+ c.game.emit('impact',{source:t,target:e,stats:s,result,execution:!!shot.execution&&result.effectiveDamage>0,appliedStatuses:newAttackStatuses(e,previousStatuses),effect:s.projectileEffect,x:e.x,z:e.z,color:s.color,radius:ability(s,'splash')?.radius||.4});
 }
 function factionOnContact(c,t,e,s,landed){
  if(e.dead)return;

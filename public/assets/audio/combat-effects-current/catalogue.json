@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "combat-effects-20261110-33171e30c092",
+  "revision": "combat-effects-20261110-2e29b50623bb",
   "music": [
     {
       "id": "iron_build",
@@ -850,68 +850,68 @@
         "crown"
       ],
       "effects": [
-        "runic_bolt"
+        "hammer"
       ],
       "cues": [
         {
           "ranks": [
             1
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         },
         {
           "ranks": [
             2
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         },
         {
           "ranks": [
             3
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         },
         {
           "ranks": [
             4
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         },
         {
           "ranks": [
             5
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         },
         {
           "ranks": [
             6
           ],
-          "shot": "runic_bolt",
-          "kind": "runic",
+          "shot": "hammer",
+          "kind": "hammer",
           "weapon": "hammer",
           "motion": "hammer-slam",
-          "element": "rune"
+          "element": "physical"
         }
       ]
     },
@@ -1357,19 +1357,20 @@
         "crown"
       ],
       "effects": [
-        "electric_arc",
-        "fire_breath"
+        "arcane",
+        "fire_breath",
+        "electric_arc"
       ],
       "cues": [
         {
           "ranks": [
             1
           ],
-          "shot": "electric_arc",
-          "kind": "lightning",
+          "shot": "arcane",
+          "kind": "arcane",
           "weapon": "staff",
           "motion": "staff-cast",
-          "element": "lightning",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           },
@@ -1923,7 +1924,7 @@
         "grove"
       ],
       "effects": [
-        "arcane",
+        "holy",
         "electric_arc"
       ],
       "cues": [
@@ -1931,8 +1932,8 @@
           "ranks": [
             1
           ],
-          "shot": "arcane",
-          "kind": "arcane",
+          "shot": "holy",
+          "kind": "holy",
           "weapon": "crozier",
           "motion": "staff-cast",
           "element": "holy",
@@ -3852,7 +3853,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -3865,7 +3866,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -3878,7 +3879,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -3891,7 +3892,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -3904,7 +3905,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -3917,7 +3918,7 @@
           "kind": "arcane",
           "weapon": "hooked-crook",
           "motion": "staff-cast",
-          "element": "arcane",
+          "element": "fire",
           "chain": {
             "lightning": "electric_arc"
           }
@@ -4609,7 +4610,7 @@
           "kind": "melee",
           "weapon": "jade-sword",
           "motion": "sword-slash",
-          "element": "arcane"
+          "element": "jade"
         }
       ]
     },

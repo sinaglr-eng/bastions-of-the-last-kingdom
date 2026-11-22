@@ -1,3 +1,4 @@
+import {activeAttackStatuses,newAttackStatuses} from './attack-feedback.js';
 import {artifactPrimaryContact,applyArtifactAwareNativeControl} from './artifact-combat.js';
 import {usesArtifactRulesV3} from './artifacts.js';
 import {distance,readTowerStats as towerStats} from './math.js';
@@ -36,7 +37,7 @@ function lightning(c,t,origin,s,lineage){
  const a=ability(s,'lightning');if(!a||lineage.includes('lightning')||!chance(c,a.chancePercent))return;
  const child=[...lineage,'lightning'],used=new Set([origin]);let from=origin;
  for(let i=0;i<a.targets;i++){const center=a.mode==='forked-lightning'||a.mode==='near-target-chain'?origin:from,next=nearest(c,t,s,center,used,a.linkRange??a.range??Infinity);if(!next)break;used.add(next);
-  hit(c,t,next,a.damage,channel(a.damageType,s),s,{lineage:child,onHit:true,direct:true});c.game.emit('chain',{source:t,from,to:next,effect:'lightning',visible:true});from=next;
+  hit(c,t,next,a.damage,channel(a.damageType,s),s,{lineage:child,onHit:true,direct:true});c.game.emit('chain',{source:t,from:a.mode==='forked-lightning'?t:a.mode==='near-target-chain'?origin:from,to:next,effect:'lightning',visible:true});from=next;
  }
 }
 function ricochet(c,t,origin,s,type,basis,lineage){
@@ -44,7 +45,7 @@ function ricochet(c,t,origin,s,type,basis,lineage){
  const child=[...lineage,'ricochet'],used=new Set([origin]);let from=origin;
  c.game.emit('ability-proc',{source:t,abilityId:'ricochet',origin,basis,type,lineage:child});
  for(let i=1;i<=a.maxBounces;i++){const next=nearest(c,t,s,from,used,a.unlimitedBounceDistance?Infinity:a.jumpRange??Infinity);if(!next)break;used.add(next);
-  hit(c,t,next,basis*(1-a.damageReductionPercent/100)**i,type,s,{lineage:child,canCrit:a.canCrit,onHit:a.canApplyOnHit,direct:true});c.game.emit('chain',{source:t,from,to:next,effect:s.projectileEffect,visible:true});from=next;
+  hit(c,t,next,basis*(1-a.damageReductionPercent/100)**i,type,s,{lineage:child,canCrit:a.canCrit,onHit:a.canApplyOnHit,direct:true});c.game.emit('chain',{source:t,from,to:next,abilityId:'ricochet',effect:s.projectileEffect,visible:true});from=next;
  }
 }
 // Called after real owned HP loss, including lethal hits, irrespective of the
@@ -75,6 +76,7 @@ export function flushFr002Pulses(c,{all=false}={}){
 }
 export function fr002Impact(c,shot){
  const {source:t,target:e,stats:s}=shot;if(e.dead||!c.canSee(e,t)||!attackTargetAllowed(s,e))return;
+ const previousStatuses=activeAttackStatuses(e);
  let basis=s.damage;const sky=ability(s,'sky-hunt'),charged=ability(s,'charged-attack');if(e.flying&&sky&&s.type==='physical')basis*=1+sky.bonusPercent/100;if(charged&&shot.firstPrimary&&shot.releaseCount%charged.everyAttacks===0)basis*=1+charged.bonusPercent/100;
  const multiplier=critical(c,s),replacement=shot.execution?(e.boss?s.damage*shot.execution.bossCriticalMultiplier:Math.max(basis,e.maxHp*(1+(e.armor||0)/c.game.data.balance.armorConstant)+(e.krakenShell||0))):null;
  const result=hit(c,t,e,basis,s.type,shot.execution&&!e.boss&&e.healthScaleLog?{...s,_scaledExecution:true}:s,{canCrit:false,multiplier,onHit:true,replacement,artifactPrimary:shot.firstPrimary!==false});
@@ -83,7 +85,8 @@ export function fr002Impact(c,shot){
   const excluded=new Set(shot.directTargets||[e]);for(const id of ['splash','cleave-physical','cleave-magical']){const a=ability(s,id);if(!a)continue;for(const other of c.enemies)if(!other.dead&&!excluded.has(other)&&attackTargetAllowed(s,other)&&c.canSee(other,t)&&distance(other,e)<=a.radius)hit(c,t,other,s.damage*a.damagePercent/100,channel(a.damageType,s),s,{direct:false,multiplier:a.secondaryCanCrit?multiplier:1,lineage:[id]});}
   const moon=ability(s,'moon-strike');if(moon&&chance(c,moon.chancePercent))hit(c,t,e,(s.listedDamage??s.damage)*moon.damagePercent/100,'holy',s,{lineage:['moon-strike'],direct:true});
  }
- c.game.emit('impact',{source:t,target:e,stats:s,effect:s.projectileEffect,x:e.x,z:e.z,color:s.color,radius:ability(s,'splash')?.radius||.4});
+ const area=shot.firstPrimary&&['splash','cleave-physical','cleave-magical'].map(id=>ability(s,id)).find(Boolean);
+ c.game.emit('impact',{source:t,target:e,stats:s,result,area,charged:!!charged&&shot.firstPrimary&&shot.releaseCount%charged.everyAttacks===0,skyHunt:e.flying&&!!sky&&s.type==='physical',execution:!!shot.execution&&result.effectiveDamage>0,appliedStatuses:newAttackStatuses(e,previousStatuses),effect:s.projectileEffect,x:e.x,z:e.z,color:s.color,radius:ability(s,'splash')?.radius||.4});
 }
 function timed(c,t,id,a,targets,act){
  if(!a)return;t.factionClocks??={};const next=t.factionClocks[id]??a.cooldown;if(c.elapsed+1e-9<next)return;if(!targets.length){t.factionClocks[id]=c.elapsed;return;}t.factionClocks[id]=c.elapsed+a.cooldown;act(targets.slice(0,a.targets||targets.length));
@@ -93,7 +96,11 @@ export function updateFr002Tower(c,t,s,dt,boost){
  for(const [id,key,immunity]of [['cancel-magic-immunity','breachMagic','magicImmune'],['cancel-physical-immunity','breachPhysical','physicalImmune']]){const a=ability(s,id);timed(c,t,id,a,targets.filter(e=>e[immunity]&&c.elapsed>=(e[key+'Recovery']||0)),rows=>{for(const e of rows){const duration=a.duration*(e.boss?.5:1);e.statuses[key]={time:duration,multiplier:a.damageMultiplier,source:t};e[key+'Recovery']=c.elapsed+duration+4;}});}
  const root=ability(s,'root');timed(c,t,'root',root,targets.filter(e=>statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.factionControlRecovery||0)),rows=>{for(const e of rows){const duration=root.duration*(e.boss?.5:1);e.statuses.root={time:duration,source:t};e.factionControlRecovery=c.elapsed+duration+2;}});
  const spark=ability(s,'spark');timed(c,t,'spark',spark,targets,rows=>{for(const e of rows){hit(c,t,e,spark.damage,channel(spark.damageType,s),s,{lineage:['spark']});c.game.emit('chain',{source:t,from:t,to:e,effect:'lightning',abilityId:'spark',visible:true});}});
- const heat=ability(s,'heat');timed(c,t,'heat',heat,targets.slice(0,1),rows=>{const center=rows[0];for(const e of c.enemies)if(!e.dead&&!e.flying&&c.canSee(e,t)&&distance(e,center)<=heat.radius)hit(c,t,e,heat.damage,channel(heat.damageType,s),s,{direct:false,lineage:['heat']});c.game.emit('impact',{source:t,target:center,stats:s,effect:'fire',abilityId:'heat',radius:heat.radius,visible:true});});
+ const heat=ability(s,'heat');timed(c,t,'heat',heat,targets.slice(0,1),rows=>{const center=rows[0];let result=null;
+   for(const e of c.enemies)if(!e.dead&&!e.flying&&c.canSee(e,t)&&distance(e,center)<=heat.radius){
+     const hitResult=hit(c,t,e,heat.damage,channel(heat.damageType,s),s,{direct:false,lineage:['heat']});if(e===center)result=hitResult;
+   }
+   c.game.emit('impact',{source:t,target:center,stats:s,result,effect:'fire',abilityId:'heat',radius:heat.radius,visible:true});});
  const fire=ability(s,'fire-aura');if(fire)for(const e of c.enemies)if(!e.dead&&c.canSee(e,t)&&distance(e,t)<=fire.radius){const stronger=c.game.towers.some(other=>other!==t&&other.state==='active'&&!other.attackPaused&&(()=>{const a=ability(towerStats(other,c.game.data),'fire-aura');return a&&distance(other,e)<=a.radius&&(a.dps>fire.dps||a.dps===fire.dps&&other.id<t.id);})());if(!stronger)hit(c,t,e,fire.dps*dt,channel(fire.damageType,s),s,{direct:false,slice:{key:'fire-aura',dt}});}
  const morale=(c.game.general?.multiplier('morale-boost')||1)*(1+(c.game.towers.artifactEffects?.speed||0));
  const cone=s.continuousAttack;if(cone){const coneTarget=e=>!e.flying||cone.targeting==='ground-and-air',target=targets.find(coneTarget);if(target){const angle=Math.atan2(target.z-t.z,target.x-t.x);for(const e of targets)if(coneTarget(e)&&distance(e,t)<=s.range&&Math.abs(Math.atan2(Math.sin(Math.atan2(e.z-t.z,e.x-t.x)-angle),Math.cos(Math.atan2(e.z-t.z,e.x-t.x)-angle)))<=cone.angleDegrees*Math.PI/360)hit(c,t,e,cone.dps*dt*morale,cone.damageType,s,{direct:false,onHit:true,slice:{key:'flame-cone',dt},artifactPrimary:e===target});c.game.emit('aura-attack',{source:t,target,stats:s});}return;}

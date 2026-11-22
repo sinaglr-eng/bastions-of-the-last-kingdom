@@ -49,15 +49,16 @@ function rune(color,magical){
   for(const x of [-1,1]){const a=mesh(new THREE.BoxGeometry(.10,.013,.016),basic(color,.9),'Engraved angular rune');a.rotation.z=x*.65;a.position.set(x*.035,0,.02);o.add(a);}return o;
 }
 function spell(kind,color,style){
-  const o=group(`${kind} shaped spell`),frost=kind==='frost';o.add(mesh(frost?new THREE.OctahedronGeometry(.13):new THREE.IcosahedronGeometry(.10,1),basic(color,.9),`${kind} spell core`));
+  const o=group(`${kind} shaped spell`),frost=kind==='frost';o.add(mesh(frost?new THREE.OctahedronGeometry(.13):new THREE.IcosahedronGeometry(.10,style.element==='fire'?0:1),basic(color,.9),`${kind} spell core`));
   if(kind==='poison'){o.name='poison shaped spell';o.children[0].scale.set(.72,1.15,1);for(let i=0;i<2;i++){const leaf=mesh(new THREE.SphereGeometry(.09,7,5),basic(i?'#698e37':color,.65),'Nature seed leaf envelope');leaf.scale.set(.38,1.3,.75);leaf.rotation.z=i?-.65:.65;leaf.position.x=i?-.07:.07;o.add(leaf);}}
   else if(frost){o.children[0].scale.z=1.6;for(let i=0;i<4;i++){const shard=cone(.025,.16,color,'Trailing frost shard');shard.material.dispose();shard.material=basic(color,.65);shard.position.set(Math.sin(i*1.7)*.09,Math.cos(i*1.7)*.09,-.16);o.add(shard);}}
+  else if(style.element==='fire'){o.children[0].scale.set(.74,.78,1.45);}
   else{for(let i=0;i<2;i++){const r=ring(.15+i*.018,.009,color,kind==='holy'?'Open radiant halo':'Incomplete spell orbit',Math.PI*(kind==='holy'?1.75:1.3));r.rotation.set(i*.9,.4+i*.7,i*Math.PI);o.add(r);}if(kind==='holy')for(let i=0;i<4;i++){const ray=mesh(new THREE.BoxGeometry(.013,.08,.012),basic(color,.88),'Short holy ray');ray.position.set(Math.cos(i*Math.PI/2)*.19,Math.sin(i*Math.PI/2)*.19,0);ray.rotation.z=i*Math.PI/2-Math.PI/2;o.add(ray);}}
   if(style.element==='fire'){o.userData.emberSpell=true;const wisps=createFlameStream();wisps.name='Discrete ember-spell flame wisps';wisps.rotation.x=-Math.PI/2;wisps.position.z=-.15;wisps.scale.set(.28,.30,.28);o.add(wisps);}return o;
 }
 function crescent(color){const o=group('Lunar crescent spell');o.add(ring(.13,.021,color,'Open lunar crescent',Math.PI*1.4));const edge=ring(.145,.006,'#e0daff','Silver crescent rim',Math.PI*1.4);edge.position.z=.006;o.add(edge);return o;}
 function drum(color){const o=group('Drum percussion wave');for(let i=0;i<3;i++){const r=ring(.16+i*.07,.009,color,'Open drum compression arc',Math.PI*1.65);r.rotation.z=i*.4;r.position.z=-i*.11;o.add(r);}return o;}
-export function createSilk(color){const o=group('Fang-released silken venom thread');o.userData.silk=true;for(const [width,tint,opacity]of [[.014,'#67557a',.70],[.005,color,.95]]){const b=new THREE.InstancedMesh(new THREE.CylinderGeometry(width,width,1,5),basic(tint,opacity),12);b.name='Continuous silken strand';b.raycast=noRaycast;b.frustumCulled=false;o.add(b);}return o;}
+export function createSilk(color){const o=group('Fang-released silver silk thread');o.userData.silk=true;for(const [width,tint,opacity]of [[.014,'#67557a',.70],[.005,color,.95]]){const b=new THREE.InstancedMesh(new THREE.CylinderGeometry(width,width,1,5),basic(tint,opacity),12);b.name='Continuous silken strand';b.raycast=noRaycast;b.frustumCulled=false;o.add(b);}return o;}
 const pose=new THREE.Object3D(),up=new THREE.Vector3(0,1,0);
 export function animateSilk(o,start,end,clock,motion){const d=end.clone().sub(start),side=new THREE.Vector3(d.z,0,-d.x).normalize();const point=t=>start.clone().addScaledVector(d,t).addScaledVector(side,Math.sin(t*Math.PI)*.055*(motion?Math.sin(clock*2):.3)).add(new THREE.Vector3(0,-Math.sin(t*Math.PI)*Math.min(.12,d.length()*.015),0));for(const b of o.children){for(let i=0;i<12;i++){const a=point(i/12),z=point((i+1)/12),v=z.clone().sub(a);pose.position.copy(a).add(z).multiplyScalar(.5);pose.quaternion.setFromUnitVectors(up,v.lengthSq()>1e-9?v.clone().normalize():up);pose.scale.set(1,Math.max(.001,v.length()),1);pose.updateMatrix();b.setMatrixAt(i,pose.matrix);}b.instanceMatrix.needsUpdate=true;}}
 
@@ -76,7 +77,13 @@ export function createAttackProjectile(kind,color,{style={},family,lobbed=false}
   if(kind==='arrow'||kind==='venomArrow')return arrow(color,kind==='venomArrow');
   if(kind==='siege')return lobbed?stone():arrow(color,false,true);
   if(['bullet','bulletRapid','cannon','shell','grenade'].includes(kind))return ammunition(kind,color);
-  if(['melee','axe','pick','claw','treeSlam','hammer','thrust'].includes(kind))return contact(kind,color);
+  if(['melee','axe','pick','claw','treeSlam','hammer','thrust'].includes(kind)){
+    const o=contact(kind,color);
+    if(style.damageType==='magical'&&kind==='melee')o.add(ribbon(.39,.035,style.element==='jade'?'#adf0c8':'#ded4ff',style.element==='jade'?'Jade cutting edge':'Luminous spell edge',Math.PI*1.18));
+    if(style.damageType==='holy')o.add(ring(.11,.015,'#fff1bb','Consecrated weapon seal',Math.PI*1.8));
+    if(style.motion==='mech-punch'){const knuckles=mesh(new THREE.BoxGeometry(.21,.075,.08),metal('#b29a73'),'Armored knuckle plate');o.add(knuckles);}
+    return o;
+  }
   if(kind==='runic')return rune(color,style.damageType!=='physical');
   if(kind==='roots')return spell('poison',color,style);
   if(kind==='arcane'||kind==='holy'||kind==='frost')return spell(kind,color,style);
@@ -88,15 +95,38 @@ export function createAttackProjectile(kind,color,{style={},family,lobbed=false}
   if(kind==='stone')return stone();return spell(kind,color,style);
 }
 
-export function createAttackImpact(kind,color,{blocked=false,radius=.25,element='physical',heavy=false}={}){
-  const o=group(blocked?'Resolved blocked contact':`${kind} attack impact`);o.userData.impact={kind,radius,blocked};
-  const physical=['bullet','bulletRapid','cannon','shell','grenade','siege','axe','pick','hammer','thrust','melee','claw','treeSlam','forge'].includes(kind),ice=kind==='frost'||element==='frost';
+export function createAttackImpact(kind,color,{blocked=false,radius=.25,element='physical',heavy=false,damageType,outcome,partial=false,critical=false,execution=false,weapon,rank=1,charged,skyHunt,aim}={}){
+  const o=group(blocked?'Resolved blocked contact':`${kind} attack impact`);o.userData.impact={kind,radius,blocked,outcome};
+  const physical=damageType ? damageType==='physical' : ['bullet','bulletRapid','cannon','shell','grenade','siege','axe','pick','hammer','thrust','melee','claw','treeSlam','forge'].includes(kind),ice=kind==='frost'||element==='frost';
   const edge=blocked?ring(.11,.012,'#9da6a6','Muted deflection',Math.PI*1.2):kind==='moon'?ring(.14,.018,color,'Broken lunar contact',Math.PI*1.3):kind==='runic'?ring(.13,.014,color,'Rune contact seal',Math.PI*1.8):physical?ribbon(.15,.025,color,'Physical contact glint',Math.PI*.8):ring(.13,.010,color,'Open elemental contact',Math.PI*1.6);
-  if(kind==='runic')edge.rotation.z=Math.PI/4;o.add(edge);
-  const count=blocked?3:kind==='bulletRapid'?4:heavy?12:8,geometry=ice?new THREE.ConeGeometry(.025,.14,4):physical?new THREE.BoxGeometry(.015,.075,.012):new THREE.OctahedronGeometry(.035),sparks=new THREE.InstancedMesh(geometry,basic(blocked?'#9ba4a3':color,blocked?.5:.9),count);sparks.name=blocked?'Blocked contact flecks':`${kind} material impact fragments`;sparks.raycast=noRaycast;sparks.frustumCulled=false;o.add(sparks);
-  if(['cannon','siege','grenade','shell','treeSlam'].includes(kind)&&!blocked){const dust=mesh(new THREE.SphereGeometry(.14,8,6),basic(kind==='grenade'?'#e99653':'#99958a',.20),'Sparse impact dust');dust.scale.set(1,.55,1);o.add(dust);}return o;
+  if(kind==='runic')edge.rotation.z=Math.PI/4;
+  let mark=edge;
+  if(outcome==='evasion')mark=ribbon(.19,.02,'#c6d9d3','Glancing miss',Math.PI*.63);
+  else if(outcome?.endsWith('immunity'))mark=mesh(new THREE.RingGeometry(.13,.17,6),basic('#a7b7ce',.77),'Sealed immunity ward');
+  else if(outcome==='shield'||outcome==='shell')mark=mesh(new THREE.CircleGeometry(.18,5),basic('#9ec6d2',.6),'Shield face');
+  else if(kind==='heat')mark=ring(.18,.022,'#d88e54','Heat pressure band',Math.PI*1.6);
+  else if(kind==='moon')mark=ribbon(.21,.06,'#d9ccff','Moon-cut crescent',Math.PI*1.38);
+  else if(damageType==='holy')mark=mesh(new THREE.RingGeometry(.11,.175,4),basic('#ffe4a0',.92),'Holy seal');
+  else if(element==='jade')mark=ribbon(.21,.055,'#a5eac6','Jade edge contact',Math.PI*.85);
+  else if(damageType==='magical'&&kind==='melee')mark=ribbon(.21,.06,'#d9ccff','Moon-cut crescent',Math.PI*1.38);
+  if(mark!==edge){edge.geometry.dispose();edge.material.dispose();}
+  o.add(mark);
+  const count=blocked?3:kind==='bulletRapid'?4:heavy?12:8,geometry=ice?new THREE.ConeGeometry(.025,.14,4):physical?new THREE.BoxGeometry(.015,.075,.012):new THREE.OctahedronGeometry(.035),sparks=new THREE.InstancedMesh(geometry,basic(blocked?'#9ba4a3':color,blocked?.5:.9),count);sparks.name=blocked?'Blocked contact flecks':`${kind} material impact fragments`;sparks.raycast=noRaycast;sparks.frustumCulled=false;if(outcome==='evasion')sparks.count=0;o.add(sparks);
+  if(['cannon','siege','grenade','shell','treeSlam'].includes(kind)&&!blocked){const dust=mesh(new THREE.SphereGeometry(.14,8,6),basic(kind==='grenade'?'#e99653':'#99958a',.20),'Sparse impact dust');dust.scale.set(1,.55,1);o.add(dust);o.userData.dust=dust;}
+  if(partial)o.add(ring(.19,.012,'#97b1d6','Broken ward',Math.PI*1.25));
+  if(execution||critical){
+    const cuts=ribbon(execution?.28:.22,.055,execution?'#ffb45c':'#fff3cc',execution?'Execution cut':'Critical contact',Math.PI*.7);
+    cuts.rotation.z=-.72;o.add(cuts);
+    const echo=cuts.clone();echo.rotation.z+=1.3;o.add(echo);
+  }else if(charged||skyHunt||aim){
+    const accent=charged?ring(.22,.02,'#c3c8ff','Released charge',Math.PI*1.7):ribbon(.20,.025,'#d5f2ea',skyHunt?'Sky Hunt contact':'True Strike contact',Math.PI*.65);
+    o.add(accent);
+  }else if(!blocked && weapon && rank>1){
+    mark.material.opacity=Math.min(1,mark.material.opacity+.025*(Math.min(rank,6)-1));
+  }
+  return o;
 }
-export function animateAttackImpact(o,p,motion){const {radius,kind,blocked}=o.userData.impact,edge=o.children[0],sparks=o.children[1];edge.scale.setScalar(motion?.65+p*.8:1);for(let i=0;i<sparks.count;i++){const a=i*2.39996,travel=motion?p:.45,r=radius*(.12+travel*.75);pose.position.set(Math.cos(a)*r,Math.sin(a)*r*.55+(motion?Math.sin(p*Math.PI)*.15-p*p*.15:.06),Math.sin(i*4.7)*r*.7);pose.rotation.set(i*.8,i*1.7,p*(motion?2:0));pose.scale.setScalar(blocked?.65:1-p*.4);pose.updateMatrix();sparks.setMatrixAt(i,pose.matrix);}sparks.instanceMatrix.needsUpdate=true;if(o.children[2])o.children[2].scale.setScalar(1+(motion?p:0)*1.4);}
+export function animateAttackImpact(o,p,motion){const {radius,kind,blocked}=o.userData.impact,edge=o.children[0],sparks=o.children[1];edge.scale.setScalar(motion?.65+p*.8:1);for(let i=0;i<sparks.count;i++){const a=i*2.39996,travel=motion?p:.45,r=radius*(.12+travel*.75);pose.position.set(Math.cos(a)*r,Math.sin(a)*r*.55+(motion?Math.sin(p*Math.PI)*.15-p*p*.15:.06),Math.sin(i*4.7)*r*.7);pose.rotation.set(i*.8,i*1.7,p*(motion?2:0));pose.scale.setScalar(blocked?.65:1-p*.4);pose.updateMatrix();sparks.setMatrixAt(i,pose.matrix);}sparks.instanceMatrix.needsUpdate=true;if(o.userData.dust)o.userData.dust.scale.setScalar(1+(motion?p:0)*1.4);}
 
 export function createFireSplash(radius){const o=group('Confirmed Fire Splash eruption');o.userData.fireSplashRadius=radius;for(let i=0;i<6;i++){const flame=createFlameStream();flame.name='Fire Splash radial flame lobe';o.add(flame);}return o;}
 export function animateFireSplash(o,p,motion,orient){const radius=o.userData.fireSplashRadius,reach=motion?radius*(.24+.76*Math.sin(Math.min(1,p*1.8)*Math.PI*.5)):radius*.75;for(let i=0;i<6;i++){const a=i*Math.PI/3,from=new THREE.Vector3(0,0,0),to=new THREE.Vector3(Math.cos(a)*reach,.10+Math.sin(p*Math.PI)*.18,Math.sin(a)*reach),f=o.children[i];orient(f,from,to);f.scale.x=f.scale.z=Math.min(.65,Math.max(.18,radius*.28));animateFlameStream(f,p*1.6+i*.17,motion);}}

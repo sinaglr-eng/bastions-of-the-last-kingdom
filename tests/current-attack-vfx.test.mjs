@@ -86,12 +86,12 @@ test('busy-wave batches retain typed shapes at bounded draw counts and dispose s
   const counts=new Map();for(const geometry of batch.geometries.values()){counts.set(geometry,0);geometry.addEventListener('dispose',()=>counts.set(geometry,counts.get(geometry)+1));}batch.dispose();batch.dispose();assert.ok([...counts.values()].every(n=>n===1));assert.equal(scene.children.length,0);
 });
 
-test('native weapon contact waits for actual arrival progress and keeps the victim altitude',()=>{
+test('ranged native contact travels from the weapon before reaching victim altitude',()=>{
   const stats=readTowerStats({family:'dw_deepdelve',tier:1},datasets.forge),s=packet('dw_deepdelve',stats);s.target.flying=true;s.progress=.20;
   const fx=new CombatEffects(new THREE.Scene(),{getStats:()=>stats,targetHeight:()=>3.4}),before=structuredClone(s),record=fx.shot(s);
-  assert.equal(record.object.visible,false,'no distant hammer contact during projectile preparation/travel');
-  s.progress=.9;fx.syncProjectiles([s],1);assert.equal(record.object.visible,true);assert.equal(record.object.position.y,3.4,'flying contact is not forced onto the floor');assert.ok(record.object.getObjectByName('Blunt compression rim'));assert.equal(record.object.getObjectByName('Hammer impact stone fragment'),undefined);
-  const expected={...before,progress:.9};assert.deepEqual(s,expected);fx.dispose();
+  assert.equal(record.object.visible,true);assert.ok(record.object.position.x>0&&record.object.position.x<s.target.x,'detached strike travels from the weapon');
+  s.progress=.9;fx.syncProjectiles([s],1);assert.equal(record.object.visible,true);assert.ok(record.object.position.y>2);s.progress=1;fx.syncProjectiles([s],1);assert.equal(record.object.position.y,3.4);assert.ok(record.object.getObjectByName('Blunt compression rim'));assert.equal(record.object.getObjectByName('Hammer impact stone fragment'),undefined);
+  const expected={...before,progress:1};assert.deepEqual(s,expected);fx.dispose();
 });
 
 test('continuous native flames use procedural materials, two real nozzle lanes and stop on missing simulation coverage',()=>{

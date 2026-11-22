@@ -17,7 +17,7 @@ export const attackVisualStyle=(family,stats={})=>{
 };
 export const attackVisualColor=(family,kind,stats={})=>{
   if(secretFamily(family))return '#ffda72';
-  const style=attackVisualStyle(family,stats),elementColors={lightning:'#99e8ff',frost:'#b6f1ff',poison:'#a3d96d',fire:'#ffab4f',holy:'#fff0b3',lunar:'#c3b7ff',rune:stats.type==='physical'?'#e1ba7d':'#b9d4ff',arcane:'#bda2ff'};
+  const style=attackVisualStyle(family,stats),elementColors={jade:'#88d9ad',lightning:'#99e8ff',frost:'#b6f1ff',poison:'#a3d96d',fire:'#ffab4f',holy:'#fff0b3',lunar:'#c3b7ff',rune:stats.type==='physical'?'#e1ba7d':'#b9d4ff',arcane:'#bda2ff'};
   return elementColors[style.element]||ATTACK_COLORS[kind]||ATTACK_COLORS.arrow;
 };
 export function attackVisualKind(family,stats={}){
@@ -94,8 +94,8 @@ function animateElectricity(object,start,end,{clock=0,seed=0,motion=true,progres
 /** Cosmetic presentation only; never updates projectile timing, targets or damage. */
 export class CombatEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),sourceHeight=1.5,targetHeight=enemy=>enemy?.flying?1.9:enemy?.boss?1.4:1,
-    getStats=()=>({}),getMuzzle=null,getSimulationTime=null,isVisible=()=>true,reducedMotion=false,camera=null,getViewport=null,maxEffects=48,maxProjectiles=96,maxDetailed=192,maxBreaths=8}={}){
-    this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.getSimulationTime=getSimulationTime;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
+    getStats=()=>({}),getMuzzle=null,getSimulationTime=null,getKeepPosition=null,isVisible=()=>true,reducedMotion=false,camera=null,getViewport=null,maxEffects=48,maxProjectiles=96,maxDetailed=192,maxBreaths=8}={}){
+    this.getKeepPosition=getKeepPosition;this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.getSimulationTime=getSimulationTime;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
     this.maxEffects=Math.max(1,Math.floor(maxEffects));this.maxProjectiles=Math.max(1,Math.floor(maxProjectiles));this.effects=[];this.projectiles=new Map();this.disposed=false;this.time=0;
     this.camera=camera;this.getViewport=getViewport;this.maxDetailed=maxDetailed;this.maxBreaths=maxBreaths;this.paths=new CombatPathBatch(scene,{camera,getViewport});this.procPaths=[];this.fireSplashPaths=[];this.channels=new Map();this.resolved=new WeakMap();this.dreadAccents=new Map();
   }
@@ -139,7 +139,7 @@ export class CombatEffects{
     if(shot.source.family==='stonewarden')object.name='Sling-released catapult stone';
     if(secretFamily(shot.source.family))object.name=shot.source.family==='lordbernhard'?'Sword-released golden magical bolt':'Staff-released golden spell';
     if(['arrow','venomArrow','siege'].includes(kind)&&style.element==='lightning')object.add(electricity(color,'Weapon-bound electric arrowhead'));
-    object.userData.attackVisualStyle=style;sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,style,lobbed,physicalBolt,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
+    object.userData.attackVisualStyle=style;sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,style,lobbed,physicalBolt,electricArrow:object.getObjectByName('Weapon-bound electric arrowhead'),origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
     if(['bullet','bulletRapid','cannon','shell'].includes(kind)){
       const flash=new THREE.Group();flash.name='Actual muzzle flash';
       const outer=mesh(new THREE.ConeGeometry(kind==='cannon'?.13:.055,.27,6),material('#ffb44e',.7),'Powder muzzle petals'),hot=mesh(new THREE.ConeGeometry(kind==='cannon'?.065:.025,.17,5),material('#fff5d0',.95),'Hot muzzle centre');
@@ -183,8 +183,13 @@ export class CombatEffects{
       object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3().subVectors(end,start).normalize());
       if(motion&&!record.physicalBolt&&!['arrow','venomArrow','dart','bullet','bulletRapid','cannon','shell'].includes(kind)&&(kind!=='siege'||lobbed))object.rotateZ(time*(kind==='siege'?3:.8));
     }
-    // A contact strip is a strike, never a projectile visible at a distant target before arrival.
-    if(object.userData.contact){object.visible=p>=.72;fadeObject(object,motion?Math.min(1,Math.max(0,(p-.72)/.12)):1);}
+    // A long-range contact leaves the weapon and travels to the actual victim.
+    if(object.userData.contact){
+      const travels=start.distanceToSquared(end)>2.25;
+      object.visible=travels||p>=.72;
+      if(travels)object.position.lerpVectors(start,end,p);
+      fadeObject(object,travels?.78:motion?Math.min(1,Math.max(0,(p-.72)/.12)):1);
+    }
     animateProjectileDecoration(object,time,motion);
     // Keep the actual short arrow/bullet silhouette visible at overview zoom;
     // only its transverse thickness grows, never its path, length or lifetime.
@@ -194,7 +199,7 @@ export class CombatEffects{
       transverse=camera?Math.max(1,Math.min(3.2,electricRadius(start,end,camera,this.getViewport?.()?.height)/.012)):1;
       object.scale.set(transverse,transverse,1);
     }
-    const electricArrow=object.getObjectByName('Weapon-bound electric arrowhead');
+    const electricArrow=record.electricArrow;
     if(electricArrow){electricArrow.scale.set(1/transverse,1/transverse,1);animateElectricity(electricArrow,new THREE.Vector3(0,0,-.42),new THREE.Vector3(0,0,.30),{clock:time,seed:shot.id||0,motion,progress:p,radius:.023});}
   }
   syncProjectiles(shots,time=this.time){
@@ -210,11 +215,14 @@ export class CombatEffects{
       paths.push({from,to,target:end,kind,subtype:kind==='siege'&&lobbed?'catapult-stone':null,style:attackVisualStyle(shot.source.family,stats),color:attackVisualColor(shot.source.family,kind,stats),progress,seed:shot.id||0,clock:this.animationClock(shot.source),motion:this.motion()});
     }}
     this.procPaths=this.procPaths.filter(row=>this.animationClock(null)-row.at<.24&&presentTarget(row.payload.from)&&presentTarget(row.payload.to)&&this.visible(row.payload.from)&&this.visible(row.payload.to));
-    for(const row of this.procPaths){const p=row.payload,style=this.chainStyle(p);paths.push({from:p.from.family?this.muzzle(p.from):this.point(p.from,this.targetHeight(p.from)),to:this.point(p.to,this.targetHeight(p.to)),target:this.point(p.to,this.targetHeight(p.to)),...style,ricochet:style.ricochet,progress:(this.animationClock(null)-row.at)/.24,seed:p.to.id||0,clock:this.animationClock(null),motion:this.motion()});}
+    for(const row of this.procPaths){const p=row.payload,style=this.chainStyle(p);paths.push({from:p.from.family?this.muzzle(p.from):this.point(p.from,this.targetHeight(p.from)),to:this.point(p.to,this.targetHeight(p.to)),target:this.point(p.to,this.targetHeight(p.to)),...style,link:true,ricochet:style.ricochet,progress:(this.animationClock(null)-row.at)/.24,seed:p.to.id||0,clock:this.animationClock(null),motion:this.motion()});}
     for(const [id,row] of this.channels){
       // Native continuous cones emit once per combat step. Missing that step is stop, not lingering damage.
       if(this.animationClock(null)-row.at>1e-5||row.payload.target.dead||row.payload.source.attackPaused||row.payload.source.state&&row.payload.source.state!=='active'||!this.visible(row.payload.target)){this.channels.delete(id);for(const effect of [...this.effects])if(effect.channelId===id)this.removeEffect(effect);continue;}
-      if(!this.effects.some(e=>e.channelId===id)){const paired=factionWeaponVisual(row.payload.source.family)?.weapon==='paired-flame-nozzles';for(let lane=0;lane<(paired?2:1);lane++)paths.push({from:this.muzzle(row.payload.source,row.payload.source,{breath:true,lane}),to:this.point(row.payload.target,this.targetHeight(row.payload.target)),kind:'flame',color:ATTACK_COLORS.flame,motion:this.motion(),clock:this.animationClock(null)});}
+      if(!this.effects.some(e=>e.channelId===id)){const paired=factionWeaponVisual(row.payload.source.family)?.weapon==='paired-flame-nozzles';for(let lane=0;lane<(paired?2:1);lane++){
+        const {start,end,width}=this.coneGeometry(row.payload,lane);
+        paths.push({from:start,to:end,coneHalfWidth:width,kind:'flame',color:ATTACK_COLORS.flame,motion:this.motion(),clock:this.animationClock(null)});
+      }}
     }
     this.fireSplashPaths=this.fireSplashPaths.filter(row=>this.animationClock(null)-row.at<.40&&this.visible(row.target));
     const splashPaths=this.fireSplashPaths.map(row=>({kind:'fire-splash',from:row.centre,to:row.centre,radius:row.radius,eruption:row.eruption,victims:row.victims.filter(e=>presentTarget(e)&&this.visible(e)).map(e=>this.point(e,this.targetHeight(e))),progress:clampProgress((this.animationClock(null)-row.at)/.40),motion:this.motion(),color:'#ffad52'}));
@@ -222,18 +230,53 @@ export class CombatEffects{
     this.paths.sync(paths);
   }
   impact(payload){
-    if(this.disposed||!this.visible(payload.target))return;
+    if(this.disposed||payload.visible===false||payload.result?.visible===false||!this.visible(payload.target))return;
+    if(Object.hasOwn(payload,'result')&&!payload.result)return;
     const stats=payload.stats||this.getStats(payload.source)||{},kind=payload.effect==='fire'||payload.aura&&stats.burnAura?'flame':payload.effect==='poison'?'roots':attackVisualKind(payload.source?.family,{...stats,projectileEffect:payload.effect||stats.projectileEffect}),color=attackVisualColor(payload.source?.family,kind,{...stats,projectileEffect:payload.effect||stats.projectileEffect});
     if(payload.aura)return; // Sparse actual victim heat belongs to the reconciled status batch.
-    const result=this.resolved.get(payload.target)?.get(payload.source?.id),blocked=result&&result.effectiveDamage<=0;
+    const result=payload.result??this.resolved.get(payload.target)?.get(payload.source?.id);
+    if(result&&['dead','invalid','run-ended'].includes(result.blockReason))return;
+    const blocked=result&&result.effectiveDamage<=0;
     const centre=payload.target?this.point(payload.target,this.targetHeight(payload.target)):this.position(payload.x,.04,payload.z),radius=blocked?.18:Math.min(.55,Math.max(.18,payload.radius||.3)),tint=blocked?'#9aa6a4':color;
-    const style=attackVisualStyle(payload.source?.family,stats),object=createAttackImpact(kind,tint,{blocked,radius,element:style.element,heavy:payload.heavy});object.position.copy(centre);
+    const style=attackVisualStyle(payload.source?.family,stats);
+    const damageType=result?.type||style.damageType;
+    const resolvedColor=payload.abilityId==='heat'?'#e49a58':result ? damageType==='holy'?'#ffebb0':damageType==='physical'?'#d7c49b':color : tint;
+    const primaryKind=payload.abilityId==='moon-strike'?'moon':payload.abilityId==='heat'?'heat':result && !payload.abilityId ? style.kind : kind;
+    const object=createAttackImpact(primaryKind,resolvedColor,{blocked,radius,element:payload.abilityId==='moon-strike'?'lunar':result&&damageType==='physical'?'physical':style.element,heavy:payload.heavy,damageType,outcome:result?.blockReason,partial:result?.immunityMultiplier>0&&result.immunityMultiplier<1,critical:!!result?.critical&&result.effectiveDamage>0,execution:payload.execution,weapon:style.weapon,rank:payload.source?.tier,charged:payload.charged&&result?.effectiveDamage>0,skyHunt:payload.skyHunt&&result?.effectiveDamage>0,aim:payload.target?.evasion>0&&stats.trueStrike&&result?.effectiveDamage>0});
+    object.position.copy(centre);
     const direction=payload.source?centre.clone().sub(this.muzzle(payload.source)).normalize():new THREE.Vector3(0,0,1);object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),direction);
     const duration=blocked?.18:kind==='roots'?.32:['siege','cannon','shell','grenade'].includes(kind)?.36:.23;
     this.addEffect(object,duration,(effect,p,motion)=>{
       animateAttackImpact(effect,p,motion);
       fadeObject(effect,1-p);
     },payload.target);
+  }
+  areaContact(payload){
+    const area=payload.area;
+    if(Object.hasOwn(payload,'result')&&!payload.result)return;
+    if(!(area?.radius>0)||!payload.target||!this.visible(payload.target)||payload.result?.visible===false)return;
+    const splash=area.familyId==='splash';
+    const angle=Math.PI*2;
+    const band=mesh(new THREE.RingGeometry(Math.max(.01,area.radius-.045),area.radius,splash?18:12,1,-angle/2,angle),
+      material(splash?'#bea77b':area.familyId==='cleave-magical'?'#cfb6ff':'#d4ceb6',.45),splash?'Splash footprint':'Cleave sweep');
+    const at=this.point(payload.target,payload.target.flying?this.targetHeight(payload.target):.13);
+    band.position.copy(at);
+    band.rotation.order='YXZ';band.rotation.x=-Math.PI/2;
+    band.rotation.y=Math.atan2(payload.source.z-payload.target.z,payload.target.x-payload.source.x);
+    this.addEffect(band,.19,(object,p,motion)=>{object.scale.setScalar(motion?.88+.12*p:1);fadeObject(object,1-p);},payload.target);
+  }
+  coneGeometry(payload,lane=0){
+    const {source,target}=payload,stats=payload.stats||this.getStats(source);
+    const start=this.muzzle(source,source,{breath:true,lane}),end=this.point(target,this.targetHeight(target));
+    const dx=target.x-source.x,dz=target.z-source.z,distance=Math.hypot(dx,dz);
+    const range=Number(stats.range);
+    if(range>0&&distance>1e-5){
+      const limit=this.point({x:source.x+dx*range/distance,z:source.z+dz*range/distance},end.y);
+      end.x=limit.x;end.z=limit.z;
+    }
+    const angle=stats.continuousAttack?.angleDegrees||30;
+    const width=Math.hypot(end.x-start.x,end.z-start.z)*Math.tan(angle*Math.PI/360);
+    return {start,end,angle,width};
   }
   breath(payload){
     if(!payload.source||!payload.target||!this.visible(payload.target))return;
@@ -245,7 +288,7 @@ export class CombatEffects{
     if(this.breathCount()>=this.maxBreaths)return;
     const paired=factionWeaponVisual(payload.source.family)?.weapon==='paired-flame-nozzles',object=paired?new THREE.Group():createFlameStream();
     if(paired){object.name='Paired actual flame-nozzle streams';object.add(createFlameStream(),createFlameStream());}
-    const pose=(effect,current,clock,motion)=>{for(let lane=0;lane<(paired?2:1);lane++){const stream=paired?effect.children[lane]:effect,start=this.muzzle(current.source,current.source,{breath:true,lane}),end=this.point(current.target,this.targetHeight(current.target));orientY(stream,start,end);const angle=(current.stats||stats).continuousAttack?.angleDegrees||30,width=start.distanceTo(end)*Math.tan(angle*Math.PI/360)*.85;stream.scale.x=stream.scale.z=Math.max(.20,width/.41)*(paired?.55:1);stream.userData.coneAngleDegrees=angle;animateFlameStream(stream,clock,motion);}};pose(object,payload,clock*2,this.motion());
+    const pose=(effect,current,clock,motion)=>{for(let lane=0;lane<(paired?2:1);lane++){const stream=paired?effect.children[lane]:effect, {start,end,angle,width}=this.coneGeometry(current,lane);orientY(stream,start,end);stream.scale.x=stream.scale.z=Math.max(.20,width/.41);stream.userData.coneAngleDegrees=angle;animateFlameStream(stream,clock,motion);}};pose(object,payload,clock*2,this.motion());
     const effect=this.addEffect(object,.57,(effect,p,motion)=>{
       // Follow the target without changing its combat location or the actor's aim.
       const current=this.channels.get(id)?.payload||payload;
@@ -256,7 +299,7 @@ export class CombatEffects{
   breathCount(){return this.effects.filter(e=>e.breath).length+[...this.projectiles.values()].filter(p=>p.kind==='flame').length;}
   recover(payload){
     if(!(payload.amount>0)||!payload.source)return;
-    const object=new THREE.Group();object.name='Confirmed keep recovery';const start=this.muzzle(payload.source);
+    const object=new THREE.Group();object.name='Confirmed keep recovery';const start=this.getKeepPosition?.()||this.muzzle(payload.source);
     for(let i=0;i<3;i++)object.add(mesh(new THREE.OctahedronGeometry(.045,0),material(i?'#b4eab7':'#ffe3a1',.7,true),'Actual recovery mote'));
     object.position.copy(start);this.addEffect(object,.42,(effect,p,motion)=>{effect.position.copy(start);effect.children.forEach((m,i)=>{const a=i*Math.PI*2/3;m.position.set(Math.cos(a)*.12,(motion?p:.5)*.5,Math.sin(a)*.12);});fadeObject(effect,1-p);});
   }
@@ -284,9 +327,16 @@ export class CombatEffects{
     // Subsequent enemy-to-enemy chain packets carry the original tower colour,
     // rather than its reference. This palette belongs to the two Secret towers.
     const source=secretFamily(payload.from.family)?payload.from:payload.color==='#ffd969'?{family:'ladyclaire'}:null;
+    if(frost||branch.ricochet){
+      const geometry=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,-1),new THREE.Vector3()]);
+      const trail=new THREE.Line(geometry,new THREE.LineDashedMaterial({color:branch.color,dashSize:.24,gapSize:.09,transparent:true,opacity:.46,depthWrite:false}));
+      trail.name='Resolved bounce path';trail.raycast=noRaycast;trail.computeLineDistances();object.add(trail);
+    }
     const record=this.addEffect(object,.24,(effect,p,motion)=>{const start=payload.from.family?this.muzzle(payload.from):this.point(payload.from,this.targetHeight(payload.from)),end=this.point(payload.to,this.targetHeight(payload.to));if(frost||branch.ricochet){
       // The secondary hit has already resolved: put its brief residual at the victim immediately.
-      effect.position.copy(end);effect.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),end.clone().sub(start).normalize());effect.scale.setScalar(frost?.8:.85);fadeObject(effect,1-p);
+      effect.position.copy(end);effect.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),end.clone().sub(start).normalize());effect.scale.setScalar(frost?.8:.85);
+      const trail=effect.getObjectByName('Resolved bounce path'),length=start.distanceTo(end)/effect.scale.z;
+      trail.scale.z=length;trail.material.scale=length;fadeObject(effect,1-p);
     }else{animateElectricity(effect,start,end,this.electricOptions(start,end,{clock:this.animationClock(source),seed:payload.to.id||0,motion,progress:p}));effect.children.forEach(layer=>{layer.material.opacity*=1-p;});}},payload.to);if(record){record.endpoints=[payload.from,payload.to];record.pathPacket=payload;record.removeOnDeath=true;record.animate(record.object,0,this.motion());}
   }
   queueFireSplash(packet){
@@ -312,8 +362,12 @@ export class CombatEffects{
   event(type,payload={}){
     if(this.disposed)return;
     if(type==='damage-trace'&&payload.enemy){let bySource=this.resolved.get(payload.enemy);if(!bySource){bySource=new Map();this.resolved.set(payload.enemy,bySource);}bySource.set(payload.source?.id,payload);this.dread(payload);}
+    if(type==='damage-trace' && payload.effectiveDamage>0 && ['moon-strike','cleave-physical','cleave-magical','splash'].includes(payload.presentationAbility)){
+      this.impact({target:payload.enemy,source:payload.source,result:payload,abilityId:payload.presentationAbility,visible:payload.visible,
+        stats:this.getStats(payload.source),effect:payload.presentationAbility==='moon-strike'?'lunar':payload.effect});
+    }
     if(type==='shot')this.shot(payload);
-    else if(type==='impact')this.impact(payload);
+    else if(type==='impact'){this.impact(payload);this.areaContact(payload);}
     else if(type==='aura-attack'&&((payload.stats||this.getStats(payload.source)).burnAura||attackVisualKind(payload.source?.family,payload.stats||this.getStats(payload.source))==='flame'))this.breath(payload);
     else if(type==='chain')this.chain(payload);
     else if(type==='burn-proc')this.fireSplash(payload);

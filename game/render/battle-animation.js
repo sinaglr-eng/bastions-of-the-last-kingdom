@@ -1,6 +1,5 @@
-import {authoredWeaponPhase} from './faction-attack-visuals.js';
+import {factionBattleRig,releaseFactionMotion,updateFactionMotion} from './faction-battle-motion.js';
 import {factionVfxAnchor} from './faction-vfx-anchors.js';
-import {createFactionAttackPlayer} from './faction-attack-player.js';
 import * as THREE from 'three';
 import {attackVisualKind} from './combat-effects.js';
 import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
@@ -90,7 +89,7 @@ function bindRigidArms(rig){
 export function attackRig(actor,family,stats={}){
   if(!actor)return null;
   const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
-  if(actor.userData.factionAttackEntry){const entry=actor.userData.factionAttackEntry,actual=Number.isFinite(stats.damage)?{...entry,attack:{...entry.attack,intervalSeconds:stats.interval,weaponCycle:stats.weaponCycle||null,cycleMetrics:stats.cycleMetrics||{},continuousAttack:stats.continuousAttack||null,mode:stats.continuousAttack?'continuous':stats.damage<=0?'aura-only':'discrete'}}:entry,faction=createFactionAttackPlayer(actor,actual),factionHand=['cast.right.hand','humanoid.primary.hand','caster.primary.hand'].map(name=>actor.getObjectByName(THREE.PropertyBinding.sanitizeNodeName(name))).find(Boolean);return {actor,family,kind,pose,faction,factionHand,nativeAttack:entry.attack,runtimeAttack:actual.attack,stage:'idle',active:false,disposed:false};}
+  if(actor.userData.factionAttackEntry)return {actor,family,kind,pose,disposed:false,...factionBattleRig(actor,actor.userData.factionAttackEntry,stats)};
   const approved=bindApprovedMotion(actor);
   if(approved)return {actor,family,kind,pose,approved,geometric:actor.userData,
     attackStyle:actor.userData.attackStyle,stage:'idle',active:false,disposed:false,owned:[],pivots:[],joints:new Map()};
@@ -171,7 +170,7 @@ function updateBowString(rig){
   [topPoint,nockPoint,bottomPoint,nockPoint].forEach((p,i)=>positions.setXYZ(i,p.x,p.y,p.z));positions.needsUpdate=true;
 }
 export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false,kind,lane=0}={}){
-  if(rig?.faction&&!rig.disposed){const native=factionVfxAnchor(rig.actor,out,{kind:kind||(rig.kind==='lightning'?'hand':undefined),lane});if(native)return native;const hand=rig.factionHand;rig.actor.updateMatrixWorld(true);return hand?hand.getWorldPosition(out):rig.actor.getWorldPosition(out).add(new THREE.Vector3(0,.8,0));}
+  if(rig?.faction&&!rig.disposed)return factionVfxAnchor(rig.actor,out,{lane,handIndex:rig.handIndex});
   if(rig?.approved&&!rig.disposed)return approvedMotionAnchor(rig.actor,out,{breath,kind:kind||(rig.attackStyle==='bow'?'nock':rig.attackStyle==='staff'?'staff':rig.attackStyle==='breath'?'mouth':'weapon')});
   const muzzle=breath?rig?.breathMuzzle:rig?.muzzle;
   if(!rig||rig.disposed||!muzzle)return null;
@@ -179,7 +178,7 @@ export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false,kind,lane
 }
 export function triggerAttack(rig,payload={}){
   if(!rig||rig.disposed)return;
-  if(rig.faction){const p=rig.faction;if(payload.target)p.aimAt(new THREE.Vector3(payload.target.x-18,0,payload.target.z-18));const cyclePhase=payload.source?.weaponCycleState?.phase,posedPhase=cyclePhase===undefined?undefined:authoredWeaponPhase(rig.runtimeAttack,rig.nativeAttack,cyclePhase,payload.visualRate||1);rig.authoritativePhase=cyclePhase;rig.nativePosePhase=posedPhase;p.releaseFromCombat({stamp:payload.volleyStamp??payload.combatTime??payload.id,cadenceSeconds:payload.stats?.weaponCycle?undefined:payload.stats?.interval,rateMultiplier:payload.visualRate||1,...(posedPhase!==undefined?{cyclePhase:posedPhase}:{})});rig.stage=p.state.stage;rig.active=true;return;}
+  if(rig.faction){releaseFactionMotion(rig,payload);return;}
   if(rig.approved){releaseApprovedAttack(rig.approved,payload);rig.active=rig.approved.stage!=='idle';rig.stage=rig.approved.stage;return;}
   if(rig.native){releaseSecretAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
   if(rig.geometric){
@@ -316,7 +315,7 @@ function applyBowDraw(rig,draw){
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
   if(!rig||rig.disposed)return;
-  if(rig.faction){if(dt===0)return;const p=rig.faction;if(context.target)p.aimAt(new THREE.Vector3(context.target.x-18,0,context.target.z-18));if(p.state.mode!=='discrete')p.setChannel(!!context.target&&!context.blocked);if(context.blocked)p.interrupt();const phase=context.tower?.weaponCycleState?.phase;if(!context.blocked&&phase!==undefined&&p.state.mode==='discrete'){rig.authoritativePhase=phase;rig.nativePosePhase=authoredWeaponPhase(rig.runtimeAttack,rig.nativeAttack,phase,context.rate||1);p.syncWeaponCycle({phase:rig.nativePosePhase});}p.update(dt,{reducedMotion});rig.stage=p.state.stage;rig.active=rig.stage!=='idle';return;}
+  if(rig.faction){updateFactionMotion(rig,dt,context,reducedMotion);return;}
   if(rig.approved){animateApprovedAttack(rig.approved,dt,time,{...context,reducedMotion});rig.active=rig.approved.stage!=='idle';rig.stage=rig.approved.stage;return;}
   if(rig.native){
     updateSecretAnimation(rig.native,dt,{...context,reducedMotion});rig.active=rig.native.stage!=='idle';
@@ -455,7 +454,7 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
   applyBreath(rig,reducedMotion);
 }
 export function resetAttack(rig,{preserveBreath=false}={}){
-  if(rig?.faction){rig.faction.reset();rig.stage='idle';rig.active=false;return;}
+  if(rig?.faction){rig.faction.reset();rig.stage='idle';rig.active=false;rig.lastMotionRelease=null;rig.lastChannelStep=null;rig.releaseTime=null;rig.channelTarget=null;return;}
   if(rig?.approved){resetApprovedAttack(rig.approved);rig.active=false;rig.stage='idle';return;}
   if(!rig)return;rig.elapsed=rig.duration;rig.active=false;rig.stage='idle';
   if(!preserveBreath&&rig.breathTrack){rig.breathTrack.active=false;rig.breathTrack.elapsed=rig.breathTrack.duration;}

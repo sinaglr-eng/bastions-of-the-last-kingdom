@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-const up=new THREE.Vector3(0,1,0),pose=new THREE.Object3D();
+const up=new THREE.Vector3(0,1,0),pose=new THREE.Object3D(),instanceDelta=new THREE.Vector3(),instanceColor=new THREE.Color(),unitScale=new THREE.Vector3(1,1,1);
 const seedNumber=seed=>Number.isFinite(Number(seed))?Number(seed):[...String(seed)].reduce((n,c)=>n*31+c.charCodeAt(0),0)%997;
 
 /** Smooth geometry, one release pulse, and no screen-wide light or strobe. */
@@ -46,17 +46,20 @@ export class CombatPathBatch{
     const arc=(at,radius,width,color,angle=Math.PI*1.5,tilt=0)=>{for(let i=0;i<9;i++){const p=i/9*angle+tilt,q=(i+1)/9*angle+tilt;segment('shafts',at.clone().add(new THREE.Vector3(Math.cos(p)*radius,Math.sin(p)*radius,0)),at.clone().add(new THREE.Vector3(Math.cos(q)*radius,Math.sin(q)*radius,0)),width,color);}};
     for(const packet of this.records){
       const {from,to,color='#e6dfc8',kind='arrow',motion=true,clock=0,seed=0,progress=0}=packet,delta=to.clone().sub(from),direction=delta.clone().normalize();
-      const lightning=['lightning','stormSpear'].includes(kind),r=electricRadius(from,to,camera,height);
+      const lightning=['lightning','stormSpear'].includes(kind);
       if(kind==='fire-splash'){
         const reach=Math.max(.01,packet.radius||0)*(motion?.24+.76*Math.sin(Math.min(1,progress*1.8)*Math.PI*.5):.75),fade=Math.max(0,1-progress),tint=new THREE.Color('#ff8d27').multiplyScalar(.6+.4*fade);
         if(packet.eruption!==false)for(let i=0;i<6;i++){const a=i*Math.PI/3,end=to.clone().add(new THREE.Vector3(Math.cos(a)*reach,.12,Math.sin(a)*reach));segment('corona',to,end,Math.max(.025,reach*.10),tint);segment('core',to,to.clone().lerp(end,.56),Math.max(.012,reach*.035),new THREE.Color('#ffd68a').multiplyScalar(.65+.35*fade));}
         for(const at of packet.victims||[])body(at,.075*fade,'#ffab4f',new THREE.Vector3(.7,1.6,.7));continue;
       }
-      if(lightning){const pulse=electricPulse(progress,motion),electric=electricPathSegments(from,to,{seed,clock,motion}),coronaColor=new THREE.Color(color);if(coronaColor.b>coronaColor.r*.9)coronaColor.lerp(new THREE.Color('#268fe8'),.55);for(const[a,b]of electric.segments){segment('corona',a,b,r*3.0,coronaColor);segment('core',a,b,r*.68,new THREE.Color('#f4fdff').multiplyScalar(pulse));}continue;}
+      if(lightning){const r=electricRadius(from,to,camera,height),pulse=electricPulse(progress,motion),electric=electricPathSegments(from,to,{seed,clock,motion}),coronaColor=new THREE.Color(color);if(coronaColor.b>coronaColor.r*.9)coronaColor.lerp(new THREE.Color('#268fe8'),.55);for(const[a,b]of electric.segments){segment('corona',a,b,r*3.0,coronaColor);segment('core',a,b,r*.68,new THREE.Color('#f4fdff').multiplyScalar(pulse));}continue;}
+      if(packet.ricochet||kind==='frost'&&packet.link){
+        segment('shafts',from,to,.009,color);
+      }
       if(kind==='flame'){
         // Sparse broken tongues preserve a cone instead of falling back to an opaque laser.
         const side=new THREE.Vector3(delta.z,0,-delta.x).normalize();
-        for(let lane=0;lane<3;lane++)for(let i=0;i<6;i++){const a=i/6,b=Math.min(1,a+.14),phase=motion?clock*5:0,shift=(lane-1)*.12*a+Math.sin(i*2.7+phase+lane)*.035*a,start=from.clone().addScaledVector(delta,a).addScaledVector(side,shift),end=from.clone().addScaledVector(delta,b).addScaledVector(side,shift*1.1);segment('corona',start,end,.025+a*.12,lane%2?'#e45c17':'#ff8e27');if(lane===1&&i<4)segment('core',start,end,.018+a*.04,'#ffe2a1');}
+        for(let lane=0;lane<3;lane++)for(let i=0;i<6;i++){const a=i/6,b=Math.min(1,a+.14),phase=motion?clock*5:0,shift=(lane-1)*(packet.coneHalfWidth??.24)*.70*a+Math.sin(i*2.7+phase+lane)*.035*a,start=from.clone().addScaledVector(delta,a).addScaledVector(side,shift),end=from.clone().addScaledVector(delta,b).addScaledVector(side,shift*1.1);segment('corona',start,end,.025+a*.12,lane%2?'#e45c17':'#ff8e27');if(lane===1&&i<4)segment('core',start,end,.018+a*.04,'#ffe2a1');}
         continue;
       }
       if(kind==='siege'&&packet.subtype==='catapult-stone'){body(to,.17,'#929286',new THREE.Vector3(1,.83,1.13));continue;}
@@ -71,7 +74,9 @@ export class CombatPathBatch{
       }
       if(['grenade','cannon','stone','forge'].includes(kind)){body(to,kind==='cannon'?.145:kind==='stone'?.17:.10,kind==='cannon'?'#59636b':kind==='stone'?'#929286':kind==='grenade'?'#394247':'#6a7478');if(kind==='grenade')segment('shafts',to.clone().add(new THREE.Vector3(0,.11,0)),to.clone().add(new THREE.Vector3(.015,.21,0)),.012,'#d1b77b');if(kind==='forge')segment('core',to.clone().add(new THREE.Vector3(0,-.07,-.07)),to.clone().add(new THREE.Vector3(0,.07,.07)),.012,'#ffad52');continue;}
       if(['melee','axe','pick','claw','treeSlam','hammer','thrust'].includes(kind)){
-        if(progress<.72&&!packet.ricochet)continue;const end=packet.target||to;
+        const travels=packet.target && from.distanceToSquared(packet.target)>2.25;
+        if(!travels && progress<.72 && !packet.ricochet)continue;
+        const end=travels?to:packet.target||to;
         if(kind==='thrust'){segment('shafts',end.clone().addScaledVector(direction,-.24),end.clone().addScaledVector(direction,.14),.020,color);draw.heads.push({a:end,b:end.clone().addScaledVector(direction,.12),r:.04,color});}
         else if(kind==='melee'||kind==='axe')arc(end,.25,kind==='axe'?.045:.018,color,Math.PI*.9,-.7);
         else if(kind==='claw')for(let i=0;i<3;i++)arc(end.clone().add(new THREE.Vector3((i-1)*.07,0,0)),.13,.012,color,Math.PI*.75,-.8);
@@ -90,7 +95,7 @@ export class CombatPathBatch{
     for(const[key,instances]of Object.entries(draw)){
       const prior=this.batches.get(key);if(!instances.length){if(prior){prior.object.count=0;prior.object.visible=false;}continue;}
       const {object}=this.batch(key,instances.length);object.count=instances.length;object.visible=true;
-      instances.forEach((item,index)=>{if(item.at){pose.position.copy(item.at);pose.quaternion.identity();pose.scale.copy(item.scale||up.clone().set(1,1,1)).multiplyScalar(item.r);}else{const delta=item.b.clone().sub(item.a),length=delta.length();pose.position.copy(item.a).add(item.b).multiplyScalar(.5);pose.quaternion.setFromUnitVectors(up,length>1e-8?delta.multiplyScalar(1/length):up);pose.scale.set(item.r,Math.max(.001,length),item.r);}pose.updateMatrix();object.setMatrixAt(index,pose.matrix);object.setColorAt(index,new THREE.Color(item.color));});
+      instances.forEach((item,index)=>{if(item.at){pose.position.copy(item.at);pose.quaternion.identity();pose.scale.copy(item.scale||unitScale).multiplyScalar(item.r);}else{const delta=instanceDelta.subVectors(item.b,item.a),length=delta.length();pose.position.copy(item.a).add(item.b).multiplyScalar(.5);pose.quaternion.setFromUnitVectors(up,length>1e-8?delta.multiplyScalar(1/length):up);pose.scale.set(item.r,Math.max(.001,length),item.r);}pose.updateMatrix();object.setMatrixAt(index,pose.matrix);object.setColorAt(index,instanceColor.set(item.color));});
       object.instanceMatrix.needsUpdate=true;if(object.instanceColor)object.instanceColor.needsUpdate=true;
     }
     this.object.visible=this.records.length>0;

@@ -47,6 +47,10 @@ function cross(barred){
 
 export function statusGeometry(shape){
   if(shape==='flame'||shape==='heatFlame')return flameRibbons(shape==='heatFlame');
+  if(shape==='slowShards')return merge([
+    paint(new THREE.OctahedronGeometry(.11).scale(.62,1.4,.72).rotateZ(-.3).translate(-.20,0,0),'#c5edff'),
+    paint(new THREE.OctahedronGeometry(.10).scale(.66,1.1,.72).rotateZ(.4).translate(.19,-.02,.05),'#85bbcf')
+  ]);
   if(shape==='cloud')return merge([
     paint(new THREE.IcosahedronGeometry(.18,2),'#80c93f'),paint(new THREE.IcosahedronGeometry(.13,2).translate(.12,.04,.05),'#9cdd51'),
     paint(new THREE.SphereGeometry(.055,10,8).translate(-.075,.25,0),'#c3ef77'),paint(new THREE.SphereGeometry(.034,8,6).translate(.1,.34,.04),'#b2e564'),

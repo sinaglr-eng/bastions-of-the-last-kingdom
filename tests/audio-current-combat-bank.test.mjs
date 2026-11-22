@@ -9,6 +9,7 @@ import {AudioManager} from '../game/audio/audio.js';
 import {recordedCatalogue,recordedAttackCue,RECORDED_ATTACK_TYPES} from '../game/audio/recorded-attacks.js';
 import {recordedAudioBankReview} from '../game/audio/audio-assets.js';
 import {CURRENT_ATTACK_CATALOGUE,CURRENT_ATTACK_REVIEW,CURRENT_ATTACK_REVISION} from '../game/audio/current-attack-assets.js';
+import {CONTACT_NAMES,CONTACT_OFFSETS,CONTACT_SLICE_SECONDS,directContact} from '../game/audio/contact-cues.js';
 import {buildCurrentCombatAudio,currentCombatBindings,NEW_COMBAT_EFFECT_IDS} from '../tools/build-current-combat-audio.mjs';
 const read=file=>JSON.parse(readFileSync(new URL('../'+file,import.meta.url))),raw=read('public/assets/audio/combat-effects-current/catalogue.json'),legacy=read('public/assets/audio/approved-20261011/catalogue.json');
 const bankUrl='https://example.test/project/assets/audio/combat-effects-current/catalogue.json?v=test',bank=recordedCatalogue(raw,bankUrl),sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
@@ -67,4 +68,71 @@ test('current catalogue rejects ambiguous rank cues, unknown effects and unsafe 
 
 test('builder rejects an incomplete selection before replacing the existing output',async()=>{
   const directory=await fs.mkdtemp(path.join(os.tmpdir(),'bastions-combat-audio-test-'));try{const target=path.join(directory,'public/assets/audio/combat-effects-current/catalogue.json'),selection=path.join(directory,'selection.json');await fs.mkdir(path.dirname(target),{recursive:true});await fs.writeFile(target,'preserved');await fs.writeFile(selection,JSON.stringify({clips:[]}));await assert.rejects(()=>buildCurrentCombatAudio({workspace:directory,selectionFile:selection}),/fifteen selected identities/);assert.equal(await fs.readFile(target,'utf8'),'preserved');}finally{assert.ok(path.resolve(directory).startsWith(path.resolve(os.tmpdir())+path.sep+'bastions-combat-audio-test-'));await fs.rm(directory,{recursive:true,force:true});}
+});
+
+test('all current weapons have a contact, with independent damage, immunity and evasion outcomes',()=>{
+  for(const row of raw.defenders)for(const cue of row.cues){
+    for(const type of ['physical','magical','holy']){
+      const result={type,directHit:true,effectiveDamage:15,visible:true};
+      assert.ok(CONTACT_NAMES.includes(directContact(cue,result)),row.character_id);
+      for(const [reason,expected] of [['shield','block'],['shell','block'],['evasion','dodge'],['magic-immunity','ward'],['physical-immunity','ward'],['dead',null],['invalid',null]]){
+        assert.equal(directContact(cue,{...result,effectiveDamage:0,blockReason:reason}),expected);
+      }
+      assert.equal(directContact(cue,{...result,immunityMultiplier:.15}),'breach');
+      assert.equal(directContact(cue,{...result,visible:false}),null);
+      assert.equal(directContact(cue,{...result,directHit:false}),null);
+    }
+  }
+  const sound=(family,type)=>directContact(bank.defenders.get(family).cues[0],{type,directHit:true,effectiveDamage:5});
+  assert.equal(sound('frostwarden','physical'),'oak');assert.equal(sound('runebreaker','physical'),'anvil');
+  assert.equal(sound('ladyclaire','holy'),'holy');assert.equal(sound('el_drow_blade','magical'),'moon');
+  assert.equal(sound('royalarsenal','magical'),'storm');assert.equal(sound('el_drow_cinder','magical'),'silk');
+});
+
+test('each authored contact slice decodes to a distinct, bounded mono waveform and decays to silence',()=>{
+  const bytes=readFileSync(new URL('../public/assets/audio/combat-effects-current/contact-atlas-1.wav',import.meta.url));
+  assert.equal(bytes.toString('ascii',8,12),'WAVE');assert.equal(bytes.readUInt16LE(22),1);
+  const frames=bytes.readUInt32LE(24)*CONTACT_SLICE_SECONDS;
+  assert.equal(bytes.length,44+2*CONTACT_NAMES.length*frames);const hashes=new Set();
+  for(let i=0;i<CONTACT_NAMES.length;i++){
+    const slice=bytes.subarray(44+i*frames*2,44+(i+1)*frames*2);hashes.add(sha(slice));
+    let peak=0,power=0;for(let n=0;n<slice.length;n+=2){const v=slice.readInt16LE(n);peak=Math.max(peak,Math.abs(v));power+=(v/32768)**2;}
+    assert.ok(peak<27000&&peak>20000&&power/frames>.001,CONTACT_NAMES[i]);
+    assert.equal(slice.readInt16LE(0),0);assert.ok(slice.subarray(slice.length-200).every(x=>x===0));
+  }
+  assert.equal(hashes.size,CONTACT_NAMES.length);
+});
+
+test('real campaign plays one body/outcome per attack and FX only for confirmed statuses',async()=>{
+  const h=harness();h.audio.syncGameState({phase:'combat',data:{fr010:true}});
+  // The atlas is a single shared long buffer. Preserve start offsets to check slice selection.
+  h.context.decodeAudioData=async()=>({duration:CONTACT_NAMES.length*CONTACT_SLICE_SECONDS,sampleRate:24000});
+  const node=h.context.createBufferSource.bind(h.context);
+  h.context.createBufferSource=()=>{const src=node();src.start=(...args)=>{src.started=args;};return src;};
+  const s=shot('el_drow_blade'),p={...s,type:'magical',enemy:{},target:{},effectiveDamage:4,directHit:true,visible:true};
+  try{
+    await h.audio.play('shot',p);await h.audio.play('shot',{...p,firstPrimary:false});assert.equal(h.played().length,1);
+    await h.audio.play('hit',p);await h.audio.play('damage-trace',{...p,directHit:false});assert.equal(h.played().length,1);
+    await h.audio.play('damage-trace',p);assert.equal(h.played().at(-1).started[1],CONTACT_OFFSETS.get('moon'));
+    await h.audio.play('impact',{...p,appliedStatuses:[]});assert.equal(h.played().length,2);
+    await h.audio.play('impact',{...p,appliedStatuses:['freeze']});assert.equal(h.played().at(-1).started[1],CONTACT_OFFSETS.get('shatter'));
+    await h.audio.play('damage-trace',{...p,effectiveDamage:0,blockReason:'evasion'});assert.equal(h.played().at(-1).started[1],CONTACT_OFFSETS.get('dodge'));
+    await h.audio.play('impact',{...p,execution:true,result:p});assert.equal(h.played().at(-1).started[1],CONTACT_OFFSETS.get('execute'));
+    await h.audio.play('damage-trace',{...p,visible:false});assert.equal(h.played().length,5);
+    assert.equal(h.requests.filter(url=>url.endsWith('.wav')).length,1);
+  }finally{h.audio.dispose();}
+});
+
+test('a channel shares one sustained voice, releases when input expires and is cut on pause',async()=>{
+  const h=harness();const state={phase:'combat',data:{fr010:true}};
+  h.audio.syncGameState(state);
+  const flame={...shot('dw_flamewarden'),stats:{continuousAttack:{angleDegrees:35}}};
+  try{
+    await h.audio.play('aura-attack',flame);
+    for(let i=0;i<15;i++){h.context.currentTime+=.016;h.advance(16);await h.audio.play('aura-attack',flame);}
+    assert.equal(h.played().length,1);const src=h.played()[0];
+    assert.equal(src.loop,true);assert.ok(src.stops.at(-1)>.3&&src.stops.at(-1)<.5);
+    h.audio.syncGameState({...state,paused:true});assert.equal(h.audio.voices.size,0);
+    h.audio.syncGameState(state);h.advance(500);await h.audio.play('aura-attack',flame);assert.equal(h.played().length,2);
+  }finally{h.audio.dispose();}
 });

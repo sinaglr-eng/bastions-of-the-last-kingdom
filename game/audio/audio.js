@@ -1,6 +1,7 @@
 import {attackVisualKind} from '../render/combat-effects.js';
 import {recordedCatalogue,recordedAttackCue} from './recorded-attacks.js';
 import {RecordedMusic} from './recorded-music.js';
+import {BattleMix} from './battle-mix.js';
 
 const INTERVALS={attack:.065,impact:.09,hit:.10,death:.12,build:.045,magic:.12,ui:.07};
 const soundKind=payload=>attackVisualKind(payload.source?.family||payload.tower?.family,payload.stats||{type:payload.type});
@@ -15,6 +16,7 @@ export class AudioManager{
     this.voiceRandom=voiceRandom;this.fetchAudio=fetchAudio;this.selectionCatalogue=new Map();this.audioBuffers=new Map();this.audioLoads=new Set();
     this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.committedVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
     this.recordedEffects=new Map();this.recordedDefenders=new Map();this.recordedCatalogueRequest=0;this.attackGeneration=0;this.gameState=null;this.effectFailures=new Map();
+    this.battleMix=new BattleMix(this);
     this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music*this.categoryVolumes.music/100,celebrationVolume:()=>this.channels.Victory,...musicTimers});this.music.setMuted(this._muted);
   }
   getCategoryVolume(category){
@@ -113,12 +115,15 @@ export class AudioManager{
     // playing. The caller supplies the actual player/background pause state.
     const paused=!!game?.paused&&!['won','lost'].includes(game?.phase);
     const transportPaused=!!musicPaused&&!['won','lost'].includes(game?.phase);
+    this.currentCampaign=!!game?.data?.fr010;
+    if(this.gameState?.phase==='combat'&&game?.phase!=='combat'){this.battleMix.clear();this.stopGameVoices({preserveSelectionVoice:true});}
     if(game?.phase!==this.gameState?.phase||paused&&!this.gameState?.paused)this.attackGeneration++;
     if(transportPaused&&!this.gameState?.musicPaused){this.cancelSelectionVoice();this.stopGameVoices();}
     else if(paused&&!this.gameState?.paused)this.stopGameVoices({preserveSelectionVoice:true});
     this.gameState={phase:game?.phase,paused,musicPaused:transportPaused,round:game?.round,waveLimit:game?.waveLimit};this.music.sync({...this.gameState,paused:transportPaused});
   }
   resetRun(){
+    this.battleMix.clear();this.currentCampaign=false;
     this.attackGeneration++;this.cancelSelectionVoice();this.committedVoiceKeys=new WeakMap();this.music.reset();this.gameState=null;this.last.clear();this.recent=[];
     this.stopGameVoices();
   }
@@ -309,6 +314,10 @@ export class AudioManager{
     if(event==='defender-select')return;
     if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
     if(['wave','reward','won','lost'].includes(event))this.attackGeneration++;
+    if(this.currentCampaign){
+      const playback=this.battleMix.play(event,payload);
+      if(playback!==undefined)return playback;
+    }
     const cue=recordedAttackCue(event,payload,this.recordedDefenders);
     if(cue&&this.recordedEffects.has(cue)){
       const current=this.recordedDefenders.get((payload.source||payload.tower)?.family)?.cues;

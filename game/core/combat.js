@@ -1,3 +1,4 @@
+import {activeAttackStatuses,newAttackStatuses} from './attack-feedback.js';
 import {artifactEffects,artifactDamageMultiplier,updateArtifactDots,artifactDeath,artifactPrimaryContact,refreshArtifactTimedStatuses,applyArtifactTimedStatus,applyArtifactAwareNativeControl} from './artifact-combat.js';
 import {usesArtifactRulesV3} from './artifacts.js';
 import {updateFactionTower,factionImpact} from './faction-combat.js';
@@ -102,6 +103,8 @@ export class CombatManager {
   resolveDamage(enemy,amount,type,stats={},source){
     type=damageType(type,stats.type);
     const result={enemy,source,type,effect:stats.effect||stats.projectileEffect||type,requestedDamage:amount,beforeDefense:0,effectiveArmor:0,armorMultiplier:1,afterArmor:0,shellBlock:0,afterShell:0,appliedDamage:0,effectiveDamage:0,blockReason:null,directHit:!!stats.directHit,critical:!!stats.critical,visible:this.isRevealed(enemy),contact:false};
+    const presentationAbility=stats._fr002Lineage?.at(-1)||stats._fr002Slice?.key;
+    if(presentationAbility)result.presentationAbility=presentationAbility;
     const finish=()=>{this.game.emit('damage-trace',result);return result;};
     if(['won','lost'].includes(this.game.phase)){result.blockReason='run-ended';return result;}
     if(enemy.dead){result.blockReason='dead';return finish();}
@@ -229,9 +232,12 @@ export class CombatManager {
     const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&attackTargetAllowed(stats,e)&&(!stats.melee||distance(e,source)<=stats.range+.25)&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
     const critical=!!(stats.critChance&&this.game.rng()<stats.critChance);
     const hitDamage=stats.damage*(critical?stats.critMultiplier:1),hitStats={...stats,directHit:true,critical};
+    const previousStatuses=activeAttackStatuses(target);
+    let primaryResult=null;
     const landed=[],contacted=[];
     for(const enemy of victims)if(this.canSee(enemy,source)){
       const result=this.resolveDamage(enemy,hitDamage,stats.type,hitStats,source);
+      if(enemy===target)primaryResult=result;
       if(result.contact){contacted.push(enemy);this.applyEffects(enemy,stats,source,{landedDamage:result.appliedDamage>0});}
       if(enemy===target)artifactPrimaryContact(this,result,stats,source);
       if(result.appliedDamage>0)landed.push(enemy);
@@ -265,7 +271,8 @@ export class CombatManager {
       for(const e of this.enemies)if(!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.burnedRadius){const damage=this.damage(e,stats.damage*stats.burnedMultiplier,type,{...stats,effect:'fire'},source);if(damage>0){victims.push(e);amount+=damage;}}
       if(victims.length)this.game.emit('burn-proc',{source,target,victims,amount,type,effect:'fire',visible:this.canSee(target,source)});
     }
-    this.game.emit('impact',{source,target,stats,effect:stats.projectileEffect,x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
+    const area=stats.splash?{familyId:'splash',radius:stats.splash}:stats.cleave?{familyId:'cleave',radius:stats.cleaveRadius}:null;
+    this.game.emit('impact',{source,target,stats,area,result:primaryResult,appliedStatuses:newAttackStatuses(target,previousStatuses),effect:stats.projectileEffect,x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
   }
   update(dt) {
     if(['won','lost'].includes(this.game.phase))return;

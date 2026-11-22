@@ -111,7 +111,7 @@ export class Battlefield {
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(this.renderBudget.shadowMapSize,this.renderBudget.shadowMapSize);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.sun=sun;this.scene.add(sun);
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
     const desktop=container.clientWidth>=1200&&!window.matchMedia?.('(pointer: coarse)').matches,targetHeight=e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(e);
-    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),camera:()=>this.camera,getViewport:()=>({height:this.container.clientHeight}),getSimulationTime:()=>this.game.combat.elapsed,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches,maxDetailed:desktop?192:96,maxProjectiles:desktop?144:64,maxEffects:desktop?48:32,maxBreaths:desktop?8:4});
+    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight,getStats:t=>towerStats(t,this.game.data),getKeepPosition:()=>{const keep=this.game.grid.checkpoints.at(-1);return v3(keep.x,1.6,keep.z);},getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),camera:()=>this.camera,getViewport:()=>({height:this.container.clientHeight}),getSimulationTime:()=>this.game.combat.elapsed,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches,maxDetailed:desktop?192:96,maxProjectiles:desktop?144:64,maxEffects:desktop?48:32,maxBreaths:desktop?8:4});
     this.combatStatusVfx=new CombatStatusVfx(this.scene,{position:v3,targetHeight,camera:()=>this.camera,getViewport:()=>({height:this.container.clientHeight}),isVisible:e=>this.game.combat.isRevealed(e),getTime:()=>this.game.combat.elapsed,reducedMotion:()=>!!this.reducedMotion?.matches,maxInstances:desktop?512:256});
     this.commanderEffects=new CommanderEffects(this.scene,{position:v3,camera:()=>this.camera,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:target=>target.visible!==false,
       towerPoint:tower=>{const actor=this.models.get(tower.id)?.actor;if(!actor)return v3(tower.x,2.2,tower.z);actor.updateWorldMatrix(true,true);const box=new THREE.Box3().setFromObject(actor);return v3(tower.x,Number.isFinite(box.max.y)?box.max.y+.15:2.2,tower.z);},
@@ -428,8 +428,8 @@ export class Battlefield {
     this.combatEffects.event(type,payload);
     this.enemyAbilityEffects?.event(type,payload);
     if(['place','combine','keep'].includes(type)){const t=payload.tower;this.burst(t.x,t.z,type==='combine'?'#ead091':'#c7d4a8',type==='combine'?2.5:0.7);}
-    if(type==='impact'&&payload.heavy&&!this.reducedMotion?.matches)this.shake=0.075;
-    if(type==='deflect')this.burst(payload.enemy.x,payload.enemy.z,'#a5dfdf',.5);
+    if(type==='impact'&&payload.heavy&&payload.result?.effectiveDamage>0&&!this.reducedMotion?.matches)this.shake=0.075;
+    if(type==='deflect'&&payload.visible!==false&&this.game.combat.isRevealed(payload.enemy))this.burst(payload.enemy.x,payload.enemy.z,'#a5dfdf',.5);
     if(type==='death'){
       const enemy=payload.enemy;let figure=this.enemies.get(enemy.id);
       if(payload.visible===false){if(figure){this.scene.remove(figure);disposeEnemyFigure(figure);this.enemies.delete(enemy.id);}return;}
