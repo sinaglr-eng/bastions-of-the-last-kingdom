@@ -191,7 +191,7 @@ test('unknown and incomplete enemy entries remain safe and all text and image at
 
 test('real campaign mixed immunity wave reports actual possible defenses with full group count and consumes no game RNG',()=>{
   const analyzer=new WaveThreatAnalyzer(data),before=JSON.stringify(data),outlook=analyzer.outlook(34,50),wave=outlook.next,html=nextWaveSummaryMarkup(outlook,data,{});
-  assert.match(html,/Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity/);assert.match(html,/Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);assert.doesNotMatch(html,/magic resistance|piercing damage/);
+  assert.match(html,/Magical immunity/);assert.match(html,/Physical immunity/);assert.doesNotMatch(html,/only Holy damage bypasses/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);assert.doesNotMatch(html,/magic resistance|piercing damage/);
   assert.ok(html.includes(`${wave.enemies[0].count} × ${wave.enemies[0].name}`));assert.match(html,/21,640 HP each/);assert.equal((html.match(/21,640 HP each/g)||[]).length,1);assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);
   assert.equal(JSON.stringify(data),before);assert.equal(nextWaveSummaryMarkup(outlook,data,{}),html);assert.strictEqual(analyzer.outlook(34,50).next,wave);
 });
@@ -199,7 +199,7 @@ test('real campaign mixed immunity wave reports actual possible defenses with fu
 test('all 50 real campaign summaries show each effective individual HP and trait without exposing base speed',()=>{
   const analyzer=new WaveThreatAnalyzer(campaign);assert.equal(campaign.waves.length,50);for(let index=0;index<campaign.waves.length;index++){
     const next=analyzer.analyze(index),html=nextWaveSummaryMarkup(next,campaign,{});assert.ok(html.includes(next.name));assert.ok(html.includes(`<strong>Next wave ${index+1}</strong><small>${next.totalCount} ${next.totalCount===1?'invader':'invaders'}</small>`));
-    for(const enemy of next.enemies)for(const variant of enemy.variants)for(const trait of variant.traitDetails)assert.ok(html.includes(trait.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')),`Wave ${index+1}: ${trait.text}`);
+    for(const enemy of next.enemies)for(const variant of enemy.variants)for(const trait of variant.traitDetails)assert.ok(html.includes(trait.compact.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')),`Wave ${index+1}: ${trait.compact}`);
     const articles=html.match(/<article class="next-wave-group">[\s\S]*?<\/article>/g)||[];assert.equal(articles.length,next.enemies.length);
     next.enemies.forEach((enemy,group)=>{for(const variant of enemy.variants)assert.ok(articles[group].includes(`${hpNumber(variant.maxHp)} HP each`),`Wave ${index+1} ${variant.name}: ${variant.maxHp} individual HP`);});
     assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);

@@ -6,8 +6,7 @@ const descriptions={reroll:['Reroll','reset','Generate new defenders once per dr
 function commandButton(game,action){
   const state=game.commandActions[action],info=descriptions[action];
   const label=`${info[0]} — ${state.cost} CP`,description=state.available?info[2]:state.reason;
- const showIcons=action==='move';
- return `<div class="command-action"><button type="button" class="text-button command-button" data-action="${action}" ${state.available?'':'disabled'} aria-label="${escape(`${label}. ${description}`)}" title="${escape(description)}">${showIcons?icon(info[1]):''}<span>${info[0]}</span><b class="command-cost">${showIcons?icon('command'):''}<span>${state.cost} CP</span></b></button>${!state.available&&state.reason?`<small class="command-disabled-reason">${escape(state.reason)}</small>`:''}</div>`;
+ return `<div class="command-action"><button type="button" class="text-button command-button" data-action="${action}" ${state.available?'':'disabled'} aria-label="${escape(`${label}. ${description}`)}" title="${escape(description)}">${action==='move'?icon(info[1]):''}<span>${info[0]}</span><small class="command-cost decision-price">${state.cost} CP</small></button>${!state.available&&state.reason?`<small class="command-disabled-reason">${escape(state.reason)}</small>`:''}</div>`;
 }
 
 export function commandPointsMarkup(game,{context='draft'}={}){

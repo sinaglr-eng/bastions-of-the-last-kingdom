@@ -1,7 +1,6 @@
 import {GENERAL_SKILLS} from '../game/core/general.js';
-import {commanderSkillArt} from './commander-art.js';
 
-const skills=['field-promotion','deep-refit'];
+const skills=['deep-refit','field-promotion'];
 const preparedSkills=new WeakMap();
 
 export function draftSkillState(game,id){
@@ -60,6 +59,6 @@ export function draftSkillActionsMarkup(game){
  const prepared=preparedDraftSkill(game);
  return skills.filter(id=>game.general.level(id)).map(id=>{
   const state=draftSkillState(game,id),pressed=prepared===id,name=GENERAL_SKILLS[id].name;
-  return `<button type="button" class="secondary-button draft-skill-action" data-action="prepare-draft-skill" data-skill="${id}" aria-pressed="${pressed}" ${state.available?'':'disabled'} title="${state.reason||name}"><img src="${commanderSkillArt(id)}" width="22" height="22" alt=""><span>${pressed?`Cancel ${name}`:`${name} · ${state.price}`}</span></button>`;
+  return `<button type="button" class="secondary-button draft-skill-action" data-action="prepare-draft-skill" data-skill="${id}" aria-pressed="${pressed}" ${state.available?'':'disabled'} title="${state.reason||name}" aria-label="${pressed?`Cancel ${name}`:`${name} · ${state.price}`}"><span>${pressed?`Cancel ${name}`:name}</span>${pressed?'':`<small class="decision-price">${state.price}</small>`}</button>`;
  }).join('');
 }

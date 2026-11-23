@@ -15,6 +15,34 @@ import {currentWavePanelMarkup} from '../ui/current-wave-panel.js';
 import {currentWaveSummaryMarkup} from '../ui/current-wave-summary.js';
 import {selectedEnemyMarkup} from '../ui/selected-enemy.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url)),json=p=>JSON.parse(read(p)),sha=b=>createHash('sha256').update(b).digest('hex');
+const updatedElfNames={
+ "el_moonblade": "Elf Defender",
+ "el_sealweaver": "Drow Shaman",
+ "el_drow_cinder": "Nigthweaver",
+ "el_drow_blade": "Drow Assassin",
+ "el_elven_archer": "Ranger Scout",
+ "el_elven_bowmaster": "Ranger Captain",
+ "el_tempest_bowmage": "Ranger Warden",
+ "el_starfall_bowmaster": "Eagle Ranger",
+ "el_twilight_huntress": "Drow Huntress",
+ "el_elven_mage": "Thunder Adept",
+ "el_storm_conductor": "Thunder Guard",
+ "el_wisp_conductor": "Phoenix Rider",
+ "el_veil_adept": "Wraithcaller",
+ "el_sealwarden": "Moon Specter",
+ "el_moonwell_seer": "Banshee",
+ "el_drow_ember_novice": "Broodguard",
+ "el_drow_pyromancer": "Spider Rider",
+ "el_drow_ember_matron": "Spider Queen",
+ "el_drow_blade_initiate": "Assassin Apprentice",
+ "el_drow_duelist": "Assassin Adept",
+ "el_drow_ashblade": "Assassin Expert",
+ "el_drow_eclipse_duelist": "Assassin Master",
+ "el_drow_gloom_initiate": "Battlemage Apprentice",
+ "el_drow_eclipse_priest": "Battlemage Adept",
+ "el_veilfire_hierophant": "Battlemage Expert",
+ "el_drow_night_hierarch": "Battlemage Master"
+};
 const all=loadCurrentDatasets(),prior=loadCurrentDatasets({revision:'fr007r3'}),images=referencePortraitImageMap({base:'/fixture/'});
 test('current FR008 preserves every numeric profile, recipe and enemy definition; Elf primary weapons gain air targeting',()=>{
  const withoutNarrative=value=>JSON.parse(JSON.stringify(value,(key,v)=>['text','description'].includes(key)?undefined:v));
@@ -22,6 +50,7 @@ test('current FR008 preserves every numeric profile, recipe and enemy definition
   assert.equal(all[id].fr008,true);assert.equal(all[id].rulesetRevision,'fr008-r1-20261106');
   for(const key of ['towers','recipes','enemies','waves']){
    const expected=structuredClone(prior[id][key]);
+   if(id==='grove'&&key==='towers')for(const [family,name] of Object.entries(updatedElfNames)){expected[family].name=name;expected[family].short=name;}
    if(id==='grove'&&key==='towers')for(const family of ['el_baby_fire_dragon','el_fire_dragon','el_mother_fire_dragon','el_ancient_patriarch']){const dragon=expected[family];dragon.groundOnly=false;dragon.continuousAttack.targeting='ground-and-air';dragon.abilities.find(a=>a.familyId==='flame-cone').targeting='ground-and-air';}
    if(id==='grove'&&key==='towers')for(const unit of Object.values(expected))for(const stats of [unit,...(unit.levels||[])])if(stats.groundOnly)stats.groundOnly=false;
    assert.deepEqual(withoutNarrative(all[id][key]),withoutNarrative(expected),`${id} ${key}`);
@@ -60,6 +89,7 @@ test('FR008 actual scheduled wave-38 weapons apply HP damage in all 628 cases wi
  for(const key of ['allProfiles','knifemanSamples','dwarfWithRuneMage','auraSamples','healingSamples']){
   const actual=structuredClone(r[key]);
   for(const [i,row] of actual.entries())if(row.faction==='grove'&&row.stats){assert.equal(row.stats.groundOnly,false);row.stats.groundOnly=baseline[key][i].stats.groundOnly;}
+  for(const row of actual)if(row.faction==='grove'&&updatedElfNames[row.family]&&Object.hasOwn(row,'name')){assert.equal(row.name,updatedElfNames[row.family]);row.name=prior.grove.towers[row.family].name;}
   assert.deepEqual(actual,baseline[key],`${key}: the authorized Elf dragon targeting metadata cannot change ground-wave damage or healing`);
  }
 });

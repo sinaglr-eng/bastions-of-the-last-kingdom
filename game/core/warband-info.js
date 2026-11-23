@@ -44,28 +44,28 @@ export function warbandTraits(enemy) {
 // Explicit keys pair a description with the same silhouette used in combat.
 export function warbandTraitDetails(enemy,R=ENEMY_RULES) {
   const traits=[];
-  const add=(text,kind=null)=>traits.push({text,kind});
-  if(enemy.magicImmune)add('Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity','magicImmune');
-  if(enemy.physicalImmune)add('Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity','physicalImmune');
-  if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen');
-  if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion`,'evasion');
-  if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · regenerate ${R.refraction.period}s after the final charge is spent · damage-over-time and auras bypass shields`,'refraction');
-  if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per direct hit, including Holy damage`,'krakenShell');
-  if(enemy.reactiveArmor>0)add(`Reactive armor · +${enemyNumber(enemy.reactiveArmor)} armor per direct hit · maximum ${R.reactive.maxStacks} stacks (${enemyNumber(enemy.reactiveArmor*R.reactive.maxStacks)} armor) · decays ${R.reactive.decayPerSecond} stacks/s`,'reactive');
-  if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} missing health every ${R.recharge.period}s · healing block prevents recharge`,'recharge');
+  const add=(text,kind,compact)=>traits.push({text,kind,compact});
+  if(enemy.magicImmune)add('Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity','magicImmune','Magical immunity');
+  if(enemy.physicalImmune)add('Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity','physicalImmune','Physical immunity');
+  if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen',`${percent(enemy.regen)} HP regen/s`);
+  if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion`,'evasion',`${percent(enemy.evasion)} evasion`);
+  if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · regenerate ${R.refraction.period}s after the final charge is spent · damage-over-time and auras bypass shields`,'refraction',`${enemyNumber(enemy.refraction)} hit shields`);
+  if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per direct hit, including Holy damage`,'krakenShell',`${enemyNumber(enemy.krakenShell)} damage block/hit`);
+  if(enemy.reactiveArmor>0)add(`Reactive armor · +${enemyNumber(enemy.reactiveArmor)} armor per direct hit · maximum ${R.reactive.maxStacks} stacks (${enemyNumber(enemy.reactiveArmor*R.reactive.maxStacks)} armor) · decays ${R.reactive.decayPerSecond} stacks/s`,'reactive',`+${enemyNumber(enemy.reactiveArmor)} armor/hit`);
+  if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} missing health every ${R.recharge.period}s · healing block prevents recharge`,'recharge',`${percent(enemy.recharge)} missing HP/${R.recharge.period}s`);
   if(enemy.stealth||enemy.cloakDaggers){
     const cloak=enemy.stealth?'Cloaked continuously':`Cloaked for ${R.cloak.hiddenDuration}s, visible for ${R.cloak.period-R.cloak.hiddenDuration}s, every ${R.cloak.period}s`;
-    add(`${cloak} · revealed within ${R.reveal.checkpointRadius} tiles of checkpoints, ${R.reveal.defenderRadius} of defenders, or ${R.reveal.clericRadius} of Clerics (detector abilities may reach farther)`);
+    add(`${cloak} · revealed within ${R.reveal.checkpointRadius} tiles of checkpoints, ${R.reveal.defenderRadius} of defenders, or ${R.reveal.clericRadius} of Clerics (detector abilities may reach farther)`,null,enemy.stealth?'Permanent cloak':`Cloak ${R.cloak.hiddenDuration}s/${R.cloak.period}s`);
   }
-  if(enemy.disarm)add(`Disarms defenders within ${R.disarm.radius} tiles for ${R.disarm.duration}s every ${R.disarm.period}s · control resistance shortens duration`);
-  if(enemy.blink>0)add(`Blinks ${enemyNumber(enemy.blink)} tiles every ${R.blink.period}s`);
-  if(enemy.rush>0)add(`Blood rush · ×${enemyNumber(enemy.rush)} speed for ${R.rush.duration}s every ${R.rush.period}s`);
-  if(enemy.hasteAura>1)add(`Invaders within ${R.support.radius} tiles gain ${percent(enemy.hasteAura-1)} movement speed for ${R.support.hasteDuration}s every ${R.support.hastePeriod}s`);
-  if(enemy.untouchable>0)add(`Dread · a defender dealing actual HP damage loses ${percent(enemy.untouchable)} attack speed for ${R.dread.duration}s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing`,'untouchable');
-  if(enemy.thief>0)add(`Steals ${enemyNumber(enemy.thief)} gold on reaching the keep`);
-  if(enemy.type==='shaman')add(`Invaders within ${R.support.radius} tiles gain ${percent(R.support.shamanHaste-1)} movement speed continuously`);
-  if(enemy.type==='berserker')add(`Below ${percent(R.rush.berserkerThreshold)} health · ×${R.rush.berserkerSpeed} movement speed`);
-  if(enemy.type==='sapper')add(`Scorches barricades within ${R.sapper.radius} tiles for ${R.sapper.duration}s · defenders within ${R.sapper.defenderRadius} tiles of each scorched barricade lose ${percent(R.sapper.attackPenalty)} attack speed`);
+  if(enemy.disarm)add(`Disarms defenders within ${R.disarm.radius} tiles for ${R.disarm.duration}s every ${R.disarm.period}s · control resistance shortens duration`,null,`Disarm ${R.disarm.duration}s`);
+  if(enemy.blink>0)add(`Blinks ${enemyNumber(enemy.blink)} tiles every ${R.blink.period}s`,null,`Blink ${enemyNumber(enemy.blink)} tiles`);
+  if(enemy.rush>0)add(`Blood rush · ×${enemyNumber(enemy.rush)} speed for ${R.rush.duration}s every ${R.rush.period}s`,null,`Rush ×${enemyNumber(enemy.rush)} speed`);
+  if(enemy.hasteAura>1)add(`Invaders within ${R.support.radius} tiles gain ${percent(enemy.hasteAura-1)} movement speed for ${R.support.hasteDuration}s every ${R.support.hastePeriod}s`,null,`Haste aura +${percent(enemy.hasteAura-1)}`);
+  if(enemy.untouchable>0)add(`Dread · a defender dealing actual HP damage loses ${percent(enemy.untouchable)} attack speed for ${R.dread.duration}s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing`,'untouchable',`Dread: −${percent(enemy.untouchable)} attack speed`);
+  if(enemy.thief>0)add(`Steals ${enemyNumber(enemy.thief)} gold on reaching the keep`,null,`Steals ${enemyNumber(enemy.thief)} gold`);
+  if(enemy.type==='shaman')add(`Invaders within ${R.support.radius} tiles gain ${percent(R.support.shamanHaste-1)} movement speed continuously`,null,`Haste aura +${percent(R.support.shamanHaste-1)}`);
+  if(enemy.type==='berserker')add(`Below ${percent(R.rush.berserkerThreshold)} health · ×${R.rush.berserkerSpeed} movement speed`,null,`Low HP: ×${R.rush.berserkerSpeed} speed`);
+  if(enemy.type==='sapper')add(`Scorches barricades within ${R.sapper.radius} tiles for ${R.sapper.duration}s · defenders within ${R.sapper.defenderRadius} tiles of each scorched barricade lose ${percent(R.sapper.attackPenalty)} attack speed`,null,`Scorch: −${percent(R.sapper.attackPenalty)} attack speed`);
   return traits;
 }
 

@@ -33,7 +33,7 @@ function defenses(enemy){
       if(!traits.has(key))traits.set(key,{text,kind,variants:[]});traits.get(key).variants.push(index);
     };
     if(Number.isFinite(variant.armor)&&variant.armor>0)add(`${number(variant.armor)} armor`);
-    for(const trait of Array.isArray(variant.traitDetails)?variant.traitDetails:[])if(trait?.text)add(trait.text,trait.kind);
+    for(const trait of Array.isArray(variant.traitDetails)?variant.traitDetails:[])if(trait?.text)add(trait.compact||trait.text,trait.kind);
   });
   if(!traits.size)return `<p class="next-wave-no-traits">${enemy.unknown?'Enemy ability information unavailable':'No special resistances or abilities'}</p>`;
   return `<ul class="next-wave-traits">${[...traits.values()].map(trait=>{

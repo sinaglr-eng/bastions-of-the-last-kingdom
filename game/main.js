@@ -301,7 +301,7 @@ function renderDraft(){
   app.dataset.draftTargeting=String(!!prepared);
   const count=game.draft.draws.filter(draw=>draw.placed).length;
   const compact=$('compact-draft-actions');compact.hidden=true;compact.replaceChildren();
-  $('folio-command-actions').innerHTML=game.phase==='select'?commandPointsMarkup(game,{context:'draft'})+draftSkillActionsMarkup(game):'';
+  $('folio-command-actions').innerHTML=game.phase==='select'?draftSkillActionsMarkup(game)+commandPointsMarkup(game,{context:'draft'}):'';
   $('folio-create-actions').innerHTML=actualAvailableRecipeActionsMarkup(game,{displayedTower:game.selection?rankPreview.view(game.selection,game.data):null});
   if(!['build','select'].includes(game.phase)){host.innerHTML='';return;}
   const heading=game.phase==='build'?`Building <span class="draft-sub">Place recruit ${Math.min(5,count+1)} of 5</span>`:'Choose keeper <span class="draft-sub">Recruit a defender for this wave</span>';

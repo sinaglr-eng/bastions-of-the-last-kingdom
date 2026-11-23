@@ -54,7 +54,7 @@ test('Forge confirms an exact missing artifact and guards duplicate clicks while
 });
 
 test('Collection claim-all is global, Hall drops the YOU prefix, medals link to Skills, and Focus uses clear percentages',()=>{
- const row=achievementCatalog(currentFactionData('forge')).find(row=>row.kind==='champion'),player={user:{id:'test',name:'Commander'},online:true,status:'Connected',readyAchievements:[row],profile:{balance:5,eligible:[row],grants:[]}},html=achievementsView(player,{faction:'crown'});assert.match(html,/data-claim-all\s+aria-label="Claim all 1/);assert.match(html,/1 ready to claim/);
+ const row=achievementCatalog(currentFactionData('forge')).find(row=>row.kind==='champion'),player={user:{id:'test',name:'Commander'},online:true,status:'Connected',readyAchievements:[row],profile:{balance:5,eligible:[row],grants:[]}},html=achievementsView(player,{faction:'crown'});assert.match(html,/data-claim-all\s+aria-label="Claim all 1/);assert.match(html,/>Claim 1 reward<\/button>/);
  const shell=MainMenu.prototype.shell.call({player,page:'home'},'', '');assert.match(shell,/data-open-skills/);assert.match(shell,/aria-label="1 achievements ready to claim"/);
  const entry={id:'own',rank:1,name:'Commander',score:'100',highestWave:1,factionId:'crown',loadout:{}},hall=hallView({top:[entry],own:entry,podium:[],factionId:'all',offset:0,total:1});assert.match(hall,/class="is-own"/);assert.doesNotMatch(hall,/YOU ·/);
  for(const rank of [1,2,3]){const summary=skillSummary('recruitment-focus',rank);assert.doesNotMatch(summary,/\bpp\b|percentage points/);assert.match(summary,/20% becomes/);assert.doesNotMatch(skillEffect('recruitment-focus',rank),/\bpp\b/);}
