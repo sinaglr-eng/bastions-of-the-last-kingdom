@@ -9,7 +9,7 @@ export const rankSkillUnlocks=level=>Object.entries(SKILL_LEVEL_GATES).flatMap((
 const num=n=>(n||0).toLocaleString('en-US');
 export function rankProgressMarkup(total=0){const r=accountRank(total);return `<div class="account-xp-bar" role="progressbar" aria-label="${r.name}, Level ${r.level}${r.next?`. ${r.progress} of ${r.span} XP toward ${r.next.name}`:'. Maximum rank'}" aria-valuemin="0" aria-valuemax="${r.span||100}" aria-valuenow="${r.next?r.progress:100}"><i style="--xp-fill:${r.percent}%"></i></div><small class="account-xp-caption">${r.next?`${num(r.progress)} / ${num(r.span)} XP to ${r.next.name}`:'MAX RANK'} <span>${num(r.total)} total XP</span></small>`;}
 function framedRank(level,size,variant=''){
- return `<i class="rank-framed-face ${variant}" aria-hidden="true"><img src="${homelandArt('rank'+level)}" width="${size}" height="${size}" alt=""></i>`;
+ return `<i class="rank-framed-face ${variant}" aria-hidden="true"><img src="${homelandArt('rank-framed-'+level)}" width="${size}" height="${size}" alt=""></i>`;
 }
 export function accountBadgeMarkup(profile={},large=false){const r=accountRank(profile.xpTotal);return `<section class="account-rank ${large?'is-large':''}" aria-label="Account rank">${framedRank(r.level,large?112:48,large?'rank-large':'rank-header-face')}<div><strong>${r.name} <span>Level ${r.level}</span></strong>${rankProgressMarkup(r.total)}</div></section>`;}
 function rankChestMarkup(level){

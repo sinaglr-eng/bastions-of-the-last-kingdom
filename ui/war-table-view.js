@@ -1,5 +1,5 @@
 import {commanderSkillArt} from './commander-art.js';
-import {homelandArt,woodSign} from './homeland-art.js';
+import {homelandArt,enamelSign} from './homeland-art.js';
 import {siteUrl} from '../game/site-url.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {FACTIONS} from '../game/core/factions.js';
@@ -44,7 +44,7 @@ export function achievementById(id){
  return {data,row};
 }
 export function factionTabs(current,{all=false,attribute='filter-faction'}={}){
- return `<div class="war-faction-tabs" role="group" aria-label="Faction">${[...(all?[{id:'all',name:'All factions'}]:[]),...FACTIONS].map(f=>`<button type="button" data-${attribute}="${f.id}" aria-pressed="${current===f.id}">${attribute==='new-faction'?woodSign(f.id,esc(f.name),current===f.id):factionMark(f.id)+esc(f.name)}</button>`).join('')}</div>`;
+ return `<div class="war-faction-tabs" role="group" aria-label="Faction">${[...(all?[{id:'all',name:'All factions'}]:[]),...FACTIONS].map(f=>`<button type="button" data-${attribute}="${f.id}" aria-pressed="${current===f.id}">${attribute==='new-faction'?enamelSign(f.id,esc(f.name),current===f.id):factionMark(f.id)+esc(f.name)}</button>`).join('')}</div>`;
 }
 export function goalMarkup(player,faction='crown'){
  if(!player.user)return `<section class="war-goal"><img src="${warArt('collection')}" alt=""><div><h2>Your legacy starts here</h2><p>Sign in to collect achievements and strengthen your commander.</p><button data-nav="sign-in">Sign In</button></div></section>`;

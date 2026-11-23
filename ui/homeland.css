@@ -313,9 +313,9 @@
  #main-menu .menu-header [data-account-rank]>.account-rank img{width:32px;height:32px}
 }
 
-/* Each native control displays one complete illustrated oak sign. */
+/* Each native control displays one complete illustrated enamel plaque. */
 #main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button{height:clamp(48px,5vw,74px);padding:0;background:none}
-#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button>.wood-sign{display:block;width:100%;height:100%;border:0;border-radius:0;padding:0;object-fit:fill;background:transparent;box-shadow:none}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button>.enamel-sign{display:block;width:100%;height:100%;border:0;border-radius:0;padding:0;object-fit:fill;background:transparent;box-shadow:none}
 #main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:before,
 #main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:is([aria-current=page],[aria-pressed=true]):after,
 #main-menu .menu-header::after{content:none}
@@ -323,9 +323,6 @@
 #main-menu .menu-shell.war-shell,#main-menu .war-home .war-command-deck>.war-saved-card{background-size:100% 100%;background-repeat:no-repeat}
 #main-menu .menu-header .menu-account>.menu-rank-link,#main-menu .menu-header .menu-account>.menu-rank-link:hover{border:0;background:transparent;box-shadow:none}
 #main-menu .menu-rank-link:focus-visible,#main-menu .rank-select:focus-visible{outline:3px solid #ffbd48;outline-offset:-3px}
-#main-menu .rank-framed-face{position:relative;display:block;flex:none;width:clamp(44px,5vw,64px);aspect-ratio:1}
-#main-menu .rank-framed-face img{display:block;width:100%;height:100%;object-fit:cover;clip-path:polygon(27% 5%,73% 5%,95% 27%,95% 73%,73% 95%,27% 95%,5% 73%,5% 27%)}
-#main-menu .rank-framed-face:after{content:'';position:absolute;inset:0;background:url('/assets/ui/war-table/homeland/rank-surround.webp') center/100% 100% no-repeat}
 #main-menu .commander-rank-roadmap li>.rank-select{position:absolute;inset:0;z-index:2;width:100%;height:100%;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;cursor:pointer}
 #main-menu .commander-rank-roadmap li:has(.rank-select[aria-pressed=true]){background:#d4dfb7;box-shadow:inset -4px 0 #597343}
 #main-menu .rank-inspect-unlocks{border-top:1px solid #ac9158;padding-top:9px;margin-top:8px}
@@ -401,9 +398,8 @@
 #main-menu .war-saved-card.is-empty [data-start-faction]{color:inherit;font:inherit}
 #main-menu .war-saved-card.is-empty .homeland-start-actions button:hover{filter:brightness(1.06)}
 /* A single portrait mounting across the badge, rank list and inspection panel. */
-.rank-framed-face,#main-menu .rank-framed-face{--frame-size:clamp(44px,5vw,64px);position:relative;display:block;flex:none;width:var(--frame-size);height:var(--frame-size);background:#123826;clip-path:polygon(24% 0,76% 0,100% 24%,100% 76%,76% 100%,24% 100%,0 76%,0 24%)}
-.rank-framed-face img,#main-menu .rank-framed-face img,#main-menu .menu-header [data-account-rank] .rank-framed-face img{position:absolute;left:11%;top:13%;width:78%;height:77%;max-width:none;object-fit:contain;clip-path:none;border:0;background:transparent;box-shadow:none;margin:0;padding:0}
-.rank-framed-face:after{content:'';position:absolute;inset:0;background:url('/assets/ui/war-table/homeland/rank-surround.webp') center/100% 100% no-repeat;pointer-events:none}
+.rank-framed-face,#main-menu .rank-framed-face{--frame-size:clamp(44px,5vw,64px);display:block;flex:0 0 var(--frame-size);width:var(--frame-size);height:var(--frame-size)}
+.rank-framed-face img,#main-menu .rank-framed-face img,#main-menu .menu-header [data-account-rank] .rank-framed-face img{display:block;position:static;width:100%;height:100%;max-width:none;object-fit:contain;clip-path:none;border:0;background:transparent;box-shadow:none;margin:0;padding:0}
 .rank-framed-face.rank-header-face,#main-menu .rank-framed-face.rank-header-face{--frame-size:clamp(32px,3.3vw,50px)}
 .rank-framed-face.rank-large{--frame-size:112px}
 #main-menu .rank-framed-face.rank-hero-medallion{--frame-size:clamp(96px,12vw,172px);margin-bottom:8px}
@@ -462,3 +458,32 @@
 #app .folio-decision-row :is([data-action=reroll],[data-action=reserve]){background:#e2e9ee;border-color:#80949c;color:#274757}
 #app .folio-decision-row .draft-skill-action[aria-pressed=true]{outline:2px solid #365e47;outline-offset:-3px}
 @media(max-width:700px){#app .folio-decision-row:not(:has(.is-moving)){grid-auto-columns:minmax(76px,1fr);overflow-x:auto;max-width:100%;overscroll-behavior-x:contain}}
+
+/* The rendered plates include their labels, relief and selection marker. */
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button{
+ display:grid;place-items:center;min-height:44px;height:auto;border:0;box-shadow:none;background:transparent;padding:0;
+}
+#main-menu .war-faction-selection .war-faction-tabs>button{aspect-ratio:920/202}
+#main-menu .commander-subnav>button{aspect-ratio:740/202}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button>.enamel-sign{width:100%;height:auto;object-fit:contain}
+#main-menu :is(.war-faction-selection .war-faction-tabs,.commander-subnav)>button:focus-visible{outline:3px solid #194f65;outline-offset:2px}
+#main-menu .war-home .war-saved-copy h2{font:700 clamp(17px,1.5vw,22px)/1.2 Georgia,serif;text-transform:none;letter-spacing:0;color:#374537}
+#main-menu .home-skill-slot>img{border:0;background:none;box-shadow:none}
+#main-menu .homeland-snapshot,#main-menu .account-rank .account-xp-caption{font-family:system-ui,sans-serif}
+@media(min-width:821px){
+ #main-menu .menu-header .menu-rank-link{width:clamp(174px,14vw,216px)}
+ #main-menu .menu-header .menu-rank-link .account-xp-caption,#main-menu .menu-header .menu-rank-link .account-xp-bar{display:block}
+ #main-menu .menu-header .account-rank>div{min-width:0;flex:1}
+ #main-menu .menu-header .account-rank .account-xp-caption{font-size:11px;line-height:1.25}
+ #main-menu .menu-header .rank-framed-face.rank-header-face{--frame-size:clamp(42px,3.6vw,54px)}
+}
+
+@media(min-width:821px){
+ #main-menu .menu-header .menu-rank-link{width:clamp(198px,15vw,230px)}
+ #main-menu .menu-header .account-rank strong{font:700 15px/1.2 Georgia,serif}
+ #main-menu .menu-header .account-rank strong>span{font:500 11px/1.2 system-ui,sans-serif;margin-left:3px}
+ #main-menu .menu-header .account-rank .account-xp-caption{white-space:nowrap}
+ #main-menu .war-home .war-command-deck>.war-saved-card:before{width:clamp(110px,12vw,185px)}
+}
+#main-menu .commander-skills .skills-detail-header h2,#main-menu .commander-skills .skills-panel h3{font-family:Georgia,serif;font-weight:700}
+#main-menu .commander-skills :is(.skills-detail-header p,.skills-rank-tile strong,.skills-rank-tile small,.skills-slot button,.skills-kind,.skills-filters button),#main-menu .home-skill-slot>span:last-child,#main-menu .war-faction-caption p{font-family:system-ui,sans-serif}

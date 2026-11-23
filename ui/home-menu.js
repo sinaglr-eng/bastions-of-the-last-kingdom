@@ -7,7 +7,7 @@ import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
 import {loadBlueprintLibrary} from '../game/core/blueprints.js';
 import {artifactBonuses,artifactModifierText} from '../game/core/artifacts.js';
-import {homelandArt,woodSignUrl} from './homeland-art.js';
+import {homelandArt,enamelSignUrl} from './homeland-art.js';
 
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function factionPickerMarkup(id='crown'){
@@ -21,8 +21,8 @@ export function selectHomeFaction(panel,faction){
  for(const button of panel.querySelectorAll('[data-new-faction]')){
   const selected=button.dataset.newFaction===faction.id;
   button.setAttribute('aria-pressed',String(selected));
-  const sign=button.querySelector('.wood-sign');
-  if(sign)sign.src=woodSignUrl(button.dataset.newFaction,selected);
+  const sign=button.querySelector('.enamel-sign');
+  if(sign)sign.src=enamelSignUrl(button.dataset.newFaction,selected);
  }
  panel.querySelector('.war-faction-caption p').textContent=faction.description;
  panel.querySelector('.war-faction-caption h2').textContent=allianceTitles[faction.id];
@@ -43,7 +43,7 @@ export function commanderLoadoutMarkup(player){
 export function homeMenuMarkup({player,saved,selectedFaction='crown',cloudUnavailable=false}){
  const active=saved&&!['lost','won','abandoned','reset'].includes(saved.meta.phase),f=FACTIONS.find(f=>f.id===saved?.meta.factionId),locked=!player.user;
  let plan=null;try{const library=loadBlueprintLibrary(globalThis.localStorage);plan=library.plans.find(p=>p.id===library.selected)||library.plans[0];}catch{}
- return `<div class="menu-home war-home">${factionPickerMarkup(selectedFaction)}<div class="war-command-deck"><section class="war-saved-card ${active?'':'is-empty'}"><div class="war-saved-copy"><h2>${active?'Your saved defense':'No saved game'}</h2>${active?`<h3>${f?.name||'Alliance'}</h3><strong>Wave ${saved.meta.round}</strong><time datetime="${new Date(saved.savedAt||Date.now()).toISOString()}">Saved ${esc(new Date(saved.savedAt||Date.now()).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))}</time>`:'<h3>Prepare your defense</h3><p>Choose an alliance above to begin.</p>'}</div>${active?savedLoadout(saved.snapshot):''}<div class="homeland-start-actions">${active||cloudUnavailable?`<button class="war-primary" data-menu="continue">${active?'Continue Defense':'Retry Cloud Save'}</button>`:''}<button data-menu="new" class="${active?'':'war-primary'}"><span data-start-faction>New Game · ${esc((FACTIONS.find(f=>f.id===selectedFaction)||FACTIONS[0]).name)}</span></button></div></section>${commanderLoadoutMarkup(player)}<button class="home-maze-entry" data-nav="maze"><span class="home-maze-emblem">${icon('maze')}</span><span><strong>Maze Builder</strong><small>${plan?esc(plan.name)+' · '+plan.walls.length+' planned cells':'Design your route. Save your blueprint.'}</small><em>${plan?'Open your blueprint':'Create your own maze'}</em></span></button>${!locked?`<button class="home-maze-entry" data-menu="rank-chests"><img width="44" height="44" src="${siteUrl('assets/ui/commander-generated/chests.webp')}" alt=""><span><strong>Commander chests</strong><small>${(player.profile?.artifacts?.counts||[]).filter(c=>c.status==='ready').reduce((n,c)=>n+c.count,0)} ready to open</small></span></button>`:''}${locked?'<p class="war-helper">Play freely as a guest. Sign in to collect medals and save progress across devices.</p>':''}</div></div>`;
+ return `<div class="menu-home war-home">${factionPickerMarkup(selectedFaction)}<div class="war-command-deck"><section class="war-saved-card ${active?'':'is-empty'}"><div class="war-saved-copy"><h2>${active?'Saved defense':'No saved game'}</h2>${active?`<h3>${f?.name||'Alliance'} · Wave ${saved.meta.round}</h3><time datetime="${new Date(saved.savedAt||Date.now()).toISOString()}">Saved ${esc(new Date(saved.savedAt||Date.now()).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))}</time>`:'<h3>Prepare your defense</h3><p>Choose an alliance above to begin.</p>'}</div>${active?savedLoadout(saved.snapshot):''}<div class="homeland-start-actions">${active||cloudUnavailable?`<button class="war-primary" data-menu="continue">${active?'Continue Defense':'Retry Cloud Save'}</button>`:''}<button data-menu="new" class="${active?'':'war-primary'}"><span data-start-faction>New Game · ${esc((FACTIONS.find(f=>f.id===selectedFaction)||FACTIONS[0]).name)}</span></button></div></section>${commanderLoadoutMarkup(player)}<button class="home-maze-entry" data-nav="maze"><span class="home-maze-emblem">${icon('maze')}</span><span><strong>Maze Builder</strong><small>${plan?esc(plan.name)+' · '+plan.walls.length+' planned cells':'Design your route. Save your blueprint.'}</small><em>${plan?'Open your blueprint':'Create your own maze'}</em></span></button>${!locked?`<button class="home-maze-entry" data-menu="rank-chests"><img width="44" height="44" src="${siteUrl('assets/ui/commander-generated/chests.webp')}" alt=""><span><strong>Commander chests</strong><small>${(player.profile?.artifacts?.counts||[]).filter(c=>c.status==='ready').reduce((n,c)=>n+c.count,0)} ready to open</small></span></button>`:''}${locked?'<p class="war-helper">Play freely as a guest. Sign in to collect medals and save progress across devices.</p>':''}</div></div>`;
 }
 export function replaceRunMarkup(saved,factionId){
  const previous=FACTIONS.find(f=>f.id===saved.meta.factionId),next=FACTIONS.find(f=>f.id===factionId)||FACTIONS[0];
