@@ -453,11 +453,11 @@
 
 /* Draft decisions follow their keyboard order: retention, rank changes, draft commands. */
 #app .folio-decision-row:not(:has(.is-moving)){grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(3px,.4vw,7px)}
-#app .folio-decision-row :is(button,.draft-skill-action,.command-button){display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;gap:2px;text-align:center;line-height:1.1;font-size:clamp(12px,.86vw,15px)!important;padding:3px 2px!important}
+#app .folio-decision-row :is(button,.draft-skill-action,.command-button){display:flex!important;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;gap:2px;text-align:center;line-height:1.1;font:650 clamp(12px,.86vw,15px)/1.08 system-ui,sans-serif!important;padding:3px 2px!important}
 #app .folio-decision-row button :is(.icon,img,svg){display:none}
 #app .folio-decision-row button :is(small,.command-cost){display:block;width:100%;margin:0;padding:0;text-align:center;font:600 clamp(10px,.75vw,12px)/1.1 system-ui,sans-serif;color:inherit;white-space:nowrap}
-#app .folio-decision-row [data-action=keep-draw]{background:#214736;border-color:#af9751;color:#fff3ca}
-#app .folio-decision-row :is([data-action=merge],[data-skill=field-promotion]){background:#e1ebd7;border-color:#749369;color:#234936}
+#app .folio-decision-row #folio-actions [data-action=keep-draw]{background:#214736;border-color:#af9751;color:#fff3ca}
+#app #folio-actions [data-action=merge],#app .folio-decision-row [data-skill=field-promotion]{background:#e1ebd7;border-color:#749369;color:#234936}
 #app .folio-decision-row :is([data-action=downgrade],[data-skill=deep-refit]){background:#f2e2ce;border-color:#ac8351;color:#633f22}
 #app .folio-decision-row :is([data-action=reroll],[data-action=reserve]){background:#e2e9ee;border-color:#80949c;color:#274757}
 #app .folio-decision-row .draft-skill-action[aria-pressed=true]{outline:2px solid #365e47;outline-offset:-3px}
