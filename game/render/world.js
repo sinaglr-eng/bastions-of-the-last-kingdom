@@ -24,7 +24,7 @@ import {EnemyModelLoader,neededEnemyModelKeys,retainedEnemyModelKeys} from './en
 import {CriticalHitLabels} from './critical-hit-labels.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
-import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
+import {CHECKPOINT_ROMAN_LABELS} from './checkpoint-marker.js';
 import {fetchGeometricEntries,geometricEntryUrl} from './geometric-assets.js';
 import {disposeGeometricResources,disposeDecodedGeometricAsset} from './geometric-resources.js';
 import {renderBudget,AssetLoadQueue} from './render-budget.js';
@@ -42,20 +42,18 @@ import {DraftMarkers} from './draft-markers.js';
 import {CommandMoveEffects} from './command-move-effects.js';
 import {ReservedDefenderEffects} from './reserved-defender-effects.js';
 import {siteUrl} from '../site-url.js';
-import {releaseAsset,enemyPortrait,GAME_VERSION} from '../release.js';
+import {enemyPortrait,GAME_VERSION} from '../release.js';
 import {referenceDefenderPortrait} from '../../ui/reference-portraits.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
-import {currentEnemyRoute,createRouteOverlay,animateRouteOverlay,disposeRouteOverlay,CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
+import {currentEnemyRoute,createRouteOverlay,animateRouteOverlay,disposeRouteOverlay} from './route-overlay.js';
 import {edgePan,compassBearing} from './navigation.js';
 import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap,cancelPointerGesture} from './touch-input.js';
 import {upcomingInvader} from './warcamp-preview.js';
-import {createLandmarkScenery} from './scenery-landmarks.js';
-import {valleyEnvironment} from './environment.js';
-import {meadowTerrain,interiorGrid} from './terrain.js';
+import {BorderlandMeadow} from './borderland-meadow.js';
+import {interiorGrid} from './terrain.js';
 import {readTowerStats as towerStats,supportBonuses,combatTowerStats,offensiveAuraRange,distance} from '../core/math.js';
 import {statusEffectAllowed} from '../core/combat-rules.js';
-import {optimize} from './models.js';
 
 const HALF=(SIZE-1)/2;
 const v3=(x,y,z)=>new THREE.Vector3(x-HALF,y,z-HALF);
@@ -193,8 +191,19 @@ export class Battlefield {
     });
   }
   async loadAssets() {
-    const sceneryGLTF=new GLTFLoader();
-    await Promise.all([this.loadDefenders(),this.loadEnemies(),this.landmarks.load({loadAsync:url=>this.assetLoads.run(()=>sceneryGLTF.loadAsync(url))})]);
+    await Promise.all([this.loadMeadow(),this.loadDefenders(),this.loadEnemies()]);
+  }
+  async loadMeadow(){
+    if(this.disposed)return;
+    this.mapUnavailable=false;
+    try{
+      await this.meadow.load(url=>this.assetLoads.run(()=>new GLTFLoader().loadAsync(url)));
+      if(!this.disposed)this.meadow.sync(this.game.grid,currentEnemyRoute(this.game).points);
+    }catch(error){
+      if(this.disposed)return;
+      console.warn('Borderland Meadow could not load.',error);this.mapUnavailable=true;
+    }
+    if(!this.disposed)this.updateDefenderLoadingStatus();
   }
   async loadEnemies(){
     if(this.enemyManifestLoading||this.disposed)return;
@@ -244,6 +253,7 @@ export class Battlefield {
   }
   retryDefenderModels(){
     if(this.disposed)return;
+    if(this.mapUnavailable)void this.loadMeadow();
     this.defenderManifestAttempts=0;
     for(const tower of this.game.towers){
       const key=defenderTemplateKey(tower,this.game.data.towers);
@@ -258,25 +268,14 @@ export class Battlefield {
       const key=defenderTemplateKey(tower,this.game.data.towers);if(!key||this.imported.has(key))continue;
       pending++;if(this.defenderLoader.statusFor(tower,this.game.data.towers)==='unavailable')unavailable++;
     }
-    this.defenderLoadingStatus.hidden=pending===0;
-    this.defenderLoadingLabel.textContent=unavailable?'Defender appearance unavailable':'Loading defenders…';
-    this.defenderRetryButton.hidden=unavailable===0;
+    this.defenderLoadingStatus.hidden=pending===0&&!this.mapUnavailable;
+    this.defenderLoadingLabel.textContent=this.mapUnavailable?'Battlefield scenery unavailable':unavailable?'Defender appearance unavailable':'Loading defenders…';
+    this.defenderRetryButton.hidden=unavailable===0&&!this.mapUnavailable;
+    this.defenderRetryButton.ariaLabel=this.mapUnavailable?'Retry loading battlefield scenery':'Retry loading defender models';
   }
   createEnvironment() {
-    // The entire 37 × 37 playfield is open; only player-built defenses obstruct it.
-    this.scene.add(meadowTerrain());
-    // Decorative camp and keep sit beyond the left and right board edges.
-    this.landmarks=createLandmarkScenery();this.scene.add(this.landmarks.group);this.updateCampPreview();
-    this.valley=valleyEnvironment();this.scene.add(this.valley.staticGroup,this.valley.water);if(this.valley.clouds)this.scene.add(this.valley.clouds);
-    const checkpointGroup=new THREE.Group();this.checkpointEffects=new THREE.Group();this.scene.add(this.checkpointEffects);
-    this.game.grid.checkpoints.forEach((p,i)=>{
-      const marker=createCheckpointMarker({label:CHECKPOINT_ROMAN_LABELS[i-1]||'',kind:i===0?'spawn':i===this.game.grid.checkpoints.length-1?'keep':'checkpoint'});
-      marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));
-      const effects=takeCheckpointEffects(marker);if(effects)this.checkpointEffects.add(effects);checkpointGroup.add(marker);
-    });
-    const checkpointMeshes=optimize(checkpointGroup);
-    checkpointMeshes.traverse(object=>{if(object.isMesh)object.raycast=()=>{};});
-    this.checkpointMeshes=checkpointMeshes;this.scene.add(checkpointMeshes);
+    this.meadow=new BorderlandMeadow(this.scene,this.game.grid);
+    this.updateCampPreview();
     this.grid=interiorGrid(SIZE);this.grid.position.y=0.045;this.grid.material.transparent=true;this.grid.material.opacity=0.14;this.grid.material.depthWrite=false;this.scene.add(this.grid);
   }
   createOverlays() {
@@ -290,7 +289,7 @@ export class Battlefield {
     this.healthBars=new THREE.Group();this.scene.add(this.healthBars);
     this.labels=document.createElement('div');this.labels.className='map-labels';this.container.append(this.labels);
     this.criticalHitLabels=new CriticalHitLabels(this.container,{half:HALF});
-    this.labelItems=[{...this.landmarks.sites.camp,title:'ORC WARCAMP',className:'enemy',height:this.landmarks.sites.camp.labelHeight},{...this.landmarks.sites.keep,title:'THE LAST KEEP',className:'keep',height:this.landmarks.sites.keep.labelHeight},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:CHECKPOINT_ROMAN_LABELS[i],className:'checkpoint-label',height:2}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
+    this.labelItems=[{x:-24.5,z:-14,title:'ORC WARCAMP',className:'enemy',height:4.5},{x:32.6,z:3.4,title:'THE LAST KEEP',className:'keep',height:11.9},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:CHECKPOINT_ROMAN_LABELS[i],className:'checkpoint-label',height:1.05}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
   }
   updateCampPreview(){
     const enemy=upcomingInvader(this.game),key=enemy?`${enemy.previewRound}:${enemy.type}:${enemy.visualAsset||enemy.model||''}`:'none';
@@ -301,7 +300,7 @@ export class Battlefield {
     const height=new THREE.Box3().setFromObject(figure).getSize(new THREE.Vector3()).y;
     figure.scale.setScalar(THREE.MathUtils.clamp(2.35/Math.max(.5,height),.55,1.7)*.8*enemyPresentationMultiplier(enemy));
     figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
-    this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
+    this.meadow.previewAnchor.add(figure);this.campPreview=figure;
   }
   template(t) {
     if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}
@@ -363,6 +362,7 @@ export class Battlefield {
     if(this.showRanges)this.rebuildRanges();else this.rangeGroup.visible=false;
   }
   rebuildPath(state=currentEnemyRoute(this.game)) {
+    this.meadow?.sync(this.game.grid,state.points);
     disposeRouteOverlay(this.pathGroup);this.pathGroup.add(createRouteOverlay(state.points,{flying:state.flying}));
   }
   rebuildRanges() {
@@ -452,15 +452,13 @@ export class Battlefield {
     this.recoverDefenderModels();
     this.requestEnemyModels();
     this.time+=dt;this.mvpAwards?.update(this.time);this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
-    animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
     const battleDt=this.game.paused?0:dt*this.game.speed;
     this.commanderEffects?.update(this.game.paused?0:dt);
     this.motionTime=this.game.combat.elapsed;
     if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
     for(const v of this.models.values())if(v.tower.state!=='reserved'){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
-    this.valley.update(dt,this.time,this.camera.position.distanceTo(this.controls.target));
-    this.landmarks.update?.(dt,this.time);
+    this.meadow.update(this.game.paused||this.reducedMotion?.matches?0:Math.min(dt,.12),this.camera,this.controls);
     for(const corpse of this.corpses.values()){animateDeath(corpse,battleDt);freezeSettledPose(corpse);}
     const pan=new THREE.Vector3();const forward=new THREE.Vector3().subVectors(this.controls.target,this.camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,new THREE.Vector3(0,1,0));
     if(this.keys.has('w')||this.keys.has('arrowup'))pan.add(forward);if(this.keys.has('s')||this.keys.has('arrowdown'))pan.sub(forward);if(this.keys.has('d')||this.keys.has('arrowright'))pan.add(right);if(this.keys.has('a')||this.keys.has('arrowleft'))pan.sub(right);
@@ -531,12 +529,8 @@ export class Battlefield {
     this.disposed=true;this.assetLoads?.dispose();this.combatEffects.dispose();this.combatStatusVfx.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();
     disposeEnemySelectionRing(this.enemySelectionRing);
-    disposeCheckpointEffects(this.checkpointEffects);
-    const checkpointMaterials=new Set();
-    this.checkpointMeshes?.traverse(object=>{if(object.isMesh){object.geometry.dispose();checkpointMaterials.add(object.material);}});
-    checkpointMaterials.forEach(material=>material.dispose());this.checkpointMeshes?.removeFromParent();
     for(const enemy of this.enemies.values())disposeEnemyFigure(enemy);this.enemies.clear();
-    if(this.campPreview)disposeEnemyFigure(this.campPreview);this.landmarks.dispose();
+    if(this.campPreview)disposeEnemyFigure(this.campPreview);this.meadow.dispose();
     this.enemyLoader.dispose();
     for(const value of this.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);}
     // Imported actor clones borrow these sources. Release only after every
