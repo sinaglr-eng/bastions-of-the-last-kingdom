@@ -1,4 +1,4 @@
-# Forged Alliances TD — 0.8.3
+# Forged Alliances TD — 0.9
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 

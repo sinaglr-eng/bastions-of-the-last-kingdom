@@ -1,5 +1,9 @@
 # Current release
 
+## 0.9 — Dwarven Fortress — 26 November 2026
+
+- Dwarven defenses now use the revised fortress with low carved stone railings on all three unoccupied balconies and a bright blue rune above the mountain gate.
+
 ## 0.8.3 — Offline play, Commander and Elf targeting — 20 November 2026
 
 - Added a resumable offline game download across all three factions. Prepared devices can start local guest defenses and resume saved games offline.
