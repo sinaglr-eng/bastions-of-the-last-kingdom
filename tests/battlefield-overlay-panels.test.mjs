@@ -208,7 +208,7 @@ test('all 50 real campaign summaries show each effective individual HP and trait
 
 test('preview and combat show the same short trait captions for trolls and shielded warlocks',()=>{
   const game=new Game(campaign,{seed:341}),analyzer=new WaveThreatAnalyzer(campaign);
-  for(const [number,labels] of [[21,['Regenerates 20% max HP/s']],[23,['Physical immunity','Blocks 3 hits']]]){
+  for(const [number,labels] of [[21,['Regeneration – 20% max HP/s']],[23,['Physical immunity','Refraction – blocks 3 hits']]]){
     game.round=number;game.phase='combat';game.combat.start(game.wave);
     for(const html of [nextWaveSummaryMarkup(analyzer.analyze(number-1)),currentWaveSummaryMarkup(game)]){
       for(const label of labels)assert.ok(html.includes(label));

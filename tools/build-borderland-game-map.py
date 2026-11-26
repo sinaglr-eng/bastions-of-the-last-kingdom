@@ -204,7 +204,8 @@ def geometry(source, stream, mesh_ids):
             if name=="Meadow, banks and river":
                 original_x=pos[:,0].copy();pos[:,0]+=shift_x(original_x)
                 if original["name"]=="Earth":
-                    pos[original_x<17,0]=EDGE
+                    # The authored solid approach is replaced by the open timber span below.
+                    continue
             if name in ("Borderland Meadow","River current and wakes"):
                 if original["name"]!="Painted alpine distance":
                     pos[:,0]+=EAST
@@ -284,23 +285,25 @@ def mark_dressing(node, samples):
 
 
 def place_grass(stream, samples):
-    """Scatter small patches of the original tuft, each independently removable."""
-    mesh = next(i for i,m in enumerate(stream.doc["meshes"]) if m["name"]=="Grass Tufts")
+    """Sow drifts of the original wildflowers, ferns and tussocks in the open meadow."""
+    species = {m["name"]:i for i,m in enumerate(stream.doc["meshes"])}
     rng = np.random.default_rng(8237)
     occupied = [np.array(n["translation"])[[0,2]] for n in stream.doc["nodes"] if "meadowCell" in n.get("extras", {})]
     centres = np.array(CENTRES + [(-18,-14), (18,14)])
     count = 0
-    for patch in range(38):
+    for patch in range(83):
         center = rng.uniform(-17.2, 17.2, 2)
-        for tuft in range(int(rng.integers(2, 6))):
-            xz = center + rng.normal(0, .58, 2)
+        seed_kind = rng.choice(["Meadow wildflowers", "Grass Tufts", "Low Fern"], p=[.46,.45,.09])
+        for tuft in range(int(rng.integers(4, 9))):
+            xz = center + rng.normal(0, [.68,.92], 2)
             if np.max(np.abs(xz))>18 or np.min(np.max(np.abs(centres-xz), axis=1))<.85:
                 continue
-            if min(np.linalg.norm(xz-other) for other in occupied)<.55:
+            if min(np.linalg.norm(xz-other) for other in occupied)<.47:
                 continue
             yaw = rng.uniform(0, math.pi)
-            size = rng.uniform(1.12, 1.76)
-            node = {"name":f"Meadow grass {patch+1}.{tuft+1}", "mesh":mesh,
+            kind = seed_kind if rng.random()<.73 else "Grass Tufts"
+            size = rng.uniform(.82,1.43) if kind!="Grass Tufts" else rng.uniform(1.18,2.10)
+            node = {"name":f"{kind} drift {patch+1}.{tuft+1}", "mesh":species[kind],
                     "translation":[xz[0], -.035, xz[1]], "scale":[size, size*rng.uniform(.85,1.13), size],
                     "rotation":[0, math.sin(yaw), 0, math.cos(yaw)]}
             mark_dressing(node, samples)
@@ -308,6 +311,61 @@ def place_grass(stream, samples):
             occupied.append(xz)
             count += 1
     return count
+
+
+def timber_approach(stream):
+    """A scarfed plank incline seated between the last playable tile and bridge deck."""
+    pos, normal, pigment, indices = [], [], [], []
+    rng = np.random.default_rng(2701)
+    start, end, z = EDGE, 22.135, 14.0
+    def grade(x):
+        return -.018 + (x-start)/(end-start)*.553
+
+    def face(vertices, color):
+        n = np.cross(np.subtract(vertices[1],vertices[0]),np.subtract(vertices[2],vertices[0]))
+        n /= np.linalg.norm(n)
+        offset = len(pos)
+        pos.extend(vertices)
+        normal.extend([n]*len(vertices))
+        pigment.extend([[*color,1]]*len(vertices))
+        for j in range(1,len(vertices)-1):
+            indices.extend([offset,offset+j,offset+j+1])
+
+    def timber(x1,x2,z1,z2,top,bottom,color,clip):
+        # A narrow bevel catches light along hewn plank ends.
+        outline = [(x1,z1+clip),(x1,z2-clip),(x1+clip,z2),(x2-clip,z2),
+                   (x2,z2-clip),(x2,z1+clip),(x2-clip,z1),(x1+clip,z1)]
+        if not clip:
+            outline = [(x1,z1),(x1,z2),(x2,z2),(x2,z1)]
+        upper = [(x,top(x),zz) for x,zz in outline]
+        lower = [(x,bottom(x),zz) for x,zz in outline]
+        face(upper,color)
+        face(lower[::-1],color*.55)
+        for j in range(len(upper)):
+            k=(j+1)%len(upper)
+            face([upper[j],lower[j],lower[k],upper[k]],color*(.75 if abs(upper[j][2]-upper[k][2])<.01 else .86))
+
+    bark = np.array([.18,.089,.032])
+    # The two longitudinal beams carry the planks; piles meet the subsurface.
+    for lateral in [-.62,.62]:
+        timber(start+.06,end+.11,z+lateral-.07,z+lateral+.07,
+               lambda x:grade(x)-.095,lambda x:grade(x)-.245,bark,0)
+        for x in [start+1.64,end-.18]:
+            timber(x-.09,x+.09,z+lateral-.09,z+lateral+.09,
+                   lambda x:grade(x)-.23,lambda x:-1.6,bark*.8,.016)
+    for i in range(17):
+        x1 = start + (end-start)*i/17
+        x2 = start + (end-start)*(i+1)/17 - .011
+        width = rng.uniform(.885,.925)
+        timber(x1,x2,z-width,z+width,grade,lambda x:grade(x)-.10,
+               np.array([.332,.171,.067])*rng.uniform(.82,1.13),.021)
+    attrs = {"POSITION":stream.array(pos,"VEC3",bounds=True,target=34962),
+             "NORMAL":stream.array(normal,"VEC3",target=34962),
+             "COLOR_0":stream.array(np.round(np.array(pigment)*65535),"VEC4",5123,normalized=True,target=34962)}
+    mat = next(i for i,m in enumerate(stream.doc["materials"]) if m["name"]=="Meadow mineral and foliage palette")
+    stream.doc["meshes"].append({"name":"Timber bridge approach", "primitives":[{
+        "attributes":attrs,"material":mat,"indices":stream.array(indices,"SCALAR",5123,target=34963)}]})
+    stream.node({"name":"Timber bridge approach","mesh":len(stream.doc["meshes"])-1},True)
 
 
 def placements(source,stream,samples,node_ids,mesh_ids,keep):
@@ -353,6 +411,7 @@ def placements(source,stream,samples,node_ids,mesh_ids,keep):
                      "extensions":{"EXT_mesh_gpu_instancing":{"attributes":attrs}}},True)
     if keep:
         return remap,shifts
+    timber_approach(stream)
     loose+=place_grass(stream,samples)
     fitted=[]
     for number,centre in enumerate(CENTRES,1):

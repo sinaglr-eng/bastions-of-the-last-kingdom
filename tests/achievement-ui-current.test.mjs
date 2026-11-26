@@ -87,7 +87,13 @@ test('seasonal hall rows show the prize for their actual rank, including a perso
  assert.match(hall,/Season reward/);
  for(const [rank,prize] of [[2,'1 Legendary chest + 2 Epic chests + 1 random gem'],[4,'150 Relic Dust'],[10,'30 Relic Dust'],[11,'&mdash;']]){
   const row=hall.split('<tr ').find(fragment=>fragment.includes('Commander '+rank+'</span>'));
-  assert.ok(row?.split('</tr>')[0].includes('>'+prize+'</td>'));
+  const cell=row?.split('</tr>')[0];
+  if(rank>10)assert.ok(cell.includes('>'+prize+'</td>'));
+  else{
+   assert.ok(cell.includes('<summary aria-label="'+prize+'">'));
+   assert.match(cell,/class="rank-prize-item"><(?:img|span)/);
+   assert.ok(cell.includes('>'+prize+'</span>'));
+  }
  }
  assert.doesNotMatch(hall,/Legacy records|Top 10 rewards/);
  assert.doesNotMatch(hallView(listing),/Season reward|Relic Dust|Epic chests/);

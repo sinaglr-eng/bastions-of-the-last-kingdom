@@ -4,7 +4,29 @@ import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {GridManager} from '../game/core/grid.js';
 import {BorderlandMeadow} from '../game/render/borderland-meadow.js';
+import {meadowMarket} from '../game/render/meadow-market.js';
 import {BATTLEFIELD_ASSET,STRONGHOLD_ASSETS,releaseAsset} from '../game/release.js';
+
+test('an inhabitant turns, walks with alternating poses, then stands with feet together',()=>{
+  const resident=new THREE.Group(),limbs=new THREE.Mesh();
+  resident.userData={marketStart:0,marketAisles:JSON.stringify([[[0,0],[2,0]],[[1],[0]]])};
+  limbs.morphTargetInfluences=Array(8).fill(0);
+  resident.add(limbs);
+  const tick=meadowMarket([resident],()=>.5);
+  const poses=new Set();
+  let left=false,arrived=false;
+  for(let frame=0;frame<350;frame++){
+    tick(1/60);
+    const weights=limbs.morphTargetInfluences;
+    if(resident.position.x>.05&&resident.position.x<1.95){
+      left=true;
+      poses.add(weights.indexOf(Math.max(...weights)));
+    }
+    if(resident.position.x===2&&weights.every(x=>x===0)){arrived=true;break;}
+  }
+  assert.ok(left&&arrived);
+  assert.equal(poses.size,8);
+});
 
 test('shipped settlements carry their resident walks independently of the five common checkpoints',()=>{
   function documentFor(asset){
@@ -73,7 +95,7 @@ test('interrupted scenery requests remain playable and disposed battlefields rej
   assert.equal(meadow.ready,false);assert.equal(scene.children.length,0);
 });
 
-test('each run loads just its own stronghold and pauses and disposes its inhabitants',async()=>{
+test('each run loads its own stronghold and follows the ambient clock until disposal',async()=>{
   for(const faction of ['crown','forge','grove',null]){
     const scene=new THREE.Scene(),meadow=new BorderlandMeadow(scene,new GridManager(),faction);
     const resident=new THREE.Group(),stronghold=new THREE.Group(),urls=[];

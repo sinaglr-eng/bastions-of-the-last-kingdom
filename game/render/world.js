@@ -458,7 +458,8 @@ export class Battlefield {
     this.motionTime=this.game.combat.elapsed;
     if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
     for(const v of this.models.values())if(v.tower.state!=='reserved'){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
-    this.meadow.update(this.game.paused||this.reducedMotion?.matches?0:Math.min(dt,.12),this.camera,this.controls);
+    // Scenery follows real time, independently of wave speed and combat pause.
+    this.meadow.update(this.reducedMotion?.matches?0:Math.min(dt,.12),this.camera,this.controls);
     for(const corpse of this.corpses.values()){animateDeath(corpse,battleDt);freezeSettledPose(corpse);}
     const pan=new THREE.Vector3();const forward=new THREE.Vector3().subVectors(this.controls.target,this.camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,new THREE.Vector3(0,1,0));
     if(this.keys.has('w')||this.keys.has('arrowup'))pan.add(forward);if(this.keys.has('s')||this.keys.has('arrowdown'))pan.sub(forward);if(this.keys.has('d')||this.keys.has('arrowright'))pan.add(right);if(this.keys.has('a')||this.keys.has('arrowleft'))pan.sub(right);

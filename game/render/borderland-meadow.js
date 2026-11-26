@@ -144,7 +144,7 @@ export class BorderlandMeadow{
         for(const clip of gltf.animations)mixer.clipAction(clip).play();
         mixer.update(0);
       }
-      finishMeadowTerrain(terrain.scene,this.grid);
+      this.landscape=finishMeadowTerrain(terrain.scene,this.grid);
       this.batches=batchDressing(terrain.scene,this.dressing);
       this.market=meadowMarket(people);
       if(horizon){this.sky=paintedSky(horizon);this.root.add(this.sky);}
@@ -152,13 +152,14 @@ export class BorderlandMeadow{
       this.ready=true;this.root.visible=true;
       disposeMap(this.placeholder);this.placeholder=null;
     }catch(error){
-      this.dressing.length=0;this.batches=[];this.market=null;this.releaseMixers();
+      this.dressing.length=0;this.batches=[];this.market=null;this.landscape=null;this.releaseMixers();
       if(this.sky){disposeMap(this.sky);this.sky=null;}
       disposeMap(terrain.scene);disposeMap(stronghold.scene);throw error;
     }
   }
   sync(grid,route=grid.route){
     this.grid=grid;
+    this.landscape?.paintRoute?.(route);
     const blocked=new Set(grid.occupied.keys());
     for(const p of grid.route||[])blocked.add(cellKey(p.x,p.z));
     if(route!==grid.route&&route?.length){
@@ -183,6 +184,7 @@ export class BorderlandMeadow{
     if(!this.ready)return;
     if(dt>0){
       for(const mixer of this.mixers)mixer.update(dt);
+      this.landscape?.animateSpray?.(dt);
       this.market(dt);
     }
     if(this.sky){
@@ -197,7 +199,7 @@ export class BorderlandMeadow{
   }
   dispose(){
     this.closed=true;this.releaseMixers();
-    this.dressing.length=0;this.market=null;
+    this.dressing.length=0;this.market=null;this.landscape=null;
     disposeMap(this.root);if(this.placeholder)disposeMap(this.placeholder);
     this.previewAnchor.removeFromParent();
   }

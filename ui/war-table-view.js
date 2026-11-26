@@ -1,6 +1,7 @@
 import {seasonOptions,seasonIntro} from '../game/core/season-standings.js';
-import {currentSeason,seasonPrizeLabel} from '../game/core/seasons.js';
-import {commanderSkillArt} from './commander-art.js';
+import {currentSeason,seasonPrizeLabel,seasonReward} from '../game/core/seasons.js';
+import {CHESTS} from '../game/core/artifacts.js';
+import {commanderSkillArt,commanderUtilityArt} from './commander-art.js';
 import {homelandArt,enamelSign} from './homeland-art.js';
 import {siteUrl} from '../game/site-url.js';
 import {currentFactionData} from '../game/core/current-data.js';
@@ -74,10 +75,21 @@ export function achievementsView(player,{faction='crown',kind='all',status='all'
  }).join('')||'<div class="war-empty"><h2>No achievements match these filters</h2><p>Try another category or show all achievements.</p><button data-clear-filters>Show all achievements</button></div>'}</div><nav class="menu-pagination"><button data-page="${Math.max(0,offset-pageSize)}" ${offset?'':'disabled'}>Previous</button><span>${rows.length?offset+1:0}–${Math.min(offset+pageSize,rows.length)} / ${rows.length}</span><button data-page="${offset+pageSize}" ${offset+pageSize<rows.length?'':'disabled'}>Next</button></nav><p class="war-helper">Claim rewards individually or use Claim all, once per achievement per account. Faction feats use that faction's own verified champions and victories; the full roster includes all 38 champions, from Basic through Secret. Boss victories and flawless milestones are shared across factions. Flawless waves must be consecutive in one run; any keep health loss resets the current streak.</p></div></div>`;
 }
 export {generalView} from './commander-skills.js';
+function seasonRewardCell(rank){
+ const label=seasonPrizeLabel(rank);
+ if(!label)return '<td class="season-rank-reward">&mdash;</td>';
+ const {legendary,epic,gems,dust}=seasonReward(rank);
+ const icon=src=>`<img src="${src}" alt="" width="34" height="34">`;
+ const item=(count,art)=>count?`<span class="rank-prize-item">${art}<b>${count}</b></span>`:'';
+ const pictures=item(legendary,icon(siteUrl(CHESTS[5].art)))+item(epic,icon(siteUrl(CHESTS[4].art)))+
+   item(gems,`<span class="rank-prize-gems">${icon(commanderUtilityArt('emerald'))}${icon(commanderUtilityArt('aquamarine'))}</span>`)+
+   item(dust,icon(commanderUtilityArt('dust')));
+ return `<td class="season-rank-reward"><div class="rank-prize"><details name="season-reward"><summary aria-label="${label}">${pictures}</summary></details><span class="rank-prize-caption" aria-hidden="true">${label}</span></div></td>`;
+}
 export function hallView(result,{guest=false,view='top'}={}){
  const rows=result.top||[],own=result.own;
  const season=result.season,current=result.currentSeason||currentSeason();
- const row=r=>`<tr class="${own?.id===r.id?'is-own':''}"><td>${[1,2,3].includes(r.rank)?`<img class="homeland-medal" src="${homelandArt('medal'+r.rank)}" alt="Place ${r.rank}">`:r.rank}</td><td>${factionMark(r.factionId)}<span>${esc(r.name)}</span></td><td>${exactNumber(r.score)}</td><td>${r.highestWave}</td>${season?`<td class="season-rank-reward">${seasonPrizeLabel(r.rank)||'&mdash;'}</td>`: ''}</tr>`;
+ const row=r=>`<tr class="${own?.id===r.id?'is-own':''}"><td>${[1,2,3].includes(r.rank)?`<img class="homeland-medal" src="${homelandArt('medal'+r.rank)}" alt="Place ${r.rank}">`:r.rank}</td><td>${factionMark(r.factionId)}<span>${esc(r.name)}</span></td><td>${exactNumber(r.score)}</td><td>${r.highestWave}</td>${season?seasonRewardCell(r.rank):''}</tr>`;
  const selector=`<label class="war-select-control"><span>Season</span><select name="hall-season">${seasonOptions(current,season?.key)}<option value="all-time" ${season?'':'selected'}>All-time records</option></select></label>`;
  return `<div class="war-hall-controls">${selector}<label class="war-select-control"><span>Leaderboard view</span><select name="hall-view"><option value="top" ${view==='top'?'selected':''}>Top records</option><option value="own" ${view==='own'?'selected':''} ${own?'':'disabled'}>My ranking</option></select></label>${season?'':factionTabs(result.factionId,{all:true})}</div>${season?`<section class="season-summary">${seasonIntro(season,current)}</section>`:''}${rows.length?`<div class="menu-table-wrap"><table class="war-leaderboard"><thead><tr><th>Rank</th><th>Commander</th><th>Score</th><th>Wave</th>${season?'<th scope="col">Season reward</th>':''}</tr></thead><tbody>${rows.map(row).join('')}${own&&!rows.some(r=>r.id===own.id)?row(own):''}</tbody></table></div><nav class="menu-pagination"><button data-page="${Math.max(0,result.offset-25)}" ${result.offset?'':'disabled'}>Previous</button><span>${result.offset+1}–${result.offset+rows.length} / ${result.total}</span><button data-page="${result.offset+25}" ${result.offset+rows.length<result.total?'':'disabled'}>Next</button></nav>`:`<section class="war-empty"><h2>${season && season.key<current?'No ranked finishes':'Set the first record'}</h2><p>${season && season.key<current?'No account recorded a verified finish this month.':'Finish a verified account run to enter the standings.'}</p><button data-nav="home">Play</button></section>`}<section class="war-personal-best"><h2>Your personal best</h2>${own?`<strong>${exactNumber(own.score)} <small>score</small></strong><strong>Wave ${own.highestWave}</strong><span>${result.next?(result.gap==='0'?'Score tied — wave and finish order decide the next rank.':`${exactNumber(result.gap)} points to rank ${result.next.rank}`):'You lead this competition.'}</span>`:`<p>${guest?'Sign in to set your own record.':'Complete an account run to set your first record.'}</p>`}<button class="war-primary" data-nav="home">Play Again</button></section>`;
 }

@@ -179,6 +179,17 @@
 #main-menu .war-hall-controls .war-faction-tabs button{min-height:46px}
 #main-menu .war-hall-controls .war-select-control::after{top:auto;bottom:19px;transform:rotate(45deg)}
 #main-menu .season-rank-reward{font-size:.9rem;line-height:1.35;white-space:normal}
+.rank-prize summary{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.4rem;min-height:44px;cursor:pointer;list-style:none;border-radius:4px}
+.rank-prize summary::-webkit-details-marker{display:none}
+.rank-prize summary:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.rank-prize-item{display:inline-flex;align-items:center;gap:.12rem;font-variant-numeric:tabular-nums}
+.rank-prize-item img{width:34px;height:34px;object-fit:contain}
+.rank-prize-gems{display:inline-flex;width:34px;align-items:center}
+.rank-prize-gems img{width:22px;height:30px}
+.rank-prize-gems img+img{margin-left:-9px;transform:translateY(4px)}
+.rank-prize-caption{display:none;max-width:24ch;font-size:.85rem}
+.rank-prize details[open]+.rank-prize-caption,.rank-prize:has(summary:focus-visible) .rank-prize-caption{display:block}
+@media(hover:hover){.rank-prize:hover .rank-prize-caption{display:block}}
 @media(max-width:1000px){
  #main-menu .war-hall-controls .war-faction-tabs{flex-basis:100%}
 }

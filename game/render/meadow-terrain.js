@@ -7,12 +7,12 @@ function seedRandom(seed){
   return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
 }
 
-// A single mipmapped painting over the authored turf. Five-tile brush facets
+// A single mipmapped painting over the authored turf. Broad brush facets
 // stay broad at the overview zoom; shared edges and mipmaps avoid screen-door grain.
-function tintTurf(mesh){
-  const canvas=document.createElement('canvas');canvas.width=768;canvas.height=512;
+function tintTurf(mesh,grid){
+  const canvas=document.createElement('canvas');canvas.width=1152;canvas.height=768;
   const ctx=canvas.getContext('2d');if(!ctx)return;
-  const random=seedRandom(4671),cols=17,rows=12,w=canvas.width/cols,h=canvas.height/rows;
+  const random=seedRandom(4671),cols=24,rows=17,w=canvas.width/cols,h=canvas.height/rows;
   const nodes=Array.from({length:rows+1},(_,z)=>Array.from({length:cols+1},(_,x)=>({
     x:(x+(x&&x<cols?(random()-.5)*.60:0))*w,
     y:(z+(z&&z<rows?(random()-.5)*.60:0))*h,
@@ -20,9 +20,9 @@ function tintTurf(mesh){
   })));
   ctx.fillStyle='#f6f5ee';ctx.fillRect(0,0,canvas.width,canvas.height);
   function paint(a,b,c){
-    const t=(a.tone+b.tone+c.tone)/3+(random()-.5)*.64;
+    const t=(a.tone+b.tone+c.tone)/3+(random()-.5)*.89;
     ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.lineTo(c.x,c.y);ctx.closePath();
-    ctx.fillStyle='rgb('+[239+15*t,242+10*t,232-15*t].map(Math.round).join(',')+')';
+    ctx.fillStyle='rgb('+[223+35*t,231+20*t,207-27*t].map(Math.round).join(',')+')';
     ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=1.5;ctx.stroke();ctx.fill();
   }
   for(let z=0;z<rows;z++)for(let x=0;x<cols;x++){
@@ -39,6 +39,54 @@ function tintTurf(mesh){
   }
   mesh.geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));
   mesh.material.map=texture;mesh.material.needsUpdate=true;mesh.castShadow=false;
+  // Bake footsteps into the existing turf painting. This can't z-fight the
+  // field or darken where the route doubles back over earlier footsteps.
+  const untrampled=document.createElement('canvas');
+  untrampled.width=canvas.width;untrampled.height=canvas.height;
+  untrampled.getContext('2d').drawImage(canvas,0,0);
+  const half=(grid.size-1)/2,unit=canvas.width/84;
+  let previous=null;
+  return route=>{
+    const signature=(route??[]).map(p=>p.x+','+p.z).join('|');
+    if(signature===previous)return;
+    previous=signature;
+    ctx.drawImage(untrampled,0,0);
+    if(route?.length>1){
+      ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
+      const first=route[0],last=route.at(-1);
+      const trail=[{x:first.x===0?-.5:first.x,z:first.z},...route,
+        {x:last.x===grid.size-1?last.x+.5:last.x,z:last.z}];
+      const fringe=[];
+      for(let i=0;i<trail.length;i++){
+        const p=trail[i],a=trail[i-1]??p;
+        const dx=p.x-a.x,dz=p.z-a.z,steps=Math.max(1,Math.ceil(Math.hypot(dx,dz)*2));
+        for(let j=1;j<=steps;j++){
+          const t=j/steps,x=mix(a.x,p.x,t)-half,z=mix(a.z,p.z,t)-half;
+          const px=(x+42+.042*Math.sin(z*2.7+x*.41))*unit;
+          const py=(28-z+.039*Math.cos(x*3.9-z*.36))*unit;
+          if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
+          const length=Math.hypot(dx,dz);
+          if(length){
+            const side=Math.sin(31*x+17*z)>0?1:-1;
+            const offset=side*(.23+.13*Math.sin(8*x+13*z))*unit;
+            fringe.push([px+dz/length*offset,py+dx/length*offset]);
+          }
+        }
+      }
+      for(const [width,color] of [[.82,'rgba(210,178,150,.27)'],[.59,'rgba(231,181,157,.44)'],[.37,'rgba(246,186,147,.41)']]){
+        ctx.lineWidth=width*unit;ctx.strokeStyle=color;ctx.stroke();
+      }
+      // Let tufts of the painted grass survive on alternating shoulders.
+      ctx.save();ctx.beginPath();
+      for(const [x,y] of fringe){
+        const size=unit*(.055+.025*Math.sin(x+y));
+        ctx.moveTo(x-size*1.8,y);ctx.lineTo(x+size*.7,y+size);
+        ctx.lineTo(x+size*1.5,y-size*.55);ctx.closePath();
+      }
+      ctx.clip();ctx.globalAlpha=.76;ctx.drawImage(untrampled,0,0);ctx.restore();
+    }
+    texture.needsUpdate=true;
+  };
 }
 
 function points(mesh){
@@ -183,11 +231,12 @@ function plantMargins(model,terrain,grid){
   for(let i=0;i<stockade.count;i++){
     stockade.getMatrixAt(i,matrix);p.setFromMatrixPosition(matrix).applyMatrix4(stockade.matrixWorld);points.push(p.clone());
   }
-  const types=[shrub,stone,fir,oak,{geometry:fallenTrunk(),material:shrub.material}];
-  const radius=[.58,.88,.96,1.26,.82],spec=types.map(()=>[]),rand=seedRandom(621),half=grid.size/2;
+  const types=[shrub,stone,fir,oak,{geometry:fallenTrunk(),material:shrub.material},find('Low Fern'),find('Meadow wildflowers')];
+  const radius=[.58,.88,.96,1.26,.82,.32,.30],spec=types.map(()=>[]),rand=seedRandom(621),half=grid.size/2;
   const ray=new THREE.Raycaster(new V(),new V(0,-1,0));ray.far=9;
   const planted=[],dummy=new THREE.Object3D();
   function plant(side,z,x,kind,s){
+    if(!types[kind])return;
     const r=radius[kind]*s;
     if(side*x-r<half+.08||Math.abs(z-side*14)<1.62+r||Math.abs(z)+r>19.6)return;
     if(points.some(p=>Math.hypot(p.x-x,p.z-z)<r+1.05))return;
@@ -195,7 +244,7 @@ function plantMargins(model,terrain,grid){
       const nearby=points.filter(p=>Math.abs(p.z-z)<1.65);
       if(!nearby.length||x-r<Math.max(...nearby.map(p=>p.x))+.45)return;
     }
-    if(planted.some(a=>Math.hypot(a.x-x,a.z-z)<(a.r+r)*.85))return;
+    if(planted.some(a=>Math.hypot(a.x-x,a.z-z)<(a.r+r)*.76))return;
     ray.ray.origin.set(x,4,z);
     const hit=ray.intersectObject(terrain,false)[0];if(!hit||Math.abs(hit.point.y)>.065)return;
     planted.push({x,z,r});dummy.position.set(x,hit.point.y-.014,z);dummy.rotation.y=rand()*Math.PI*2;
@@ -203,38 +252,82 @@ function plantMargins(model,terrain,grid){
     return true;
   }
   for(const side of [-1,1]){
+    for(const center of [-16,-8.4,-3.5,1.7,6.3,10.8,17.5]){
+      for(let j=0;j<7;j++){
+        if(plant(side,center+(rand()-.5)*1.7,side*(half+.62+rand()*2.9),1,.46+rand()*.38))break;
+      }
+    }
     for(const center of [-7.9,.1,6.9]){
       for(let j=0;j<5;j++){
         if(plant(side,center+(rand()-.5)*1.4,side*(half+.88+rand()*1.8),4,.76+rand()*.23))break;
       }
     }
-    for(const center of [-16.4,-10.1,-6.5,-1.2,3.2,8.4,12.4,16.9]){
+    for(const center of [-17.3,-14.9,-11.4,-9.1,-6.0,-4.1,-1.2,1.3,3.7,6.5,8.9,11.2,13.1,16.5,18.3]){
       // Place the largest crown first so low scrub does not use up every opening.
       const tree=rand()<.52?2:3;
-      for(let j=0;j<7;j++){
+      for(let j=0;j<11;j++){
         const x=side*(half+.70+rand()*2.82),z=center+(rand()-.5)*2.3;
         if(plant(side,z,x,tree,.54+rand()*.22))break;
       }
-      for(let j=0;j<16;j++){
+      for(let j=0;j<26;j++){
         const z=center+(rand()-.5)*3.75,x=side*(half+.32+rand()*3.70);
         const kind=j===0?4:j%9===1?2:j%11===3?3:j%3===0?1:0;
         plant(side,z,x,kind,(kind===2||kind===3?.47:.62)+rand()*.35);
+      }
+      // Small ferns and flowers tie the separated woody groups together.
+      for(let j=0;j<24;j++){
+        const z=center+(rand()-.5)*3.3,x=side*(half+.18+rand()*3.55);
+        plant(side,z,x,rand()<.53?5:6,.48+rand()*.51);
       }
     }
   }
   types.forEach((type,i)=>{
     if(!spec[i].length){if(i===4)type.geometry.dispose();return;}
     const m=new THREE.InstancedMesh(type.geometry,type.material,spec[i].length);
-    m.name='Woodland margin / '+['shrubs','boulders','fir saplings','young oaks','fallen trunks'][i];
+    m.name='Woodland margin / '+['shrubs','boulders','fir saplings','young oaks','fallen trunks','ferns','wildflowers'][i];
     spec[i].forEach((M,j)=>m.setMatrixAt(j,M));m.castShadow=true;m.receiveShadow=true;
     m.computeBoundingSphere();model.add(m);
   });
 }
 
+function waterfallSpray(cascade){
+  const rand=seedRandom(1463),lobes=[],particle=new THREE.Object3D();
+  for(let i=0;i<26;i++){
+    const x=(i+rand())/26*1.91-.955,start=.70+.15*rand();
+    lobes.push({x,start,phase:rand(),speed:.53+rand()*.42,size:.067+rand()*.083,high:.12+rand()*.19});
+  }
+  const foam=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0),
+    new THREE.MeshStandardMaterial({color:0xffffff,roughness:1,flatShading:true}),lobes.length*2);
+  foam.name='Whitewater / impact plumes';foam.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  foam.boundingSphere=new THREE.Sphere(new V(0,.22,1),1.38);
+  const light=new THREE.Color();
+  lobes.forEach((_,i)=>{
+    foam.setColorAt(i*2,light.setHex(i%3===0?0xbfe6df:0xe4f4eb));
+    foam.setColorAt(i*2+1,light.setHex(0xf1fbf5));
+  });
+  cascade.add(foam);
+  let time=0;
+  function animate(dt){
+    time+=dt;
+    lobes.forEach(({x,start,phase,speed,size,high},i)=>{
+      const t=(time*speed+phase)%1,swelling=Math.sin(Math.PI*t),r=size*(.25+.97*swelling);
+      particle.position.set(x+.061*Math.sin(i+t*4),.062+swelling*high,start+.44*t);
+      particle.rotation.set(t*.7,i+t*.4,0);particle.scale.set(r*1.43,r,r*1.15);
+      particle.updateMatrix();foam.setMatrixAt(i*2,particle.matrix);
+      particle.position.x+=.064*Math.sin(i);particle.position.y+=.070+swelling*.11;
+      particle.position.z+=.034;particle.scale.multiplyScalar(.33+.12*swelling);
+      particle.updateMatrix();foam.setMatrixAt(i*2+1,particle.matrix);
+    });
+    foam.instanceMatrix.needsUpdate=true;
+  }
+  animate(0);return animate;
+}
+
 export function finishMeadowTerrain(model,grid){
-  const surfaces=[];let turf,woodland;
+  const surfaces=[];let turf,woodland,cascade;
   model.updateMatrixWorld(true);
   model.traverse(mesh=>{
+    if(/^Waterfall[._]/.test(mesh.userData.name||mesh.name))cascade??=mesh;
     if(!mesh.isMesh||mesh.isInstancedMesh)return;
     const label=mesh.parent?.userData.name||mesh.userData.name||'';
     const water=label.startsWith('River current and wakes');
@@ -246,7 +339,8 @@ export function finishMeadowTerrain(model,grid){
     if(label.startsWith('Western orc camp')&&mesh.material.name==='Yard soil and turf')woodland=mesh;
   });
   if(!turf)return;
-  tintTurf(turf);
+  const paintRoute=tintTurf(turf,grid);
   const sides=cutaway(valleyOutline(surfaces,woodland));if(sides)model.add(sides);
   plantMargins(model,turf,grid);
+  return {paintRoute,animateSpray:cascade&&waterfallSpray(cascade)};
 }
