@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {readFileSync} from 'node:fs';
 import {cutaway,finishMeadowTerrain,valleyOutline} from '../game/render/meadow-terrain.js';
+import {campWoodcutting,reservedClearing} from '../game/render/meadow-logging.js';
 
 function surface(positions,water=false){
   const vertices=positions.map(p=>new THREE.Vector3(...p)),geometry=new THREE.BufferGeometry();
@@ -84,4 +85,14 @@ test('the shipped ramp meets the bank and timber deck, and ground plants have ce
     assert.ok(drifts.length>8,species);
     assert.ok(drifts.every(n=>n.extras.meadowCells.length>=1&&n.extras.meadowCell.length===2));
   }
+});
+
+test('the logging yard faces the sawyers and the standalone boulder stays outside the playable grid and gate',()=>{
+  const [yard,rock]=campWoodcutting();
+  const y=new THREE.Box3().setFromObject(yard),b=new THREE.Box3().setFromObject(rock);
+  assert.ok(y.min.z>=5&&y.max.z<16&&y.max.x< -18.5);
+  assert.ok(b.min.y<-.03&&b.max.y>1&&b.max.x< -18.5&&Math.abs(b.getCenter(new THREE.Vector3()).z)<1);
+  assert.ok(b.min.z> -12); // Spawn is at z=-14.
+  assert.ok(reservedClearing(-20.27,-.22)&&reservedClearing(-21.21,10.5));
+  assert.equal(reservedClearing(-14,0),false); // The first checkpoint.
 });

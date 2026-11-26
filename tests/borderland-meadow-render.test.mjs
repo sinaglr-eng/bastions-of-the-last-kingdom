@@ -28,11 +28,29 @@ test('an inhabitant turns, walks with alternating poses, then stands with feet t
   assert.equal(poses.size,8);
 });
 
-test('shipped settlements carry their resident walks independently of the five common checkpoints',()=>{
-  function documentFor(asset){
-    const bytes=readFileSync(new URL('../public/'+asset,import.meta.url));
-    return JSON.parse(bytes.toString('utf8',20,20+bytes.readUInt32LE(12)));
+function documentFor(asset){
+  const bytes=readFileSync(new URL('../public/'+asset,import.meta.url));
+  return JSON.parse(bytes.toString('utf8',20,20+bytes.readUInt32LE(12)));
+}
+
+test('only the forge ships the transparent beacon halo and only the grove ships the water gardens',()=>{
+  for(const [faction,asset] of Object.entries({...STRONGHOLD_ASSETS,common:BATTLEFIELD_ASSET})){
+    const model=documentFor(asset);
+    const halo=model.nodes.find(node=>node.name==='Beacon radiance');
+    assert.equal(Boolean(halo),faction==='forge',asset);
+    if(halo){
+      const [primitive]=model.meshes[halo.mesh].primitives;
+      const material=model.materials[primitive.material];
+      assert.equal(material.alphaMode,'BLEND');
+      const texture=model.textures[material.pbrMetallicRoughness.baseColorTexture.index];
+      assert.ok(Number.isInteger(model.images[texture.source].bufferView),'halo falloff travels with the GLB');
+    }
+    const garden=model.nodes.find(node=>node.name?.startsWith('Elven water gardens'));
+    assert.equal(Number.isInteger(garden?.mesh),faction==='grove',asset);
   }
+});
+
+test('shipped settlements carry their resident walks independently of the five common checkpoints',()=>{
   const map=documentFor(BATTLEFIELD_ASSET);
   assert.deepEqual(map.nodes.map(n=>n.extras?.checkpointIndex).filter(Number.isInteger).sort(),[1,2,3,4,5]);
   assert.ok(!map.nodes.some(n=>Number.isInteger(n.extras?.marketStart)));

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {campWoodcutting,paintLoggingGround,reservedClearing} from './meadow-logging.js';
 
 const V=THREE.Vector3, cutDepth=-3.8;
 const mix=THREE.MathUtils.lerp;
@@ -29,6 +30,7 @@ function tintTurf(mesh,grid){
     const a=nodes[z][x],b=nodes[z][x+1],c=nodes[z+1][x+1],d=nodes[z+1][x];
     if(random()<.5){paint(a,b,c);paint(a,c,d);}else{paint(a,b,d);paint(b,c,d);}
   }
+  paintLoggingGround(ctx,canvas.width/84);
   const texture=new THREE.CanvasTexture(canvas);
   texture.name='Borderland Meadow / grass and clover facets';texture.colorSpace=THREE.SRGBColorSpace;
   texture.minFilter=THREE.LinearMipmapLinearFilter;texture.magFilter=THREE.LinearFilter;
@@ -73,7 +75,7 @@ function tintTurf(mesh,grid){
           }
         }
       }
-      for(const [width,color] of [[.82,'rgba(210,178,150,.27)'],[.59,'rgba(231,181,157,.44)'],[.37,'rgba(246,186,147,.41)']]){
+      for(const [width,color] of [[.82,'rgba(216,194,164,.16)'],[.59,'rgba(230,202,174,.28)'],[.37,'rgba(241,205,173,.25)']]){
         ctx.lineWidth=width*unit;ctx.strokeStyle=color;ctx.stroke();
       }
       // Let tufts of the painted grass survive on alternating shoulders.
@@ -235,9 +237,10 @@ function plantMargins(model,terrain,grid){
   const radius=[.58,.88,.96,1.26,.82,.32,.30],spec=types.map(()=>[]),rand=seedRandom(621),half=grid.size/2;
   const ray=new THREE.Raycaster(new V(),new V(0,-1,0));ray.far=9;
   const planted=[],dummy=new THREE.Object3D();
-  function plant(side,z,x,kind,s){
+  function plant(side,z,x,kind,s,retainedTree=false){
     if(!types[kind])return;
     const r=radius[kind]*s;
+    if(side<0&&!retainedTree&&reservedClearing(x,z,r))return;
     if(side*x-r<half+.08||Math.abs(z-side*14)<1.62+r||Math.abs(z)+r>19.6)return;
     if(points.some(p=>Math.hypot(p.x-x,p.z-z)<r+1.05))return;
     if(side<0){
@@ -251,6 +254,9 @@ function plantMargins(model,terrain,grid){
     dummy.scale.setScalar(s);dummy.updateMatrix();spec[kind].push(dummy.matrix.clone());
     return true;
   }
+  // Two trees survived the cutting, between the worked timber and the woodland.
+  plant(-1,13.51,-23.04,2,.69,true);
+  plant(-1,14.44,-20.80,3,.47,true);
   for(const side of [-1,1]){
     for(const center of [-16,-8.4,-3.5,1.7,6.3,10.8,17.5]){
       for(let j=0;j<7;j++){
@@ -341,6 +347,7 @@ export function finishMeadowTerrain(model,grid){
   if(!turf)return;
   const paintRoute=tintTurf(turf,grid);
   const sides=cutaway(valleyOutline(surfaces,woodland));if(sides)model.add(sides);
+  model.add(...campWoodcutting());
   plantMargins(model,turf,grid);
   return {paintRoute,animateSpray:cascade&&waterfallSpray(cascade)};
 }

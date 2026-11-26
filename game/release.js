@@ -5,7 +5,7 @@ export const FACTION_ART_VERSION='approved-faction-models-v3-20261030';
 export const DEFENDER_ART_VERSION='basic-defenders-v7';
 export const CHAMPION_ART_VERSION='champions-v8';
 export const ENEMY_ART_VERSION='approved-enemies-v6';
-export const SCENERY_ART_VERSION='scenery-v13';
+export const SCENERY_ART_VERSION='scenery-v14';
 export const BATTLEFIELD_ASSET='assets/scenery/borderland-meadow.glb';
 export const STRONGHOLD_ASSETS=Object.freeze({
   crown:'assets/scenery/royal-keep.glb',
