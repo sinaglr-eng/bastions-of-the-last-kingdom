@@ -32,7 +32,7 @@ export const fr010Profiles=sqliteTable('fr010_profiles',{userId:text('user_id').
 export const fr010Grants=sqliteTable('fr010_grants',{userId:text('user_id').notNull().references(()=>user.id),achievementId:text('achievement_id').notNull(),factionId:text('faction_id'),reward:integer('reward').notNull(),createdAt:integer('created_at').notNull()},t=>[primaryKey({columns:[t.userId,t.achievementId]}),check('fr010_positive_reward',sql`${t.reward}>0`)]);
 export const fr010Ledger=sqliteTable('fr010_ledger',{userId:text('user_id').notNull().references(()=>user.id),entryId:text('entry_id').notNull(),amount:integer('amount').notNull(),kind:text('kind').notNull(),detail:text('detail').notNull(),createdAt:integer('created_at').notNull()},t=>[primaryKey({columns:[t.userId,t.entryId]})]);
 export const fr010Eligible=sqliteTable('fr010_eligible',{userId:text('user_id').notNull().references(()=>user.id),achievementId:text('achievement_id').notNull(),factionId:text('faction_id'),reward:integer('reward').notNull(),verifiedAt:integer('verified_at').notNull(),runId:text('run_id')},t=>[primaryKey({columns:[t.userId,t.achievementId]}),check('fr010_eligible_positive_reward',sql`${t.reward}>0`)]);
-export const fr010Runs=sqliteTable('fr010_runs',{id:text('id').primaryKey().notNull(),userId:text('user_id').notNull().references(()=>user.id),factionId:text('faction_id').notNull(),ruleset:text('ruleset').notNull(),seed:integer('seed').notNull(),sequence:integer('sequence').notNull().default(0),lastBatch:text('last_batch'),outcome:text('outcome').notNull().default('playing'),snapshotJson:text('snapshot_json').notNull(),loadoutJson:text('loadout_json').notNull(),artifactLoadoutJson:text('artifact_loadout_json').notNull().default('{}'),scoreText:text('score_text').notNull().default('0'),scoreDigits:integer('score_digits').notNull().default(1),highestWave:integer('highest_wave').notNull().default(0),progressJson:text('progress_json').notNull().default('{}'),startedAt:integer('started_at').notNull(),updatedAt:integer('updated_at').notNull(),finishedAt:integer('finished_at')},t=>[index('fr010_standings').on(t.ruleset,t.factionId,t.outcome,sql`${t.scoreDigits} DESC`,sql`${t.scoreText} DESC`,sql`${t.highestWave} DESC`,t.finishedAt,t.id),uniqueIndex('fr010_one_active_run').on(t.userId).where(sql`${t.outcome}='playing'`)]);
+export const fr010Runs=sqliteTable('fr010_runs',{id:text('id').primaryKey().notNull(),userId:text('user_id').notNull().references(()=>user.id),factionId:text('faction_id').notNull(),ruleset:text('ruleset').notNull(),seed:integer('seed').notNull(),sequence:integer('sequence').notNull().default(0),lastBatch:text('last_batch'),outcome:text('outcome').notNull().default('playing'),snapshotJson:text('snapshot_json').notNull(),loadoutJson:text('loadout_json').notNull(),artifactLoadoutJson:text('artifact_loadout_json').notNull().default('{}'),scoreText:text('score_text').notNull().default('0'),scoreDigits:integer('score_digits').notNull().default(1),highestWave:integer('highest_wave').notNull().default(0),progressJson:text('progress_json').notNull().default('{}'),startedAt:integer('started_at').notNull(),updatedAt:integer('updated_at').notNull(),finishedAt:integer('finished_at')},t=>[index('fr010_standings').on(t.ruleset,t.factionId,t.outcome,sql`${t.scoreDigits} DESC`,sql`${t.scoreText} DESC`,sql`${t.highestWave} DESC`,t.finishedAt,t.id),index('fr010_season_finish').on(sql`COALESCE(finished_at,updated_at)`).where(sql`${t.outcome} IN ('lost','won')`),uniqueIndex('fr010_one_active_run').on(t.userId).where(sql`${t.outcome}='playing'`)]);
 export const fr010Active=sqliteTable('fr010_active',{userId:text('user_id').primaryKey().notNull().references(()=>user.id),runId:text('run_id').notNull().references(()=>fr010Runs.id)});
 export const fr010Batches=sqliteTable('fr010_batches',{runId:text('run_id').notNull().references(()=>fr010Runs.id),sequence:integer('sequence').notNull(),batchId:text('batch_id').notNull(),digest:text('digest').notNull(),commandsJson:text('commands_json').notNull(),createdAt:integer('created_at').notNull()},t=>[primaryKey({columns:[t.runId,t.sequence]}),uniqueIndex('fr010_batch_identity').on(t.runId,t.batchId)]);
 export const accountProgression=sqliteTable('account_progression',{userId:text('user_id').primaryKey().notNull().references(()=>user.id),xpTotal:integer('xp_total').notNull().default(0),creditedWaves:integer('credited_waves').notNull().default(0),permanentJson:text('permanent_json').notNull().default('{}'),migrated:integer('migrated').notNull().default(0),diagnosticsJson:text('diagnostics_json').notNull().default('[]')},t=>[check('account_xp_nonnegative',sql`${t.xpTotal}>=0`),check('account_waves_nonnegative',sql`${t.creditedWaves}>=0`)]);
@@ -43,3 +43,36 @@ export const accountXpReceipts=sqliteTable('account_xp_receipts',{userId:text('u
 export const artifactAccounts=sqliteTable('artifact_accounts',{userId:text('user_id').primaryKey().notNull().references(()=>user.id,{onDelete:'cascade'}),revision:integer('revision').notNull().default(0),dust:integer('dust').notNull().default(0),gemsJson:text('gems_json').notNull().default('{}'),ownedJson:text('owned_json').notNull().default('[]'),equipmentJson:text('equipment_json').notNull().default('{}'),presetsJson:text('presets_json').notNull().default('[]'),pityJson:text('pity_json').notNull().default('{}'),highestTier:integer('highest_tier').notNull().default(0)},t=>[check('artifact_dust_nonnegative',sql`${t.dust}>=0`)]);
 export const artifactChests=sqliteTable('artifact_chests',{id:text('id').primaryKey().notNull(),userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),runId:text('run_id').notNull().references(()=>fr010Runs.id,{onDelete:'cascade'}),bossSpawnId:integer('boss_spawn_id').notNull(),bossId:text('boss_id').notNull(),wave:integer('wave').notNull(),tier:integer('tier').notNull(),seed:integer('seed').notNull(),status:text('status').notNull(),earnedAt:integer('earned_at').notNull(),openedAt:integer('opened_at')},t=>[uniqueIndex('artifact_chest_spawn').on(t.runId,t.bossSpawnId),index('artifact_chests_owner').on(t.userId,t.status,t.tier,t.earnedAt,t.id),check('artifact_chest_tier',sql`${t.tier} BETWEEN 1 AND 5`),check('artifact_chest_status',sql`${t.status} IN ('locked','ready','opened')`)]);
 export const artifactReceipts=sqliteTable('artifact_receipts',{userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),requestId:text('request_id').notNull(),signature:text('signature').notNull(),receiptJson:text('receipt_json').notNull(),createdAt:integer('created_at').notNull()},t=>[primaryKey({columns:[t.userId,t.requestId]})]);
+
+export const seasonSettlements=sqliteTable('season_settlements',{
+ season:text('season').primaryKey().notNull(),
+ token:text('token').notNull(),
+ settledAt:integer('settled_at').notNull(),
+});
+export const seasonRewards=sqliteTable('season_rewards',{
+ season:text('season').notNull().references(()=>seasonSettlements.season),
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),
+ rank:integer('rank').notNull(),
+ runId:text('run_id').notNull(),
+ legendary:integer('legendary').notNull(),
+ epic:integer('epic').notNull(),
+ aquamarine:integer('aquamarine').notNull(),
+ emerald:integer('emerald').notNull(),
+ dust:integer('dust').notNull(),
+},t=>[
+ primaryKey({columns:[t.season,t.userId]}),
+ uniqueIndex('season_rewards_rank').on(t.season,t.rank),
+ check('season_rewards_top_ten',sql`${t.rank} BETWEEN 1 AND 10`),
+]);
+export const seasonChests=sqliteTable('season_chests',{
+ id:text('id').primaryKey().notNull(),
+ season:text('season').notNull().references(()=>seasonSettlements.season),
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),
+ tier:integer('tier').notNull(),
+ seed:integer('seed').notNull(),
+ earnedAt:integer('earned_at').notNull(),
+ openedAt:integer('opened_at'),
+},t=>[
+ index('season_chests_owner').on(t.userId,t.openedAt,t.tier,t.earnedAt,t.id),
+ check('season_chests_tier',sql`${t.tier} IN (4,5)`),
+]);

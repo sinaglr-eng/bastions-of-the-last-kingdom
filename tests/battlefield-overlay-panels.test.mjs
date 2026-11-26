@@ -206,6 +206,17 @@ test('all 50 real campaign summaries show each effective individual HP and trait
   }
 });
 
+test('preview and combat show the same short trait captions for trolls and shielded warlocks',()=>{
+  const game=new Game(campaign,{seed:341}),analyzer=new WaveThreatAnalyzer(campaign);
+  for(const [number,labels] of [[21,['Regenerates 20% max HP/s']],[23,['Physical immunity','Blocks 3 hits']]]){
+    game.round=number;game.phase='combat';game.combat.start(game.wave);
+    for(const html of [nextWaveSummaryMarkup(analyzer.analyze(number-1)),currentWaveSummaryMarkup(game)]){
+      for(const label of labels)assert.ok(html.includes(label));
+      assert.doesNotMatch(html,/healing block prevents|after the final charge|only Holy damage bypasses/);
+    }
+  }
+});
+
 test('all 50 campaign HP previews agree with every possible and actually queued spawn without consuming variant RNG',()=>{
   const game=new Game(campaign,{seed:951}),control=new Game(campaign,{seed:951}),analyzer=new WaveThreatAnalyzer(campaign),sourceBefore=JSON.stringify(campaign);let checkedProfiles=0,checkedSpawns=0;
   for(let index=0;index<campaign.waves.length;index++){

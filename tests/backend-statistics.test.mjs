@@ -81,7 +81,7 @@ test('statistics default to the actual game edition while preserving separate hi
     const health=await request(store,'/api/health');
     assert.equal(health.status,200);
     assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:GAME_VERSION,releaseName:STATISTICS_RELEASE_NAME});
-    const page=await request(store,'/');
+    const page=await request(store,'/records');
     assert.equal(page.status,200);
     const html=await page.text();
     assert.ok(!html.includes('<option value="all">All game versions</option>'));assert.ok(html.includes('<select id="edition"><option value="'+GAME_VERSION+'">'+GAME_VERSION+'</option>'));assert.ok(html.includes("data.version!==selected"));

@@ -172,3 +172,8 @@
  content:"";display:inline-block;width:2.25rem;height:2.25rem;margin-inline-end:.45rem;
  vertical-align:middle;background:var(--game-loading-art) center/contain no-repeat
 }
+.season-summary{margin-block:1rem;padding:1rem 1.25rem;background:#faf3de;border:1px solid #d0b77d;border-radius:.4rem}
+.season-summary h2,.season-summary p{margin:0 0 .5rem}
+.season-prizes summary{cursor:pointer;font-weight:600}
+.season-prizes ol{columns:2;column-width:17rem;margin:.5rem 0;padding-left:1.75rem}
+.season-prizes li{break-inside:avoid;padding:.15rem}

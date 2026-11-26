@@ -1,5 +1,28 @@
 import {artifactBonuses} from '../game/core/artifacts.js';
 import {FR010_RULESET} from '../game/core/current-data.js';
+import {FIRST_SEASON,currentSeason,seasonWindow,seasonRankedSQL} from '../game/core/seasons.js';
+import {settleCompletedSeasons} from './season-rewards.js';
+
+export async function seasonalHall(db, {season = 'current', offset = 0, view = 'top', user = null, now = Date.now()} = {}) {
+ const current = currentSeason(now);
+ const key = season === 'current' ? current : season;
+ if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(key) || key < FIRST_SEASON || key > current) {
+  throw Object.assign(new Error('Select a season between the first season and the current month.'), {status:400});
+ }
+ const window = seasonWindow(key);
+ await settleCompletedSeasons(db, now);
+ const fields = 'r.id,u.name,r.faction_id AS factionId,r.score_text AS score,r.highest_wave AS highestWave,r.rank,r.finished_at AS finishedAt';
+ const rows = `${seasonRankedSQL} SELECT ${fields} FROM ranked r JOIN user u ON r.user_id=u.id`;
+ const query = (sql,...args) => db.prepare(sql).bind(window.start,window.end,...args);
+ const own = user ? await query(rows+' WHERE r.user_id=?',user).first() : null;
+ if (view === 'own' && own) offset = Math.max(0,own.rank - 3);
+ const {results:top} = await query(rows+' ORDER BY r.rank LIMIT 25 OFFSET ?',offset).all();
+ const {total} = await query(seasonRankedSQL+' SELECT COUNT(*) AS total FROM ranked').first();
+ const next = own?.rank > 1 ? await query(rows+' WHERE r.rank=?',own.rank-1).first() : null;
+ const settlement = key < current ? await db.prepare('SELECT settled_at FROM season_settlements WHERE season=?').bind(key).first() : null;
+ return {season:{...window,settledAt:settlement?.settled_at??null}, currentSeason:current, factionId:'all', offset,total,top,own,next,
+  gap:next ? (BigInt(next.score)-BigInt(own.score)).toString() : null};
+}
 
 // The order deliberately matches the existing exact-score competition.
 export async function hallRecords(db,{faction='all',offset=0,view='top',user=null}={}){

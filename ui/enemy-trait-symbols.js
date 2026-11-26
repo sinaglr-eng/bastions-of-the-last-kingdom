@@ -8,9 +8,12 @@ export function enemyDefenseGlyph(kind){
   if(!symbol)return '';
   return `<img class="enemy-defense-glyph" data-defense="${kind}" src="${siteUrl(symbol.art)}" width="24" height="24" alt="">`;
 }
-export function enemyTraitsMarkup(traits){
+export function waveTraitCaption(trait){
+  return trait.compact||trait.text.split(' · ')[0];
+}
+export function enemyTraitsMarkup(traits,{compact=false}={}){
   if(!traits?.length)return '<ul class="enemy-trait-list"><li>No special resistances or abilities</li></ul>';
-  return `<ul class="enemy-trait-list">${traits.map(trait=>`<li>${enemyDefenseGlyph(trait.kind)}<span>${escape(trait.text)}</span></li>`).join('')}</ul>`;
+  return `<ul class="enemy-trait-list">${traits.map(trait=>`<li>${enemyDefenseGlyph(trait.kind)}<span>${escape(compact?waveTraitCaption(trait):trait.text)}</span></li>`).join('')}</ul>`;
 }
 export function waveDefenseLegendMarkup(definition){
   const traits=warbandTraitDetails(definition);

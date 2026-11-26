@@ -1,7 +1,7 @@
 import {enemyPortraitImage} from './reference-portraits.js';
 import {enemyGroupPortraits} from './enemy-portraits.js';
 import {icon} from './icons.js';
-import {enemyDefenseGlyph} from './enemy-trait-symbols.js';
+import {enemyDefenseGlyph,waveTraitCaption} from './enemy-trait-symbols.js';
 import {ENEMY_DEFENSE_SYMBOLS} from '../game/render/enemy-defense-symbols.js';
 import {battlefieldDisclosureMarkup,updateBattlefieldDisclosure} from './tower-dps.js';
 
@@ -33,7 +33,7 @@ function defenses(enemy){
       if(!traits.has(key))traits.set(key,{text,kind,variants:[]});traits.get(key).variants.push(index);
     };
     if(Number.isFinite(variant.armor)&&variant.armor>0)add(`${number(variant.armor)} armor`);
-    for(const trait of Array.isArray(variant.traitDetails)?variant.traitDetails:[])if(trait?.text)add(trait.compact||trait.text,trait.kind);
+    for(const trait of Array.isArray(variant.traitDetails)?variant.traitDetails:[])if(trait?.text)add(waveTraitCaption(trait),trait.kind);
   });
   if(!traits.size)return `<p class="next-wave-no-traits">${enemy.unknown?'Enemy ability information unavailable':'No special resistances or abilities'}</p>`;
   return `<ul class="next-wave-traits">${[...traits.values()].map(trait=>{

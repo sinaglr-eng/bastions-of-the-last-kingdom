@@ -1,5 +1,6 @@
 import {ARTIFACTS,ARTIFACT_SETS,ARTIFACT_GEMS,CHESTS,RARITIES,validateArtifactEquipment,rollArtifactChest,chestTier,craftUnlockTier,equipArtifactSet,normalizeArtifactPity,artifactCraftGem,bossChestHasGem} from '../game/core/artifacts.js';
 import {accountRank,promotionChestTier} from '../game/core/account-progression.js';
+import {settleCompletedSeasons} from './season-rewards.js';
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
 const parse=JSON.parse;
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
@@ -20,14 +21,17 @@ async function ensureRankChests(db,user){
  if(grants.length)await db.batch(grants);
 }
 const unopenedChests=`SELECT id,run_id AS runId,boss_spawn_id AS bossSpawnId,boss_id AS bossId,wave,
- tier,seed,status,earned_at AS earnedAt,NULL AS rankLevel FROM artifact_chests WHERE user_id=? AND status!='opened'
- UNION ALL SELECT id,NULL,NULL,NULL,NULL,tier,seed,'ready',earned_at,rank_level
- FROM rank_chests WHERE user_id=? AND opened_at IS NULL`;
+ tier,seed,status,earned_at AS earnedAt,NULL AS rankLevel,NULL AS season FROM artifact_chests WHERE user_id=? AND status!='opened'
+ UNION ALL SELECT id,NULL,NULL,NULL,NULL,tier,seed,'ready',earned_at,rank_level,NULL
+ FROM rank_chests WHERE user_id=? AND opened_at IS NULL
+ UNION ALL SELECT id,NULL,NULL,NULL,NULL,tier,seed,'ready',earned_at,NULL,season
+ FROM season_chests WHERE user_id=? AND opened_at IS NULL`;
 export async function artifactProfile(db,user,attempt=0){
+ await settleCompletedSeasons(db);
  await ensureRankChests(db,user);
  const a=await account(db,user);
- const chests=(await db.prepare(`SELECT id,runId,bossSpawnId,bossId,wave,tier,status,earnedAt,rankLevel FROM (${unopenedChests}) ORDER BY earnedAt,id LIMIT 1000`).bind(user,user).all()).results;
- const counts=(await db.prepare(`SELECT tier,status,COUNT(*) AS count FROM (${unopenedChests}) GROUP BY tier,status`).bind(user,user).all()).results;
+ const chests=(await db.prepare(`SELECT id,runId,bossSpawnId,bossId,wave,tier,status,earnedAt,rankLevel,season FROM (${unopenedChests}) ORDER BY earnedAt,id LIMIT 1000`).bind(user,user,user).all()).results;
+ const counts=(await db.prepare(`SELECT tier,status,COUNT(*) AS count FROM (${unopenedChests}) GROUP BY tier,status`).bind(user,user,user).all()).results;
  const active=await db.prepare('SELECT run_id AS id FROM fr010_active WHERE user_id=?').bind(user).first(),confirmedBosses=active?{runId:active.id,ids:(await db.prepare('SELECT boss_spawn_id AS id FROM artifact_chests WHERE user_id=? AND run_id=?').bind(user,active.id).all()).results.map(r=>r.id)}:null;
  const r=await db.prepare('SELECT revision FROM artifact_accounts WHERE user_id=?').bind(user).first();if(r.revision!==a.revision){if(attempt>=5)fail('Artifact vault is busy. Please retry.',409);return artifactProfile(db,user,attempt+1);}
  const last=await db.prepare("SELECT receipt_json FROM artifact_receipts WHERE user_id=? AND json_extract(receipt_json,'$.action') IN ('open','craft') ORDER BY created_at DESC,request_id DESC LIMIT 1").bind(user).first();return {...a,chests,counts,confirmedBosses,lastOpening:last?parse(last.receipt_json):null};
@@ -53,7 +57,7 @@ export async function artifactMutation(db,user,action,body){
  if(action==='open'){
   if(!Number.isInteger(body.tier)||!CHESTS[body.tier]||![1,5].includes(body.count))fail('Choose one chest or five chests of the same tier.');
   await ensureRankChests(db,user);
-  const selected=(await db.prepare(`SELECT id,seed,rankLevel,bossId,wave FROM (${unopenedChests}) WHERE tier=? AND status='ready' ORDER BY earnedAt,id LIMIT ?`).bind(user,user,body.tier,body.count).all()).results;if(selected.length!==body.count)fail('Not enough ready chests.',409);
+  const selected=(await db.prepare(`SELECT id,seed,season,rankLevel,bossId,wave FROM (${unopenedChests}) WHERE tier=? AND status='ready' ORDER BY earnedAt,id LIMIT ?`).bind(user,user,user,body.tier,body.count).all()).results;if(selected.length!==body.count)fail('Not enough ready chests.',409);
   receipt.gemsGained={aquamarine:0,emerald:0};
   for(const chest of selected){
    const rolled=rollArtifactChest(next,body.tier,chest.seed);
@@ -113,7 +117,9 @@ export async function artifactMutation(db,user,action,body){
  // the same chest, Dust or vault revision; retries return the durable receipt.
  const statements=[db.prepare(`INSERT OR IGNORE INTO artifact_receipts(user_id,request_id,signature,receipt_json,created_at) SELECT ?,?,?,?,? WHERE ${guard}`).bind(user,body.requestId,signature,JSON.stringify(receipt),now,user,a.revision)];
  for(const chest of opened){
-  const update=chest.rankLevel===null?"UPDATE artifact_chests SET status='opened',opened_at=? WHERE id=? AND user_id=? AND status='ready'":"UPDATE rank_chests SET opened_at=? WHERE id=? AND user_id=? AND opened_at IS NULL";
+  let update="UPDATE artifact_chests SET status='opened',opened_at=? WHERE id=? AND user_id=? AND status='ready'";
+  if(chest.season)update='UPDATE season_chests SET opened_at=? WHERE id=? AND user_id=? AND opened_at IS NULL';
+  else if(chest.rankLevel!==null)update='UPDATE rank_chests SET opened_at=? WHERE id=? AND user_id=? AND opened_at IS NULL';
   statements.push(db.prepare(`${update} AND ${guard} AND ${request}`).bind(now,chest.id,user,user,a.revision,user,body.requestId));
  }
  statements.push(db.prepare(`UPDATE artifact_accounts SET dust=?,gems_json=?,owned_json=?,equipment_json=?,presets_json=?,pity_json=?,revision=revision+1 WHERE user_id=? AND revision=? AND ${request}`).bind(next.dust,JSON.stringify(next.gems),JSON.stringify([...new Set(next.owned)].sort()),JSON.stringify(next.equipment),JSON.stringify(next.presets),JSON.stringify(next.pity),user,a.revision,user,body.requestId));

@@ -3,7 +3,7 @@ import {playerName,validId,validateSnapshot,validateFactionIdentity} from './val
 import families from '../data/towers.json' with {type:'json'};
 import waveDefinitions from '../data/waves.json' with {type:'json'};
 import enemyDefinitions from '../data/enemies.json' with {type:'json'};
-import {servicePage,STATISTICS_EDITION,STATISTICS_RELEASE_NAME} from './service-page.js';
+import {servicePage,seasonPage,STATISTICS_EDITION,STATISTICS_RELEASE_NAME} from './service-page.js';
 
 const hash=async value=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const response=(data,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
@@ -38,7 +38,17 @@ export async function handle(request,env,ctx){
     if(request.method==='POST'&&path.startsWith('/api/player/'))ctx?.waitUntil?.(pending.then(()=>{}));
     return pending;
   }
-  if(request.method==='GET'&&(path==='/'||path==='/owner'))return new Response(servicePage(path==='/owner'),{headers:{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'}});
+  if(request.method==='GET'&&['/','/seasons','/records','/owner'].includes(path)){
+    let html;
+    if(path==='/'||path==='/seasons'){
+      const offset=Number(url.searchParams.get('offset')||0);
+      if(!Number.isSafeInteger(offset)||offset<0)return response({error:'Invalid standings page.'},400);
+      const {seasonalHall}=await import('./hall.js');
+      try {html=seasonPage(await seasonalHall(db,{season:url.searchParams.get('season')||'current',offset}));}
+      catch(error){if(error.status===400)return response({error:error.message},400);throw error;}
+    }else html=servicePage(path==='/owner');
+    return new Response(html,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','Content-Security-Policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'}});
+  }
   if(!db)return response({error:'Statistics storage is unavailable.'},503);
   if(path==='/api/health'){await db.prepare('SELECT COUNT(*) AS tables FROM sqlite_schema WHERE name = ?').bind('runs').first();return response({ok:true,storage:'SQLite',edition:STATISTICS_EDITION,releaseName:STATISTICS_RELEASE_NAME});}
   if(request.method==='POST'&&path==='/api/runs'){

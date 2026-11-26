@@ -47,9 +47,9 @@ export function warbandTraitDetails(enemy,R=ENEMY_RULES) {
   const add=(text,kind,compact)=>traits.push({text,kind,compact});
   if(enemy.magicImmune)add('Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity','magicImmune','Magical immunity');
   if(enemy.physicalImmune)add('Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity','physicalImmune','Physical immunity');
-  if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen',`${percent(enemy.regen)} HP regen/s`);
+  if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen',`Regenerates ${percent(enemy.regen)} max HP/s`);
   if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion`,'evasion',`${percent(enemy.evasion)} evasion`);
-  if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · regenerate ${R.refraction.period}s after the final charge is spent · damage-over-time and auras bypass shields`,'refraction',`${enemyNumber(enemy.refraction)} hit shields`);
+  if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · regenerate ${R.refraction.period}s after the final charge is spent · damage-over-time and auras bypass shields`,'refraction',`Blocks ${enemyNumber(enemy.refraction)} ${enemy.refraction===1?'hit':'hits'}`);
   if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per direct hit, including Holy damage`,'krakenShell',`${enemyNumber(enemy.krakenShell)} damage block/hit`);
   if(enemy.reactiveArmor>0)add(`Reactive armor · +${enemyNumber(enemy.reactiveArmor)} armor per direct hit · maximum ${R.reactive.maxStacks} stacks (${enemyNumber(enemy.reactiveArmor*R.reactive.maxStacks)} armor) · decays ${R.reactive.decayPerSecond} stacks/s`,'reactive',`+${enemyNumber(enemy.reactiveArmor)} armor/hit`);
   if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} missing health every ${R.recharge.period}s · healing block prevents recharge`,'recharge',`${percent(enemy.recharge)} missing HP/${R.recharge.period}s`);

@@ -116,7 +116,7 @@ class Stream:
         paint = None
         if not any("Texture" in k for k in list(data)+list(pbr)) and not data.get("emissiveFactor") and "alphaMode" not in data:
             paint = pbr.pop("baseColorFactor",[1,1,1,1])
-            data["name"] = "Meadow mineral and foliage palette"
+            data["name"] = "Meadow turf" if original["name"].startswith("Sward") else "Meadow mineral and foliage palette"
         key = json.dumps(data,sort_keys=True)
         if key not in self.material_keys:
             self.material_keys[key] = len(self.doc["materials"])
@@ -147,6 +147,26 @@ def shift_x(x):
     return WEST+(EAST-WEST)*np.clip((x+14)/28,0,1)
 
 
+def meadow_colors(positions):
+    """Continuous ground cover. Adjacent triangles share color at every seam."""
+    xz = positions[:, [0, 2]]
+    def patches(spacing, seed):
+        lattice = np.random.default_rng(seed).uniform(-1, 1, (40, 40))
+        coords = xz / spacing + 16
+        ij = np.floor(coords).astype(int)
+        f = coords - ij
+        u, v = (f*f*(3-2*f)).T
+        x, z = ij.T
+        return ((1-u)*(1-v)*lattice[x,z] + u*(1-v)*lattice[x+1,z]
+                + (1-u)*v*lattice[x,z+1] + u*v*lattice[x+1,z+1])
+
+    growth = patches(6.3, 218) * .72 + patches(3.2, 514) * .28
+    # Keep the approved olive meadow under the game's direct sunlight.
+    color = np.ones((len(positions), 4))
+    color[:, :3] = [0.140, 0.216, 0.035] + growth[:, None] * [0.065, 0.066, 0.017]
+    return color
+
+
 def geometry(source, stream):
     doc=source.doc
     samples=[]
@@ -171,6 +191,8 @@ def geometry(source, stream):
                 pose=pos+delta
                 extremes.append((pose.min(axis=0),pose.max(axis=0)))
             mat,paint=stream.material(original)
+            if original["name"].startswith("Sward"):
+                paint=meadow_colors(pos)
             batches[(mat,paint is not None)].append((p,pos,targets,paint))
         output={k:copy.deepcopy(v) for k,v in mesh.items() if k in ("name","extras","weights")}
         output["primitives"]=[]
@@ -183,7 +205,8 @@ def geometry(source, stream):
                 if "TEXCOORD_0" in p["attributes"] and not painted:
                     uvs.append(source.array(p["attributes"]["TEXCOORD_0"]))
                 if painted:
-                    colors.append(np.tile(np.round(np.array(paint)*65535).astype("uint16"),(count,1)))
+                    color = np.broadcast_to(paint, (count, 4))
+                    colors.append(np.round(color*65535).astype("uint16"))
                 for collection,delta in zip(deltas,targets):
                     collection.append(delta)
             attr={"POSITION":stream.array(np.vstack(positions),"VEC3",bounds=True,target=34962),
@@ -226,6 +249,42 @@ def label(mesh, node):
     return None
 
 
+def mark_dressing(node, samples):
+    lo, hi = bounds(node, samples)
+    limits = np.floor(np.array([lo[[0,2]], hi[[0,2]]]) + EDGE).astype(int)
+    cells = [[x,z] for x in range(max(0,limits[0,0]),min(36,limits[1,0])+1)
+                   for z in range(max(0,limits[0,1]),min(36,limits[1,1])+1)]
+    x, _, z = node["translation"]
+    node.setdefault("extras", {}).update(meadowCell=[math.floor(x+EDGE), math.floor(z+EDGE)], meadowCells=cells)
+
+
+def place_grass(stream, samples):
+    """Scatter small patches of the original tuft, each independently removable."""
+    mesh = next(i for i,m in enumerate(stream.doc["meshes"]) if m["name"]=="Grass Tufts")
+    rng = np.random.default_rng(8237)
+    occupied = [np.array(n["translation"])[[0,2]] for n in stream.doc["nodes"] if "meadowCell" in n.get("extras", {})]
+    centres = np.array(CENTRES + [(-18,-14), (18,14)])
+    count = 0
+    for patch in range(38):
+        center = rng.uniform(-17.2, 17.2, 2)
+        for tuft in range(int(rng.integers(2, 6))):
+            xz = center + rng.normal(0, .58, 2)
+            if np.max(np.abs(xz))>18 or np.min(np.max(np.abs(centres-xz), axis=1))<.85:
+                continue
+            if min(np.linalg.norm(xz-other) for other in occupied)<.55:
+                continue
+            yaw = rng.uniform(0, math.pi)
+            size = rng.uniform(1.12, 1.76)
+            node = {"name":f"Meadow grass {patch+1}.{tuft+1}", "mesh":mesh,
+                    "translation":[xz[0], -.035, xz[1]], "scale":[size, size*rng.uniform(.85,1.13), size],
+                    "rotation":[0, math.sin(yaw), 0, math.cos(yaw)]}
+            mark_dressing(node, samples)
+            stream.node(node, True)
+            occupied.append(xz)
+            count += 1
+    return count
+
+
 def placements(source,stream,samples):
     doc=source.doc;background=defaultdict(list);checkpoints=defaultdict(list)
     targets={channel["target"]["node"] for clip in doc["animations"] for channel in clip["channels"]}
@@ -250,11 +309,7 @@ def placements(source,stream,samples):
                 else:node["translation"][2]-=max(0,hi[2]+EDGE+.08)
         shifts[idx]=delta
         if field:
-            lo,hi=bounds(node,samples)
-            limits=np.floor(np.array([lo[[0,2]],hi[[0,2]]])+18.5).astype(int)
-            cells=[[u,v] for u in range(max(0,limits[0,0]),min(36,limits[1,0])+1)
-                         for v in range(max(0,limits[0,1]),min(36,limits[1,1])+1)]
-            node.setdefault("extras",{}).update(meadowCell=[math.floor(x+18.5),math.floor(z+18.5)],meadowCells=cells)
+            mark_dressing(node,samples)
             loose+=1
         if idx in targets or field or node.get("extras") or centre_mesh:
             remap[idx]=stream.node(node,True)
@@ -269,6 +324,7 @@ def placements(source,stream,samples):
             attrs[key.upper()]=stream.array(values,typ,bounds=key=="translation",target=34962)
         stream.node({"name":doc["meshes"][mesh]["name"]+" groves and placements","mesh":mesh,
                      "extensions":{"EXT_mesh_gpu_instancing":{"attributes":attrs}}},True)
+    loose+=place_grass(stream,samples)
     fitted=[]
     for number,centre in enumerate(CENTRES,1):
         group=checkpoints[number];assert len(group)==(3 if number==4 else 1)

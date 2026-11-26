@@ -1,6 +1,6 @@
 import {ARTIFACT_CATALOG,ARTIFACT_VERSION} from '../game/core/artifacts.js';
 import {artifactProfile,artifactMutation,artifactRewardStatements,unlockArtifactChests} from './artifact-store.js';
-import {hallRecords} from './hall.js';
+import {hallRecords,seasonalHall} from './hall.js';
 import {authenticatedPlayer,playerAuth} from './auth.js';
 import {currentFactionData,FR010_RULESET} from '../game/core/current-data.js';
 import {Game} from '../game/core/game.js';
@@ -132,7 +132,7 @@ async function verifyBatch(db,user,id,b){
    UNION SELECT achievement_id FROM fr010_eligible WHERE user_id=?
   )) AS achievement_ids FROM fr010_profiles WHERE user_id=?`).bind(user,user,user).first();
   const grants=earnedGrants(game,JSON.parse(p.achievement_ids).map(id=>({id}))),guard='EXISTS (SELECT 1 FROM fr010_runs WHERE id = ? AND sequence = ? AND last_batch = ?)';
-  const statements=[db.prepare('UPDATE fr010_runs SET sequence = ?, last_batch = ?, snapshot_json = ?, score_text = ?, score_digits = ?, highest_wave = ?, progress_json = ?, outcome = ?, updated_at = ?, finished_at = ? WHERE id = ? AND user_id = ? AND sequence = ? AND outcome = ? AND EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(next,b.batchId,snapshot,score,score.length,game.progress.highestWave,summary,outcome,now,outcome==='lost'?now:null,id,user,b.sequence,'playing',user,p.revision)];
+  const statements=[db.prepare('UPDATE fr010_runs SET sequence = ?, last_batch = ?, snapshot_json = ?, score_text = ?, score_digits = ?, highest_wave = ?, progress_json = ?, outcome = ?, updated_at = ?, finished_at = CASE WHEN ? IN (\'lost\',\'won\') THEN CAST(strftime(\'%s\',\'now\') AS INTEGER)*1000+CAST(substr(strftime(\'%f\',\'now\'),4) AS INTEGER) END WHERE id = ? AND user_id = ? AND sequence = ? AND outcome = ? AND EXISTS (SELECT 1 FROM fr010_profiles WHERE user_id = ? AND revision = ?)').bind(next,b.batchId,snapshot,score,score.length,game.progress.highestWave,summary,outcome,now,outcome,id,user,b.sequence,'playing',user,p.revision)];
   statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_batches (run_id,sequence,batch_id,digest,commands_json,created_at) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(id,next,b.batchId,hash,JSON.stringify(b.commands),now,id,next,b.batchId));
   for(const grant of grants)statements.push(db.prepare(`INSERT OR IGNORE INTO fr010_eligible (user_id,achievement_id,faction_id,reward,verified_at,run_id) SELECT ?,?,?,?,?,? WHERE ${guard}`).bind(user,grant.id,grant.factionId,grant.reward,now,id,id,next,b.batchId));
   statements.push(...artifactRewardStatements(db,user,id,game,artifactKills,guard,[id,next,b.batchId]));
@@ -160,6 +160,7 @@ export async function handlePlayer(request,env){
   const faction=url.searchParams.get('faction')||'all',offset=Number(url.searchParams.get('offset')||0),view=url.searchParams.get('view')||'top';
   if(!['all','crown','forge','grove'].includes(faction)||!Number.isSafeInteger(offset)||offset<0||!['top','own'].includes(view))fail('Invalid standings page.');
   const user=env.AUTH_SECRET?await authenticatedPlayer(request,env):null;
+  if(url.searchParams.has('season'))return json(await seasonalHall(db,{season:url.searchParams.get('season'),offset,view,user:user?.id}));
   return json(await hallRecords(db,{faction,offset,view,user:user?.id}));
  }
  const user=await authenticatedPlayer(request,env);if(!user)fail('Sign in to your verified account.',401);

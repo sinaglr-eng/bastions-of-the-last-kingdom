@@ -118,7 +118,9 @@ export class BorderlandMeadow{
         if(mat.name==='Painted alpine distance'){
           horizon=mat.emissiveMap||mat.map;node.visible=false;
         }else{
-          node.castShadow=!mat.transparent;node.receiveShadow=true;
+          // The flat floor receives character and tree shadows. Casting the same
+          // floor into the shadow atlas produces fine stripes at shallow angles.
+          node.castShadow=!mat.transparent&&mat.name!=='Meadow turf';node.receiveShadow=true;
         }
       });
       this.batches=batchDressing(gltf.scene,this.dressing);
