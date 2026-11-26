@@ -1,4 +1,11 @@
 import {canonicalAchievementId,isSharedAchievement} from './core/account-progression.js';
+import {FIRST_SEASON} from './core/seasons.js';
+
+// A defense can last across a season boundary. Its cumulative local counters
+// then include earlier feats, so use the server's seasonal progress instead.
+export function sameAchievementSeason(game,profile){
+ return !profile?.achievementSeason||(game?.achievementOriginSeason||FIRST_SEASON)===profile.achievementSeason;
+}
 
 // Read legacy cached profiles without changing their ledger, wallet or run identity.
 export function canonicalAchievementRows(rows=[]){

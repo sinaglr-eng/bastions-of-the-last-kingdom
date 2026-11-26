@@ -48,6 +48,18 @@ test('new-season skill mastery shows purchases in the current season and falls b
  delete p.profile.seasonalSkillRanks;assert.equal(progress(),3);
 });
 
+test('an unfinished defense from last month cannot put old unlocks back on the seasonal album',()=>{
+ const p=account(),boss=achievementCatalog(currentFactionData('forge')).find(a=>a.kind==='boss');
+ p.game={accountId:p.user.id,progress:{grants:()=>[boss],streakBest:20}};
+ for(const oldSeason of [undefined,'2026-11']){
+  p.game.achievementOriginSeason=oldSeason;
+  const album=achievementData(p,'all');
+  assert.equal(album.state(boss),'progress');
+ }
+ p.game.achievementOriginSeason=p.profile.achievementSeason;
+ assert.equal(achievementData(p,'all').state(boss),'pending');
+});
+
 test('single and bulk claims bind their writes to the season shown on the reward',async()=>{
  const bodies=[];
  const p=new PlayerClient({fetcher:async(url,options)=>{

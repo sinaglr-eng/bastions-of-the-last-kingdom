@@ -7,7 +7,7 @@ import {siteUrl} from '../game/site-url.js';
 import {currentFactionData} from '../game/core/current-data.js';
 import {FACTIONS} from '../game/core/factions.js';
 import {achievementCatalog,streakAchievement,BOSS_TYPES,canonicalAchievementId,isSharedAchievement} from '../game/core/achievements.js';
-import {canonicalAchievementRows} from '../game/achievement-client-state.js';
+import {canonicalAchievementRows,sameAchievementSeason} from '../game/achievement-client-state.js';
 import {killMilestone,killTargetFromId} from '../game/core/kill-milestones.js';
 import {GENERAL_SKILLS} from '../game/core/general.js';
 import {rankLabel} from '../game/core/recipes.js';
@@ -21,7 +21,7 @@ export const exactNumber=n=>{try{return BigInt(n||0).toLocaleString('en-US');}ca
 export function achievementData(player,faction='crown'){
  const factionIds=faction==='all'?FACTIONS.map(row=>row.id):[FACTIONS.some(row=>row.id===faction)?faction:'crown'],dataByFaction=Object.fromEntries(factionIds.map(id=>[id,currentFactionData(id)])),data=dataByFaction[factionIds[0]],profile=player.profile||{};
  const dataFor=row=>dataByFaction[row.factionId]||data,owned=new Map(canonicalAchievementRows(profile.grants).map(g=>[g.id,g])),eligible=new Map(canonicalAchievementRows(profile.eligible).map(g=>[g.id,g]));
- const game=player.game,run=game?.accountId&&!game.developerMode&&(!player.user||game.accountId===player.user.id)&&
+ const game=player.game,run=game?.accountId&&!game.developerMode&&sameAchievementSeason(game,profile)&&(!player.user||game.accountId===player.user.id)&&
    (!profile.progressionEpoch||(game.progressionEpoch||'initial')===profile.progressionEpoch)?game.progress:null;
  // Shared milestones appear once. Each faction discovery remains attached to its own roster.
  const pending=new Set(canonicalAchievementRows(run?.grants()||[]).filter(g=>isSharedAchievement(g.id)||g.id.startsWith('endless:')||factionIds.includes(g.factionId)||factionIds.some(id=>g.id.split(':')[1]===id)).map(g=>g.id)),verified=new Set([...owned.keys(),...eligible.keys()]);

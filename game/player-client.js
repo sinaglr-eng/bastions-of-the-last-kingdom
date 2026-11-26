@@ -4,7 +4,7 @@ import {currentFactionData} from './core/current-data.js';
 import {Game} from './core/game.js';
 import {COMMANDER_RULES_VERSION} from './core/general.js';
 import {accountRank,newlyAvailableSkills,canonicalAchievementId} from './core/account-progression.js';
-import {canonicalAchievementRows,achievementIdSet} from './achievement-client-state.js';
+import {canonicalAchievementRows,achievementIdSet,sameAchievementSeason} from './achievement-client-state.js';
 
 // A restored legacy snapshot may already include unsent commands in the
 // immutable outbox. Append the rules boundary after those batches; never edit
@@ -54,7 +54,7 @@ export class PlayerClient{
   if(ready.length)this.onAchievement({type:'ready',rows:ready});
  }
  announceLocalAchievements(game=this.game){
-  if(!game||this.game!==game||!this.user||game.accountId!==this.user.id||game.developerMode)return;
+  if(!game||this.game!==game||!this.user||game.accountId!==this.user.id||game.developerMode||!sameAchievementSeason(game,this.profile))return;
   const owner=[this.user.id,this.progressionEpoch,this.profile?.achievementSeason].filter(Boolean).join(':');if(this.noticeOwner!==owner){this.noticeOwner=owner;this.pendingNotices.clear();}
   const known=achievementIdSet([...(this.profile?.eligible||[]),...(this.profile?.grants||[])]),fresh=canonicalAchievementRows(game.progress.grants()).filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));
   for(const row of fresh)this.pendingNotices.add(row.id);
@@ -80,6 +80,7 @@ export class PlayerClient{
   return {game:new Game(currentFactionData(factionId),{seed:Date.now(),mode:'endless',runId:crypto.randomUUID()}),sequence:0,nextSequence:0};
  }
  async attach(game,{sequence=0,nextSequence=sequence,revision=null,discardRun=null,fresh=false}={}){
+  if(fresh)game.achievementOriginSeason=this.profile?.achievementSeason;
   await this.resetPromise;this.stopAchievementWatch?.();game.progressionEpoch=this.progressionEpoch;this.game=game;this.stopAchievementWatch=game.on((type,payload)=>{if(type==='combine'||type==='wave-complete'||type==='death'&&payload.enemy?.boss)this.announceLocalAchievements(game);});this.sync={sequence,nextSequence};this.storageRevision=revision??(await this.store.get(this.owner))?.revision??0;this.lastSave=0;this.nextRetry=0;this.status=this.user?'Pending verification':'Guest · local continuation only';this.onChange();await this.save({discardRun});this.announceLocalAchievements(game);if(game.accountId&&!fresh)try{await this.refreshResultReceipts();}catch{}
  }
  prepareBatches(game){
@@ -91,7 +92,7 @@ export class PlayerClient{
  async save({discardRun=null}={}){
   const game=this.game;if(!game)return;
   return this.queueWrite(async()=>{if(this.game!==game)return;let batches=[];
-   try{const snapshot=serializeRun(game);batches=this.prepareBatches(game);const envelope={revision:this.storageRevision||0,meta:{runId:game.runId,accountId:game.accountId,progressionEpoch:this.progressionEpoch,factionId:game.factionId,round:game.round,phase:game.phase,elapsedSeconds:game.elapsedSeconds,developerMode:!!game.developerMode},snapshot,sync:{...this.sync}};const saved=await this.store.put(game.accountId||'guest',envelope,batches,{discardRun});this.storageRevision=saved.revision;this.lastSave=performance.now();return saved;}catch(error){game.journal.unshift(...batches.flatMap(b=>b.commands));this.sync.nextSequence-=batches.length;this.status=error.message;this.onChange();throw error;}
+   try{const snapshot=serializeRun(game);batches=this.prepareBatches(game);const envelope={revision:this.storageRevision||0,meta:{runId:game.runId,accountId:game.accountId,achievementOriginSeason:game.achievementOriginSeason,progressionEpoch:this.progressionEpoch,factionId:game.factionId,round:game.round,phase:game.phase,elapsedSeconds:game.elapsedSeconds,developerMode:!!game.developerMode},snapshot,sync:{...this.sync}};const saved=await this.store.put(game.accountId||'guest',envelope,batches,{discardRun});this.storageRevision=saved.revision;this.lastSave=performance.now();return saved;}catch(error){game.journal.unshift(...batches.flatMap(b=>b.commands));this.sync.nextSequence-=batches.length;this.status=error.message;this.onChange();throw error;}
   });
  }
  async flush(){
@@ -182,7 +183,7 @@ export class PlayerClient{
   return {conflict:true,local,remote};
  }
  async resume(choice){
-  const e=choice.local;if(e){if((e.meta.accountId||'guest')!==this.owner)throw Error('Sign in to the owner of this save.');const game=restoreRun(currentFactionData(e.meta.factionId),e.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');adoptCurrentRules(game);game.paused=true;await this.attach(game,{...e.sync,revision:e.revision});return game;}
+  const e=choice.local;if(e){if((e.meta.accountId||'guest')!==this.owner)throw Error('Sign in to the owner of this save.');const game=restoreRun(currentFactionData(e.meta.factionId),e.snapshot);game.achievementOriginSeason=e.meta.achievementOriginSeason;if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');adoptCurrentRules(game);game.paused=true;await this.attach(game,{...e.sync,revision:e.revision});return game;}
   const remote=choice.remote;if(!remote)throw Error('No saved run.');const game=restoreRun(currentFactionData(remote.factionId),remote.snapshot);if((game.progressionEpoch||'initial')!==this.progressionEpoch)throw Error('Account progress reset. Start a new defense.');adoptCurrentRules(game);game.paused=true;await this.attach(game,{sequence:remote.sequence,discardRun:remote.id});return game;
  }
  async excludeDeveloper(){if(!this.game?.accountId)return;try{await this.request(`/player/runs/${this.game.runId}/developer`,{});}catch{this.onNotice('Developer exclusion pending. This run cannot submit further commands.');}this.game.journal=[];}
