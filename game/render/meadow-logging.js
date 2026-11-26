@@ -9,7 +9,8 @@ const bark=['#654831','#78583c','#5a4637','#856447','#624a37'];
 const logYard=[[-19.8,4.95],[-19.03,6.1],[-19.15,8.1],[-19.00,10.15],[-19.46,13.31],
   [-20.62,14.43],[-22.55,15.52],[-23.44,14.75],[-23.18,12.43],[-22.48,10.54],
   [-21.53,8.56],[-20.74,6.83]];
-const rockCenter={x:-20.27,z:-.22};
+const southernStumps=[[-23.86,15.98,.30,.32,.65],[-22.64,16.87,.24,.27,1.56],
+  [-21.60,17.84,.36,.41,1.12],[-24.24,18.21,.32,.47,.23],[-24.69,16.44,.19,.24,1.72]];
 
 function insideYard(x,z){
   let inside=false;
@@ -21,7 +22,8 @@ function insideYard(x,z){
 }
 
 export function reservedClearing(x,z,r=0){
-  if(Math.hypot((x-rockCenter.x)*1.10,z-rockCenter.z)<1.06+r)return true;
+  if(x>=-22.1-r&&x<=-18.5+r&&Math.abs(z+.20)<1.02+r)return true;
+  if(southernStumps.some(([sx,sz,radius])=>Math.hypot(x-sx,z-sz)<radius*1.62+r))return true;
   return insideYard(x,z)||insideYard(x-r,z)||insideYard(x+r,z)||insideYard(x,z+r)||insideYard(x,z-r);
 }
 
@@ -95,7 +97,7 @@ function clearing(){
     }
   }
   for(const args of [[-19.54,6.1,.26,.36,.42],[-20.53,8.13,.32,.43,.72],[-21.55,9.72,.29,.28,1.3],
-    [-19.80,12.41,.24,.37,.81],[-22.23,14.61,.33,.43,.42]])stump(...args);
+    [-19.80,12.41,.24,.37,.81],[-22.23,14.61,.33,.43,.42],...southernStumps])stump(...args);
 
   // Bucked lengths are banked in a real three-log stack. Ends open towards the saw.
   for(const [x,y,z] of [[-20.1,.175,9.94],[-20.48,.175,10.02],[-20.29,.463,10.09]]){
@@ -131,22 +133,36 @@ function clearing(){
   return art.finish();
 }
 
-function erratic(){
+function palisadeOutcrop(){
   const art=surfaces('Checkpoint I verge / glacial boulder');
-  const outline=[[-.73,-.52],[-.90,.06],[-.69,.63],[-.09,.91],[.53,.72],[.87,.35],[.78,-.35],[.27,-.76],[-.31,-.75]];
-  const rings=[[-.15,-.03,.00,.89],[.35,0,0,1],[.77,-.05,-.07,.83],[1.09,-.17,-.06,.47]].map(([y,ox,oz,s],j)=>
-    outline.map(([x,z],i)=>point(rockCenter.x+ox+x*s,y+(j?.09*Math.sin(i*1.57+j*.9):0),rockCenter.z+oz+z*s)));
-  const stone=['#73776b','#929384','#818376','#717869','#959988','#747c72','#878879','#787f74','#979586'];
-  for(let k=0;k<rings.length-1;k++)for(let i=0;i<outline.length;i++){
-    const j=(i+1)%outline.length,A=rings[k],B=rings[k+1];
-    const c=stone[(i+k)%stone.length],d=k===2&&(i===3||i===4)?'#858b61':stone[(i+k+2)%stone.length];
-    art.face(A[i],A[j],B[j],c);art.face(A[i],B[j],B[i],d);
+  // Sections share their edges all the way from the angled stockade to the
+  // build line. An offset split in the crest gives the granite two shoulders.
+  const sections=[[-21.62,-.21,.58,.75,.47],[-21.22,-.26,.88,1.03,.27],
+    [-20.73,-.18,1.03,1.27,.13],[-20.19,-.12,.98,1.15,-.18],
+    [-19.87,-.22,.78,.77,-.17],[-19.55,-.24,.86,.91,-.05],
+    [-19.02,-.20,.79,.65,.11],[-18.63,-.15,.60,.52,.05],[-18.50,-.12,.42,.39,0]];
+  const rings=sections.map(([x,z,w,h,slant],i)=>{
+    const crest=.07*Math.sin(i*1.1),t=i===sections.length-1?0:.08*Math.sin(i*1.87);
+    return [[-w,-.13],[-w*.93,.30*h],[-w*.66,.75*h],[-w*.28+crest,h],
+      [w*.28+crest,h*(.83+.05*Math.sin(i))],[w*.77,h*.52],[w,-.13]].map(([dz,y],j)=>
+      point(Math.min(-18.50,x+slant*dz+(j%2===0?t:0)),y,z+dz));
+  });
+  const stone=['#71796d','#848a7a','#9b9b88','#a6a58e','#989e8a','#808676'];
+  for(let i=0;i<rings.length-1;i++){
+    const a=rings[i],b=rings[i+1];
+    for(let j=0;j<a.length-1;j++){
+      const tint=j===4&&(i===0||i===3||i===6)?'#8c946e':stone[j];
+      const second=(i+j)%3===0?stone[Math.max(0,j-1)]:tint;
+      art.face(a[j],a[j+1],b[j],tint);art.face(b[j],a[j+1],b[j+1],second);
+    }
   }
-  const top=point(rockCenter.x-.16,1.15,rockCenter.z-.08),rim=rings.at(-1);
-  for(let i=0;i<rim.length;i++)art.face(top,rim[i],rim[(i+1)%rim.length],i<3?'#a6a88b':'#9a9b87');
+  for(const ring of [rings[0],rings.at(-1)]){
+    const foot=ring[0].clone().lerp(ring.at(-1),.5);
+    for(let j=0;j<ring.length-1;j++)art.face(foot,ring[j],ring[j+1],stone[j]);
+  }
   return art.finish();
 }
 
 export function campWoodcutting(){
-  return [clearing(),erratic()];
+  return [clearing(),palisadeOutcrop()];
 }

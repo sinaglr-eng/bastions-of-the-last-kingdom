@@ -37,13 +37,12 @@ test('the terrain cut follows both shores, two wet outlets and the western fores
 });
 
 test('trampling repaints on a new route and spray has a static reduced-motion pose',t=>{
-  const paths=[];
+  let footprint;
   function canvas(){
-    let path=[];
     const context={
-      fillRect(){},drawImage(){},closePath(){},fill(){},save(){},restore(){},clip(){},beginPath(){path=[];},
-      moveTo(x,y){path.push([x,y]);},lineTo(x,y){path.push([x,y]);},
-      stroke(){if(this.lineCap==='round')paths.push(path.slice());}
+      fillRect(){},closePath(){},fill(){},beginPath(){},moveTo(){},lineTo(){},stroke(){},
+      getImageData(x,y,width,height){return {data:new Uint8ClampedArray(width*height*4).fill(255)};},
+      putImageData(image){footprint=Buffer.from(image.data.filter((value,index)=>index%4===3));}
     };
     return {getContext:()=>context};
   }
@@ -57,12 +56,15 @@ test('trampling repaints on a new route and spray has a static reduced-motion po
   const cascade=new THREE.Group();cascade.name='Waterfall.002';model.add(cascade);
   const terrain=finishMeadowTerrain(model,{size:37});
   const route=[{x:0,z:4},{x:2,z:4},{x:2,z:7}];
-  terrain.paintRoute(route);const first=paths.at(-1),version=ground.material.map.version;
+  terrain.paintRoute(route);const first=footprint,version=ground.material.map.version;
+  assert.ok(new Set(first).size>50,'varied patches of partial wear');
   terrain.paintRoute(route.map(p=>({...p})));
   assert.equal(ground.material.map.version,version);
   terrain.paintRoute([{x:0,z:4},{x:0,z:7},{x:2,z:7}]);
-  assert.notDeepEqual(paths.at(-1),first);
+  assert.notDeepEqual(footprint,first);
   assert.equal(ground.material.map.version,version+1);
+  terrain.paintRoute([]);assert.ok(footprint.every(alpha=>alpha===255),'old wear is erased');
+  terrain.paintRoute(route);assert.deepEqual(footprint,first);
   const {instanceMatrix}=cascade.getObjectByName('Whitewater / impact plumes');
   const still=instanceMatrix.array.slice();
   terrain.animateSpray(0);
@@ -87,11 +89,19 @@ test('the shipped ramp meets the bank and timber deck, and ground plants have ce
   }
 });
 
-test('the logging yard faces the sawyers and the standalone boulder stays outside the playable grid and gate',()=>{
+test('the logging yard reaches the southern woodland and the rock ledge joins the palisade to the first build line',()=>{
   const [yard,rock]=campWoodcutting();
   const y=new THREE.Box3().setFromObject(yard),b=new THREE.Box3().setFromObject(rock);
-  assert.ok(y.min.z>=5&&y.max.z<16&&y.max.x< -18.5);
-  assert.ok(b.min.y<-.03&&b.max.y>1&&b.max.x< -18.5&&Math.abs(b.getCenter(new THREE.Vector3()).z)<1);
+  assert.ok(y.min.z>=5&&y.max.z>18&&y.max.z<19&&y.max.x< -18.5);
+  assert.ok(b.min.y<-.03&&b.max.y>1&&b.max.x===-18.5&&Math.abs(b.getCenter(new THREE.Vector3()).z)<1);
+  const ray=new THREE.Raycaster(new THREE.Vector3(),new THREE.Vector3(0,-1,0));
+  // Continuous stone above ground at the centreline, up to the first legal wall.
+  for(let x=-21.58;x<-18.50;x+=.06){
+    ray.ray.origin.set(x,3,-.22);
+    const hits=[];
+    THREE.Mesh.prototype.raycast.call(rock,ray,hits);
+    assert.ok(hits.some(hit=>hit.point.y>.24),'uncovered ledge at '+x);
+  }
   assert.ok(b.min.z> -12); // Spawn is at z=-14.
   assert.ok(reservedClearing(-20.27,-.22)&&reservedClearing(-21.21,10.5));
   assert.equal(reservedClearing(-14,0),false); // The first checkpoint.

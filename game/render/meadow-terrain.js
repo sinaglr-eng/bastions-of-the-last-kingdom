@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import {meadowFootpath} from './meadow-footpath.js';
 import {campWoodcutting,paintLoggingGround,reservedClearing} from './meadow-logging.js';
 
 const V=THREE.Vector3, cutDepth=-3.8;
-const mix=THREE.MathUtils.lerp;
+
 
 function seedRandom(seed){
   return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
@@ -11,7 +12,7 @@ function seedRandom(seed){
 // A single mipmapped painting over the authored turf. Broad brush facets
 // stay broad at the overview zoom; shared edges and mipmaps avoid screen-door grain.
 function tintTurf(mesh,grid){
-  const canvas=document.createElement('canvas');canvas.width=1152;canvas.height=768;
+  const canvas=document.createElement('canvas');canvas.width=1512;canvas.height=1008;
   const ctx=canvas.getContext('2d');if(!ctx)return;
   const random=seedRandom(4671),cols=24,rows=17,w=canvas.width/cols,h=canvas.height/rows;
   const nodes=Array.from({length:rows+1},(_,z)=>Array.from({length:cols+1},(_,x)=>({
@@ -41,54 +42,7 @@ function tintTurf(mesh,grid){
   }
   mesh.geometry.setAttribute('uv',new THREE.BufferAttribute(uv,2));
   mesh.material.map=texture;mesh.material.needsUpdate=true;mesh.castShadow=false;
-  // Bake footsteps into the existing turf painting. This can't z-fight the
-  // field or darken where the route doubles back over earlier footsteps.
-  const untrampled=document.createElement('canvas');
-  untrampled.width=canvas.width;untrampled.height=canvas.height;
-  untrampled.getContext('2d').drawImage(canvas,0,0);
-  const half=(grid.size-1)/2,unit=canvas.width/84;
-  let previous=null;
-  return route=>{
-    const signature=(route??[]).map(p=>p.x+','+p.z).join('|');
-    if(signature===previous)return;
-    previous=signature;
-    ctx.drawImage(untrampled,0,0);
-    if(route?.length>1){
-      ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
-      const first=route[0],last=route.at(-1);
-      const trail=[{x:first.x===0?-.5:first.x,z:first.z},...route,
-        {x:last.x===grid.size-1?last.x+.5:last.x,z:last.z}];
-      const fringe=[];
-      for(let i=0;i<trail.length;i++){
-        const p=trail[i],a=trail[i-1]??p;
-        const dx=p.x-a.x,dz=p.z-a.z,steps=Math.max(1,Math.ceil(Math.hypot(dx,dz)*2));
-        for(let j=1;j<=steps;j++){
-          const t=j/steps,x=mix(a.x,p.x,t)-half,z=mix(a.z,p.z,t)-half;
-          const px=(x+42+.042*Math.sin(z*2.7+x*.41))*unit;
-          const py=(28-z+.039*Math.cos(x*3.9-z*.36))*unit;
-          if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);
-          const length=Math.hypot(dx,dz);
-          if(length){
-            const side=Math.sin(31*x+17*z)>0?1:-1;
-            const offset=side*(.23+.13*Math.sin(8*x+13*z))*unit;
-            fringe.push([px+dz/length*offset,py+dx/length*offset]);
-          }
-        }
-      }
-      for(const [width,color] of [[.82,'rgba(216,194,164,.16)'],[.59,'rgba(230,202,174,.28)'],[.37,'rgba(241,205,173,.25)']]){
-        ctx.lineWidth=width*unit;ctx.strokeStyle=color;ctx.stroke();
-      }
-      // Let tufts of the painted grass survive on alternating shoulders.
-      ctx.save();ctx.beginPath();
-      for(const [x,y] of fringe){
-        const size=unit*(.055+.025*Math.sin(x+y));
-        ctx.moveTo(x-size*1.8,y);ctx.lineTo(x+size*.7,y+size);
-        ctx.lineTo(x+size*1.5,y-size*.55);ctx.closePath();
-      }
-      ctx.clip();ctx.globalAlpha=.76;ctx.drawImage(untrampled,0,0);ctx.restore();
-    }
-    texture.needsUpdate=true;
-  };
+  return meadowFootpath(canvas,ctx,mesh.material,texture,grid.size);
 }
 
 function points(mesh){
@@ -233,19 +187,28 @@ function plantMargins(model,terrain,grid){
   for(let i=0;i<stockade.count;i++){
     stockade.getMatrixAt(i,matrix);p.setFromMatrixPosition(matrix).applyMatrix4(stockade.matrixWorld);points.push(p.clone());
   }
+  const front=[...points].sort((a,b)=>a.z-b.z);
   const types=[shrub,stone,fir,oak,{geometry:fallenTrunk(),material:shrub.material},find('Low Fern'),find('Meadow wildflowers')];
   const radius=[.58,.88,.96,1.26,.82,.32,.30],spec=types.map(()=>[]),rand=seedRandom(621),half=grid.size/2;
   const ray=new THREE.Raycaster(new V(),new V(0,-1,0));ray.far=9;
   const planted=[],dummy=new THREE.Object3D();
-  function plant(side,z,x,kind,s,retainedTree=false){
+  function plant(side,z,x,kind,s,curated=false){
     if(!types[kind])return;
     const r=radius[kind]*s;
-    if(side<0&&!retainedTree&&reservedClearing(x,z,r))return;
-    if(side*x-r<half+.08||Math.abs(z-side*14)<1.62+r||Math.abs(z)+r>19.6)return;
-    if(points.some(p=>Math.hypot(p.x-x,p.z-z)<r+1.05))return;
+    if(side<0&&!curated&&reservedClearing(x,z,r))return;
+    if(side*x-r<half+.08||Math.abs(z-side*14)<1.62+r||Math.abs(z)+r>(curated?22.1:19.6))return;
+    if(points.some(p=>Math.hypot(p.x-x,p.z-z)<r+(curated?.25:1.05)))return;
     if(side<0){
-      const nearby=points.filter(p=>Math.abs(p.z-z)<1.65);
-      if(!nearby.length||x-r<Math.max(...nearby.map(p=>p.x))+.45)return;
+      if(curated){
+        const after=front.findIndex(p=>p.z>=z);
+        if(after>0){
+          const a=front[after-1],b=front[after],wallX=THREE.MathUtils.lerp(a.x,b.x,(z-a.z)/(b.z-a.z));
+          if(x-wallX<r+.16)return;
+        }
+      }else{
+        const nearby=points.filter(p=>Math.abs(p.z-z)<1.65);
+        if(!nearby.length||x-r<Math.max(...nearby.map(p=>p.x))+.45)return;
+      }
     }
     if(planted.some(a=>Math.hypot(a.x-x,a.z-z)<(a.r+r)*.76))return;
     ray.ray.origin.set(x,4,z);
@@ -257,6 +220,20 @@ function plantMargins(model,terrain,grid){
   // Two trees survived the cutting, between the worked timber and the woodland.
   plant(-1,13.51,-23.04,2,.69,true);
   plant(-1,14.44,-20.80,3,.47,true);
+  // Coppice reclaiming the southern end beyond the sawyers' last cut stumps.
+  for(const [x,z,kind,size] of [[-21.05,15.76,2,.83],[-22.94,15.34,1,.62],[-21.16,16.91,1,.57],
+    [-20.04,17.07,3,.75],[-23.64,17.01,2,.67],[-25.18,17.62,1,.70],
+    [-22.60,18.60,3,.72],[-25.24,18.56,2,.78],[-19.62,18.71,1,.62]]){
+    plant(-1,z,x,kind,size,true);
+  }
+  // The gate opens to the east. Fill the wedge on its northern shoulder, where
+  // the palisade turns away from the field, up to the existing mature forest.
+  for(const [x,z,kind,size] of [[-19.32,-16.69,2,.55],[-19.46,-17.78,2,.77],
+    [-20.20,-18.85,3,.79],[-19.17,-19.41,2,.57],[-21.06,-19.91,2,.87],
+    [-19.86,-20.40,3,.63],[-21.92,-20.78,3,.83],[-20.71,-21.49,2,.69],
+    [-22.90,-21.23,2,.81],[-21.81,-21.28,2,.62],[-20.04,-18.66,3,.52]]){
+    plant(-1,z,x,kind,size,true);
+  }
   for(const side of [-1,1]){
     for(const center of [-16,-8.4,-3.5,1.7,6.3,10.8,17.5]){
       for(let j=0;j<7;j++){

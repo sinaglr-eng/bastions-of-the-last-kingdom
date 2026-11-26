@@ -66,7 +66,8 @@ export function createRouteOverlay(points,{flying=false}={}){
     mesh.name=name;mesh.raycast=()=>{};group.add(mesh);
   };
   const color=flying?ROUTE_COLORS.flying:ROUTE_COLORS.current;
-  add(border,'#59604c',.14,'Current route edge');add(stroke,color,.4,'Current route continuous ribbon');
+  add(border,'#59604c',flying ? .14 : .025,'Current route edge');
+  add(stroke,color,flying ? .4 : .065,'Current route continuous ribbon');
   if(traveled){
     // Opaque, bevelled miniature arrows float above the quiet route ribbon.
     // One shared solid mesh keeps even a long maze inexpensive to animate.
