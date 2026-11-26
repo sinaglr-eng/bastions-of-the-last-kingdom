@@ -43,7 +43,7 @@ export class MainMenu{
   }):null;
   globalThis.matchMedia?.('(max-width: 560px)').addEventListener?.('change',()=>{if(this.page==='general'&&this.commanderVault.tab==='equipment')void this.show('general');});
   this.root.addEventListener('keydown',e=>{if(e.key==='Escape'&&(this.authDialog||this.replaceDialog)){e.preventDefault();e.stopPropagation();if(this.authDialog)this.closeAuth();else if(!this.starting)this.closeReplace();}});
-  this.root.addEventListener('change',e=>{if(this.commanderVault.change(e))return;if(e.target.name==='hall-season'){this.hallSeason=e.target.value;this.hallFaction='all';this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='hall-view'){this.hallView=e.target.value;this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='legacy-version'){this.legacyVersion=e.target.value;void this.show('legacy');}if(e.target.name==='legacy-mode'){this.legacyMode=Number(e.target.value);this.legacyVersion='all';void this.show('legacy');}if(e.target.name==='faction'){this.faction=e.target.value;if(this.page==='legacy')this.legacyVersion='all';this.offset=0;void this.show(this.page);}if(e.target.name==='achievement-kind'){this.achievementKind=e.target.value;this.offset=0;void this.show('achievements');}if(e.target.name==='achievement-state'){this.achievementState=e.target.value;this.offset=0;void this.show('achievements');}});
+  this.root.addEventListener('change',e=>{if(this.commanderVault.change(e))return;if(e.target.name==='hall-season'){this.hallSeason=e.target.value;this.hallFaction='all';this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='hall-view'){this.hallView=e.target.value;this.offset=0;void this.loadHall('hall');return;}if(e.target.name==='legacy-version'){this.legacyVersion=e.target.value;void this.show('legacy');}if(e.target.name==='legacy-mode'){this.legacyMode=Number(e.target.value);this.legacyVersion='all';void this.show('legacy');}if(e.target.name==='faction'){this.faction=e.target.value;if(this.page==='legacy')this.legacyVersion='all';this.offset=0;void this.show(this.page);}if(e.target.name==='achievement-kind'){this.achievementKind=e.target.value;this.offset=0;void this.show('achievements');}if(e.target.name==='achievement-state'){this.focusAchievement=null;this.achievementState=e.target.value;this.offset=0;void this.show('achievements');}});
   this.root.addEventListener('input',e=>{if(this.commanderVault.input(e))return;if(e.target.dataset.menuVolume)this.onVolumeChange(e.target.dataset.menuVolume,Number(e.target.value));});
  }
  get visible(){return !this.root.hidden;}
@@ -121,9 +121,16 @@ export class MainMenu{
    }
   }
  }
- async show(page='home',{skillFeedback='',loadoutFeedback=''}={}){
+ openAchievements({focusId=null,status='all'}={}){
+  return this.show('achievements',{albumEntry:{focusId,status}});
+ }
+ async show(page='home',{skillFeedback='',loadoutFeedback='',albumEntry=null}={}){
   const previousPage=this.page;if(previousPage==='general'&&page!=='general'&&!await this.confirmEquipmentLeave())return;
   if(['general','achievements','account','ranks'].includes(page)&&!this.player.user){await this.show('sign-in');this.status('Sign in to build your legacy. Guest play is always available.');return;}
+  if(page==='achievements'&&(previousPage!==page||albumEntry)){
+   this.faction='all';this.achievementState=albumEntry?.status||'all';this.achievementKind='all';
+   this.focusAchievement=albumEntry?.focusId||null;this.offset=0;
+  }
   if(['sign-in','register','reset-request','reset-password'].includes(page)){
    const returnFocus=this.authReturnFocus||document.activeElement;
    if(!this.authDialog){await this.show('home');this.authReturnFocus=returnFocus?.isConnected?returnFocus:this.root.querySelector(`[data-nav="${returnFocus?.dataset?.nav==='register'?'register':'sign-in'}"]`);this.authDialog=document.createElement('dialog');this.authDialog.className='auth-dialog';this.authDialog.setAttribute('aria-labelledby','auth-title');this.root.append(this.authDialog);const dialog=this.authDialog;dialog.addEventListener('cancel',e=>{e.preventDefault();this.closeAuth();});dialog.addEventListener('close',()=>{if(this.authDialog===dialog)this.closeAuth();});}
@@ -230,11 +237,11 @@ export class MainMenu{
   if(b.hasAttribute('data-auth-close')){this.closeAuth();return;}
   try{
    if(b.hasAttribute('data-open-skills')){this.commanderVault.tab='skills';await this.show('general');return;}
-   if(b.hasAttribute('data-claim-all')){if(this.claimingAll)return;this.claimingAll=true;const top=this.root.scrollTop;for(const button of this.root.querySelectorAll('[data-claim],[data-claim-all]'))button.disabled=true;b.setAttribute('aria-busy','true');try{const result=await claimAvailableAchievements(this.player,({claimed,total})=>{if(b.isConnected)b.textContent=`Claiming ${claimed} / ${total}…`;});await this.show('achievements');this.root.scrollTop=top;this.status(`${result.claimed} ${result.claimed===1?'achievement':'achievements'} claimed. Medals and XP added to your account.`);}catch(error){await this.show('achievements');this.root.scrollTop=top;this.status(`${error.claimedCount?error.claimedCount+' rewards claimed. ':''}${error.message} Any remaining rewards are still ready to claim.`,true);}finally{this.claimingAll=false;}return;}
+   if(b.hasAttribute('data-claim-all')){if(this.claimingAll)return;this.claimingAll=true;const top=this.root.scrollTop;for(const button of this.root.querySelectorAll('[data-claim],[data-claim-all]'))button.disabled=true;b.setAttribute('aria-busy','true');try{const result=await claimAvailableAchievements(this.player,({claimed,total})=>{if(b.isConnected)b.textContent=`Claiming ${claimed} / ${total}…`;},b.dataset.claimSeason||undefined);await this.show('achievements');this.root.scrollTop=top;this.status(`${result.claimed} ${result.claimed===1?'achievement':'achievements'} claimed. Medals and XP added to your account.`);}catch(error){await this.show('achievements');this.root.scrollTop=top;this.status(`${error.claimedCount?error.claimedCount+' rewards claimed. ':''}${error.message} Any remaining rewards are still ready to claim.`,true);}finally{this.claimingAll=false;}return;}
    if(b.hasAttribute('data-open-ranks')){await this.show('ranks');return;}
    if(b.hasAttribute('data-retry-hall')){await this.loadHall('hall');return;}
-   if(b.hasAttribute('data-ready-rewards')){const first=this.player.readyAchievements?.find(g=>g.factionId);if(first)this.faction=first.factionId;this.achievementState='ready';this.achievementKind='all';this.offset=0;await this.show('achievements');return;}
-   if(b.hasAttribute('data-clear-filters')){this.achievementKind='all';this.achievementState='all';this.offset=0;await this.show('achievements');return;}
+   if(b.hasAttribute('data-ready-rewards')){await this.openAchievements({status:'ready'});return;}
+   if(b.hasAttribute('data-clear-filters')){await this.openAchievements();return;}
    if(b.dataset.category){this.achievementKind=b.dataset.category;this.offset=0;this.focusAchievement=null;await this.show('achievements');return;}
    if(b.dataset.filterFaction){this.offset=0;this.focusAchievement=null;if(this.page==='hall'){this.hallFaction=b.dataset.filterFaction;await this.loadHall('hall');}else{this.faction=b.dataset.filterFaction;await this.show('achievements');}return;}
    if (b.dataset.selectSkill) {
@@ -272,8 +279,8 @@ export class MainMenu{
     else await this.updateSkillSlot(this.selectedLoadout.length, skill);
     return;
    }
-   if(b.dataset.claim){if(this.claimingAll)return;b.disabled=true;const label=b.innerHTML;b.textContent='Claiming…';b.setAttribute('aria-busy','true');const top=this.root.scrollTop;try{await this.player.claimAchievement(b.dataset.claim);await this.show('achievements');this.root.scrollTop=top;this.status('Reward claimed. Medals added to your treasury.');}finally{if(b.isConnected){b.disabled=false;b.removeAttribute('aria-busy');b.innerHTML=label;}}return;}
-   if(b.dataset.newFaction){const faction=FACTIONS.find(f=>f.id===b.dataset.newFaction);if(!faction)return;this.selectedFaction=faction.id;selectHomeFaction(this.root.querySelector('[data-faction-picker]'),faction);return;}if(b.dataset.provider){b.disabled=true;await this.onSave();const url=await this.player.beginSocial(b.dataset.provider,new URL(siteUrl(''),location.href).href);location.assign(url);return;}if(b.dataset.nav){this.offset=0;await this.show(b.dataset.nav);return;}if(b.dataset.page!==undefined){if(this.page==='hall')this.hallView='top';this.focusAchievement=null;this.offset=Number(b.dataset.page);await this.show(this.page);this.root.scrollTop=0;return;}if(b.dataset.buy){await this.writeSkills('purchase',b);return;}
+   if(b.dataset.claim){if(this.claimingAll)return;b.disabled=true;const label=b.innerHTML;b.textContent='Claiming…';b.setAttribute('aria-busy','true');const top=this.root.scrollTop;try{await this.player.claimAchievement(b.dataset.claim,b.dataset.claimSeason||undefined);await this.show('achievements');this.root.scrollTop=top;this.status('Reward claimed. Medals added to your treasury.');}finally{if(b.isConnected){b.disabled=false;b.removeAttribute('aria-busy');b.innerHTML=label;}}return;}
+   if(b.dataset.newFaction){const faction=FACTIONS.find(f=>f.id===b.dataset.newFaction);if(!faction)return;this.selectedFaction=faction.id;selectHomeFaction(this.root.querySelector('[data-faction-picker]'),faction);return;}if(b.dataset.provider){b.disabled=true;await this.onSave();const url=await this.player.beginSocial(b.dataset.provider,new URL(siteUrl(''),location.href).href);location.assign(url);return;}if(b.dataset.nav){this.offset=0;if(b.dataset.nav==='achievements')await this.openAchievements();else await this.show(b.dataset.nav);return;}if(b.dataset.page!==undefined){if(this.page==='hall')this.hallView='top';this.focusAchievement=null;this.offset=Number(b.dataset.page);await this.show(this.page);this.root.scrollTop=0;return;}if(b.dataset.buy){await this.writeSkills('purchase',b);return;}
    const action=b.dataset.menu;
    if(action==='rank-chests'){this.commanderVault.tab='chests';await this.show('general');return;}
    if(action==='confirm-new')await this.confirmNewRun();

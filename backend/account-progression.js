@@ -4,12 +4,15 @@ import {currentRunEpoch} from './progression-reset.js';
 import {accountRank,achievementXP,BOSS_XP,newlyAvailableSkills,canonicalAchievementId,runWaveXP} from '../game/core/account-progression.js';
 import {achievementCatalog,streakAchievement} from '../game/core/achievements.js';
 import {currentFactionData} from '../game/core/current-data.js';
+import {killMilestone,killTargetFromId} from '../game/core/kill-milestones.js';
+import {advanceAchievementSeason} from './achievement-seasons.js';
 
 const parse=(s,fallback)=>{try{return JSON.parse(s);}catch{return fallback;}};
 const factions=['crown','forge','grove'];
 export function activeAchievement(id){
  if(typeof id!=='string')return null;
  id=canonicalAchievementId(id);
+ const killTarget=killTargetFromId(id);if(killTarget)return killMilestone(killTarget);
  const f=id.split(':')[1],data=currentFactionData(factions.includes(f)?f:'crown');
  let row=achievementCatalog(data).find(a=>a.id===id);
  if(!row&&/^streak:global:[1-9]\d*$/.test(id)){const n=Number(id.split(':')[2]);if(Number.isSafeInteger(n)&&n%10===0)row=streakAchievement('global',n/10);}
@@ -47,6 +50,7 @@ export async function settleRunExperience(db,user,runId,kind,verifiedRun=null){
    LEFT JOIN account_run_progression r ON r.user_id=a.user_id AND r.run_id=?
    WHERE a.user_id=?`).bind(runId,user).first();
   if(!state?.migrated){await ensureAccountProgression(db,user);continue;}
+  const season=await advanceAchievementSeason(db,user);
   const campaign=kind==='campaign',targetWaves=campaign?50:v.waves,startedRound=campaign?50:v.startedRound;
   const eligibleBosses=v.bosses.filter(id=>!campaign||(v.bossWaves[id]??50)<=50);
   const priorPaid=parse(state.paid_bosses_json||'[]',[]);
@@ -60,7 +64,7 @@ export async function settleRunExperience(db,user,runId,kind,verifiedRun=null){
   const receipt={receiptId,runId,kind,status:'confirmed',xpBefore,xpAfter,levelBefore,levelAfter,wavesDelta:delta,waveXP,bossXP,bosses,amount,newLevels:Array.from({length:levelAfter-levelBefore},(_,i)=>levelBefore+i+1),newSkills:newlyAvailableSkills(xpBefore,xpAfter),revision:state.revision+1};
   const paidProgress={ids:[...new Set([...paidBosses,...eligibleBosses])],count:Math.max(paidBossCount,targetBossCount)};
   const guard='EXISTS(SELECT 1 FROM fr010_profiles WHERE user_id=? AND revision=?)',args=[user,state.revision],now=Date.now();
-  const statements=[db.prepare(`INSERT OR IGNORE INTO account_xp_receipts(user_id,receipt_id,run_id,receipt_json) SELECT ?,?,?,? WHERE ${guard}`).bind(user,receiptId,runId,JSON.stringify(receipt),...args)];
+  const statements=[db.prepare(`INSERT OR IGNORE INTO account_xp_receipts(user_id,receipt_id,run_id,receipt_json) SELECT ?,?,?,? WHERE ${guard} AND strftime('%Y-%m','now')=?`).bind(user,receiptId,runId,JSON.stringify(receipt),...args,season)];
   const committedGuard=guard+' AND EXISTS(SELECT 1 FROM account_xp_receipts WHERE user_id=? AND receipt_id=?)',all=[...args,user,receiptId];
   statements.push(db.prepare(`INSERT INTO account_run_progression(user_id,run_id,paid_waves,paid_bosses_json) SELECT ?,?,?,? WHERE ${committedGuard} ON CONFLICT(user_id,run_id) DO UPDATE SET paid_waves=excluded.paid_waves,paid_bosses_json=excluded.paid_bosses_json`).bind(user,runId,Math.max(paidWaves,startedRound),JSON.stringify(paidProgress),...all));
   statements.push(db.prepare(`INSERT OR IGNORE INTO account_xp_ledger(user_id,source_id,amount,created_at) SELECT ?,?,?,? WHERE ${committedGuard}`).bind(user,receiptId+':waves',waveXP,now,...all));

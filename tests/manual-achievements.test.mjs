@@ -7,6 +7,8 @@ import {sqliteDatabase} from '../backend/sqlite-adapter.js';
 import {migrateFr010} from '../backend/migrate-fr010.js';
 import {restoreRun,serializeRun} from '../game/core/run-state.js';
 import {currentFactionData} from '../game/core/current-data.js';
+import {currentSeason,seasonWindow} from '../game/core/seasons.js';
+import {achievementCatalog} from '../game/core/achievements.js';
 
 const base='http://127.0.0.1:4174';
 let fixtureNumber=0;
@@ -18,7 +20,7 @@ function fixture(){
  async function account(email='commander@example.test',name='Commander'){const signup=await call('/api/auth/sign-up/email',{name,email,password:'test-password-for-fr010',callbackURL:base+'/'});assert.ok(signup.r.ok,signup.value?.error||JSON.stringify(signup.value));assert.equal(mail.at(-1).kind,'verify');const verified=await worker.fetch(new Request(mail.at(-1).url,{headers:{Origin:base}}),env);assert.ok([200,302].includes(verified.status));const cookie=verified.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.ok(cookie);const session=await call('/api/player/session',null,cookie);assert.ok(session.value.user);return {cookie,user:session.value.user};}
  return {db,env,mail,call,account};
 }
-const claim=(id,revision=0,requestId=crypto.randomUUID())=>({achievementId:id,revision,requestId});
+const claim=(id,revision=0,requestId=crypto.randomUUID())=>({achievementId:id,revision,requestId,achievementSeason:currentSeason()});
 const seed=(f,user,id='champion:crown:frostblade',reward=1)=>f.db.sqlite.prepare('INSERT INTO fr010_eligible VALUES(?,?,?,?,?,NULL)').run(user,id,id.split(':')[1],reward,1);
 test('Manual claim is authenticated, server-priced and idempotent across request identities',async()=>{
  const f=fixture();try{const a=await f.account();seed(f,a.user.id);const b=claim('champion:crown:frostblade');
@@ -35,6 +37,56 @@ test('Unverified achievements and another account eligibility cannot be claimed'
  for(const [id,cookie]of [['boss:crown:host_10',a.cookie],['champion:crown:frostblade',b.cookie]])assert.equal((await f.call('/api/player/achievements/claim',claim(id),cookie)).r.status,409);
  assert.equal((await f.call('/api/player/profile',null,a.cookie)).value.balance,0);
  }finally{f.db.sqlite.close();}
+});
+
+test('5,300 verified kills unlock one seasonal claim at a time and pay each tier once',async t=>{
+ const f=fixture();t.after(()=>f.db.sqlite.close());
+ const {user,cookie}=await f.account();
+ // Seed authoritative replay summaries for two factions; the claim carries no kill evidence.
+ const now=Date.now(),run=f.db.sqlite.prepare(`INSERT INTO fr010_runs
+  (id,user_id,faction_id,ruleset,seed,snapshot_json,loadout_json,started_at,updated_at,finished_at,outcome,progress_json)
+  VALUES(?,?,?,?,1,'{}','{}',?,?,?,'lost',?)`);
+ for(const [faction,kills] of [['crown',2300],['grove',3000]]){
+   run.run(crypto.randomUUID(),user.id,faction,currentFactionData(faction).rulesetRevision,now,now,now,JSON.stringify({kills}));
+ }
+ const getProfile=async()=>{
+   const {r,value}=await f.call('/api/player/profile',null,cookie);
+   assert.equal(r.status,200,JSON.stringify(value));return value;
+ };
+ const submit=body=>f.call('/api/player/achievements/claim',body,cookie);
+ const killRows=rows=>rows.filter(row=>row.id.startsWith('kills:global:'));
+ let profile=await getProfile();
+ const season=profile.achievementSeason,oldSeason=currentSeason(seasonWindow(season).start-1);
+ const request=target=>({...claim('kills:global:'+target,profile.revision),achievementSeason:season});
+ const stale=await submit({...request(100),achievementSeason:oldSeason});
+ assert.equal(stale.r.status,409);assert.match(stale.value.error,/season/i);
+ const skipped=await submit(request(5000));
+ assert.equal(skipped.r.status,409);
+ const medalsBefore=profile.balance,xpBefore=profile.xpTotal;
+ let medals=0,xp=0;
+ for(const [target,reward,experience] of [[100,1,2],[1000,2,4],[5000,3,6]]){
+   const id='kills:global:'+target;
+   assert.equal(profile.seasonalKills.total,5300);
+   assert.equal(profile.seasonalKills.nextTarget,target);
+   assert.deepEqual(killRows(profile.eligible).map(row=>row.id),[id]);
+   assert.deepEqual(killRows(achievementCatalog(currentFactionData('crown'),profile)).map(row=>row.id),[id]);
+   const body=request(target);
+   const paid=await submit(body);assert.equal(paid.r.status,200,JSON.stringify(paid.value));
+   medals+=reward;xp+=experience;
+   for(const receipt of [paid,await submit(body),await submit(request(target))]){
+     assert.equal(receipt.r.status,200,JSON.stringify(receipt.value));
+     assert.equal(receipt.value.claimReceipt.receiptId,paid.value.claimReceipt.receiptId);
+     assert.equal(receipt.value.claimReceipt.amount,experience);
+     assert.equal(receipt.value.balance,medalsBefore+medals);assert.equal(receipt.value.xpTotal,xpBefore+xp);
+   }
+   profile=await getProfile();
+ }
+ assert.equal(profile.seasonalKills.nextTarget,10000);
+ assert.deepEqual(killRows(profile.eligible),[]);
+ assert.deepEqual(killRows(achievementCatalog(currentFactionData('crown'),profile)).map(row=>row.id),['kills:global:10000']);
+ assert.equal(killRows(profile.grants).length,3);
+ assert.equal((await submit(request(10000))).r.status,409);
+ assert.equal(f.db.sqlite.prepare("SELECT SUM(amount) AS medals FROM fr010_ledger WHERE user_id=? AND kind='achievement'").get(user.id).medals,6);
 });
 test('Concurrent claims from two devices pay a verified achievement once',async()=>{
  const f=fixture();try{const a=await f.account();seed(f,a.user.id);const answers=await Promise.all([1,2].map(()=>f.call('/api/player/achievements/claim',claim('champion:crown:frostblade'),a.cookie)));

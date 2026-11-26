@@ -34,20 +34,28 @@ export class PlayerClient{
  applyProfile(profile){if(!this.profile||profile.revision>=this.profile.revision){if((this.profile?.artifacts?.revision||0)>(profile.artifacts?.revision||0))profile={...profile,artifacts:this.profile.artifacts};this.profile=profile;this.cacheIdentity();if(profile.progressionEpoch&&profile.progressionEpoch!==this.progressionEpoch){this.progressionEpoch=profile.progressionEpoch;this.resetPromise=this.clearStaleProgressionSave();}}return this.profile;}
  get readyAchievements(){const claimed=achievementIdSet(this.profile?.grants);return canonicalAchievementRows(this.profile?.eligible).filter(g=>!claimed.has(g.id));}
  changeProfile(action,body={},onResponse=()=>{}){const operation=async()=>{if(!this.user||!this.online)throw Error('Connect and sign in to manage your general.');const requestId=crypto.randomUUID();for(let attempt=0;attempt<3;attempt++){try{const response=await this.request('/player/'+action,{...body,revision:this.profile.revision,requestId});onResponse(response);this.applyProfile(response);this.onChange();return this.profile;}catch(error){if(error.status!==409||attempt===2)throw error;this.applyProfile(await this.request('/player/profile'));}}};this.profileWrites=this.profileWrites.catch(()=>{}).then(operation);return this.profileWrites;}
- async claimAchievement(id){
+ async claimAchievement(id,season=this.profile?.achievementSeason){
+  if(season&&this.profile?.achievementSeason&&this.profile.achievementSeason!==season)throw Error('A new season has started. Reopen Achievements to see your current rewards.');
   id=canonicalAchievementId(id);if(achievementIdSet(this.profile?.grants).has(id))return this.profile;
-  this.achievementClaims??=new Map();if(this.achievementClaims.has(id))return this.achievementClaims.get(id);
+  const claimKey=[this.owner,season,id].join(':');
+  this.achievementClaims??=new Map();if(this.achievementClaims.has(claimKey))return this.achievementClaims.get(claimKey);
   const claim=(async()=>{const xpBefore=this.profile?.xpTotal||0,row=this.readyAchievements.find(g=>g.id===id),reward=row?.reward;let receipt=null;
-   await this.changeProfile('achievements/claim',{achievementId:id},response=>{receipt=response.claimReceipt||null;});
+   await this.changeProfile('achievements/claim',{achievementId:id,achievementSeason:season},response=>{receipt=response.claimReceipt||null;});
    if(achievementIdSet(this.profile?.grants).has(id)){const amount=receipt?.amount??row?.xp??0;this.onAchievement({type:'claimed',id,reward,xp:amount});this.onPromotion(receipt||{receiptId:'achievement:'+id,status:'confirmed',xpBefore,xpAfter:xpBefore+amount,amount,levelBefore:accountRank(xpBefore).level,levelAfter:accountRank(xpBefore+amount).level,newSkills:newlyAvailableSkills(xpBefore,xpBefore+amount)});}
    return this.profile;
-  })();this.achievementClaims.set(id,claim);
-  try{return await claim;}finally{this.achievementClaims.delete(id);}
+  })();this.achievementClaims.set(claimKey,claim);
+  try{return await claim;}finally{this.achievementClaims.delete(claimKey);}
  }
- announceAchievements(previous){const known=achievementIdSet([...(previous?.eligible||[]),...(previous?.grants||[])]);const ready=this.readyAchievements.filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));if(ready.length)this.onAchievement({type:'ready',rows:ready});}
+ announceAchievements(previous){
+  const rollover=previous?.achievementSeason&&this.profile?.achievementSeason&&previous.achievementSeason!==this.profile.achievementSeason;
+  if(rollover)this.pendingNotices.clear();
+  const known=rollover?new Set():achievementIdSet([...(previous?.eligible||[]),...(previous?.grants||[])]);
+  const ready=this.readyAchievements.filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));
+  if(ready.length)this.onAchievement({type:'ready',rows:ready});
+ }
  announceLocalAchievements(game=this.game){
   if(!game||this.game!==game||!this.user||game.accountId!==this.user.id||game.developerMode)return;
-  const owner=this.user.id+':'+this.progressionEpoch;if(this.noticeOwner!==owner){this.noticeOwner=owner;this.pendingNotices.clear();}
+  const owner=[this.user.id,this.progressionEpoch,this.profile?.achievementSeason].filter(Boolean).join(':');if(this.noticeOwner!==owner){this.noticeOwner=owner;this.pendingNotices.clear();}
   const known=achievementIdSet([...(this.profile?.eligible||[]),...(this.profile?.grants||[])]),fresh=canonicalAchievementRows(game.progress.grants()).filter(g=>!known.has(g.id)&&!this.pendingNotices.has(g.id));
   for(const row of fresh)this.pendingNotices.add(row.id);
   if(fresh.length)this.onAchievement({type:'pending',rows:fresh});

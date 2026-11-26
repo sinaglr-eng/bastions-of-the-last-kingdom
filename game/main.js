@@ -1,4 +1,5 @@
 import {bootToMenu,failGameBoot,finishGameBoot} from '../ui/game-boot.js';
+import {currentSeason,seasonWindow} from './core/seasons.js';
 import {readyChestCount,pendingArtifactChests} from '../ui/commander-vault.js';
 import {enemyHealthNumber} from './core/enemy-rules.js';
 import '../ui/fr008.css';
@@ -454,7 +455,7 @@ function handleCommand(e){
   if(game?.data.fr010&&(action==='new-run'||action==='restart')){void saveAndMenu().then(()=>mainMenu.click({target:mainMenu.root.querySelector('[data-menu="new"]')}));return;}
   if(action==='continue-endless'){game.campaignResultPending=false;player.acknowledgeCampaign();closeDialog();game.paused=false;resultContext=null;void player.save().catch(()=>{});return;}
   if(action==='result-chests'){mainMenu.commanderVault.tab='chests';closeDialog();game.paused=true;void player.save().then(()=>mainMenu.show('general'));return;}
-  if(action==='result-general'||action==='result-achievements'){closeDialog();game.paused=true;void player.save().then(()=>mainMenu.show(action==='result-general'?'general':'achievements'));return;}
+  if(action==='result-general'||action==='result-achievements'){closeDialog();game.paused=true;void player.save().then(()=>action==='result-general'?mainMenu.show('general'):mainMenu.openAchievements());return;}
   if(action==='result-retry'){showResult(!!resultContext?.campaign);return;}
   if(!game||game.data.fr010&&mainMenu?.visible)return;
   if(action==='general-skill'){game.activateGeneral(b.dataset.skill);return;}
@@ -563,7 +564,31 @@ function startGame({replacement=null,preserveDeveloperSession=false,factionData=
 function initializePlayerMenu(){
 let achievementNotices;
 player=new PlayerClient({base:playerApi,onChange:()=>{if(game)renderGeneralControls();mainMenu?.refreshAccount();if(resultContext&&$('dialog').open&&$('dialog-content').querySelector('.account-result-panel'))paintResult();},onNotice:text=>notice(text),onAchievement:event=>achievementNotices?.push(event),onReset:()=>{if(game){game.paused=true;if($('dialog').open)closeDialog();void mainMenu?.show('home');}},onPromotion:receipt=>{const inResult=$('dialog').open&&$('dialog-content').querySelector('.account-result-panel'),current=player.resultReceipt(resultContext?.campaign?'campaign':'end');if(!inResult||!current||current.levelAfter<=current.levelBefore)showPromotionNotice(receipt,player.owner);}});
-achievementNotices=new AchievementNotices({player,onView:async id=>{if(game){game.paused=true;await player.save();}if(id){const f=id.split(':')[1];if(['crown','forge','grove'].includes(f))mainMenu.faction=f;}mainMenu.focusAchievement=id;mainMenu.achievementKind='all';mainMenu.achievementState=id?'all':'ready';mainMenu.offset=0;await mainMenu.show('achievements');}});
+achievementNotices=new AchievementNotices({player,onView:async id=>{if(game){game.paused=true;await player.save();}await mainMenu.openAchievements({focusId:id,status:id?'all':'ready'});}});
+// Browsers may suspend timers on a background tab. Check again on return.
+let seasonTimer,refreshingSeason=false;
+async function refreshSeason(){
+  clearTimeout(seasonTimer);
+  const now=Date.now(),month=currentSeason(now);
+  let delay=Math.min(86400000,seasonWindow(month).end-now+100);
+  if(!document.hidden&&player.online&&player.user&&player.profile?.achievementSeason<month&&!refreshingSeason){
+    const owner=player.owner;
+    refreshingSeason=true;
+    try{
+      const profile=await player.request('/player/profile');
+      if(player.owner===owner){
+        player.applyProfile(profile);
+        player.onChange();
+        if(mainMenu.visible&&['achievements','ranks','general'].includes(mainMenu.page))await mainMenu.show(mainMenu.page);
+        if(profile.achievementSeason!==month)delay=60000;
+      }
+    }catch{delay=60000;}finally{refreshingSeason=false;}
+  }
+  clearTimeout(seasonTimer);
+  seasonTimer=setTimeout(refreshSeason,delay);
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)void refreshSeason();});
+void refreshSeason();
 mainMenu=new MainMenu({player,app,audio,onBlueprintSaved:plan=>{if(world?.maze){const library=loadBlueprintLibrary(localStorage);world.maze.saved=library.plans;world.maze.choose(plan.id);}},onNew:({factionId,replace})=>requestFactionRun(factionId,{replace}),onResume:async restored=>{startGame({replacement:restored,factionData:restored.data,restoring:true});},onSave:async()=>{if(game){game.paused=true;await player.save();}},onVolumeChange:(category,value)=>{audio.setCategoryVolume(category,value);profile.audioVolumes={music:audio.getCategoryVolume('music'),sounds:audio.getCategoryVolume('sounds')};saveProfile(profile);}});
 }
 

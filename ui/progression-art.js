@@ -26,6 +26,7 @@ function watchpostSequence(waves){
 }
 
 export function achievementPictureUrls(achievement,data,reveal=false){
+ if(achievement.kind==='kills')return [progressionArtwork('endless')];
  if(achievement.secret)return [illustration((reveal?'discovery-':'sealed-')+achievement.factionId)];
  const id=achievement.id.split(':').at(-1);
  if(achievement.kind==='skill-mastery'&&GENERAL_SKILLS[id])return [commanderSkillArt(id)];

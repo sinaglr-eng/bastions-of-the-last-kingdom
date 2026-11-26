@@ -1,6 +1,7 @@
 import {eligibleChampion,achievementXP} from './account-progression.js';
 import {FACTION_ACHIEVEMENT_DEFINITIONS,factionCollectionAchievements} from './faction-achievements.js';
 import {GENERAL_SKILLS} from './general.js';
+import {killMilestone,nextKillTarget} from './kill-milestones.js';
 export {canonicalAchievementId,isSharedAchievement} from './account-progression.js';
 export const championMedalReward=unit=>unit?.classification?.toLowerCase()==='top'?3:1;
 export const BOSS_TYPES=Object.freeze(['host_10','host_20','host_30','host_40','host_50']);
@@ -16,6 +17,8 @@ export function achievementCatalog(data,progress=null){
  for(let n=1;n<=highest;n++)rows.push(streakAchievement(f,n));
  for(const [target,reward]of [[60,3],[75,5],[100,8]])rows.push({id:`endless:${target}`,kind:'endless',name:`Complete wave ${target}`,reward,target});
  rows.push(...commanderMasteryAchievements());
+ const kills=progress?.seasonalKills;
+ rows.push(killMilestone(kills?.nextTarget)??killMilestone(nextKillTarget(kills?.claimedTarget||0)));
  return rows.map(row=>({...row,xp:achievementXP(data,row.id)}));
 }
 export const streakAchievement=(f,n)=>({id:`streak:global:${10*n}`,factionId:null,kind:'streak',name:`${10*n} consecutive flawless waves`,description:'Complete consecutive waves in one run with any faction without losing keep health. Health loss resets the current streak.',reward:n,xp:n,target:10*n});

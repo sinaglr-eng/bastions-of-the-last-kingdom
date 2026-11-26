@@ -16,7 +16,8 @@ export class AchievementNotices{
  }
  push(event){
   if(!this.player.user)return;
-  if(this.owner!==this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial')){clearTimeout(this.timer);this.timer=null;this.owner=this.player.user.id+':'+(this.player.profile?.progressionEpoch||'initial');this.queue=[];this.current=null;this.root.innerHTML='';this.seen=new Set();try{this.seen=new Set(JSON.parse(localStorage.getItem('war-achievement-notices:'+this.owner)||'[]'));}catch{}}
+  const owner=[this.player.user.id,this.player.profile?.progressionEpoch||'initial',this.player.profile?.achievementSeason].filter(Boolean).join(':');
+  if(this.owner!==owner){clearTimeout(this.timer);this.timer=null;this.owner=owner;this.queue=[];this.current=null;this.root.innerHTML='';this.seen=new Set();try{this.seen=new Set(JSON.parse(localStorage.getItem('war-achievement-notices:'+this.owner)||'[]'));}catch{}}
   this.seen=new Set([...this.seen].map(noticeKey));
   if(event.type==='summary'){if(event.count)this.enqueue({type:'summary',count:event.count,key:'summary:'+Date.now()});return;}
   if(event.type==='claimed')return;
