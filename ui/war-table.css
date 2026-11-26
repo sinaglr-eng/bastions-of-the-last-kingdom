@@ -174,6 +174,17 @@
 }
 .season-summary{margin-block:1rem;padding:1rem 1.25rem;background:#faf3de;border:1px solid #d0b77d;border-radius:.4rem}
 .season-summary h2,.season-summary p{margin:0 0 .5rem}
-.season-prizes summary{cursor:pointer;font-weight:600}
-.season-prizes ol{columns:2;column-width:17rem;margin:.5rem 0;padding-left:1.75rem}
-.season-prizes li{break-inside:avoid;padding:.15rem}
+#main-menu .war-hall-controls{align-items:flex-end}
+#main-menu .war-hall-controls .war-faction-tabs{flex:1 1 max-content}
+#main-menu .war-hall-controls .war-faction-tabs button{min-height:46px}
+#main-menu .war-hall-controls .war-select-control::after{top:auto;bottom:19px;transform:rotate(45deg)}
+#main-menu .season-rank-reward{font-size:.9rem;line-height:1.35;white-space:normal}
+@media(max-width:1000px){
+ #main-menu .war-hall-controls .war-faction-tabs{flex-basis:100%}
+}
+@media(max-width:600px){
+ #main-menu .war-hall-controls{gap:8px}
+ #main-menu .war-hall-controls .war-select-control{flex:1 1 9rem;min-width:0}
+ #main-menu .war-hall-controls select{min-width:0}
+ #main-menu .season-rank-reward{font-size:.8rem}
+}

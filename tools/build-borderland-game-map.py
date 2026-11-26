@@ -67,7 +67,9 @@ class Source:
 
 class Stream:
     def __init__(self, source):
-        self.doc = {key: copy.deepcopy(source.doc[key]) for key in ("textures","samplers")}
+        self.source = source
+        self.texture_ids = {}
+        self.doc = {"textures": [], "samplers": copy.deepcopy(source.doc["samplers"])}
         self.doc.update(asset={"version":"2.0","generator":"Forged Alliances terrain exporter"},
                         scene=0, scenes=[{"name":"Borderland Meadow","nodes":[]}], nodes=[], meshes=[],
                         materials=[], images=[], animations=[], bufferViews=[], accessors=[],
@@ -113,6 +115,10 @@ class Stream:
     def material(self, original):
         data = copy.deepcopy(original)
         pbr = data["pbrMetallicRoughness"]
+        for properties in (data, pbr):
+            for key, info in properties.items():
+                if key.endswith("Texture"):
+                    info["index"] = self.texture(info["index"])
         paint = None
         if not any("Texture" in k for k in list(data)+list(pbr)) and not data.get("emissiveFactor") and "alphaMode" not in data:
             paint = pbr.pop("baseColorFactor",[1,1,1,1])
@@ -122,6 +128,24 @@ class Stream:
             self.material_keys[key] = len(self.doc["materials"])
             self.doc["materials"].append(data)
         return self.material_keys[key],paint
+
+    def texture(self, index):
+        if index in self.texture_ids:
+            return self.texture_ids[index]
+        texture = self.source.doc["textures"][index].copy()
+        image = self.source.doc["images"][texture["source"]].copy()
+        data = self.source.view(image["bufferView"]).tobytes()
+        if image["name"] == "alpine-horizon":
+            encoded = io.BytesIO()
+            Image.open(io.BytesIO(data)).convert("RGB").save(encoded, format="JPEG", quality=94, subsampling=0)
+            data = encoded.getvalue()
+            image["mimeType"] = "image/jpeg"
+        image["bufferView"] = self.view(data)
+        texture["source"] = len(self.doc["images"])
+        self.doc["images"].append(image)
+        self.texture_ids[index] = len(self.doc["textures"])
+        self.doc["textures"].append(texture)
+        return self.texture_ids[index]
 
     def node(self, data, root=False):
         index = len(self.doc["nodes"])
@@ -167,10 +191,11 @@ def meadow_colors(positions):
     return color
 
 
-def geometry(source, stream):
+def geometry(source, stream, mesh_ids):
     doc=source.doc
     samples=[]
-    for mesh in doc["meshes"]:
+    for mesh_id in mesh_ids:
+        mesh = doc["meshes"][mesh_id]
         name=mesh["name"];batches=defaultdict(list);extremes=[]
         for p in mesh["primitives"]:
             attr=p["attributes"];pos=source.array(attr["POSITION"]).copy()
@@ -285,13 +310,15 @@ def place_grass(stream, samples):
     return count
 
 
-def placements(source,stream,samples):
+def placements(source,stream,samples,node_ids,mesh_ids,keep):
     doc=source.doc;background=defaultdict(list);checkpoints=defaultdict(list)
     targets={channel["target"]["node"] for clip in doc["animations"] for channel in clip["channels"]}
     remap={};shifts={};loose=0
-    for idx,original in enumerate(doc["nodes"]):
+    for idx in node_ids:
+        original=doc["nodes"][idx]
         assert "children" not in original and "matrix" not in original
         node=copy.deepcopy(original);mesh=doc["meshes"][node["mesh"]]["name"]
+        node["mesh"]=mesh_ids[node["mesh"]]
         x,y,z=node.get("translation",[0,0,0]);cp=label(mesh,node)
         if cp:
             remap[idx]=stream.node(node);checkpoints[cp].append(remap[idx]);shifts[idx]=0
@@ -322,8 +349,10 @@ def placements(source,stream,samples):
         for key,typ,default in [("translation","VEC3",[0,0,0]),("rotation","VEC4",[0,0,0,1]),("scale","VEC3",[1,1,1])]:
             values=np.array([n.get(key,default) for _,n in group])
             attrs[key.upper()]=stream.array(values,typ,bounds=key=="translation",target=34962)
-        stream.node({"name":doc["meshes"][mesh]["name"]+" groves and placements","mesh":mesh,
+        stream.node({"name":stream.doc["meshes"][mesh]["name"]+" groves and placements","mesh":mesh,
                      "extensions":{"EXT_mesh_gpu_instancing":{"attributes":attrs}}},True)
+    if keep:
+        return remap,shifts
     loose+=place_grass(stream,samples)
     fitted=[]
     for number,centre in enumerate(CENTRES,1):
@@ -349,6 +378,8 @@ def animations(source,stream,remap,shifts):
         channels=[];samplers=[]
         for ch in clip["channels"]:
             idx=ch["target"]["node"];path=ch["target"]["path"];sp=clip["samplers"][ch["sampler"]]
+            if idx not in remap:
+                continue
             times=source.array(sp["input"]);vals=source.array(sp["output"])
             if path=="translation" and shifts[idx]:
                 vals=vals.copy();vals[:,0]+=shifts[idx]
@@ -360,19 +391,28 @@ def animations(source,stream,remap,shifts):
 
 
 def main():
-    source=Source(SOURCE);stream=Stream(source)
-    for original in source.doc["images"]:
-        img=original.copy();data=source.view(img["bufferView"]).tobytes()
-        if img["name"]=="alpine-horizon":
-            encoded=io.BytesIO();Image.open(io.BytesIO(data)).convert("RGB").save(encoded,format="JPEG",quality=94,subsampling=0)
-            data=encoded.getvalue();img["mimeType"]="image/jpeg"
-        img["bufferView"]=stream.view(data);stream.doc["images"].append(img)
-    samples=geometry(source,stream)
-    remap,shifts=placements(source,stream,samples)
-    animations(source,stream,remap,shifts)
-    stream.write(OUTPUT)
-    print(len(stream.doc["nodes"]),"nodes;",sum(len(stream.doc["meshes"][n["mesh"]]["primitives"]) for n in stream.doc["nodes"] if "mesh" in n),
-          "base draw submissions;",OUTPUT.stat().st_size,"bytes")
+    source=Source(SOURCE)
+    keep_source=Source(SOURCE.with_name("royal-keep.glb"))
+    keep_meshes={mesh["name"] for mesh in keep_source.doc["meshes"]}
+    groups={True:[], False:[]}
+    for index,node in enumerate(source.doc["nodes"]):
+        name=source.doc["meshes"][node["mesh"]]["name"]
+        # Only the eastern braziers belong to the castle. Other fires are shared
+        # by the orc camp and the fourth checkpoint.
+        in_keep=name in keep_meshes and node.get("translation",[0,0,0])[0]>EDGE
+        groups[in_keep].append(index)
+    for keep,indices in groups.items():
+        stream=Stream(source)
+        used=sorted({source.doc["nodes"][i]["mesh"] for i in indices})
+        mesh_ids={old:new for new,old in enumerate(used)}
+        samples=geometry(source,stream,mesh_ids)
+        remap,shifts=placements(source,stream,samples,indices,mesh_ids,keep)
+        animations(source,stream,remap,shifts)
+        if keep:
+            stream.doc["scenes"][0]["name"]="Royal Keep"
+        path=OUTPUT.with_name("royal-keep.glb") if keep else OUTPUT
+        stream.write(path)
+        print(path.name,len(stream.doc["nodes"]),"nodes;",path.stat().st_size,"bytes")
 
 
 if __name__=="__main__":

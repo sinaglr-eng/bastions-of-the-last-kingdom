@@ -1,9 +1,10 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {BATTLEFIELD_ASSET,releaseAsset} from '../release.js';
+import {BATTLEFIELD_ASSET,STRONGHOLD_ASSETS,releaseAsset} from '../release.js';
 import {cellKey} from '../core/grid.js';
 import {disposeGeometricResources} from './geometric-resources.js';
 import {meadowMarket} from './meadow-market.js';
+import {finishMeadowTerrain} from './meadow-terrain.js';
 
 // Keep the board usable during first download and on an interrupted connection.
 function loadingField(grid){
@@ -51,7 +52,12 @@ function dressingCells(node,grid){
 }
 
 function disposeMap(root){
-  root.traverse(node=>{if(node.isInstancedMesh)node.dispose();});
+  const skeletons=new Set();
+  root.traverse(node=>{
+    if(node.isInstancedMesh)node.dispose();
+    if(node.isSkinnedMesh)skeletons.add(node.skeleton);
+  });
+  for(const skeleton of skeletons)skeleton.dispose();
   disposeGeometricResources(root);
   root.removeFromParent();
 }
@@ -90,8 +96,10 @@ function batchDressing(model,dressing){
 }
 
 export class BorderlandMeadow{
-  constructor(scene,grid){
+  constructor(scene,grid,factionId){
     this.scene=scene;this.grid=grid;this.root=new THREE.Group();this.root.name='Borderland Meadow';
+    this.strongholdAsset=STRONGHOLD_ASSETS[factionId]??STRONGHOLD_ASSETS.crown;
+    this.mixers=[];
     this.root.visible=false;scene.add(this.root);
     this.placeholder=loadingField(grid);scene.add(this.placeholder);
     this.previewAnchor=new THREE.Group();this.previewAnchor.name='Next wave at the camp gate';
@@ -105,37 +113,48 @@ export class BorderlandMeadow{
     return this.pending;
   }
   async install(loadAsync){
-    const gltf=await loadAsync(releaseAsset(BATTLEFIELD_ASSET));
-    if(this.closed){disposeMap(gltf.scene);return;}
+    const parts=await Promise.allSettled([BATTLEFIELD_ASSET,this.strongholdAsset].map(path=>loadAsync(releaseAsset(path))));
+    const failed=parts.find(part=>part.status==='rejected');
+    if(failed||this.closed){
+      for(const part of parts)if(part.status==='fulfilled')disposeMap(part.value.scene);
+      if(failed&&!this.closed)throw failed.reason;
+      return;
+    }
+    const [terrain,stronghold]=parts.map(part=>part.value);
     const people=[];let horizon;
     try{
-      gltf.scene.updateMatrixWorld(true);
-      gltf.scene.traverse(node=>{
-        if(Number.isInteger(node.userData.marketStart))people.push(node);
-        if(Array.isArray(node.userData.meadowCell))this.dressing.push({node,cells:dressingCells(node,this.grid)});
-        if(!node.isMesh)return;
-        const mat=node.material;
-        if(mat.name==='Painted alpine distance'){
-          horizon=mat.emissiveMap||mat.map;node.visible=false;
-        }else{
-          // The flat floor receives character and tree shadows. Casting the same
-          // floor into the shadow atlas produces fine stripes at shallow angles.
-          node.castShadow=!mat.transparent&&mat.name!=='Meadow turf';node.receiveShadow=true;
-        }
-      });
-      this.batches=batchDressing(gltf.scene,this.dressing);
+      for(const gltf of [terrain,stronghold]){
+        this.root.add(gltf.scene);
+        gltf.scene.updateMatrixWorld(true);
+        gltf.scene.traverse(node=>{
+          if(Number.isInteger(node.userData.marketStart))people.push(node);
+          if(Array.isArray(node.userData.meadowCell))this.dressing.push({node,cells:dressingCells(node,this.grid)});
+          if(!node.isMesh)return;
+          const mat=node.material;
+          if(mat.name==='Painted alpine distance'){
+            horizon=mat.emissiveMap||mat.map;node.visible=false;
+          }else{
+            // The flat floor receives character and tree shadows. Casting the same
+            // floor into the shadow atlas produces fine stripes at shallow angles.
+            node.castShadow=!mat.transparent&&mat.name!=='Meadow turf';node.receiveShadow=true;
+          }
+        });
+        const mixer=new THREE.AnimationMixer(gltf.scene);
+        this.mixers.push(mixer);
+        for(const clip of gltf.animations)mixer.clipAction(clip).play();
+        mixer.update(0);
+      }
+      finishMeadowTerrain(terrain.scene,this.grid);
+      this.batches=batchDressing(terrain.scene,this.dressing);
       this.market=meadowMarket(people);
-      this.mixer=new THREE.AnimationMixer(gltf.scene);
-      for(const clip of gltf.animations)this.mixer.clipAction(clip).play();
-      this.mixer.update(0);
       if(horizon){this.sky=paintedSky(horizon);this.root.add(this.sky);}
-      this.root.add(gltf.scene);this.sync(this.grid);
+      this.sync(this.grid);
       this.ready=true;this.root.visible=true;
       disposeMap(this.placeholder);this.placeholder=null;
     }catch(error){
-      this.dressing.length=0;this.market=null;this.mixer?.stopAllAction();
-      this.mixer=null;if(this.sky){disposeMap(this.sky);this.sky=null;}
-      disposeMap(gltf.scene);throw error;
+      this.dressing.length=0;this.batches=[];this.market=null;this.releaseMixers();
+      if(this.sky){disposeMap(this.sky);this.sky=null;}
+      disposeMap(terrain.scene);disposeMap(stronghold.scene);throw error;
     }
   }
   sync(grid,route=grid.route){
@@ -163,7 +182,8 @@ export class BorderlandMeadow{
   update(dt,camera,controls){
     if(!this.ready)return;
     if(dt>0){
-      this.mixer.update(dt);this.market(dt);
+      for(const mixer of this.mixers)mixer.update(dt);
+      this.market(dt);
     }
     if(this.sky){
       const u=this.sky.material.uniforms;
@@ -171,9 +191,12 @@ export class BorderlandMeadow{
       u.line.value=.825+.014*Math.cos(controls.getPolarAngle());
     }
   }
+  releaseMixers(){
+    for(const mixer of this.mixers){mixer.stopAllAction();mixer.uncacheRoot(mixer.getRoot());}
+    this.mixers.length=0;
+  }
   dispose(){
-    this.closed=true;this.mixer?.stopAllAction();
-    if(this.mixer)this.mixer.uncacheRoot(this.mixer.getRoot());
+    this.closed=true;this.releaseMixers();
     this.dressing.length=0;this.market=null;
     disposeMap(this.root);if(this.placeholder)disposeMap(this.placeholder);
     this.previewAnchor.removeFromParent();

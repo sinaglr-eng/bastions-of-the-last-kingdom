@@ -75,7 +75,20 @@ test('both Commander screens remove refund controls and the old menu action cann
 test('Hall view and Achievements retain the same styled native select and correct disabled personal option',()=>{
  const album=achievementsView(playerFixture()),hall=hallView({top:[],podium:[],factionId:'all'});
  assert.match(album,/<label class="war-status-filter war-select-control"><span class="sr-only">Achievement status<\/span><select name="achievement-state">/);
- assert.match(hall,/<label class="war-select-control"><span class="sr-only">Leaderboard view<\/span><select name="hall-view">/);
+ assert.match(hall,/<label class="war-select-control"><span>Leaderboard view<\/span><select name="hall-view">/);
  assert.match(hall,/<option value="own"[^>]*disabled>My ranking/);
  const css=fs.readFileSync(new URL('../ui/war-table.css',import.meta.url),'utf8');assert.match(css,/#main-menu \.war-select-control select:focus-visible/);
+});
+
+test('seasonal hall rows show the prize for their actual rank, including a personal row outside the page',()=>{
+ const record=rank=>({rank,id:String(rank),name:'Commander '+rank,score:'500',highestWave:4,factionId:'forge'});
+ const listing={top:[record(2),record(4),record(11)],own:record(10),offset:0,total:30,currentSeason:'2026-11'};
+ const hall=hallView({...listing,season:{key:'2026-11',end:Date.UTC(2026,11,1)}});
+ assert.match(hall,/Season reward/);
+ for(const [rank,prize] of [[2,'1 Legendary chest + 2 Epic chests + 1 random gem'],[4,'150 Relic Dust'],[10,'30 Relic Dust'],[11,'&mdash;']]){
+  const row=hall.split('<tr ').find(fragment=>fragment.includes('Commander '+rank+'</span>'));
+  assert.ok(row?.split('</tr>')[0].includes('>'+prize+'</td>'));
+ }
+ assert.doesNotMatch(hall,/Legacy records|Top 10 rewards/);
+ assert.doesNotMatch(hallView(listing),/Season reward|Relic Dust|Epic chests/);
 });

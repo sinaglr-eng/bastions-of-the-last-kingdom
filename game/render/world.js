@@ -274,7 +274,7 @@ export class Battlefield {
     this.defenderRetryButton.ariaLabel=this.mapUnavailable?'Retry loading battlefield scenery':'Retry loading defender models';
   }
   createEnvironment() {
-    this.meadow=new BorderlandMeadow(this.scene,this.game.grid);
+    this.meadow=new BorderlandMeadow(this.scene,this.game.grid,this.game.factionId);
     this.updateCampPreview();
     this.grid=interiorGrid(SIZE);this.grid.position.y=0.045;this.grid.material.transparent=true;this.grid.material.opacity=0.14;this.grid.material.depthWrite=false;this.scene.add(this.grid);
   }
